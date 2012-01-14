@@ -1,6 +1,6 @@
-﻿namespace CbaGob.Alumnos.Servicio.Common
+﻿namespace CbaGob.Alumnos.Servicio.Comun
 {
-    public class Errors : IErrors
+    public class Errores : IErrores
     {
         public TypeError TypeError { get; set; }
         public string Message { get; set; }

@@ -8,28 +8,28 @@ namespace CbaGob.Alumnos.Test.Repositories
     [TestFixture]
     public class UserRepositoryTest
     {
-        private IUserRepository _UserRepository;
+        private IUsuarioRepositorio _usuarioRepositorio;
 
 
         [SetUp]
         public void Setup()
         {
           
-            _UserRepository = new UserRepository();
+            _usuarioRepositorio = new UsuarioRepositorio();
         }
 
         [Test]
         public void GetUserByIdTest()
         {
-            IUser user = _UserRepository.GetUserById(4);
-            Assert.IsTrue(user!=null);
+            IUsuario usuario = _usuarioRepositorio.GetUserById(4);
+            Assert.IsTrue(usuario!=null);
         }
 
         [Test]
         public void GetUserBynamepasas()
         {
-            IUser user = _UserRepository.GetUserByNamePassword("admin", "a123456");
-            Assert.IsTrue(user != null);
+            IUsuario usuario = _usuarioRepositorio.GetUserByNamePassword("admin", "a123456");
+            Assert.IsTrue(usuario != null);
         }
 
     }

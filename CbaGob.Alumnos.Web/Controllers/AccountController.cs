@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
-using CbaGob.Alumnos.Servicio.ServicesInterface;
+using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Web.Models;
 
 
@@ -14,14 +14,14 @@ namespace JLY.Hotel.Web.Controllers
     public class AccountController : BaseController
     {
 
-        private IUserService userService;
+        private IAutenticacionServicio _autenticacionServicio;
 
         //
         // GET: /Account/LogOn
 
-        public AccountController(IUserService userService)
+        public AccountController(IAutenticacionServicio _autenticacionServicio)
         {
-            this.userService = userService;
+            this._autenticacionServicio = _autenticacionServicio;
         }
 
         public ActionResult LogOn()
@@ -37,14 +37,14 @@ namespace JLY.Hotel.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (userService.IsAccountValid(model.UserName,model.Password))
+                if (_autenticacionServicio.IsAccountValid(model.UserName,model.Password))
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
                     return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    AddError(userService.GetErrors());
+                    AddError(_autenticacionServicio.GetErrors());
                 }
 
                 /*

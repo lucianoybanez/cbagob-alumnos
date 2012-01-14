@@ -1,9 +1,9 @@
-﻿namespace CbaGob.Alumnos.Servicio.ViewsInterface
+﻿namespace CbaGob.Alumnos.Servicio.VistasInterface
 {
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public interface IHomeView
+    public interface IHomeVista
     {
         string FirstUser { get; set; }
     }
