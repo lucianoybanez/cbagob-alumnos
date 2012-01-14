@@ -1,0 +1,24 @@
+﻿@model UsuarioVista
+@section Scripts{
+
+}
+@section Stylesheets{
+
+}
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index Usuario</h2>
+Dni:
+@Model.Dni
+<br />
+Nombre:
+@Model.Nombre
+<br />
+Usuarios:
+@foreach (var item in Model.Usuarios)
+{
+    @item.Password
+    <br />
+}

@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="DB\BaseRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserRepository.cs" />
+    <Compile Include="UsuarioRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CbaGob.Alumnos.Modelo\CbaGob.Alumnos.Modelo.csproj">

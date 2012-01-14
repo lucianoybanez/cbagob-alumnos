@@ -1,6 +1,6 @@
 using CbaGob.Alumnos.Infra;
 
-namespace CbaGob.Alumnos.Servicio.Common
+namespace CbaGob.Alumnos.Servicio.Comun
 {
     public enum TypeError
     {
@@ -9,7 +9,7 @@ namespace CbaGob.Alumnos.Servicio.Common
         None
     }
 
-    public interface IErrors
+    public interface IErrores
     {
         TypeError TypeError { get; set; }
         string Message { get; set; }

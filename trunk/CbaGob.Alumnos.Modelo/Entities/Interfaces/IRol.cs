@@ -6,6 +6,6 @@ namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
     {
         int Id { get; set; }
         string Descrition { get; set; }
-        IList<User> Users { get; set; }
+        IList<Usuario> Users { get; set; }
     }
 }

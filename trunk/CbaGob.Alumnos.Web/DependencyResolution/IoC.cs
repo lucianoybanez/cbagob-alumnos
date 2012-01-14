@@ -1,7 +1,7 @@
 using CbaGob.Alumnos.Modelo.Repositories;
 using CbaGob.Alumnos.Repositorio;
-using CbaGob.Alumnos.Servicio.Services;
-using CbaGob.Alumnos.Servicio.ServicesInterface;
+using CbaGob.Alumnos.Servicio.Servicios;
+using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using StructureMap;
 namespace CbaGob.Alumnos.Web {
     public static class IoC {
@@ -21,13 +21,14 @@ namespace CbaGob.Alumnos.Web {
 
         private static void Repositories(IInitializationExpression x)
         {
-            x.For<IUserRepository>().Use<UserRepository>();
+            x.For<IUsuarioRepositorio>().Use<UsuarioRepositorio>();
         }
 
         private static void ServicesView(IInitializationExpression x)
         {
-            x.For<IHomeService>().Use<HomeService>();
-            x.For<IUserService>().Use<UserService>();
+            x.For<IHomeServicio>().Use<HomeServicio>();
+            x.For<IAutenticacionServicio>().Use<AutenticacionServicio>();
+            x.For<IUsuarioServicio>().Use<UsuarioServicio>();
         }
     }
 }

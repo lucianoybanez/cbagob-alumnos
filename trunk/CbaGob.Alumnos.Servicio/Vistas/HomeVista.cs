@@ -1,11 +1,11 @@
-﻿using CbaGob.Alumnos.Servicio.ViewsInterface;
+﻿using CbaGob.Alumnos.Servicio.VistasInterface;
 
-namespace CbaGob.Alumnos.Servicio.Views
+namespace CbaGob.Alumnos.Servicio.Vistas
 {
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public class HomeView : IHomeView
+    public class HomeVista : IHomeVista
     {
         public string FirstUser { get; set; }
     }
