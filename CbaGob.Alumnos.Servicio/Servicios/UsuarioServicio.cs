@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Modelo.Repositories;
 using CbaGob.Alumnos.Servicio.Comun;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
@@ -25,12 +26,8 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         public UsuarioVista GetIndex()
         {
-            UsuarioVista UsuarioVista = new UsuarioVista
-                                            {
-                                                Dni = 123456789,
-                                                Nombre = "Luciano",
-                                                Usuarios = UsuarioRepositorio.GetUserByName("Chango"),
-                                            };
+            UsuarioVista UsuarioVista = new UsuarioVista();
+            UsuarioVista.SearchByDni = true;
             return UsuarioVista;
         }
 
@@ -39,7 +36,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             UsuarioVista UsuarioVista = new UsuarioVista
             {
                 Nombre = nombre,
-                Usuarios = UsuarioRepositorio.GetUserByName(nombre),
+                Usuarios = UsuarioRepositorio.GetUsersByName(nombre),
             };
             return UsuarioVista;
         }
@@ -47,6 +44,19 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         public UsuarioVista BuscarUsuarioDni(int dni)
         {
             throw new NotImplementedException();
+        }
+
+        public UsuarioVista BuscarUsuario(UsuarioVista vista)
+        {
+            if (vista.SearchByDni)
+            {
+                vista.Usuarios = UsuarioRepositorio.GetUsersByDni(vista.Dni);
+            }
+            else
+            {
+                vista.Usuarios = UsuarioRepositorio.GetUsersByName(vista.Nombre);
+            }
+            return vista;
         }
     }
 }

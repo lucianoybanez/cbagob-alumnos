@@ -1,24 +1,28 @@
 ﻿@model UsuarioVista
 @section Scripts{
-
 }
 @section Stylesheets{
-
 }
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Index Usuario</h2>
-Dni:
-@Model.Dni
-<br />
-Nombre:
-@Model.Nombre
-<br />
-Usuarios:
-@foreach (var item in Model.Usuarios)
+<h2>
+    Index Usuario</h2>
+@using(Ajax.BeginForm("Buscar",new AjaxOptions(){HttpMethod = "POST",InsertionMode = InsertionMode.Replace,UpdateTargetId = "UsuariosLista"}))
 {
-    @item.Password
-    <br />
+    <p> Dni:
+    @Html.RadioButtonFor(c => c.SearchByDni, "True", Model.SearchByDni ? new { Checked = "checked" } : null)
+    @Html.TextBoxFor(c=>c.Dni)
+    </p>
+    <p>
+    Nombre:
+    @Html.RadioButtonFor(c => c.SearchByDni, "False", Model.SearchByDni==false ? new { Checked = "checked" } : null)
+    @Html.TextBoxFor(c=> c.Nombre)
+    </p>
+    <input type="submit" value="Buscar"/>
 }
+
+<div id="UsuariosLista">
+
+</div>
+
