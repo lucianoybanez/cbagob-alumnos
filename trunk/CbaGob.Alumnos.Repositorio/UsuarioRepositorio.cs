@@ -21,9 +21,14 @@ namespace CbaGob.Alumnos.Repositorio
             return usersMock().Where(c => c.Id == id).SingleOrDefault();
         }
 
-        public IList<IUsuario> GetUserByName(string name)
+        public IList<IUsuario> GetUsersByName(string name)
         {
             return usersMock().Where(c => c.Nombre == name).ToList();
+        }
+
+        public IList<IUsuario> GetUsersByDni(int dni)
+        {
+            return usersMock().Where(c => c.Id == dni).ToList();
         }
 
         public IUsuario GetUserByNamePassword(string name, string password)
