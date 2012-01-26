@@ -17,7 +17,13 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         public ActionResult About()
         {
+            throw new Exception("Ooops Error");
             return View();
+        }
+
+        public ActionResult Error()
+        {
+            return View("Error");
         }
     }
 }
