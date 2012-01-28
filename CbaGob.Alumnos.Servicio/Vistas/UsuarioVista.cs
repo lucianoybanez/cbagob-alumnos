@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
+using CbaGob.Alumnos.Servicio.Comun;
 using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.Vistas
@@ -10,5 +11,6 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public string Nombre { get; set; }
         public IList<IUsuario> Usuarios { get; set; }
         public bool SearchByDni { get; set; }
+        public ICookieData data { get; set; }
     }
 }

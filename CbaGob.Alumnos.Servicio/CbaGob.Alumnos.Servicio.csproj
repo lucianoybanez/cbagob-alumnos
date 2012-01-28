@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comun\CookieData.cs" />
+    <Compile Include="Comun\ICookieData.cs" />
     <Compile Include="Servicios\BaseService.cs" />
     <Compile Include="Comun\Errores.cs" />
     <Compile Include="Comun\IErrores.cs" />
@@ -50,7 +52,6 @@
     <Compile Include="ServiciosInterface\IUsuarioServicio.cs" />
     <Compile Include="Servicios\UsuarioServicio.cs" />
     <Compile Include="Servicios\HomeServicio.cs" />
-    <Compile Include="Servicios\AutenticacionServicio.cs" />
     <Compile Include="VistasInterface\IHomeVista.cs" />
     <Compile Include="VistasInterface\IUsuarioVista.cs" />
     <Compile Include="Vistas\UsuarioVista.cs" />

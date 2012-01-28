@@ -78,6 +78,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastucture\Authentication\AutenticacionServicio.cs" />
+    <Compile Include="Infrastucture\Authentication\HttpContextService.cs" />
+    <Compile Include="Infrastucture\Authentication\IHttpContextService.cs" />
     <Compile Include="Infrastucture\LogAttribute.cs" />
     <Compile Include="Infrastucture\MyHelpers.cs" />
     <Compile Include="Models\AccountModels.cs" />

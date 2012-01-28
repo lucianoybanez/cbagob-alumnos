@@ -14,14 +14,15 @@ namespace JLY.Hotel.Web.Controllers
     public class AccountController : BaseController
     {
 
-        private IAutenticacionServicio _autenticacionServicio;
+
+        private IUsuarioServicio _usuarioServicio;
 
         //
         // GET: /Account/LogOn
 
-        public AccountController(IAutenticacionServicio _autenticacionServicio)
+        public AccountController(IUsuarioServicio _usuarioServicio )
         {
-            this._autenticacionServicio = _autenticacionServicio;
+            this._usuarioServicio = _usuarioServicio;
         }
 
         public ActionResult LogOn()
@@ -37,14 +38,15 @@ namespace JLY.Hotel.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (_autenticacionServicio.IsAccountValid(model.UserName,model.Password))
+                if (_usuarioServicio.IsCuentaValida(model.UserName, model.Password))
                 {
-                    FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+                    _usuarioServicio.Login(model.UserName);
+                    //FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
                     return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    AddError(_autenticacionServicio.GetErrors());
+                    AddError(_usuarioServicio.GetErrors());
                 }
 
                 /*
