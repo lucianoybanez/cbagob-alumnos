@@ -50,7 +50,7 @@ namespace CbaGob.Alumnos.Repositorio
             listRol1.Add(Nivel2);
 
             IList<Rol> listRol2 = new List<Rol>();
-            listRol2.Add(adminrol);
+            listRol2.Add(Nivel2);
 
 
             users.Add(new Usuario() {Id = 1, Nombre = "admin", Password = "a123456", Roles = listRol1 });

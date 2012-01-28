@@ -1,7 +1,9 @@
 ﻿namespace CbaGob.Alumnos.Servicio.ServiciosInterface
 {
-    public interface IAutenticacionServicio : IBaseServicio
+    public interface IAutenticacionServicio
     {
-        bool IsAccountValid(string username, string password);
+        void SignIn(string userName, string Userdata);
+        void SignOut();
+        string GetUserData();
     }
 }
