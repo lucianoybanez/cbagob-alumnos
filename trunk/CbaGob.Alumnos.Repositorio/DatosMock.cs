@@ -22,5 +22,18 @@ namespace CbaGob.Alumnos.Repositorio
             users.Add(new Usuario() { PersonaID = 4, PersonaUsuario = "Chango", PersonaPassword = "a123456" });
             return users;
         }
+
+
+        public static IList<IPersona> GetPersonas()
+        {
+            IList<IPersona> lista = new List<IPersona>();
+            lista.Add(new Persona() { CargoTipo = 1, CodigoPais = "AR", IdSexo = "M", NroDocumento = "DNI", Numero = 5, PersonaApellido = "Aranda", PersonaDni = 33333333,PersonaNacimiento = DateTime.Today,PersonaNombre = "Carlos"});
+            lista.Add(new Persona() { CargoTipo = 1, CodigoPais = "AR", IdSexo = "M", NroDocumento = "DNI", Numero = 5, PersonaApellido = "Juarez", PersonaDni = 11111111, PersonaNacimiento = DateTime.Today, PersonaNombre = "Carlos" });
+            lista.Add(new Persona() { CargoTipo = 1, CodigoPais = "AR", IdSexo = "M", NroDocumento = "DNI", Numero = 5, PersonaApellido = "Chavez", PersonaDni = 44444444, PersonaNacimiento = DateTime.Today, PersonaNombre = "Marcelo" });
+            lista.Add(new Persona() { CargoTipo = 1, CodigoPais = "AR", IdSexo = "M", NroDocumento = "DNI", Numero = 5, PersonaApellido = "Trujillo", PersonaDni = 55555555, PersonaNacimiento = DateTime.Today, PersonaNombre = "Agustin" });
+            return lista;
+        } 
+
+
     }
 }

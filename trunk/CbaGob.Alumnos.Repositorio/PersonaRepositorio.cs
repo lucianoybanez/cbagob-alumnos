@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Modelo.Repositories;
 using CbaGob.Alumnos.Repositorio.DB;
@@ -10,12 +11,12 @@ namespace CbaGob.Alumnos.Repositorio
     {
         public IList<IPersona> GetPersonasNombre(string nombre)
         {
-            throw new NotImplementedException();
+            return DatosMock.GetPersonas().Where(c => c.PersonaNombre == nombre).ToList();
         }
 
-        public IList<IPersona> GetPersonasDni(string dni)
+        public IList<IPersona> GetPersonasDni(int dni)
         {
-            throw new NotImplementedException();
+            return DatosMock.GetPersonas().Where(c => c.PersonaDni == dni).ToList();
         }
     }
 }
