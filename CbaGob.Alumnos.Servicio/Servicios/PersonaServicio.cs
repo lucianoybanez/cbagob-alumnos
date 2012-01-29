@@ -19,7 +19,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         {
             if (vista.SearchByDni)
             {
-                vista.Usuarios = PersonaRepositorio.GetPersonasDni(vista.Dni.ToString());
+                vista.Usuarios = PersonaRepositorio.GetPersonasDni(vista.Dni);
             }
             else
             {
