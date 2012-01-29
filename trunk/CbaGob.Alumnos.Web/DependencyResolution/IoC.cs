@@ -23,12 +23,14 @@ namespace CbaGob.Alumnos.Web {
         private static void Repositories(IInitializationExpression x)
         {
             x.For<IUsuarioRepositorio>().Use<UsuarioRepositorio>();
+            x.For<IPersonaRepositorio>().Use<PersonaRepositorio>();
         }
 
         private static void ServicesView(IInitializationExpression x)
         {
             x.For<IHomeServicio>().Use<HomeServicio>();
             x.For<IUsuarioServicio>().Use<UsuarioServicio>();
+            x.For<IPersonaServicio>().Use<PersonaServicio>();
 
 
             // Service Web Authentications

@@ -8,8 +8,7 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
     {
         int Dni { get; set; }
         string Nombre { get; set; }
-        IList<IUsuario> Usuarios { get; set; }
+        IList<IPersona> Usuarios { get; set; }
         bool SearchByDni { get; set; }
-        ICookieData data { get; set; }
     }
 }

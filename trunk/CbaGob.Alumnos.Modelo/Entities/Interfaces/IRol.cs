@@ -2,10 +2,9 @@
 
 namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
 {
-    public interface IRol
+    public interface IRol : IComunDatos
     {
-        int Id { get; set; }
-        string Descrition { get; set; }
-        IList<Usuario> Users { get; set; }
+        int RolId { get; set; }
+        string RolTipo { get; set; }
     }
 }

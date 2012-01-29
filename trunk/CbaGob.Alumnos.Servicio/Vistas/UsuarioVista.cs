@@ -9,8 +9,7 @@ namespace CbaGob.Alumnos.Servicio.Vistas
     {
         public int Dni { get; set; }
         public string Nombre { get; set; }
-        public IList<IUsuario> Usuarios { get; set; }
+        public IList<IPersona> Usuarios { get; set; }
         public bool SearchByDni { get; set; }
-        public ICookieData data { get; set; }
     }
 }
