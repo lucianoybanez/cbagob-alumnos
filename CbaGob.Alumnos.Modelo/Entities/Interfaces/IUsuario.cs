@@ -1,12 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
 {
-    public interface IUsuario
+    public interface IUsuario : IComunDatos
     {
-        int Id { get; set; }
-        string Nombre { get; set; }
-        string Password { get; set; }
-        IList<Rol> Roles { get; set; } 
+        int PersonaID { get; set; }
+        string PersonaUsuario { get; set; }
+        string PersonaPassword { get; set; }
+        Rol Rol { get; set; } 
     }
 }

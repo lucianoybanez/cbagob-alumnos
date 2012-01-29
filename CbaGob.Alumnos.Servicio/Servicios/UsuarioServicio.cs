@@ -26,47 +26,12 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         {
             return base.Errors;
         }
-
-        public UsuarioVista GetIndex()
-        {
-            UsuarioVista UsuarioVista = new UsuarioVista();
-            UsuarioVista.SearchByDni = true;
-            UsuarioVista.data = GetCookieData();
-            return UsuarioVista;
-        }
-
-        public UsuarioVista BuscarUsuarioNombre(string nombre)
-        {
-            UsuarioVista UsuarioVista = new UsuarioVista
-            {
-                Nombre = nombre,
-                Usuarios = UsuarioRepositorio.GetUsersByName(nombre),
-            };
-            return UsuarioVista;
-        }
-
-        public UsuarioVista BuscarUsuarioDni(int dni)
-        {
-            throw new NotImplementedException();
-        }
-
-        public UsuarioVista BuscarUsuario(UsuarioVista vista)
-        {
-            if (vista.SearchByDni)
-            {
-                vista.Usuarios = UsuarioRepositorio.GetUsersByDni(vista.Dni);
-            }
-            else
-            {
-                vista.Usuarios = UsuarioRepositorio.GetUsersByName(vista.Nombre);
-            }
-            return vista;
-        }
+       
 
         public void Login(string nombre)
         {
-            var usuario = UsuarioRepositorio.GetUsersByName(nombre).FirstOrDefault();
-            string dataCookie = usuario.Nombre + "|" + usuario.Roles.FirstOrDefault().Descrition;
+            var usuario = UsuarioRepositorio.GetUsersByName(nombre);
+            string dataCookie = usuario.PersonaUsuario + "|" + usuario.Rol.RolTipo;
             AutenticacionServicio.SignIn(nombre,dataCookie);
         }
 

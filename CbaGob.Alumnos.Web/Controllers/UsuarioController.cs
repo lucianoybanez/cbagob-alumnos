@@ -12,22 +12,23 @@ namespace CbaGob.Alumnos.Web.Controllers
 {
     public class UsuarioController : BaseController
     {
-        private IUsuarioServicio usuarioServicio;
+        private IPersonaServicio PersonaServicio;
 
-        public UsuarioController(IUsuarioServicio usuarioServicio)
+
+        public UsuarioController(IPersonaServicio personaServicio)
         {
-            this.usuarioServicio = usuarioServicio;
+            PersonaServicio = personaServicio;
         }
 
         public ActionResult Index()
         {
-            return View("Index",usuarioServicio.GetIndex());
+            return View("Index", PersonaServicio.GetIndex());
         }
 
         [HttpPost]
         public PartialViewResult Buscar(UsuarioVista vista)
         {
-            return PartialView("_UsuariosLista", usuarioServicio.BuscarUsuario(vista).Usuarios);
+            return PartialView("_UsuariosLista", PersonaServicio.BuscarUsuario(vista).Usuarios);
         }
 
 

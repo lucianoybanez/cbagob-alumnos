@@ -6,8 +6,7 @@ namespace CbaGob.Alumnos.Modelo.Repositories
     public interface IUsuarioRepositorio
     {
         IUsuario GetUserById(int id);
-        IList<IUsuario> GetUsersByName(string name);
-        IList<IUsuario> GetUsersByDni(int dni);
         IUsuario GetUserByNamePassword(string name, string password);
+        IUsuario GetUsersByName(string nombre);
     }
 }

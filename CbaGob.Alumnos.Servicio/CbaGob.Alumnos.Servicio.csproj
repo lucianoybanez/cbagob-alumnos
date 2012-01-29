@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="Comun\CookieData.cs" />
     <Compile Include="Comun\ICookieData.cs" />
+    <Compile Include="ServiciosInterface\IPersonaServicio.cs" />
+    <Compile Include="Servicios\PersonaServicio.cs" />
     <Compile Include="Servicios\BaseService.cs" />
     <Compile Include="Comun\Errores.cs" />
     <Compile Include="Comun\IErrores.cs" />

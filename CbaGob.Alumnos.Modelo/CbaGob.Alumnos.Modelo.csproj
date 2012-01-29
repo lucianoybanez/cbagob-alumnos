@@ -40,11 +40,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Interfaces\IComunDatos.cs" />
+    <Compile Include="Entities\Interfaces\IDireccion.cs" />
+    <Compile Include="Entities\Interfaces\IFactura.cs" />
+    <Compile Include="Entities\Interfaces\IGrupo.cs" />
+    <Compile Include="Entities\Interfaces\IInstitucion.cs" />
+    <Compile Include="Entities\Interfaces\IPersona.cs" />
     <Compile Include="Entities\Interfaces\IRol.cs" />
+    <Compile Include="Entities\Interfaces\ISupervisor.cs" />
+    <Compile Include="Entities\Interfaces\ITelefono.cs" />
     <Compile Include="Entities\Interfaces\IUsuario.cs" />
+    <Compile Include="Entities\Persona.cs" />
     <Compile Include="Entities\Rol.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IPersonaRepositorio.cs" />
     <Compile Include="Repositories\IUsuarioRepositorio.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
