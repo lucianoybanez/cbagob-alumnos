@@ -2,7 +2,7 @@
 The base color for this template is #5c87b2. If you'd like
 to use a different color start by replacing all instances of
 #5c87b2 with your new color.
-----------------------------------------------------------*/
+----------------------------------------------------------
 body {
     background-color: #5c87b2;
     font-size: .85em;
@@ -42,8 +42,8 @@ section {
     display: block;
 }
 
-/* HEADINGS   
-----------------------------------------------------------*/
+ HEADINGS   
+----------------------------------------------------------
 h1, h2, h3, h4, h5, h6 {
     font-size: 1.5em;
     color: #000;
@@ -71,11 +71,11 @@ h5, h6 {
     font-size: 1em;
 }
 
-/* PRIMARY LAYOUT ELEMENTS   
-----------------------------------------------------------*/
+ PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------
 
-/* you can specify a greater or lesser percentage for the 
-page width. Or, you can specify an exact pixel width. */
+ you can specify a greater or lesser percentage for the 
+page width. Or, you can specify an exact pixel width. 
 .page {
     width: 90%;
     margin-left: auto;
@@ -122,8 +122,8 @@ footer,
     -moz-border-radius: 0 0 4px 4px;
 }
 
-/* TAB MENU   
-----------------------------------------------------------*/
+ TAB MENU   
+---------------------------------------------------------
 ul#menu {
     border-bottom: 1px #5C87B2 solid;
     padding: 0 0 2px;
@@ -172,8 +172,8 @@ ul#menu li.selected a {
     color: #000;
 }
 
-/* FORM LAYOUT ELEMENTS   
-----------------------------------------------------------*/
+ FORM LAYOUT ELEMENTS   
+----------------------------------------------------------
 
 fieldset {
     border: 1px solid #ddd;
@@ -211,8 +211,8 @@ input[type="submit"] {
     padding: 5px;
 }
 
-/* TABLE
-----------------------------------------------------------*/
+TABLE
+----------------------------------------------------------
 
 table {
     border: solid 1px #e8eef4;
@@ -231,8 +231,8 @@ table th {
     border: solid 1px #e8eef4;
 }
 
-/* MISC  
-----------------------------------------------------------*/
+ MISC  
+----------------------------------------------------------
 .clear {
     clear: both;
 }
@@ -275,8 +275,8 @@ div#title {
     text-decoration: none;
 }
 
-/* Styles for validation helpers
------------------------------------------------------------*/
+Styles for validation helpers
+-----------------------------------------------------------
 .field-validation-error {
     color: #ff0000;
 }
@@ -299,8 +299,8 @@ div#title {
     display: none;
 }
 
-/* Styles for editor and display helpers
-----------------------------------------------------------*/
+ Styles for editor and display helpers
+----------------------------------------------------------
 .display-label, 
 .editor-label {
     margin: 1em 0 0 0;
@@ -322,3 +322,137 @@ div#title {
 .tri-state {
     width: 6em;
 }
+*/
+
+* {
+margin:0;
+padding:0;
+}
+
+body {
+background-color:#f3f3f3;
+margin:0;
+}
+
+p {
+margin:10px;
+}
+
+#todo {
+position:absolute;
+top:50%;
+left:50%;
+width:1000px;
+height:520px;
+margin-top:-260px;
+margin-left:-500px;
+border:1px solid #ccc;
+background-color:#fff;
+}
+
+#cabecera {
+padding-left:0;
+width:1000px;
+height:100px;
+background-image:url(images/Bg_encabezado.jpg);
+}
+
+#contenido {
+width:1000px;
+height:320px;
+background-color:#fff;
+padding:2px 0 10px;
+}
+
+#nav {
+width:994px;
+height:26px;
+background-color:#ccc;
+padding:3px;
+}
+
+#menu {
+width:600px;
+height:26px;
+padding:3px;
+}
+
+#usu {
+width:300px;
+height:30px;
+float:right;
+top:104px;
+left:695px;
+position:absolute;
+font-size:14px;
+font-family:arial, sans-serif;
+}
+
+#pie {
+width:980px;
+height:60px;
+background-image:url(images/Bg_pie.jpg);
+background-repeat:no-repeat;
+background-position:top;
+padding:10px;
+}
+
+#Copy {
+font-size:10px;
+font-family:arial, sans-serif;
+list-style-type:none;
+color:#000;
+margin-bottom:10px;
+font-weight:700;
+text-transform:uppercase;
+display:block;
+padding-top:40px;
+text-align:center;
+}
+/*---- Menu----*/
+ul {
+	font-family: Arial, Verdana;
+	font-size: 14px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+ul li {
+	display: block;
+	position: relative;
+	float: left;
+}
+li ul {
+	display: none;
+}
+ul li a {
+	display: block;
+	text-decoration: none;
+	color: #ffffff;
+	padding: 5px 15px 5px 15px;
+	background: #416AA0;
+	margin-left: 1px;
+	white-space: nowrap;
+}
+ul li a .sub {
+	background:#8BA9D0;
+}
+ul li a:hover {
+	background: #B2C8DA;
+	color: #000;
+}
+li:hover ul {
+	display: block;
+	position: absolute;
+}
+li:hover li {
+	float: none;
+	font-size: 12px;
+}
+li:hover a {
+	background: #617F8A;
+}
+li:hover li a:hover {
+	background: #95A9B1;
+}
+/*---*/
