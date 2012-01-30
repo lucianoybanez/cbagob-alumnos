@@ -4,3 +4,5 @@
 
 @helper Stylesheet(string name, UrlHelper url) {<link href="@url.Content(String.Format("~/Content/{0}", name))" rel="stylesheet" type="text/css" />}
 
+@helper ImageSite (string name, UrlHelper url) {@url.Content(String.Format("~/Content/images/{0}", name))}
+
