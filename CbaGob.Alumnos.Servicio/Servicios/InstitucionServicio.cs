@@ -6,21 +6,20 @@ using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Modelo.Repositories;
 using CbaGob.Alumnos.Repositorio;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
+using CbaGob.Alumnos.Servicio.Vistas;
 
 namespace CbaGob.Alumnos.Servicio.Servicios
 {
     public class InstitucionServicio : IInstitucionServicio
     {
         private IInstitucionRepositorio InstitucionRepositorio;
-        
-        
+
+
         public InstitucionServicio()
         {
-            InstitucionRepositorio = new InstitucionRepositorio();
+            InstitucionRepositorio = new  InstitucionRepositorio ();
         }
-        
-        
-        
+
         public IList<IInstitucion> GetTodas()
         {
             try
@@ -31,6 +30,24 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 throw;
             }
+        }
+
+        public InstitucionVista GetIndex()
+        {
+            try
+            {
+                InstitucionVista mInstitucionVista = new InstitucionVista();
+
+                mInstitucionVista.ListaInstituciones = InstitucionRepositorio.GetTodas();
+
+                return mInstitucionVista;
+            }
+            catch (Exception ex)
+            {
+                
+                throw;
+            }
+
         }
 
         public IInstitucion GetUna(int INST_ID)
