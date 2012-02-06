@@ -11,8 +11,9 @@ namespace CbaGob.Alumnos.Repositorio
 {
     public class InstitucionRepositorio : IInstitucionRepositorio
     {
-        public CursosDB mDb; 
-        
+        public CursosDB mDb;
+
+
         public InstitucionRepositorio()
         {
             mDb = new CursosDB();
@@ -41,7 +42,12 @@ namespace CbaGob.Alumnos.Repositorio
                                                                UsuarioModificacion = e.USUARIO_MODIF
                                                            }).Cast<IInstitucion>()
                     .ToList();
-                return ListRetorno;
+
+
+              
+
+
+                return null;
             }
             catch (Exception ex)
             {

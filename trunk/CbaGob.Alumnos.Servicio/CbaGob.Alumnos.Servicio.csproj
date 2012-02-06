@@ -57,7 +57,9 @@
     <Compile Include="Servicios\UsuarioServicio.cs" />
     <Compile Include="Servicios\HomeServicio.cs" />
     <Compile Include="VistasInterface\IHomeVista.cs" />
+    <Compile Include="VistasInterface\IInstitucionVista.cs" />
     <Compile Include="VistasInterface\IUsuarioVista.cs" />
+    <Compile Include="Vistas\InstitucionVista.cs" />
     <Compile Include="Vistas\UsuarioVista.cs" />
     <Compile Include="Vistas\HomeVista.cs" />
   </ItemGroup>
