@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="BaseRepository.cs" />
     <Compile Include="DatosMock.cs" />
+    <Compile Include="InstitucionRepositorio.cs" />
     <Compile Include="Models\ComunicacionesDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -54,6 +55,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DomicilioDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CursosDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CursosDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\PersonaDB.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -94,6 +100,10 @@
     <EntityDeploy Include="Models\PersonaJuridicaDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>PersonaJuridicaDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Models\CursosDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CursosDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

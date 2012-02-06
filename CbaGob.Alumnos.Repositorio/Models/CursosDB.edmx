@@ -1,0 +1,706 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model_Cursos.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="10.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="Model_CursosStoreContainer">
+          <EntitySet Name="T_ALUMNOS" EntityType="Model_Cursos.Store.T_ALUMNOS" store:Type="Tables" Schema="CURSOS" />
+          <EntitySet Name="T_ALUMONOS_GRUPO" EntityType="Model_Cursos.Store.T_ALUMONOS_GRUPO" store:Type="Tables" Schema="CURSOS" />
+          <EntitySet Name="T_CURSOS" EntityType="Model_Cursos.Store.T_CURSOS" store:Type="Tables" Schema="CURSOS" />
+          <EntitySet Name="T_GRUPOS" EntityType="Model_Cursos.Store.T_GRUPOS" store:Type="Tables" Schema="CURSOS" />
+          <EntitySet Name="T_INSTITUCIONES" EntityType="Model_Cursos.Store.T_INSTITUCIONES" store:Type="Tables" Schema="CURSOS" />
+          <EntitySet Name="V_BARRIOS" EntityType="Model_Cursos.Store.V_BARRIOS" store:Type="Views" store:Schema="CURSOS" store:Name="V_BARRIOS">
+            <DefiningQuery>SELECT 
+      "V_BARRIOS"."ID_BARRIO" AS "ID_BARRIO", 
+      "V_BARRIOS"."N_BARRIO" AS "N_BARRIO", 
+      "V_BARRIOS"."ID_LOCALIDAD" AS "ID_LOCALIDAD", 
+      "V_BARRIOS"."COMENTARIO" AS "COMENTARIO", 
+      "V_BARRIOS"."FEC_ULT_ACTUALIZACION" AS "FEC_ULT_ACTUALIZACION", 
+      "V_BARRIOS"."ID_USUARIO" AS "ID_USUARIO", 
+      "V_BARRIOS"."ID_PRECINTO" AS "ID_PRECINTO", 
+      "V_BARRIOS"."ID_BARRIO_C" AS "ID_BARRIO_C", 
+      "V_BARRIOS"."N_BARRIO_C" AS "N_BARRIO_C", 
+      "V_BARRIOS"."ID_SECCIONAL" AS "ID_SECCIONAL"
+      FROM "CURSOS"."V_BARRIOS" "V_BARRIOS"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_CALLES" EntityType="Model_Cursos.Store.V_CALLES" store:Type="Views" store:Schema="CURSOS" store:Name="V_CALLES">
+            <DefiningQuery>SELECT 
+      "V_CALLES"."ID_TIPOCALLE" AS "ID_TIPOCALLE", 
+      "V_CALLES"."ID_CALLE" AS "ID_CALLE", 
+      "V_CALLES"."N_CALLE" AS "N_CALLE", 
+      "V_CALLES"."N_ABREVIADO" AS "N_ABREVIADO", 
+      "V_CALLES"."ID_PROVINCIA" AS "ID_PROVINCIA", 
+      "V_CALLES"."ID_LOCALIDAD" AS "ID_LOCALIDAD", 
+      "V_CALLES"."ID_DEPARTAMENTO" AS "ID_DEPARTAMENTO", 
+      "V_CALLES"."FEC_ULT_ACTUALIZACION" AS "FEC_ULT_ACTUALIZACION", 
+      "V_CALLES"."ID_USUARIO" AS "ID_USUARIO"
+      FROM "CURSOS"."V_CALLES" "V_CALLES"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_DEPARTAMENTOS" EntityType="Model_Cursos.Store.V_DEPARTAMENTOS" store:Type="Views" store:Schema="CURSOS" store:Name="V_DEPARTAMENTOS">
+            <DefiningQuery>SELECT 
+      "V_DEPARTAMENTOS"."ID_DEPARTAMENTO" AS "ID_DEPARTAMENTO", 
+      "V_DEPARTAMENTOS"."N_DEPARTAMENTO" AS "N_DEPARTAMENTO", 
+      "V_DEPARTAMENTOS"."ID_PROVINCIA" AS "ID_PROVINCIA", 
+      "V_DEPARTAMENTOS"."FEC_ULT_ACTUALIZACION" AS "FEC_ULT_ACTUALIZACION", 
+      "V_DEPARTAMENTOS"."ID_USUARIO" AS "ID_USUARIO", 
+      "V_DEPARTAMENTOS"."SUPERFICIE" AS "SUPERFICIE", 
+      "V_DEPARTAMENTOS"."POBLACION" AS "POBLACION", 
+      "V_DEPARTAMENTOS"."DENSIDAD" AS "DENSIDAD", 
+      "V_DEPARTAMENTOS"."INDEC" AS "INDEC"
+      FROM "CURSOS"."V_DEPARTAMENTOS" "V_DEPARTAMENTOS"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_LOCALIDAES" EntityType="Model_Cursos.Store.V_LOCALIDAES" store:Type="Views" store:Schema="CURSOS" store:Name="V_LOCALIDAES">
+            <DefiningQuery>SELECT 
+      "V_LOCALIDAES"."ID_LOCALIDAD" AS "ID_LOCALIDAD", 
+      "V_LOCALIDAES"."N_LOCALIDAD" AS "N_LOCALIDAD", 
+      "V_LOCALIDAES"."ID_PROVINCIA" AS "ID_PROVINCIA", 
+      "V_LOCALIDAES"."ID_DEPARTAMENTO" AS "ID_DEPARTAMENTO", 
+      "V_LOCALIDAES"."FEC_ULT_ACTUALIZACION" AS "FEC_ULT_ACTUALIZACION", 
+      "V_LOCALIDAES"."ID_USUARIO" AS "ID_USUARIO", 
+      "V_LOCALIDAES"."TIPO" AS "TIPO", 
+      "V_LOCALIDAES"."INDEC" AS "INDEC"
+      FROM "CURSOS"."V_LOCALIDAES" "V_LOCALIDAES"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_PROVINCIAS" EntityType="Model_Cursos.Store.V_PROVINCIAS" store:Type="Views" store:Schema="CURSOS" store:Name="V_PROVINCIAS">
+            <DefiningQuery>SELECT 
+      "V_PROVINCIAS"."ID_PROVINCIA" AS "ID_PROVINCIA", 
+      "V_PROVINCIAS"."N_PROVINCIA" AS "N_PROVINCIA", 
+      "V_PROVINCIAS"."FEC_ULT_ACTUALIZACION" AS "FEC_ULT_ACTUALIZACION", 
+      "V_PROVINCIAS"."ID_USUARIO" AS "ID_USUARIO", 
+      "V_PROVINCIAS"."ID_PAIS" AS "ID_PAIS", 
+      "V_PROVINCIAS"."INDEC" AS "INDEC"
+      FROM "CURSOS"."V_PROVINCIAS" "V_PROVINCIAS"</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_CURSOS_INSTITUCIONES" Association="Model_Cursos.Store.FK_CURSOS_INSTITUCIONES">
+            <End Role="T_INSTITUCIONES" EntitySet="T_INSTITUCIONES" />
+            <End Role="T_CURSOS" EntitySet="T_CURSOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GRUPOS_CURSOS" Association="Model_Cursos.Store.FK_GRUPOS_CURSOS">
+            <End Role="T_CURSOS" EntitySet="T_CURSOS" />
+            <End Role="T_GRUPOS" EntitySet="T_GRUPOS" />
+          </AssociationSet>
+          <AssociationSet Name="T_ALUMONOS_GRUPO_ALUMNOS" Association="Model_Cursos.Store.T_ALUMONOS_GRUPO_ALUMNOS">
+            <End Role="T_ALUMNOS" EntitySet="T_ALUMNOS" />
+            <End Role="T_ALUMONOS_GRUPO" EntitySet="T_ALUMONOS_GRUPO" />
+          </AssociationSet>
+          <AssociationSet Name="T_ALUMONOS_GRUPO_GRUPOS" Association="Model_Cursos.Store.T_ALUMONOS_GRUPO_GRUPOS">
+            <End Role="T_GRUPOS" EntitySet="T_GRUPOS" />
+            <End Role="T_ALUMONOS_GRUPO" EntitySet="T_ALUMONOS_GRUPO" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="T_ALUMNOS">
+          <Key>
+            <PropertyRef Name="ALU_ID" />
+          </Key>
+          <Property Name="ALU_ID" Type="number" Nullable="false" Precision="10" />
+          <Property Name="PRS_ID" Type="number" Precision="10" />
+          <Property Name="ESTADO" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="T_ALUMONOS_GRUPO">
+          <Key>
+            <PropertyRef Name="ALU_GRUP_ID" />
+          </Key>
+          <Property Name="ALU_GRUP_ID" Type="number" Nullable="false" Precision="10" />
+          <Property Name="ALU_ID" Type="number" Nullable="false" Precision="10" />
+          <Property Name="GRP_ID" Type="number" Nullable="false" Precision="10" />
+          <Property Name="ESTADO" Type="varchar2" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="T_CURSOS">
+          <Key>
+            <PropertyRef Name="CUR_ID" />
+          </Key>
+          <Property Name="CUR_ID" Type="number" Nullable="false" Precision="10" />
+          <Property Name="INST_ID" Type="number" Precision="10" />
+          <Property Name="CUR_NOMBRE" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="CUR_TEMARIO" Type="varchar2" MaxLength="50" />
+          <Property Name="CUR_ESTADO" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="CUR_PROGRAMA" Type="number" Nullable="false" Precision="10" />
+          <Property Name="CUR_NIVEL" Type="number" Nullable="false" Precision="10" />
+          <Property Name="CUR_SUBPROGRAMA" Type="number" Precision="10" />
+          <Property Name="CUR_MODALIDAD" Type="number" Precision="10" />
+          <Property Name="CUR_PROMEDIOREQUERIDO" Type="number" Precision="10" />
+          <Property Name="CUR_CARGAHORARIA" Type="number" Nullable="false" Precision="10" />
+          <Property Name="CUR_PRESENTISMO" Type="number" Nullable="false" Precision="10" />
+          <Property Name="CUR_CANTIDAD_CLASES" Type="number" Nullable="false" Precision="10" />
+          <Property Name="CUR_CANTIDADEXAMENES" Type="number" Nullable="false" Precision="10" />
+          <Property Name="CUR_PRESUPUESTO" Type="number" Nullable="false" Precision="10" />
+          <Property Name="FEC_ALTA" Type="date" Nullable="false" />
+          <Property Name="USUARIO_ALTA" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="FEC_MODIF" Type="date" Nullable="false" />
+          <Property Name="USUARIO_MODIF" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="ESTADO" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="T_GRUPOS">
+          <Key>
+            <PropertyRef Name="GRP_ID" />
+          </Key>
+          <Property Name="GRP_ID" Type="number" Nullable="false" Precision="10" />
+          <Property Name="CUR_ID" Type="number" Nullable="false" Precision="10" />
+          <Property Name="PRS_DOCENTE_ID" Type="number" Precision="10" />
+          <Property Name="GRP_HORARIO_ID" Type="number" Precision="10" />
+          <Property Name="GRP_LUGARDICTADO" Type="varchar2" MaxLength="50" />
+          <Property Name="GRP_CAPACIDAD" Type="number" Precision="10" />
+          <Property Name="FEC_ALTA" Type="date" Nullable="false" />
+          <Property Name="USUARIO_ALTA" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="FEC_MODIF" Type="date" Nullable="false" />
+          <Property Name="USUARIO_MODIF" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="ESTADO" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="T_INSTITUCIONES">
+          <Key>
+            <PropertyRef Name="INST_ID" />
+          </Key>
+          <Property Name="INST_ID" Type="number" Nullable="false" Precision="10" />
+          <Property Name="INST_NOMBRE" Type="varchar2" MaxLength="50" />
+          <Property Name="INS_PROPIA" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="ID_PROVINCIA" Type="number" Nullable="false" Precision="10" />
+          <Property Name="ID_LOCALIDAD" Type="number" Nullable="false" Precision="10" />
+          <Property Name="ID_CALLE" Type="number" Nullable="false" Precision="10" />
+          <Property Name="INST_NRO" Type="number" Nullable="false" Precision="10" />
+          <Property Name="INST_TELEFONO" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="FEC_ALTA" Type="date" Nullable="false" />
+          <Property Name="USUARIO_ALTA" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="FEC_MODIF" Type="date" Nullable="false" />
+          <Property Name="USUARIO_MODIF" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="ESTADO" Type="char" MaxLength="1" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'CURSOS.V_BARRIOS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="V_BARRIOS">
+          <Key>
+            <PropertyRef Name="ID_BARRIO" />
+          </Key>
+          <Property Name="ID_BARRIO" Type="number" Nullable="false" Precision="10" />
+          <Property Name="N_BARRIO" Type="varchar2" MaxLength="1000" />
+          <Property Name="ID_LOCALIDAD" Type="number" Precision="6" />
+          <Property Name="COMENTARIO" Type="varchar2" MaxLength="2000" />
+          <Property Name="FEC_ULT_ACTUALIZACION" Type="date" />
+          <Property Name="ID_USUARIO" Type="varchar2" MaxLength="40" />
+          <Property Name="ID_PRECINTO" Type="number" Precision="6" />
+          <Property Name="ID_BARRIO_C" Type="number" Precision="4" />
+          <Property Name="N_BARRIO_C" Type="varchar2" MaxLength="1000" />
+          <Property Name="ID_SECCIONAL" Type="number" Precision="6" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'CURSOS.V_CALLES' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="V_CALLES">
+          <Key>
+            <PropertyRef Name="ID_TIPOCALLE" />
+            <PropertyRef Name="ID_CALLE" />
+          </Key>
+          <Property Name="ID_TIPOCALLE" Type="number" Nullable="false" Precision="2" />
+          <Property Name="ID_CALLE" Type="number" Nullable="false" Precision="10" />
+          <Property Name="N_CALLE" Type="varchar2" MaxLength="100" />
+          <Property Name="N_ABREVIADO" Type="varchar2" MaxLength="70" />
+          <Property Name="ID_PROVINCIA" Type="varchar2" MaxLength="2" />
+          <Property Name="ID_LOCALIDAD" Type="number" Precision="6" />
+          <Property Name="ID_DEPARTAMENTO" Type="number" Precision="6" />
+          <Property Name="FEC_ULT_ACTUALIZACION" Type="date" />
+          <Property Name="ID_USUARIO" Type="varchar2" MaxLength="40" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'CURSOS.V_DEPARTAMENTOS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="V_DEPARTAMENTOS">
+          <Key>
+            <PropertyRef Name="ID_DEPARTAMENTO" />
+          </Key>
+          <Property Name="ID_DEPARTAMENTO" Type="number" Nullable="false" Precision="6" />
+          <Property Name="N_DEPARTAMENTO" Type="varchar2" MaxLength="100" />
+          <Property Name="ID_PROVINCIA" Type="varchar2" MaxLength="2" />
+          <Property Name="FEC_ULT_ACTUALIZACION" Type="date" />
+          <Property Name="ID_USUARIO" Type="varchar2" MaxLength="40" />
+          <Property Name="SUPERFICIE" Type="number" Precision="10" />
+          <Property Name="POBLACION" Type="number" Precision="10" />
+          <Property Name="DENSIDAD" Type="number" Precision="4" Scale="2" />
+          <Property Name="INDEC" Type="varchar2" MaxLength="3" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'CURSOS.V_LOCALIDAES' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="V_LOCALIDAES">
+          <Key>
+            <PropertyRef Name="ID_LOCALIDAD" />
+          </Key>
+          <Property Name="ID_LOCALIDAD" Type="number" Nullable="false" Precision="6" />
+          <Property Name="N_LOCALIDAD" Type="varchar2" MaxLength="100" />
+          <Property Name="ID_PROVINCIA" Type="varchar2" MaxLength="2" />
+          <Property Name="ID_DEPARTAMENTO" Type="number" Precision="6" />
+          <Property Name="FEC_ULT_ACTUALIZACION" Type="date" />
+          <Property Name="ID_USUARIO" Type="varchar2" MaxLength="40" />
+          <Property Name="TIPO" Type="varchar2" MaxLength="1" />
+          <Property Name="INDEC" Type="varchar2" MaxLength="5" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'CURSOS.V_PROVINCIAS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="V_PROVINCIAS">
+          <Key>
+            <PropertyRef Name="ID_PROVINCIA" />
+          </Key>
+          <Property Name="ID_PROVINCIA" Type="varchar2" Nullable="false" MaxLength="2" />
+          <Property Name="N_PROVINCIA" Type="varchar2" MaxLength="60" />
+          <Property Name="FEC_ULT_ACTUALIZACION" Type="date" />
+          <Property Name="ID_USUARIO" Type="varchar2" MaxLength="40" />
+          <Property Name="ID_PAIS" Type="varchar2" MaxLength="3" />
+          <Property Name="INDEC" Type="varchar2" MaxLength="2" />
+        </EntityType>
+        <Association Name="FK_CURSOS_INSTITUCIONES">
+          <End Role="T_INSTITUCIONES" Type="Model_Cursos.Store.T_INSTITUCIONES" Multiplicity="0..1" />
+          <End Role="T_CURSOS" Type="Model_Cursos.Store.T_CURSOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_INSTITUCIONES">
+              <PropertyRef Name="INST_ID" />
+            </Principal>
+            <Dependent Role="T_CURSOS">
+              <PropertyRef Name="INST_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GRUPOS_CURSOS">
+          <End Role="T_CURSOS" Type="Model_Cursos.Store.T_CURSOS" Multiplicity="1" />
+          <End Role="T_GRUPOS" Type="Model_Cursos.Store.T_GRUPOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_CURSOS">
+              <PropertyRef Name="CUR_ID" />
+            </Principal>
+            <Dependent Role="T_GRUPOS">
+              <PropertyRef Name="CUR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_ALUMONOS_GRUPO_ALUMNOS">
+          <End Role="T_ALUMNOS" Type="Model_Cursos.Store.T_ALUMNOS" Multiplicity="1" />
+          <End Role="T_ALUMONOS_GRUPO" Type="Model_Cursos.Store.T_ALUMONOS_GRUPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ALUMNOS">
+              <PropertyRef Name="ALU_ID" />
+            </Principal>
+            <Dependent Role="T_ALUMONOS_GRUPO">
+              <PropertyRef Name="ALU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_ALUMONOS_GRUPO_GRUPOS">
+          <End Role="T_GRUPOS" Type="Model_Cursos.Store.T_GRUPOS" Multiplicity="1" />
+          <End Role="T_ALUMONOS_GRUPO" Type="Model_Cursos.Store.T_ALUMONOS_GRUPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_GRUPOS">
+              <PropertyRef Name="GRP_ID" />
+            </Principal>
+            <Dependent Role="T_ALUMONOS_GRUPO">
+              <PropertyRef Name="GRP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model_Cursos" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="CursosDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="T_ALUMNOS" EntityType="Model_Cursos.T_ALUMNOS" />
+          <EntitySet Name="T_ALUMONOS_GRUPO" EntityType="Model_Cursos.T_ALUMONOS_GRUPO" />
+          <EntitySet Name="T_CURSOS" EntityType="Model_Cursos.T_CURSOS" />
+          <EntitySet Name="T_GRUPOS" EntityType="Model_Cursos.T_GRUPOS" />
+          <EntitySet Name="V_BARRIOS" EntityType="Model_Cursos.V_BARRIOS" />
+          <EntitySet Name="V_CALLES" EntityType="Model_Cursos.V_CALLES" />
+          <EntitySet Name="V_DEPARTAMENTOS" EntityType="Model_Cursos.V_DEPARTAMENTOS" />
+          <EntitySet Name="V_LOCALIDAES" EntityType="Model_Cursos.V_LOCALIDAES" />
+          <EntitySet Name="V_PROVINCIAS" EntityType="Model_Cursos.V_PROVINCIAS" />
+          <AssociationSet Name="T_ALUMONOS_GRUPO_ALUMNOS" Association="Model_Cursos.T_ALUMONOS_GRUPO_ALUMNOS">
+            <End Role="T_ALUMNOS" EntitySet="T_ALUMNOS" />
+            <End Role="T_ALUMONOS_GRUPO" EntitySet="T_ALUMONOS_GRUPO" />
+          </AssociationSet>
+          <AssociationSet Name="T_ALUMONOS_GRUPO_GRUPOS" Association="Model_Cursos.T_ALUMONOS_GRUPO_GRUPOS">
+            <End Role="T_GRUPOS" EntitySet="T_GRUPOS" />
+            <End Role="T_ALUMONOS_GRUPO" EntitySet="T_ALUMONOS_GRUPO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GRUPOS_CURSOS" Association="Model_Cursos.FK_GRUPOS_CURSOS">
+            <End Role="T_CURSOS" EntitySet="T_CURSOS" />
+            <End Role="T_GRUPOS" EntitySet="T_GRUPOS" />
+          </AssociationSet>
+          <EntitySet Name="T_INSTITUCIONES" EntityType="Model_Cursos.T_INSTITUCIONES" />
+          <AssociationSet Name="FK_CURSOS_INSTITUCIONES" Association="Model_Cursos.FK_CURSOS_INSTITUCIONES">
+            <End Role="T_INSTITUCIONES" EntitySet="T_INSTITUCIONES" />
+            <End Role="T_CURSOS" EntitySet="T_CURSOS" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="T_ALUMNOS">
+          <Key>
+            <PropertyRef Name="ALU_ID" />
+          </Key>
+          <Property Name="ALU_ID" Type="Int32" Nullable="false" />
+          <Property Name="PRS_ID" Type="Int32" />
+          <Property Name="ESTADO" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <NavigationProperty Name="T_ALUMONOS_GRUPO" Relationship="Model_Cursos.T_ALUMONOS_GRUPO_ALUMNOS" FromRole="T_ALUMNOS" ToRole="T_ALUMONOS_GRUPO" />
+        </EntityType>
+        <EntityType Name="T_ALUMONOS_GRUPO">
+          <Key>
+            <PropertyRef Name="ALU_GRUP_ID" />
+          </Key>
+          <Property Name="ALU_GRUP_ID" Type="Int32" Nullable="false" />
+          <Property Name="ALU_ID" Type="Int32" Nullable="false" />
+          <Property Name="GRP_ID" Type="Int32" Nullable="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="T_ALUMNOS" Relationship="Model_Cursos.T_ALUMONOS_GRUPO_ALUMNOS" FromRole="T_ALUMONOS_GRUPO" ToRole="T_ALUMNOS" />
+          <NavigationProperty Name="T_GRUPOS" Relationship="Model_Cursos.T_ALUMONOS_GRUPO_GRUPOS" FromRole="T_ALUMONOS_GRUPO" ToRole="T_GRUPOS" />
+        </EntityType>
+        <EntityType Name="T_CURSOS">
+          <Key>
+            <PropertyRef Name="CUR_ID" />
+          </Key>
+          <Property Name="CUR_ID" Type="Int32" Nullable="false" />
+          <Property Name="INST_ID" Type="Int32" />
+          <Property Name="CUR_NOMBRE" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CUR_TEMARIO" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CUR_ESTADO" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="CUR_PROGRAMA" Type="Int32" Nullable="false" />
+          <Property Name="CUR_NIVEL" Type="Int32" Nullable="false" />
+          <Property Name="CUR_SUBPROGRAMA" Type="Int32" />
+          <Property Name="CUR_MODALIDAD" Type="Int32" />
+          <Property Name="CUR_PROMEDIOREQUERIDO" Type="Int32" />
+          <Property Name="CUR_CARGAHORARIA" Type="Int32" Nullable="false" />
+          <Property Name="CUR_PRESENTISMO" Type="Int32" Nullable="false" />
+          <Property Name="CUR_CANTIDAD_CLASES" Type="Int32" Nullable="false" />
+          <Property Name="CUR_CANTIDADEXAMENES" Type="Int32" Nullable="false" />
+          <Property Name="CUR_PRESUPUESTO" Type="Int32" Nullable="false" />
+          <Property Name="FEC_ALTA" Type="DateTime" Nullable="false" />
+          <Property Name="USUARIO_ALTA" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="FEC_MODIF" Type="DateTime" Nullable="false" />
+          <Property Name="USUARIO_MODIF" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <NavigationProperty Name="T_GRUPOS" Relationship="Model_Cursos.FK_GRUPOS_CURSOS" FromRole="T_CURSOS" ToRole="T_GRUPOS" />
+          <NavigationProperty Name="T_INSTITUCIONES" Relationship="Model_Cursos.FK_CURSOS_INSTITUCIONES" FromRole="T_CURSOS" ToRole="T_INSTITUCIONES" />
+        </EntityType>
+        <EntityType Name="T_GRUPOS">
+          <Key>
+            <PropertyRef Name="GRP_ID" />
+          </Key>
+          <Property Name="GRP_ID" Type="Int32" Nullable="false" />
+          <Property Name="CUR_ID" Type="Int32" Nullable="false" />
+          <Property Name="PRS_DOCENTE_ID" Type="Int32" />
+          <Property Name="GRP_HORARIO_ID" Type="Int32" />
+          <Property Name="GRP_LUGARDICTADO" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="GRP_CAPACIDAD" Type="Int32" />
+          <Property Name="FEC_ALTA" Type="DateTime" Nullable="false" />
+          <Property Name="USUARIO_ALTA" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="FEC_MODIF" Type="DateTime" Nullable="false" />
+          <Property Name="USUARIO_MODIF" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <NavigationProperty Name="T_ALUMONOS_GRUPO" Relationship="Model_Cursos.T_ALUMONOS_GRUPO_GRUPOS" FromRole="T_GRUPOS" ToRole="T_ALUMONOS_GRUPO" />
+          <NavigationProperty Name="T_CURSOS" Relationship="Model_Cursos.FK_GRUPOS_CURSOS" FromRole="T_GRUPOS" ToRole="T_CURSOS" />
+        </EntityType>
+        <EntityType Name="V_BARRIOS">
+          <Key>
+            <PropertyRef Name="ID_BARRIO" />
+          </Key>
+          <Property Name="ID_BARRIO" Type="Int32" Nullable="false" />
+          <Property Name="N_BARRIO" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="ID_LOCALIDAD" Type="Int32" />
+          <Property Name="COMENTARIO" Type="String" MaxLength="2000" Unicode="false" FixedLength="false" />
+          <Property Name="FEC_ULT_ACTUALIZACION" Type="DateTime" />
+          <Property Name="ID_USUARIO" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="ID_PRECINTO" Type="Int32" />
+          <Property Name="ID_BARRIO_C" Type="Int16" />
+          <Property Name="N_BARRIO_C" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="ID_SECCIONAL" Type="Int32" />
+        </EntityType>
+        <EntityType Name="V_CALLES">
+          <Key>
+            <PropertyRef Name="ID_TIPOCALLE" />
+            <PropertyRef Name="ID_CALLE" />
+          </Key>
+          <Property Name="ID_TIPOCALLE" Type="Int16" Nullable="false" />
+          <Property Name="ID_CALLE" Type="Int32" Nullable="false" />
+          <Property Name="N_CALLE" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="N_ABREVIADO" Type="String" MaxLength="70" Unicode="false" FixedLength="false" />
+          <Property Name="ID_PROVINCIA" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="ID_LOCALIDAD" Type="Int32" />
+          <Property Name="ID_DEPARTAMENTO" Type="Int32" />
+          <Property Name="FEC_ULT_ACTUALIZACION" Type="DateTime" />
+          <Property Name="ID_USUARIO" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="V_DEPARTAMENTOS">
+          <Key>
+            <PropertyRef Name="ID_DEPARTAMENTO" />
+          </Key>
+          <Property Name="ID_DEPARTAMENTO" Type="Int32" Nullable="false" />
+          <Property Name="N_DEPARTAMENTO" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="ID_PROVINCIA" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="FEC_ULT_ACTUALIZACION" Type="DateTime" />
+          <Property Name="ID_USUARIO" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="SUPERFICIE" Type="Int32" />
+          <Property Name="POBLACION" Type="Int32" />
+          <Property Name="DENSIDAD" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="INDEC" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="V_LOCALIDAES">
+          <Key>
+            <PropertyRef Name="ID_LOCALIDAD" />
+          </Key>
+          <Property Name="ID_LOCALIDAD" Type="Int32" Nullable="false" />
+          <Property Name="N_LOCALIDAD" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="ID_PROVINCIA" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="ID_DEPARTAMENTO" Type="Int32" />
+          <Property Name="FEC_ULT_ACTUALIZACION" Type="DateTime" />
+          <Property Name="ID_USUARIO" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="TIPO" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="INDEC" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="V_PROVINCIAS">
+          <Key>
+            <PropertyRef Name="ID_PROVINCIA" />
+          </Key>
+          <Property Name="ID_PROVINCIA" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="N_PROVINCIA" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="FEC_ULT_ACTUALIZACION" Type="DateTime" />
+          <Property Name="ID_USUARIO" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="ID_PAIS" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="INDEC" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <Association Name="T_ALUMONOS_GRUPO_ALUMNOS">
+          <End Role="T_ALUMNOS" Type="Model_Cursos.T_ALUMNOS" Multiplicity="1" />
+          <End Role="T_ALUMONOS_GRUPO" Type="Model_Cursos.T_ALUMONOS_GRUPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ALUMNOS">
+              <PropertyRef Name="ALU_ID" />
+            </Principal>
+            <Dependent Role="T_ALUMONOS_GRUPO">
+              <PropertyRef Name="ALU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_ALUMONOS_GRUPO_GRUPOS">
+          <End Role="T_GRUPOS" Type="Model_Cursos.T_GRUPOS" Multiplicity="1" />
+          <End Role="T_ALUMONOS_GRUPO" Type="Model_Cursos.T_ALUMONOS_GRUPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_GRUPOS">
+              <PropertyRef Name="GRP_ID" />
+            </Principal>
+            <Dependent Role="T_ALUMONOS_GRUPO">
+              <PropertyRef Name="GRP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GRUPOS_CURSOS">
+          <End Role="T_CURSOS" Type="Model_Cursos.T_CURSOS" Multiplicity="1" />
+          <End Role="T_GRUPOS" Type="Model_Cursos.T_GRUPOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_CURSOS">
+              <PropertyRef Name="CUR_ID" />
+            </Principal>
+            <Dependent Role="T_GRUPOS">
+              <PropertyRef Name="CUR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="T_INSTITUCIONES">
+          <Key>
+            <PropertyRef Name="INST_ID" />
+          </Key>
+          <Property Type="Int32" Name="INST_ID" Nullable="false" />
+          <Property Type="String" Name="INST_NOMBRE" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="INS_PROPIA" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="ID_PROVINCIA" Nullable="false" />
+          <Property Type="Int32" Name="ID_LOCALIDAD" Nullable="false" />
+          <Property Type="Int32" Name="ID_CALLE" Nullable="false" />
+          <Property Type="Int32" Name="INST_NRO" Nullable="false" />
+          <Property Type="String" Name="INST_TELEFONO" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FEC_ALTA" Nullable="false" />
+          <Property Type="String" Name="USUARIO_ALTA" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FEC_MODIF" Nullable="false" />
+          <Property Type="String" Name="USUARIO_MODIF" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_CURSOS" Relationship="Model_Cursos.FK_CURSOS_INSTITUCIONES" FromRole="T_INSTITUCIONES" ToRole="T_CURSOS" />
+          <Property Type="String" Name="ESTADO" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_CURSOS_INSTITUCIONES">
+          <End Type="Model_Cursos.T_INSTITUCIONES" Role="T_INSTITUCIONES" Multiplicity="0..1" />
+          <End Type="Model_Cursos.T_CURSOS" Role="T_CURSOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_INSTITUCIONES">
+              <PropertyRef Name="INST_ID" />
+            </Principal>
+            <Dependent Role="T_CURSOS">
+              <PropertyRef Name="INST_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Model_CursosStoreContainer" CdmEntityContainer="CursosDB">
+          <EntitySetMapping Name="T_ALUMNOS"><EntityTypeMapping TypeName="Model_Cursos.T_ALUMNOS"><MappingFragment StoreEntitySet="T_ALUMNOS">
+            <ScalarProperty Name="ALU_ID" ColumnName="ALU_ID" />
+            <ScalarProperty Name="PRS_ID" ColumnName="PRS_ID" />
+            <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="T_ALUMONOS_GRUPO"><EntityTypeMapping TypeName="Model_Cursos.T_ALUMONOS_GRUPO"><MappingFragment StoreEntitySet="T_ALUMONOS_GRUPO">
+            <ScalarProperty Name="ALU_GRUP_ID" ColumnName="ALU_GRUP_ID" />
+            <ScalarProperty Name="ALU_ID" ColumnName="ALU_ID" />
+            <ScalarProperty Name="GRP_ID" ColumnName="GRP_ID" />
+            <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="T_CURSOS"><EntityTypeMapping TypeName="Model_Cursos.T_CURSOS"><MappingFragment StoreEntitySet="T_CURSOS">
+            <ScalarProperty Name="CUR_ID" ColumnName="CUR_ID" />
+            <ScalarProperty Name="INST_ID" ColumnName="INST_ID" />
+            <ScalarProperty Name="CUR_NOMBRE" ColumnName="CUR_NOMBRE" />
+            <ScalarProperty Name="CUR_TEMARIO" ColumnName="CUR_TEMARIO" />
+            <ScalarProperty Name="CUR_ESTADO" ColumnName="CUR_ESTADO" />
+            <ScalarProperty Name="CUR_PROGRAMA" ColumnName="CUR_PROGRAMA" />
+            <ScalarProperty Name="CUR_NIVEL" ColumnName="CUR_NIVEL" />
+            <ScalarProperty Name="CUR_SUBPROGRAMA" ColumnName="CUR_SUBPROGRAMA" />
+            <ScalarProperty Name="CUR_MODALIDAD" ColumnName="CUR_MODALIDAD" />
+            <ScalarProperty Name="CUR_PROMEDIOREQUERIDO" ColumnName="CUR_PROMEDIOREQUERIDO" />
+            <ScalarProperty Name="CUR_CARGAHORARIA" ColumnName="CUR_CARGAHORARIA" />
+            <ScalarProperty Name="CUR_PRESENTISMO" ColumnName="CUR_PRESENTISMO" />
+            <ScalarProperty Name="CUR_CANTIDAD_CLASES" ColumnName="CUR_CANTIDAD_CLASES" />
+            <ScalarProperty Name="CUR_CANTIDADEXAMENES" ColumnName="CUR_CANTIDADEXAMENES" />
+            <ScalarProperty Name="CUR_PRESUPUESTO" ColumnName="CUR_PRESUPUESTO" />
+            <ScalarProperty Name="FEC_ALTA" ColumnName="FEC_ALTA" />
+            <ScalarProperty Name="USUARIO_ALTA" ColumnName="USUARIO_ALTA" />
+            <ScalarProperty Name="FEC_MODIF" ColumnName="FEC_MODIF" />
+            <ScalarProperty Name="USUARIO_MODIF" ColumnName="USUARIO_MODIF" />
+            <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="T_GRUPOS"><EntityTypeMapping TypeName="Model_Cursos.T_GRUPOS"><MappingFragment StoreEntitySet="T_GRUPOS">
+            <ScalarProperty Name="GRP_ID" ColumnName="GRP_ID" />
+            <ScalarProperty Name="CUR_ID" ColumnName="CUR_ID" />
+            <ScalarProperty Name="PRS_DOCENTE_ID" ColumnName="PRS_DOCENTE_ID" />
+            <ScalarProperty Name="GRP_HORARIO_ID" ColumnName="GRP_HORARIO_ID" />
+            <ScalarProperty Name="GRP_LUGARDICTADO" ColumnName="GRP_LUGARDICTADO" />
+            <ScalarProperty Name="GRP_CAPACIDAD" ColumnName="GRP_CAPACIDAD" />
+            <ScalarProperty Name="FEC_ALTA" ColumnName="FEC_ALTA" />
+            <ScalarProperty Name="USUARIO_ALTA" ColumnName="USUARIO_ALTA" />
+            <ScalarProperty Name="FEC_MODIF" ColumnName="FEC_MODIF" />
+            <ScalarProperty Name="USUARIO_MODIF" ColumnName="USUARIO_MODIF" />
+            <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="V_BARRIOS"><EntityTypeMapping TypeName="Model_Cursos.V_BARRIOS"><MappingFragment StoreEntitySet="V_BARRIOS">
+            <ScalarProperty Name="ID_BARRIO" ColumnName="ID_BARRIO" />
+            <ScalarProperty Name="N_BARRIO" ColumnName="N_BARRIO" />
+            <ScalarProperty Name="ID_LOCALIDAD" ColumnName="ID_LOCALIDAD" />
+            <ScalarProperty Name="COMENTARIO" ColumnName="COMENTARIO" />
+            <ScalarProperty Name="FEC_ULT_ACTUALIZACION" ColumnName="FEC_ULT_ACTUALIZACION" />
+            <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+            <ScalarProperty Name="ID_PRECINTO" ColumnName="ID_PRECINTO" />
+            <ScalarProperty Name="ID_BARRIO_C" ColumnName="ID_BARRIO_C" />
+            <ScalarProperty Name="N_BARRIO_C" ColumnName="N_BARRIO_C" />
+            <ScalarProperty Name="ID_SECCIONAL" ColumnName="ID_SECCIONAL" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="V_CALLES"><EntityTypeMapping TypeName="Model_Cursos.V_CALLES"><MappingFragment StoreEntitySet="V_CALLES">
+            <ScalarProperty Name="ID_TIPOCALLE" ColumnName="ID_TIPOCALLE" />
+            <ScalarProperty Name="ID_CALLE" ColumnName="ID_CALLE" />
+            <ScalarProperty Name="N_CALLE" ColumnName="N_CALLE" />
+            <ScalarProperty Name="N_ABREVIADO" ColumnName="N_ABREVIADO" />
+            <ScalarProperty Name="ID_PROVINCIA" ColumnName="ID_PROVINCIA" />
+            <ScalarProperty Name="ID_LOCALIDAD" ColumnName="ID_LOCALIDAD" />
+            <ScalarProperty Name="ID_DEPARTAMENTO" ColumnName="ID_DEPARTAMENTO" />
+            <ScalarProperty Name="FEC_ULT_ACTUALIZACION" ColumnName="FEC_ULT_ACTUALIZACION" />
+            <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="V_DEPARTAMENTOS"><EntityTypeMapping TypeName="Model_Cursos.V_DEPARTAMENTOS"><MappingFragment StoreEntitySet="V_DEPARTAMENTOS">
+            <ScalarProperty Name="ID_DEPARTAMENTO" ColumnName="ID_DEPARTAMENTO" />
+            <ScalarProperty Name="N_DEPARTAMENTO" ColumnName="N_DEPARTAMENTO" />
+            <ScalarProperty Name="ID_PROVINCIA" ColumnName="ID_PROVINCIA" />
+            <ScalarProperty Name="FEC_ULT_ACTUALIZACION" ColumnName="FEC_ULT_ACTUALIZACION" />
+            <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+            <ScalarProperty Name="SUPERFICIE" ColumnName="SUPERFICIE" />
+            <ScalarProperty Name="POBLACION" ColumnName="POBLACION" />
+            <ScalarProperty Name="DENSIDAD" ColumnName="DENSIDAD" />
+            <ScalarProperty Name="INDEC" ColumnName="INDEC" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="V_LOCALIDAES"><EntityTypeMapping TypeName="Model_Cursos.V_LOCALIDAES"><MappingFragment StoreEntitySet="V_LOCALIDAES">
+            <ScalarProperty Name="ID_LOCALIDAD" ColumnName="ID_LOCALIDAD" />
+            <ScalarProperty Name="N_LOCALIDAD" ColumnName="N_LOCALIDAD" />
+            <ScalarProperty Name="ID_PROVINCIA" ColumnName="ID_PROVINCIA" />
+            <ScalarProperty Name="ID_DEPARTAMENTO" ColumnName="ID_DEPARTAMENTO" />
+            <ScalarProperty Name="FEC_ULT_ACTUALIZACION" ColumnName="FEC_ULT_ACTUALIZACION" />
+            <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+            <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+            <ScalarProperty Name="INDEC" ColumnName="INDEC" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="V_PROVINCIAS"><EntityTypeMapping TypeName="Model_Cursos.V_PROVINCIAS"><MappingFragment StoreEntitySet="V_PROVINCIAS">
+            <ScalarProperty Name="ID_PROVINCIA" ColumnName="ID_PROVINCIA" />
+            <ScalarProperty Name="N_PROVINCIA" ColumnName="N_PROVINCIA" />
+            <ScalarProperty Name="FEC_ULT_ACTUALIZACION" ColumnName="FEC_ULT_ACTUALIZACION" />
+            <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+            <ScalarProperty Name="ID_PAIS" ColumnName="ID_PAIS" />
+            <ScalarProperty Name="INDEC" ColumnName="INDEC" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="T_INSTITUCIONES">
+            <EntityTypeMapping TypeName="Model_Cursos.T_INSTITUCIONES">
+              <MappingFragment StoreEntitySet="T_INSTITUCIONES">
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="USUARIO_MODIF" ColumnName="USUARIO_MODIF" />
+                <ScalarProperty Name="FEC_MODIF" ColumnName="FEC_MODIF" />
+                <ScalarProperty Name="USUARIO_ALTA" ColumnName="USUARIO_ALTA" />
+                <ScalarProperty Name="FEC_ALTA" ColumnName="FEC_ALTA" />
+                <ScalarProperty Name="INST_TELEFONO" ColumnName="INST_TELEFONO" />
+                <ScalarProperty Name="INST_NRO" ColumnName="INST_NRO" />
+                <ScalarProperty Name="ID_CALLE" ColumnName="ID_CALLE" />
+                <ScalarProperty Name="ID_LOCALIDAD" ColumnName="ID_LOCALIDAD" />
+                <ScalarProperty Name="ID_PROVINCIA" ColumnName="ID_PROVINCIA" />
+                <ScalarProperty Name="INS_PROPIA" ColumnName="INS_PROPIA" />
+                <ScalarProperty Name="INST_NOMBRE" ColumnName="INST_NOMBRE" />
+                <ScalarProperty Name="INST_ID" ColumnName="INST_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1" ZoomLevel="100">
+        <EntityTypeShape EntityType="Model_Cursos.T_ALUMNOS" Width="1.5" PointX="5.625" PointY="7.875" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model_Cursos.T_ALUMONOS_GRUPO" Width="1.875" PointX="7.875" PointY="2.625" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model_Cursos.T_CURSOS" Width="1.875" PointX="3" PointY="1.125" Height="5.2494108072916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model_Cursos.T_GRUPOS" Width="1.5" PointX="5.625" PointY="2" Height="3.5186979166666656" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model_Cursos.V_BARRIOS" Width="1.5" PointX="0.75" PointY="7.75" Height="2.9417936197916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model_Cursos.V_CALLES" Width="1.5" PointX="2.75" PointY="7.75" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model_Cursos.V_DEPARTAMENTOS" Width="1.5" PointX="7.75" PointY="5.75" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model_Cursos.V_LOCALIDAES" Width="1.5" PointX="9.75" PointY="5.75" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model_Cursos.V_PROVINCIAS" Width="1.5" PointX="7.75" PointY="9.75" Height="2.1725878906249996" IsExpanded="true" />
+        <AssociationConnector Association="Model_Cursos.T_ALUMONOS_GRUPO_ALUMNOS" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.125" PointY="9.1124886067708335" />
+          <ConnectorPoint PointX="9.5" PointY="9.1124886067708335" />
+          <ConnectorPoint PointX="9.5" PointY="4.797587890625" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model_Cursos.T_ALUMONOS_GRUPO_GRUPOS" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.125" PointY="3.7112939453125" />
+          <ConnectorPoint PointX="7.875" PointY="3.7112939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model_Cursos.FK_GRUPOS_CURSOS" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.875" PointY="3.7593489583333328" />
+          <ConnectorPoint PointX="5.625" PointY="3.7593489583333328" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Model_Cursos.T_INSTITUCIONES" Width="1.5" PointX="0.75" PointY="2" Height="3.5186979166666652" />
+        <AssociationConnector Association="Model_Cursos.FK_CURSOS_INSTITUCIONES" >
+          <ConnectorPoint PointX="2.25" PointY="3.7593489583333328" />
+          <ConnectorPoint PointX="3" PointY="3.7593489583333328" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
