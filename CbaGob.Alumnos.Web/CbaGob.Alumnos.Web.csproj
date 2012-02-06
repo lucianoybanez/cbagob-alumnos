@@ -89,6 +89,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\instituciones.css" />
     <Content Include="Content\css\menu.css" />
     <Content Include="Content\images\120_.png" />
     <Content Include="Content\images\47_.png" />
@@ -194,6 +195,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Instituciones\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Instituciones\_InstitucionesLista.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

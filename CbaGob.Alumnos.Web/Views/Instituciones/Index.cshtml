@@ -1,8 +1,11 @@
-﻿@model InstitucionVista;
-
+﻿@model  InstitucionVista
+            
 @{
     ViewBag.Title = "Instituciones";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div id="titulo" style="width:900px; height:30px; padding:10px 5px 0 5px; font-family:Arial, Helvetica, sans-serif; font-size:16px; font-weight:bold;">Instituciones</div>
 
-<h2>Instituciones</h2>
+<div id="DivInstituciones">
+    @Html.Partial("_InstitucionesLista", Model.ListaInstituciones)
+</div>
