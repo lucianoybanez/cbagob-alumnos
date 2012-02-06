@@ -1,40 +1,54 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>@ViewBag.Title</title>   
-     @Content.Stylesheet("Site.css", Url)
-     @RenderSection("Stylesheets", false)
+    <title>@ViewBag.Title</title>
+    @Content.Stylesheet("Site.css", Url)
+    @Content.Css("menu.css", Url)
+    @RenderSection("Stylesheets", false)
 </head>
 <body>
-<div id="todo">  
-    <div id="cabecera">
-   	  <a href="index.html"><div id="linklogo" style="width:300px; height:100px;"></div></a>
-    </div>
-    <div id="contenido">
-        <div id="nav"> 
-       	 <ul id="menu">
-              <li><a href="">Inicio</a></li>
-              <li><a href="">Establecimiento Educativo</a>
-		</ul>
-       </div> 
-        <div id="usu">
-          <div id="icono_usu" style="width:30px; height:25px; float:left;"><img src=@Content.ImageSite("47_.png", Url)  width="25" height="25" alt=""/></div>
-             <div id="nomusu" style="width:200px; height:25px; float:left; padding:10px 5px 5px 5px;"><strong>Usuario: ADNINISTRADOR</strong></div>
-             <div id="iconoinicio" style="width:30px; height:25px; float:left;"><img src=@Content.ImageSite("120_.png",Url)  width="25" height="25" alt=""/></div>
-             <div id="iconoclose" style="width:30px; height:25px; float:left;"><img src=@Content.ImageSite("49_.png", Url) width="25" height="25" alt=""/></div>        
-       	 </div>
-         <div id="main">
-            @RenderBody()
+    <div id="todo">
+        <div id="cabecera">
+            <a href="index.html">
+                <div id="linklogo" style="width: 300px; height: 100px;">
+                </div>
+            </a>
         </div>
-         </div>
-    <div id="pie">  
-    	<div id="Copy"> 
-			Copyright © - Terminos de Uso - Gobierno de Córdoba - Contáctenos        </div>  	
-  </div>
-</div>  
-
-
-   @* <div class="page">
+        <div id="contenido">
+            <div id="nav">
+                <ul id="menu">
+                    <li><a href="">Inicio</a></li>
+                    <li><a href="">Establecimiento Educativo</a>
+                        <ul>
+                            <li><a href="">Instituciones</a></li>
+                            <li><a href="">Gestionar Maestros</a></li>
+                            <li><a href="">Gestionar Alumnos</a></li>
+                            <li><a href="">Gestionar Cursos</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div id="usu">
+                <div id="icono_usu" style="width: 30px; height: 25px; float: left;">
+                    <img src=@Content.ImageSite("47_.png", Url)  width="25" height="25" alt=""/></div>
+                <div id="nomusu" style="width: 200px; height: 25px; float: left; padding: 10px 5px 5px 5px;">
+                    <strong>Usuario: ADNINISTRADOR</strong></div>
+                <div id="iconoinicio" style="width: 30px; height: 25px; float: left;">
+                    <img src=@Content.ImageSite("120_.png", Url)  width="25" height="25" alt=""/></div>
+                <div id="iconoclose" style="width: 30px; height: 25px; float: left;">
+                    <img src=@Content.ImageSite("49_.png", Url) width="25" height="25" alt=""/></div>
+            </div>
+            <div id="main">
+                @RenderBody()
+            </div>
+        </div>
+        <div id="pie">
+            <div id="Copy">
+                Copyright © - Terminos de Uso - Gobierno de Córdoba - Contáctenos
+            </div>
+        </div>
+    </div>
+    @* <div class="page">
         <div id="header">
             <div id="title">
                 <h1>My MVC Application</h1>
@@ -56,13 +70,10 @@
 
         </div>
     </div>*@
-
     @Content.Script("jquery-1.5.1.min.js", Url)
-    @Content.Script("jquery.unobtrusive-ajax.min.js",Url)
+    @Content.Script("jquery.unobtrusive-ajax.min.js", Url)
     @Content.Script("jquery.validate.min.js", Url)
     @Content.Script("jquery.validate.unobtrusive.min.js", Url)
-
     @RenderSection("Scripts", false)
-
 </body>
 </html>
