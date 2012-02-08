@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,9 +43,18 @@
   <ItemGroup>
     <Compile Include="Comun\CookieData.cs" />
     <Compile Include="Comun\ICookieData.cs" />
+    <Compile Include="ServiciosInterface\IBarriosServicio.cs" />
+    <Compile Include="ServiciosInterface\ICallesServicio.cs" />
+    <Compile Include="ServiciosInterface\IDepartamentosServicios.cs" />
     <Compile Include="ServiciosInterface\IInstitucionServicio.cs" />
+    <Compile Include="ServiciosInterface\ILocalidadesServicio.cs" />
     <Compile Include="ServiciosInterface\IPersonaServicio.cs" />
+    <Compile Include="ServiciosInterface\IProvinciasServicio.cs" />
+    <Compile Include="Servicios\BarriosServicio.cs" />
+    <Compile Include="Servicios\CallesServicio.cs" />
+    <Compile Include="Servicios\DepartamentosServicios.cs" />
     <Compile Include="Servicios\InstitucionServicio.cs" />
+    <Compile Include="Servicios\LocalidadesServicio.cs" />
     <Compile Include="Servicios\PersonaServicio.cs" />
     <Compile Include="Servicios\BaseService.cs" />
     <Compile Include="Comun\Errores.cs" />
@@ -54,6 +64,7 @@
     <Compile Include="ServiciosInterface\IHomeServicio.cs" />
     <Compile Include="ServiciosInterface\IAutenticacionServicio.cs" />
     <Compile Include="ServiciosInterface\IUsuarioServicio.cs" />
+    <Compile Include="Servicios\ProvinciasServicio.cs" />
     <Compile Include="Servicios\UsuarioServicio.cs" />
     <Compile Include="Servicios\HomeServicio.cs" />
     <Compile Include="VistasInterface\IHomeVista.cs" />

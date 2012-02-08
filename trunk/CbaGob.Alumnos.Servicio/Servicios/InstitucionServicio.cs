@@ -17,7 +17,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         public InstitucionServicio()
         {
-            InstitucionRepositorio = new  InstitucionRepositorio ();
+            InstitucionRepositorio = new InstitucionRepositorio();
         }
 
         public IList<IInstitucion> GetTodas()
@@ -36,7 +36,8 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         {
             try
             {
-                InstitucionVista mInstitucionVista = new InstitucionVista();
+
+                InstitucionVista mInstitucionVista = new InstitucionVista(); 
 
                 mInstitucionVista.ListaInstituciones = InstitucionRepositorio.GetTodas();
 

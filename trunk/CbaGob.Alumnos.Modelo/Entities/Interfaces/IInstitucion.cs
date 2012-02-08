@@ -10,10 +10,12 @@ namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
         int INST_ID { get; set; }
         string INST_NOMBRE { get; set; }
         string INS_PROPIA { get; set; }
-        int ID_PROVINCIA { get; set; }
+        string ID_PROVINCIA { get; set; }
         int ID_LOCALIDAD { get; set; }
         int ID_CALLE { get; set; }
         int INST_NRO { get; set; }
         string INST_TELEFONO { get; set; }
+        int ID_DEPARTAMENTO { get; set; }
+        int ID_BARRIO { get; set; }
     }
 }

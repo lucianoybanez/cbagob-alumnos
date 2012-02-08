@@ -1654,7 +1654,9 @@ namespace CbaGob.Alumnos.Repositorio.Models
         /// <param name="uSUARIO_ALTA">Initial value of the USUARIO_ALTA property.</param>
         /// <param name="fEC_MODIF">Initial value of the FEC_MODIF property.</param>
         /// <param name="uSUARIO_MODIF">Initial value of the USUARIO_MODIF property.</param>
-        public static T_INSTITUCIONES CreateT_INSTITUCIONES(global::System.Int32 iNST_ID, global::System.String iNS_PROPIA, global::System.Int32 iD_PROVINCIA, global::System.Int32 iD_LOCALIDAD, global::System.Int32 iD_CALLE, global::System.Int32 iNST_NRO, global::System.String iNST_TELEFONO, global::System.DateTime fEC_ALTA, global::System.String uSUARIO_ALTA, global::System.DateTime fEC_MODIF, global::System.String uSUARIO_MODIF)
+        /// <param name="iD_DEPARTAMENTO">Initial value of the ID_DEPARTAMENTO property.</param>
+        /// <param name="iD_BARRIO">Initial value of the ID_BARRIO property.</param>
+        public static T_INSTITUCIONES CreateT_INSTITUCIONES(global::System.Int32 iNST_ID, global::System.String iNS_PROPIA, global::System.String iD_PROVINCIA, global::System.Int32 iD_LOCALIDAD, global::System.Int32 iD_CALLE, global::System.Int32 iNST_NRO, global::System.String iNST_TELEFONO, global::System.DateTime fEC_ALTA, global::System.String uSUARIO_ALTA, global::System.DateTime fEC_MODIF, global::System.String uSUARIO_MODIF, global::System.Int32 iD_DEPARTAMENTO, global::System.Int32 iD_BARRIO)
         {
             T_INSTITUCIONES t_INSTITUCIONES = new T_INSTITUCIONES();
             t_INSTITUCIONES.INST_ID = iNST_ID;
@@ -1668,6 +1670,8 @@ namespace CbaGob.Alumnos.Repositorio.Models
             t_INSTITUCIONES.USUARIO_ALTA = uSUARIO_ALTA;
             t_INSTITUCIONES.FEC_MODIF = fEC_MODIF;
             t_INSTITUCIONES.USUARIO_MODIF = uSUARIO_MODIF;
+            t_INSTITUCIONES.ID_DEPARTAMENTO = iD_DEPARTAMENTO;
+            t_INSTITUCIONES.ID_BARRIO = iD_BARRIO;
             return t_INSTITUCIONES;
         }
 
@@ -1754,7 +1758,7 @@ namespace CbaGob.Alumnos.Repositorio.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 ID_PROVINCIA
+        public global::System.String ID_PROVINCIA
         {
             get
             {
@@ -1764,13 +1768,13 @@ namespace CbaGob.Alumnos.Repositorio.Models
             {
                 OnID_PROVINCIAChanging(value);
                 ReportPropertyChanging("ID_PROVINCIA");
-                _ID_PROVINCIA = StructuralObject.SetValidValue(value);
+                _ID_PROVINCIA = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("ID_PROVINCIA");
                 OnID_PROVINCIAChanged();
             }
         }
-        private global::System.Int32 _ID_PROVINCIA;
-        partial void OnID_PROVINCIAChanging(global::System.Int32 value);
+        private global::System.String _ID_PROVINCIA;
+        partial void OnID_PROVINCIAChanging(global::System.String value);
         partial void OnID_PROVINCIAChanged();
     
         /// <summary>
@@ -1988,6 +1992,54 @@ namespace CbaGob.Alumnos.Repositorio.Models
         private global::System.String _ESTADO;
         partial void OnESTADOChanging(global::System.String value);
         partial void OnESTADOChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_DEPARTAMENTO
+        {
+            get
+            {
+                return _ID_DEPARTAMENTO;
+            }
+            set
+            {
+                OnID_DEPARTAMENTOChanging(value);
+                ReportPropertyChanging("ID_DEPARTAMENTO");
+                _ID_DEPARTAMENTO = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ID_DEPARTAMENTO");
+                OnID_DEPARTAMENTOChanged();
+            }
+        }
+        private global::System.Int32 _ID_DEPARTAMENTO;
+        partial void OnID_DEPARTAMENTOChanging(global::System.Int32 value);
+        partial void OnID_DEPARTAMENTOChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_BARRIO
+        {
+            get
+            {
+                return _ID_BARRIO;
+            }
+            set
+            {
+                OnID_BARRIOChanging(value);
+                ReportPropertyChanging("ID_BARRIO");
+                _ID_BARRIO = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ID_BARRIO");
+                OnID_BARRIOChanged();
+            }
+        }
+        private global::System.Int32 _ID_BARRIO;
+        partial void OnID_BARRIOChanging(global::System.Int32 value);
+        partial void OnID_BARRIOChanged();
 
         #endregion
     

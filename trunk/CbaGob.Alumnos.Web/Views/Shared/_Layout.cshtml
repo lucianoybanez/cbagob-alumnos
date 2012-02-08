@@ -6,6 +6,9 @@
     @Content.Css("menu.css", Url)
     @Content.Css("instituciones.css", Url)
     @RenderSection("Stylesheets", false)
+
+    @Content.Script("jquery-1.5.1.min.js", Url)
+    @Content.Script("jquery-ui-1.8.11.min.js", Url)
 </head>
 <body>
     <div id="todo">
@@ -25,6 +28,7 @@
                             <li><a href="">Gestionar Maestros</a></li>
                             <li><a href="">Gestionar Alumnos</a></li>
                             <li><a href="">Gestionar Cursos</a></li>
+                             <li>@Html.ActionLink("Account", "LogOn", "Account")</li>
                         </ul>
                     </li>
                 </ul>
@@ -71,7 +75,6 @@
 
         </div>
     </div>*@
-    @Content.Script("jquery-1.5.1.min.js", Url)
     @Content.Script("jquery.unobtrusive-ajax.min.js", Url)
     @Content.Script("jquery.validate.min.js", Url)
     @Content.Script("jquery.validate.unobtrusive.min.js", Url)

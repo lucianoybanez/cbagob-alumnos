@@ -15,10 +15,13 @@ namespace CbaGob.Alumnos.Modelo.Entities
         public int INST_ID { get; set; }
         public string INST_NOMBRE { get; set; }
         public string INS_PROPIA { get; set; }
-        public int ID_PROVINCIA { get; set; }
+        public string ID_PROVINCIA { get; set; }
         public int ID_LOCALIDAD { get; set; }
         public int ID_CALLE { get; set; }
         public int INST_NRO { get; set; }
         public string INST_TELEFONO { get; set; }
+        public int ID_DEPARTAMENTO { get; set; }
+        public int ID_BARRIO { get; set; }
+
     }
 }

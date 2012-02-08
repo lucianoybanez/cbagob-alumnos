@@ -134,9 +134,9 @@
                         <div align="center">
                             FECHA ALTA</div>
                     </th>
-                     <th height="30">
+                    <th height="30">
                         <div align="center">
-                            </div>
+                        </div>
                     </th>
                 </tr>
             </thead>
@@ -159,8 +159,9 @@
                         <td>
                             @item.FechaAlta.ToShortDateString()
                         </td>
-                         <td>
-                            Modificar, Eliminar, Ver
+                        <td>
+                            @Html.ActionLink("Modificar", "Modificar", "Instituciones", new { INST_ID = item.INST_ID }, null)
+                            @Html.ActionLink("Eliminar", "Eliminar", "Instituciones", new { INST_ID = item.INST_ID }, null)
                         </td>
                     </tr>
                 }
@@ -183,3 +184,4 @@ else
         </table>
     </div>
 }
+@Html.ActionLink("Agregar Institucion", "Agregar", "Instituciones")
