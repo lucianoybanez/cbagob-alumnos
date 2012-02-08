@@ -25,5 +25,11 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         IList<IDepartamentos> ListaDepartamento { get; set; }
         IList<IBarrios> ListaBarrios { get; set; }
         IList<ICalles> ListaCalles { get; set; }
+
+        string PROVINCIA { get; set; }
+        string BARRIO { get; set; }
+        string DEPARTAMENTO { get; set; }
+        string LOCALIDAD { get; set; }
+        string CALLE { get; set; }
     }
 }

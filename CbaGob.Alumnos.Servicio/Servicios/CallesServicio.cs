@@ -30,5 +30,18 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 throw;
             }
         }
+
+        public ICalles GetUno(int IdCalle)
+        {
+            try
+            {
+                return mCallesRepositorio.GetUno(IdCalle);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
     }
 }

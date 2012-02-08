@@ -9,5 +9,6 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
     public interface ICallesServicio
     {
         IList<ICalles> GetTodasBYProDepLoca(string IdProvincia, int IdDepartamento, int IdLocalidad);
+        ICalles GetUno(int IdCalle);
     }
 }

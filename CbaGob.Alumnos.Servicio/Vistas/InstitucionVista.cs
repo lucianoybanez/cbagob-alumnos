@@ -12,24 +12,14 @@ namespace CbaGob.Alumnos.Servicio.Vistas
     public class InstitucionVista : IInstitucionVista
     {
         public int INST_ID { get; set; }
-
-        [Required(ErrorMessage = "*")]
         public string INST_NOMBRE { get; set; }
-
         public bool INS_PROPIA { get; set; }
-
-        [Required(ErrorMessage = "*")]
         public string ID_PROVINCIA { get; set; }
-        [Required(ErrorMessage = "*")]
         public int ID_LOCALIDAD { get; set; }
-        [Required(ErrorMessage = "*")]
         public int ID_CALLE { get; set; }
-        [Required(ErrorMessage = "*")]
         public int INST_NRO { get; set; }
         public string INST_TELEFONO { get; set; }
-        [Required(ErrorMessage = "*")]
         public int ID_DEPARTAMENTO { get; set; }
-        [Required(ErrorMessage = "*")]
         public int ID_BARRIO { get; set; }
         public IList<IInstitucion> ListaInstituciones { get; set; }
         public IList<IProvincias> ListaProvincias { get; set; }
@@ -37,5 +27,10 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public IList<IDepartamentos> ListaDepartamento { get; set; }
         public IList<IBarrios> ListaBarrios { get; set; }
         public IList<ICalles> ListaCalles { get; set; }
+        public string PROVINCIA { get; set; }
+        public string BARRIO { get; set; }
+        public string DEPARTAMENTO { get; set; }
+        public string LOCALIDAD { get; set; }
+        public string CALLE { get; set; }
     }
 }

@@ -10,5 +10,6 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
     public interface IBarriosServicio
     {
         IList<IBarrios> GetTodasbyLocalidad(int IdLocalidad);
+        IBarrios GetUno(int IdBarrio);
     }
 }

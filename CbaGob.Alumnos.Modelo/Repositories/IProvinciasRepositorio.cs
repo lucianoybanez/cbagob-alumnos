@@ -9,5 +9,6 @@ namespace CbaGob.Alumnos.Modelo.Repositories
     public interface IProvinciasRepositorio
     {
         IList<IProvincias> GetTodas();
+        IProvincias GetUno(string IdProvincia);
     }
 }

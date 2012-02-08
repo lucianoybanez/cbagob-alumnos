@@ -36,5 +36,23 @@ namespace CbaGob.Alumnos.Repositorio
                 throw;
             }
         }
+
+        public ILocalidades GetUno(int IdLocalidad)
+        {
+            try
+            {
+                var mLocalidades = (from c in mDb.V_LOCALIDAES
+                                    where c.ID_LOCALIDAD == IdLocalidad
+                                    select new Localidades {ID_LOCALIDAD = c.ID_LOCALIDAD, N_LOCALIDAD = c.N_LOCALIDAD})
+                    .SingleOrDefault();
+
+                return mLocalidades;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

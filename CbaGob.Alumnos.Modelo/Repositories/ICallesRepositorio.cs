@@ -9,5 +9,6 @@ namespace CbaGob.Alumnos.Modelo.Repositories
     public interface ICallesRepositorio
     {
         IList<ICalles> GetTodasBYProDepLoca(string IdProvincia, int IdDepartamento, int IdLocalidad);
+        ICalles GetUno(int IdCalle);
     }
 }

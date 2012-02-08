@@ -37,5 +37,25 @@ namespace CbaGob.Alumnos.Repositorio.Models
                 throw;
             }
         }
+
+        public IDepartamentos GetUno(int IdDepartamento)
+        {
+            try
+            {
+                var mDepartamentos =
+                    (from c in mDb.V_DEPARTAMENTOS
+                     where c.ID_DEPARTAMENTO == IdDepartamento
+                     select new Departamentos {ID_DEPARTAMENTO = c.ID_DEPARTAMENTO, N_DEPARTAMENTO = c.N_DEPARTAMENTO}).
+                        SingleOrDefault();
+
+                return mDepartamentos;
+
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

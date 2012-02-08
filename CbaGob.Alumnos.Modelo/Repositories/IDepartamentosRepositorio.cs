@@ -9,5 +9,6 @@ namespace CbaGob.Alumnos.Modelo.Repositories
     public interface IDepartamentosRepositorio
     {
         IList<IDepartamentos> GetTodasbyProvincia(string IdProvincia);
+        IDepartamentos GetUno(int IdDepartamento);
     }
 }

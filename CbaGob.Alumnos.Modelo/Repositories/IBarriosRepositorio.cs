@@ -10,5 +10,6 @@ namespace CbaGob.Alumnos.Modelo.Repositories
     public interface IBarriosRepositorio
     {
         IList<IBarrios> GetTodasbyLocalidad(int IdLocalidad);
+        IBarrios GetUno(int IdBarrio);
     }
 }

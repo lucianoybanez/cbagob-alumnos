@@ -35,5 +35,25 @@ namespace CbaGob.Alumnos.Repositorio
                 throw;
             }
         }
+
+       
+
+        public IProvincias GetUno(string IdProvincia)
+        {
+            try
+            {
+                var mProvincias = (from c in mDb.V_PROVINCIAS
+                                   where c.ID_PROVINCIA == IdProvincia
+                                   select new Provincias {ID_PROVINCIA = c.ID_PROVINCIA, N_PROVINCIA = c.N_PROVINCIA}).
+                    SingleOrDefault();
+
+                return mProvincias;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }
