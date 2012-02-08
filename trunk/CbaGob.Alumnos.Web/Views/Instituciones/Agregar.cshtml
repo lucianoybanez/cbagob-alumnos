@@ -15,7 +15,6 @@
             </td>
             <td>
                 @Html.TextBoxFor(c => c.INST_NOMBRE)
-                @Html.ValidationMessageFor(m => m.INST_NOMBRE)
             </td>
         </tr>
         <tr>
@@ -32,7 +31,6 @@
             </td>
             <td>
                 @Html.TextBoxFor(c => c.INST_NRO)
-                 @Html.ValidationMessageFor(m => m.INST_NRO)
             </td>
         </tr>
         <tr>
@@ -75,11 +73,14 @@
                 @if (Model.ListaLocalidades != null)
                 {
                     @Html.DropDownListFor(c => c.ID_LOCALIDAD, new SelectList(Model.ListaLocalidades, "ID_LOCALIDAD", "N_LOCALIDAD"), new { Id = "SelectLocalidades" })
+                    
                 }
                 else
                 {  
                     <select>
                     </select>
+                    @Html.HiddenFor(d => d.ID_LOCALIDAD)
+                    
                 }
             </td>
         </tr>
@@ -93,6 +94,7 @@
                     if (Model.ListaBarrios.Count > 0)
                     {
                     @Html.DropDownListFor(c => c.ID_BARRIO, new SelectList(Model.ListaBarrios, "ID_BARRIO", "N_BARRIO"), new { Id = "SelectBarrios" })
+                    
                     }
                     else
                     {
@@ -118,6 +120,7 @@
                     if (Model.ListaCalles.Count > 0)
                     {
                     @Html.DropDownListFor(c => c.ID_CALLE, new SelectList(Model.ListaCalles, "ID_CALLE", "N_CALLE"), new { Id = "SelectCalles" })
+                    
                     }
                     else
                     {
@@ -134,7 +137,7 @@
             </td>
         </tr>
     </table>
-    @Html.ValidationSummary(true, "Account creation was unsuccessful. Please correct the errors and try again.")
+    
     <p>
         <input type="submit" value="Guargar" />
         @Html.ActionLink("Cancelar", "Index", "Instituciones")
