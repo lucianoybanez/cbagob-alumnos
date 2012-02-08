@@ -155,7 +155,7 @@
           <Property Name="INST_ID" Type="number" Nullable="false" Precision="10" />
           <Property Name="INST_NOMBRE" Type="varchar2" MaxLength="50" />
           <Property Name="INS_PROPIA" Type="char" Nullable="false" MaxLength="1" />
-          <Property Name="ID_PROVINCIA" Type="number" Nullable="false" Precision="10" />
+          <Property Name="ID_PROVINCIA" Type="varchar2" Nullable="false" MaxLength="2" />
           <Property Name="ID_LOCALIDAD" Type="number" Nullable="false" Precision="10" />
           <Property Name="ID_CALLE" Type="number" Nullable="false" Precision="10" />
           <Property Name="INST_NRO" Type="number" Nullable="false" Precision="10" />
@@ -165,6 +165,8 @@
           <Property Name="FEC_MODIF" Type="date" Nullable="false" />
           <Property Name="USUARIO_MODIF" Type="varchar2" Nullable="false" MaxLength="50" />
           <Property Name="ESTADO" Type="char" MaxLength="1" />
+          <Property Name="ID_DEPARTAMENTO" Type="number" Nullable="false" Precision="10" />
+          <Property Name="ID_BARRIO" Type="number" Nullable="false" Precision="10" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'CURSOS.V_BARRIOS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -505,7 +507,7 @@
           <Property Type="Int32" Name="INST_ID" Nullable="false" />
           <Property Type="String" Name="INST_NOMBRE" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="INS_PROPIA" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Type="Int32" Name="ID_PROVINCIA" Nullable="false" />
+          <Property Type="String" Name="ID_PROVINCIA" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="ID_LOCALIDAD" Nullable="false" />
           <Property Type="Int32" Name="ID_CALLE" Nullable="false" />
           <Property Type="Int32" Name="INST_NRO" Nullable="false" />
@@ -514,8 +516,10 @@
           <Property Type="String" Name="USUARIO_ALTA" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="DateTime" Name="FEC_MODIF" Nullable="false" />
           <Property Type="String" Name="USUARIO_MODIF" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="T_CURSOS" Relationship="Model_Cursos.FK_CURSOS_INSTITUCIONES" FromRole="T_INSTITUCIONES" ToRole="T_CURSOS" />
           <Property Type="String" Name="ESTADO" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="T_CURSOS" Relationship="Model_Cursos.FK_CURSOS_INSTITUCIONES" FromRole="T_INSTITUCIONES" ToRole="T_CURSOS" />
+          <Property Type="Int32" Name="ID_DEPARTAMENTO" Nullable="false" />
+          <Property Type="Int32" Name="ID_BARRIO" Nullable="false" />
         </EntityType>
         <Association Name="FK_CURSOS_INSTITUCIONES">
           <End Type="Model_Cursos.T_INSTITUCIONES" Role="T_INSTITUCIONES" Multiplicity="0..1" />
@@ -636,6 +640,8 @@
           <EntitySetMapping Name="T_INSTITUCIONES">
             <EntityTypeMapping TypeName="Model_Cursos.T_INSTITUCIONES">
               <MappingFragment StoreEntitySet="T_INSTITUCIONES">
+                <ScalarProperty Name="ID_BARRIO" ColumnName="ID_BARRIO" />
+                <ScalarProperty Name="ID_DEPARTAMENTO" ColumnName="ID_DEPARTAMENTO" />
                 <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
                 <ScalarProperty Name="USUARIO_MODIF" ColumnName="USUARIO_MODIF" />
                 <ScalarProperty Name="FEC_MODIF" ColumnName="FEC_MODIF" />
@@ -695,10 +701,10 @@
           <ConnectorPoint PointX="4.875" PointY="3.7593489583333328" />
           <ConnectorPoint PointX="5.625" PointY="3.7593489583333328" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.T_INSTITUCIONES" Width="1.5" PointX="0.75" PointY="2" Height="3.5186979166666652" />
+        <EntityTypeShape EntityType="Model_Cursos.T_INSTITUCIONES" Width="1.5" PointX="0.75" PointY="1.875" Height="3.7109993489583317" />
         <AssociationConnector Association="Model_Cursos.FK_CURSOS_INSTITUCIONES" >
-          <ConnectorPoint PointX="2.25" PointY="3.7593489583333328" />
-          <ConnectorPoint PointX="3" PointY="3.7593489583333328" />
+          <ConnectorPoint PointX="2.25" PointY="3.7304996744791659" />
+          <ConnectorPoint PointX="3" PointY="3.7304996744791659" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

@@ -40,23 +40,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Calles.cs" />
+    <Compile Include="Entities\Departamentos.cs" />
+    <Compile Include="Entities\Interfaces\IBarrios.cs" />
     <Compile Include="Entities\Institucion.cs" />
+    <Compile Include="Entities\Interfaces\Barrios.cs" />
+    <Compile Include="Entities\Interfaces\ICalles.cs" />
     <Compile Include="Entities\Interfaces\IComunDatos.cs" />
+    <Compile Include="Entities\Interfaces\IDepartamentos.cs" />
     <Compile Include="Entities\Interfaces\IDireccion.cs" />
     <Compile Include="Entities\Interfaces\IFactura.cs" />
     <Compile Include="Entities\Interfaces\IGrupo.cs" />
     <Compile Include="Entities\Interfaces\IInstitucion.cs" />
+    <Compile Include="Entities\Interfaces\ILocalidades.cs" />
     <Compile Include="Entities\Interfaces\IPersona.cs" />
+    <Compile Include="Entities\Interfaces\IProvincias.cs" />
     <Compile Include="Entities\Interfaces\IRol.cs" />
     <Compile Include="Entities\Interfaces\ISupervisor.cs" />
     <Compile Include="Entities\Interfaces\ITelefono.cs" />
     <Compile Include="Entities\Interfaces\IUsuario.cs" />
+    <Compile Include="Entities\Localidades.cs" />
     <Compile Include="Entities\Persona.cs" />
+    <Compile Include="Entities\Provincias.cs" />
     <Compile Include="Entities\Rol.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IBarriosRepositorio.cs" />
+    <Compile Include="Repositories\ICallesRepositorio.cs" />
+    <Compile Include="Repositories\IDepartamentosRepositorio.cs" />
     <Compile Include="Repositories\IInstitucionRepositorio.cs" />
+    <Compile Include="Repositories\ILocalidadesRepositorio.cs" />
     <Compile Include="Repositories\IPersonaRepositorio.cs" />
+    <Compile Include="Repositories\IProvinciasRepositorio.cs" />
     <Compile Include="Repositories\IUsuarioRepositorio.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

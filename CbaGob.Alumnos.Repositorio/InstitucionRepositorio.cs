@@ -40,7 +40,9 @@ namespace CbaGob.Alumnos.Repositorio
                                                INST_NRO = e.INST_NRO,
                                                INST_TELEFONO = e.INST_TELEFONO,
                                                UsuarioAlta = e.USUARIO_ALTA,
-                                               UsuarioModificacion = e.USUARIO_MODIF
+                                               UsuarioModificacion = e.USUARIO_MODIF,
+                                               ID_DEPARTAMENTO = e.ID_DEPARTAMENTO,
+                                               ID_BARRIO = e.ID_BARRIO
                                            }).ToList().Cast<IInstitucion>().ToList
                     ();
 
