@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CbaGob.Alumnos.Modelo.Entities;
+using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Servicio.Servicios;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
@@ -25,7 +27,6 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Index", InstitucionServicio.GetIndex());
         }
 
-
         public ActionResult Modificar(Int32 INST_ID)
         {
             return View("Index", InstitucionServicio.GetIndex());
@@ -43,23 +44,35 @@ namespace CbaGob.Alumnos.Web.Controllers
             IProvinciasServicio mProvinciasServicio = new ProvinciasServicio();
 
             model.ListaProvincias = mProvinciasServicio.GetTodas();
-            
+
             return View(model);
         }
 
         [HttpPost]
         public ActionResult Agregar_Institucion(InstitucionVista model)
         {
-            if (ModelState.IsValid)
-            {
 
-                IProvinciasServicio mProvinciasServicio = new ProvinciasServicio();
+            IInstitucion mInstitucion = new Institucion();
 
-                model.ListaProvincias = mProvinciasServicio.GetTodas();
+            mInstitucion.INS_PROPIA = (model.INS_PROPIA == true ? "1" : "0");
+            mInstitucion.INST_NOMBRE = model.INST_NOMBRE;
+            mInstitucion.INST_NRO = model.INST_NRO;
+            mInstitucion.INST_TELEFONO = model.INST_TELEFONO;
+            mInstitucion.ID_PROVINCIA = model.ID_PROVINCIA;
+            mInstitucion.ID_BARRIO = model.ID_BARRIO;
+            mInstitucion.ID_CALLE = model.ID_CALLE;
+            mInstitucion.ID_LOCALIDAD = model.ID_LOCALIDAD;
+            mInstitucion.ID_DEPARTAMENTO = model.ID_DEPARTAMENTO;
 
-               
-            }
-            return View("Agregar", model);
+            IInstitucionServicio mInstitucionServicio = new InstitucionServicio();
+
+            bool mReturn = mInstitucionServicio.AgregarInstitucion(mInstitucion);
+            
+            IProvinciasServicio mProvinciasServicio = new ProvinciasServicio();
+
+            model.ListaProvincias = mProvinciasServicio.GetTodas();
+
+            return View("Index", InstitucionServicio.GetIndex());
         }
 
         [HttpPost]
@@ -75,7 +88,6 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             return View("Agregar", pmodel);
         }
-
 
         [HttpPost]
         public ActionResult CargarLocalidad(InstitucionVista pmodel)
@@ -114,7 +126,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             IBarriosServicio mBarriosServicio = new BarriosServicio();
 
-            pmodel.ListaBarrios = mBarriosServicio.GetTodasbyLocalidad(pmodel.ID_LOCALIDAD);
+            pmodel.ListaBarrios = mBarriosServicio.GetTodasbyLocalidad(Convert.ToInt32(pmodel.ID_LOCALIDAD));
 
             return View("Agregar", pmodel);
         }
@@ -137,16 +149,16 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             IBarriosServicio mBarriosServicio = new BarriosServicio();
 
-            pmodel.ListaBarrios = mBarriosServicio.GetTodasbyLocalidad(pmodel.ID_LOCALIDAD);
+            pmodel.ListaBarrios = mBarriosServicio.GetTodasbyLocalidad(Convert.ToInt32(pmodel.ID_LOCALIDAD));
 
             ICallesServicio mCallesServicio = new CallesServicio();
 
-            pmodel.ListaCalles = mCallesServicio.GetTodasBYProDepLoca(pmodel.ID_PROVINCIA, pmodel.ID_DEPARTAMENTO, pmodel.ID_LOCALIDAD);
+            pmodel.ListaCalles = mCallesServicio.GetTodasBYProDepLoca(pmodel.ID_PROVINCIA, pmodel.ID_DEPARTAMENTO, Convert.ToInt32(pmodel.ID_LOCALIDAD));
 
             return View("Agregar", pmodel);
         }
 
-        
+
 
     }
 }
