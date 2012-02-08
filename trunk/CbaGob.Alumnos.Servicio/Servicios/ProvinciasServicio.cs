@@ -31,5 +31,18 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 throw;
             }
         }
+
+        public IProvincias GetUno(string IdProvincia)
+        {
+            try
+            {
+                return mProvinciasRepositorio.GetUno(IdProvincia);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
     }
 }

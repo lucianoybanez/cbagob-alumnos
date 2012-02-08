@@ -31,5 +31,18 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 throw;
             }
         }
+
+        public ILocalidades GetUno(int IdLocalidad)
+        {
+            try
+            {
+                return mLocalidadesRepositorio.GetUno(IdLocalidad);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
     }
 }

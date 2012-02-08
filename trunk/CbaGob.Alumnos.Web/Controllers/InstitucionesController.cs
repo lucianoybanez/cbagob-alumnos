@@ -29,7 +29,12 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         public ActionResult Modificar(Int32 INST_ID)
         {
-            return View("Index", InstitucionServicio.GetIndex());
+
+            IInstitucionServicio mInstitucionServicio = new InstitucionServicio();
+
+            IInstitucionVista model = mInstitucionServicio.GetUnaVista(INST_ID);
+
+            return View("Modificar", model);
         }
 
         public ActionResult Eliminar(Int32 INST_ID)
@@ -74,6 +79,33 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             return View("Index", InstitucionServicio.GetIndex());
         }
+
+        [HttpPost]
+        public ActionResult Modificar_Institucion(InstitucionVista model)
+        {
+
+            IInstitucionServicio mInstitucionServicio = new InstitucionServicio();
+
+            IInstitucion mInstitucion = new Institucion();
+
+            mInstitucion.INS_PROPIA = (model.INS_PROPIA == true ? "1" : "0");
+            mInstitucion.INST_NOMBRE = model.INST_NOMBRE;
+            mInstitucion.INST_NRO = model.INST_NRO;
+            mInstitucion.INST_TELEFONO = model.INST_TELEFONO;
+            mInstitucion.ID_PROVINCIA = model.ID_PROVINCIA;
+            mInstitucion.ID_BARRIO = model.ID_BARRIO;
+            mInstitucion.ID_CALLE = model.ID_CALLE;
+            mInstitucion.ID_LOCALIDAD = model.ID_LOCALIDAD;
+            mInstitucion.ID_DEPARTAMENTO = model.ID_DEPARTAMENTO;
+            mInstitucion.INST_ID = model.INST_ID;
+
+
+            bool ret = mInstitucionServicio.ModificarInstitucion(mInstitucion);
+
+            return View("Index", InstitucionServicio.GetIndex());
+        }
+
+        
 
         [HttpPost]
         public ActionResult CargarDepartamentos(InstitucionVista pmodel)

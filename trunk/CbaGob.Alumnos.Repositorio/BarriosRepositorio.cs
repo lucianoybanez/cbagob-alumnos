@@ -34,5 +34,22 @@ namespace CbaGob.Alumnos.Repositorio.Models
                 throw;
             }
         }
+
+        public IBarrios GetUno(int IdBarrio)
+        {
+            try
+            {
+                var mBarrio = (from c in mDB.V_BARRIOS
+                               where c.ID_BARRIO == IdBarrio
+                               select new Barrios {ID_BARRIO = c.ID_BARRIO, N_BARRIO = c.N_BARRIO}).SingleOrDefault();
+
+                return mBarrio;
+            }
+            catch (Exception ex)
+            {
+                
+                throw;
+            }
+        }
     }
 }

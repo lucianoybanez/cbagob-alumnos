@@ -17,5 +17,6 @@ namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
         string INST_TELEFONO { get; set; }
         int ID_DEPARTAMENTO { get; set; }
         int ID_BARRIO { get; set; }
+        string ESTADO { get; set; }
     }
 }

@@ -36,5 +36,22 @@ namespace CbaGob.Alumnos.Repositorio
                 throw;
             }
         }
+
+        public ICalles GetUno(int IdCalle)
+        {
+            try
+            {
+                var mCalles =
+                    (from c in mDb.V_CALLES
+                     where c.ID_CALLE == IdCalle
+                     select new Calles {ID_CALLE = c.ID_CALLE, N_CALLE = c.N_CALLE}).SingleOrDefault();
+                return mCalles;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

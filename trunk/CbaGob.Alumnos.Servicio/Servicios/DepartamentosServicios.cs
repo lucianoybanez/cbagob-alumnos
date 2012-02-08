@@ -30,5 +30,18 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 throw;
             }
         }
+
+        public IDepartamentos GetUno(int IdDepartamento)
+        {
+            try
+            {
+                return mDepartamentosRepostorio.GetUno(IdDepartamento);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
