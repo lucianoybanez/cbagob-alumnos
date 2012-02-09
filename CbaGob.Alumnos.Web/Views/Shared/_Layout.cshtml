@@ -28,7 +28,7 @@
                             <li>@Html.ActionLink("Instituciones", "Index", "Instituciones")</li>
                             <li><a href="">Gestionar Maestros</a></li>
                             <li><a href="">Gestionar Alumnos</a></li>
-                            <li><a href="">Gestionar Cursos</a></li>
+                             <li>@Html.ActionLink("Gestion Cursos", "Index", "Cursos")</li>
                              <li>@Html.ActionLink("Account", "LogOn", "Account")</li>
                         </ul>
                     </li>
@@ -54,28 +54,7 @@
             </div>
         </div>
     </div>
-    @* <div class="page">
-        <div id="header">
-            <div id="title">
-                <h1>My MVC Application</h1>
-            </div>
-            <div id="logindisplay">
-                @Html.Partial("_LogOnPartial")
-            </div>
-            <div id="menucontainer">
-                <ul id="menu">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                </ul>
-            </div>
-        </div>
-        <div id="main">
-            @RenderBody()
-        </div>
-        <div id="footer">
-
-        </div>
-    </div>*@
+   
     @Content.Script("jquery.unobtrusive-ajax.min.js", Url)
     @Content.Script("jquery.validate.min.js", Url)
     @Content.Script("jquery.validate.unobtrusive.min.js", Url)

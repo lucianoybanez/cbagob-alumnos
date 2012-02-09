@@ -29,20 +29,14 @@ namespace CbaGob.Alumnos.Repositorio
                                    select
                                        new Institucion
                                            {
-                                               INST_ID = e.INST_ID,
+                                               ID_INSTITUCION = e.ID_INSTITUCION,
                                                FechaAlta = e.FEC_ALTA,
                                                FechaModificacion = e.FEC_MODIF,
-                                               ID_CALLE = e.ID_CALLE,
-                                               ID_LOCALIDAD = e.ID_LOCALIDAD,
-                                               ID_PROVINCIA = e.ID_PROVINCIA,
+                                               ID_DOMICILIO = e.ID_DOMICILIO ?? 0,
                                                INS_PROPIA = (e.INS_PROPIA == "1" ? "SI" : "NO"),
-                                               INST_NOMBRE = e.INST_NOMBRE,
-                                               INST_NRO = e.INST_NRO,
-                                               INST_TELEFONO = e.INST_TELEFONO,
+                                               N_INSTITUCION = e.N_INSTITUCION,
                                                UsuarioAlta = e.USUARIO_ALTA,
                                                UsuarioModificacion = e.USUARIO_MODIF,
-                                               ID_DEPARTAMENTO = e.ID_DEPARTAMENTO,
-                                               ID_BARRIO = e.ID_BARRIO
                                            }).ToList().Cast<IInstitucion>().ToList
                     ();
 
@@ -60,23 +54,17 @@ namespace CbaGob.Alumnos.Repositorio
             try
             {
                 var mInstirucion = (from e in mDb.T_INSTITUCIONES
-                                    where e.INST_ID == INST_ID && e.ESTADO == "A"
+                                    where e.ID_INSTITUCION == INST_ID && e.ESTADO == "A"
                                     select new Institucion
                                                {
-                                                   INST_ID = e.INST_ID,
+                                                   ID_INSTITUCION = e.ID_INSTITUCION,
                                                    FechaAlta = e.FEC_ALTA,
                                                    FechaModificacion = e.FEC_MODIF,
-                                                   ID_CALLE = e.ID_CALLE,
-                                                   ID_LOCALIDAD = e.ID_LOCALIDAD,
-                                                   ID_PROVINCIA = e.ID_PROVINCIA,
+                                                   ID_DOMICILIO = e.ID_DOMICILIO ?? 0,
                                                    INS_PROPIA = (e.INS_PROPIA == "1" ? "SI" : "NO"),
-                                                   INST_NOMBRE = e.INST_NOMBRE,
-                                                   INST_NRO = e.INST_NRO,
-                                                   INST_TELEFONO = e.INST_TELEFONO,
+                                                   N_INSTITUCION = e.N_INSTITUCION,
                                                    UsuarioAlta = e.USUARIO_ALTA,
                                                    UsuarioModificacion = e.USUARIO_MODIF,
-                                                   ID_DEPARTAMENTO = e.ID_DEPARTAMENTO,
-                                                   ID_BARRIO = e.ID_BARRIO
                                                }).SingleOrDefault();
 
                 return mInstirucion;
@@ -97,15 +85,8 @@ namespace CbaGob.Alumnos.Repositorio
                                           {
                                               ESTADO = "A",
                                               FEC_ALTA = DateTime.Now,
-                                              INST_NOMBRE = pInstitucion.INST_NOMBRE,
-                                              INST_NRO = pInstitucion.INST_NRO,
-                                              INST_TELEFONO = pInstitucion.INST_TELEFONO,
+                                              N_INSTITUCION = pInstitucion.N_INSTITUCION,
                                               INS_PROPIA = pInstitucion.INS_PROPIA,
-                                              ID_PROVINCIA = pInstitucion.ID_PROVINCIA,
-                                              ID_BARRIO = pInstitucion.ID_BARRIO,
-                                              ID_CALLE = pInstitucion.ID_CALLE,
-                                              ID_DEPARTAMENTO = pInstitucion.ID_DEPARTAMENTO,
-                                              ID_LOCALIDAD = pInstitucion.ID_LOCALIDAD,
                                               USUARIO_ALTA= "Test",
                                               USUARIO_MODIF = "Test",
                                               FEC_MODIF = DateTime.Now
@@ -127,24 +108,18 @@ namespace CbaGob.Alumnos.Repositorio
         {
             try
             {
-                var IN = mDb.T_INSTITUCIONES.FirstOrDefault(c => c.INST_ID == pInstitucion.INST_ID);
+                var IN = mDb.T_INSTITUCIONES.FirstOrDefault(c => c.ID_INSTITUCION == pInstitucion.ID_INSTITUCION);
 
-                IN.INST_NOMBRE = pInstitucion.INST_NOMBRE;
+                IN.N_INSTITUCION = pInstitucion.N_INSTITUCION;
                 IN.FEC_MODIF = DateTime.Now;
-                IN.ID_BARRIO = pInstitucion.ID_BARRIO;
-                IN.ID_CALLE = pInstitucion.ID_CALLE;
-                IN.ID_DEPARTAMENTO = pInstitucion.ID_DEPARTAMENTO;
-                IN.ID_LOCALIDAD = pInstitucion.ID_LOCALIDAD;
-                IN.ID_PROVINCIA = pInstitucion.ID_PROVINCIA;
-                IN.INST_TELEFONO = pInstitucion.INST_TELEFONO;
-                IN.INST_NRO = pInstitucion.INST_NRO;
-
+                IN.ID_DOMICILIO = pInstitucion.ID_DOMICILIO;
+                IN.USUARIO_MODIF = "Test";
                 mDb.SaveChanges();
 
                 return true;
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 
                 throw;
@@ -155,7 +130,7 @@ namespace CbaGob.Alumnos.Repositorio
         {
             try
             {
-                var IN = mDb.T_INSTITUCIONES.FirstOrDefault(c => c.INST_ID == INST_ID);
+                var IN = mDb.T_INSTITUCIONES.FirstOrDefault(c => c.ID_INSTITUCION == INST_ID);
 
                 IN.ESTADO = "I";
 

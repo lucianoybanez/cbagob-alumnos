@@ -3,17 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    @ViewBag.Title</title>
+    <title>@ViewBag.Title</title>
     @Content.Css("login.css", Url)
     @RenderSection("Stylesheets", false)
-    @Content.Script("jquery.validate.js", Url)
-    @Content.Script("jquery-ui-1.8.11.min.js", Url)
+   @* @Content.Script("jquery.validate.js", Url)
+    @Content.Script("jquery-ui-1.8.11.min.js", Url)*@
 
 <script type="text/javascript">
 <!--
-    $().ready(function () {
-        $("#formulario").validate();
-    });
+//    $().ready(function () {
+//        $("#formulario").validate();
+//    });
 // -->
 </script>
 
@@ -27,7 +27,8 @@
     	<div id="Copy"> 
 			Copyright © - Terminos de Uso - Gobierno de Córdoba - Contáctenos        </div>  	
   </div>
-</div>  
+</div> 
+ 
 </body>  
 </html>
 
