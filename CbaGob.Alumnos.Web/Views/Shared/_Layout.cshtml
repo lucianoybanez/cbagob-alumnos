@@ -23,17 +23,10 @@
             <div id="nav">
                 <ul id="menu">
                     <li><a href="">Inicio</a></li>
-                    <li><a href="">Establecimiento Educativo</a>
-                        <ul>
-                            <li>@Html.ActionLink("Instituciones", "Index", "Instituciones")</li>
-                            <li><a href="">Gestionar Maestros</a></li>
-                            <li><a href="">Gestionar Alumnos</a></li>
-                             <li>@Html.ActionLink("Gestion Cursos", "Index", "Cursos")</li>
-                             <li>@Html.ActionLink("Account", "LogOn", "Account")</li>
-                        </ul>
-                    </li>
+                    <li><a href="">Establecimiento Educativo</a></li>
                 </ul>
             </div>
+
             <div id="usu">
                 <div id="icono_usu" style="width: 30px; height: 25px; float: left;">
                     <img src=@Content.ImageSite("47_.png", Url)  width="25" height="25" alt=""/></div>
@@ -44,6 +37,16 @@
                 <div id="iconoclose" style="width: 30px; height: 25px; float: left;">
                     <img src=@Content.ImageSite("49_.png", Url) width="25" height="25" alt=""/></div>
             </div>
+            <div id="submenu" style="float:left; position:absolute; left: 69px; top: 135px;">
+            <ul>
+                <li>@Html.ActionLink("Instituciones", "Index", "Instituciones")</li>
+                <li>@Html.ActionLink("Gestion Cursos", "Index", "Cursos")</li>
+                <li><a href="">Gestionar Maestros</a></li>
+                <li><a href="">Gestionar Alumnos</a></li>
+                
+                <li>@Html.ActionLink("Account", "LogOn", "Account")</li>
+             </ul>
+            </div><br /><br />
             <div id="main">
                 @RenderBody()
             </div>

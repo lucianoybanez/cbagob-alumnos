@@ -35,6 +35,24 @@ p {
 	width:1000px;
 	background-color:#fff;
 }
+#titulo {
+	width:960px;
+	height:30px;
+	padding:5px 5px 0 20px;
+}
+#ttxt{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	font-weight:bold;
+	width:250px;
+	float:left;
+	padding-top:5px;
+}
+#icononuevo{
+	width:30px;
+	height:25px;
+	float:right;
+}
 #nav{
 	width:994px;
 	height:26px;
@@ -77,3 +95,113 @@ p {
 	text-align:center;
 }
 
+#mytable{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	padding:0px;
+	margin:0px;
+}
+table {
+	border-collapse: collapse;
+	width: 900px;
+	margin: 24px;
+	font-size: 1.1em;
+}
+
+th {
+	background: #3e83c9;
+	color: #fff;
+	font-weight: bold;
+	padding: 2px 11px;
+	text-align: left;
+	border-right: 1px solid #fff;
+	line-height: 1.2;
+}
+
+td {
+	padding: 6px 11px;
+	border-bottom: 1px solid #95bce2;
+	vertical-align: top;
+}
+
+td * {
+	padding: 6px 11px;
+}
+
+tr.alt td {
+	background: #ecf6fc;
+}
+
+tr.over td, tr:hover td {
+	background: #bcd4ec;
+}
+/*pag*/
+ul{border:0; margin:0; padding:0;}
+
+#pagination-clean li{
+border:0; margin:0; padding:0;
+font-size:11px;
+list-style:none;
+}
+#pagination-clean li, #pagination-clean a{
+margin-right:2px;
+}
+#pagination-clean .previous-off,
+#pagination-clean .next-off {
+color:#888888;
+display:block;
+float:left;
+font-weight:bold;
+padding:3px 4px;
+}
+#pagination-clean .next a,
+#pagination-clean .previous a {
+font-weight:bold;
+}
+#pagination-clean .active{
+color:#000000;
+font-weight:bold;
+display:block;
+float:left;
+padding:4px 6px;
+}
+#pagination-clean a:link,
+#pagination-clean a:visited {
+color:#fff;
+display:block;
+float:left;
+padding:3px 6px;
+text-decoration:none;
+}
+#pagination-clean a:hover{
+text-decoration:none;
+}
+/**/
+a.Ntooltip {
+position: relative; /* es la posición normal */
+text-decoration: none !important; /* forzar sin subrayado */
+color:#0080C0 !important; /* forzar color del texto */
+font-weight:bold !important; /* forzar negritas */
+}
+
+a.Ntooltip:hover {
+z-index:999; /* va a estar por encima de todo */
+background-color:#000000; /* DEBE haber un color de fondo */
+}
+
+a.Ntooltip span {
+display: none; /* el elemento va a estar oculto */
+}
+
+a.Ntooltip:hover span {
+display: block; /* se fuerza a mostrar el bloque */
+position: absolute; /* se fuerza a que se ubique en un lugar de la pantalla */
+top:-30px; left:-1px; /* donde va a estar */
+width:auto; /* el ancho por defecto que va a tener */
+padding:2px; /* la separación entre el contenido y los bordes */
+background-color: #0080C0; /* el color de fondo por defecto */
+color: #FFFFFF; /* el color de los textos por defecto */
+font-family:Arial, Helvetica, sans-serif;
+font-size:11px;
+font-weight:bold;
+}
