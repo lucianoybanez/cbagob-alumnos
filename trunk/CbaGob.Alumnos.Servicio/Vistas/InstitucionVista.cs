@@ -12,17 +12,22 @@ namespace CbaGob.Alumnos.Servicio.Vistas
     public class InstitucionVista : IInstitucionVista
     {
         public int INST_ID { get; set; }
+
+        
         public string INST_NOMBRE { get; set; }
         public bool INS_PROPIA { get; set; }
         public string ID_PROVINCIA { get; set; }
         public int ID_LOCALIDAD { get; set; }
         public int ID_CALLE { get; set; }
 
-        [RegularExpression(@"^\d+$", ErrorMessage = "Ingrese un Valor valido")] 
+        [RegularExpression(@"^\d+$", ErrorMessage = "*")]
         public int INST_NRO { get; set; }
 
         public string INST_TELEFONO { get; set; }
+
+        
         public int ID_DEPARTAMENTO { get; set; }
+
         public int ID_BARRIO { get; set; }
         public IList<IInstitucion> ListaInstituciones { get; set; }
         public IList<IProvincias> ListaProvincias { get; set; }

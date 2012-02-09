@@ -130,6 +130,14 @@ namespace CbaGob.Alumnos.Repositorio
                 var IN = mDb.T_INSTITUCIONES.FirstOrDefault(c => c.INST_ID == pInstitucion.INST_ID);
 
                 IN.INST_NOMBRE = pInstitucion.INST_NOMBRE;
+                IN.FEC_MODIF = DateTime.Now;
+                IN.ID_BARRIO = pInstitucion.ID_BARRIO;
+                IN.ID_CALLE = pInstitucion.ID_CALLE;
+                IN.ID_DEPARTAMENTO = pInstitucion.ID_DEPARTAMENTO;
+                IN.ID_LOCALIDAD = pInstitucion.ID_LOCALIDAD;
+                IN.ID_PROVINCIA = pInstitucion.ID_PROVINCIA;
+                IN.INST_TELEFONO = pInstitucion.INST_TELEFONO;
+                IN.INST_NRO = pInstitucion.INST_NRO;
 
                 mDb.SaveChanges();
 

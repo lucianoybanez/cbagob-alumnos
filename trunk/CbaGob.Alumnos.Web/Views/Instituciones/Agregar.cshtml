@@ -57,11 +57,15 @@
                 @if (Model.ListaDepartamento != null)
                 {
                     @Html.DropDownListFor(c => c.ID_DEPARTAMENTO, new SelectList(Model.ListaDepartamento, "ID_DEPARTAMENTO", "N_DEPARTAMENTO"), new { Id = "SelectDepartamentos" })
+                    
                 }
                 else
                 {
                     <select>
-                    </select>                         
+                        <option id="0">SIN ASIGNAR</option>
+                    </select>
+                    
+                                             
                 }
             </td>
         </tr>
@@ -78,8 +82,9 @@
                 else
                 {  
                     <select>
+                        <option id="0">SIN ASIGNAR</option>
                     </select>
-                    @Html.HiddenFor(d => d.ID_LOCALIDAD)
+                   
                     
                 }
             </td>
@@ -99,6 +104,7 @@
                     else
                     {
                     <select>
+                        <option id="0">SIN ASIGNAR</option>
                     </select>
                     }
 
@@ -106,6 +112,7 @@
                 else
                 { 
                     <select>
+                        <option id="0">SIN ASIGNAR</option>
                     </select>
                 }
             </td>
@@ -125,6 +132,7 @@
                     else
                     {
                     <select>
+                        <option id="0">SIN ASIGNAR</option>
                     </select>
                     }
 
@@ -132,6 +140,7 @@
                 else
                 { 
                     <select>
+                        <option id="0">SIN ASIGNAR</option>
                     </select>
                 }
             </td>
