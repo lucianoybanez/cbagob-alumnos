@@ -1,15 +1,17 @@
-﻿@*@{
-    ViewBag.Title = "Home Page Test";
+﻿@{
+    //ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
 }
 
-<h2>@ViewBag.Message</h2>
-<p>
-    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-</p>
-@Html.ActionLink("Ir a Usuarios","Index","Usuario")*@
-@{
-    ViewBag.Title = "Login";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+<div id="contenido">
+    	    <form id="formulario">
+                <label>Nombre de USUARIO:</label>
+                    <input type="text" name="username" class="required">
+                <label>ContraseÑa:</label>
+                    <input type="password" name="password" class="required">
+                    @*<input type="button" class="submit" id="btnsubmit" value="Entrar">*@
+                    @Html.ActionLink("Ingresar", "Index", "Instituciones", new { @class = "btnIngresar" })
+                    @Html.ActionLink("Ingresar", "Index", "Instituciones")
+		    </form>
+         </div>
 
-@Html.ActionLink("Ingresar", "Index", "Instituciones")
