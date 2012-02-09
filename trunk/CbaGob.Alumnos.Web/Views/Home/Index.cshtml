@@ -2,16 +2,17 @@
     //ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_LayoutLogin.cshtml";
 }
-
 <div id="contenido">
-    	    <form id="formulario">
-                <label>Nombre de USUARIO:</label>
-                    <input type="text" name="username" class="required">
-                <label>ContraseÑa:</label>
-                    <input type="password" name="password" class="required">
-                    @*<input type="button" class="submit" id="btnsubmit" value="Entrar">*@
-                    @Html.ActionLink("Ingresar", "Index", "Instituciones", new { @class = "btnIngresar" })
-                    @Html.ActionLink("Ingresar", "Index", "Instituciones")
-		    </form>
-         </div>
-
+    <form id="formulario">
+    <label>
+        Nombre de USUARIO:</label>
+    <input type="text" name="username" class="required">
+    <label>
+        ContraseÑa:</label>
+    <input type="password" name="password" class="required">
+    @*<input type="button" class="submit" id="btnsubmit" value="Entrar">*@
+    @Html.ActionLink("Ingresar", "Index", "Instituciones", null, new { Class = "btnIngresar" })
+    
+    
+    </form>
+</div>

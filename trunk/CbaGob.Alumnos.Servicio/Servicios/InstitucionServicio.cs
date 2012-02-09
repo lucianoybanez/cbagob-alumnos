@@ -68,48 +68,12 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
                 mInstitucion = mInstitucionRepositorio.GetUna(INST_ID);
 
-                model.ID_BARRIO = mInstitucion.ID_BARRIO;
-                model.ID_CALLE = mInstitucion.ID_CALLE;
-                model.ID_DEPARTAMENTO = mInstitucion.ID_DEPARTAMENTO;
-                model.ID_LOCALIDAD = mInstitucion.ID_LOCALIDAD;
-                model.INS_PROPIA = (mInstitucion.INS_PROPIA == "SI" ? true : false);
-                model.INST_ID = mInstitucion.INST_ID;
-                model.INST_NOMBRE = mInstitucion.INST_NOMBRE;
-                model.INST_NRO = mInstitucion.INST_NRO;
-                model.INST_TELEFONO = mInstitucion.INST_TELEFONO;
-                model.ID_PROVINCIA = mInstitucion.ID_PROVINCIA;
-
-                IProvinciasServicio mProvinciasServicio = new ProvinciasServicio();
-
-                model.ListaProvincias = mProvinciasServicio.GetTodas();
-
-                model.PROVINCIA = mProvinciasServicio.GetUno(mInstitucion.ID_PROVINCIA).N_PROVINCIA;
                 
-                IDepartamentosServicios mDepartamentosServicios = new DepartamentosServicios();
-
-                model.ListaDepartamento = mDepartamentosServicios.GetTodasbyProvincia(mInstitucion.ID_PROVINCIA);
-
-                model.DEPARTAMENTO = mDepartamentosServicios.GetUno(mInstitucion.ID_DEPARTAMENTO).N_DEPARTAMENTO;
-
-                ILocalidadesServicio mLocalidadesServicio = new LocalidadesServicio();
-
-                model.ListaLocalidades = mLocalidadesServicio.getTodasByDepartamento(mInstitucion.ID_DEPARTAMENTO);
-
-                model.LOCALIDAD = mLocalidadesServicio.GetUno(mInstitucion.ID_LOCALIDAD).N_LOCALIDAD;
-
-                ICallesServicio mCallesServicio = new CallesServicio();
-
-                model.ListaCalles = mCallesServicio.GetTodasBYProDepLoca(mInstitucion.ID_PROVINCIA,
-                                                                         mInstitucion.ID_DEPARTAMENTO,
-                                                                         mInstitucion.ID_LOCALIDAD);
-
-                model.CALLE = mCallesServicio.GetUno(mInstitucion.ID_CALLE).N_CALLE;
-
-                IBarriosServicio mBarriosServicio = new BarriosServicio();
-
-                model.ListaBarrios = mBarriosServicio.GetTodasbyLocalidad(mInstitucion.ID_LOCALIDAD);
-
-                model.BARRIO = mBarriosServicio.GetUno(mInstitucion.ID_BARRIO).N_BARRIO;
+                model.INS_PROPIA = (mInstitucion.INS_PROPIA == "SI" ? true : false);
+                model.ID_INSTITUCION = mInstitucion.ID_INSTITUCION;
+                model.N_INSTITUCION = mInstitucion.N_INSTITUCION;
+                model.ID_DOMICILIO = mInstitucion.ID_DOMICILIO;
+               
 
                 return model;
 

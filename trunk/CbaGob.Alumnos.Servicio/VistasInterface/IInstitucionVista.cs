@@ -9,27 +9,15 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
 {
     public interface IInstitucionVista
     {
-        int INST_ID { get; set; }
-        string INST_NOMBRE { get; set; }
+        int ID_INSTITUCION { get; set; }
+        int ID_DOMICILIO { get; set; }
+        string N_INSTITUCION { get; set; }
         bool INS_PROPIA { get; set; }
-        string ID_PROVINCIA { get; set; }
-        int ID_LOCALIDAD { get; set; }
-        int ID_CALLE { get; set; }
-        int INST_NRO { get; set; }
-        string INST_TELEFONO { get; set; }
-        int ID_DEPARTAMENTO { get; set; }
-        int ID_BARRIO { get; set; }
         IList<IInstitucion> ListaInstituciones { get; set; }
-        IList<IProvincias> ListaProvincias { get; set; }
-        IList<ILocalidades> ListaLocalidades { get; set; }
-        IList<IDepartamentos> ListaDepartamento { get; set; }
-        IList<IBarrios> ListaBarrios { get; set; }
-        IList<ICalles> ListaCalles { get; set; }
-
-        string PROVINCIA { get; set; }
-        string BARRIO { get; set; }
-        string DEPARTAMENTO { get; set; }
-        string LOCALIDAD { get; set; }
-        string CALLE { get; set; }
+        string DOMICILIO { get; set; }
+        DateTime FechaAlta { get; set; }
+        string UsuarioAlta { get; set; }
+        DateTime FechaModificacion { get; set; }
+        string UsuarioModificacion { get; set; }
     }
 }

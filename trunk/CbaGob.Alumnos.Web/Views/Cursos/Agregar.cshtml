@@ -1,35 +1,29 @@
-﻿@model  InstitucionVista
+﻿@model CbaGob.Alumnos.Servicio.VistasInterface.ICursosVista
 @{
     ViewBag.Title = "Agregar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@using (Html.BeginForm("Agregar_Institucion", "Instituciones", FormMethod.Post, new { Id = "FormularioInstituciones" }))
+
+@using (Html.BeginForm("Agregar_Cursos", "Cursos", FormMethod.Post, new { Id = "FormularioCursos" }))
 { 
     <div id="titulo" style="width: 900px; height: 30px; padding: 10px 5px 0 5px; font-family: Arial, Helvetica, sans-serif;
         font-size: 16px; font-weight: bold;">
-        Agregar Instituto</div>
+        Agregar Curso</div>
     <table>
         <tr>
             <td>
                 Nombre
             </td>
             <td>
-                @Html.TextBoxFor(c => c.N_INSTITUCION, new { style = "width:200px;", MaxLength = "50" })
+                @Html.TextBoxFor(c => c.N_CURSO, new { style = "width:200px;", MaxLength = "50", Class="asd" })
             </td>
         </tr>
-        <tr>
-            <td>
-                Propia
-            </td>
-            <td>
-                @Html.CheckBoxFor(c => c.INS_PROPIA)
-            </td>
-        </tr>
+      
     </table>
     
     <p>
         <input type="submit" value="Guargar" />
-        @Html.ActionLink("Cancelar", "Index", "Instituciones")
+        @Html.ActionLink("Cancelar", "Index", "Cursos")
     </p>
 }
 <script type="text/javascript">

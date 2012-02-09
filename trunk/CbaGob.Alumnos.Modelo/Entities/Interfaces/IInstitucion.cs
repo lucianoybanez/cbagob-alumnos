@@ -7,16 +7,9 @@ namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
 {
     public interface IInstitucion : IComunDatos
     {
-        int INST_ID { get; set; }
-        string INST_NOMBRE { get; set; }
+        int ID_INSTITUCION { get; set; }
+        int ID_DOMICILIO { get; set; }
+        string N_INSTITUCION { get; set; }
         string INS_PROPIA { get; set; }
-        string ID_PROVINCIA { get; set; }
-        int ID_LOCALIDAD { get; set; }
-        int ID_CALLE { get; set; }
-        int INST_NRO { get; set; }
-        string INST_TELEFONO { get; set; }
-        int ID_DEPARTAMENTO { get; set; }
-        int ID_BARRIO { get; set; }
-        string ESTADO { get; set; }
     }
 }

@@ -14,7 +14,7 @@
                 Nombre
             </td>
             <td>
-               @Html.TextBoxFor(c => c.INST_NOMBRE, new { style = "width:200px;", MaxLength = "50" })
+                @Html.TextBoxFor(c => c.N_INSTITUCION, new { style = "width:200px;", MaxLength = "50" })
             </td>
         </tr>
         <tr>
@@ -25,119 +25,8 @@
                 @Html.CheckBoxFor(c => c.INS_PROPIA)
             </td>
         </tr>
-        <tr>
-            <td>
-                Numero
-            </td>
-            <td>
-                 @Html.TextBoxFor(c => c.INST_NRO, new { style = "width:100px;", MaxLength = "10" })
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Telefono
-            </td>
-            <td>
-                 @Html.TextBoxFor(c => c.INST_TELEFONO, new { style = "width:200px;", MaxLength = "50" })
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Provincias
-            </td>
-            <td>
-                @Html.DropDownListFor(c => c.ID_PROVINCIA, new SelectList(Model.ListaProvincias, "ID_PROVINCIA", "N_PROVINCIA"), new { Id = "SelectProvincias" })
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Departamento
-            </td>
-            <td>
-                @if (Model.ListaDepartamento != null)
-                {
-                    @Html.DropDownListFor(c => c.ID_DEPARTAMENTO, new SelectList(Model.ListaDepartamento, "ID_DEPARTAMENTO", "N_DEPARTAMENTO"), new { Id = "SelectDepartamentos" })
-                }
-                else
-                {
-                    <select>
-                    </select>                         
-                }
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Localidad
-            </td>
-            <td>
-                @if (Model.ListaLocalidades != null)
-                {
-                    @Html.DropDownListFor(c => c.ID_LOCALIDAD, new SelectList(Model.ListaLocalidades, "ID_LOCALIDAD", "N_LOCALIDAD"), new { Id = "SelectLocalidades" })
-                    
-                }
-                else
-                {  
-                    <select>
-                    </select>
-                    @Html.HiddenFor(d => d.ID_LOCALIDAD)
-                    
-                }
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Barrio
-            </td>
-            <td>
-                @if (Model.ListaBarrios != null)
-                {
-                    if (Model.ListaBarrios.Count > 0)
-                    {
-                    @Html.DropDownListFor(c => c.ID_BARRIO, new SelectList(Model.ListaBarrios, "ID_BARRIO", "N_BARRIO"), new { Id = "SelectBarrios" })
-                    
-                    }
-                    else
-                    {
-                    <select>
-                    </select>
-                    }
-
-                }
-                else
-                { 
-                    <select>
-                    </select>
-                }
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Calle
-            </td>
-            <td>
-                @if (Model.ListaCalles != null)
-                {
-                    if (Model.ListaCalles.Count > 0)
-                    {
-                    @Html.DropDownListFor(c => c.ID_CALLE, new SelectList(Model.ListaCalles, "ID_CALLE", "N_CALLE"), new { Id = "SelectCalles" })
-                    
-                    }
-                    else
-                    {
-                    <select>
-                    </select>
-                    }
-
-                }
-                else
-                { 
-                    <select>
-                    </select>
-                }
-            </td>
-        </tr>
     </table>
-     @Html.HiddenFor(d => d.INST_ID)
+    @Html.HiddenFor(d => d.ID_INSTITUCION)
     <p>
         <input type="submit" value="Guargar" />
         @Html.ActionLink("Cancelar", "Index", "Instituciones")
@@ -146,37 +35,8 @@
 <script type="text/javascript">
     $(document).ready(function () {
 
-        $('#SelectProvincias').change(function () {
-            var f = $("#FormularioInstituciones");
-            f.attr({ action: '/Instituciones/CargarDepartamentos' });
-            $("#FormularioInstituciones").submit()
-
-            //            var action = f.attr("action");
-            //            var serializedForm = f.serialize();
-            //            $.post(action, serializedForm,
-            //            function () { $("#FormularioInstituciones").submit(); });
-        });
-
-        $('#SelectDepartamentos').change(function () {
-            var f = $("#FormularioInstituciones");
-            f.attr({ action: '/Instituciones/CargarLocalidad' });
-            $("#FormularioInstituciones").submit()
-        });
-
-        $('#SelectLocalidades').change(function () {
-            var f = $("#FormularioInstituciones");
-            f.attr({ action: '/Instituciones/CargarBarrios' });
-            $("#FormularioInstituciones").submit()
-        });
-
-        $('#SelectBarrios').change(function () {
-            var f = $("#FormularioInstituciones");
-            f.attr({ action: '/Instituciones/CargarCalles' });
-            $("#FormularioInstituciones").submit()
-        });
 
 
 
     });
 </script>
-

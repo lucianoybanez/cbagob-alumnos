@@ -54,7 +54,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ComunicacionesDB.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\DepartamentosRepositorio.cs" />
+    <Compile Include="CursosRepositorio.cs" />
+    <Compile Include="DepartamentosRepositorio.cs" />
     <Compile Include="Models\DomicilioDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

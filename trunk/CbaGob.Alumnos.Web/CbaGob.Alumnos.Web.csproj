@@ -72,6 +72,7 @@
     <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CursosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstitucionesController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -241,6 +242,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Instituciones\Ver.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cursos\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cursos\_CursosLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cursos\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cursos\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cursos\Modificar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />

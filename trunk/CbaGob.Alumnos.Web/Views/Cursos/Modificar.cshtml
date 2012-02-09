@@ -1,0 +1,32 @@
+﻿@model CbaGob.Alumnos.Servicio.VistasInterface.ICursosVista
+@{
+    ViewBag.Title = "Modificar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("Modificar_Cursos", "Cursos", FormMethod.Post, new { Id = "FormularioCursos" }))
+{ 
+    <div id="titulo" style="width: 900px; height: 30px; padding: 10px 5px 0 5px; font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px; font-weight: bold;">
+        Modificar Curso</div>
+    <table>
+        <tr>
+            <td>
+                Nombre
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.N_CURSO, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
+            </td>
+        </tr>
+    </table>
+    @Html.HiddenFor(d => d.ID_CURSO)
+    <p>
+        <input type="submit" value="Guargar" />
+        @Html.ActionLink("Cancelar", "Index", "Cursos")
+    </p>
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+    });
+</script>
