@@ -1,6 +1,121 @@
-﻿@{
-    ViewBag.Title = "Eliminar";
+﻿@model  InstitucionVista
+@{
+    ViewBag.Title = "Eliminar Instirucion";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@using (Html.BeginForm("Eliminar_Institucion", "Instituciones", FormMethod.Post, new { Id = "FormularioInstituciones" }))
+{ 
+    <div id="titulo" style="width: 900px; height: 30px; padding: 10px 5px 0 5px; font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px; font-weight: bold;">
+        Eliminar Instituto</div>
+    <table>
+        <tr>
+            <td>
+                Nombre
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.INST_NOMBRE, new { disabled = "disabled", style = "width:125px;", MaxLength = "20" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Propia
+            </td>
+            <td>
+                @Html.CheckBoxFor(c => c.INS_PROPIA, new { disabled = "disabled" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Numero
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.INST_NRO, new { disabled = "disabled", style = "width:100px;", MaxLength = "10" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Telefono
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.INST_TELEFONO, new { disabled = "disabled", style = "width:200px;", MaxLength = "50" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Provincias
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.PROVINCIA, new { disabled = "disabled", style = "width:200px;" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Departamento
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.DEPARTAMENTO, new { disabled = "disabled", style = "width:250px;" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Localidad
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.LOCALIDAD, new { disabled = "disabled", style = "width:250px;" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Barrio
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.BARRIO, new { disabled = "disabled", style = "width:250px;" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Calle
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.CALLE, new { disabled = "disabled", style = "width:250px;" })
+            </td>
+        </tr>
+    </table>
+    @Html.HiddenFor(d => d.INST_ID)
+    <p>
+        <input id="Eliminar"  type="button" value="Eliminar" />
+        @Html.ActionLink("Cancelar", "Index", "Instituciones")
+    </p>
+}
+<div id="dialog" title="Eliminar">
+    <p>
+        Esta Seguro de Eliminar?</p>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
 
-<h2>Eliminar</h2>
+        $('#dialog').dialog({
+            autoOpen: false,
+            width: 350,
+            modal: true,
+            resizable: false,
+            buttons: {
+                "Ok": function () {
+                    var f = $("#FormularioInstituciones");
+                    $("#FormularioInstituciones").submit()
+                    $(this).dialog("close");
+                },
+                "Cancel": function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+
+        $('#Eliminar').click('click', function () {
+            $('#dialog').dialog("open");
+        });
+
+
+});
+</script>
