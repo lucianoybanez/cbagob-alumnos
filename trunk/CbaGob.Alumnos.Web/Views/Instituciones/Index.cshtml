@@ -4,8 +4,22 @@
     ViewBag.Title = "Instituciones";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div id="titulo" style="width:900px; height:30px; padding:10px 5px 0 5px; font-family:Arial, Helvetica, sans-serif; font-size:16px; font-weight:bold;">Instituciones</div>
-
+@*<div id="titulo" style="width:900px; height:30px; padding:10px 5px 0 5px; font-family:Arial, Helvetica, sans-serif; font-size:16px; font-weight:bold;">Instituciones</div>*@
+ <div id="ttxt" style="padding:5px 10px 5px 10px;">Establecimiento Educativo</div>
+ <div id="icononuevo">
+   
+    @*@Html.ActionImage("Edit", new { id = MyId }, @Content.ImageSite("10_.png", Url), "Edit")*@
+    @*http://stackoverflow.com/questions/4896439/action-image-mvc3-razor*@
+    
+    <img src=@Content.ImageSite("10_.png", Url) alt="--" width="25" height="25" />
+ </div>
+      <div id="iconomodificar" style="width:30px; height:25px; float:right;">
+      <a class="Ntooltip" href="#">
+      <img src=@Content.ImageSite("8_.png", Url) alt="--" width="25" height="25" border="0" />
+      <span> NUEVO </span>
+      </a>
+      </div>
+      <br /><br />
 <div id="DivInstituciones">
     @Html.Partial("_InstitucionesLista", Model.ListaInstituciones)
 </div>
