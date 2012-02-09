@@ -39,8 +39,13 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         public ActionResult Eliminar(Int32 INST_ID)
         {
-            return View("Index", InstitucionServicio.GetIndex());
+            IInstitucionServicio mInstitucionServicio = new InstitucionServicio();
+
+            IInstitucionVista model = mInstitucionServicio.GetUnaVista(INST_ID);
+
+            return View("Eliminar", model);
         }
+
 
         public ActionResult Agregar()
         {
@@ -72,7 +77,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             IInstitucionServicio mInstitucionServicio = new InstitucionServicio();
 
             bool mReturn = mInstitucionServicio.AgregarInstitucion(mInstitucion);
-            
+
             IProvinciasServicio mProvinciasServicio = new ProvinciasServicio();
 
             model.ListaProvincias = mProvinciasServicio.GetTodas();
@@ -105,7 +110,18 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Index", InstitucionServicio.GetIndex());
         }
 
-        
+        [HttpPost]
+        public ActionResult Eliminar_Institucion(InstitucionVista model)
+        {
+
+            IInstitucionServicio mInstitucionServicio = new InstitucionServicio();
+
+            bool mReturn = mInstitucionServicio.EliminarInstitucion(model.INST_ID);
+
+
+            return View("Index", InstitucionServicio.GetIndex());
+        }
+
 
         [HttpPost]
         public ActionResult CargarDepartamentos(InstitucionVista pmodel)

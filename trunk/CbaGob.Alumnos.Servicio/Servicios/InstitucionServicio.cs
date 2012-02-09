@@ -83,13 +83,19 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
                 model.ListaProvincias = mProvinciasServicio.GetTodas();
 
+                model.PROVINCIA = mProvinciasServicio.GetUno(mInstitucion.ID_PROVINCIA).N_PROVINCIA;
+                
                 IDepartamentosServicios mDepartamentosServicios = new DepartamentosServicios();
 
                 model.ListaDepartamento = mDepartamentosServicios.GetTodasbyProvincia(mInstitucion.ID_PROVINCIA);
 
+                model.DEPARTAMENTO = mDepartamentosServicios.GetUno(mInstitucion.ID_DEPARTAMENTO).N_DEPARTAMENTO;
+
                 ILocalidadesServicio mLocalidadesServicio = new LocalidadesServicio();
 
                 model.ListaLocalidades = mLocalidadesServicio.getTodasByDepartamento(mInstitucion.ID_DEPARTAMENTO);
+
+                model.LOCALIDAD = mLocalidadesServicio.GetUno(mInstitucion.ID_LOCALIDAD).N_LOCALIDAD;
 
                 ICallesServicio mCallesServicio = new CallesServicio();
 
@@ -97,9 +103,13 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                                                                          mInstitucion.ID_DEPARTAMENTO,
                                                                          mInstitucion.ID_LOCALIDAD);
 
+                model.CALLE = mCallesServicio.GetUno(mInstitucion.ID_CALLE).N_CALLE;
+
                 IBarriosServicio mBarriosServicio = new BarriosServicio();
 
                 model.ListaBarrios = mBarriosServicio.GetTodasbyLocalidad(mInstitucion.ID_LOCALIDAD);
+
+                model.BARRIO = mBarriosServicio.GetUno(mInstitucion.ID_BARRIO).N_BARRIO;
 
                 return model;
 
@@ -140,7 +150,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         public bool EliminarInstitucion(int INST_ID)
         {
-            throw new NotImplementedException();
+            return mInstitucionRepositorio.EliminarInstitucion(INST_ID);
         }
     }
 }

@@ -14,7 +14,7 @@
                 Nombre
             </td>
             <td>
-                @Html.TextBoxFor(c => c.INST_NOMBRE)
+               @Html.TextBoxFor(c => c.INST_NOMBRE, new { style = "width:200px;", MaxLength = "50" })
             </td>
         </tr>
         <tr>
@@ -30,7 +30,7 @@
                 Numero
             </td>
             <td>
-                @Html.TextBoxFor(c => c.INST_NRO)
+                 @Html.TextBoxFor(c => c.INST_NRO, new { style = "width:100px;", MaxLength = "10" })
             </td>
         </tr>
         <tr>
@@ -38,7 +38,7 @@
                 Telefono
             </td>
             <td>
-                @Html.TextBoxFor(c => c.INST_TELEFONO)
+                 @Html.TextBoxFor(c => c.INST_TELEFONO, new { style = "width:200px;", MaxLength = "50" })
             </td>
         </tr>
         <tr>
