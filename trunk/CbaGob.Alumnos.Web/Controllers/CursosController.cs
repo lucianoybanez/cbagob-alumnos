@@ -16,7 +16,6 @@ namespace CbaGob.Alumnos.Web.Controllers
     {
         private ICursosServicios mCursosServicios;
 
-
         public CursosController()
         {
             mCursosServicios = new CursosServicios();
