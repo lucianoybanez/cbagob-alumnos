@@ -72,6 +72,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
                 mCursosVista.ID_CURSO = mCursos.ID_CURSO;
                 mCursosVista.N_CURSO = mCursos.N_CURSO;
+                mCursosVista.NRORESOLUCION = mCursos.NRORESOLUCION;
 
                 return mCursosVista;
             }

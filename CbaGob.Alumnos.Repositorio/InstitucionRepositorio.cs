@@ -35,8 +35,8 @@ namespace CbaGob.Alumnos.Repositorio
                                                ID_DOMICILIO = e.ID_DOMICILIO ?? 0,
                                                INS_PROPIA = (e.INS_PROPIA == "1" ? "SI" : "NO"),
                                                N_INSTITUCION = e.N_INSTITUCION,
-                                               UsuarioAlta = e.USUARIO_ALTA,
-                                               UsuarioModificacion = e.USUARIO_MODIF,
+                                               UsuarioAlta = e.USR_ALTA,
+                                               UsuarioModificacion = e.USR_MODIF,
                                            }).ToList().Cast<IInstitucion>().ToList
                     ();
 
@@ -63,8 +63,8 @@ namespace CbaGob.Alumnos.Repositorio
                                                    ID_DOMICILIO = e.ID_DOMICILIO ?? 0,
                                                    INS_PROPIA = (e.INS_PROPIA == "1" ? "SI" : "NO"),
                                                    N_INSTITUCION = e.N_INSTITUCION,
-                                                   UsuarioAlta = e.USUARIO_ALTA,
-                                                   UsuarioModificacion = e.USUARIO_MODIF,
+                                                   UsuarioAlta = e.USR_ALTA,
+                                                   UsuarioModificacion = e.USR_MODIF,
                                                }).SingleOrDefault();
 
                 return mInstirucion;
@@ -87,8 +87,8 @@ namespace CbaGob.Alumnos.Repositorio
                                               FEC_ALTA = DateTime.Now,
                                               N_INSTITUCION = pInstitucion.N_INSTITUCION,
                                               INS_PROPIA = pInstitucion.INS_PROPIA,
-                                              USUARIO_ALTA= "Test",
-                                              USUARIO_MODIF = "Test",
+                                              USR_ALTA= "Test",
+                                              USR_MODIF = "Test",
                                               FEC_MODIF = DateTime.Now
                                           };
 
@@ -113,7 +113,7 @@ namespace CbaGob.Alumnos.Repositorio
                 IN.N_INSTITUCION = pInstitucion.N_INSTITUCION;
                 IN.FEC_MODIF = DateTime.Now;
                 IN.ID_DOMICILIO = pInstitucion.ID_DOMICILIO;
-                IN.USUARIO_MODIF = "Test";
+                IN.USR_MODIF = "Test";
                 mDb.SaveChanges();
 
                 return true;
