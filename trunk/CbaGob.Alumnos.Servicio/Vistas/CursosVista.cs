@@ -12,6 +12,7 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public int ID_CURSO { get; set; }
         public string N_CURSO { get; set; }
         public string ESTADO { get; set; }
+        public int NRORESOLUCION { get; set; }
         public IList<ICursos> ListaCursos { get; set; }
     }
 }

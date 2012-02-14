@@ -11,6 +11,7 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         int ID_CURSO { get; set; }
         string N_CURSO { get; set; }
         string ESTADO { get; set; }
+        int NRORESOLUCION { get; set; }
         IList<ICursos> ListaCursos { get; set; } 
     }
 }

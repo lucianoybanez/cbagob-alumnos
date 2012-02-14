@@ -17,6 +17,14 @@
                 @Html.TextBoxFor(c => c.N_CURSO, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
             </td>
         </tr>
+         <tr>
+            <td>
+                Nro Resolucion
+            </td>
+            <td>
+               @Html.TextBoxFor(c => c.NRORESOLUCION, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
+            </td>
+        </tr>
     </table>
     @Html.HiddenFor(d => d.ID_CURSO)
     <p>

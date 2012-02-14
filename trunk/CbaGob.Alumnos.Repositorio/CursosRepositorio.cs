@@ -22,7 +22,7 @@ namespace CbaGob.Alumnos.Repositorio.Models
         {
             try
             {
-                var ListaCursos = (from c in mDb.T_CURSO
+                var ListaCursos = (from c in mDb.T_CURSOS
                                    join cc in mDb.T_CONDICIONES_CURSO on c.ID_CURSO equals cc.ID_CURSO
                                    where cc.ID_INSTITUCION == IdInstitucion
                                    select
@@ -31,6 +31,7 @@ namespace CbaGob.Alumnos.Repositorio.Models
                                                ID_CURSO = c.ID_CURSO,
                                                N_CURSO = c.N_CURSO,
                                                ESTADO = c.ESTADO,
+                                               NRORESOLUCION = c.NRORESOLUCION ?? 0
 
                                            }).ToList().Cast<ICursos>().ToList();
                 return ListaCursos;
@@ -46,7 +47,7 @@ namespace CbaGob.Alumnos.Repositorio.Models
         {
             try
             {
-                var ListaCursos = (from c in mDb.T_CURSO
+                var ListaCursos = (from c in mDb.T_CURSOS
                                    where c.ESTADO == "A"
                                    select
                                        new Cursos
@@ -54,7 +55,7 @@ namespace CbaGob.Alumnos.Repositorio.Models
                                            ID_CURSO = c.ID_CURSO,
                                            N_CURSO = c.N_CURSO,
                                            ESTADO = c.ESTADO,
-
+                                           NRORESOLUCION = c.NRORESOLUCION ?? 0
                                        }).ToList().Cast<ICursos>().ToList();
                 return ListaCursos;
             }
@@ -69,7 +70,7 @@ namespace CbaGob.Alumnos.Repositorio.Models
         {
             try
             {
-                var mCursos = (from c in mDb.T_CURSO
+                var mCursos = (from c in mDb.T_CURSOS
                                where c.ID_CURSO == IdCurso
                                select
                                    new Cursos
@@ -77,6 +78,7 @@ namespace CbaGob.Alumnos.Repositorio.Models
                                        ID_CURSO = c.ID_CURSO,
                                        N_CURSO = c.N_CURSO,
                                        ESTADO = c.ESTADO,
+                                       NRORESOLUCION = c.NRORESOLUCION ?? 0
 
                                    }).SingleOrDefault();
                 return mCursos;
@@ -92,13 +94,18 @@ namespace CbaGob.Alumnos.Repositorio.Models
         {
             try
             {
-                T_CURSO mT_CURSOS = new T_CURSO()
+                T_CURSOS mT_CURSOS = new T_CURSOS()
                                          {
                                              N_CURSO = pCursos.N_CURSO,
-                                             ESTADO = "A"
+                                             ESTADO = "A",
+                                             NRORESOLUCION = pCursos.NRORESOLUCION,
+                                             FEC_ALTA = System.DateTime.Now,
+                                             USR_ALTA = "Test",
+                                             FEC_MODIF = System .DateTime.Now,
+                                             USR_MODIF = "Test"
                                          };
 
-                mDb.AddToT_CURSO(mT_CURSOS);
+                mDb.AddToT_CURSOS(mT_CURSOS);
                 mDb.SaveChanges();
                 return true;
             }
@@ -113,10 +120,11 @@ namespace CbaGob.Alumnos.Repositorio.Models
         {
             try
             {
-                var cur = mDb.T_CURSO.FirstOrDefault(c => c.ID_CURSO == pCursos.ID_CURSO);
+                var cur = mDb.T_CURSOS.FirstOrDefault(c => c.ID_CURSO == pCursos.ID_CURSO);
                 cur.N_CURSO = pCursos.N_CURSO;
-               
-
+                cur.NRORESOLUCION = pCursos.NRORESOLUCION;
+                cur.FEC_MODIF = System.DateTime.Now;
+                cur.USR_MODIF = "Test";
                 mDb.SaveChanges();
                 return true;
 
@@ -132,10 +140,10 @@ namespace CbaGob.Alumnos.Repositorio.Models
         {
             try
             {
-                var cur = mDb.T_CURSO.FirstOrDefault(c => c.ID_CURSO == IdCurso);
-
+                var cur = mDb.T_CURSOS.FirstOrDefault(c => c.ID_CURSO == IdCurso);
                 cur.ESTADO = "I";
-
+                cur.FEC_MODIF = System.DateTime.Now;
+                cur.USR_MODIF = "Test";
                 mDb.SaveChanges();
                 return true;
             }

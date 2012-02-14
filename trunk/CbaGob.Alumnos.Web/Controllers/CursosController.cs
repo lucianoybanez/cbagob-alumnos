@@ -58,6 +58,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             ICursos mCursos = new Cursos();
 
             mCursos.N_CURSO = model.N_CURSO;
+            mCursos.NRORESOLUCION = model.NRORESOLUCION; 
 
             bool mret = mCursosServicios.Agregar(mCursos);
 
@@ -73,6 +74,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             mCursos.N_CURSO = model.N_CURSO;
             mCursos.ID_CURSO = model.ID_CURSO;
+            mCursos.NRORESOLUCION = model.NRORESOLUCION;
 
             bool mret = mCursosServicios.Modificar(mCursos);
 

@@ -120,6 +120,10 @@
                     </th>
                      <th height="30">
                         <div align="center">
+                            NRO RESOLUCION</div>
+                    </th>
+                     <th height="30">
+                        <div align="center">
                         </div>
                     </th>
                 </tr>
@@ -130,6 +134,9 @@
                     <tr>
                         <td align="left">
                             @item.N_CURSO
+                        </td> 
+                         <td align="left">
+                            @item.NRORESOLUCION
                         </td> 
                          <td>
                             @Html.ActionLink("Modificar", "Modificar", "Cursos", new { id_curso = item.ID_CURSO }, null)

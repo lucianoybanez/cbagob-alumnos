@@ -49,32 +49,12 @@
     <Compile Include="InstitucionRepositorio.cs" />
     <Compile Include="LocalidadesRepositorio.cs" />
     <Compile Include="BarriosRepositorio.cs" />
-    <Compile Include="Models\ComunicacionesDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ComunicacionesDB.edmx</DependentUpon>
-    </Compile>
     <Compile Include="CursosRepositorio.cs" />
     <Compile Include="DepartamentosRepositorio.cs" />
-    <Compile Include="Models\DomicilioDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DomicilioDB.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\CursosDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CursosDB.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PersonaDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PersonaDB.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PersonaJuridicaDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PersonaJuridicaDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="PersonaRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -91,22 +71,6 @@
     <None Include="App.Config">
       <SubType>Designer</SubType>
     </None>
-    <EntityDeploy Include="Models\DomicilioDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DomicilioDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <EntityDeploy Include="Models\ComunicacionesDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ComunicacionesDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <EntityDeploy Include="Models\PersonaDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PersonaDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <EntityDeploy Include="Models\PersonaJuridicaDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PersonaJuridicaDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <EntityDeploy Include="Models\CursosDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CursosDB.Designer.cs</LastGenOutput>
