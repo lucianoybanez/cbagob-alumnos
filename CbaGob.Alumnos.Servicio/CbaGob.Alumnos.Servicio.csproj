@@ -43,8 +43,10 @@
   <ItemGroup>
     <Compile Include="Comun\CookieData.cs" />
     <Compile Include="Comun\ICookieData.cs" />
+    <Compile Include="Servicios\CondicionesCursoServicio.cs" />
     <Compile Include="ServiciosInterface\IBarriosServicio.cs" />
     <Compile Include="ServiciosInterface\ICallesServicio.cs" />
+    <Compile Include="ServiciosInterface\ICondicionesCursoServicio.cs" />
     <Compile Include="ServiciosInterface\ICursosServicios.cs" />
     <Compile Include="ServiciosInterface\IDepartamentosServicios.cs" />
     <Compile Include="ServiciosInterface\IInstitucionServicio.cs" />
@@ -58,7 +60,7 @@
     <Compile Include="Servicios\InstitucionServicio.cs" />
     <Compile Include="Servicios\LocalidadesServicio.cs" />
     <Compile Include="Servicios\PersonaServicio.cs" />
-    <Compile Include="Servicios\BaseService.cs" />
+    <Compile Include="Servicios\BaseServicio.cs" />
     <Compile Include="Comun\Errores.cs" />
     <Compile Include="Comun\IErrores.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,12 +71,18 @@
     <Compile Include="Servicios\ProvinciasServicio.cs" />
     <Compile Include="Servicios\UsuarioServicio.cs" />
     <Compile Include="Servicios\HomeServicio.cs" />
+    <Compile Include="Vistas\CondicionCursoVista.cs" />
+    <Compile Include="VistasInterface\ICondicionCursoVista.cs" />
+    <Compile Include="Vistas\CondicionesCursoVista.cs" />
+    <Compile Include="VistasInterface\ICondicionesCursoVista.cs" />
     <Compile Include="VistasInterface\ICursosVista.cs" />
     <Compile Include="VistasInterface\IHomeVista.cs" />
     <Compile Include="VistasInterface\IInstitucionVista.cs" />
     <Compile Include="VistasInterface\IUsuarioVista.cs" />
+    <Compile Include="VistasInterface\Shared\IComboBox.cs" />
     <Compile Include="Vistas\CursosVista.cs" />
     <Compile Include="Vistas\InstitucionVista.cs" />
+    <Compile Include="Vistas\Shared\ComboBox.cs" />
     <Compile Include="Vistas\UsuarioVista.cs" />
     <Compile Include="Vistas\HomeVista.cs" />
   </ItemGroup>

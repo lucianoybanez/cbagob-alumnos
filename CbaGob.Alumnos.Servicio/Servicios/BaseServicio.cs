@@ -3,7 +3,7 @@ using CbaGob.Alumnos.Servicio.Comun;
 
 namespace CbaGob.Alumnos.Servicio.Servicios
 {
-    public class BaseService
+    public class BaseServicio
     {
         private IList<IErrores> _errors = new List<IErrores>();
 

@@ -26,7 +26,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         {
             try
             {
-                return mInstitucionRepositorio.GetTodas();
+                return mInstitucionRepositorio.GetInstituciones();
             }
             catch (Exception ex)
             {
@@ -41,7 +41,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
                 InstitucionVista mInstitucionVista = new InstitucionVista();
 
-                mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetTodas();
+                mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones();
 
                 return mInstitucionVista;
             }
@@ -53,12 +53,12 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         }
 
-        public IInstitucion GetUna(int INST_ID)
+        public IInstitucion GetUna(int IdInstitucion)
         {
             throw new NotImplementedException();
         }
 
-        public IInstitucionVista GetUnaVista(int INST_ID)
+        public IInstitucionVista GetUnaVista(int IdInstitucion)
         {
             try
             {
@@ -66,7 +66,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
                 IInstitucion mInstitucion;
 
-                mInstitucion = mInstitucionRepositorio.GetUna(INST_ID);
+                mInstitucion = mInstitucionRepositorio.GetInstitucion(IdInstitucion);
 
                 
                 model.INS_PROPIA = (mInstitucion.INS_PROPIA == "SI" ? true : false);
@@ -112,9 +112,9 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
         }
 
-        public bool EliminarInstitucion(int INST_ID)
+        public bool EliminarInstitucion(int IdInstitucion)
         {
-            return mInstitucionRepositorio.EliminarInstitucion(INST_ID);
+            return mInstitucionRepositorio.EliminarInstitucion(IdInstitucion);
         }
     }
 }
