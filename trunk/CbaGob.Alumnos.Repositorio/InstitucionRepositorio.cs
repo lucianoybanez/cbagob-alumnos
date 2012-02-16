@@ -20,7 +20,7 @@ namespace CbaGob.Alumnos.Repositorio
             mDb = new CursosDB();
         }
 
-        public IList<IInstitucion> GetTodas()
+        public IList<IInstitucion> GetInstituciones()
         {
             try
             {
@@ -44,17 +44,17 @@ namespace CbaGob.Alumnos.Repositorio
             }
             catch (Exception ex)
             {
-                
+
                 throw;
             }
         }
 
-        public IInstitucion GetUna(int INST_ID)
+        public IInstitucion GetInstitucion(int IdInstitucion)
         {
             try
             {
                 var mInstirucion = (from e in mDb.T_INSTITUCIONES
-                                    where e.ID_INSTITUCION == INST_ID && e.ESTADO == "A"
+                                    where e.ID_INSTITUCION == IdInstitucion && e.ESTADO == "A"
                                     select new Institucion
                                                {
                                                    ID_INSTITUCION = e.ID_INSTITUCION,
@@ -72,10 +72,12 @@ namespace CbaGob.Alumnos.Repositorio
             }
             catch (Exception ex)
             {
-                
+
                 throw;
             }
         }
+
+        #region CRUD
 
         public bool AgregarInstitucion(IInstitucion pInstitucion)
         {
@@ -87,7 +89,7 @@ namespace CbaGob.Alumnos.Repositorio
                                               FEC_ALTA = DateTime.Now,
                                               N_INSTITUCION = pInstitucion.N_INSTITUCION,
                                               INS_PROPIA = pInstitucion.INS_PROPIA,
-                                              USR_ALTA= "Test",
+                                              USR_ALTA = "Test",
                                               USR_MODIF = "Test",
                                               FEC_MODIF = DateTime.Now
                                           };
@@ -99,7 +101,7 @@ namespace CbaGob.Alumnos.Repositorio
             }
             catch (Exception ex)
             {
-                
+
                 throw;
             }
         }
@@ -121,16 +123,16 @@ namespace CbaGob.Alumnos.Repositorio
             }
             catch (Exception ex)
             {
-                
+
                 throw;
             }
         }
 
-        public bool EliminarInstitucion(int INST_ID)
+        public bool EliminarInstitucion(int IdInstitucion)
         {
             try
             {
-                var IN = mDb.T_INSTITUCIONES.FirstOrDefault(c => c.ID_INSTITUCION == INST_ID);
+                var IN = mDb.T_INSTITUCIONES.FirstOrDefault(c => c.ID_INSTITUCION == IdInstitucion);
 
                 IN.ESTADO = "I";
 
@@ -140,9 +142,11 @@ namespace CbaGob.Alumnos.Repositorio
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
+
+        #endregion
     }
 }

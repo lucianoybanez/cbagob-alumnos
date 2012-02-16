@@ -18,12 +18,12 @@ namespace CbaGob.Alumnos.Repositorio
             mDb = new CursosDB();
         }
 
-        public IList<ILocalidades> getTodasByDepartamento(int Id_Departamento)
+        public IList<ILocalidades> getTodasByDepartamento(int IdDepartamento)
         {
             try
             {
                 var ListLocalidades = (from c in mDb.V_LOCALIDAES
-                                       where c.ID_DEPARTAMENTO == Id_Departamento
+                                       where c.ID_DEPARTAMENTO == IdDepartamento
                                        select
                                            new Localidades {ID_LOCALIDAD = c.ID_LOCALIDAD, N_LOCALIDAD = c.N_LOCALIDAD})
                     .ToList().Cast<ILocalidades>().ToList();

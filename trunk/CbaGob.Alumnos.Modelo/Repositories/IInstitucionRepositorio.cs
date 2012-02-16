@@ -8,10 +8,10 @@ namespace CbaGob.Alumnos.Modelo.Repositories
 {
     public interface IInstitucionRepositorio
     {
-        IList<IInstitucion> GetTodas();
-        IInstitucion GetUna(Int32 INST_ID);
+        IList<IInstitucion> GetInstituciones();
+        IInstitucion GetInstitucion(Int32 IdInstitucion);
         bool AgregarInstitucion(IInstitucion pInstitucion);
         bool ModificarInstitucion(IInstitucion pInstitucion);
-        bool EliminarInstitucion(Int32 INST_ID);
+        bool EliminarInstitucion(Int32 IdInstitucion);
     } 
 }

@@ -12,10 +12,10 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
     {
         IList<IInstitucion> GetTodas();
         InstitucionVista GetIndex();
-        IInstitucion GetUna(Int32 INST_ID);
-        IInstitucionVista GetUnaVista(Int32 INST_ID);
+        IInstitucion GetUna(Int32 IdInstitucion);
+        IInstitucionVista GetUnaVista(Int32 IdInstitucion);
         bool AgregarInstitucion(IInstitucion pInstitucion);
         bool ModificarInstitucion(IInstitucion pInstitucion);
-        bool EliminarInstitucion(Int32 INST_ID);
+        bool EliminarInstitucion(Int32 IdInstitucion);
     }
 }

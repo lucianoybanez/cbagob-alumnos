@@ -9,10 +9,11 @@ using CbaGob.Alumnos.Servicio.Servicios;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
 using CbaGob.Alumnos.Servicio.VistasInterface;
+using JLY.Hotel.Web.Controllers;
 
 namespace CbaGob.Alumnos.Web.Controllers
 {
-    public class InstitucionesController : Controller
+    public class InstitucionesController : BaseController
     {
         private IInstitucionServicio InstitucionServicio;
 
@@ -51,7 +52,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             InstitucionVista model = new InstitucionVista();
 
-          
+
 
             return View(model);
         }
@@ -64,12 +65,12 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             mInstitucion.INS_PROPIA = (model.INS_PROPIA == true ? "1" : "0");
             mInstitucion.N_INSTITUCION = model.N_INSTITUCION;
-           
+
             IInstitucionServicio mInstitucionServicio = new InstitucionServicio();
 
             bool mReturn = mInstitucionServicio.AgregarInstitucion(mInstitucion);
 
-           
+
             return View("Index", InstitucionServicio.GetIndex());
         }
 
@@ -104,10 +105,9 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Index", InstitucionServicio.GetIndex());
         }
 
-
-       
-
-
-
+        public ActionResult ListarCondicionCurso(int INST_ID)
+        {
+            return null;
+        }
     }
 }

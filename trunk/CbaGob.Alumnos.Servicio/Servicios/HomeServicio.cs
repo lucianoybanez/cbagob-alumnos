@@ -8,7 +8,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public class HomeServicio : BaseService, IHomeServicio
+    public class HomeServicio : BaseServicio, IHomeServicio
     {
         private IUsuarioRepositorio _usuarioRepositorio;
 

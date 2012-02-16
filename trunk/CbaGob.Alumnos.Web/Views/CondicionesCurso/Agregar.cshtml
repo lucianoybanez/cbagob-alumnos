@@ -1,0 +1,120 @@
+﻿@model CondicionCursoVista
+@{
+    ViewBag.Title = "Agregar";
+}
+@using (Html.BeginForm("Agregar_Institucion", "Instituciones", FormMethod.Post, new { Id = "FormularioInstituciones" }))
+{ 
+    <div id="titulo" style="width: 900px; height: 30px; padding: 10px 5px 0 5px; font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px; font-weight: bold;">
+        Agregar Condicion de Curso</div>
+    <table>
+        <tr>
+            <td>
+                Nombre de la Institucion
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.NombeInstitucion, new { style = "width:200px;", MaxLength = "50" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Curso
+            </td>
+            <td>
+                @Html.EditorFor(c => c.Curso)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Estado del Curso
+            </td>
+            <td>
+                @Html.EditorFor(c => c.EstadoCurso)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Modalidad
+            </td>
+            <td>
+                @Html.EditorFor(c => c.Modalidad)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Nivel
+            </td>
+            <td>
+                @Html.EditorFor(c => c.Nivel)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Cantidad de Clases
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.CantidadClases, new { style = "width:50px;", MaxLength = "3" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Cantidad de Examenes
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.CantidadExamenes, new { style = "width:50px;", MaxLength = "3" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Carga Horaria
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.CargaHoraria, new { style = "width:50px;", MaxLength = "3" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Cupo
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.Cupo, new { style = "width:50px;", MaxLength = "3" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Presentismo
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.Presentismo, new { style = "width:50px;", MaxLength = "3" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Presupuesto
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.Presupuesto, new { style = "width:50px;", MaxLength = "3" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Programa
+            </td>
+            <td>
+                @Html.EditorFor(c => c.Programa)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Promedio Requerido
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.PromedioRequerido, new { style = "width:50px;", MaxLength = "3" })
+            </td>
+        </tr>
+    </table>
+    
+    <p>
+        <input type="submit" value="Guargar" />
+    </p>
+}

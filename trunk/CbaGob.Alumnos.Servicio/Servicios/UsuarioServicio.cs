@@ -10,7 +10,7 @@ using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.Servicios
 {
-    public class UsuarioServicio : BaseService, IUsuarioServicio
+    public class UsuarioServicio : BaseServicio, IUsuarioServicio
     {
         private IUsuarioRepositorio UsuarioRepositorio;
 

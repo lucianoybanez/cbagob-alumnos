@@ -19,11 +19,11 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             mLocalidadesRepositorio = new LocalidadesRepositorio();
         }
 
-        public IList<ILocalidades> getTodasByDepartamento(int Id_Departamento)
+        public IList<ILocalidades> getTodasByDepartamento(int IdDepartamento)
         {
             try
             {
-                return mLocalidadesRepositorio.getTodasByDepartamento(Id_Departamento);
+                return mLocalidadesRepositorio.getTodasByDepartamento(IdDepartamento);
             }
             catch (Exception ex)
             {

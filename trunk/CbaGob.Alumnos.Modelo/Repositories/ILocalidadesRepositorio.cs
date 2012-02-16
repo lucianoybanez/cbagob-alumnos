@@ -8,7 +8,7 @@ namespace CbaGob.Alumnos.Modelo.Repositories
 {
     public interface ILocalidadesRepositorio
     {
-        IList<ILocalidades> getTodasByDepartamento(int Id_departamento);
+        IList<ILocalidades> getTodasByDepartamento(int IdDepartamento);
         ILocalidades GetUno(int IdLocalidad);
     }
 }
