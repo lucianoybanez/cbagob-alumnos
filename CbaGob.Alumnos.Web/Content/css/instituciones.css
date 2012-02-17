@@ -36,23 +36,35 @@ p {
 	background-color:#fff;
 }
 #titulo {
-	width:960px;
-	height:30px;
-	padding:5px 5px 0 20px;
+width:975px;
+height:32px;
+background-color:#D9C75E;
+margin:5px 5px 8px;
+padding:5px 0 0 15px;
 }
-#ttxt{
-	font-family:Arial, Helvetica, sans-serif;
-	font-size:16px;
-	font-weight:bold;
-	width:250px;
-	float:left;
-	padding-top:5px;
+
+#ttxt {
+font-family:Arial, Helvetica, sans-serif;
+font-size:16px;
+font-weight:700;
+width:250px;
+float:left;
+padding-top:5px;
 }
-#icononuevo{
-	width:30px;
-	height:25px;
-	float:right;
+
+#icononuevo {
+width:30px;
+height:25px;
+float:right;
 }
+
+#iconobuscar {
+cursor:pointer;
+width:30px;
+height:25px;
+float:right;
+}
+
 #nav{
 	width:994px;
 	height:26px;
@@ -178,10 +190,14 @@ text-decoration:none;
 }
 /**/
 a.Ntooltip {
-position: relative; /* es la posición normal */
-text-decoration: none !important; /* forzar sin subrayado */
-color:#0080C0 !important; /* forzar color del texto */
-font-weight:bold !important; /* forzar negritas */
+position: relative; 
+text-decoration: none !important; 
+color:#0080C0 !important; 
+font-weight:bold !important; 
+width:25px;
+height:25px;
+float:right;
+background-image:url(../images/8_.png);
 }
 
 a.Ntooltip:hover {

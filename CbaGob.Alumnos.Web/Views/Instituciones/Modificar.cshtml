@@ -5,10 +5,11 @@
 }
 @using (Html.BeginForm("Modificar_Institucion", "Instituciones", FormMethod.Post, new { Id = "FormularioInstituciones" }))
 { 
-    <div id="titulo" style="width: 900px; height: 30px; padding: 10px 5px 0 5px; font-family: Arial, Helvetica, sans-serif;
-        font-size: 16px; font-weight: bold;">
-        Modificar Instituto</div>
-    <table>
+    <div id="titulo">
+        <div id="ttxt">Instituciones -- Modificar</div>  
+    </div>
+  
+    <table align="center">
         <tr>
             <td>
                 Nombre

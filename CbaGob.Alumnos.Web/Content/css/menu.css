@@ -41,3 +41,8 @@ li:hover a {
 li:hover li a:hover {
 	background: #95A9B1;
 }
+.activo{
+	background: #B2C8DA;
+	color: #000;
+	font-weight:bold;
+}
