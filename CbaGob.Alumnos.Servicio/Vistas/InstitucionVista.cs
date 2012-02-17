@@ -12,6 +12,11 @@ namespace CbaGob.Alumnos.Servicio.Vistas
 {
     public class InstitucionVista : IInstitucionVista
     {
+        public InstitucionVista()
+        {
+            domicilios = new Domicilios();
+        }
+
         public int ID_INSTITUCION { get; set; }
         public int ID_DOMICILIO { get; set; }
         public string N_INSTITUCION { get; set; }
@@ -22,5 +27,7 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public string UsuarioAlta { get; set; }
         public DateTime FechaModificacion { get; set; }
         public string UsuarioModificacion { get; set; }
+        public IList<IDomicilios> ListaDomicilios { get; set; }
+        public IDomicilios domicilios { get; set; }
     }
 }

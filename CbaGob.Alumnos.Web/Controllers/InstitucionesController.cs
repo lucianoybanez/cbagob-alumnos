@@ -16,11 +16,12 @@ namespace CbaGob.Alumnos.Web.Controllers
     public class InstitucionesController : BaseController
     {
         private IInstitucionServicio InstitucionServicio;
-
+        private IDomiciliosServicios domiciliosdervicios;
 
         public InstitucionesController()
         {
             InstitucionServicio = new InstitucionServicio();
+            domiciliosdervicios = new DomiciliosServicios();
         }
 
         public ActionResult Index()
@@ -35,6 +36,10 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             IInstitucionVista model = mInstitucionServicio.GetUnaVista(INST_ID);
 
+            model.ListaDomicilios = domiciliosdervicios.GetTodosDomicilios();
+
+            model.domicilios = domiciliosdervicios.GetUno(model.ID_DOMICILIO);
+
             return View("Modificar", model);
         }
 
@@ -44,6 +49,8 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             IInstitucionVista model = mInstitucionServicio.GetUnaVista(INST_ID);
 
+            model.domicilios = domiciliosdervicios.GetUno(model.ID_DOMICILIO);
+
             return View("Eliminar", model);
         }
 
@@ -52,7 +59,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             InstitucionVista model = new InstitucionVista();
 
-
+            model.ListaDomicilios = domiciliosdervicios.GetTodosDomicilios();
 
             return View(model);
         }
@@ -65,6 +72,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             mInstitucion.INS_PROPIA = (model.INS_PROPIA == true ? "1" : "0");
             mInstitucion.N_INSTITUCION = model.N_INSTITUCION;
+            mInstitucion.ID_DOMICILIO = model.ID_DOMICILIO;
 
             IInstitucionServicio mInstitucionServicio = new InstitucionServicio();
 
@@ -87,6 +95,8 @@ namespace CbaGob.Alumnos.Web.Controllers
             mInstitucion.N_INSTITUCION = model.N_INSTITUCION;
 
             mInstitucion.ID_INSTITUCION = model.ID_INSTITUCION;
+
+            mInstitucion.ID_DOMICILIO = model.ID_DOMICILIO;
 
             bool ret = mInstitucionServicio.ModificarInstitucion(mInstitucion);
 
