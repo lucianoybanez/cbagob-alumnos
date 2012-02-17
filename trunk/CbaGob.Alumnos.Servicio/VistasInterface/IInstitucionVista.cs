@@ -19,5 +19,7 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         string UsuarioAlta { get; set; }
         DateTime FechaModificacion { get; set; }
         string UsuarioModificacion { get; set; }
+        IList<IDomicilios> ListaDomicilios { get; set; }
+        IDomicilios domicilios { get; set; }
     }
 }
