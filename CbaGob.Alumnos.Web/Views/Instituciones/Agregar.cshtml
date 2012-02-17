@@ -40,7 +40,7 @@
         <div id="ttxt">
             Instituciones -- Nuevo</div>
     </div>
-    <table id ="myIntituciones" align="center" width="880px">
+    <table id ="myIntituciones" align="center" width="630px">
         <tr>
             <td>
                 Nombre
@@ -62,7 +62,7 @@
     
     
     @Html.Partial("_Domicilios", Model.ListaDomicilios)
-    <table id="mybusqueda"  align="center" width="880px">
+    <table id="mybusqueda"  align="center" width="630px">
         <tr>
             <td>
                 Provincia
@@ -110,10 +110,16 @@
   
     
     @Html.HiddenFor(d => d.ID_DOMICILIO)
-    <p>
-        <input type="submit" value="Guargar" class="btnIngresar" />
+    <table id ="myIntituciones" align="center" width="630px">
+        <tr>
+            <td>
+                <input type="submit" value="Guargar" class="btnIngresar" />&nbsp;&nbsp;
         @Html.ActionLink("Cancelar", "Index", "Instituciones", null, new { Class = "btnIngresar" })
-    </p>
+            </td>
+            
+        </tr>
+    </table>
+   
 }
 <script type="text/javascript">
     $(document).ready(function () {
