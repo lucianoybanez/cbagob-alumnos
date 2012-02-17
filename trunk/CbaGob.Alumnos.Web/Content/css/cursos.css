@@ -33,3 +33,9 @@ tr.alt td {
 tr.over td, tr:hover td {
 	background: #bcd4ec;
 }
+.linkagregar{
+   text-decoration: none;
+   font-size: 12px;
+   font-family : arial, sans-serif;
+   font-weight : bold;
+}
