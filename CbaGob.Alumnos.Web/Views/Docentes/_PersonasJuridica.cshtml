@@ -4,13 +4,43 @@
         window.document.getElementById('Id_PersonaJuridica').value = IdPersJur;
         window.document.getElementById('Cuit').value = Cuit;
         window.document.getElementById('Razonsocial').value = RaSo;
-      
+
     }
 </script>
 <table>
     <tr>
         <td>
-            lista
+            <tr>
+                <td>
+                    <fieldset>
+                        <legend>Busqueda</legend>
+                        <table>
+                            <tr>
+                                <td>
+                                    CUIT
+                                </td>
+                                <td>
+                                    <input type="text" />
+                                </td>
+                                <td>
+                                    RAZON SOCIAL
+                                </td>
+                                <td>
+                                    <input type="text" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                    <input type="button" value="Buscar" />
+                                    <input type="button" value="Agregar Persona Juridica" />
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </td>
+            </tr>
         </td>
     </tr>
     <tr>
@@ -29,9 +59,9 @@
                                     <div align="center">
                                         RAZON SOCIAL</div>
                                 </th>
-                                 <th height="30">
+                                <th height="30">
                                     <div align="center">
-                                        </div>
+                                    </div>
                                 </th>
                             </tr>
                         </thead>
@@ -45,8 +75,8 @@
                                     <td align="center">
                                         @item.Razon_Social
                                     </td>
-                                     <td align="center">
-                                       <img onclick="PerJur(@item.Id_PersonaJur,'@item.Cuit', '@item.Razon_Social');"  src=@Content.ImageSite("seleccionar.jpg", Url) width="25" height="25"  />
+                                    <td align="center">
+                                        <img onclick="PerJur(@item.Id_PersonaJur,'@item.Cuit', '@item.Razon_Social');"  src=@Content.ImageSite("seleccionar.jpg", Url) width="25" height="25"  />
                                     </td>
                                 </tr>
                             }
