@@ -94,17 +94,64 @@ namespace CbaGob.Alumnos.Repositorio
 
         public bool Agregar(IAlumnos alumno)
         {
-            throw new NotImplementedException();
+            try
+            {
+                T_ALUMNOS T_Alumnos = new T_ALUMNOS()
+                                          {
+                                              ESTADO = "A",
+                                              FEC_ALTA = DateTime.Now,
+                                              USR_ALTA = "Test",
+                                              FEC_MODIF = DateTime.Now,
+                                              USR_MODIF = "Test",
+                                              ID_PERSONA = alumno.Id_Persona
+                                          };
+
+
+                mDb.AddToT_ALUMNOS(T_Alumnos);
+                mDb.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool Modificar(IAlumnos alumno)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var alu = mDb.T_ALUMNOS.FirstOrDefault(c => c.ID_ALUMNO == alumno.Id_Alumno);
+                alu.ID_PERSONA = alumno.Id_Persona;
+                alu.FEC_MODIF = System.DateTime.Now;
+                alu.USR_MODIF = "Test";
+                mDb.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool Eliminar(int id_alumno)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var alu = mDb.T_ALUMNOS.FirstOrDefault(c => c.ID_ALUMNO == id_alumno);
+                alu.ESTADO = "I";
+                alu.FEC_MODIF = System.DateTime.Now;
+                alu.USR_MODIF = "Test";
+                mDb.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

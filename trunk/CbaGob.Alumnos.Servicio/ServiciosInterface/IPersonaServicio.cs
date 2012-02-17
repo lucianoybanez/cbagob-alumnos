@@ -13,5 +13,6 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
         IList<IPersona> GetTodas();
         IList<IPersona> GetTodasByNombre(string nombre);
         IList<IPersona> GetPersonasDni(int dni);
+        IPersona GetUno(int id_persona);
     }
 }

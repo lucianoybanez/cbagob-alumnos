@@ -1,13 +1,13 @@
 ﻿@model AlumnosVista
 @{
-    ViewBag.Title = "Agregar";
+    ViewBag.Title = "Eliminar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@using (Html.BeginForm("Agregar_Alumno", "Alumnos", FormMethod.Post, new { Id = "FormularioAlumnos" }))
+@using (Html.BeginForm("Eliminar_Alumno", "Alumnos", FormMethod.Post, new { Id = "FormularioAlumnos" }))
 { 
     <div id="titulo" style="width: 900px; height: 30px; padding: 10px 5px 0 5px; font-family: Arial, Helvetica, sans-serif;
         font-size: 16px; font-weight: bold;">
-        Agregar Alumno</div>
+        Eliminar Alumno</div>
     
     @Html.Partial("_Personas", Model.ListaPersona)
    
@@ -71,14 +71,40 @@
     </table>
     
     <p>
-        <input type="submit" value="Guargar" />
+        <input id="Eliminar"  type="button" value="Eliminar" />
         @Html.ActionLink("Cancelar", "Index", "Alumnos")
     </p>
     @Html.HiddenFor(d => d.Id_Persona)
+    @Html.HiddenFor(d => d.Id_Alumno)
 }
+
+<div id="dialog" title="Eliminar">
+    <p>
+        Esta Seguro de Eliminar?</p>
+</div>
 <script type="text/javascript">
     $(document).ready(function () {
 
+        $('#dialog').dialog({
+            autoOpen: false,
+            width: 350,
+            modal: true,
+            resizable: false,
+            buttons: {
+                "Ok": function () {
+                    var f = $("#FormularioAlumnos");
+                    $("#FormularioAlumnos").submit()
+                    $(this).dialog("close");
+                },
+                "Cancel": function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
 
+        $('#Eliminar').click('click', function () {
+            $('#dialog').dialog("open");
+        });
     });
 </script>
+
