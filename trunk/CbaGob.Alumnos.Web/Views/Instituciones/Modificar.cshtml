@@ -1,16 +1,46 @@
 ﻿@model  InstitucionVista
 @{
-    ViewBag.Title = "Modificar Institucion";
+    ViewBag.Title = "SGC -- Gobierno de Córdoba --  Institucion Modificar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div id="contenido">
+    <div id="nav">
+        <ul id="menu">
+            <li><a href="">Inicio</a></li>
+            <li><a href="">Establecimiento Educativo</a></li>
+        </ul>
+    </div>
+            <div id="usu">
+                <div id="icono_usu" style="width: 30px; height: 25px; float: left;">
+                    <img src=@Content.ImageSite("47_.png", Url)  width="25" height="25" alt=""/></div>
+                <div id="nomusu" style="width: 200px; height: 25px; float: left; padding: 10px 5px 5px 5px;">
+                    <strong>Usuario: ADNINISTRADOR</strong></div>
+                <div id="iconoinicio" style="width: 30px; height: 25px; float: left;">
+                    <img src=@Content.ImageSite("120_.png", Url)  width="25" height="25" alt=""/></div>
+                <div id="iconoclose" style="width: 30px; height: 25px; float: left;">
+                    <img src=@Content.ImageSite("49_.png", Url) width="25" height="25" alt=""/></div>
+            </div>
+            <div id="submenu" style="float: left; position: absolute; left: 69px; top: 135px;">
+                <ul>
+                    <li>@Html.ActionLink("Instituciones", "Index", "Instituciones", htmlAttributes: new { @class = "activo" })</li>
+                    <li>@Html.ActionLink("Gestion Cursos", "Index", "Cursos")</li>
+                    <li>@Html.ActionLink("Gestion Docentes", "Index", "Docentes")</li>
+                    <li>@Html.ActionLink("Gestion Alumnos", "Index", "Alumnos")</li>
+                    <li>@Html.ActionLink("Account", "LogOn", "Account")</li>
+                   
+                </ul>
+            </div>
+            <br />
+            <br />  
 @using (Html.BeginForm("Modificar_Institucion", "Instituciones", FormMethod.Post, new { Id = "FormularioInstituciones" }))
 { 
+    
     <div id="titulo">
         <div id="ttxt">
             Instituciones -- Modificar</div>
     </div>
   
-    <table align="center">
+    <table align="center" id="mytable" style="font-family:Arial, Helvetica, sans-serif; font-size:12px;">
         <tr>
             <td>
                 Nombre
@@ -30,7 +60,7 @@
     </table>
     
     @Html.Partial("_Domicilios", Model.ListaDomicilios)
-    <table>
+    <table align="center" class="#mybusqueda">
         <tr>
             <td>
                 Provincia
@@ -75,10 +105,16 @@
     
     @Html.HiddenFor(d => d.ID_DOMICILIO)
     @Html.HiddenFor(d => d.ID_INSTITUCION)
-    <p>
-        <input type="submit" value="Guargar" />
-        @Html.ActionLink("Cancelar", "Index", "Instituciones")
-    </p>
+ 
+    <table id ="myIntituciones" align="center" width="630px">
+        <tr>
+            <td>
+                <input type="submit" value="Guargar" class="btnIngresar" />&nbsp;&nbsp;
+        @Html.ActionLink("Cancelar", "Index", "Instituciones", null, new { Class = "btnIngresar" })
+            </td>
+            
+        </tr>
+    </table>
 }
 <script type="text/javascript">
     $(document).ready(function () {
