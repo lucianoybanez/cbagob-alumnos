@@ -38,7 +38,7 @@ background-image:url(images/Bg_encabezado.jpg);
 
 #contenido {
 width:1000px;
-height:900px;
+height:auto;
 background-color:#fff;
 padding:2px 0 10px;
 }
