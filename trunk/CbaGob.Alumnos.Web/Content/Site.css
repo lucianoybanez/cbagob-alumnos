@@ -1,4 +1,4 @@
-﻿* {
+﻿/** {
 margin:0;
 padding:0;
 }
@@ -74,6 +74,8 @@ background-image:url(images/Bg_pie.jpg);
 background-repeat:no-repeat;
 background-position:top;
 padding:10px;
+top:450px;
+vertical-align:bottom;
 }
 
 #Copy {
@@ -134,6 +136,6 @@ li:hover a {
 li:hover li a:hover {
 	background: #95A9B1;
 }
-/*---*/
+---*/
 
 /*---*/
