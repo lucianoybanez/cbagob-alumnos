@@ -106,6 +106,7 @@
     <Content Include="Content\blitzer\images\ui-icons_cc0000_256x240.png" />
     <Content Include="Content\blitzer\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\blitzer\jquery-ui-1.8.16.custom.css" />
+    <Content Include="Content\css\cursos.css" />
     <Content Include="Content\css\instituciones.css" />
     <Content Include="Content\css\login.css" />
     <Content Include="Content\css\menu.css" />

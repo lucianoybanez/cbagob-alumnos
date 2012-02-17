@@ -1,10 +1,52 @@
 ﻿@model  CursosVista
 @{
-    ViewBag.Title = "Cursos";
+    ViewBag.Title = "SGC -- Gobierno de Córdoba -- Cursos";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    @Content.Css("cursos.css", Url)
 }
-<div id="titulo" style="width:900px; height:30px; padding:10px 5px 0 5px; font-family:Arial, Helvetica, sans-serif; font-size:16px; font-weight:bold;">Cursos</div>
+<div id="contenido">
+    <div id="nav">
+        <ul id="menu">
+            <li><a href="">Inicio</a></li>
+            <li><a href="">Establecimiento Educativo</a></li>
+        </ul>
+    </div>
+            <div id="usu">
+                <div id="icono_usu" style="width: 30px; height: 25px; float: left;">
+                    <img src="@Content.ImageSite("47_.png", Url)"  width="25" height="25" alt=""/></div>
+                <div id="nomusu" style="width: 200px; height: 25px; float: left; padding: 10px 5px 5px 5px;">
+                    <strong>Usuario: ADNINISTRADOR</strong></div>
+                <div id="iconoinicio" style="width: 30px; height: 25px; float: left;">
+                    <img src="@Content.ImageSite("120_.png", Url)"  width="25" height="25" alt=""/></div>
+                <div id="iconoclose" style="width: 30px; height: 25px; float: left;">
+                    <img src="@Content.ImageSite("49_.png", Url)" width="25" height="25" alt=""/></div>
+            </div>
+            <div id="submenu" style="float: left; position: absolute; left: 69px; top: 135px;">
+                <ul>
+                    <li>@Html.ActionLink("Instituciones", "Index", "Instituciones")</li>
+                    <li>@Html.ActionLink("Gestion Cursos", "Index", "Cursos", htmlAttributes: new { @class="activo"})</li>
+                    <li>@Html.ActionLink("Gestion Docentes", "Index", "Docentes")</li>
+                    <li>@Html.ActionLink("Gestion Alumnos", "Index", "Alumnos")</li>
+                    <li>@Html.ActionLink("Account", "LogOn", "Account")</li>
+                   
+                </ul>
+            </div>
+            <br />
+            <br />
+<div id="titulo">
+        <div id="ttxt">Cursos</div>
+        <div id="iconobuscar">
+        	<a class="Ntooltip" href="#">
+                <img src=@Content.ImageSite("10_.png", Url)  width="25" height="25" border="0" alt="BUSCAR"/><span> BUSCAR </span>
+            </a>
+        </div>
+      <div id="iconomodificar" style="width:30px; height:25px; float:right;">
+      	@*<a class="Ntooltip" href="Instituciones_new.html">*@
+        @Html.ActionLink("-", "Agregar", "Cursos", htmlAttributes: new { @class = "Ntooltip" })
+        @*<img src=@Content.ImageSite("8_.png", Url)  width="25" height="25" border="0" alt="NUEVO"/><span> NUEVO </span>*@       @* </a>  *@    </div>
+    </div>
 
 <div id="DivInstituciones">
-    @Html.Partial("_CursosLista", Model.ListaCursos)
+<br /><br />
+   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @Html.Partial("_CursosLista", Model.ListaCursos)
 </div>
