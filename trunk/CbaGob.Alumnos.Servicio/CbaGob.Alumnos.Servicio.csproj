@@ -43,6 +43,13 @@
   <ItemGroup>
     <Compile Include="Comun\CookieData.cs" />
     <Compile Include="Comun\ICookieData.cs" />
+    <Compile Include="ServiciosInterface\IAlumnosServicios.cs" />
+    <Compile Include="ServiciosInterface\ICargosServicio.cs" />
+    <Compile Include="ServiciosInterface\IDocentesServicio.cs" />
+    <Compile Include="ServiciosInterface\IDomiciliosServicios.cs" />
+    <Compile Include="ServiciosInterface\IPersonaJuridicaServicio.cs" />
+    <Compile Include="Servicios\AlumnosServicios.cs" />
+    <Compile Include="Servicios\CargosServicio.cs" />
     <Compile Include="Servicios\CondicionesCursoServicio.cs" />
     <Compile Include="ServiciosInterface\IBarriosServicio.cs" />
     <Compile Include="ServiciosInterface\ICallesServicio.cs" />
@@ -57,8 +64,11 @@
     <Compile Include="Servicios\CallesServicio.cs" />
     <Compile Include="Servicios\CursosServicios.cs" />
     <Compile Include="Servicios\DepartamentosServicios.cs" />
+    <Compile Include="Servicios\DocentesServicio.cs" />
+    <Compile Include="Servicios\DomiciliosServicios.cs" />
     <Compile Include="Servicios\InstitucionServicio.cs" />
     <Compile Include="Servicios\LocalidadesServicio.cs" />
+    <Compile Include="Servicios\PersonaJuridicaServicio.cs" />
     <Compile Include="Servicios\PersonaServicio.cs" />
     <Compile Include="Servicios\BaseServicio.cs" />
     <Compile Include="Comun\Errores.cs" />
@@ -71,6 +81,9 @@
     <Compile Include="Servicios\ProvinciasServicio.cs" />
     <Compile Include="Servicios\UsuarioServicio.cs" />
     <Compile Include="Servicios\HomeServicio.cs" />
+    <Compile Include="VistasInterface\IAlumnosVista.cs" />
+    <Compile Include="VistasInterface\IDocentesVista.cs" />
+    <Compile Include="Vistas\AlumnosVista.cs" />
     <Compile Include="Vistas\CondicionCursoVista.cs" />
     <Compile Include="VistasInterface\ICondicionCursoVista.cs" />
     <Compile Include="Vistas\CondicionesCursoVista.cs" />
@@ -81,6 +94,7 @@
     <Compile Include="VistasInterface\IUsuarioVista.cs" />
     <Compile Include="VistasInterface\Shared\IComboBox.cs" />
     <Compile Include="Vistas\CursosVista.cs" />
+    <Compile Include="Vistas\DocentesVista.cs" />
     <Compile Include="Vistas\InstitucionVista.cs" />
     <Compile Include="Vistas\Shared\ComboBox.cs" />
     <Compile Include="Vistas\UsuarioVista.cs" />

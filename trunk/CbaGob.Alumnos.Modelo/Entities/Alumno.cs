@@ -1,15 +1,18 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 
 namespace CbaGob.Alumnos.Modelo.Entities
 {
-    public class Persona : IPersona
+    public class Alumno : IAlumnos
     {
         public DateTime FechaAlta { get; set; }
         public string UsuarioAlta { get; set; }
         public DateTime FechaModificacion { get; set; }
         public string UsuarioModificacion { get; set; }
+        public int Id_Alumno { get; set; }
         public int Id_Persona { get; set; }
         public string Nov_Apellido { get; set; }
         public string Nov_Nombre { get; set; }

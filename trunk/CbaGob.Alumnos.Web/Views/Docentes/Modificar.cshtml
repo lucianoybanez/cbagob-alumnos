@@ -1,0 +1,120 @@
+﻿@model  DocentesVista
+@{
+    ViewBag.Title = "Modificar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("Modificar_Docente", "Docentes", FormMethod.Post, new { Id = "FormularioDocentes" }))
+{ 
+    <div id="titulo" style="width: 900px; height: 30px; padding: 10px 5px 0 5px; font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px; font-weight: bold;">
+        Modificar Docente</div>
+  
+    
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Datos</a></li>
+            <li><a href="#tabs-2">Persona Juridica</a></li>
+            <li><a href="#tabs-3">Domicilio</a></li>
+        </ul>
+        <div id="tabs-1">
+            <table>
+                <tr>
+                    <td>
+                        Modalidad
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(c => c.N_Modalidad, new { style = "width:200px;", MaxLength = "64", Class = "asd" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Cargos
+                    </td>
+                    <td>
+                        @Html.EditorFor(c => c.cargos)
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="tabs-2">
+            @Html.Partial("_PersonasJuridica", Model.ListaPersonaJuridica)
+            <table>
+                <tr>
+                    <td>
+                        Cuit
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(c => c.personajuridica.Cuit, new { style = "width:200px;", MaxLength = "64", Class = "asd", Id = "Cuit" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Razon Social
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(c => c.personajuridica.Razon_Social, new { style = "width:200px;", MaxLength = "64", Class = "asd", Id = "Razonsocial" })
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="tabs-3">
+            @Html.Partial("_Domicilios", Model.ListaDomicilios)
+            <table>
+                <tr>
+                    <td>
+                        Provincia
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(c => c.domicilios.Provincia, new { style = "width:200px;", MaxLength = "64", Class = "asd", Id = "Provincia" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Localidad
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(c => c.domicilios.Localidad, new { style = "width:200px;", MaxLength = "64", Class = "asd", Id = "Localidad" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Barrio
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(c => c.domicilios.Barrio, new { style = "width:200px;", MaxLength = "64", Class = "asd", Id = "Barrio" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Calle
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(c => c.domicilios.Calle, new { style = "width:200px;", MaxLength = "64", Class = "asd", Id = "Calle" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Nro
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(c => c.domicilios.Nro, new { style = "width:200px;", MaxLength = "64", Class = "asd", Id = "Nro" })
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    @Html.HiddenFor(d => d.Id_Domicilio)
+    @Html.HiddenFor(d => d.Id_PersonaJuridica)
+    @Html.HiddenFor(d => d.Id_Docente)
+    
+    <p>
+        <input type="submit" value="Guargar" />
+        @Html.ActionLink("Cancelar", "Index", "Docentes")
+    </p>
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#tabs").tabs();
+    });
+</script>

@@ -1,0 +1,66 @@
+﻿@model IList<IDocentes>
+@if (Model != null && Model.Count > 0)
+{ 
+    <div id="tab" style="text-align: center;">
+        <table align="center" id="mytable">
+            <thead>
+                <tr>
+                    <th height="30">
+                        <div align="center">
+                            CUIT</div>
+                    </th>
+                     <th height="30">
+                        <div align="center">
+                            RAZON SOCIAL</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            MODALIDAD</div>
+                    </th>
+                     <th height="30">
+                        <div align="center">
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td align="left">
+                           @item.Cuit
+                        </td> 
+                         <td align="left">
+                            @item.Razon_Social
+                        </td>
+                        <td align="left">
+                            @item.N_Modalidad
+                        </td> 
+                         <td>
+                            @Html.ActionLink("Modificar", "Modificar", "Docentes", new { id_docente = item.Id_Docente }, null)
+                            @Html.ActionLink("Eliminar", "Eliminar", "Docentes", new { id_docente = item.Id_Docente }, null)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div id="tab" style="text-align: center;">
+        <table align="center" id="mytable">
+            <thead>
+                <tr>
+                    <th height="30">
+                        <div align="center">
+                            SIN DATOS</div>
+                    </th>
+                </tr>
+
+            </thead>
+        </table>
+    </div>
+}
+@Html.ActionLink("Agregar Docente", "Agregar", "Docentes", null, new { Class = "btnIngresar" })
+

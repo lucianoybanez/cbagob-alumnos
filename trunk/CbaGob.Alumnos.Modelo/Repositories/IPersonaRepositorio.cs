@@ -7,7 +7,8 @@ namespace CbaGob.Alumnos.Modelo.Repositories
 {
     public interface IPersonaRepositorio
     {
-        IList<IPersona> GetPersonasNombre(string nombre);
+        IList<IPersona> GetTodas();
+        IList<IPersona> GetTodasByNombre(string nombre);
         IList<IPersona> GetPersonasDni(int dni);
     }
 }

@@ -1,0 +1,90 @@
+﻿@model IList<IPersona>
+<script type="text/javascript">
+    function Pesonas(idpersona, nom, apell, dni, cuil) {
+        window.document.getElementById('Nov_Nombre').value = nom;
+        window.document.getElementById('Nov_Apellido').value = apell;
+        window.document.getElementById('Nro_Documento').value = dni;
+        window.document.getElementById('Cuil').value = cuil;
+        window.document.getElementById('Id_Persona').value = idpersona;
+        
+    }
+</script>
+<table>
+    <tr>
+        <td>
+            lista
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @if (Model != null && Model.Count > 0)
+            { 
+                <div id="tab" style="text-align: center;">
+                    <table align="center" id="mytable">
+                        <thead>
+                            <tr>
+                                <th height="30">
+                                    <div align="center">
+                                        NOMBRE</div>
+                                </th>
+                                <th height="30">
+                                    <div align="center">
+                                        APELLIDO</div>
+                                </th>
+                                <th height="30">
+                                    <div align="center">
+                                        DNI</div>
+                                </th>
+                                <th height="30">
+                                    <div align="center">
+                                        CUIL</div>
+                                </th>
+                                <th height="30">
+                                    <div align="center">
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td align="center">
+                                        @item.Nov_Nombre
+                                    </td>
+                                    <td align="center">
+                                        @item.Nov_Apellido
+                                    </td>
+                                    <td align="center">
+                                        @item.Nro_Documento
+                                    </td>
+                                    <td align="center">
+                                        @item.Cuil
+                                    </td>
+                                    <td align="center">
+                                        <img onclick="Pesonas(@item.Id_Persona,'@item.Nov_Nombre','@item.Nov_Apellido', '@item.Nro_Documento', '@item.Cuil' );"  src=@Content.ImageSite("seleccionar.jpg", Url) width="25" height="25"  />
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div id="tab" style="text-align: center;">
+                    <table align="center" id="mytable">
+                        <thead>
+                            <tr>
+                                <th height="30">
+                                    <div align="center">
+                                        SIN DATOS</div>
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            }
+        </td>
+    </tr>
+</table>

@@ -71,9 +71,11 @@
   <ItemGroup>
     <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AlumnosController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CondicionesCursoController.cs" />
     <Compile Include="Controllers\CursosController.cs" />
+    <Compile Include="Controllers\DocentesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstitucionesController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -112,6 +114,7 @@
     <Content Include="Content\images\49_.png" />
     <Content Include="Content\images\Bg_encabezado.jpg" />
     <Content Include="Content\images\Bg_pie.jpg" />
+    <Content Include="Content\images\seleccionar.jpg" />
     <Content Include="Content\start\images\ui-bg_flat_55_999999_40x100.png" />
     <Content Include="Content\start\images\ui-bg_flat_75_aaaaaa_40x100.png" />
     <Content Include="Content\start\images\ui-bg_glass_45_0078ae_1x400.png" />
@@ -271,6 +274,39 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\CondicionesCurso\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Docentes\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Docentes\_DocentesLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Docentes\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Docentes\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Docentes\Modificar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Docentes\_PersonasJuridica.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Docentes\_Domicilios.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Alumnos\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Alumnos\_AlumnosLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Alumnos\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Alumnos\_Personas.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
