@@ -1,0 +1,84 @@
+﻿@model AlumnosVista
+@{
+    ViewBag.Title = "Agregar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("Agregar_Alumno", "Alumnos", FormMethod.Post, new { Id = "FormularioAlumnos" }))
+{ 
+    <div id="titulo" style="width: 900px; height: 30px; padding: 10px 5px 0 5px; font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px; font-weight: bold;">
+        Agregar Alumno</div>
+    
+    @Html.Partial("_Personas", Model.ListaPersona)
+   
+    <table>
+        <tr>
+            <td>
+                Nombre
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.Nov_Nombre, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Apellido
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.Nov_Apellido, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Tipo
+            </td>
+            <td>
+                @Html.EditorFor(c => c.TipoDocumento)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Dni
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.Nro_Documento, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Cuil
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.Cuil, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Sexo
+            </td>
+            <td>
+                @Html.EditorFor(c => c.Sexo)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Estado Civil
+            </td>
+            <td>
+                @Html.EditorFor(c => c.EstadoCivil)
+            </td>
+        </tr>
+    </table>
+    
+    <p>
+        <input type="submit" value="Guargar" />
+        @Html.ActionLink("Cancelar", "Index", "Alumnos")
+    </p>
+     @Html.HiddenFor(d => d.Id_Persona)
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+    });
+</script>

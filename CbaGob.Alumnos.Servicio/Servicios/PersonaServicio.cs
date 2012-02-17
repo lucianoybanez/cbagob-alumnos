@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Modelo.Repositories;
 using CbaGob.Alumnos.Repositorio;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
@@ -10,9 +12,9 @@ namespace CbaGob.Alumnos.Servicio.Servicios
     {
         private IPersonaRepositorio PersonaRepositorio;
 
-        public PersonaServicio(IPersonaRepositorio personaRepositorio)
+        public PersonaServicio()
         {
-            PersonaRepositorio = personaRepositorio;
+            PersonaRepositorio = new PersonaRepositorio();
         }
 
         public UsuarioVista BuscarUsuario(UsuarioVista vista)
@@ -23,7 +25,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
             else
             {
-                vista.Usuarios = PersonaRepositorio.GetPersonasNombre(vista.Nombre);
+                vista.Usuarios = PersonaRepositorio.GetTodasByNombre(vista.Nombre);
             }
             return vista;
         }
@@ -33,6 +35,29 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             UsuarioVista UsuarioVista = new UsuarioVista();
             UsuarioVista.SearchByDni = true;
             return UsuarioVista;
+        }
+
+        public IList<IPersona> GetTodas()
+        {
+            try
+            {
+                return PersonaRepositorio.GetTodas();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public IList<IPersona> GetTodasByNombre(string nombre)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<IPersona> GetPersonasDni(int dni)
+        {
+            throw new NotImplementedException();
         }
     }
 }

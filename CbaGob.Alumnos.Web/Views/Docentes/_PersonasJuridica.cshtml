@@ -1,0 +1,74 @@
+﻿@model IList<IPersonaJuridica>
+<script type="text/javascript">
+    function PerJur(IdPersJur, Cuit, RaSo) {
+        window.document.getElementById('Id_PersonaJuridica').value = IdPersJur;
+        window.document.getElementById('Cuit').value = Cuit;
+        window.document.getElementById('Razonsocial').value = RaSo;
+      
+    }
+</script>
+<table>
+    <tr>
+        <td>
+            lista
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @if (Model != null && Model.Count > 0)
+            { 
+                <div id="tab" style="text-align: center;">
+                    <table align="center" id="mytable">
+                        <thead>
+                            <tr>
+                                <th height="30">
+                                    <div align="center">
+                                        CUIT</div>
+                                </th>
+                                <th height="30">
+                                    <div align="center">
+                                        RAZON SOCIAL</div>
+                                </th>
+                                 <th height="30">
+                                    <div align="center">
+                                        </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td align="center">
+                                        @item.Cuit
+                                    </td>
+                                    <td align="center">
+                                        @item.Razon_Social
+                                    </td>
+                                     <td align="center">
+                                       <img onclick="PerJur(@item.Id_PersonaJur,'@item.Cuit', '@item.Razon_Social');"  src=@Content.ImageSite("seleccionar.jpg", Url) width="25" height="25"  />
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div id="tab" style="text-align: center;">
+                    <table align="center" id="mytable">
+                        <thead>
+                            <tr>
+                                <th height="30">
+                                    <div align="center">
+                                        SIN DATOS</div>
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            }
+        </td>
+    </tr>
+</table>

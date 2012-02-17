@@ -40,22 +40,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Alumno.cs" />
     <Compile Include="Entities\Calles.cs" />
+    <Compile Include="Entities\Cargos.cs" />
     <Compile Include="Entities\Cursos.cs" />
     <Compile Include="Entities\Departamentos.cs" />
+    <Compile Include="Entities\Docentes.cs" />
+    <Compile Include="Entities\Domicilios.cs" />
+    <Compile Include="Entities\Interfaces\IAlumnos.cs" />
     <Compile Include="Entities\Interfaces\IBarrios.cs" />
     <Compile Include="Entities\Institucion.cs" />
-    <Compile Include="Entities\Interfaces\Barrios.cs" />
+    <Compile Include="Entities\Barrios.cs" />
     <Compile Include="Entities\Interfaces\ICalles.cs" />
+    <Compile Include="Entities\Interfaces\ICargos.cs" />
     <Compile Include="Entities\Interfaces\IComunDatos.cs" />
     <Compile Include="Entities\Interfaces\ICursos.cs" />
     <Compile Include="Entities\Interfaces\IDepartamentos.cs" />
     <Compile Include="Entities\Interfaces\IDireccion.cs" />
+    <Compile Include="Entities\Interfaces\IDocentes.cs" />
+    <Compile Include="Entities\Interfaces\IDomicilios.cs" />
     <Compile Include="Entities\Interfaces\IFactura.cs" />
     <Compile Include="Entities\Interfaces\IGrupo.cs" />
     <Compile Include="Entities\Interfaces\IInstitucion.cs" />
     <Compile Include="Entities\Interfaces\ILocalidades.cs" />
     <Compile Include="Entities\Interfaces\IPersona.cs" />
+    <Compile Include="Entities\Interfaces\IPersonaJuridica.cs" />
     <Compile Include="Entities\Interfaces\IProvincias.cs" />
     <Compile Include="Entities\Interfaces\IRol.cs" />
     <Compile Include="Entities\Interfaces\ISupervisor.cs" />
@@ -63,19 +72,49 @@
     <Compile Include="Entities\Interfaces\IUsuario.cs" />
     <Compile Include="Entities\Localidades.cs" />
     <Compile Include="Entities\Persona.cs" />
+    <Compile Include="Entities\PersonaJuridica.cs" />
     <Compile Include="Entities\Provincias.cs" />
     <Compile Include="Entities\Rol.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\IBarriosRepositorio.cs" />
-    <Compile Include="Repositories\ICallesRepositorio.cs" />
-    <Compile Include="Repositories\ICursosRepositorio.cs" />
-    <Compile Include="Repositories\IDepartamentosRepositorio.cs" />
-    <Compile Include="Repositories\IInstitucionRepositorio.cs" />
-    <Compile Include="Repositories\ILocalidadesRepositorio.cs" />
-    <Compile Include="Repositories\IPersonaRepositorio.cs" />
-    <Compile Include="Repositories\IProvinciasRepositorio.cs" />
-    <Compile Include="Repositories\IUsuarioRepositorio.cs" />
+    <Compile Include="Repositories\IAlumnosRepositorio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Repositories\IBarriosRepositorio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Repositories\ICallesRepositorio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Repositories\ICargosRepositorio.cs" />
+    <Compile Include="Repositories\ICursosRepositorio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Repositories\IDepartamentosRepositorio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Repositories\IDocentesRepositorio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Repositories\IDomiciliosRepositorio.cs" />
+    <Compile Include="Repositories\IInstitucionRepositorio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Repositories\ILocalidadesRepositorio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Repositories\IPersonaJuridicaRepositorio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Repositories\IPersonaRepositorio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Repositories\IProvinciasRepositorio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Repositories\IUsuarioRepositorio.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
