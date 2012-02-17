@@ -59,5 +59,18 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         {
             throw new NotImplementedException();
         }
+
+        public IPersona GetUno(int id_persona)
+        {
+            try
+            {
+                return PersonaRepositorio.GetUno(id_persona);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

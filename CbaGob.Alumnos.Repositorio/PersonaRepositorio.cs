@@ -32,7 +32,10 @@ namespace CbaGob.Alumnos.Repositorio
                                                 Nov_Apellido = c.NOV_APELLIDO,
                                                 Nro_Documento = c.NRO_DOCUMENTO,
                                                 Nov_Nombre = c.NOV_NOMBRE,
-                                                Id_Persona = c.ID_PERSONA
+                                                Id_Persona = c.ID_PERSONA,
+                                                Id_Estado_Civil = c.ID_ESTADO_CIVIL,
+                                                Id_Sexo = c.ID_SEXO,
+                                                Id_Tipo_Documento = c.ID_TIPO_DOCUMENTO
                                             }).ToList().Cast<IPersona>().ToList();
 
                 return ListaPersona;
@@ -56,6 +59,34 @@ namespace CbaGob.Alumnos.Repositorio
 
             
             return null;
+        }
+
+        public IPersona GetUno(int id_persona)
+        {
+            try
+            {
+                var persona = (from c in mDb.T_PERSONAS
+                                    where c.ID_PERSONA == id_persona
+                                    select
+                                        new Persona
+                                            {
+                                                Cuil = c.CUIL,
+                                                Nov_Apellido = c.NOV_APELLIDO,
+                                                Nro_Documento = c.NRO_DOCUMENTO,
+                                                Nov_Nombre = c.NOV_NOMBRE,
+                                                Id_Persona = c.ID_PERSONA,
+                                                Id_Estado_Civil = c.ID_ESTADO_CIVIL,
+                                                Id_Sexo = c.ID_SEXO,
+                                                Id_Tipo_Documento = c.ID_TIPO_DOCUMENTO
+                                            }).SingleOrDefault();
+
+                return persona;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
