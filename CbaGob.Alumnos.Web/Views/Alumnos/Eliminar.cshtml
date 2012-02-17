@@ -8,16 +8,14 @@
     <div id="titulo" style="width: 900px; height: 30px; padding: 10px 5px 0 5px; font-family: Arial, Helvetica, sans-serif;
         font-size: 16px; font-weight: bold;">
         Eliminar Alumno</div>
-    
-    @Html.Partial("_Personas", Model.ListaPersona)
-   
+
     <table>
         <tr>
             <td>
                 Nombre
             </td>
             <td>
-                @Html.TextBoxFor(c => c.Nov_Nombre, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
+                @Html.TextBoxFor(c => c.Nov_Nombre, new { disabled = "disabled", style = "width:200px;", MaxLength = "50", Class = "asd" })
             </td>
         </tr>
         <tr>
@@ -25,7 +23,7 @@
                 Apellido
             </td>
             <td>
-                @Html.TextBoxFor(c => c.Nov_Apellido, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
+                @Html.TextBoxFor(c => c.Nov_Apellido, new { disabled = "disabled", style = "width:200px;", MaxLength = "50", Class = "asd" })
             </td>
         </tr>
         <tr>
@@ -41,7 +39,7 @@
                 Dni
             </td>
             <td>
-                @Html.TextBoxFor(c => c.Nro_Documento, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
+                @Html.TextBoxFor(c => c.Nro_Documento, new { disabled = "disabled", style = "width:100px;", MaxLength = "50", Class = "asd" })
             </td>
         </tr>
         <tr>
@@ -49,7 +47,7 @@
                 Cuil
             </td>
             <td>
-                @Html.TextBoxFor(c => c.Cuil, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
+                @Html.TextBoxFor(c => c.Cuil, new { disabled = "disabled", style = "width:100px;", MaxLength = "50", Class = "asd" })
             </td>
         </tr>
         <tr>

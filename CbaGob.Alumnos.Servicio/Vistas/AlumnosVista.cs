@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using CbaGob.Alumnos.Modelo.Entities;
@@ -21,6 +22,9 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         }
 
         public int Id_Alumno { get; set; }
+
+        [Required(ErrorMessage = "*")]
+        [Range(1, 99999999999999999, ErrorMessage = "*")]
         public int Id_Persona { get; set; }
         public string Nov_Apellido { get; set; }
         public string Nov_Nombre { get; set; }

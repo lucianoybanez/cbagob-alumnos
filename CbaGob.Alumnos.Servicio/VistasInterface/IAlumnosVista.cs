@@ -10,6 +10,7 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
     public interface IAlumnosVista
     {
         int Id_Alumno { get; set; }
+
         int Id_Persona { get; set; }
         string Nov_Apellido { get; set; }
         string Nov_Nombre { get; set; }
