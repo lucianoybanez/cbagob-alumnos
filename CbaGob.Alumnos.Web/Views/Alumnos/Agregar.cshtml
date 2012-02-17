@@ -75,6 +75,7 @@
         @Html.ActionLink("Cancelar", "Index", "Alumnos")
     </p>
     @Html.HiddenFor(d => d.Id_Persona)
+    @Html.ValidationSummary(true)
 }
 <script type="text/javascript">
     $(document).ready(function () {

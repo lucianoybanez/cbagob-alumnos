@@ -16,6 +16,7 @@
             </td>
             <td>
                 @Html.TextBoxFor(c => c.N_INSTITUCION, new { style = "width:200px;", MaxLength = "50" })
+                @Html.ValidationMessageFor(m => m.N_INSTITUCION)
             </td>
         </tr>
         <tr>
@@ -28,15 +29,16 @@
         </tr>
     </table>
     
+    
     @Html.Partial("_Domicilios", Model.ListaDomicilios)
-
     <table>
         <tr>
             <td>
                 Provincia
             </td>
             <td>
-                <input id="Provincia" style="width: 200px;" />
+                <input id="Provincia" disabled style="width: 200px;" />
+                @Html.ValidationMessageFor(m => m.ID_DOMICILIO)
             </td>
         </tr>
         <tr>
@@ -44,7 +46,7 @@
                 Localidad
             </td>
             <td>
-                <input id="Localidad" style="width: 200px;" />
+                <input id="Localidad" disabled style="width: 350px;" />
             </td>
         </tr>
         <tr>
@@ -52,7 +54,7 @@
                 Barrio
             </td>
             <td>
-                <input id="Barrio" style="width: 200px;" />
+                <input id="Barrio" disabled style="width: 350px;" />
             </td>
         </tr>
         <tr>
@@ -60,7 +62,7 @@
                 Calle
             </td>
             <td>
-                <input id="Calle" style="width: 200px;" />
+                <input id="Calle" disabled style="width: 350px;" />
             </td>
         </tr>
         <tr>
@@ -68,10 +70,13 @@
                 Nro
             </td>
             <td>
-                <input id="Nro" style="width: 200px;" />
+                <input id="Nro" disabled style="width: 60px;" />
             </td>
         </tr>
     </table>
+    
+    
+  
     
     @Html.HiddenFor(d => d.ID_DOMICILIO)
     <p>

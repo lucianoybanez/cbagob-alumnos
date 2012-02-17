@@ -18,8 +18,14 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         }
 
         public int ID_INSTITUCION { get; set; }
+
+        [Required(ErrorMessage = "*")]
+        [Range(1, 99999999999999999, ErrorMessage = "*")]
         public int ID_DOMICILIO { get; set; }
+
+        [Required(ErrorMessage = "*")]
         public string N_INSTITUCION { get; set; }
+
         public bool INS_PROPIA { get; set; }
         public IList<IInstitucion> ListaInstituciones { get; set; }
         public string DOMICILIO { get; set; }
