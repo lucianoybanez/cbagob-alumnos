@@ -4,12 +4,12 @@ using System.Linq;
 using CbaGob.Alumnos.Modelo.Entities;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Modelo.Repositories;
-using CbaGob.Alumnos.Repositorio.DB;
 using CbaGob.Alumnos.Repositorio.Models;
+
 
 namespace CbaGob.Alumnos.Repositorio
 {
-    public class PersonaRepositorio : BaseRepository,IPersonaRepositorio
+    public class PersonaRepositorio : IPersonaRepositorio
     {
 
         public CursosDB mDb;

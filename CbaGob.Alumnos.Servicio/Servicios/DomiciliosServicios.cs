@@ -12,8 +12,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
     public class DomiciliosServicios : IDomiciliosServicios
     {
         private IDomiciliosRepositorio domiciliosrepositorio; 
-
-
+        
 
         public DomiciliosServicios()
         {

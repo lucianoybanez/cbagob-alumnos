@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using CbaGob.Alumnos.Modelo.Entities;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Modelo.Repositories;
+using CbaGob.Alumnos.Repositorio.Models;
 
-namespace CbaGob.Alumnos.Repositorio.Models
+namespace CbaGob.Alumnos.Repositorio
 {
     public class CursosRepositorio : ICursosRepositorio
     {

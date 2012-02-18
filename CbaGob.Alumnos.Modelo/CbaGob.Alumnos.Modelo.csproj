@@ -47,6 +47,8 @@
     <Compile Include="Entities\Departamentos.cs" />
     <Compile Include="Entities\Docentes.cs" />
     <Compile Include="Entities\Domicilios.cs" />
+    <Compile Include="Entities\CondicionCurso.cs" />
+    <Compile Include="Entities\ComunDatos.cs" />
     <Compile Include="Entities\Interfaces\IAlumnos.cs" />
     <Compile Include="Entities\Interfaces\IBarrios.cs" />
     <Compile Include="Entities\Institucion.cs" />
@@ -54,6 +56,7 @@
     <Compile Include="Entities\Interfaces\ICalles.cs" />
     <Compile Include="Entities\Interfaces\ICargos.cs" />
     <Compile Include="Entities\Interfaces\IComunDatos.cs" />
+    <Compile Include="Entities\Interfaces\ICondicionCurso.cs" />
     <Compile Include="Entities\Interfaces\ICursos.cs" />
     <Compile Include="Entities\Interfaces\IDepartamentos.cs" />
     <Compile Include="Entities\Interfaces\IDireccion.cs" />
@@ -63,8 +66,11 @@
     <Compile Include="Entities\Interfaces\IGrupo.cs" />
     <Compile Include="Entities\Interfaces\IInstitucion.cs" />
     <Compile Include="Entities\Interfaces\ILocalidades.cs" />
+    <Compile Include="Entities\Interfaces\IModalidad.cs" />
+    <Compile Include="Entities\Interfaces\INivel.cs" />
     <Compile Include="Entities\Interfaces\IPersona.cs" />
     <Compile Include="Entities\Interfaces\IPersonaJuridica.cs" />
+    <Compile Include="Entities\Interfaces\IPrograma.cs" />
     <Compile Include="Entities\Interfaces\IProvincias.cs" />
     <Compile Include="Entities\Interfaces\IRol.cs" />
     <Compile Include="Entities\Interfaces\ISupervisor.cs" />
@@ -87,6 +93,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Repositories\ICargosRepositorio.cs" />
+    <Compile Include="Repositories\ICondicionCursoRepositorio.cs" />
     <Compile Include="Repositories\ICursosRepositorio.cs">
       <SubType>Code</SubType>
     </Compile>
