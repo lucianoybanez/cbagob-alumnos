@@ -5,7 +5,7 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
     public interface ICondicionCursoVista
     {
         string NombeInstitucion { get; set; }
-        IComboBox EstadoCurso { get; set; }
+        string EstadoCurso { get; set; }
         IComboBox Curso { get; set; }
         IComboBox Nivel { get; set; }
         IComboBox Modalidad { get; set; }

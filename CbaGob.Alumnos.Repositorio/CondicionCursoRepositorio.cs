@@ -48,14 +48,15 @@ namespace CbaGob.Alumnos.Repositorio
                                     PromedioRequerido = p.PROMEDIOREQUERIDO,
                                     UsuarioAlta = p.USR_ALTA,
                                     UsuarioModificacion = p.USR_MODIF,
-                                    IdInstitucion = p.T_INSTITUCIONES.ID_INSTITUCION
+                                    IdInstitucion = p.T_INSTITUCIONES.ID_INSTITUCION,
+                                    IdCondicionCurso = p.ID_CONDICION_CURSO
                                 });
             return a;
         }
 
         public ICondicionCurso GetCondicion(int IdCondicion)
         {
-            var result = GetCondicion().Where(c => c.IdInstitucion == IdCondicion).FirstOrDefault();
+            var result = GetCondicion().Where(c => c.IdCondicionCurso == IdCondicion).FirstOrDefault();
             return result;
         }
 

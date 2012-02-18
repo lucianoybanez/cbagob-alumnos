@@ -6,6 +6,7 @@ namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
 {
     public interface ICondicionCurso : IComunDatos
     {
+        int IdCondicionCurso { get; set; }
         int IdInstitucion { get; set; }
         string NombeInstitucion { get; set; }
         string EstadoCurso { get; set; }

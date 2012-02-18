@@ -9,7 +9,6 @@ namespace CbaGob.Alumnos.Servicio.Vistas
     {
         public CondicionCursoVista()
         {
-            EstadoCurso = new ComboBox();
             Curso = new ComboBox();
             Nivel = new ComboBox();
             Modalidad = new ComboBox();
@@ -17,7 +16,8 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         }
         
         public string NombeInstitucion { get; set; }
-        public IComboBox EstadoCurso { get; set; }
+
+        public string EstadoCurso {get; set; }
         public IComboBox Curso { get; set; }
         public IComboBox Nivel { get; set; }
         public IComboBox Modalidad { get; set; }
