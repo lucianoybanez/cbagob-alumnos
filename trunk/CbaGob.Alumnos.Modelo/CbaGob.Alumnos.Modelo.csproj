@@ -76,6 +76,9 @@
     <Compile Include="Entities\Interfaces\ISupervisor.cs" />
     <Compile Include="Entities\Interfaces\ITelefono.cs" />
     <Compile Include="Entities\Interfaces\IUsuario.cs" />
+    <Compile Include="Entities\Modalidad.cs" />
+    <Compile Include="Entities\Nivel.cs" />
+    <Compile Include="Entities\Programa.cs" />
     <Compile Include="Entities\Localidades.cs" />
     <Compile Include="Entities\Persona.cs" />
     <Compile Include="Entities\PersonaJuridica.cs" />
@@ -110,12 +113,15 @@
     <Compile Include="Repositories\ILocalidadesRepositorio.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Repositories\IModalidadRepositorio.cs" />
+    <Compile Include="Repositories\INivelRepositorio.cs" />
     <Compile Include="Repositories\IPersonaJuridicaRepositorio.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Repositories\IPersonaRepositorio.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Repositories\IProgramaRepositorio.cs" />
     <Compile Include="Repositories\IProvinciasRepositorio.cs">
       <SubType>Code</SubType>
     </Compile>

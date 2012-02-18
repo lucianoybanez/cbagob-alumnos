@@ -56,13 +56,16 @@
     <Compile Include="BarriosRepositorio.cs" />
     <Compile Include="CursosRepositorio.cs" />
     <Compile Include="DepartamentosRepositorio.cs" />
+    <Compile Include="ModalidadRepositorio.cs" />
     <Compile Include="Models\CursosDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CursosDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="NivelRepositorio.cs" />
     <Compile Include="PersonaJuridicaRepositorio.cs" />
     <Compile Include="PersonaRepositorio.cs" />
+    <Compile Include="ProgramaRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProvinciasRepositorio.cs" />
     <Compile Include="UsuarioRepositorio.cs" />
