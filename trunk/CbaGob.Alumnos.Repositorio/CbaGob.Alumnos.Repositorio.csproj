@@ -44,11 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlumnosRepositorio.cs" />
-    <Compile Include="BaseRepository.cs" />
+    <Compile Include="BaseRepositorio.cs" />
     <Compile Include="CallesRepositorio.cs" />
     <Compile Include="CargosRepositorio.cs" />
-    <Compile Include="DatosMock.cs" />
+    <Compile Include="CondicionCursoRepositorio.cs" />
     <Compile Include="DocentesRepositorio.cs" />
+    <Compile Include="DatosMock.cs" />
     <Compile Include="DomiciliosRepositorio.cs" />
     <Compile Include="InstitucionRepositorio.cs" />
     <Compile Include="LocalidadesRepositorio.cs" />

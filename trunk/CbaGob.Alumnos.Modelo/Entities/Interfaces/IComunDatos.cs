@@ -11,5 +11,6 @@ namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
         string UsuarioAlta { get; set; }
         DateTime FechaModificacion { get; set; }
         string UsuarioModificacion { get; set; }
+        string Estado { get; set; }
     }
 }

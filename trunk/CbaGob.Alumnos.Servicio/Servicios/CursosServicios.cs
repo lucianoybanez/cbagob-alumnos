@@ -5,6 +5,7 @@ using System.Text;
 using CbaGob.Alumnos.Modelo.Entities;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Modelo.Repositories;
+using CbaGob.Alumnos.Repositorio;
 using CbaGob.Alumnos.Repositorio.Models;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;

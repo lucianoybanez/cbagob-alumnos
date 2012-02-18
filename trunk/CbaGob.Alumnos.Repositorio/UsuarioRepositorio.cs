@@ -3,18 +3,12 @@ using System.Linq;
 using CbaGob.Alumnos.Modelo.Entities;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Modelo.Repositories;
-using CbaGob.Alumnos.Repositorio.DB;
+
 
 namespace CbaGob.Alumnos.Repositorio
 {
-    public class UsuarioRepositorio : BaseRepository, IUsuarioRepositorio
+    public class UsuarioRepositorio : IUsuarioRepositorio
     {
-
-        public UsuarioRepositorio()
-            : base()
-        {
-
-        }
 
         public IUsuario GetUserById(int id)
         {
