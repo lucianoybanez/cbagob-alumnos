@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Modelo.Repositories;
 using CbaGob.Alumnos.Servicio.Comun;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
@@ -21,14 +22,17 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         private IProgramaRepositorio ProgramaRepositorio;
 
+        private IInstitucionRepositorio InstitucionRepositorio;
 
-        public CondicionesCursoServicio(ICondicionCursoRepositorio condicionCursoRepositorio, ICursosRepositorio cursosRepositorio, IModalidadRepositorio modalidadRepositorio, INivelRepositorio nivelRepositorio, IProgramaRepositorio programaRepositorio)
+
+        public CondicionesCursoServicio(ICondicionCursoRepositorio condicionCursoRepositorio, ICursosRepositorio cursosRepositorio, IModalidadRepositorio modalidadRepositorio, INivelRepositorio nivelRepositorio, IProgramaRepositorio programaRepositorio, IInstitucionRepositorio institucionRepositorio)
         {
             CondicionCursoRepositorio = condicionCursoRepositorio;
             CursosRepositorio = cursosRepositorio;
             ModalidadRepositorio = modalidadRepositorio;
             NivelRepositorio = nivelRepositorio;
             ProgramaRepositorio = programaRepositorio;
+            InstitucionRepositorio = institucionRepositorio;
         }
 
         public ICondicionesCursoVista GetByInstitucionId(int IdInstitucion)
@@ -36,10 +40,11 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             ICondicionesCursoVista vista = new CondicionesCursoVista();
             var result = CondicionCursoRepositorio.GetCondicionesByInstitucion(IdInstitucion);
             vista.CondicionesCursos = result;
+            vista.IdInstitucion = IdInstitucion;
             return vista;
         }
 
-        public ICondicionCursoVista GetById(int IdCondicionCurso)
+        public ICondicionCursoVista GetForModificacion(int IdCondicionCurso)
         {
             var result = CondicionCursoRepositorio.GetCondicion(IdCondicionCurso);
             var niveles = NivelRepositorio.GetNiveles();
@@ -57,7 +62,56 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             vista.Presentismo = result.Presentismo;
             vista.Presupuesto = result.Presupuesto;
             vista.PromedioRequerido = result.PromedioRequerido;
-            foreach(var mod in modalidades)
+            ConvertModalidades(vista, modalidades);
+            vista.Modalidad.Selected = result.IdModalidad.ToString();
+            ConvertNiveles(vista, niveles);
+            vista.Nivel.Selected = result.IdNivel.ToString();
+            ConvertProgramas(vista, programas);
+            vista.Programa.Selected = result.IdPrograma.ToString();
+            ConvertCursos(vista, cursos);
+            vista.Curso.Selected = result.IdCurso.ToString();
+            return vista;
+        }
+
+        private static void ConvertCursos(ICondicionCursoVista vista, IList<ICursos> cursos)
+        {
+            foreach (var cur in cursos)
+            {
+                vista.Curso.Combo.Add(new ComboItem()
+                                          {
+                                              id = cur.ID_CURSO,
+                                              description = cur.N_CURSO
+                                          });
+            }
+        }
+
+        private static void ConvertProgramas(ICondicionCursoVista vista, IList<IPrograma> programas)
+        {
+            foreach (var prog in programas)
+            {
+                vista.Programa.Combo.Add(new ComboItem()
+                                             {
+                                                 id = prog.IdPrograma,
+                                                 description = prog.NombrePrograma
+                                             });
+            }
+        }
+
+        private static void ConvertNiveles(ICondicionCursoVista vista, IList<INivel> niveles)
+        {
+            foreach (var niv in niveles)
+            {
+                vista.Nivel.Combo.Add(new ComboItem()
+                                          {
+                                              id = niv.IdNivel,
+                                              description = niv.NombreNivel
+                                          });
+            }
+        }
+
+        private static void ConvertModalidades(ICondicionCursoVista vista, IList<IModalidad> modalidades)
+        {
+            foreach (var mod in modalidades)
             {
                 vista.Modalidad.Combo.Add(new ComboItem()
                                               {
@@ -65,38 +119,22 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                                                   description = mod.NombreModalidad
                                               });
             }
-            vista.Modalidad.Selected = result.IdModalidad.ToString();
-            foreach (var niv in niveles)
-            {
-                vista.Nivel.Combo.Add(new ComboItem()
-                {
-                    id = niv.IdNivel,
-                    description = niv.NombreNivel
-                });
-            }
-            vista.Nivel.Selected = result.IdNivel.ToString();
-            foreach (var prog in programas)
-            {
-                vista.Programa.Combo.Add(new ComboItem()
-                {
-                    id = prog.IdPrograma,
-                    description = prog.NombrePrograma
-                });
-            }
-            vista.Programa.Selected = result.IdPrograma.ToString();
-            foreach (var cur in cursos)
-            {
-                vista.Curso.Combo.Add(new ComboItem()
-                {
-                    id = cur.ID_CURSO,
-                    description = cur.N_CURSO
-                });
-            }
-            vista.Curso.Selected = result.IdCurso.ToString();
+        }
 
-           
+        public  ICondicionCursoVista GetForAlta(int IdInstitucion)
+        {
+            var result = InstitucionRepositorio.GetInstitucion(IdInstitucion);
+            var niveles = NivelRepositorio.GetNiveles();
+            var modalidades = ModalidadRepositorio.GetModalidades();
+            var programas = ProgramaRepositorio.GetProgramas();
+            var cursos = CursosRepositorio.GetTodos();
 
-            
+            ICondicionCursoVista vista = new CondicionCursoVista();
+            vista.NombeInstitucion = result.N_INSTITUCION;
+            ConvertModalidades(vista, modalidades);
+            ConvertNiveles(vista, niveles);
+            ConvertProgramas(vista, programas);
+            ConvertCursos(vista, cursos);
 
             return vista;
         }

@@ -26,23 +26,15 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View();
         }
 
-        public ActionResult Agregar()
+        public ActionResult AgregarCondicionCurso(int idInstitucion)
         {
-            CondicionCursoVista model = new CondicionCursoVista();
-            model.NombeInstitucion = " escuela normal";
-            var combo = new List<IComboItem>();
-            combo.Add(new ComboItem(){description = "telas",id = 1});
-            combo.Add(new ComboItem(){description = "Ropa",id = 2});
-            model.Curso.Combo = combo;
-            model.Curso.Selected = "2";
-            return View("Agregar", model);
+            return View("Agregar", CondicionesCursoServicio.GetForAlta(idInstitucion));
         }
 
-        public ActionResult CondicionCurso(int idCondicionCurso)
+        public ActionResult ModificarCondicionCurso(int idCondicionCurso)
         {
-            return View("Agregar", CondicionesCursoServicio.GetById(idCondicionCurso));
+            return View("Agregar", CondicionesCursoServicio.GetForModificacion(idCondicionCurso));
         }
-
 
     }
 }

@@ -11,9 +11,11 @@ namespace CbaGob.Alumnos.Servicio.Vistas.Shared
         public ComboBox()
         {
             Combo = new List<IComboItem>();
+            Enabled = true;
         }
         public IList<IComboItem> Combo { get; set; }
         public string Selected { get; set; }
+        public bool Enabled { get; set; }
     }
 
     public class ComboItem : IComboItem

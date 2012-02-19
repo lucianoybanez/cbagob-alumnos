@@ -271,9 +271,6 @@
     <Content Include="Views\CondicionesCurso\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\CondicionesCurso\_CondicionesCursoLista.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\CondicionesCurso\Agregar.cshtml" />
   </ItemGroup>
   <ItemGroup>

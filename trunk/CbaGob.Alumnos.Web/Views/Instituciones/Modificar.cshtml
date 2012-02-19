@@ -32,7 +32,11 @@
             </div>
             </div>
             <br />
-            <br />  
+            <br /> 
+@Html.ActionLink("Cursos Asignados", "CursosAsignados", new { IdInstitucion = Model.ID_INSTITUCION})
+ <br />
+            <br /> 
+ 
 @using (Html.BeginForm("Modificar_Institucion", "Instituciones", FormMethod.Post, new { Id = "FormularioInstituciones" }))
 { 
     
@@ -112,12 +116,7 @@
             <td>
                 <input type="submit" value="Guargar" class="btnIngresar" />&nbsp;&nbsp;
         @Html.ActionLink("Cancelar", "Index", "Instituciones", null, new { Class = "btnIngresar" })
-            </td>
-            
-        </tr>
-        <tr>
-        @Html.ActionLink("Cursos Asignados", "CursosAsignados", new { IdInstitucion = Model.ID_INSTITUCION})
-        
+            </td>            
         </tr>
     </table>
 }
