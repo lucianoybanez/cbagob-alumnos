@@ -1,0 +1,76 @@
+﻿@model CondicionesCursoVista
+@{
+    ViewBag.Title = "CursosAsignados";
+}
+
+@if (Model.CondicionesCursos != null && Model.CondicionesCursos.Count > 0)
+{ 
+    <div id="tab" style="text-align: center;">
+        <table align="center" id="mytable">
+            <thead>
+                <tr>
+                    <th height="30">
+                        <div align="center">
+                            Curso</div>
+                    </th>
+                     <th height="30">
+                        <div align="center">
+                            Modalidad</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Nivel</div>
+                    </th>
+                     <th height="30">
+                        <div align="center">
+                            Programa
+                        </div>
+                    </th>
+                     <th height="30">
+                        <div align="center">
+                            Accion
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.CondicionesCursos)
+                {
+                    <tr>
+                        <td align="left">
+                           @item.NombreCurso
+                        </td> 
+                         <td align="left">
+                            @item.NombreModalidad
+                        </td>
+                        <td align="left">
+                            @item.NombreNivel
+                        </td>
+                        <td align="left">
+                            @item.NombrePrograma
+                        </td>                         
+                         <td>
+                            @Html.ActionLink("Modificar", "CondicionCurso", "CondicionesCurso", new { idCondicionCurso = item.IdCondicionCurso }, null)                           
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div id="tab" style="text-align: center;">
+        <table align="center" id="mytable">
+            <thead>
+                <tr>
+                    <th height="30">
+                        <div align="center">
+                            SIN DATOS</div>
+                    </th>
+                </tr>
+
+            </thead>
+        </table>
+    </div>
+}

@@ -39,6 +39,7 @@ namespace CbaGob.Alumnos.Web {
             x.For<IPersonaServicio>().Use<PersonaServicio>();
             x.For<IInstitucionServicio>().Use<InstitucionServicio>();
             x.For<ICondicionesCursoServicio>().Use<CondicionesCursoServicio>();
+            x.For<IDomiciliosServicios>().Use<DomiciliosServicios>();
 
             // Service Web Authentications
             x.For<IHttpContextService>().Use<HttpContextService>();

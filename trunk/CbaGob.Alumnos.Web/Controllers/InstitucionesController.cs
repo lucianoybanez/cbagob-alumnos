@@ -16,12 +16,15 @@ namespace CbaGob.Alumnos.Web.Controllers
     public class InstitucionesController : BaseController
     {
         private IInstitucionServicio InstitucionServicio;
-        private IDomiciliosServicios domiciliosdervicios;
+        private IDomiciliosServicios Domiciliosdervicios;
+        private ICondicionesCursoServicio CondicionesCursoServicio;
 
-        public InstitucionesController()
+
+        public InstitucionesController(IInstitucionServicio institucionServicio, IDomiciliosServicios domiciliosdervicios, ICondicionesCursoServicio condicionesCursoServicio)
         {
-            InstitucionServicio = new InstitucionServicio();
-            domiciliosdervicios = new DomiciliosServicios();
+            InstitucionServicio = institucionServicio;
+            Domiciliosdervicios = domiciliosdervicios;
+            CondicionesCursoServicio = condicionesCursoServicio;
         }
 
         public ActionResult Index()
@@ -36,9 +39,9 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             IInstitucionVista model = mInstitucionServicio.GetUnaVista(INST_ID);
 
-            model.ListaDomicilios = domiciliosdervicios.GetTodosDomicilios();
+            model.ListaDomicilios = Domiciliosdervicios.GetTodosDomicilios();
 
-            model.domicilios = domiciliosdervicios.GetUno(model.ID_DOMICILIO);
+            model.domicilios = Domiciliosdervicios.GetUno(model.ID_DOMICILIO);
 
             return View("Modificar", model);
         }
@@ -49,17 +52,16 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             IInstitucionVista model = mInstitucionServicio.GetUnaVista(INST_ID);
 
-            model.domicilios = domiciliosdervicios.GetUno(model.ID_DOMICILIO);
+            model.domicilios = Domiciliosdervicios.GetUno(model.ID_DOMICILIO);
 
             return View("Eliminar", model);
         }
-
-
+        
         public ActionResult Agregar()
         {
             InstitucionVista model = new InstitucionVista();
 
-            model.ListaDomicilios = domiciliosdervicios.GetTodosDomicilios();
+            model.ListaDomicilios = Domiciliosdervicios.GetTodosDomicilios();
 
             return View(model);
         }
@@ -118,6 +120,12 @@ namespace CbaGob.Alumnos.Web.Controllers
         public ActionResult ListarCondicionCurso(int INST_ID)
         {
             return null;
+        }
+
+        public ActionResult CursosAsignados(int IdInstitucion)
+        {
+            return View("CursosAsignados", CondicionesCursoServicio.GetByInstitucionId(IdInstitucion));
+
         }
     }
 }
