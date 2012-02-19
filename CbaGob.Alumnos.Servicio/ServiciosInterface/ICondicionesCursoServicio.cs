@@ -7,6 +7,7 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
     public interface ICondicionesCursoServicio : IBaseServicio
     {
         ICondicionesCursoVista GetByInstitucionId(int IdInstitucion);
-        ICondicionCursoVista GetById(int IdCondicionCurso);
+        ICondicionCursoVista GetForModificacion(int IdCondicionCurso);
+        ICondicionCursoVista GetForAlta(int IdInstitucion);
     }
 }

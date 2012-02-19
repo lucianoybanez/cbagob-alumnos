@@ -9,5 +9,6 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
     public interface ICondicionesCursoVista
     {
         IList<ICondicionCurso> CondicionesCursos { get; set; }
+        int IdInstitucion { get; set; }
     }
 }
