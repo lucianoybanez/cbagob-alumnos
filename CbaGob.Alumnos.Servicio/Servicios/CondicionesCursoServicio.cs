@@ -194,6 +194,11 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             return false;
         }
 
+        public bool EliminarCondicionCurso(int IdCondicionCurso)
+        {
+            return CondicionCursoRepositorio.EliminarCondicion(IdCondicionCurso);
+        }
+
         public IList<IErrores> GetErrors()
         {
             return base.Errors;

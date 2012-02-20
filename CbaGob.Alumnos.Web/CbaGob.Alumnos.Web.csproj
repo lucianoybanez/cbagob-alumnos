@@ -116,6 +116,7 @@
     <Content Include="Content\images\Bg_encabezado.jpg" />
     <Content Include="Content\images\Bg_pie.jpg" />
     <Content Include="Content\images\seleccionar.jpg" />
+    <Content Include="Content\MVCFramework.css" />
     <Content Include="Content\start\images\ui-bg_flat_55_999999_40x100.png" />
     <Content Include="Content\start\images\ui-bg_flat_75_aaaaaa_40x100.png" />
     <Content Include="Content\start\images\ui-bg_glass_45_0078ae_1x400.png" />

@@ -25,6 +25,7 @@ namespace CbaGob.Alumnos.Repositorio
         private IQueryable<ICondicionCurso> GetCondicion()
         {
             var a = (from p in mDB.T_CONDICIONES_CURSO
+                     where p.ESTADO == "A"
                      select new CondicionCurso
                                 {
                                     CantidadClases = p.CANTIDADCLASES,

@@ -24,12 +24,19 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public IComboBox Nivel { get; set; }
         public IComboBox Modalidad { get; set; }
         public IComboBox Programa { get; set; }
+        [Range(0, 10)]
         public decimal PromedioRequerido { get; set; }
+        [Range(1, 999)]
         public int CantidadExamenes { get; set; }
+        [Range(1, 999)]
         public int CantidadClases { get; set; }
+        [Range(1, 9999)]
         public int Presentismo { get; set; }
+        [Range(1, 9999)]
         public int CargaHoraria { get; set; }
+        [Range(1, 9999)]
         public int Cupo { get; set; }
+        [Range(1, 99999)]
         public decimal Presupuesto { get; set; }
         public string Accion{ get; set; }
     }
