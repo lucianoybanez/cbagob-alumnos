@@ -83,18 +83,19 @@ namespace CbaGob.Alumnos.Repositorio
                     CUPO = condicion.Cupo,
                     ESTADO = condicion.Estado,
                     FEC_ALTA = condicion.FechaAlta,
-                    FEC_MODIF = condicion.FechaModificacion,
                     ID_CURSO = condicion.IdCurso,
                     ID_ESTADO_CURSO = condicion.IdEstadoCurso,
                     ID_INSTITUCION = condicion.IdInstitucion,
                     ID_MODALIDAD = condicion.IdModalidad,
-                    ID_NIVEL = condicion.IdModalidad,
+                    ID_NIVEL = condicion.IdNivel,
                     ID_PROGRAMA = condicion.IdPrograma,
                     PRESENTISMO = condicion.Presentismo,
                     PRESUPUESTO = condicion.Presupuesto,
                     PROMEDIOREQUERIDO = condicion.PromedioRequerido,
                     USR_ALTA = condicion.UsuarioAlta,
-                    USR_MODIF = condicion.UsuarioModificacion
+                    FEC_MODIF = condicion.FechaModificacion,
+                    USR_MODIF = condicion.UsuarioModificacion,
+                    
                 };
                 mDB.AddToT_CONDICIONES_CURSO(condicionesCurso);
                 mDB.SaveChanges();
@@ -120,7 +121,7 @@ namespace CbaGob.Alumnos.Repositorio
                 a.ID_ESTADO_CURSO = condicion.IdEstadoCurso;
                 a.ID_INSTITUCION = condicion.IdInstitucion;
                 a.ID_MODALIDAD = condicion.IdModalidad;
-                a.ID_NIVEL = condicion.IdModalidad;
+                a.ID_NIVEL = condicion.IdNivel;
                 a.ID_PROGRAMA = condicion.IdPrograma;
                 a.PRESENTISMO = condicion.Presentismo;
                 a.PRESUPUESTO = condicion.Presupuesto;
