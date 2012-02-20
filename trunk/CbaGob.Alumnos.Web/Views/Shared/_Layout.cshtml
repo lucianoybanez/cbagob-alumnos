@@ -2,9 +2,10 @@
 <html>
 <head>
     <title>
-    @ViewBag.Title</title>
+        @ViewBag.Title</title>
     @Content.Stylesheet("Site.css", Url)
     @* @Content.Css("menu.css", Url)*@
+    @Content.Stylesheet("MVCFramework.css",Url)
     @Content.Css("instituciones.css", Url)
     @Content.CssJqueryUI("jquery-ui-1.8.17.custom.css", Url)
     @RenderSection("Stylesheets", false)
@@ -27,8 +28,7 @@
                     <li><a href="">Establecimiento Educativo</a></li>
                 </ul>
             </div>
-            *@
-            @*
+            *@ @*
             <div id="usu">
                 <div id="icono_usu" style="width: 30px; height: 25px; float: left;">
                     <img src=@Content.ImageSite("47_.png", Url)  width="25" height="25" alt=""/></div>
@@ -39,8 +39,7 @@
                 <div id="iconoclose" style="width: 30px; height: 25px; float: left;">
                     <img src=@Content.ImageSite("49_.png", Url) width="25" height="25" alt=""/></div>
             </div>
-            *@
-            @*
+            *@ @*
             <div id="submenu" style="float: left; position: absolute; left: 69px; top: 135px;">
                 <ul>
                     <li>@Html.ActionLink("Instituciones", "Index", "Instituciones")</li>
@@ -54,10 +53,8 @@
             <br />
             <br />
             *@
-            
-            <div id="main">
-                @RenderBody()
-            </div>
+        <div id="main">
+            @RenderBody()
         </div>
         <div id="pie">
             <div id="Copy">

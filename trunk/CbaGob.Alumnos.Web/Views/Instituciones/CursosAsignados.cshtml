@@ -26,11 +26,11 @@
                             Programa
                         </div>
                     </th>
-                     <th height="30">
+                     <th height="30" colspan="2">
                         <div align="center">
                             Accion
                         </div>
-                    </th>
+                    </th>                    
                 </tr>
             </thead>
             <tbody>
@@ -51,6 +51,9 @@
                         </td>                         
                          <td>
                              @Html.ActionLink("Modificar", "ModificarCondicionCurso", "CondicionesCurso", new { idCondicionCurso = item.IdCondicionCurso }, null)                           
+                         </td>
+                         <td>
+                         @Html.ActionLink("Eliminar", "EliminarCondicionCurso", "CondicionesCurso", new { idCondicionCurso = item.IdCondicionCurso, IdInstitucion = item.IdInstitucion }, null)
                          </td>
                     </tr>
                 }

@@ -7,6 +7,7 @@
     @Html.HiddenFor(c=> c.Accion)
     @Html.HiddenFor(c => c.IdCondicionCurso)
     @Html.HiddenFor(c => c.IdInstitucion)
+    @Html.ValidationSummary(true)
     <div id="titulo" style="width: 900px; height: 30px; padding: 10px 5px 0 5px; font-family: Arial, Helvetica, sans-serif;
         font-size: 16px; font-weight: bold;">
         Agregar Condicion de Curso</div>
@@ -56,7 +57,8 @@
                 Cantidad de Clases
             </td>
             <td>
-                @Html.TextBoxFor(c => c.CantidadClases, new { style = "width:50px;", MaxLength = "3" })
+                @Html.TextBoxFor(c => c.CantidadClases, new { style = "width:50px;", MaxLength = "4" })
+                @Html.ValidationMessageFor(c=> c.CantidadClases,"*")
             </td>
         </tr>
         <tr>
@@ -65,6 +67,7 @@
             </td>
             <td>
                 @Html.TextBoxFor(c => c.CantidadExamenes, new { style = "width:50px;", MaxLength = "3" })
+                @Html.ValidationMessageFor(c => c.CantidadExamenes,"*")
             </td>
         </tr>
         <tr>
@@ -73,6 +76,7 @@
             </td>
             <td>
                 @Html.TextBoxFor(c => c.CargaHoraria, new { style = "width:50px;", MaxLength = "3" })
+                @Html.ValidationMessageFor(c => c.CargaHoraria,"*")
             </td>
         </tr>
         <tr>
@@ -81,6 +85,7 @@
             </td>
             <td>
                 @Html.TextBoxFor(c => c.Cupo, new { style = "width:50px;", MaxLength = "3" })
+                @Html.ValidationMessageFor(c => c.Cupo,"*")
             </td>
         </tr>
         <tr>
@@ -89,6 +94,7 @@
             </td>
             <td>
                 @Html.TextBoxFor(c => c.Presentismo, new { style = "width:50px;", MaxLength = "3" })
+                @Html.ValidationMessageFor(c => c.Presentismo,"*")
             </td>
         </tr>
         <tr>
@@ -97,6 +103,7 @@
             </td>
             <td>
                 @Html.TextBoxFor(c => c.Presupuesto, new { style = "width:50px;", MaxLength = "3" })
+                @Html.ValidationMessageFor(c => c.Presupuesto,"*")
             </td>
         </tr>
         <tr>
@@ -112,7 +119,8 @@
                 Promedio Requerido
             </td>
             <td>
-                @Html.TextBoxFor(c => c.PromedioRequerido, new { style = "width:50px;", MaxLength = "3" })
+                @Html.TextBoxFor(c => c.PromedioRequerido, new { style = "width:50px;", MaxLength = "4" })
+                @Html.ValidationMessageFor(c => c.PromedioRequerido,"*")
             </td>
         </tr>
     </table>

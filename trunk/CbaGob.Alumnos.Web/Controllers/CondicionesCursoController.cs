@@ -43,5 +43,11 @@ namespace CbaGob.Alumnos.Web.Controllers
             return RedirectToAction("CursosAsignados", "Instituciones", new {IdInstitucion = vista.IdInstitucion});
         }
 
+        public ActionResult EliminarCondicionCurso(int idCondicionCurso, int IdInstitucion)
+        {
+            CondicionesCursoServicio.EliminarCondicionCurso(idCondicionCurso);
+            return RedirectToAction("CursosAsignados", "Instituciones", new { IdInstitucion = IdInstitucion });
+        }
+
     }
 }
