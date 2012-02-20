@@ -9,7 +9,7 @@ namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
         int IdCondicionCurso { get; set; }
         int IdInstitucion { get; set; }
         string NombeInstitucion { get; set; }
-        string EstadoCurso { get; set; }
+        string NombreEstadoCurso { get; set; }
         int IdCurso { get; set; }
         string NombreCurso { get; set; }
         int IdNivel { get; set; }

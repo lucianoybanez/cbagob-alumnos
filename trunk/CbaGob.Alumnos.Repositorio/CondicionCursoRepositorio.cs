@@ -31,7 +31,7 @@ namespace CbaGob.Alumnos.Repositorio
                                     CantidadExamenes = p.CANTIDADEXAMENES,
                                     CargaHoraria = p.CARGAHORARIA,
                                     Cupo = p.CUPO,
-                                    EstadoCurso = p.ESTADO,
+                                    NombreEstadoCurso = p.ESTADO,
                                     FechaAlta = p.FEC_ALTA,
                                     FechaModificacion = p.FEC_MODIF,
                                     IdCurso = p.ID_CURSO,
@@ -106,12 +106,12 @@ namespace CbaGob.Alumnos.Repositorio
             }
         }
 
-        public bool ModificarCondicion(ICondicionCurso condicion, int IdCondicion)
+        public bool ModificarCondicion(ICondicionCurso condicion)
         {
             base.AgregarDatosModificacion(condicion);
             try
             {
-                var a = mDB.T_CONDICIONES_CURSO.Where(c => c.ID_CONDICION_CURSO == IdCondicion).FirstOrDefault();
+                var a = mDB.T_CONDICIONES_CURSO.Where(c => c.ID_CONDICION_CURSO == condicion.IdCondicionCurso).FirstOrDefault();
                 a.CANTIDADCLASES = condicion.CantidadClases;
                 a.CANTIDADEXAMENES = condicion.CantidadExamenes;
                 a.CARGAHORARIA = condicion.CargaHoraria;

@@ -13,11 +13,13 @@ namespace CbaGob.Alumnos.Servicio.Vistas
             Nivel = new ComboBox();
             Modalidad = new ComboBox();
             Programa = new ComboBox();
+            EstadoCurso = new ComboBox();
         }
-        
-        public string NombeInstitucion { get; set; }
 
-        public string EstadoCurso {get; set; }
+        public int IdCondicionCurso { get; set; }
+        public int IdInstitucion { get; set; }
+        public string NombeInstitucion { get; set; }
+        public IComboBox EstadoCurso{ get; set; }
         public IComboBox Curso { get; set; }
         public IComboBox Nivel { get; set; }
         public IComboBox Modalidad { get; set; }
@@ -29,5 +31,6 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public int CargaHoraria { get; set; }
         public int Cupo { get; set; }
         public decimal Presupuesto { get; set; }
+        public string Accion{ get; set; }
     }
 }

@@ -36,5 +36,11 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Agregar", CondicionesCursoServicio.GetForModificacion(idCondicionCurso));
         }
 
+        public ActionResult GuardarCondicionCurso(CondicionCursoVista vista)
+        {
+            CondicionesCursoServicio.GuardarCondicionCurso(vista);
+            return RedirectToAction("CursosAsignados", "Instituciones", new {IdInstitucion = vista.IdInstitucion});
+        }
+
     }
 }
