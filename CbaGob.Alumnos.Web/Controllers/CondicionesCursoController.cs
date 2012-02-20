@@ -39,13 +39,24 @@ namespace CbaGob.Alumnos.Web.Controllers
         [HttpPost]
         public ActionResult GuardarCondicionCurso(CondicionCursoVista vista)
         {
-            CondicionesCursoServicio.GuardarCondicionCurso(vista);
-            return RedirectToAction("CursosAsignados", "Instituciones", new {IdInstitucion = vista.IdInstitucion});
+            if (ModelState.IsValid)
+            {
+                if (CondicionesCursoServicio.GuardarCondicionCurso(vista))
+                {
+                    return RedirectToAction("CursosAsignados", "Instituciones", new { IdInstitucion = vista.IdInstitucion });
+                }
+                base.AddError(CondicionesCursoServicio.GetErrors());
+                return View("Agregar", vista);
+            }
+            return View("Agregar", vista);
         }
 
         public ActionResult EliminarCondicionCurso(int idCondicionCurso, int IdInstitucion)
         {
-            CondicionesCursoServicio.EliminarCondicionCurso(idCondicionCurso);
+            if (CondicionesCursoServicio.EliminarCondicionCurso(idCondicionCurso))
+            {
+                base.AddError(CondicionesCursoServicio.GetErrors());
+            }
             return RedirectToAction("CursosAsignados", "Instituciones", new { IdInstitucion = IdInstitucion });
         }
 

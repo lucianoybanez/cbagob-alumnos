@@ -165,6 +165,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         public bool GuardarCondicionCurso(ICondicionCursoVista condicion)
         {
+            bool ret = false;
             ICondicionCurso condicionCurso = new CondicionCurso()
                                                  {
                                                      CantidadClases = condicion.CantidadClases,
@@ -185,18 +186,27 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
             if(condicion.Accion=="Alta")
             {
-                return CondicionCursoRepositorio.AgregarCondicion(condicionCurso);
+                ret =  CondicionCursoRepositorio.AgregarCondicion(condicionCurso);
             }
             else if(condicion.Accion=="Modificacion")
             {
-                return CondicionCursoRepositorio.ModificarCondicion(condicionCurso);
+                ret =  CondicionCursoRepositorio.ModificarCondicion(condicionCurso);
             }
-            return false;
+            if (!ret)
+            {
+                AddError("Ocurrio un error al Guardar la asignacion de un curso a una institucion.");
+            }
+            return ret;
         }
 
         public bool EliminarCondicionCurso(int IdCondicionCurso)
         {
-            return CondicionCursoRepositorio.EliminarCondicion(IdCondicionCurso);
+            if (CondicionCursoRepositorio.EliminarCondicion(IdCondicionCurso))
+            {
+                return true;
+            }
+            AddError("Ocurrio un error al eliminar la asignacion de un curso a una institucion.");
+            return false;
         }
 
         public IList<IErrores> GetErrors()
