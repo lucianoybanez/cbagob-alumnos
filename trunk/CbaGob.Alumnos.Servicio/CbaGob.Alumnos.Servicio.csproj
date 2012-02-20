@@ -43,10 +43,12 @@
   <ItemGroup>
     <Compile Include="Comun\CookieData.cs" />
     <Compile Include="Comun\ICookieData.cs" />
+    <Compile Include="Servicios\FacturaServicio.cs" />
     <Compile Include="ServiciosInterface\IAlumnosServicios.cs" />
     <Compile Include="ServiciosInterface\ICargosServicio.cs" />
     <Compile Include="ServiciosInterface\IDocentesServicio.cs" />
     <Compile Include="ServiciosInterface\IDomiciliosServicios.cs" />
+    <Compile Include="ServiciosInterface\IFacturaServicio.cs" />
     <Compile Include="ServiciosInterface\IPersonaJuridicaServicio.cs" />
     <Compile Include="Servicios\AlumnosServicios.cs" />
     <Compile Include="Servicios\CargosServicio.cs" />
@@ -81,8 +83,12 @@
     <Compile Include="Servicios\ProvinciasServicio.cs" />
     <Compile Include="Servicios\UsuarioServicio.cs" />
     <Compile Include="Servicios\HomeServicio.cs" />
+    <Compile Include="Vistas\FacturaVista.cs" />
+    <Compile Include="Vistas\FacturasVista.cs" />
     <Compile Include="VistasInterface\IAlumnosVista.cs" />
     <Compile Include="VistasInterface\IDocentesVista.cs" />
+    <Compile Include="VistasInterface\IFacturasVista.cs" />
+    <Compile Include="VistasInterface\IFacturaVista.cs" />
     <Compile Include="Vistas\AlumnosVista.cs" />
     <Compile Include="Vistas\CondicionCursoVista.cs" />
     <Compile Include="VistasInterface\ICondicionCursoVista.cs" />
