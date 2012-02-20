@@ -9,5 +9,6 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
         ICondicionesCursoVista GetByInstitucionId(int IdInstitucion);
         ICondicionCursoVista GetForModificacion(int IdCondicionCurso);
         ICondicionCursoVista GetForAlta(int IdInstitucion);
+        bool GuardarCondicionCurso(ICondicionCursoVista condicion);
     }
 }

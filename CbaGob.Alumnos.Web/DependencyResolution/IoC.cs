@@ -30,6 +30,7 @@ namespace CbaGob.Alumnos.Web {
             x.For<INivelRepositorio>().Use<NivelRepositorio>();
             x.For<IProgramaRepositorio>().Use<ProgramaRepositorio>();
             x.For<ICursosRepositorio>().Use<CursosRepositorio>();
+            x.For<IEstadoCursoRepositorio>().Use<EstadoCursoRepositorio>();
         }
 
         private static void ServicesView(IInitializationExpression x)

@@ -14,7 +14,7 @@ namespace CbaGob.Alumnos.Modelo.Entities
 
         public int IdInstitucion{get; set; }
         public string NombeInstitucion { get; set; }
-        public string EstadoCurso { get; set; }
+        public string NombreEstadoCurso { get; set; }
         public int IdCurso { get; set; }
         public string NombreCurso { get; set; }
         public int IdNivel { get; set; }

@@ -51,6 +51,7 @@
     <Compile Include="DocentesRepositorio.cs" />
     <Compile Include="DatosMock.cs" />
     <Compile Include="DomiciliosRepositorio.cs" />
+    <Compile Include="EstadoCursoRepositorio.cs" />
     <Compile Include="InstitucionRepositorio.cs" />
     <Compile Include="LocalidadesRepositorio.cs" />
     <Compile Include="BarriosRepositorio.cs" />
