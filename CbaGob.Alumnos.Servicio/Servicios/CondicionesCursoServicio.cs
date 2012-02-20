@@ -58,6 +58,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             var estadoCurso = EstadoCursoRepositorio.GetEstadosCursos();
 
             ICondicionCursoVista vista = new CondicionCursoVista();
+            vista.IdInstitucion = result.IdInstitucion;
             vista.CantidadClases = result.CantidadClases;
             vista.CantidadExamenes = result.CantidadExamenes;
             vista.CargaHoraria = result.CargaHoraria;

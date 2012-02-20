@@ -1,11 +1,12 @@
 ﻿@model CondicionCursoVista
 @{
-    ViewBag.Title = "Agregar";
+    ViewBag.Title = "Gestion Condicion Curso";
 }
 @using (Html.BeginForm("GuardarCondicionCurso", "CondicionesCurso", FormMethod.Post, null))
 { 
     @Html.HiddenFor(c=> c.Accion)
     @Html.HiddenFor(c => c.IdCondicionCurso)
+    @Html.HiddenFor(c => c.IdInstitucion)
     <div id="titulo" style="width: 900px; height: 30px; padding: 10px 5px 0 5px; font-family: Arial, Helvetica, sans-serif;
         font-size: 16px; font-weight: bold;">
         Agregar Condicion de Curso</div>
@@ -15,7 +16,7 @@
                 Nombre de la Institucion
             </td>
             <td>
-                @Html.TextBoxFor(c => c.NombeInstitucion, new { style = "width:200px;", MaxLength = "50" })
+                @Html.TextBoxFor(c => c.NombeInstitucion, new { style = "width:200px;", MaxLength = "50", disabled = "disabled" })
             </td>
         </tr>
         <tr>

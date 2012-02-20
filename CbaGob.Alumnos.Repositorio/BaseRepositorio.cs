@@ -14,6 +14,7 @@ namespace CbaGob.Alumnos.Repositorio
             dato.FechaAlta = System.DateTime.Now;
             dato.UsuarioAlta = "Usuario Alta";
             dato.Estado = "A";
+            AgregarDatosModificacion(dato);
         }
 
         
@@ -26,7 +27,7 @@ namespace CbaGob.Alumnos.Repositorio
         public void AgregarDatosEliminacion(IComunDatos dato)
         {
             dato.FechaModificacion = System.DateTime.Now;
-            dato.UsuarioModificacion = "Usuario Modificacion";
+            dato.UsuarioModificacion = "Usuario Eliminacion";
             dato.Estado = "I";
         }
 

@@ -36,6 +36,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Agregar", CondicionesCursoServicio.GetForModificacion(idCondicionCurso));
         }
 
+        [HttpPost]
         public ActionResult GuardarCondicionCurso(CondicionCursoVista vista)
         {
             CondicionesCursoServicio.GuardarCondicionCurso(vista);
