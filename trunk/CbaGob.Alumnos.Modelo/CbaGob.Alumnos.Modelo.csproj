@@ -50,6 +50,8 @@
     <Compile Include="Entities\CondicionCurso.cs" />
     <Compile Include="Entities\ComunDatos.cs" />
     <Compile Include="Entities\EstadoCurso.cs" />
+    <Compile Include="Entities\DetalleFactura.cs" />
+    <Compile Include="Entities\Factura.cs" />
     <Compile Include="Entities\Interfaces\IAlumnos.cs" />
     <Compile Include="Entities\Interfaces\IBarrios.cs" />
     <Compile Include="Entities\Institucion.cs" />
@@ -60,6 +62,7 @@
     <Compile Include="Entities\Interfaces\ICondicionCurso.cs" />
     <Compile Include="Entities\Interfaces\ICursos.cs" />
     <Compile Include="Entities\Interfaces\IDepartamentos.cs" />
+    <Compile Include="Entities\Interfaces\IDetalleFactura.cs" />
     <Compile Include="Entities\Interfaces\IDireccion.cs" />
     <Compile Include="Entities\Interfaces\IDocentes.cs" />
     <Compile Include="Entities\Interfaces\IDomicilios.cs" />
@@ -110,6 +113,7 @@
     </Compile>
     <Compile Include="Repositories\IDomiciliosRepositorio.cs" />
     <Compile Include="Repositories\IEstadoCursoRepositorio.cs" />
+    <Compile Include="Repositories\IFacturaRepositorio.cs" />
     <Compile Include="Repositories\IInstitucionRepositorio.cs">
       <SubType>Code</SubType>
     </Compile>
