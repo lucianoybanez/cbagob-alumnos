@@ -1,0 +1,84 @@
+﻿@model GrupoVista
+<script type="text/javascript">
+    function Establecimiento(Id_Establecimiento, N_est, Pro, Bar, Loc, Cal, Nro) {
+        window.document.getElementById('Id_Establecimiento').value = Id_Establecimiento;
+        window.document.getElementById('Provincia').value = Pro;
+        window.document.getElementById('Localidad').value = Loc;
+        window.document.getElementById('Barrio').value = Bar;
+        window.document.getElementById('Calle').value = Cal;
+        window.document.getElementById('Nro').value = Nro;
+        window.document.getElementById('N_Establecimiento').value = N_est;
+        
+    }
+</script>
+@if (Model.ListaEstableimiento != null && Model.ListaEstableimiento.Count > 0)
+{ 
+    <div id="tab" style="text-align: center;">
+        <table align="center" id="mytable">
+            <thead>
+                <tr>
+                    <th height="30">
+                        <div align="center">
+                            NOMBRE ESTABLECIMIENTO</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            PROVINCIA</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            LOCALIDAD</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            BARRIO</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            CALEE</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            NRO</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ListaEstableimiento)
+                {
+                    <tr>
+                        <td align="left">
+                            @item.N_Establecimiento
+                        </td>
+                        <td align="left">
+                            @item.Provincia
+                        </td>
+                        <td align="left">
+                            @item.Localidad
+                        </td>
+                        <td align="left">
+                            @item.Barrio
+                        </td>
+                        <td align="left">
+                            @item.Calle
+                        </td>
+                        <td align="left">
+                            @item.Nro
+                        </td>
+                        <td align="center">
+                            <img onclick="Establecimiento(@item.Id_Establecimiento,'@item.N_Establecimiento' ,'@item.Provincia','@item.Localidad', '@item.Barrio', '@item.Calle', '@item.Nro' );"  src=@Content.ImageSite("seleccionar.jpg", Url) width="25" height="25"  />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    @Html.Partial("_SinDatos", "Establecimiento")
+}

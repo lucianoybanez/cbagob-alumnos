@@ -1,0 +1,52 @@
+﻿@model GrupoVista
+<script type="text/javascript">
+    function Docente(Id_Docente, cuit, rsocial) {
+        window.document.getElementById('Id_Docente').value = Id_Docente;
+        window.document.getElementById('Cuit').value = cuit;
+        window.document.getElementById('Razonsocial').value = rsocial;
+
+    }
+</script>
+@if (Model.ListaDocentes != null && Model.ListaDocentes.Count > 0)
+{ 
+    <div id="tab" style="text-align: center;">
+        <table align="center" id="mytable">
+            <thead>
+                <tr>
+                    <th height="30">
+                        <div align="center">
+                            CUIT</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            RAZON SOCIAL</div>
+                    </th>
+                     <th height="30">
+                        <div align="center">
+                            </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ListaDocentes)
+                {
+                    <tr>
+                        <td align="left">
+                            @item.Cuit
+                        </td>
+                        <td align="left">
+                            @item.Razon_Social
+                        </td>
+                         <td align="center">
+                            <img onclick="Docente(@item.Id_Docente,'@item.Cuit' ,'@item.Razon_Social');"  src=@Content.ImageSite("seleccionar.jpg", Url) width="25" height="25"  />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    @Html.Partial("_SinDatos", "Docente")
+}

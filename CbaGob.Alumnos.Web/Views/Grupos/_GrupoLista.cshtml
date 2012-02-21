@@ -1,0 +1,56 @@
+﻿@model GruposVista
+@if (Model.ListaGrupos != null && Model.ListaGrupos.Count > 0)
+{ 
+    <div id="tab" style="text-align: center;">
+        <table align="center" id="mytable" width="750px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30">
+                        <div align="center">
+                            NOMBRE</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            ESTABLECIMIENTO</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            FECHA ALTA</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            ACCION</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ListaGrupos)
+                {
+                    <tr>
+                        <td align="left">
+                            @item.NombreGrupo
+                        </td>
+                        <td>
+                            @item.NombreEstablecimiento
+                        </td>
+                        <td>
+                            @item.FechaAlta.ToShortDateString()
+                        </td>
+                        <td>
+                            @Html.ActionLink("Modificar", "Modificar", "Grupos", new { id_grupo = item.Id_Grupo }, null)
+                            @Html.ActionLink("Eliminar", "Eliminar", "Grupos", new { id_grupo = item.Id_Grupo }, null)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    @Html.Partial("_SinDatos", "Grupos")
+}
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+@Html.ActionLink("Agregar Grupo", "Agregar", "Grupos", htmlAttributes: new { @class = "linkagregar" })

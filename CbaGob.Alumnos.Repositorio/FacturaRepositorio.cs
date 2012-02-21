@@ -53,17 +53,17 @@ namespace CbaGob.Alumnos.Repositorio
                                            IdFactura = queryResult.ID_FACTURA,
                                            DetalleFactura = new List<IDetalleFactura>()
                                        };
-                foreach (var detalle in queryResult.T_DETALLES_FACTURA)
-                {
-                    factura.DetalleFactura.Add(new DetalleFactura()
-                                                   {
-                                                       Descripcion = detalle.DESCRIPCION,
-                                                       IdDetalleFactura = detalle.ID_DETALLE_FACTURA,
-                                                       IdFactura = detalle.ID_FACTURA,
-                                                       Item = detalle.ITEM,
-                                                       Monto = detalle.MONTO
-                                                   });
-                }
+                //foreach (var detalle in queryResult.T_DETALLES_FACTURA)
+                //{
+                //    factura.DetalleFactura.Add(new DetalleFactura()
+                //                                   {
+                //                                       Descripcion = detalle.DESCRIPCION,
+                //                                       IdDetalleFactura = detalle.ID_DETALLE_FACTURA,
+                //                                       IdFactura = detalle.ID_FACTURA,
+                //                                       Item = detalle.ITEM,
+                //                                       Monto = detalle.MONTO
+                //                                   });
+                //}
                 return factura;
             }
             return null;
@@ -94,7 +94,7 @@ namespace CbaGob.Alumnos.Repositorio
                                                      ESTADO = item.Estado,
                                                      FEC_ALTA = item.FechaAlta,
                                                      FEC_MODIF = item.FechaModificacion,
-                                                     ID_CONDICION_CURSO = item.CondicionCurso.IdCondicionCurso,
+                                                     //ID_CONDICION_CURSO = item.CondicionCurso.IdCondicionCurso,
                                                      ID_FACTURA = 5,// Check this on ecommerce to check how get last id of factura on transaction
                                                      ITEM = item.Item,
                                                      MONTO = item.Monto,

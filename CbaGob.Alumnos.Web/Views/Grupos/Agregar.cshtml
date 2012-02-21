@@ -1,0 +1,137 @@
+﻿@model GrupoVista
+@{
+    ViewBag.Title = "SGC -- Gobierno de Córdoba -- Grupo Nuevo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("Agregar_Grupo", "Grupos", FormMethod.Post, new { Id = "FormularioGrupos" }))
+{ 
+    
+    
+    <div id="titulo">
+        <div id="ttxt">
+            Grupo -- Nuevo</div>
+    </div>
+ 
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Datos</a></li>
+            <li><a href="#tabs-2">Docente</a></li>
+            <li><a href="#tabs-3">Establecimiento</a></li>
+        </ul>
+        <div id="tabs-1">
+            <table>
+                <tr>
+                    <td>
+                        Nombre
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(c => c.NombreGrupo, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
+                    </td>
+                </tr>
+                 <tr>
+                    <td>
+                        Capacidad
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(c => c.Capacidad, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Horario
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="tabs-2">
+            @Html.Partial("_DocenteLista", Model)
+            <table>
+                <tr>
+                    <td>
+                        Cuit
+                    </td>
+                    <td>
+                        <input id="Cuit" disabled style="width: 200px;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Razon Social
+                    </td>
+                    <td>
+                        <input id="Razonsocial" disabled style="width: 200px;" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="tabs-3">
+            @Html.Partial("_EstablecimientoLista", Model)
+            <table>
+                <tr>
+                    <td>
+                        Nombre Establecimiento
+                    </td>
+                    <td>
+                        <input id="N_Establecimiento" disabled style="width: 200px;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Provincia
+                    </td>
+                    <td>
+                        <input id="Provincia" disabled style="width: 200px;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Localidad
+                    </td>
+                    <td>
+                        <input id="Localidad" disabled style="width: 350px;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Barrio
+                    </td>
+                    <td>
+                        <input id="Barrio" disabled style="width: 350px;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Calle
+                    </td>
+                    <td>
+                        <input id="Calle" disabled style="width: 350px;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Nro
+                    </td>
+                    <td>
+                        <input id="Nro" disabled style="width: 60px;" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <p>
+        <input type="submit" value="Guargar" />
+        @Html.ActionLink("Cancelar", "Index", "Grupos")
+    </p>
+    
+    @Html.HiddenFor(d => d.Id_Establecimiento)
+    @Html.HiddenFor(d => d.Id_Docente)
+    
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#tabs").tabs();
+    });
+</script>
