@@ -25,7 +25,7 @@ namespace CbaGob.Alumnos.Modelo.Repositories
                                       FechaAlta = p.FEC_ALTA,
                                       FechaModificacion = p.FEC_MODIF,
                                       IdEstadoCurso = p.ID_ESTADO_CURSO,
-                                      NombreEstadoCurso = p.N_ESTADO,
+                                      NombreEstadoCurso = p.N_ESTADO_CURSO,
                                       UsuarioAlta = p.USR_ALTA,
                                       UsuarioModificacion = p.USR_MODIF
                                   }).ToList().Cast<IEstadoCurso>().ToList();

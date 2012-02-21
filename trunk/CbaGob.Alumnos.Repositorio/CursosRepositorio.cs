@@ -31,7 +31,7 @@ namespace CbaGob.Alumnos.Repositorio
                                                ID_CURSO = c.ID_CURSO,
                                                N_CURSO = c.N_CURSO,
                                                ESTADO = c.ESTADO,
-                                               NRORESOLUCION = c.NRORESOLUCION ?? 0
+                                               NRORESOLUCION = c.NRO_RESOLUCION ?? 0
 
                                            }).ToList().Cast<ICursos>().ToList();
                 return ListaCursos;
@@ -55,7 +55,7 @@ namespace CbaGob.Alumnos.Repositorio
                                            ID_CURSO = c.ID_CURSO,
                                            N_CURSO = c.N_CURSO,
                                            ESTADO = c.ESTADO,
-                                           NRORESOLUCION = c.NRORESOLUCION ?? 0
+                                           NRORESOLUCION = c.NRO_RESOLUCION ?? 0
                                        }).ToList().Cast<ICursos>().ToList();
                 return ListaCursos;
             }
@@ -78,7 +78,7 @@ namespace CbaGob.Alumnos.Repositorio
                                        ID_CURSO = c.ID_CURSO,
                                        N_CURSO = c.N_CURSO,
                                        ESTADO = c.ESTADO,
-                                       NRORESOLUCION = c.NRORESOLUCION ?? 0
+                                       NRORESOLUCION = c.NRO_RESOLUCION ?? 0
 
                                    }).SingleOrDefault();
                 return mCursos;
@@ -98,7 +98,7 @@ namespace CbaGob.Alumnos.Repositorio
                                          {
                                              N_CURSO = pCursos.N_CURSO,
                                              ESTADO = "A",
-                                             NRORESOLUCION = pCursos.NRORESOLUCION,
+                                             NRO_RESOLUCION = pCursos.NRORESOLUCION,
                                              FEC_ALTA = System.DateTime.Now,
                                              USR_ALTA = "Test",
                                              FEC_MODIF = System .DateTime.Now,
@@ -122,7 +122,7 @@ namespace CbaGob.Alumnos.Repositorio
             {
                 var cur = mDb.T_CURSOS.FirstOrDefault(c => c.ID_CURSO == pCursos.ID_CURSO);
                 cur.N_CURSO = pCursos.N_CURSO;
-                cur.NRORESOLUCION = pCursos.NRORESOLUCION;
+                cur.NRO_RESOLUCION = pCursos.NRORESOLUCION;
                 cur.FEC_MODIF = System.DateTime.Now;
                 cur.USR_MODIF = "Test";
                 mDb.SaveChanges();

@@ -1,6 +1,12 @@
-namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using CbaGob.Alumnos.Modelo.Entities.Interfaces;
+
+namespace CbaGob.Alumnos.Servicio.VistasInterface
 {
-    public interface IGrupo : IComunDatos
+    public interface IGrupoVista
     {
         int Id_Grupo { get; set; }
         int Id_Condicion_Curso { get; set; }
@@ -25,10 +31,11 @@ namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
         System.DateTime Hr_Inicio { get; set; }
         System.DateTime Hr_Fin { get; set; }
         string Hr_DiaSemana { get; set; }
-        string Hr_A�o { get; set; }
+        string Hr_Año { get; set; }
         string Hr_Mes { get; set; }
 
-
-
+       IList<IDocentes> ListaDocentes {get;set;}
+       IList<IEstablecimiento> ListaEstableimiento { get; set; }
+        
     }
 }
