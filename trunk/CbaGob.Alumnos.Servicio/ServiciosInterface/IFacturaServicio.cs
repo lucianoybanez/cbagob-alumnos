@@ -9,6 +9,8 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
     {
         IFacturasVista GetFacturas();
         IFacturaVista GetFactura(int IdFactura);
+        IFacturaVista CambiarCondicion(IFacturaVista vista);
+        IFacturaVista GetIndex();
         bool AgregarFactura(IFacturaVista factura);
         bool EliminarFactura(int idFactura);
     }

@@ -1,0 +1,58 @@
+﻿@model FacturasVista
+@{
+    ViewBag.Title = "Index";
+}
+
+@if (Model.Facturas != null && Model.Facturas.Count > 0)
+{ 
+    <div id="tab" style="text-align: center;">
+        <table align="center" id="mytable" width="750px"  cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30">
+                        <div align="center">
+                             Numero de Factura</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Concepto</div>
+                    </th>
+                     <th height="30">
+                        <div align="center">
+                            Monto Total</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                        ACCION</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Facturas)
+                {
+                    <tr>
+                        <td align="left">
+                            @item.NroFactura
+                        </td>
+                        <td>
+                            @item.Concepto
+                        </td>
+                         <td>
+                           @item.MontoTotal
+                        </td>
+                        <td>
+                            @Html.ActionLink("Detalle", "Detalle", "Factura", new { Idfactura = item.IdFactura }, null)                           
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    @Html.Partial("_SinDatos", "Facturas")
+}
+<br />
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   @Html.ActionLink("Agregar Factura", "Agregar", "Factura", new { @class = "linkagregar" })
