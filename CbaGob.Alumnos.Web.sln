@@ -35,6 +35,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3C8F0AE4-1D16-44C2-B6B8-5F000682ACD6}"
 	ProjectSection(SolutionItems) = preProject
 		SolutionItems\DB.sql = SolutionItems\DB.sql
+		InsertValues.sql = InsertValues.sql
 	EndProjectSection
 EndProject
 Global

@@ -1,10 +1,12 @@
 using System;
+using System.Data.Objects;
 using System.Linq;
 using System.Collections.Generic;
 using CbaGob.Alumnos.Modelo.Entities;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Modelo.Repositories;
 using CbaGob.Alumnos.Repositorio.Models;
+using System.Transactions;
 
 namespace CbaGob.Alumnos.Repositorio
 {
@@ -31,7 +33,7 @@ namespace CbaGob.Alumnos.Repositorio
                                     NroFactura = p.NRO_FACTURA,
                                     UsuarioAlta = p.USR_ALTA,
                                     UsuarioModificacion = p.USR_MODIF
-                                }).Cast<IFactura>().ToList();
+                                }).ToList().Cast<IFactura>().ToList();
             return a;
         }
 
@@ -53,58 +55,80 @@ namespace CbaGob.Alumnos.Repositorio
                                            IdFactura = queryResult.ID_FACTURA,
                                            DetalleFactura = new List<IDetalleFactura>()
                                        };
-                //foreach (var detalle in queryResult.T_DETALLES_FACTURA)
-                //{
-                //    factura.DetalleFactura.Add(new DetalleFactura()
-                //                                   {
-                //                                       Descripcion = detalle.DESCRIPCION,
-                //                                       IdDetalleFactura = detalle.ID_DETALLE_FACTURA,
-                //                                       IdFactura = detalle.ID_FACTURA,
-                //                                       Item = detalle.ITEM,
-                //                                       Monto = detalle.MONTO
-                //                                   });
-                //}
-                return factura;
+                /*foreach (var detalle in queryResult.T_DETALLES_FACTURA)
+                {
+                    factura.DetalleFactura.Add(new DetalleFactura()
+                                                   {
+                                                       Descripcion = detalle.DESCRIPCION,
+                                                       IdDetalleFactura = detalle.ID_DETALLE_FACTURA,
+                                                       IdFactura = detalle.ID_FACTURA,
+                                                       Item = detalle.ITEM,
+                                                       Monto = detalle.MONTO
+                                                   });
+                }
+                return factura;*/
             }
             return null;
         }
 
         public bool AgregarFactura(IFactura factura)
         {
-            base.AgregarDatosAlta(factura);
-            T_FACTURAS facturas = new T_FACTURAS()
-                                      {
-                                          CONCEPTO = factura.Concepto,
-                                          ESTADO = factura.Estado,
-                                          FEC_ALTA = factura.FechaAlta,
-                                          FEC_MODIF = factura.FechaModificacion,
-                                          MONTO_TOTAL = factura.MontoTotal,
-                                          NRO_FACTURA = factura.NroFactura,
-                                          USR_ALTA = factura.UsuarioAlta,
-                                          USR_MODIF = factura.UsuarioModificacion,
-                                      };
-            mDB.AddToT_FACTURAS(facturas);
-
-            foreach (var item in factura.DetalleFactura)
+            bool succes = false;
+            using (TransactionScope transaction = new TransactionScope() )
             {
-                base.AgregarDatosAlta(item);
-                T_DETALLES_FACTURA detalle = new T_DETALLES_FACTURA()
-                                                 {
-                                                     DESCRIPCION = item.Descripcion,
-                                                     ESTADO = item.Estado,
-                                                     FEC_ALTA = item.FechaAlta,
-                                                     FEC_MODIF = item.FechaModificacion,
-                                                     //ID_CONDICION_CURSO = item.CondicionCurso.IdCondicionCurso,
-                                                     ID_FACTURA = 5,// Check this on ecommerce to check how get last id of factura on transaction
-                                                     ITEM = item.Item,
-                                                     MONTO = item.Monto,
-                                                     USR_ALTA = item.UsuarioAlta,
-                                                     USR_MODIF = item.UsuarioModificacion,
-                                                 };
-                mDB.AddToT_DETALLES_FACTURA(detalle);
+                try
+                {
+                    base.AgregarDatosAlta(factura);
+                    T_FACTURAS facturas = new T_FACTURAS()
+                    {
+                        CONCEPTO = factura.Concepto,
+                        ESTADO = factura.Estado,
+                        FEC_ALTA = factura.FechaAlta,
+                        FEC_MODIF = factura.FechaModificacion,
+                        MONTO_TOTAL = factura.MontoTotal,
+                        NRO_FACTURA = factura.NroFactura,
+                        USR_ALTA = factura.UsuarioAlta,
+                        USR_MODIF = factura.UsuarioModificacion,
+                    };
+                    mDB.AddToT_FACTURAS(facturas);
+                    mDB.SaveChanges(SaveOptions.DetectChangesBeforeSave);
+
+                    var lastFactura = mDB.T_FACTURAS.Last();
+
+                    foreach (var item in factura.DetalleFactura)
+                    {
+                        base.AgregarDatosAlta(item);
+                        T_DETALLES_FACTURA detalle = new T_DETALLES_FACTURA()
+                        {
+                            DESCRIPCION = item.Descripcion,
+                            ESTADO = item.Estado,
+                            FEC_ALTA = item.FechaAlta,
+                            FEC_MODIF = item.FechaModificacion,
+                            //ID_CONDICION_CURSO = item.CondicionCurso.IdCondicionCurso,
+                            ID_FACTURA = lastFactura.ID_FACTURA,
+                            ITEM = item.Item,
+                            MONTO = item.Monto,
+                            USR_ALTA = item.UsuarioAlta,
+                            USR_MODIF = item.UsuarioModificacion,
+                        };
+                        mDB.AddToT_DETALLES_FACTURA(detalle);
+                    }
+                    mDB.SaveChanges(SaveOptions.DetectChangesBeforeSave);
+                    transaction.Complete();
+                    succes = true;
+                }
+                catch (Exception ex)
+                {
+                   transaction.Dispose();
+                }
             }
-            mDB.SaveChanges();
-            return true;
+
+            if (succes)
+            {
+                mDB.AcceptAllChanges();
+            }
+            
+            return succes;
         }
 
         public bool ModificarFactura(IFactura factura)
