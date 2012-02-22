@@ -19,5 +19,6 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public string Barrio { get; set; }
         public string Calle { get; set; }
         public string Nro { get; set; }
+        public IList<IDomicilios> ListaDomicilio { get; set; }
     }
 }

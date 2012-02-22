@@ -14,7 +14,6 @@ namespace CbaGob.Alumnos.Web.Controllers
     {
         private IGrupoServicio gruposervicio;
 
-
         public GruposController()
         {
             gruposervicio = new GrupoServicio();
@@ -40,13 +39,12 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             IEstablecimientoServicio establecimientoservicio = new EstablecimientoServicio();
 
-            IEstablecimientosVista establecimientosvista = establecimientoservicio.GetEstableciminetoByInstitucion(26);
+            IEstablecimientosVista establecimientosvista = establecimientoservicio.GetAllEstableciminetoByInstitucion(26);
 
             model.ListaEstableimiento = establecimientosvista.ListaEstablecimiento;
 
             return View(model);
         }
-
 
         public ActionResult Modificar(int id_grupo)
         {
@@ -60,7 +58,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             IEstablecimientoServicio establecimientoservicio = new EstablecimientoServicio();
 
-            IEstablecimientosVista establecimientosvista = establecimientoservicio.GetEstableciminetoByInstitucion(26);
+            IEstablecimientosVista establecimientosvista = establecimientoservicio.GetAllEstableciminetoByInstitucion(26);
 
             model.ListaEstableimiento = establecimientosvista.ListaEstablecimiento;
 
@@ -79,7 +77,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             IEstablecimientoServicio establecimientoservicio = new EstablecimientoServicio();
 
-            IEstablecimientosVista establecimientosvista = establecimientoservicio.GetEstableciminetoByInstitucion(26);
+            IEstablecimientosVista establecimientosvista = establecimientoservicio.GetAllEstableciminetoByInstitucion(26);
 
             model.ListaEstableimiento = establecimientosvista.ListaEstablecimiento;
 
@@ -94,6 +92,31 @@ namespace CbaGob.Alumnos.Web.Controllers
             model.Id_Condicion_Curso = 1;
             model.Id_Horario = 1;
             bool mRet = gruposervicio.AgregarGrupo(model);
+
+            IGruposVista gruposvista = gruposervicio.GetAllGrupo();
+
+            return View("Index", gruposvista);
+        }
+
+        [HttpPost]
+        public ActionResult Eliminar_Grupo(GrupoVista model)
+        {
+
+           
+            bool mRet = gruposervicio.EliminarGrupo(model.Id_Grupo);
+
+            IGruposVista gruposvista = gruposervicio.GetAllGrupo();
+
+            return View("Index", gruposvista);
+        }
+
+        [HttpPost]
+        public ActionResult Modificar_Grupo(GrupoVista model)
+        {
+
+            model.Id_Condicion_Curso = 1;
+            model.Id_Horario = 1;
+            bool mRet = gruposervicio.ModificarGrupo(model);
 
             IGruposVista gruposvista = gruposervicio.GetAllGrupo();
 

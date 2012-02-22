@@ -8,11 +8,11 @@ namespace CbaGob.Alumnos.Modelo.Repositories
 {
     public interface IEstablecimientoRepositorio
     {
-        IList<IEstablecimiento> GetTodos();
-        IList<IEstablecimiento> GetEstablecimientoByInstitucion(int id_institucion);
-        IEstablecimiento GetUno(int id_establecimiento);
-        bool Agregar(IEstablecimiento establecimiento);
-        bool Modificar(IEstablecimiento establecimiento);
-        bool Eliminar(int id_establecimiento);
+        IList<IEstablecimiento> GetAllEstablecimiento();
+        IList<IEstablecimiento> GetAllEstablecimientoByInstitucion(int id_institucion);
+        IEstablecimiento GetEstablecimiento(int id_establecimiento);
+        bool AgregarEstablecimiento(IEstablecimiento establecimiento);
+        bool ModificarEstablecimiento(IEstablecimiento establecimiento);
+        bool EliminarEstablecimiento(int id_establecimiento);
     }
 }

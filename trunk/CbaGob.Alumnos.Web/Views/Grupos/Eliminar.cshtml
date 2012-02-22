@@ -126,6 +126,7 @@
     
     @Html.HiddenFor(d => d.Id_Establecimiento)
     @Html.HiddenFor(d => d.Id_Docente)
+    @Html.HiddenFor(d => d.Id_Grupo)
     
 }
 <div id="dialog" title="Eliminar">
@@ -142,8 +143,8 @@
             resizable: false,
             buttons: {
                 "Ok": function () {
-                    var f = $("#FormularioCursos");
-                    $("#FormularioCursos").submit()
+                    var f = $("#FormularioGrupos");
+                    $("#FormularioGrupos").submit()
                     $(this).dialog("close");
                 },
                 "Cancel": function () {

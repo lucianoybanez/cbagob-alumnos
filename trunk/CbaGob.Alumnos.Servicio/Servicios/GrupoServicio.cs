@@ -109,6 +109,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             grupoadd.Id_Establecimiento = grupo.Id_Establecimiento;
             grupoadd.Id_Horario = grupo.Id_Horario;
             grupoadd.NombreGrupo = grupo.NombreGrupo;
+            grupoadd.Capacidad = grupo.Capacidad;
 
             return gruporepositorio.AgregarGrupo(grupoadd);
 
@@ -116,12 +117,22 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         public bool ModificarGrupo(IGrupoVista grupo)
         {
-            throw new NotImplementedException();
+            IGrupo grupoadd = new Grupo();
+
+            grupoadd.Id_Condicion_Curso = grupo.Id_Condicion_Curso;
+            grupoadd.Id_Docente = grupo.Id_Docente;
+            grupoadd.Id_Establecimiento = grupo.Id_Establecimiento;
+            grupoadd.Id_Horario = grupo.Id_Horario;
+            grupoadd.NombreGrupo = grupo.NombreGrupo;
+            grupoadd.Capacidad = grupo.Capacidad;
+            grupoadd.Id_Grupo = grupo.Id_Grupo;
+
+            return gruporepositorio.ModificarGrupo(grupoadd);
         }
 
         public bool EliminarGrupo(int id_grupo)
         {
-            throw new NotImplementedException();
+            return gruporepositorio.EliminarGrupo(id_grupo);
         }
     }
 }
