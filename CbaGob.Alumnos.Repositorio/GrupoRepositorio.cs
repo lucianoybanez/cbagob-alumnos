@@ -28,10 +28,10 @@ namespace CbaGob.Alumnos.Repositorio
                      select
                          new Grupo
                              {
-                                 
+
                                  Id_Condicion_Curso = d.ID_CONDICION_CURSO,
                                  Id_Docente = d.ID_DOCENTE,
-                                 Id_Establecimiento = d.ID_GRUPO,
+                                 Id_Establecimiento = d.ID_ESTABLECIMIENTO,
                                  Id_Grupo = d.ID_GRUPO,
                                  Id_Horario = d.ID_HORARIO,
                                  Capacidad = d.CAPACIDAD ?? 0,
@@ -143,11 +143,13 @@ namespace CbaGob.Alumnos.Repositorio
                 t_grupo.ID_HORARIO = grupo.Id_Horario;
                 t_grupo.CAPACIDAD = grupo.Capacidad;
                 t_grupo.N_GRUPO = grupo.NombreGrupo;
+                t_grupo.FEC_MODIF = grupo.FechaModificacion;
+                t_grupo.USR_MODIF = grupo.UsuarioModificacion;
 
                 mDB.SaveChanges();
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;

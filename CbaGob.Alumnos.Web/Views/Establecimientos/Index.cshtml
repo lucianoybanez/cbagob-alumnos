@@ -1,5 +1,4 @@
-﻿@model  InstitucionVista
-            
+﻿@model  EstablecimientosVista
 @{
     ViewBag.Title = "SGC -- Gobierno de Córdoba -- Instituciones";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -29,7 +28,6 @@
                     <li>@Html.ActionLink("Gestion Alumnos", "Index", "Alumnos")</li>
                     <li>@Html.ActionLink("Gestion Grupos", "Index", "Grupos")</li>
                     <li>@Html.ActionLink("Account", "LogOn", "Account")</li>
-                    <li>@Html.ActionLink("Establecimiento", "Index", "Establecimientos")</li>
                    
                 </ul>
             </div>
@@ -37,7 +35,7 @@
             <br />  
      
      <div id="titulo">
-        <div id="ttxt">Instituciones</div>
+        <div id="ttxt">Establecimientos</div>
         <div id="iconobuscar">
         	<a class="Ntooltip" href="#">
                 <img src=@Content.ImageSite("10_.png", Url)  width="25" height="25" border="0" alt="BUSCAR"/><span> BUSCAR </span>
@@ -59,7 +57,7 @@
       </form>
     </div>
 <div id="DivInstituciones">
-@Html.Partial("_InstitucionesLista", Model.ListaInstituciones)
+@Html.Partial("_EstablecimientoLista", Model)
 </div>
 <script type="text/javascript">
     $(document).ready(function () {
