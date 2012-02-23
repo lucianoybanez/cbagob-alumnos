@@ -45,6 +45,7 @@
     <Compile Include="Comun\ICookieData.cs" />
     <Compile Include="ServiciosInterface\IEstablecimientoServicio.cs" />
     <Compile Include="ServiciosInterface\IGrupoServicio.cs" />
+    <Compile Include="ServiciosInterface\IInscripcionServicio.cs" />
     <Compile Include="Servicios\EstablecimientoServicio.cs" />
     <Compile Include="Servicios\FacturaServicio.cs" />
     <Compile Include="ServiciosInterface\IAlumnosServicios.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Servicios\DocentesServicio.cs" />
     <Compile Include="Servicios\DomiciliosServicios.cs" />
     <Compile Include="Servicios\GrupoServicio.cs" />
+    <Compile Include="Servicios\InscripcionServicio.cs" />
     <Compile Include="Servicios\InstitucionServicio.cs" />
     <Compile Include="Servicios\LocalidadesServicio.cs" />
     <Compile Include="Servicios\PersonaJuridicaServicio.cs" />
@@ -91,6 +93,8 @@
     <Compile Include="VistasInterface\IEstablecimientoVista.cs" />
     <Compile Include="VistasInterface\IGruposVista.cs" />
     <Compile Include="VistasInterface\IGrupoVista.cs" />
+    <Compile Include="VistasInterface\IInscripcionVista.cs" />
+    <Compile Include="VistasInterface\IInscripcionesVista.cs" />
     <Compile Include="Vistas\EstablecimientosVista.cs" />
     <Compile Include="Vistas\EstablecimientoVista.cs" />
     <Compile Include="Vistas\FacturaVista.cs" />
