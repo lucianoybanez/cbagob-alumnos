@@ -17,7 +17,7 @@ p {
 	top: 50%;
 	left: 50%;
 	width:1000px;
-	height:650px;
+	height:auto;
 	margin-top: -340px;
 	margin-left: -500px;
 	border: 1px solid #ccc;
@@ -36,11 +36,11 @@ p {
 	height:auto;
 }
 #titulo {
-width:975px;
-height:32px;
-background-color:#D9C75E;
+width:976px;
+height:28px;
+background-color:#DC9E65;/*#D9C75E#F69D41*/
 margin:5px 5px 8px;
-padding:5px 0 0 15px;
+padding:6px 6px 0 6px;
 }
 
 #ttxt {
@@ -49,22 +49,40 @@ font-size:16px;
 font-weight:700;
 width:250px;
 float:left;
-padding-top:5px;
+padding-top:0px;
 }
 
-#icononuevo {
-width:30px;
+#icononuevo 
+{
+cursor:pointer;
+width:50px;
 height:25px;
 float:right;
+padding:3px;
+font-family: Arial, Verdana;
+font-size: 14px;
 }
 
 #iconobuscar {
 cursor:pointer;
-width:30px;
+width:auto;
 height:25px;
 float:right;
+padding:3px;
+font-family: Arial, Verdana;
+font-size: 14px;
 }
-
+#iconomodificar
+{
+cursor:pointer;
+width:50px;
+height:25px;
+float:right;
+padding:3px;
+font-family: Arial, Verdana;
+font-size: 14px;
+text-decoration: none;
+}
 #nav{
 	width:994px;
 	height:26px;
@@ -87,12 +105,13 @@ float:right;
 	font-family: arial, sans-serif;
 }
 #pie {
-	padding:10px;
+
 	width:980px;
-	height:60px;
-	background-image:url(../images/Bg_pie.jpg);
-	background-repeat:no-repeat;
-	background-position:top;
+    height:60px;
+    background-image:url(../images/Bg_pie.jpg);
+    background-repeat:no-repeat;
+    background-position:top;
+    padding:10px;
 }
 #Copy {
 	font-size: 10px;
@@ -150,7 +169,6 @@ td * {
 tr.alt td {
 	background: #ecf6fc;
 }
-
 tr.over td, tr:hover td {
 	background: #bcd4ec;
 }
@@ -195,39 +213,6 @@ text-decoration:none;
 #pagination-clean a:hover{
 text-decoration:none;
 }
-/**/
-a.Ntooltip {
-position: relative; 
-text-decoration: none !important; 
-color:#0080C0 !important; 
-font-weight:bold !important; 
-width:25px;
-height:25px;
-float:right;
-background-image:url(../images/8_.png);
-}
-
-a.Ntooltip:hover {
-z-index:999; /* va a estar por encima de todo */
-background-color:#000000; /* DEBE haber un color de fondo */
-}
-
-a.Ntooltip span {
-display: none; /* el elemento va a estar oculto */
-}
-
-a.Ntooltip:hover span {
-display: block; /* se fuerza a mostrar el bloque */
-position: absolute; /* se fuerza a que se ubique en un lugar de la pantalla */
-top:-30px; left:-1px; /* donde va a estar */
-width:auto; /* el ancho por defecto que va a tener */
-padding:2px; /* la separación entre el contenido y los bordes */
-background-color: #0080C0; /* el color de fondo por defecto */
-color: #FFFFFF; /* el color de los textos por defecto */
-font-family:Arial, Helvetica, sans-serif;
-font-size:11px;
-font-weight:bold;
-}
 a.btnIngresar {
    text-decoration: none;
    background: #3e83c9;
@@ -251,3 +236,39 @@ a.btnIngresar:active {
    font-family : arial, sans-serif;
    font-weight : bold;
 }
+.activo{
+	background: #B2C8DA;
+	color: #000;
+	font-weight:bold;
+}
+.btngral
+{
+    padding:5px;
+    width:150px;
+	height:40px; 
+	font-family: Arial, Verdana;
+	font-size: 14px;
+	color: #ffffff;
+	background: #416AA0;
+	text-decoration: none;
+}
+.btngral:hover {
+	background: #B2C8DA;
+	color: #000;
+}
+
+#FormularioInstituciones{ margin:0px; padding:0px;}
+.boton{
+        text-decoration: none;
+        background: #3e83c9;
+        border: 1px outset #CCC;
+        padding: 5px 12px;
+        color : #000;
+        text-transform : uppercase;
+        font-size: 12px;
+        font-family : arial, sans-serif;
+        font-weight : bold;
+       }
+.boton:hover{
+        background: #bcd4ec;
+       }

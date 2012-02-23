@@ -9,12 +9,12 @@
         window.document.getElementById('Nro').value = Nro;
     }
 </script>
-<table align="center" class="mybusqueda">
+<table align="center" id="mytable" width="800px"  cellpadding="0" cellspacing="0">
     <tr>
         <td>
             <fieldset>
                 <legend>Busqueda</legend>
-                <table>
+                <table align="center">
                     <tr>
                         <td>
                             Provincia
@@ -53,8 +53,8 @@
                         <td>
                         </td>
                         <td>
-                            <input type="button" value="Buscar"/>
-                            <input type="button" value="Agregar Domicilio"/>
+                            <input type="button" value="Buscar" class="boton" />
+                            <input type="button" value="Agregar Domicilio" class="boton" />
                         </td>
                     </tr>
                 </table>
@@ -65,8 +65,8 @@
         <td>
             @if (Model != null && Model.Count > 0)
             { 
-                <div id="tab" style="text-align: center;">
-                    <table align="center" id="mytable">
+                <div >
+                    <table align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
                         <thead>
                             <tr>
                                 <th height="30">

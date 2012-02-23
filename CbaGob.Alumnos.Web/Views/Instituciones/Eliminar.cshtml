@@ -23,11 +23,13 @@
             <div id="submenu" style="float: left; position: absolute; left: 69px; top: 135px;">
                 <ul>
                     <li>@Html.ActionLink("Instituciones", "Index", "Instituciones", htmlAttributes: new { @class = "activo" })</li>
+                    <li>@Html.ActionLink("Establecimiento", "Index", "Establecimientos")</li>
                     <li>@Html.ActionLink("Gestion Cursos", "Index", "Cursos")</li>
                     <li>@Html.ActionLink("Gestion Docentes", "Index", "Docentes")</li>
                     <li>@Html.ActionLink("Gestion Alumnos", "Index", "Alumnos")</li>
-                    <li>@Html.ActionLink("Account", "LogOn", "Account")</li>
-                   
+                    <li>@Html.ActionLink("Gestion Grupos", "Index", "Grupos")</li>
+                    @*<li>@Html.ActionLink("Account", "LogOn", "Account")</li>*@
+                    <li>@Html.ActionLink("Facturas", "Index", "Factura")</li>
                 </ul>
             </div>
             <br />
@@ -38,6 +40,11 @@
         <div id="ttxt">
             Instituciones -- Eliminar</div>
     </div>
+    <table align="center" id="mytable" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
+        <tr>
+            <td>
+  <fieldset style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px; text-align:center;">
+                <legend>Eliminar Institucion</legend>
     <table align="center" class="mybusqueda">
         <tr>
             <td>
@@ -96,15 +103,18 @@
             </td>
         </tr>
     </table>
-    
+    </fieldset>
+    </td>
+        </tr>
+    </table>
     
     
     @Html.HiddenFor(d => d.ID_INSTITUCION)
     
-    <table id ="myIntituciones" align="center" width="630px">
+    <table id ="myIntituciones" align="center" width="800px">
         <tr>
-            <td>
-                <input id="Eliminar" type="button" value="Eliminar" class="btnIngresar" />&nbsp;&nbsp;
+            <td align="right" valign="middle">
+                <input id="Eliminar" type="button" value="Eliminar" class="boton" />&nbsp;&nbsp;
         @Html.ActionLink("Cancelar", "Index", "Instituciones", null, new { Class = "btnIngresar" })
             </td>
             
