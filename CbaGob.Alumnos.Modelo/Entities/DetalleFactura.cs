@@ -10,7 +10,6 @@ namespace CbaGob.Alumnos.Modelo.Entities
         public string Item { get; set; }
         public decimal Monto { get; set; }
         public string Descripcion { get; set; }
-        public ICondicionCurso CondicionCurso { get; set; }
         public DateTime FechaAlta { get; set; }
         public string UsuarioAlta { get; set; }
         public DateTime FechaModificacion { get; set; }

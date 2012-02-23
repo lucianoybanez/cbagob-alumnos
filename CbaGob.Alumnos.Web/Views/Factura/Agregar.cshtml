@@ -3,23 +3,24 @@
     ViewBag.Title = "Agregar";
 }
 @section Scripts{
-       @Content.Script("CbaGob.Alumnos.Factura.js", Url)
+    @Content.Script("CbaGob.Alumnos.Factura.js", Url)
 }
 @using (Html.BeginForm("GuardarFactura", "Factura", FormMethod.Post, new { id = "FormFactura" }))
 { 
-    @Html.HiddenFor(c=> c.Accion)
+    @Html.HiddenFor(c => c.Accion)
     <input type="hidden" name="CambioUrl" id="CambioUrl" value="@Url.Action("CambiarCondicion")" />
     @Html.ValidationSummary(true)
     <div id="titulo" style="width: 900px; height: 30px; padding: 10px 5px 0 5px; font-family: Arial, Helvetica, sans-serif;
         font-size: 16px; font-weight: bold;">
         Nueva Factura</div>
     <table>
-         <tr>
+        <tr>
             <td>
                 Numero de Factura
             </td>
             <td>
-                @Html.TextBoxFor(c => c.NroFactura, new { style = "width:200px;", MaxLength = "50", disabled = "disabled" })               
+                @Html.TextBoxFor(c => c.NroFactura, new { style = "width:200px;", MaxLength = "50" })
+                @Html.ValidationMessageFor(c => c.NroFactura)
             </td>
         </tr>
         <tr>
@@ -28,9 +29,9 @@
             </td>
             <td>
                 @Html.TextBoxFor(c => c.Concepto, new { style = "width:200px;", MaxLength = "50" })
-                @Html.ValidationMessageFor(c=> c.Concepto)
+                @Html.ValidationMessageFor(c => c.Concepto)
             </td>
-        </tr>       
+        </tr>
         <tr>
             <td>
                 Institucion
@@ -46,13 +47,23 @@
             <td>
                 @Html.EditorFor(c => c.CondicionCurso)
             </td>
-        </tr> 
+        </tr>
+        <tr>
+            <td>
+                Descripcion
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.Descripcion, new { style = "width:200px;", MaxLength = "50" })
+                @Html.ValidationMessageFor(c => c.Descripcion)
+            </td>
+        </tr>
         <tr>
             <td>
                 Item
             </td>
             <td>
-                 @Html.TextBoxFor(c => c.Item, new { style = "width:200px;", MaxLength = "50" })
+                @Html.TextBoxFor(c => c.Item, new { style = "width:200px;", MaxLength = "50" })
+                @Html.ValidationMessageFor(c => c.Item)
             </td>
         </tr>
         <tr>
@@ -60,8 +71,8 @@
                 Monto
             </td>
             <td>
-                 @Html.TextBoxFor(c => c.Monto, new { style = "width:10px;", MaxLength = "8" })
-                 @Html.ValidationMessageFor(c=> c.Monto)
+                @Html.TextBoxFor(c => c.Monto, new { style = "width:10px;", MaxLength = "8" })
+                @Html.ValidationMessageFor(c => c.Monto)
             </td>
         </tr>
     </table>
@@ -70,5 +81,3 @@
         <input type="submit" value="Guargar" />
     </p>
 }
-
-

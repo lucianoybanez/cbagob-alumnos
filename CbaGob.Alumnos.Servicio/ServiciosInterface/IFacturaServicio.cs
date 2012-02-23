@@ -5,7 +5,7 @@ using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.ServiciosInterface
 {
-    public interface IFacturaServicio
+    public interface IFacturaServicio : IBaseServicio
     {
         IFacturasVista GetFacturas();
         IFacturaVista GetFactura(int IdFactura);
