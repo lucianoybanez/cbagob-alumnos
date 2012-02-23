@@ -3,18 +3,18 @@
 @if (Model != null && Model.Count > 0)
 { 
     <div id="tab" style="text-align: center;">
-        <table align="center" id="mytable" width="750px"  cellpadding="0" cellspacing="0">
+        <table align="center" id="mytable" width="950px"  cellpadding="0" cellspacing="0">
             <thead>
                 <tr>
-                    <th height="30">
+                    <th height="30" width="500">
                         <div align="center">
-                            NOMBRE</div>
+                            NOMBRE DE LA INSTITUCION</div>
                     </th>
-                    <th height="30">
+                    <th height="30" width="40">
                         <div align="center">
                             PROPIA</div>
                     </th>
-                     <th height="30">
+                     <th height="30" width="80">
                         <div align="center">
                             FECHA ALTA</div>
                     </th>
@@ -40,10 +40,56 @@
                         <td>
                             @Html.ActionLink("Modificar", "Modificar", "Instituciones", new { INST_ID = item.ID_INSTITUCION }, null)
                             @Html.ActionLink("Eliminar", "Eliminar", "Instituciones", new { INST_ID = item.ID_INSTITUCION }, null)
-                            @*@Html.ActionLink("Detalle","Index","CondicionesCurso",null,null)*@
+                            @Html.ActionLink("Detalle","Index","CondicionesCurso",null,null)
                         </td>
                     </tr>
                 }
+                <tr>
+                        <td align="left">
+                            Intituto Superior Nuestra Señora del Valle Famatina
+                        </td>
+                        <td>
+                           Si
+                        </td>
+                         <td>
+                           12/12/1978
+                        </td>
+                        <td>
+                           <a href="#">Modificar</a>
+                           <a href="#">Eliminar</a>
+                            <a href="#">Detalle</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="4">
+                            &nbsp;
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td align="left" valign="middle" colspan="2">
+                            <div id="resumenPag" style="height:30px; padding:10px 5px 0 2px;">
+                              <div align="center">
+                                <ul id="pagination-clean">
+                                  <li class="previous-off">Ant</li>
+                                  <li class="active">1</li>
+                                  <li><a href="?page=2">2</a></li>
+                                  <li><a href="?page=3">3</a></li>
+                                  <li><a href="?page=4">4</a></li>
+                                  <li><a href="?page=5">5</a></li>
+                                  <li><a href="?page=6">6</a></li>
+                                  <li><a href="?page=7">7</a></li>
+                                  <li class="next"><a href="?page=2">Sig</a></li>
+                                </ul>
+                              </div>
+                         </div>
+                        </td> 
+                        <td align="right" valign="middle" colspan="2">
+                            <div id="resumenLink" style="height:30px; padding:20px 5px 0 2px;">
+                                @Html.ActionLink("Agregar Institucion", "Agregar", "Instituciones", htmlAttributes: new { @class = "btngral" })
+                         </div>
+                        </td> 
+                    </tr>
             </tbody>
         </table>
     </div>
@@ -53,5 +99,5 @@ else
     @Html.Partial("_SinDatos", "instituciones")
 }
 <br />
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   @Html.ActionLink("Agregar Institucion", "Agregar", "Instituciones", htmlAttributes: new { @class = "linkagregar" })
+   
+   
