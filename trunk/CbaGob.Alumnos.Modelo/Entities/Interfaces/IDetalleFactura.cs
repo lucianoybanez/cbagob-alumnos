@@ -12,6 +12,5 @@ namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
         string Item { get; set; }
         decimal Monto { get; set; }
         string Descripcion { get; set; }
-        ICondicionCurso CondicionCurso { get; set; }
     }
 }

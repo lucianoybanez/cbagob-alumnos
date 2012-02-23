@@ -53,6 +53,7 @@
     <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CondicionCursoRepositorioTest.cs" />
+    <Compile Include="Repositories\FacturaRepositorioTest.cs" />
     <Compile Include="Repositories\InstitucionRepositorioTest.cs" />
     <Compile Include="Repositories\UserRepositoryTest.cs" />
   </ItemGroup>

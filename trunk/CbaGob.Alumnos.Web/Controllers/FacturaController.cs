@@ -7,10 +7,11 @@ using CbaGob.Alumnos.Modelo.Entities;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
 using CbaGob.Alumnos.Servicio.Vistas.Shared;
+using JLY.Hotel.Web.Controllers;
 
 namespace CbaGob.Alumnos.Web.Controllers
 {
-    public class FacturaController : Controller
+    public class FacturaController : BaseController 
     {
         private IFacturaServicio FacturaServicio;
 
@@ -39,6 +40,12 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Agregar", FacturaServicio.CambiarCondicion(factura));
         }
 
+        public ActionResult Eliminar(int Idfactura)
+        {
+            FacturaServicio.EliminarFactura(Idfactura);
+            return RedirectToAction("Index");
+        }
+
         public ActionResult GuardarFactura(FacturaVista factura)
         {
             if (ModelState.IsValid)
@@ -47,8 +54,9 @@ namespace CbaGob.Alumnos.Web.Controllers
                 {
                     return Index();
                 }
+                AddError(FacturaServicio.GetErrors());
             }
-            return Index();
+            return CambiarCondicion(factura);
         }
 
     }

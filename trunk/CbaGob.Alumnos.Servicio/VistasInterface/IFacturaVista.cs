@@ -10,7 +10,6 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
     {
         int IdFactura { get; set; }
         string NroFactura { get; set; }
-        decimal MontoTotal { get; set; }
         string Concepto { get; set; }
         string Accion { get; set; }
         IComboBox CondicionCurso { get; set; }

@@ -9,8 +9,9 @@ namespace CbaGob.Alumnos.Modelo.Repositories
     {
         IList<IFactura> GetFacturas();
         IFactura GetFacturabyId(int idFactura);
-        bool AgregarFactura(IFactura factura);
+        int AgregarFactura(IFactura factura);
         bool ModificarFactura(IFactura factura);
         bool EliminarFactura(int idFactura);
+        bool AgregarDetalle(IDetalleFactura detalleFactura);
     }
 }

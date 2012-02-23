@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using CbaGob.Alumnos.Modelo.Entities;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Modelo.Repositories;
+using CbaGob.Alumnos.Servicio.Comun;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
 using CbaGob.Alumnos.Servicio.Vistas.Shared;
@@ -35,12 +37,30 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         public IFacturaVista GetFactura(int IdFactura)
         {
-            throw new NotImplementedException();
+            var result = FacturaRepositorio.GetFacturabyId(IdFactura);
+            IFacturaVista vista = new FacturaVista()
+                                      {
+                                          Accion = "Modificacion",
+                                          Concepto = result.Concepto,
+                                          Descripcion = "",
+                                          IdFactura = result.IdFactura,
+                                          NroFactura = result.NroFactura,
+                                          Monto = result.MontoTotal,
+                                          Item ="",
+                                          
+                                      };
+            var condiciones = CondicionCursoRepositorio.GetCondicionesByInstitucion(result.IdInstitucion);
+            var instituciones = InstitucionRepositorio.GetInstituciones();
+            CargarComboInstituciones(vista, instituciones);
+            CargarComboCondicionesCurso(vista, condiciones);
+            vista.CondicionCurso.Selected = result.IdCondicionCurso.ToString();
+            vista.Institucion.Selected = result.IdInstitucion.ToString();
+            return vista;
         }
 
         public IFacturaVista CambiarCondicion(IFacturaVista vista)
         {
-           
+
             var condiciones = CondicionCursoRepositorio.GetCondicionesByInstitucion(int.Parse(vista.Institucion.Selected));
             var instituciones = InstitucionRepositorio.GetInstituciones();
 
@@ -78,11 +98,13 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         public IFacturaVista GetIndex()
         {
             IFacturaVista vista = new FacturaVista();
+            vista.Accion = "Alta";
+            vista.NroFactura = new Random().Next(99, 9999999).ToString();
             var instituciones = InstitucionRepositorio.GetInstituciones();
             IList<ICondicionCurso> condiciones = new List<ICondicionCurso>();
-            if (instituciones!=null)
+            if (instituciones != null)
             {
-                if (instituciones.Count>0)
+                if (instituciones.Count > 0)
                 {
                     int idInstitucion = instituciones.First().ID_INSTITUCION;
                     condiciones = CondicionCursoRepositorio.GetCondicionesByInstitucion(idInstitucion);
@@ -97,12 +119,49 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         public bool AgregarFactura(IFacturaVista factura)
         {
-            throw new NotImplementedException();
+            if (!string.IsNullOrEmpty(factura.CondicionCurso.Selected))
+            {
+                if (factura.CondicionCurso.Selected != "0")
+                {
+                    IFactura modelFactura = new Factura()
+                                                {
+                                                    Concepto = factura.Concepto,
+                                                    IdCondicionCurso = int.Parse(factura.CondicionCurso.Selected),
+                                                    MontoTotal = factura.Monto,
+                                                    NroFactura = factura.NroFactura,
+                                                    DetalleFactura = new DetalleFactura()
+                                                                         {
+                                                                             Descripcion = factura.Descripcion,
+                                                                             Item = factura.Item,
+                                                                             Monto = factura.Monto,
+
+                                                                         }
+                                                };;
+                    int idFactura = FacturaRepositorio.AgregarFactura(modelFactura);
+                    modelFactura.DetalleFactura.IdFactura = idFactura;
+                    if (idFactura!=0)
+                    {
+                        if (FacturaRepositorio.AgregarDetalle(modelFactura.DetalleFactura))
+                        {
+                            return true;
+                        }
+                    }
+                    base.AddError("Ocurrio un error al agregar la Factura");
+                    return false;
+                }
+            }
+            base.AddError("Debe seleccionar una condicion de Curso");
+            return false;
         }
 
         public bool EliminarFactura(int idFactura)
         {
-            throw new NotImplementedException();
+            return FacturaRepositorio.EliminarFactura(idFactura);
+        }
+
+        public IList<IErrores> GetErrors()
+        {
+            return base.Errors;
         }
     }
 }

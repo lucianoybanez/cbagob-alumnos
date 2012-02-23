@@ -41,7 +41,8 @@
                            @item.MontoTotal
                         </td>
                         <td>
-                            @Html.ActionLink("Detalle", "Detalle", "Factura", new { Idfactura = item.IdFactura }, null)                           
+                            @Html.ActionLink("Detalle", "Detalle", "Factura", new { Idfactura = item.IdFactura }, null)   
+                             @Html.ActionLink("Eliminar", "Eliminar", "Factura", new { Idfactura = item.IdFactura }, null)                          
                         </td>
                     </tr>
                 }
