@@ -18,6 +18,7 @@ namespace CbaGob.Alumnos.Modelo.Entities
         public int Id_Establecimiento { get; set; }
         public int Id_Docente { get; set; }
         public int Id_Horario { get; set; }
+        public int Id_Institucion { get; set; }
 
         public int Capacidad { get; set; }
         public string NombreGrupo { get; set; }
@@ -36,5 +37,6 @@ namespace CbaGob.Alumnos.Modelo.Entities
         public string Hr_DiaSemana { get; set; }
         public string Hr_Año { get; set; }
         public string Hr_Mes { get; set; }
+        public string Nombre_Curso { get; set; }
     }
 }

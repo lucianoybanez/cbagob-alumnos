@@ -47,7 +47,9 @@ namespace CbaGob.Alumnos.Repositorio
                                  FechaModificacion = d.FEC_MODIF ?? System.DateTime.Now,
                                  UsuarioAlta = d.USR_ALTA,
                                  UsuarioModificacion = d.USR_MODIF,
-                                 NombreGrupo = d.N_GRUPO
+                                 NombreGrupo = d.N_GRUPO,
+                                 Nombre_Curso = d.T_CONDICIONES_CURSO.T_CURSOS.N_CURSO,
+                                 Id_Institucion = d.T_CONDICIONES_CURSO.ID_INSTITUCION 
                              });
 
             return g;

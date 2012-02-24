@@ -7,6 +7,8 @@ namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
         int Id_Establecimiento { get; set; }
         int Id_Docente { get; set; }
         int Id_Horario { get; set; }
+        int Id_Institucion { get; set; }
+
         int Capacidad { get; set; }
         string NombreGrupo { get; set; }
 
@@ -27,6 +29,8 @@ namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
         string Hr_DiaSemana { get; set; }
         string Hr_Año { get; set; }
         string Hr_Mes { get; set; }
+
+        string Nombre_Curso { get; set; }
 
 
 
