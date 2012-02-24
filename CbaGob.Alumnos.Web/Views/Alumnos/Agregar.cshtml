@@ -12,7 +12,12 @@
     
     @Html.Partial("_Personas", Model.ListaPersona)
    
-    <table>
+   <table align="center" id="mytable" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
+        <tr>
+            <td>
+  <fieldset style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px; text-align:center;">
+                <legend>Domicilio</legend>
+    <table align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
         <tr>
             <td>
                 Nombre
@@ -71,11 +76,21 @@
             </td>
         </tr>
     </table>
+     </fieldset>
+    </td>
+        </tr>
+    </table>
     
-    <p>
-        <input type="submit" value="Guargar" />
-        @Html.ActionLink("Cancelar", "Index", "Alumnos")
-    </p>
+    <table id ="myIntituciones" align="center" width="800px">
+        <tr>
+            <td align="right" valign="middle">
+                <input type="submit" value="Guargar" class="boton" />&nbsp;&nbsp;
+       @Html.ActionLink("Cancelar", "Index", "Alumnos", null, new { Class = "btnIngresar" })
+            </td>
+            
+        </tr>
+    </table>
+       <br /><br /><br /><br /><br />
     @Html.HiddenFor(d => d.Id_Persona)
     @Html.ValidationSummary(true)
 }

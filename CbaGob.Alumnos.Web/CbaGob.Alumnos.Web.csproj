@@ -113,6 +113,7 @@
     <Content Include="Content\css\instituciones.css" />
     <Content Include="Content\css\login.css" />
     <Content Include="Content\css\menu.css" />
+    <Content Include="Content\css\textos.css" />
     <Content Include="Content\images\120_.png" />
     <Content Include="Content\images\47_.png" />
     <Content Include="Content\images\49_.png" />

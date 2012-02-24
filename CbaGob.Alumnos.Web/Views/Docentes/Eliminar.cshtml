@@ -3,13 +3,21 @@
     ViewBag.Title = "SGC - Gobierno de Córdoba - Docentes";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div id="contenido">
+    
 @using (Html.BeginForm("Eliminar_Docente", "Docentes", FormMethod.Post, new { Id = "FormularioDocentes" }))
 { 
+   
+   
+
     <div id="titulo">
         <div id="ttxt">
             Eliminar Docente</div>
     </div>
   
+   <table class="docentetr"  cellpadding="0" cellspacing="0" align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
+        <tr>
+            <td>
     
     <div id="tabs">
         <ul>
@@ -18,9 +26,9 @@
             <li><a href="#tabs-3">Domicilio</a></li>
         </ul>
         <div id="tabs-1">
-            <table>
+            <table align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
                 <tr>
-                    <td>
+                    <td width="220" align="right" valign="middle">
                         Modalidad
                     </td>
                     <td>
@@ -28,7 +36,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                   <td width="220" align="right" valign="middle">
                         Cargos
                     </td>
                     <td>
@@ -38,9 +46,9 @@
             </table>
         </div>
         <div id="tabs-2">
-            <table>
+            <table align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
                 <tr>
-                    <td>
+                    <td width="220" align="right" valign="middle">
                         Cuit
                     </td>
                     <td>
@@ -48,7 +56,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td width="220" align="right" valign="middle">
                         Razon Social
                     </td>
                     <td>
@@ -58,9 +66,9 @@
             </table>
         </div>
         <div id="tabs-3">
-            <table>
+            <table align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
                 <tr>
-                    <td>
+                   <td width="220" align="right" valign="middle">
                         Provincia
                     </td>
                     <td>
@@ -68,7 +76,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                     <td width="220" align="right" valign="middle">
                         Localidad
                     </td>
                     <td>
@@ -76,7 +84,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                     <td width="220" align="right" valign="middle">
                         Barrio
                     </td>
                     <td>
@@ -84,7 +92,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td width="220" align="right" valign="middle">
                         Calle
                     </td>
                     <td>
@@ -92,7 +100,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td width="220" align="right" valign="middle">
                         Nro
                     </td>
                     <td>
@@ -103,15 +111,27 @@
         </div>
     </div>
     
+     </td>
+        </tr>
+    </table> 
+     
     @Html.HiddenFor(d => d.Id_Domicilio)
     @Html.HiddenFor(d => d.Id_PersonaJuridica)
     @Html.HiddenFor(d => d.Id_Docente)
     
-    <p>
-        <input id="Eliminar" type="button" value="Eliminar" />
-        @Html.ActionLink("Cancelar", "Index", "Docentes")
-    </p>
+    
+    <table id ="myIntituciones" align="center" width="800px">
+        <tr>
+            <td align="right" valign="middle">
+                <input id="Eliminar" type="button" value="Eliminar" class="boton"/>&nbsp;&nbsp;
+                @Html.ActionLink("Cancelar", "Index", "Docentes", null, new { Class = "btnIngresar" })
+            </td>
+            
+        </tr>
+    </table>
 }
+</div>
+ <br /><br /><br /><br /><br />
 <div id="dialog" title="Eliminar">
     <p>
         Esta Seguro de Eliminar?</p>

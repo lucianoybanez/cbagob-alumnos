@@ -9,7 +9,7 @@
         <div id="ttxt">
             Agregar Establecimiento</div>
     </div>
-    <table id="myIntituciones" align="center" width="630px">
+    @*<table id="myIntituciones" align="center" width="630px">
         <tr>
             <td>
                 Nombre
@@ -18,16 +18,38 @@
                 @Html.TextBoxFor(c => c.N_Establecimiento, new { style = "width:200px;", MaxLength = "50" })
             </td>
         </tr>
+    </table>*@
+    <table align="center" id="mytable" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
+        <tr>
+            <td>
+  <fieldset style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px; text-align:center;">
+                <legend>Agregar Instutuciones</legend>
+    <table align="center" id="mytable" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
+            <tr>
+                <td>
+                    Nombre
+                </td>
+                <td align="left" valign="middle"> 
+                    @Html.TextBoxFor(c => c.N_Establecimiento, new { style = "width:400px;", MaxLength = "50" })
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+     </td>
+        </tr>
     </table>
-    
-    
-    @Html.Partial("_Domicilios", Model.ListaDomicilio)
+     @Html.Partial("_Domicilios", Model.ListaDomicilio)
+     <table align="center" id="mytable" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
+        <tr>
+            <td>
+  <fieldset style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px; text-align:center;">
+                <legend>Domicilio</legend>
     <table id="mybusqueda" align="center" width="630px">
         <tr>
             <td>
                 Provincia
             </td>
-            <td>
+            <td align="left" valign="middle">
                 <input id="Provincia" disabled="True" style="width: 200px;" />
             </td>
         </tr>
@@ -35,7 +57,7 @@
             <td>
                 Localidad
             </td>
-            <td>
+            <td align="left" valign="middle">
                 <input id="Localidad" disabled style="width: 350px;" />
             </td>
         </tr>
@@ -43,7 +65,7 @@
             <td>
                 Barrio
             </td>
-            <td>
+            <td align="left" valign="middle">
                 <input id="Barrio" disabled style="width: 350px;" />
             </td>
         </tr>
@@ -51,7 +73,7 @@
             <td>
                 Calle
             </td>
-            <td>
+            <td align="left" valign="middle">
                 <input id="Calle" disabled style="width: 350px;" />
             </td>
         </tr>
@@ -59,26 +81,31 @@
             <td>
                 Nro
             </td>
-            <td>
+            <td align="left" valign="middle">
                 <input id="Nro" disabled style="width: 60px;" />
             </td>
         </tr>
     </table>
-    
+
+     </fieldset>
+     </td>
+        </tr>
+    </table>
     
   
     
     @Html.HiddenFor(d => d.Id_Domicilio)
-    <table id="myIntituciones" align="center" width="630px">
+    <table id="myIntituciones" align="center" width="800px">
         <tr>
-            <td>
-                <input type="submit" value="Guargar" class="btnIngresar" />&nbsp;&nbsp;
+            <td align="right" vlign="middle">
+                <input type="submit" value="Guargar" class="boton" />&nbsp;&nbsp;
                 @Html.ActionLink("Cancelar", "Index", "Establecimientos", null, new { Class = "btnIngresar" })
             </td>
         </tr>
     </table>
    
-}
+}   <br /><br /><br /><br /><br />
+
 <script type="text/javascript">
     $(document).ready(function () {
 

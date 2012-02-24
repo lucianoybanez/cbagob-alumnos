@@ -9,7 +9,12 @@
         <div id="ttxt">
             Modificar Establecimiento</div>
     </div>
-    <table id="myIntituciones" align="center" width="630px">
+    <table align="center" id="mytable" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
+        <tr>
+            <td>
+  <fieldset style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px; text-align:center;">
+                <legend>Agregar Instutuciones</legend>
+    <table align="center" id="mytable" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
         <tr>
             <td>
                 Nombre
@@ -19,15 +24,23 @@
             </td>
         </tr>
     </table>
-    
+    </fieldset>
+     </td>
+        </tr>
+    </table>
     
     @Html.Partial("_Domicilios", Model.ListaDomicilio)
-    <table align="center" class="#mybusqueda">
+   <table align="center" id="mytable" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
+        <tr>
+            <td>
+  <fieldset style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px; text-align:center;">
+                <legend>Domicilio</legend>
+    <table id="mybusqueda" align="center" width="630px">
         <tr>
             <td>
                 Provincia
             </td>
-            <td>
+            <td align="left" valign="middle">
                 @Html.TextBoxFor(c => c.Provincia, new { disabled = "disabled", style = "width:200px;", MaxLength = "64", Class = "asd", Id = "Provincia" })
             </td>
         </tr>
@@ -35,7 +48,7 @@
             <td>
                 Localidad
             </td>
-            <td>
+           <td align="left" valign="middle">
                 @Html.TextBoxFor(c => c.Localidad, new { disabled = "disabled", style = "width:350px;", MaxLength = "64", Class = "asd", Id = "Localidad" })
             </td>
         </tr>
@@ -43,7 +56,7 @@
             <td>
                 Barrio
             </td>
-            <td>
+            <td align="left" valign="middle">
                 @Html.TextBoxFor(c => c.Barrio, new { disabled = "disabled", style = "width:350px;", MaxLength = "64", Class = "asd", Id = "Barrio" })
             </td>
         </tr>
@@ -51,7 +64,7 @@
             <td>
                 Calle
             </td>
-            <td>
+           <td align="left" valign="middle">
                 @Html.TextBoxFor(c => c.Calle, new { disabled = "disabled", style = "width:350px;", MaxLength = "64", Class = "asd", Id = "Calle" })
             </td>
         </tr>
@@ -59,23 +72,26 @@
             <td>
                 Nro
             </td>
-            <td>
+            <td align="left" valign="middle">
                 @Html.TextBoxFor(c => c.Nro, new { disabled = "disabled", style = "width:60px;", MaxLength = "64", Class = "asd", Id = "Nro" })
             </td>
         </tr>
     </table>
-    
+    </fieldset>
+     </td>
+        </tr>
+    </table>
     
   
     @Html.HiddenFor(d => d.Id_Establecimiento)
     @Html.HiddenFor(d => d.Id_Domicilio)
-    <table id="myIntituciones" align="center" width="630px">
+    <table id="myIntituciones" align="center" width="800px">
         <tr>
-            <td>
-                <input type="submit" value="Guargar" class="btnIngresar" />&nbsp;&nbsp;
+            <td align="right" vlign="middle">
+                <input type="submit" value="Guargar" class="boton" />&nbsp;&nbsp;
                 @Html.ActionLink("Cancelar", "Index", "Establecimientos", null, new { Class = "btnIngresar" })
             </td>
         </tr>
     </table>
    
-}
+}   <br /><br /><br /><br /><br />
