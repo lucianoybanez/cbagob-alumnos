@@ -14,71 +14,88 @@
         <div id="ttxt">
             Nueva Factura</div>
     </div>
-    <table>
+    
+   <table align="center" id="mytable" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
         <tr>
             <td>
+  <fieldset style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px; text-align:center;">
+                <legend>Factura</legend>
+    <table align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
+        <tr>
+            <td align="left" valign="middle">
                 Numero de Factura
             </td>
-            <td>
+            <td align="left" valign="middle">
                 @Html.TextBoxFor(c => c.NroFactura, new { style = "width:200px;", MaxLength = "50" })
                 @Html.ValidationMessageFor(c => c.NroFactura)
             </td>
         </tr>
         <tr>
-            <td>
+            <td  align="left" valign="middle">
                 Concepto
             </td>
-            <td>
+            <td align="left" valign="middle">
                 @Html.TextBoxFor(c => c.Concepto, new { style = "width:200px;", MaxLength = "50" })
                 @Html.ValidationMessageFor(c => c.Concepto)
             </td>
         </tr>
         <tr>
-            <td>
+            <td align="left" valign="middle">
                 Institucion
             </td>
-            <td>
+            <td align="left" valign="middle">
                 @Html.EditorFor(c => c.Institucion)
             </td>
         </tr>
         <tr>
-            <td>
+            <td align="left" valign="middle">
                 Curso Asignado a la Institucion
             </td>
-            <td>
+            <td align="left" valign="middle">
                 @Html.EditorFor(c => c.CondicionCurso)
             </td>
         </tr>
         <tr>
-            <td>
+            <td align="left" valign="middle">
                 Descripcion
             </td>
-            <td>
+            <td align="left" valign="middle">
                 @Html.TextBoxFor(c => c.Descripcion, new { style = "width:200px;", MaxLength = "50" })
                 @Html.ValidationMessageFor(c => c.Descripcion)
             </td>
         </tr>
         <tr>
-            <td>
+            <td align="left" valign="middle">
                 Item
             </td>
-            <td>
+            <td align="left" valign="middle">
                 @Html.TextBoxFor(c => c.Item, new { style = "width:200px;", MaxLength = "50" })
                 @Html.ValidationMessageFor(c => c.Item)
             </td>
         </tr>
         <tr>
-            <td>
+            <td align="left" valign="middle">
                 Monto
             </td>
-            <td>
+            <td align="left" valign="middle">
                 @Html.TextBoxFor(c => c.Monto, new { style = "width:10px;", MaxLength = "8" })
                 @Html.ValidationMessageFor(c => c.Monto)
             </td>
         </tr>
+   </table>
+     </fieldset>
+    </td>
+        </tr>
     </table>
     
-    <p>
-        <input type="submit" value="Guargar" />
-    </p>
+   
+    <table id ="myIntituciones" align="center" width="800px">
+        <tr>
+            <td align="right" valign="middle">
+                <input type="submit" value="Guargar" class="boton" />&nbsp;&nbsp;
+            </td>
+            
+        </tr>
+    </table>
+       <br /><br /><br /><br /><br />
 }
