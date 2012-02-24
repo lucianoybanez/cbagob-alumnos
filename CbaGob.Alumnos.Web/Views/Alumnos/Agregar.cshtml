@@ -22,7 +22,7 @@
             <td>
                 Nombre
             </td>
-            <td>
+            <td align="left" valign="middle">
                 @Html.TextBoxFor(c => c.Nov_Nombre, new {disabled = "disabled", style = "width:200px;", MaxLength = "50", Class = "asd" })
                 @Html.ValidationMessageFor(m => m.Id_Persona)
             </td>
@@ -31,7 +31,7 @@
             <td>
                 Apellido
             </td>
-            <td>
+            <td align="left" valign="middle">
                 @Html.TextBoxFor(c => c.Nov_Apellido, new { disabled = "disabled", style = "width:200px;", MaxLength = "50", Class = "asd" })
             </td>
         </tr>
@@ -39,7 +39,7 @@
             <td>
                 Tipo
             </td>
-            <td>
+            <td align="left" valign="middle">
                 @Html.EditorFor(c => c.TipoDocumento)
             </td>
         </tr>
@@ -47,7 +47,7 @@
             <td>
                 Dni
             </td>
-            <td>
+            <td align="left" valign="middle">
                 @Html.TextBoxFor(c => c.Nro_Documento, new { disabled = "disabled", style = "width:100px;", MaxLength = "50", Class = "asd" })
             </td>
         </tr>
@@ -55,7 +55,7 @@
             <td>
                 Cuil
             </td>
-            <td>
+            <td align="left" valign="middle">
                 @Html.TextBoxFor(c => c.Cuil, new { disabled = "disabled", style = "width:100px;", MaxLength = "50", Class = "asd" })
             </td>
         </tr>
@@ -63,7 +63,7 @@
             <td>
                 Sexo
             </td>
-            <td>
+            <td align="left" valign="middle">
                 @Html.EditorFor(c => c.Sexo)
             </td>
         </tr>
@@ -71,7 +71,7 @@
             <td>
                 Estado Civil
             </td>
-            <td>
+            <td align="left" valign="middle">
                 @Html.EditorFor(c => c.EstadoCivil)
             </td>
         </tr>
