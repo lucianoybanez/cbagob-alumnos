@@ -22,7 +22,12 @@
     
     
        
-    <table align="center" class="#mybusqueda">
+    <table align="center" id="mytable" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
+        <tr>
+            <td>
+  <fieldset style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px; text-align:center;">
+                <legend>Eliminar Establecimiento</legend>
+    <table align="center" class="mybusqueda">
         <tr>
             <td>
                 Provincia
@@ -65,20 +70,23 @@
         </tr>
     </table>
     
-    
+    </fieldset>
+    </td>
+        </tr>
+    </table>
   
     @Html.HiddenFor(d => d.Id_Establecimiento)
     @Html.HiddenFor(d => d.Id_Domicilio)
-    <table id="myIntituciones" align="center" width="630px">
+    <table id="myIntituciones" align="center" width="800px">
         <tr>
-            <td>
-                <input id="Eliminar" type="button" value="Eliminar" class="btnIngresar" />
+            <td align="right" vlign="middle">
+                <input id="Eliminar" type="button" value="Eliminar" class="boton" />
                 @Html.ActionLink("Cancelar", "Index", "Establecimientos", null, new { Class = "btnIngresar" })
             </td>
         </tr>
     </table>
    
-}
+} <br /><br /><br /><br /><br />
 <div id="dialog" title="Eliminar">
     <p>
         Esta Seguro de Eliminar?</p>

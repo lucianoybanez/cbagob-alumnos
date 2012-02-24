@@ -9,7 +9,12 @@
         <div id="ttxt">
             Eliminar Curso</div>
     </div>
-    <table>
+     <table align="center" id="mytable" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
+        <tr>
+            <td>
+  <fieldset style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px; text-align:center;">
+                <legend>Nuevo Curso</legend>
+    <table align="center" id="mytable" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
         <tr>
             <td>
                 Nombre
@@ -26,13 +31,23 @@
                 @Html.TextBoxFor(c => c.NRORESOLUCION, new { disabled = "disabled", style = "width:200px;", MaxLength = "50", Class = "asd" })
             </td>
         </tr>
+   </table>
+      </fieldset>
+     </td>
+        </tr>
     </table>
     @Html.HiddenFor(d => d.ID_CURSO)
-    <p>
-        <input id="Eliminar" type="button" value="Eliminar" />
-        @Html.ActionLink("Cancelar", "Index", "Cursos")
-    </p>
-}
+    
+     <table id="myIntituciones" align="center" width="800px">
+        <tr>
+            <td align="right" vlign="middle">
+                 <input id="Eliminar" type="button" value="Eliminar" class="boton" />&nbsp;&nbsp;
+                 @Html.ActionLink("Cancelar", "Index", "Cursos", null, new { Class = "btnIngresar" })
+            </td>
+        </tr>
+    </table>
+}  <br /><br /><br /><br /><br />
+
 <div id="dialog" title="Eliminar">
     <p>
         Esta Seguro de Eliminar?</p>
