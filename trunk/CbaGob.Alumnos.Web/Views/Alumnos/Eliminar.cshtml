@@ -1,13 +1,14 @@
 ﻿@model AlumnosVista
 @{
-    ViewBag.Title = "Eliminar";
+    ViewBag.Title = "SGC - Gobierno de Córdoba - Alumnos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using (Html.BeginForm("Eliminar_Alumno", "Alumnos", FormMethod.Post, new { Id = "FormularioAlumnos" }))
 { 
-    <div id="titulo" style="width: 900px; height: 30px; padding: 10px 5px 0 5px; font-family: Arial, Helvetica, sans-serif;
-        font-size: 16px; font-weight: bold;">
-        Eliminar Alumno</div>
+   <div id="titulo">
+        <div id="ttxt">
+            Eliminar Alumno</div>
+    </div>
 
     <table>
         <tr>

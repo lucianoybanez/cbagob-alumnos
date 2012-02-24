@@ -1,117 +1,81 @@
 ﻿@model  EstablecimientoVista
 @{
-    ViewBag.Title = "SGC -- Gobierno de Córdoba -- Instituciones Nuevo";
+    ViewBag.Title = "SGC - Gobierno de Córdoba - Establecimientos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div id="contenido">
-    <div id="nav">
-        <ul id="menu">
-            <li><a href="">Inicio</a></li>
-            <li><a href="">Establecimiento Educativo</a></li>
-        </ul>
+@using (Html.BeginForm("Modificar_Establecimiento", "Establecimientos", FormMethod.Post, new { Id = "FormularioEstablecimiento" }))
+{ 
+    <div id="titulo">
+        <div id="ttxt">
+            Modificar Establecimiento</div>
     </div>
-    <div id="usu">
-        <div id="icono_usu" style="width: 30px; height: 25px; float: left;">
-            <img src=@Content.ImageSite("47_.png", Url)  width="25" height="25" alt=""/></div>
-        <div id="nomusu" style="width: 200px; height: 25px; float: left; padding: 10px 5px 5px 5px;">
-            <strong>Usuario: ADNINISTRADOR</strong></div>
-        <div id="iconoinicio" style="width: 30px; height: 25px; float: left;">
-            <img src=@Content.ImageSite("120_.png", Url)  width="25" height="25" alt=""/></div>
-        <div id="iconoclose" style="width: 30px; height: 25px; float: left;">
-            <img src=@Content.ImageSite("49_.png", Url) width="25" height="25" alt=""/></div>
-    </div>
-    <div id="submenu" style="float: left; position: absolute; left: 69px; top: 135px;">
-        <ul>
-            <li>@Html.ActionLink("Instituciones", "Index", "Instituciones", htmlAttributes: new { @class = "activo" })</li>
-            <li>@Html.ActionLink("Gestion Cursos", "Index", "Cursos")</li>
-            <li>@Html.ActionLink("Gestion Docentes", "Index", "Docentes")</li>
-            <li>@Html.ActionLink("Gestion Alumnos", "Index", "Alumnos")</li>
-            <li>@Html.ActionLink("Account", "LogOn", "Account")</li>
-        </ul>
-    </div>
-    <br />
-    <br />
-    @using (Html.BeginForm("Modificar_Establecimiento", "Establecimientos", FormMethod.Post, new { Id = "FormularioEstablecimiento" }))
-    { 
+    <table id="myIntituciones" align="center" width="630px">
+        <tr>
+            <td>
+                Nombre
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.N_Establecimiento, new { style = "width:200px;", MaxLength = "50" })
+            </td>
+        </tr>
+    </table>
     
     
-        <div id="titulo">
-            <div id="ttxt">
-                Establecimiento -- Modificar</div>
-        </div>
-        <table id="myIntituciones" align="center" width="630px">
-            <tr>
-                <td>
-                    Nombre
-                </td>
-                <td>
-                    @Html.TextBoxFor(c => c.N_Establecimiento, new { style = "width:200px;", MaxLength = "50" })
-                </td>
-            </tr>
-        </table>
-    
-    
-        @Html.Partial("_Domicilios", Model.ListaDomicilio)
-        <table align="center" class="#mybusqueda">
-            <tr>
-                <td>
-                    Provincia
-                </td>
-                <td>
-                    @Html.TextBoxFor(c => c.Provincia, new { disabled = "disabled", style = "width:200px;", MaxLength = "64", Class = "asd", Id = "Provincia" })
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Localidad
-                </td>
-                <td>
-                    @Html.TextBoxFor(c => c.Localidad, new { disabled = "disabled", style = "width:350px;", MaxLength = "64", Class = "asd", Id = "Localidad" })
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Barrio
-                </td>
-                <td>
-                    @Html.TextBoxFor(c => c.Barrio, new { disabled = "disabled", style = "width:350px;", MaxLength = "64", Class = "asd", Id = "Barrio" })
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Calle
-                </td>
-                <td>
-                    @Html.TextBoxFor(c => c.Calle, new { disabled = "disabled", style = "width:350px;", MaxLength = "64", Class = "asd", Id = "Calle" })
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Nro
-                </td>
-                <td>
-                    @Html.TextBoxFor(c => c.Nro, new { disabled = "disabled", style = "width:60px;", MaxLength = "64", Class = "asd", Id = "Nro" })
-                </td>
-            </tr>
-        </table>
+    @Html.Partial("_Domicilios", Model.ListaDomicilio)
+    <table align="center" class="#mybusqueda">
+        <tr>
+            <td>
+                Provincia
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.Provincia, new { disabled = "disabled", style = "width:200px;", MaxLength = "64", Class = "asd", Id = "Provincia" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Localidad
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.Localidad, new { disabled = "disabled", style = "width:350px;", MaxLength = "64", Class = "asd", Id = "Localidad" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Barrio
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.Barrio, new { disabled = "disabled", style = "width:350px;", MaxLength = "64", Class = "asd", Id = "Barrio" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Calle
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.Calle, new { disabled = "disabled", style = "width:350px;", MaxLength = "64", Class = "asd", Id = "Calle" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Nro
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.Nro, new { disabled = "disabled", style = "width:60px;", MaxLength = "64", Class = "asd", Id = "Nro" })
+            </td>
+        </tr>
+    </table>
     
     
   
-        @Html.HiddenFor(d => d.Id_Establecimiento)
-        @Html.HiddenFor(d => d.Id_Domicilio)
-        <table id="myIntituciones" align="center" width="630px">
-            <tr>
-                <td>
-                    <input type="submit" value="Guargar" class="btnIngresar" />&nbsp;&nbsp;
-                    @Html.ActionLink("Cancelar", "Index", "Establecimientos", null, new { Class = "btnIngresar" })
-                </td>
-            </tr>
-        </table>
+    @Html.HiddenFor(d => d.Id_Establecimiento)
+    @Html.HiddenFor(d => d.Id_Domicilio)
+    <table id="myIntituciones" align="center" width="630px">
+        <tr>
+            <td>
+                <input type="submit" value="Guargar" class="btnIngresar" />&nbsp;&nbsp;
+                @Html.ActionLink("Cancelar", "Index", "Establecimientos", null, new { Class = "btnIngresar" })
+            </td>
+        </tr>
+    </table>
    
-    }
-    <script type="text/javascript">
-        $(document).ready(function () {
-
-
-        });
-    </script>
+}

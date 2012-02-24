@@ -1,117 +1,87 @@
 ﻿@model  EstablecimientoVista
 @{
-    ViewBag.Title = "SGC -- Gobierno de Córdoba -- Instituciones Nuevo";
+    ViewBag.Title = "SGC - Gobierno de Córdoba - Establecimientos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div id="contenido">
-    <div id="nav">
-        <ul id="menu">
-            <li><a href="">Inicio</a></li>
-            <li><a href="">Establecimiento Educativo</a></li>
-        </ul>
+@using (Html.BeginForm("Agregar_Establecimiento", "Establecimientos", FormMethod.Post, new { Id = "FormularioEstablecimiento" }))
+{ 
+    <div id="titulo">
+        <div id="ttxt">
+            Agregar Establecimiento</div>
     </div>
-    <div id="usu">
-        <div id="icono_usu" style="width: 30px; height: 25px; float: left;">
-            <img src=@Content.ImageSite("47_.png", Url)  width="25" height="25" alt=""/></div>
-        <div id="nomusu" style="width: 200px; height: 25px; float: left; padding: 10px 5px 5px 5px;">
-            <strong>Usuario: ADNINISTRADOR</strong></div>
-        <div id="iconoinicio" style="width: 30px; height: 25px; float: left;">
-            <img src=@Content.ImageSite("120_.png", Url)  width="25" height="25" alt=""/></div>
-        <div id="iconoclose" style="width: 30px; height: 25px; float: left;">
-            <img src=@Content.ImageSite("49_.png", Url) width="25" height="25" alt=""/></div>
-    </div>
-    <div id="submenu" style="float: left; position: absolute; left: 69px; top: 135px;">
-        <ul>
-            <li>@Html.ActionLink("Instituciones", "Index", "Instituciones", htmlAttributes: new { @class = "activo" })</li>
-            <li>@Html.ActionLink("Gestion Cursos", "Index", "Cursos")</li>
-            <li>@Html.ActionLink("Gestion Docentes", "Index", "Docentes")</li>
-            <li>@Html.ActionLink("Gestion Alumnos", "Index", "Alumnos")</li>
-            <li>@Html.ActionLink("Account", "LogOn", "Account")</li>
-        </ul>
-    </div>
-    <br />
-    <br />
-    @using (Html.BeginForm("Agregar_Establecimiento", "Establecimientos", FormMethod.Post, new { Id = "FormularioEstablecimiento" }))
-    { 
+    <table id="myIntituciones" align="center" width="630px">
+        <tr>
+            <td>
+                Nombre
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.N_Establecimiento, new { style = "width:200px;", MaxLength = "50" })
+            </td>
+        </tr>
+    </table>
     
     
-        <div id="titulo">
-            <div id="ttxt">
-                Establecimiento -- Nuevo</div>
-        </div>
-        <table id="myIntituciones" align="center" width="630px">
-            <tr>
-                <td>
-                    Nombre
-                </td>
-                <td>
-                    @Html.TextBoxFor(c => c.N_Establecimiento, new { style = "width:200px;", MaxLength = "50" })
-                </td>
-            </tr>
-        </table>
-    
-    
-        @Html.Partial("_Domicilios", Model.ListaDomicilio)
-        <table id="mybusqueda" align="center" width="630px">
-            <tr>
-                <td>
-                    Provincia
-                </td>
-                <td>
-                    <input id="Provincia" disabled="True" style="width: 200px;" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Localidad
-                </td>
-                <td>
-                    <input id="Localidad" disabled style="width: 350px;" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Barrio
-                </td>
-                <td>
-                    <input id="Barrio" disabled style="width: 350px;" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Calle
-                </td>
-                <td>
-                    <input id="Calle" disabled style="width: 350px;" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Nro
-                </td>
-                <td>
-                    <input id="Nro" disabled style="width: 60px;" />
-                </td>
-            </tr>
-        </table>
+    @Html.Partial("_Domicilios", Model.ListaDomicilio)
+    <table id="mybusqueda" align="center" width="630px">
+        <tr>
+            <td>
+                Provincia
+            </td>
+            <td>
+                <input id="Provincia" disabled="True" style="width: 200px;" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Localidad
+            </td>
+            <td>
+                <input id="Localidad" disabled style="width: 350px;" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Barrio
+            </td>
+            <td>
+                <input id="Barrio" disabled style="width: 350px;" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Calle
+            </td>
+            <td>
+                <input id="Calle" disabled style="width: 350px;" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Nro
+            </td>
+            <td>
+                <input id="Nro" disabled style="width: 60px;" />
+            </td>
+        </tr>
+    </table>
     
     
   
     
-        @Html.HiddenFor(d => d.Id_Domicilio)
-        <table id="myIntituciones" align="center" width="630px">
-            <tr>
-                <td>
-                    <input type="submit" value="Guargar" class="btnIngresar" />&nbsp;&nbsp;
-                    @Html.ActionLink("Cancelar", "Index", "Establecimientos", null, new { Class = "btnIngresar" })
-                </td>
-            </tr>
-        </table>
+    @Html.HiddenFor(d => d.Id_Domicilio)
+    <table id="myIntituciones" align="center" width="630px">
+        <tr>
+            <td>
+                <input type="submit" value="Guargar" class="btnIngresar" />&nbsp;&nbsp;
+                @Html.ActionLink("Cancelar", "Index", "Establecimientos", null, new { Class = "btnIngresar" })
+            </td>
+        </tr>
+    </table>
    
-    }
-    <script type="text/javascript">
-        $(document).ready(function () {
+}
+<script type="text/javascript">
+    $(document).ready(function () {
 
 
-        });
-    </script>
+    });
+</script>

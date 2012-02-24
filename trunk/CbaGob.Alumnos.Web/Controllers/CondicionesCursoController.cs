@@ -21,11 +21,6 @@ namespace CbaGob.Alumnos.Web.Controllers
             CondicionesCursoServicio = condicionesCursoServicio;
         }
 
-        public ActionResult Index()
-        {
-            return View();
-        }
-
         public ActionResult AgregarCondicionCurso(int idInstitucion)
         {
             return View("Agregar", CondicionesCursoServicio.GetForAlta(idInstitucion));
