@@ -2,8 +2,8 @@
 <html>
 <head>
     <title>
-    @ViewBag.Title</title>
-    @Content.Stylesheet("Site.css", Url)
+        @ViewBag.Title</title>
+    @*@Content.Stylesheet("Site.css", Url)*@
     @Content.Css("menu.css", Url)
     @Content.Stylesheet("MVCFramework.css", Url)
     @Content.Css("instituciones.css", Url)
@@ -20,7 +20,38 @@
                 </div>
             </a>
         </div>
+        <div id="contenido">
+            <div id="nav">
+                <ul id="menu">
+                   @* <li><a href="">Inicio</a></li>
+                    <li><a href="">Establecimiento Educativo</a></li>*@
+                </ul>
+            </div>
+            <div id="usu">
+                <div id="icono_usu" style="width: 30px; height: 25px; float: left;">
+                    <img src="@Content.ImageSite("47_.png", Url)"  width="25" height="25" alt=""/></div>
+                <div id="nomusu" style="width: 200px; height: 25px; float: left; padding: 10px 5px 5px 5px;">
+                    <strong>Usuario: ADNINISTRADOR</strong></div>
+                <div id="iconoinicio" style="width: 30px; height: 25px; float: left;">
+                    <img src="@Content.ImageSite("120_.png", Url)"  width="25" height="25" alt=""/></div>
+                <div id="iconoclose" style="width: 30px; height: 25px; float: left;">
+                    <img src="@Content.ImageSite("49_.png", Url)" width="25" height="25" alt=""/></div>
+            </div>
+            <div id="submenu" style="float: left; position: absolute; left: 69px; top: 135px;">
+                <ul>             
+                    <li>@Html.ActionLink("Instituciones", "Index", "Instituciones", null, new { @class = ViewBag.Title.Contains("Instituciones") ? "activo" : "" })</li>
+                    <li>@Html.ActionLink("Establecimientos", "Index", "Establecimientos", null, new { @class = ViewBag.Title.Contains("Establecimientos") ? "activo" : "" })</li>
+                    <li>@Html.ActionLink("Cursos", "Index", "Cursos", null, new { @class = ViewBag.Title.Contains("Cursos") ? "activo" : "" })</li>
+                    <li>@Html.ActionLink("Docentes", "Index", "Docentes", null, new { @class = ViewBag.Title.Contains("Docentes") ? "activo" : "" })</li>
+                    <li>@Html.ActionLink("Alumnos", "Index", "Alumnos", null, new { @class = ViewBag.Title.Contains("Alumnos") ? "activo" : "" })</li>
+                    <li>@Html.ActionLink("Grupos", "Index", "Grupos", null, new { @class = ViewBag.Title.Contains("Grupos") ? "activo" : "" })</li>
+                    <li>@Html.ActionLink("Facturas", "Index", "Factura", null, new { @class = ViewBag.Title.Contains("Facturas") ? "activo" : "" })</li>
+                </ul>
+            </div>
+            <br />
+            <br />
             @RenderBody()
+        </div>
         <div id="pie">
             <div id="Copy">
                 Copyright © - Terminos de Uso - Gobierno de Córdoba - Contáctenos

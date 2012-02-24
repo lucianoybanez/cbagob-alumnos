@@ -1,68 +1,18 @@
 ﻿@model  EstablecimientosVista
 @{
-    ViewBag.Title = "SGC -- Gobierno de Córdoba -- Instituciones";
+    ViewBag.Title = "SGC - Gobierno de Córdoba - Establecimientos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-   <div id="contenido">
-    <div id="nav">
-        <ul id="menu">
-            <li><a href="">Inicio</a></li>
-            <li><a href="">Establecimiento Educativo</a></li>
-        </ul>
+<div id="titulo">
+    <div id="ttxt">
+        Establecimientos</div>
+     <div id="iconobuscar">
+        @Html.ActionLink("Buscar", "", "",  new { @class = "btngral" })
     </div>
-            <div id="usu">
-                <div id="icono_usu" style="width: 30px; height: 25px; float: left;">
-                    <img src=@Content.ImageSite("47_.png", Url)  width="25" height="25" alt=""/></div>
-                <div id="nomusu" style="width: 200px; height: 25px; float: left; padding: 10px 5px 5px 5px;">
-                    <strong>Usuario: ADNINISTRADOR</strong></div>
-                <div id="iconoinicio" style="width: 30px; height: 25px; float: left;">
-                    <img src=@Content.ImageSite("120_.png", Url)  width="25" height="25" alt=""/></div>
-                <div id="iconoclose" style="width: 30px; height: 25px; float: left;">
-                    <img src=@Content.ImageSite("49_.png", Url) width="25" height="25" alt=""/></div>
-            </div>
-            <div id="submenu" style="float: left; position: absolute; left: 69px; top: 135px;">
-                <ul>
-                    <li>@Html.ActionLink("Instituciones", "Index", "Instituciones", htmlAttributes: new { @class = "activo" })</li>
-                    <li>@Html.ActionLink("Gestion Cursos", "Index", "Cursos")</li>
-                    <li>@Html.ActionLink("Gestion Docentes", "Index", "Docentes")</li>
-                    <li>@Html.ActionLink("Gestion Alumnos", "Index", "Alumnos")</li>
-                    <li>@Html.ActionLink("Gestion Grupos", "Index", "Grupos")</li>
-                    @*<li>@Html.ActionLink("Account", "LogOn", "Account")</li>*@
-                   
-                </ul>
-            </div>
-            <br />
-            <br />  
-     
-     <div id="titulo">
-        <div id="ttxt">Establecimientos</div>
-        <div id="iconobuscar">
-        	<a class="Ntooltip" href="#">
-                <img src=@Content.ImageSite("10_.png", Url)  width="25" height="25" border="0" alt="BUSCAR"/><span> BUSCAR </span>
-            </a>
-        </div>
-      <div id="iconomodificar" style="width:30px; height:25px; float:right;">
-      	@*<a class="Ntooltip" href="Instituciones_new.html">*@
-        @Html.ActionLink(".", "Agregar", "Instituciones",htmlAttributes: new { @class = "Ntooltip" })
-        @*<img src=@Content.ImageSite("8_.png", Url)  width="25" height="25" border="0" alt="NUEVO"/><span> NUEVO </span>*@       @* </a>  *@    </div>
+    <div id="iconomodificar">
+       @Html.ActionLink("Nuevo", "Agregar", "Establecimientos", null, new { Class = "btngral" })
     </div>
-    <div id="buscar" style="width:360px; height:40px; padding:0 0 0 45px; display:none; font-size: 14px; font-family: arial, sans-serif; font-weight:bold;"> 
-      <form action="" method="post">
-       <div style="padding:5px; height:40px;">
-       Buscar Institución:  <input name="cur_nom" type="text" /> Buscar
-      <!--<span style="position:absolute; float:left; width:25px; height:25px; left: 360px; top: 226px;">
-       <img src="images/10_.png" width="25" height="25" />--><!--</span>-->     
-       </div>
-      
-      </form>
-    </div>
-<div id="DivInstituciones">
-@Html.Partial("_EstablecimientoLista", Model)
 </div>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#iconobuscar").click(function (event) {
-            $("#buscar").slideToggle(1000);
-        });
-    });
-</script>
+<div id="DivInstituciones">
+    @Html.Partial("_EstablecimientoLista", Model)
+</div>

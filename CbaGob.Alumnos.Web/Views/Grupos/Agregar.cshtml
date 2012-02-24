@@ -1,17 +1,14 @@
 ﻿@model GrupoVista
 @{
-    ViewBag.Title = "SGC -- Gobierno de Córdoba -- Grupo Nuevo";
+    ViewBag.Title = "SGC - Gobierno de Córdoba - Grupos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using (Html.BeginForm("Agregar_Grupo", "Grupos", FormMethod.Post, new { Id = "FormularioGrupos" }))
 { 
-    
-    
-    <div id="titulo">
+   <div id="titulo">
         <div id="ttxt">
-            Grupo -- Nuevo</div>
+            Nuevo Grupo</div>
     </div>
- 
     <div id="tabs">
         <ul>
             <li><a href="#tabs-1">Datos</a></li>

@@ -1,13 +1,14 @@
 ﻿@model CbaGob.Alumnos.Servicio.VistasInterface.ICursosVista
 @{
-    ViewBag.Title = "SGC -- Gobierno de Córdoba -- Cursos Modificar";
+    ViewBag.Title = "SGC - Gobierno de Córdoba - Cursos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using (Html.BeginForm("Modificar_Cursos", "Cursos", FormMethod.Post, new { Id = "FormularioCursos" }))
 { 
-    <div id="titulo" style="width: 900px; height: 30px; padding: 10px 5px 0 5px; font-family: Arial, Helvetica, sans-serif;
-        font-size: 16px; font-weight: bold;">
-        Modificar Curso</div>
+    <div id="titulo">
+        <div id="ttxt">
+            Modificar Curso</div>
+    </div>
     <table>
         <tr>
             <td>

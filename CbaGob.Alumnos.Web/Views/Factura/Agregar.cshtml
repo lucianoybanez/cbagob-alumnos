@@ -1,6 +1,6 @@
 ﻿@model FacturaVista
 @{
-    ViewBag.Title = "Agregar";
+    ViewBag.Title = "SGC - Gobierno de Córdoba - Facturas";
 }
 @section Scripts{
     @Content.Script("CbaGob.Alumnos.Factura.js", Url)
@@ -10,9 +10,10 @@
     @Html.HiddenFor(c => c.Accion)
     <input type="hidden" name="CambioUrl" id="CambioUrl" value="@Url.Action("CambiarCondicion")" />
     @Html.ValidationSummary(true)
-    <div id="titulo" style="width: 900px; height: 30px; padding: 10px 5px 0 5px; font-family: Arial, Helvetica, sans-serif;
-        font-size: 16px; font-weight: bold;">
-        Nueva Factura</div>
+    <div id="titulo">
+        <div id="ttxt">
+            Nueva Factura</div>
+    </div>
     <table>
         <tr>
             <td>

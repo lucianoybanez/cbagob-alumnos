@@ -1,11 +1,18 @@
 ﻿@model  AlumnosVista
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "SGC - Gobierno de Córdoba - Alumnos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div id="titulo" style="width: 900px; height: 30px; padding: 10px 5px 0 5px; font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px; font-weight: bold;">
-    Alumnos</div>
+<div id="titulo">
+    <div id="ttxt">
+        Alumnos</div>
+     <div id="iconobuscar">
+        @Html.ActionLink("Buscar", "", "",  new { @class = "btngral" })
+    </div>
+    <div id="iconomodificar">
+       @Html.ActionLink("Nuevo", "Agregar", "Alumnos", null, new { Class = "btngral" })
+    </div>
+</div>
 <div id="DivDocentes">
     @Html.Partial("_AlumnosLista", Model.ListaAlumno)
 </div>

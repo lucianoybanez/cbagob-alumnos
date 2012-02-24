@@ -1,6 +1,6 @@
 ﻿@model CondicionesCursoVista
 @{
-    ViewBag.Title = "CursosAsignados";
+    ViewBag.Title = "SGC - Gobierno de Córdoba - Instituciones";
 }
 
 @if (Model.CondicionesCursos != null && Model.CondicionesCursos.Count > 0)
@@ -66,4 +66,5 @@ else
     @Html.Partial("_SinDatos", "condiciones de cursos Asignados a instituciones")
 }
 
-@Html.ActionLink("Agregar Curso", "AgregarCondicionCurso", "CondicionesCurso", new { idInstitucion = Model.IdInstitucion }, null)                           
+
+@Html.ActionLink("Agregar Curso", "AgregarCondicionCurso", "CondicionesCurso", new { idInstitucion = Model.IdInstitucion }, new { @class = "btngral" })                           
