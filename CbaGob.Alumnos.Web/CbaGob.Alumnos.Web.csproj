@@ -166,7 +166,15 @@
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\CbaGob.Alumnos.Alumnos.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.CondicionesCurso.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Cursos.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Docentes.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Establecimientos.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Factura.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Global.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Grupos.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Instituciones.js" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.5.1.js" />
     <Content Include="Scripts\jquery-1.5.1.min.js" />

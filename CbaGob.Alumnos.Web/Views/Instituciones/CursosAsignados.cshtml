@@ -2,6 +2,9 @@
 @{
     ViewBag.Title = "SGC - Gobierno de Córdoba - Instituciones";
 }
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Instituciones.js",Url)
+}
 
 @if (Model.CondicionesCursos != null && Model.CondicionesCursos.Count > 0)
 { 

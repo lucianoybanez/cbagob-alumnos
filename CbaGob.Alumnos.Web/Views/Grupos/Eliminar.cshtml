@@ -3,6 +3,9 @@
     ViewBag.Title = "SGC - Gobierno de Córdoba - Grupos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Grupos.js",Url)
+}
 @using (Html.BeginForm("Eliminar_Grupo", "Grupos", FormMethod.Post, new { Id = "FormularioGrupos" }))
 { 
     
@@ -133,28 +136,3 @@
     <p>
         Esta Seguro de Eliminar?</p>
 </div>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#tabs").tabs();
-        $('#dialog').dialog({
-            autoOpen: false,
-            width: 350,
-            modal: true,
-            resizable: false,
-            buttons: {
-                "Ok": function () {
-                    var f = $("#FormularioGrupos");
-                    $("#FormularioGrupos").submit()
-                    $(this).dialog("close");
-                },
-                "Cancel": function () {
-                    $(this).dialog("close");
-                }
-            }
-        });
-
-        $('#Eliminar').click('click', function () {
-            $('#dialog').dialog("open");
-        });
-    });
-</script>

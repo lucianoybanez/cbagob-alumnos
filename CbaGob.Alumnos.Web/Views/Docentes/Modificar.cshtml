@@ -3,6 +3,9 @@
     ViewBag.Title = "SGC - Gobierno de Córdoba - Docentes";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Docentes.js",Url)
+}
 <div id="contenido">
     
 @using (Html.BeginForm("Modificar_Docente", "Docentes", FormMethod.Post, new { Id = "FormularioDocentes" }))
@@ -133,8 +136,3 @@
 }
 </div>
  <br /><br /><br /><br /><br />
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#tabs").tabs();
-    });
-</script>

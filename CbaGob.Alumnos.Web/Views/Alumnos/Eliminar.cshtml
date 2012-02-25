@@ -3,6 +3,9 @@
     ViewBag.Title = "SGC - Gobierno de Córdoba - Alumnos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Alumnos.js",Url)
+}
 @using (Html.BeginForm("Eliminar_Alumno", "Alumnos", FormMethod.Post, new { Id = "FormularioAlumnos" }))
 { 
    <div id="titulo">
