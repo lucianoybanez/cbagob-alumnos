@@ -3,6 +3,9 @@
     ViewBag.Title = "SGC - Gobierno de Córdoba - Instituciones";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Instituciones.js",Url)
+}
 @using (Html.BeginForm("Eliminar_Institucion", "Instituciones", FormMethod.Post, new { Id = "FormularioInstituciones" }))
 { 
    <div id="titulo">
@@ -94,30 +97,3 @@
     <p>
         Esta Seguro de Eliminar?</p>
 </div>
-<script type="text/javascript">
-    $(document).ready(function () {
-
-        $('#dialog').dialog({
-            autoOpen: false,
-            width: 350,
-            modal: true,
-            resizable: false,
-            buttons: {
-                "Ok": function () {
-                    var f = $("#FormularioInstituciones");
-                    $("#FormularioInstituciones").submit()
-                    $(this).dialog("close");
-                },
-                "Cancel": function () {
-                    $(this).dialog("close");
-                }
-            }
-        });
-
-        $('#Eliminar').click('click', function () {
-            $('#dialog').dialog("open");
-        });
-
-
-    });
-</script>

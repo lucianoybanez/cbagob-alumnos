@@ -3,6 +3,9 @@
     ViewBag.Title = "SGC - Gobierno de Córdoba - Cursos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Cursos.js",Url)
+}
 @using (Html.BeginForm("Modificar_Cursos", "Cursos", FormMethod.Post, new { Id = "FormularioCursos" }))
 { 
     <div id="titulo">
@@ -48,9 +51,4 @@
     </table>
 }  <br /><br /><br /><br /><br />
 
-<script type="text/javascript">
-    $(document).ready(function () {
 
-
-    });
-</script>

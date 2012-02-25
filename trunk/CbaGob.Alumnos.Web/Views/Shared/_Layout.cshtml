@@ -7,9 +7,7 @@
     @Content.Stylesheet("MVCFramework.css", Url)
     @Content.Stylesheet("css/instituciones.css", Url)  
     @Content.Stylesheet("start/jquery-ui-1.8.17.custom.css", Url)    
-    @RenderSection("Stylesheets", false)
-    @Content.Script("jquery-1.5.1.min.js", Url)
-    @Content.Script("jquery-ui-1.8.11.min.js", Url)
+    @RenderSection("Stylesheets", false)     
 </head>
 <body>
     <div id="todo">
@@ -59,9 +57,12 @@
             </div>
         </div>
     </div>
+    @Content.Script("jquery-1.5.1.min.js", Url)    
     @Content.Script("jquery.unobtrusive-ajax.min.js", Url)
-    @Content.Script("jquery.validate.min.js", Url)
-    @Content.Script("jquery.validate.unobtrusive.min.js", Url)
+    @Content.Script("jquery.validate.min.js", Url)   
+    @Content.Script("jquery.validate.unobtrusive.min.js", Url)    
+    @Content.Script("jquery-ui-1.8.11.min.js", Url)
+    @Content.Script("CbaGob.Alumnos.Global.js", Url)    
     @RenderSection("Scripts", false)
 </body>
 </html>

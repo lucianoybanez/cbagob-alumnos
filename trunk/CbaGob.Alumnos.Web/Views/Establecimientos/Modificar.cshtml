@@ -3,6 +3,9 @@
     ViewBag.Title = "SGC - Gobierno de Córdoba - Establecimientos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Establecimientos.js",Url)
+}
 @using (Html.BeginForm("Modificar_Establecimiento", "Establecimientos", FormMethod.Post, new { Id = "FormularioEstablecimiento" }))
 { 
     <div id="titulo">

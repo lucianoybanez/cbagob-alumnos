@@ -3,6 +3,9 @@
     ViewBag.Title = "SGC - Gobierno de Córdoba - Cursos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Cursos.js",Url)
+}
 @using (Html.BeginForm("Eliminar_Cursos", "Cursos", FormMethod.Post, new { Id = "FormularioCursos" }))
 { 
     <div id="titulo">
@@ -52,30 +55,4 @@
     <p>
         Esta Seguro de Eliminar?</p>
 </div>
-<script type="text/javascript">
-    $(document).ready(function () {
 
-        $('#dialog').dialog({
-            autoOpen: false,
-            width: 350,
-            modal: true,
-            resizable: false,
-            buttons: {
-                "Ok": function () {
-                    var f = $("#FormularioCursos");
-                    $("#FormularioCursos").submit()
-                    $(this).dialog("close");
-                },
-                "Cancel": function () {
-                    $(this).dialog("close");
-                }
-            }
-        });
-
-        $('#Eliminar').click('click', function () {
-            $('#dialog').dialog("open");
-        });
-
-
-    });
-</script>

@@ -3,6 +3,9 @@
     ViewBag.Title = "SGC - Gobierno de Córdoba - Docentes";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Docentes.js",Url)
+}
 <div id="contenido">
     
 @using (Html.BeginForm("Eliminar_Docente", "Docentes", FormMethod.Post, new { Id = "FormularioDocentes" }))
@@ -136,29 +139,3 @@
     <p>
         Esta Seguro de Eliminar?</p>
 </div>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#tabs").tabs();
-
-        $('#dialog').dialog({
-            autoOpen: false,
-            width: 350,
-            modal: true,
-            resizable: false,
-            buttons: {
-                "Ok": function () {
-                    var f = $("#FormularioDocentes");
-                    $("#FormularioDocentes").submit()
-                    $(this).dialog("close");
-                },
-                "Cancel": function () {
-                    $(this).dialog("close");
-                }
-            }
-        });
-
-        $('#Eliminar').click('click', function () {
-            $('#dialog').dialog("open");
-        });
-    });
-</script>

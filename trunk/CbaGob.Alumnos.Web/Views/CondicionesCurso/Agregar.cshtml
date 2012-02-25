@@ -2,6 +2,9 @@
 @{
     ViewBag.Title = "SGC - Gobierno de Córdoba - Cursos";
 }
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.CondicionesCurso.js",Url)
+}
 @using (Html.BeginForm("GuardarCondicionCurso", "CondicionesCurso", FormMethod.Post, null))
 { 
     @Html.HiddenFor(c => c.Accion)

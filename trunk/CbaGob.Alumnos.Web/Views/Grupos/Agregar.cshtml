@@ -3,6 +3,9 @@
     ViewBag.Title = "SGC - Gobierno de Córdoba - Grupos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Grupos.js",Url)
+}
 @using (Html.BeginForm("Agregar_Grupo", "Grupos", FormMethod.Post, new { Id = "FormularioGrupos" }))
 { 
    <div id="titulo">
@@ -127,8 +130,3 @@
     @Html.HiddenFor(d => d.Id_Docente)
     
 }
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#tabs").tabs();
-    });
-</script>

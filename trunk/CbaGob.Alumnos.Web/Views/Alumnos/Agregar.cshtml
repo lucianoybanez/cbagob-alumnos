@@ -3,6 +3,9 @@
     ViewBag.Title = "SGC - Gobierno de Córdoba - Alumnos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section Scripts{
+@Content.Script("CbaGob.Alumnos.Alumnos.js",Url)
+}
 @using (Html.BeginForm("Agregar_Alumno", "Alumnos", FormMethod.Post, new { Id = "FormularioAlumnos" }))
 { 
     <div id="titulo">
@@ -94,9 +97,4 @@
     @Html.HiddenFor(d => d.Id_Persona)
     @Html.ValidationSummary(true)
 }
-<script type="text/javascript">
-    $(document).ready(function () {
 
-
-    });
-</script>
