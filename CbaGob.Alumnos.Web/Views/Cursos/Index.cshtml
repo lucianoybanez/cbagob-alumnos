@@ -2,8 +2,11 @@
 @{
     ViewBag.Title = "SGC - Gobierno de Córdoba - Cursos";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    @Content.Css("cursos.css", Url)
 }
+@section Stylesheets {
+    @Content.Stylesheet("css/cursos.css", Url)
+}
+
 <div id="titulo">
     <div id="ttxt">
         Cursos

@@ -30,7 +30,6 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         public ActionResult Index()
         {
-
             IAlumnosVista model = new AlumnosVista();
 
             model.ListaAlumno = alumnosservicios.GetTodos();
