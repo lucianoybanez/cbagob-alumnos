@@ -2,12 +2,11 @@
 <html>
 <head>
     <title>
-        @ViewBag.Title</title>
-    @*@Content.Stylesheet("Site.css", Url)*@
-    @Content.Css("menu.css", Url)
+        @ViewBag.Title</title> 
+    @Content.Stylesheet("css/menu.css", Url)
     @Content.Stylesheet("MVCFramework.css", Url)
-    @Content.Css("instituciones.css", Url)
-    @Content.CssJqueryUI("jquery-ui-1.8.17.custom.css", Url)
+    @Content.Stylesheet("css/instituciones.css", Url)  
+    @Content.Stylesheet("start/jquery-ui-1.8.17.custom.css", Url)    
     @RenderSection("Stylesheets", false)
     @Content.Script("jquery-1.5.1.min.js", Url)
     @Content.Script("jquery-ui-1.8.11.min.js", Url)
@@ -15,7 +14,7 @@
 <body>
     <div id="todo">
         <div id="cabecera">
-            <a href="index.html">
+            <a href="#">
                 <div id="linklogo" style="width: 300px; height: 100px;">
                 </div>
             </a>
@@ -28,14 +27,16 @@
                 </ul>
             </div>
             <div id="usu">
-                <div id="icono_usu" style="width: 30px; height: 25px; float: left;">
-                    <img src="@Content.ImageSite("47_.png", Url)"  width="25" height="25" alt=""/></div>
+                <div id="icono_usu" style="width: 30px; height: 25px; float: left;">                    
+                    @Html.Image("47_.png",new {width="25", height="25", alt=""})
+                    </div>
                 <div id="nomusu" style="width: 200px; height: 25px; float: left; padding: 10px 5px 5px 5px;">
-                    <strong>Usuario: ADNINISTRADOR</strong></div>
+                    <strong>Usuario: ADMINISTRADOR</strong></div>
                 <div id="iconoinicio" style="width: 30px; height: 25px; float: left;">
-                    <img src="@Content.ImageSite("120_.png", Url)"  width="25" height="25" alt=""/></div>
+                 @Html.Image("120_.png", new { width = "25", height = "25", alt = "" })</div>
                 <div id="iconoclose" style="width: 30px; height: 25px; float: left;">
-                    <img src="@Content.ImageSite("49_.png", Url)" width="25" height="25" alt=""/></div>
+                 @Html.Image("49_.png", new { width = "25", height = "25", alt = "" })
+               </div>
             </div>
             <div id="submenu" style="float: left; position: absolute; left: 69px; top: 135px;">
                 <ul>             
