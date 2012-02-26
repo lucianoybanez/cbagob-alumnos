@@ -1,33 +1,32 @@
 ﻿@model  InstitucionVista           
 @{
     ViewBag.Title = "SGC - Gobierno de Córdoba - Instituciones";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Stylesheets {
+    @Content.Stylesheet("css/instituciones.css", Url)
 }
 @section Scripts{
     @Content.Script("CbaGob.Alumnos.Instituciones.js",Url)
 }
-<div id="titulo">
-    <div id="ttxt">
-        Instituciones</div>
-    <div id="iconobuscar">       
-        <a href="#" class = "btngral">Buscar</a>
-    </div>
-    <div id="iconomodificar">
-        @Html.ActionLink("Nuevo", "Agregar", "Instituciones",null, new { @class = "btngral" })
-    </div>
+<div class="box">
+        
+          <h2>Listado de Institucion</h2>
+    <table>
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                    <div id="agregar">
+                        @Html.ActionLink("Agregar Institucion", "Agregar", "Instituciones")
+                    </div>
+                </div>
+
+                <div id="DivInstituciones">
+                    @Html.Partial("_InstitucionesLista", Model.ListaInstituciones)
+                </div>
+            </td>
+        </tr>
+    </table>
 </div>
-<div id="buscar" style="width: 360px; height: 40px; padding: 0 0 0 45px; display: none;
-    font-size: 14px; font-family: arial, sans-serif; font-weight: bold;">
-    <form action="" method="post">
-    <div style="padding: 5px; height: 40px;">
-        Buscar Institución:
-        <input name="cur_nom" type="text" />
-        Buscar
-    </div>
-    </form>
-</div>
-<div id="DivInstituciones">
-    @Html.Partial("_InstitucionesLista", Model.ListaInstituciones)
-</div>
-<br /><br /><br /><br /><br />
+
 

@@ -2,11 +2,11 @@
 
 @if (Model != null && Model.Count > 0)
 { 
-    <div id="tab" style="text-align: center;">
-       <table align="center" id="mytable" width="950px"  cellpadding="0" cellspacing="0">
+    <div style="text-align: center;">
+       <table align="center" width="722px"  cellpadding="0" cellspacing="0">
             <thead>
                 <tr>
-                    <th height="30" width="500">
+                    <th height="30" width="300">
                         <div align="center">
                             NOMBRE DE LA INSTITUCION</div>
                     </th>
@@ -18,7 +18,7 @@
                         <div align="center">
                             FECHA ALTA</div>
                     </th>
-                    <th height="30">
+                    <th height="30" width="200">
                         <div align="center">
                         ACCION</div>
                     </th>
@@ -28,7 +28,7 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td align="left">
+                        <td align="left" height="20">
                             @item.N_INSTITUCION
                         </td>
                         <td>
@@ -38,14 +38,14 @@
                            @item.FechaAlta.ToShortDateString()
                         </td>
                         <td>
-                            @Html.ActionLink("Modificar", "Modificar", "Instituciones", new { INST_ID = item.ID_INSTITUCION }, null)
-                            @Html.ActionLink("Eliminar", "Eliminar", "Instituciones", new { INST_ID = item.ID_INSTITUCION }, null)
-                            @Html.ActionLink("Detalle","Index","CondicionesCurso",null,null)
+                            @Html.ActionLink("Modificar", "Modificar", "Instituciones", new { INST_ID = item.ID_INSTITUCION }, null)&nbsp;&nbsp;&nbsp;&nbsp;
+                            @Html.ActionLink("Eliminar", "Eliminar", "Instituciones", new { INST_ID = item.ID_INSTITUCION }, null)&nbsp;&nbsp;&nbsp;&nbsp;
+                            @Html.ActionLink("Detalle", "Index", "CondicionesCurso", null, null)
                         </td>
                     </tr>
                 }
                 <tr>
-                        <td align="left">
+                        <td align="left" height="20">
                             Intituto Superior Nuestra Señora del Valle Famatina
                         </td>
                         <td>
@@ -54,21 +54,178 @@
                          <td>
                            12/12/1978
                         </td>
-                        <td>
-                           <a href="#">Modificar</a>
-                           <a href="#">Eliminar</a>
+                        <td  align="center">
+                           <a href="#">Modificar</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                           <a href="#">Eliminar</a>&nbsp;&nbsp;&nbsp;&nbsp;
                             <a href="#">Detalle</a>
                         </td>
                     </tr>
                     <tr>
-                        <td align="left" colspan="4">
-                            &nbsp;
+                        <td align="left" height="20">
+                            Intituto Superior Nuestra Señora
                         </td>
-                        
+                        <td>
+                           Si
+                        </td>
+                         <td>
+                           12/12/1978
+                        </td>
+                        <td>
+                           <a href="#">Modificar</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                           <a href="#">Eliminar</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#">Detalle</a>
+                        </td>
                     </tr>
                     <tr>
+                        <td align="left" height="20">
+                            Intituto Superior Nuestra Señora del Valle Famatina plus
+                        </td>
+                        <td>
+                           Si
+                        </td>
+                         <td>
+                           12/12/1978
+                        </td>
+                        <td>
+                           <a href="#">Modificar</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                           <a href="#">Eliminar</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#">Detalle</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="20">
+                            Intituto Superior Nuestra Señora del Valle
+                        </td>
+                        <td>
+                           Si
+                        </td>
+                         <td>
+                           12/12/1978
+                        </td>
+                        <td>
+                           <a href="#">Modificar</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                           <a href="#">Eliminar</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#">Detalle</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="20">
+                            Intituto Superior Nuestra Señora del Valle Famatina y Castilla
+                        </td>
+                        <td>
+                           Si
+                        </td>
+                         <td>
+                           12/12/1978
+                        </td>
+                        <td>
+                           <a href="#">Modificar</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                           <a href="#">Eliminar</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#">Detalle</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="20">
+                            Intituto Superior Enet 2563
+                        </td>
+                        <td>
+                           Si
+                        </td>
+                         <td>
+                           12/12/1978
+                        </td>
+                        <td>
+                           <a href="#">Modificar</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                           <a href="#">Eliminar</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#">Detalle</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="20">
+                            Intituto Superior Nuestra Señora del Valle Famatina Intituto Superior Nuestra
+                        </td>
+                        <td>
+                           Si
+                        </td>
+                         <td>
+                           12/12/1978
+                        </td>
+                        <td>
+                           <a href="#">Modificar</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                           <a href="#">Eliminar</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#">Detalle</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="20">
+                            Intituto De la Oz
+                        </td>
+                        <td>
+                           Si
+                        </td>
+                         <td>
+                           12/12/1978
+                        </td>
+                        <td>
+                           <a href="#">Modificar</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                           <a href="#">Eliminar</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#">Detalle</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="20">
+                            Intituto Superior Nuestra 
+                        </td>
+                        <td>
+                           Si
+                        </td>
+                         <td>
+                           12/12/1978
+                        </td>
+                        <td>
+                           <a href="#">Modificar</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                           <a href="#">Eliminar</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#">Detalle</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="20">
+                            Nuestra Señora del Valle Famatina
+                        </td>
+                        <td>
+                           Si
+                        </td>
+                         <td>
+                           12/12/1978
+                        </td>
+                        <td>
+                           <a href="#">Modificar</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                           <a href="#">Eliminar</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#">Detalle</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="20">
+                            Intituto Superior 
+                        </td>
+                        <td>
+                           Si
+                        </td>
+                         <td>
+                           12/12/1978
+                        </td>
+                        <td>
+                           <a href="#">Modificar</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                           <a href="#">Eliminar</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#">Detalle</a>
+                        </td>
+                    </tr>
+                   
+
+                   
+                    <tr>
                         <td align="left" valign="middle" colspan="2" height="20">
-                            <div id="resumenPag" style="height:30px; padding:10px 5px 0 2px;">
+                            <div id="resumenPag" style="height:20px; padding:10px 5px 0 2px;">
                               <div align="center">
                                 <ul id="pagination-clean">
                                   <li class="previous-off">Ant</li>
@@ -85,8 +242,8 @@
                          </div>
                         </td> 
                         <td align="right" valign="bottom" colspan="2" height="20">
-                         <div id="resumenPag" style="height:30px; padding:15px 5px 0 2px;">
-                            @Html.ActionLink("Nuevo", "Agregar", "Instituciones",null, new { @class = "btngral" })
+                         <div style="height:20px; padding:15px 5px 0 2px;">
+                            @Html.ActionLink("Agregar Institucion", "Agregar", "Instituciones")
                          </div>
                         </td> 
                     </tr>

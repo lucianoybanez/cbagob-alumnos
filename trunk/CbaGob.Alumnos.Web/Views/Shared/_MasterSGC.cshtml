@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title> 
+    @Content.Stylesheet("css/Master.css", Url)   
+    @RenderSection("Stylesheets", false) 
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            
+        </div>
+        <div id="menu">
+             <ul>
+                <li><a href="#">Instituciones</a></li>
+                <li><a href="#">Superviciones</a></li>
+                <li><a href="#">Imscripciones</a></li>
+                <li><a href="#">Facturaciones</a></li>
+                <li><a href="#">Equipamientos</a></li>
+            </ul>
+            <div align="right">&nbsp;</div>
+        </div>
+        <div id="content">
+            <div class="right">
+        @RenderBody()
+    </div>
+            <div class="left">
+                <h2>
+                    Categories :</h2>
+                 <ul>
+                    <li class="activo"><a href="#">Instituciones</a></li>
+                    <li><a href="#">Superviciones</a></li>
+                    <li><a href="#">Imscripciones</a></li>
+                    <li><a href="#">Facturaciones</a></li>
+                    <li><a href="#">Equipamientos</a></li>
+            	</ul>
+                <!--<h2>
+                    Archives
+                </h2>
+                <ul>
+                    <li><a href="#">January 2007</a></li>
+                    <li><a href="#">February 2007</a></li>
+                    <li><a href="#">March 2007</a></li>
+                    <li><a href="#">April 2007</a></li>
+                    <li><a href="#">May 2007</a></li>
+                    <li><a href="#">June 2007</a></li>
+                    <li><a href="#">July 2007</a></li>
+                    <li><a href="#">August 2007</a></li>
+                    <li><a href="#">September 2007</a></li>
+                    <li><a href="#">October 2007</a></li>
+                    <li><a href="#">November 2007</a></li>
+                    <li><a href="#">December 2007</a></li>
+                </ul>-->
+            </div>
+            <div style="clear: both;">
+            </div>
+        </div>
+        <div id="footer">
+            Copyright - Terminos de Uso - Gobierno de Córdoba - Contáctenos
+        </div>
+    </div>
+    @Content.Script("jquery-1.5.1.min.js", Url)    
+    @Content.Script("jquery.unobtrusive-ajax.min.js", Url)
+    @Content.Script("jquery.validate.min.js", Url)   
+    @Content.Script("jquery.validate.unobtrusive.min.js", Url)    
+    @Content.Script("jquery-ui-1.8.11.min.js", Url)
+    @Content.Script("CbaGob.Alumnos.Global.js", Url)    
+    @RenderSection("Scripts", false)
+</body>
+</html>
