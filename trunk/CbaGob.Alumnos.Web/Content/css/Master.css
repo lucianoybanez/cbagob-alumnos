@@ -89,10 +89,11 @@ A:hover {
 	TEXT-DECORATION: none
 }
 #content {
-	PADDING-BOTTOM: 20px;
+	PADDING-BOTTOM: 5px;
 	PADDING-LEFT: 20px;
 	PADDING-RIGHT: 20px;
-	HEIGHT: 460px;
+	min-height: 458px;
+    height : auto !important;
 	PADDING-TOP: 0px
 }
 .right {
@@ -192,7 +193,20 @@ A:hover {
     {
         width: 274px;
     }
-.activo {
-	COLOR: #000;
-	BACKGROUND: #788bbd;
+a.btnIngresar {
+   text-decoration: none;
+   background: #3e83c9;
+   padding: 2px 2px;
+   border: 1px outset #CCC;
+   color : #000;
+   text-transform : uppercase;
+   font-size: 12px;
+   font-family : arial, sans-serif;
+   font-weight : bold;
 }
+a.btnIngresar:hover {
+   background: #bcd4ec;
+}
+a.btnIngresar:active {
+   border: 1px inset #000;
+}    
