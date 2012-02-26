@@ -3,16 +3,25 @@
     Layout = "~/Views/Shared/_LayoutLogin.cshtml";
 }
 <div id="contenido">
-    <form id="formulario">
-    <label>
-        Nombre de USUARIO:</label>
-    <input type="text" name="username" class="required">
-    <label>
-        ContraseÑa:</label>
-    <input type="password" name="password" class="required">
-    @*<input type="button" class="submit" id="btnsubmit" value="Entrar">*@
-    @Html.ActionLink("Ingresar", "Index", "Instituciones", null, new { Class = "btnIngresar" })
-    
-    
-    </form>
+
+<form id="login" method="post" action="">
+            <h1>Ingresar al Sistema</h1>
+            <div>
+                <label for="login_username">
+                    Usuario:</label>
+                <input type="text" name="username" id="login_username" class="field required" title="Please provide your username" />
+            </div>
+            <div>
+                <label for="login_password">Password:</label>
+                <input type="password" name="password" id="login_password" class="field required" title="Password is required" />
+            </div>
+            <p class="forgot">
+            </p>
+            <div class="submit">
+                @*<button runat="server" type="submit" >Ingresar</button>*@
+               @Html.ActionLink("Ingresar", "Index", "Instituciones", null, new { @class = "btnIngresar" })
+            </div>
+            <p class="back">
+            </p>
+</form>
 </div>
