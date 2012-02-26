@@ -41,9 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comun\ComboHelper.cs" />
     <Compile Include="Comun\CookieData.cs" />
     <Compile Include="Comun\ICookieData.cs" />
+    <Compile Include="Servicios\ExamenServicio.cs" />
     <Compile Include="ServiciosInterface\IEstablecimientoServicio.cs" />
+    <Compile Include="ServiciosInterface\IExamenServicio.cs" />
     <Compile Include="ServiciosInterface\IGrupoServicio.cs" />
     <Compile Include="ServiciosInterface\IInscripcionServicio.cs" />
     <Compile Include="Servicios\EstablecimientoServicio.cs" />
@@ -89,8 +92,11 @@
     <Compile Include="Servicios\ProvinciasServicio.cs" />
     <Compile Include="Servicios\UsuarioServicio.cs" />
     <Compile Include="Servicios\HomeServicio.cs" />
+    <Compile Include="Vistas\ExamenesVista.cs" />
+    <Compile Include="Vistas\ExamenVista.cs" />
     <Compile Include="VistasInterface\IEstablecimientosVista.cs" />
     <Compile Include="VistasInterface\IEstablecimientoVista.cs" />
+    <Compile Include="VistasInterface\IExamenVista.cs" />
     <Compile Include="VistasInterface\IGruposVista.cs" />
     <Compile Include="VistasInterface\IGrupoVista.cs" />
     <Compile Include="VistasInterface\IInscripcionVista.cs" />
@@ -117,6 +123,7 @@
     <Compile Include="Vistas\DocentesVista.cs" />
     <Compile Include="Vistas\GruposVista.cs" />
     <Compile Include="Vistas\GrupoVista.cs" />
+    <Compile Include="VistasInterface\IExamenesVista.cs" />
     <Compile Include="Vistas\InscripcionesVista.cs" />
     <Compile Include="Vistas\InscripcionVista.cs" />
     <Compile Include="Vistas\InstitucionVista.cs" />

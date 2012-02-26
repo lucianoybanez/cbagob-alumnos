@@ -1,8 +1,6 @@
 ﻿/// <reference path="jquery-1.5.1-vsdoc.js" />
+/// <reference path="CbaGob.Alumnos.Global.js" />
+
 $(function () {
-    $('#Institucion_Selected').bind('change', function (e) {
-        var newUrl = $("#CambioUrl").val();
-        $('#FormFactura').attr('action', newUrl);
-        $("#FormFactura").submit();
-    });
+    cbaAlumnosGlobal.changeCombo('Institucion_Selected', $("#CambioUrl").val());
 });

@@ -1,0 +1,65 @@
+﻿@model ExamenVista
+@{
+    ViewBag.Title = "SGC - Gobierno de Córdoba - Examenes";
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Examenes.js", Url)
+}
+@using (Html.BeginForm("GuardarCondicionCurso", "CondicionesCurso", FormMethod.Post, null))
+{ 
+    @Html.HiddenFor(c => c.Accion)
+    @Html.HiddenFor(c => c.IdExamen)
+    @Html.ValidationSummary(true)
+    <div id="titulo">
+        <div id="ttxt">
+            Agregar Examen</div>
+    </div>
+    <table>
+        <tr>
+            <td>
+                Numero de Examen
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.NroExamen, new { style = "width:200px;", MaxLength = "50", disabled = "disabled" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Fecha de Examen
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.FechaExamen, new { style = "width:50px;", MaxLength = "4" })
+                @Html.ValidationMessageFor(c => c.FechaExamen, "*")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Cursos
+            </td>
+            <td>
+                @Html.EditorFor(c => c.Cursos)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Alumno
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.NombreAlumno, new { data_autocomplete = Url.Action("BuscarAlumno") })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Nota
+            </td>
+            <td>
+                @Html.EditorFor(c => c.Nota)
+                @Html.ValidationMessageFor(c => c.Nota, "*")
+            </td>
+        </tr>
+    </table>
+    
+    <p>
+        <input type="submit" value="Guargar" />
+    </p>
+}
