@@ -32,6 +32,7 @@ namespace CbaGob.Alumnos.Web {
             x.For<ICursosRepositorio>().Use<CursosRepositorio>();
             x.For<IEstadoCursoRepositorio>().Use<EstadoCursoRepositorio>();
             x.For<IFacturaRepositorio>().Use<FacturaRepositorio>();
+            x.For<IExamenRepositorio>().Use<ExamenRepositorio>();
         }
 
         private static void ServicesView(IInitializationExpression x)
@@ -43,10 +44,11 @@ namespace CbaGob.Alumnos.Web {
             x.For<ICondicionesCursoServicio>().Use<CondicionesCursoServicio>();
             x.For<IDomiciliosServicios>().Use<DomiciliosServicios>();
             x.For<IFacturaServicio>().Use<FacturaServicio>();
-
+            x.For<IAlumnosServicios>().Use<AlumnosServicios>();
             // Service Web Authentications
             x.For<IHttpContextService>().Use<HttpContextService>();
             x.For<IAutenticacionServicio>().Use<AutenticacionServicio>();
+            x.For<IExamenServicio>().Use<ExamenServicio>();
         }
     }
 }

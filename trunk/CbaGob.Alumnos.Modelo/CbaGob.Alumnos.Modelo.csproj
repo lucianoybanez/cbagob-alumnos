@@ -55,6 +55,7 @@
     <Compile Include="Entities\Factura.cs" />
     <Compile Include="Entities\Grupo.cs" />
     <Compile Include="Entities\Inscripcion.cs" />
+    <Compile Include="Entities\Examen.cs" />
     <Compile Include="Entities\Interfaces\IAlumnos.cs" />
     <Compile Include="Entities\Interfaces\IBarrios.cs" />
     <Compile Include="Entities\Institucion.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Entities\Interfaces\IDomicilios.cs" />
     <Compile Include="Entities\Interfaces\IEstablecimiento.cs" />
     <Compile Include="Entities\Interfaces\IEstadoCurso.cs" />
+    <Compile Include="Entities\Interfaces\IExamen.cs" />
     <Compile Include="Entities\Interfaces\IFactura.cs" />
     <Compile Include="Entities\Interfaces\IGrupo.cs" />
     <Compile Include="Entities\Interfaces\IInscripcion.cs" />
@@ -119,6 +121,7 @@
     <Compile Include="Repositories\IDomiciliosRepositorio.cs" />
     <Compile Include="Repositories\IEstablecimientoRepositorio.cs" />
     <Compile Include="Repositories\IEstadoCursoRepositorio.cs" />
+    <Compile Include="Repositories\IExamenRepositorio.cs" />
     <Compile Include="Repositories\IFacturaRepositorio.cs" />
     <Compile Include="Repositories\IGrupoRepositorio.cs" />
     <Compile Include="Repositories\IInscripcionRepositorio.cs" />
