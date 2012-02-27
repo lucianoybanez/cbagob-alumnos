@@ -1,23 +1,29 @@
 ﻿@model  EstablecimientoVista
 @{
     ViewBag.Title = "SGC - Gobierno de Córdoba - Establecimientos";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
 }
 @section Scripts{
     @Content.Script("CbaGob.Alumnos.Establecimientos.js",Url)
 }
+<div class="box">
+  <h2>Modificar Establecimientos</h2>
+    <table align="center" style="width: 622px;">
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                    
+                </div>  
+
 @using (Html.BeginForm("Modificar_Establecimiento", "Establecimientos", FormMethod.Post, new { Id = "FormularioEstablecimiento" }))
 { 
-    <div id="titulo">
-        <div id="ttxt">
-            Modificar Establecimiento</div>
-    </div>
-    <table align="center" id="mytable" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
+   
+    <table align="center" id="mytable" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:700px;">
         <tr>
             <td>
-  <fieldset style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px; text-align:center;">
+  <fieldset style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:700px; text-align:center;">
                 <legend>Agregar Instutuciones</legend>
-    <table align="center" id="mytable" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
+    <table align="center" id="mytable" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:700px;">
         <tr>
             <td>
                 Nombre
@@ -33,10 +39,10 @@
     </table>
     
     @Html.Partial("_Domicilios", Model.ListaDomicilio)
-   <table align="center" id="mytable" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
+   <table align="center" id="mytable" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:700px;">
         <tr>
             <td>
-  <fieldset style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px; text-align:center;">
+  <fieldset style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:700px; text-align:center;">
                 <legend>Domicilio</legend>
     <table id="mybusqueda" align="center" width="630px">
         <tr>
@@ -88,13 +94,18 @@
   
     @Html.HiddenFor(d => d.Id_Establecimiento)
     @Html.HiddenFor(d => d.Id_Domicilio)
-    <table id="myIntituciones" align="center" width="800px">
+    <table id="myIntituciones" align="center" width="700px">
         <tr>
             <td align="right" vlign="middle">
-                <input type="submit" value="Guargar" class="boton" />&nbsp;&nbsp;
+                <input type="submit" value="Guargar" Class = "btnIngresar" />&nbsp;&nbsp;
                 @Html.ActionLink("Cancelar", "Index", "Establecimientos", null, new { Class = "btnIngresar" })
             </td>
         </tr>
     </table>
    
-}   <br /><br /><br /><br /><br />
+}   </td>
+        </tr>
+    </table>
+</div>
+
+
