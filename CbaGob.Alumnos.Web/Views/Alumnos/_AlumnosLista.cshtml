@@ -1,15 +1,15 @@
 ﻿@model IList<IAlumnos>
 @if (Model != null && Model.Count > 0)
 { 
-    <div id="tab" style="text-align: center;">
-        <table align="center" id="mytable" width="950px"  cellpadding="0" cellspacing="0">
+    <div id="grilla" style="text-align: center;">
+        <table align="center" width="722px"  cellpadding="0" cellspacing="0">
             <thead>
                 <tr>
-                    <th height="30">
+                    <th height="30" width="180px">
                         <div align="center">
                             NOMBRE</div>
                     </th>
-                    <th height="30">
+                    <th height="30" width="180px">
                         <div align="center">
                             APELLIDO</div>
                     </th>
@@ -32,21 +32,21 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td align="left">
+                        <td align="left"  height="30">
                             @item.Nov_Nombre
                         </td>
-                        <td align="left">
+                        <td align="left" height="30">
                             @item.Nov_Apellido
                         </td>
-                        <td align="left">
+                        <td align="left" height="30">
                             @item.Nro_Documento
                         </td>
-                        <td align="left">
+                        <td align="left" height="30">
                             @item.Fecha_Nacimiento.ToShortDateString()
                         </td>
                         <td>
-                            @Html.ActionLink("Modificar", "Modificar", "Alumnos", new { id_alumno = item.Id_Alumno }, null)
-                            @Html.ActionLink("Eliminar", "Eliminar", "Alumnos", new { id_alumno = item.Id_Alumno }, null)
+                            @Html.ActionLink("Modificar", "Modificar", "Alumnos", new { id_alumno = item.Id_Alumno }, new { @class = "btnIngresar" })
+                            @Html.ActionLink("Eliminar", "Eliminar", "Alumnos", new { id_alumno = item.Id_Alumno }, new { @class = "btnIngresar" })
                         </td>
                     </tr>
                 }<tr>
@@ -75,7 +75,7 @@
                         </td> 
                         <td align="right" valign="bottom" colspan="3" height="20">
                          <div id="resumenPag" style="height:30px; padding:15px 5px 0 2px;">
-                            @Html.ActionLink("Nuevo", "Agregar", "Alumnos", null, new { Class = "btngral" })
+                            @Html.ActionLink("Agregar Alumno", "Agregar", "Alumnos", new { @class = "btnIngresar" })
                          </div>
                         </td> 
                     </tr>

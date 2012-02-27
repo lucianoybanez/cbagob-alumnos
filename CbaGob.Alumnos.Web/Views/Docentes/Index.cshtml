@@ -1,22 +1,36 @@
 ﻿@model  DocentesVista
 @{
     ViewBag.Title = "SGC - Gobierno de Córdoba - Docentes";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Stylesheets {
+    @Content.Stylesheet("css/instituciones.css", Url)
 }
 @section Scripts{
-    @Content.Script("CbaGob.Alumnos.Docentes.js",Url)
+    @Content.Script("CbaGob.Alumnos.Docentes.js", Url)
 }
-<div id="titulo">
+<div class="box">
+  <h2>Listado Docente</h2>
+    <table>
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                    
+                </div>
+@*<div id="titulo">
     <div id="ttxt">
         Docentes</div>
      <div id="iconobuscar">
-        @Html.ActionLink("Buscar", "", "",  new { @class = "btngral" })
+        @Html.ActionLink("Buscar", "", "", new { @class = "btngral" })
     </div>
     <div id="iconomodificar">
        @Html.ActionLink("Nuevo", "Agregar", "Docentes", null, new { Class = "btngral" })
     </div>
-</div>
+</div>*@
 <div id="DivDocentes">
     @Html.Partial("_DocentesLista", Model.ListaDocentes)
 </div>
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+</td>
+        </tr>
+    </table>
+</div>

@@ -1,16 +1,20 @@
 ﻿@model  GruposVista
 @{
     ViewBag.Title = "SGC - Gobierno de Córdoba - Grupos";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Stylesheets {
+    @Content.Stylesheet("css/instituciones.css", Url)
+}
 }
 @section Scripts{
-    @Content.Script("CbaGob.Alumnos.Grupos.js",Url)
+    @Content.Script("CbaGob.Alumnos.Grupos.js", Url)
 }
 <div id="titulo">
     <div id="ttxt">
         Grupos</div>
      <div id="iconobuscar">
-        @Html.ActionLink("Buscar", "", "",  new { @class = "btngral" })
+        @Html.ActionLink("Buscar", "", "", new { @class = "btngral" })
     </div>
     <div id="iconomodificar">
        @Html.ActionLink("Nuevo", "Agregar", "Grupos", null, new { Class = "btngral" })

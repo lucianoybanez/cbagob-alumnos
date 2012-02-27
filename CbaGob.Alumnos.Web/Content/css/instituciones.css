@@ -109,3 +109,7 @@ td{
 #grilla tr:hover td {
 	background: #bcd4ec;
 }
+#tabs{
+	background: #bcd4ec;
+	width:700px;
+}
