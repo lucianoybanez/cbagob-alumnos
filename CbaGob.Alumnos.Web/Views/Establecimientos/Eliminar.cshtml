@@ -1,17 +1,23 @@
 ﻿@model  EstablecimientoVista
 @{
     ViewBag.Title = "SGC - Gobierno de Córdoba - Establecimientos";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
 }
 @section Scripts{
     @Content.Script("CbaGob.Alumnos.Establecimientos.js",Url)
 }
+
+<div class="box">
+  <h2>Eliminar Establecimiento</h2>
+    <table align="center" style="width: 622px;">
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                    
+                </div>  
 @using (Html.BeginForm("Eliminar_Establecimiento", "Establecimientos", FormMethod.Post, new { Id = "FormularioEstablecimiento" }))
 { 
-    <div id="titulo">
-        <div id="ttxt">
-            Eliminar Establecimiento</div>
-    </div>
+
     <table id="myIntituciones" align="center" width="630px">
         <tr>
             <td>
@@ -25,17 +31,17 @@
     
     
        
-    <table align="center" id="mytable" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
+    <table align="center" id="mytable" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:700px;">
         <tr>
             <td>
-  <fieldset style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px; text-align:center;">
+  <fieldset style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:700px; text-align:center;">
                 <legend>Eliminar Establecimiento</legend>
     <table align="center" class="mybusqueda">
         <tr>
             <td>
                 Provincia
             </td>
-            <td>
+            <td align="left" valign="middle">
                 @Html.TextBoxFor(c => c.Provincia, new { disabled = "disabled", style = "width:200px;", MaxLength = "64", Class = "asd", Id = "Provincia" })
             </td>
         </tr>
@@ -43,7 +49,7 @@
             <td>
                 Localidad
             </td>
-            <td>
+            <td align="left" valign="middle">
                 @Html.TextBoxFor(c => c.Localidad, new { disabled = "disabled", style = "width:350px;", MaxLength = "64", Class = "asd", Id = "Localidad" })
             </td>
         </tr>
@@ -51,7 +57,7 @@
             <td>
                 Barrio
             </td>
-            <td>
+            <td align="left" valign="middle">
                 @Html.TextBoxFor(c => c.Barrio, new { disabled = "disabled", style = "width:350px;", MaxLength = "64", Class = "asd", Id = "Barrio" })
             </td>
         </tr>
@@ -59,7 +65,7 @@
             <td>
                 Calle
             </td>
-            <td>
+            <td align="left" valign="middle">
                 @Html.TextBoxFor(c => c.Calle, new { disabled = "disabled", style = "width:350px;", MaxLength = "64", Class = "asd", Id = "Calle" })
             </td>
         </tr>
@@ -67,7 +73,7 @@
             <td>
                 Nro
             </td>
-            <td>
+            <td align="left" valign="middle">
                 @Html.TextBoxFor(c => c.Nro, new { disabled = "disabled", style = "width:60px;", MaxLength = "64", Class = "asd", Id = "Nro" })
             </td>
         </tr>
@@ -80,16 +86,21 @@
   
     @Html.HiddenFor(d => d.Id_Establecimiento)
     @Html.HiddenFor(d => d.Id_Domicilio)
-    <table id="myIntituciones" align="center" width="800px">
+    <table id="myIntituciones" align="center" width="700px">
         <tr>
             <td align="right" vlign="middle">
-                <input id="Eliminar" type="button" value="Eliminar" class="boton" />
+                <input id="Eliminar" type="button" value="Eliminar" class="btnIngresar" />
                 @Html.ActionLink("Cancelar", "Index", "Establecimientos", null, new { Class = "btnIngresar" })
             </td>
         </tr>
     </table>
    
-} <br /><br /><br /><br /><br />
+} </td>
+        </tr>
+    </table>
+</div>
+
+
 <div id="dialog" title="Eliminar">
     <p>
         Esta Seguro de Eliminar?</p>
