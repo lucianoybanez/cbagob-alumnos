@@ -9,57 +9,57 @@
         window.document.getElementById('Nro').value = Nro;
     }
 </script>
-<table>
+<table style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
     <tr>
         <td>
             <tr>
                 <td>
-                    <fieldset>
+                    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 660px; text-align: center;">
                         <legend>Busqueda</legend>
                         <table>
                             <tr>
-                                <td>
-                                    Provincia
+                                <td width="150" align="right">
+                                    <b>Provincia:</b>
                                 </td>
-                                <td>
+                                <td align="left" valign="middle">
                                     <input type="text" />
                                 </td>
-                                <td>
-                                    Localida
+                                <td  align="right"  width="150">
+                                    <b>Localida:</b>
                                 </td>
-                                <td>
-                                    <input type="text" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Barrio
-                                </td>
-                                <td>
-                                    <input type="text" />
-                                </td>
-                                <td>
-                                    Calle
-                                </td>
-                                <td>
+                                <td align="left" valign="middle">
                                     <input type="text" />
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    Nro
+                                <td align="right">
+                                   <b> Barrio:</b>
                                 </td>
-                                <td>
+                                <td align="left" valign="middle">
+                                    <input type="text" />
+                                </td>
+                                <td align="right">
+                                    <b>Calle:</b>
+                                </td>
+                                <td  align="left" valign="middle">
+                                    <input type="text" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Nro:</b>
+                                </td>
+                                <td align="left" valign="middle">
                                     <input type="text" />
                                 </td>
                                 <td>
                                 </td>
                                 <td>
-                                    <input type="button" value="Buscar" class="boton" />
-                                    <input type="button" value="Agregar Domicilio"  class="boton" />
+                                    <input type="button" value="Buscar" class="btnIngresar" />
+                                    <input type="button" value="Agregar Domicilio"  class="btnIngresar" />
                                 </td>
                             </tr>
-                        </table>
+                        </table><br />
                     </fieldset>
                 </td>
             </tr>
@@ -70,7 +70,7 @@
             @if (Model != null && Model.Count > 0)
             { 
                 <div id="tab" style="text-align: center;">
-                    <table align="center" id="mytable">
+                    <table style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 622px;">
                         <thead>
                             <tr>
                                 <th height="30">

@@ -7,51 +7,54 @@
 
     }
 </script>
-<table>
+<table style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
     <tr>
         <td>
-            <tr>
-                <td>
-                    <fieldset>
-                        <legend>Busqueda</legend>
-                        <table>
-                            <tr>
-                                <td>
-                                    CUIT
-                                </td>
-                                <td>
-                                    <input type="text" />
-                                </td>
-                                <td>
-                                    RAZON SOCIAL
-                                </td>
-                                <td>
-                                    <input type="text" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="4" align="right">
-                                    <input type="button" value="Buscar" class="boton" />
-                                    <input type="button" value="Agregar Persona Juridica" class="boton" />
-                                </td>
-                            </tr>
-                        </table>
-                    </fieldset>
+            <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 660px; text-align: center;">
+               <legend>Persona Juridica</legend>
+                    <table style="width: 660px;">
+                        <tr>
+                            <td height="30" width="100px" align="right">
+                                 <b>Cuit: </b>
+                            </td>
+                            <td align="left">
+                                <input type="text" />
+                            </td>
+                            <td align="right">
+                                <b>Razon Social:</b>
+                            </td>
+                            <td align="left">
+                                <input type="text" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" align="right" height="30">
+                                <input type="button" value="Buscar" class="btnIngresar" />
+                                <input type="button" value="Agregar Persona Juridica" class="btnIngresar" />
+                            </td>
+                        </tr>
+                    </table>
+                 </fieldset><br />
                 </td>
             </tr>
-        </td>
-    </tr>
+
     <tr>
         <td>
             @if (Model != null && Model.Count > 0)
             { 
+                
+                <table style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
+                <tr>
+                    <td>
+            <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 660px; text-align: center;">
+               <legend>Datos Persona </legend>
                 <div id="tab" style="text-align: center;">
-                    <table align="center" id="mytable">
+                    <table style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 660px;">
                         <thead>
                             <tr>
                                 <th height="30">
                                     <div align="center">
-                                        CUIT</div>
+                                       CUIT</div>
                                 </th>
                                 <th height="30">
                                     <div align="center">
@@ -80,12 +83,17 @@
                             }
                         </tbody>
                     </table>
-                </div>
+                    </div>
+                    </fieldset><br />
+                </td>
+            </tr>
+            </table>
+                
             }
             else
             {
                 <div id="tab" style="text-align: center;">
-                    <table align="center" id="mytable">
+                    <table style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 660px;">
                         <thead>
                             <tr>
                                 <th height="30">

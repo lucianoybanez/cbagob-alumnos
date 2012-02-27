@@ -1,38 +1,38 @@
 ﻿@model  DocentesVista
 @{
     ViewBag.Title = "SGC - Gobierno de Córdoba - Docentes";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
 }
 @section Scripts{
     @Content.Script("CbaGob.Alumnos.Docentes.js",Url)
 }
-<div id="contenido">
+<div class="box">
+  <h2>Eliminar Docente</h2>
+    <table align="center" style="width: 700px;">
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                    
+                </div> 
     
 @using (Html.BeginForm("Eliminar_Docente", "Docentes", FormMethod.Post, new { Id = "FormularioDocentes" }))
 { 
-   
-   
-
-    <div id="titulo">
-        <div id="ttxt">
-            Eliminar Docente</div>
-    </div>
   
-   <table class="docentetr"  cellpadding="0" cellspacing="0" align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
+   <table class="docentetr"  cellpadding="0" cellspacing="0" align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:700px;">
         <tr>
             <td>
     
-    <div id="tabs">
+    <div id="tabs" style="width:700px;">
         <ul>
             <li><a href="#tabs-1">Datos</a></li>
             <li><a href="#tabs-2">Persona Juridica</a></li>
             <li><a href="#tabs-3">Domicilio</a></li>
         </ul>
         <div id="tabs-1">
-            <table align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
+            <table align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:700px;">
                 <tr>
                     <td width="220" align="right" valign="middle">
-                        Modalidad
+                        <b>Modalidad:</b>
                     </td>
                     <td>
                         @Html.TextBoxFor(c => c.N_Modalidad, new { disabled = "disabled", style = "width:200px;", MaxLength = "64", Class = "asd" })
@@ -40,7 +40,7 @@
                 </tr>
                 <tr>
                    <td width="220" align="right" valign="middle">
-                        Cargos
+                        <b>Cargos:</b>
                     </td>
                     <td>
                         @Html.EditorFor(c => c.cargos)
@@ -49,10 +49,10 @@
             </table>
         </div>
         <div id="tabs-2">
-            <table align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
+            <table align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:700px;">
                 <tr>
                     <td width="220" align="right" valign="middle">
-                        Cuit
+                        <b>Cuit:</b>
                     </td>
                     <td>
                         @Html.TextBoxFor(c => c.personajuridica.Cuit, new { disabled = "disabled", style = "width:200px;", MaxLength = "64", Class = "asd", Id = "Cuit" })
@@ -60,7 +60,7 @@
                 </tr>
                 <tr>
                     <td width="220" align="right" valign="middle">
-                        Razon Social
+                        <b>Razon Social:</b>
                     </td>
                     <td>
                         @Html.TextBoxFor(c => c.personajuridica.Razon_Social, new { disabled = "disabled", style = "width:200px;", MaxLength = "64", Class = "asd", Id = "Razonsocial" })
@@ -69,10 +69,10 @@
             </table>
         </div>
         <div id="tabs-3">
-            <table align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
+            <table align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:700px;">
                 <tr>
                    <td width="220" align="right" valign="middle">
-                        Provincia
+                        <b>Provincia:</b>
                     </td>
                     <td>
                         @Html.TextBoxFor(c => c.domicilios.Provincia, new { disabled = "disabled", style = "width:200px;", MaxLength = "64", Class = "asd", Id = "Provincia" })
@@ -80,7 +80,7 @@
                 </tr>
                 <tr>
                      <td width="220" align="right" valign="middle">
-                        Localidad
+                       <b>Localidad:</b>
                     </td>
                     <td>
                         @Html.TextBoxFor(c => c.domicilios.Localidad, new { disabled = "disabled", style = "width:350px;", MaxLength = "64", Class = "asd", Id = "Localidad" })
@@ -88,7 +88,7 @@
                 </tr>
                 <tr>
                      <td width="220" align="right" valign="middle">
-                        Barrio
+                        <b>Barrio:</b>
                     </td>
                     <td>
                         @Html.TextBoxFor(c => c.domicilios.Barrio, new { disabled = "disabled", style = "width:350px;", MaxLength = "64", Class = "asd", Id = "Barrio" })
@@ -96,7 +96,7 @@
                 </tr>
                 <tr>
                     <td width="220" align="right" valign="middle">
-                        Calle
+                        <b>Calle:</b>
                     </td>
                     <td>
                         @Html.TextBoxFor(c => c.domicilios.Calle, new { disabled = "disabled", style = "width:350px;", MaxLength = "64", Class = "asd", Id = "Calle" })
@@ -104,7 +104,7 @@
                 </tr>
                 <tr>
                     <td width="220" align="right" valign="middle">
-                        Nro
+                        <b>Nro:</b>
                     </td>
                     <td>
                         @Html.TextBoxFor(c => c.domicilios.Nro, new { disabled = "disabled", style = "width:60px;", MaxLength = "64", Class = "asd", Id = "Nro" })
@@ -123,18 +123,21 @@
     @Html.HiddenFor(d => d.Id_Docente)
     
     
-    <table id ="myIntituciones" align="center" width="800px">
+    <table id ="myIntituciones" align="center" width="700px">
         <tr>
             <td align="right" valign="middle">
-                <input id="Eliminar" type="button" value="Eliminar" class="boton"/>&nbsp;&nbsp;
+                <input id="Eliminar" type="button" value="Eliminar" class="btnIngresar"/>&nbsp;&nbsp;
                 @Html.ActionLink("Cancelar", "Index", "Docentes", null, new { Class = "btnIngresar" })
             </td>
             
         </tr>
     </table>
 }
+</td>
+        </tr>
+    </table>
 </div>
- <br /><br /><br /><br /><br />
+
 <div id="dialog" title="Eliminar">
     <p>
         Esta Seguro de Eliminar?</p>
