@@ -29,8 +29,12 @@
         </ul>
         <div id="tabs-1">
 
-
-            <table align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:700px;">
+        <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
+        <tr>
+            <td>
+                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 660px; text-align: center;">
+                    <legend>Docentes</legend>
+                    <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
                 <tr>
                     <td width="120" align="right" valign="middle">
                         <b>Modalidad:</b>
@@ -50,13 +54,17 @@
                     </td>
                 </tr>
             </table>
+            </fieldset>
+            </td>
+        </tr>
+    </table>
         </div>
         <div id="tabs-2">
             @Html.Partial("_PersonasJuridica", Model.ListaPersonaJuridica)
-            <table align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
+            <table align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:700px;">
                 <tr>
                     <td width="220" align="right" valign="middle">
-                        Cuit
+                        <b>Cuit:</b>
                     </td>
                     <td>
                         @Html.TextBoxFor(c => c.personajuridica.Cuit, new { disabled = "disabled", style = "width:200px;", MaxLength = "64", Class = "asd", Id = "Cuit" })
@@ -65,7 +73,7 @@
                 </tr>
                 <tr>
                     <td width="220" align="right" valign="middle">
-                        Razon Social
+                        <b>Razon Social:</b>
                     </td>
                     <td>
                         @Html.TextBoxFor(c => c.personajuridica.Razon_Social, new { disabled = "disabled", style = "width:200px;", MaxLength = "64", Class = "asd", Id = "Razonsocial" })

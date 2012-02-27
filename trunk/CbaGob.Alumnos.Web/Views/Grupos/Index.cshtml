@@ -6,11 +6,18 @@ Layout = "~/Views/Shared/_MasterSGC.cshtml";
 @section Stylesheets {
     @Content.Stylesheet("css/instituciones.css", Url)
 }
-}
 @section Scripts{
     @Content.Script("CbaGob.Alumnos.Grupos.js", Url)
 }
-<div id="titulo">
+<div class="box">
+  <h2>Grupos</h2>
+    <table>
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                    
+                </div>
+@*<div id="titulo">
     <div id="ttxt">
         Grupos</div>
      <div id="iconobuscar">
@@ -19,8 +26,11 @@ Layout = "~/Views/Shared/_MasterSGC.cshtml";
     <div id="iconomodificar">
        @Html.ActionLink("Nuevo", "Agregar", "Grupos", null, new { Class = "btngral" })
     </div>
-</div>
+</div>*@
 <div id="DivInstituciones">
 @Html.Partial("_GrupoLista", Model)
 </div>
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+</td>
+        </tr>
+    </table>
+</div>
