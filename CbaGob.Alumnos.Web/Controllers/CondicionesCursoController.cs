@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CbaGob.Alumnos.Servicio.Servicios;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
 using CbaGob.Alumnos.Servicio.Vistas.Shared;
@@ -31,6 +32,23 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Agregar", CondicionesCursoServicio.GetForModificacion(idCondicionCurso));
         }
 
+        public ActionResult VerCondicionCurso(int idCondicionCurso)
+        {
+            IGrupoServicio gruposervicio = new GrupoServicio();
+
+            IAlumnosServicios alumnoservicio = new AlumnosServicios();
+
+            ICondicionCursoVista model = CondicionesCursoServicio.GetForModificacion(idCondicionCurso);
+
+            model.ListaGrupos = gruposervicio.GetAllGrupoByCurso(idCondicionCurso).ListaGrupos;
+
+            model.ListaAlumno = alumnoservicio.GetTodosByCondicionCurso(idCondicionCurso);
+
+            model.IdCondicionCurso = idCondicionCurso;
+
+            return View("Ver", model);
+        }
+
         [HttpPost]
         public ActionResult GuardarCondicionCurso(CondicionCursoVista vista)
         {
@@ -38,7 +56,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             {
                 if (CondicionesCursoServicio.GuardarCondicionCurso(vista))
                 {
-                    return RedirectToAction("CursosAsignados", "Instituciones", new { IdInstitucion = vista.IdInstitucion });
+                    return RedirectToAction("Ver", "Instituciones", new { INST_ID = vista.IdInstitucion });
                 }
                 base.AddError(CondicionesCursoServicio.GetErrors());
                 return View("Agregar", vista);
@@ -52,8 +70,18 @@ namespace CbaGob.Alumnos.Web.Controllers
             {
                 base.AddError(CondicionesCursoServicio.GetErrors());
             }
-            return RedirectToAction("CursosAsignados", "Instituciones", new { IdInstitucion = IdInstitucion });
+            return RedirectToAction("Ver", "Instituciones", new { INST_ID = IdInstitucion });
         }
+
+        [HttpPost]
+        public ActionResult CambairEstadoCurso(CondicionCursoVista vista)
+        {
+           
+            bool mret = CondicionesCursoServicio.CambiarEstadoCurso(vista.IdCondicionCurso, Convert.ToInt32(vista.EstadoCurso.Selected));
+
+            return RedirectToAction("VerCondicionCurso", "CondicionesCurso", new { idCondicionCurso = vista.IdCondicionCurso });
+        }
+        
 
     }
 }

@@ -89,8 +89,8 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 vista.Institucion.Combo.Add(new ComboItem()
                                                 {
-                                                    description = inst.N_INSTITUCION,
-                                                    id = inst.ID_INSTITUCION
+                                                    description = inst.Nombre_Institucion,
+                                                    id = inst.Id_Institucion
                                                 });
             }
         }
@@ -106,7 +106,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 if (instituciones.Count > 0)
                 {
-                    int idInstitucion = instituciones.First().ID_INSTITUCION;
+                    int idInstitucion = instituciones.First().Id_Institucion;
                     condiciones = CondicionCursoRepositorio.GetCondicionesByInstitucion(idInstitucion);
                 }
             }

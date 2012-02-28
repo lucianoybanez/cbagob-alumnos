@@ -1,26 +1,38 @@
 ﻿@model  CursosVista
 @{
     ViewBag.Title = "SGC - Gobierno de Córdoba - Cursos";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
 }
+
 @section Stylesheets {
-    @Content.Stylesheet("css/cursos.css", Url)
+    @Content.Stylesheet("css/instituciones.css", Url)
 }
 @section Scripts{
     @Content.Script("CbaGob.Alumnos.Cursos.js",Url)
 }
 
-<div id="titulo">
-    <div id="ttxt">
-        Cursos
-    </div>
-    <div id="iconobuscar">
-        @Html.ActionLink("Buscar", "", "",  new { @class = "btngral" })
-    </div>
-    <div id="iconomodificar">
-        @Html.ActionLink("Nuevo", "Agregar", "Cursos",null, new { @class = "btngral" })
-    </div>
-</div>
-<div id="DivInstituciones">
-  @Html.Partial("_CursosLista", Model.ListaCursos)
+<div class="box">
+  <h2>Listado de Establecimientos</h2>
+    <table>
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                    
+                </div>
+               @* <div id="titulo">
+                    <div id="ttxt">
+                        Establecimientos</div>
+                     <div id="iconobuscar">
+                        @Html.ActionLink("Buscar", "", "",  new { @class = "btngral" })
+                    </div>
+                    <div id="iconomodificar">
+                       @Html.ActionLink("Nuevo", "Agregar", "Establecimientos", null, new { Class = "btngral" })
+                    </div>
+                </div>*@
+                <div id="DivInstituciones">
+                    @Html.Partial("_CursosLista", Model.ListaCursos)
+                </div>
+            </td>
+        </tr>
+    </table>
 </div>

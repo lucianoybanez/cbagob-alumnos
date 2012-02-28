@@ -29,12 +29,11 @@ namespace CbaGob.Alumnos.Repositorio
                                  FechaAlta = c.FEC_ALTA,
                                  FechaModificacion = c.FEC_MODIF,
                                  Id_Alumno = c.ID_ALUMNO,
-                                 Nombre_Grupo = c.T_GRUPOS.N_GRUPO,
-                                 Nombre_Curso = c.T_GRUPOS.T_CONDICIONES_CURSO.T_CURSOS.N_CURSO,
+                                 Nombre_Curso = c.T_CONDICIONES_CURSO.T_CURSOS.N_CURSO,
                                  UsuarioAlta = c.USR_ALTA,
                                  UsuarioModificacion = c.USR_MODIF,
                                  Descripcion = c.DESCRIPCION,
-                                 Id_Grupo = c.ID_GRUPO,
+                                 Id_Condicion_Curso = c.ID_CONDICION_CURSO,
                                  Id_Inscipcion = c.ID_INSCRIPCION
                              });
             return a;
@@ -125,7 +124,7 @@ namespace CbaGob.Alumnos.Repositorio
                 T_INSCRIPCIONES t_inscripcion = new T_INSCRIPCIONES
                                                     {
                                                         ID_ALUMNO = inscripcion.Id_Alumno,
-                                                        ID_GRUPO = inscripcion.Id_Grupo,
+                                                        ID_CONDICION_CURSO = inscripcion.Id_Condicion_Curso,
                                                         ESTADO = inscripcion.Estado,
                                                         FEC_ALTA = inscripcion.FechaAlta,
                                                         FEC_MODIF = inscripcion.FechaModificacion,
@@ -158,7 +157,7 @@ namespace CbaGob.Alumnos.Repositorio
                 t_inscripcion.FEC_MODIF = inscripcion.FechaModificacion;
                 t_inscripcion.USR_MODIF = inscripcion.UsuarioModificacion;
                 t_inscripcion.ESTADO = inscripcion.Estado;
-                t_inscripcion.ID_GRUPO = inscripcion.Id_Grupo;
+                t_inscripcion.ID_CONDICION_CURSO = inscripcion.Id_Condicion_Curso;
 
                 mDb.SaveChanges();
 

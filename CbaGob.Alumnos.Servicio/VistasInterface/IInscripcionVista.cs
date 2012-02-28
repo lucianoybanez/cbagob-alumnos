@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
+using CbaGob.Alumnos.Servicio.VistasInterface.Shared;
 
 namespace CbaGob.Alumnos.Servicio.VistasInterface
 {
@@ -20,7 +21,6 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         string Nombre_Curso { get; set; }
         string Nombre_Grupo { get; set; }
         string Descripcion { get; set; }
-
         IList<ICondicionCurso> ListaCondicionCurso { get; set; }
         IList<IAlumnos> ListaAlumnos { get; set; }
         IList<IGrupo> ListaGrupo { get; set; }

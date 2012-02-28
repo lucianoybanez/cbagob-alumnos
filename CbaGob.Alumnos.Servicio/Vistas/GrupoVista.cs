@@ -19,6 +19,8 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public int Id_Establecimiento { get; set; }
         public int Id_Docente { get; set; }
         public int Id_Horario { get; set; }
+        public int Id_Institucion { get; set; }
+
         public int Capacidad { get; set; }
         public string NombreGrupo { get; set; }
         public string NombreEstablecimiento { get; set; }
@@ -39,5 +41,7 @@ namespace CbaGob.Alumnos.Servicio.Vistas
 
         public IList<IDocentes> ListaDocentes { get; set; }
         public IList<IEstablecimiento> ListaEstableimiento { get; set; }
+        public IList<IAlumnos> ListaAlumnos { get; set; }
+        public IList<IAlumnos> ListaAlumnosInGrupo { get; set; }
     }
 }

@@ -34,9 +34,18 @@ namespace CbaGob.Alumnos.Repositorio
                                  Id_Domicilio = c.ID_DOMICILIO,
                                  Id_Establecimiento = c.ID_ESTABLECIMIENTO,
                                  Id_Institucion = c.ID_INSTITUCION,
-                                 N_Establecimiento = c.N_ESTABLECIMIENTO,
+                                 NombreEstablecimiento = c.N_ESTABLECIMIENTO,
                                  UsuarioAlta = c.USR_ALTA,
-                                 UsuarioModificacion = c.USR_MODIF
+                                 UsuarioModificacion = c.USR_MODIF,
+                                 Provincia = c.T_DOMICILIO.PROVINCIA,
+                                 Localidad = c.T_DOMICILIO.LOCALIDAD,
+                                 Barrio = c.T_DOMICILIO.BARRIO,
+                                 Calle = c.T_DOMICILIO.CALLE,
+                                 Nro = c.T_DOMICILIO.NRO,
+                                 NombreInstitucion = c.T_INSTITUCIONES.N_INSTITUCION, 
+                                 DomicilioCompleto = c.T_DOMICILIO.PROVINCIA + "," + c.T_DOMICILIO.LOCALIDAD + "," +
+                                                     c.T_DOMICILIO.BARRIO + "," + c.T_DOMICILIO.CALLE + "," +
+                                                     c.T_DOMICILIO.NRO
                              });
 
             return a;
@@ -101,7 +110,7 @@ namespace CbaGob.Alumnos.Repositorio
                                                              FEC_MODIF = establecimiento.FechaModificacion,
                                                              ID_DOMICILIO = establecimiento.Id_Domicilio,
                                                              ID_INSTITUCION = establecimiento.Id_Institucion,
-                                                             N_ESTABLECIMIENTO = establecimiento.N_Establecimiento,
+                                                             N_ESTABLECIMIENTO = establecimiento.NombreEstablecimiento,
                                                              USR_ALTA = establecimiento.UsuarioAlta,
                                                              USR_MODIF = establecimiento.UsuarioModificacion
                                                          };
@@ -128,7 +137,7 @@ namespace CbaGob.Alumnos.Repositorio
 
                 modestablecimiento.ID_DOMICILIO = establecimiento.Id_Domicilio;
                 modestablecimiento.ID_INSTITUCION = establecimiento.Id_Institucion;
-                modestablecimiento.N_ESTABLECIMIENTO = establecimiento.N_Establecimiento;
+                modestablecimiento.N_ESTABLECIMIENTO = establecimiento.NombreEstablecimiento;
                 modestablecimiento.USR_MODIF = establecimiento.UsuarioModificacion;
                 modestablecimiento.FEC_MODIF = establecimiento.FechaModificacion;
                 mDB.SaveChanges();
@@ -149,11 +158,11 @@ namespace CbaGob.Alumnos.Repositorio
                 IComunDatos comun = new ComunDatos();
 
                 base.AgregarDatosEliminacion(comun);
-                
+
                 var modestablecimiento = mDB.T_ESTABLECIMINETOS.FirstOrDefault(c => c.ID_ESTABLECIMIENTO == id_establecimiento);
 
                 modestablecimiento.ESTADO = comun.Estado;
-                modestablecimiento.USR_MODIF = comun.UsuarioModificacion ;
+                modestablecimiento.USR_MODIF = comun.UsuarioModificacion;
                 modestablecimiento.FEC_MODIF = comun.FechaModificacion;
                 mDB.SaveChanges();
                 return true;

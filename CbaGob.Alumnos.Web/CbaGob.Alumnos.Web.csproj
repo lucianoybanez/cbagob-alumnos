@@ -73,6 +73,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AlumnosController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BuscadorController.cs" />
     <Compile Include="Controllers\CondicionesCursoController.cs" />
     <Compile Include="Controllers\CursosController.cs" />
     <Compile Include="Controllers\DocentesController.cs" />
@@ -199,6 +200,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\CbaGob.Alumnos.Alumnos.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Buscador.js" />
     <Content Include="Scripts\CbaGob.Alumnos.CondicionesCurso.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Cursos.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Docentes.js" />
@@ -218,6 +220,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Views\Shared\EditorTemplates\Buscador.ascx" />
     <Content Include="Views\Shared\EditorTemplates\ComboBox.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -413,16 +416,37 @@
     <Content Include="Views\Factura\_FacturaLista.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_MasterSGC.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Examenes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Examenes\Agregar.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_Paginacion.cshtml" />
+    <Content Include="Views\Instituciones\_EstablecimientoLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_MasterSGC.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Instituciones\_CondicionCursoLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CondicionesCurso\Ver.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CondicionesCurso\_GrupoLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CondicionesCurso\_AlumnosLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Grupos\Ver.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Grupos\_AlumnosLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Grupos\_AlumnosEnGrupoLista.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

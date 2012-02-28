@@ -5,7 +5,9 @@ using System.Linq;
 using System.Text;
 using CbaGob.Alumnos.Modelo.Entities;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
+using CbaGob.Alumnos.Servicio.Vistas.Shared;
 using CbaGob.Alumnos.Servicio.VistasInterface;
+using CbaGob.Alumnos.Servicio.VistasInterface.Shared;
 
 
 namespace CbaGob.Alumnos.Servicio.Vistas
@@ -15,25 +17,25 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public InstitucionVista()
         {
             domicilios = new Domicilios();
+            DomicilioBusqueda = new Buscador();
+
         }
-
-        public int ID_INSTITUCION { get; set; }
-
+        public int Id_Institucion { get; set; }
         [Required(ErrorMessage = "*")]
         [Range(1, 99999999999999999, ErrorMessage = "*")]
-        public int ID_DOMICILIO { get; set; }
-
+        public int Id_Domicilio { get; set; }
         [Required(ErrorMessage = "*")]
-        public string N_INSTITUCION { get; set; }
-
-        public bool INS_PROPIA { get; set; }
+        public string Nombre_Institucion { get; set; }
+        public bool espropia { get; set; }
+        public string DireccionCompleta { get; set; }
         public IList<IInstitucion> ListaInstituciones { get; set; }
-        public string DOMICILIO { get; set; }
         public DateTime FechaAlta { get; set; }
         public string UsuarioAlta { get; set; }
         public DateTime FechaModificacion { get; set; }
         public string UsuarioModificacion { get; set; }
-        public IList<IDomicilios> ListaDomicilios { get; set; }
         public IDomicilios domicilios { get; set; }
+        public IBuscador DomicilioBusqueda { get; set; }
+        public IList<IEstablecimiento> ListaEstablecimiento { get; set; }
+        public IList<ICondicionCurso> CondicionesCursos { get; set; }
     }
 }

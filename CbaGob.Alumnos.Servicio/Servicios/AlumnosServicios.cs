@@ -26,7 +26,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
             catch (Exception ex)
             {
-                
+
                 throw;
             }
         }
@@ -49,6 +49,60 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             try
             {
                 return alumnosrepositorio.GetTodosByDni(dni);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        public IList<IAlumnos> GetTodosByCondicionCurso(int id_condicion_curso)
+        {
+            try
+            {
+                return alumnosrepositorio.GetTodosByCondicionCurso(id_condicion_curso);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        public IList<IAlumnos> GetTodosAlumnosSinGrupo(int id_condicion_curso)
+        {
+            try
+            {
+                return alumnosrepositorio.GetTodosAlumnosSinGrupo(id_condicion_curso);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        public IList<IAlumnos> GetTodosSinGrupo(int id_condicion_curso)
+        {
+            try
+            {
+                IList<IAlumnos> listretono = alumnosrepositorio.GetTodosByCondicionCurso(id_condicion_curso);
+                return listretono;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        public IList<IAlumnos> GetTodosAlumnosEnGrupo(int id_grupo, int id_condicion_curso)
+        {
+            try
+            {
+                IList<IAlumnos> listretono = alumnosrepositorio.GetTodosAlumnosEnGrupo(id_grupo, id_condicion_curso);
+                return listretono;
             }
             catch (Exception ex)
             {
@@ -101,6 +155,32 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             try
             {
                 return alumnosrepositorio.Eliminar(id_alumno);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        public bool AsiganraGrupo(int id_grupo, int id_alumno, int id_condicion_curso)
+        {
+            try
+            {
+                return alumnosrepositorio.AsiganraGrupo(id_grupo, id_alumno, id_condicion_curso);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        public bool DesasignaraGrupo(int id_grupo, int id_alumno, int id_condicion_curso)
+        {
+            try
+            {
+                return alumnosrepositorio.DesasignaraGrupo(id_grupo, id_alumno, id_condicion_curso);
             }
             catch (Exception ex)
             {

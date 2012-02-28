@@ -29,7 +29,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             IEstablecimientosVista model = new EstablecimientosVista();
 
-            model = establecimientoservicio.GetAllEstableciminetoByInstitucion(26);
+            model = establecimientoservicio.GetAllEstablecimiento();
 
             return View(model);
         }
@@ -39,18 +39,29 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             IEstablecimientoVista model = new EstablecimientoVista();
 
-            model.ListaDomicilio = domiciliosservicios.GetTodosDomicilios();
+            model.DomicilioBuscador.Tipo = "Domicilios";
+            model.DomicilioBuscador.Name = "BuDomicilio";
+
+            model.InstitucionesBuscador.Tipo = "Instituciones";
+            model.InstitucionesBuscador.Name = "BuInstituciones";
 
             return View(model);
         }
+
 
         public ActionResult Modificar(int id_establecimiento)
         {
             IEstablecimientoVista model;
 
             model = establecimientoservicio.GetEstablecimiento(id_establecimiento);
-            
-            model.ListaDomicilio = domiciliosservicios.GetTodosDomicilios();
+
+            model.DomicilioBuscador.Tipo = "Domicilios";
+            model.DomicilioBuscador.Name = "BuDomicilio";
+            model.DomicilioBuscador.Valor = model.DomicilioCompleto;
+
+            model.InstitucionesBuscador.Tipo = "Instituciones";
+            model.InstitucionesBuscador.Name = "BuInstituciones";
+            model.InstitucionesBuscador.Valor = model.NombreInstitucion;
 
             return View(model);
         }
@@ -61,8 +72,6 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             model = establecimientoservicio.GetEstablecimiento(id_establecimiento);
 
-            model.ListaDomicilio = domiciliosservicios.GetTodosDomicilios();
-
             return View(model);
         }
 
@@ -70,14 +79,14 @@ namespace CbaGob.Alumnos.Web.Controllers
         public ActionResult Agregar_Establecimiento(EstablecimientoVista model)
         {
 
-            model.Id_Institucion = 26;
+            model.Id_Institucion = model.Id_Institucion;
             bool mRet = establecimientoservicio.AgregarEstablecimiento(model);
 
             IEstablecimientosVista establecimientosvista = new EstablecimientosVista();
 
-            establecimientosvista = establecimientoservicio.GetAllEstableciminetoByInstitucion(26);
+            establecimientosvista = establecimientoservicio.GetAllEstablecimiento();
 
-            return View("Index", establecimientosvista);
+            return RedirectToAction("Ver", "Instituciones", new { INST_ID = model.Id_Institucion });
         }
 
         [HttpPost]
@@ -89,23 +98,23 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             IEstablecimientosVista establecimientosvista = new EstablecimientosVista();
 
-            establecimientosvista = establecimientoservicio.GetAllEstableciminetoByInstitucion(26);
+            establecimientosvista = establecimientoservicio.GetAllEstablecimiento();
 
-            return View("Index", establecimientosvista);
+            return RedirectToAction("Ver", "Instituciones", new { INST_ID = model.Id_Institucion });
         }
 
         [HttpPost]
         public ActionResult Modificar_Establecimiento(EstablecimientoVista model)
         {
 
-            model.Id_Institucion = 26;
+            model.Id_Institucion = model.Id_Institucion;
             bool mRet = establecimientoservicio.ModificarEstablecimiento(model);
 
             IEstablecimientosVista establecimientosvista = new EstablecimientosVista();
 
-            establecimientosvista = establecimientoservicio.GetAllEstableciminetoByInstitucion(26);
+            establecimientosvista = establecimientoservicio.GetAllEstablecimiento();
 
-            return View("Index", establecimientosvista);
+            return RedirectToAction("Ver", "Instituciones", new { INST_ID = model.Id_Institucion });
 
         }
 

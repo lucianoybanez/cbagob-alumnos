@@ -1,53 +1,63 @@
 ﻿@model CbaGob.Alumnos.Servicio.VistasInterface.ICursosVista
 @{
     ViewBag.Title = "SGC - Gobierno de Córdoba - Cursos";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
 }
 @section Scripts{
-    @Content.Script("CbaGob.Alumnos.Cursos.js",Url)
+    @Content.Script("CbaGob.Alumnos.Cursos.js", Url)
 }
-
-@using (Html.BeginForm("Agregar_Cursos", "Cursos", FormMethod.Post, new { Id = "FormularioCursos" }))
-{ 
-    <div id="titulo">
-        <div id="ttxt">
-            Nuevo Curso</div>
-    </div>
+<div class="box">
+    <h2>
+        Agregar Curso</h2>
+    <table align="center" style="width: 700px;">
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                @using (Html.BeginForm("Agregar_Cursos", "Cursos", FormMethod.Post, new { Id = "FormularioCursos" }))
+                { 
+                   
+                    <table align="left" id="mytable" style="font-family: Arial, Helvetica, sans-serif;
+                        font-size: 12px; width: 700px;">
+                        <tr>
+                            <td>
+                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+                                    text-align: center;">
+                                    <legend>Datos Curso</legend>
+                                    <table align="left" id="mytable" style="font-family: Arial, Helvetica, sans-serif;
+                                        font-size: 12px; width: 750px;">
+                                        <tr>
+                                            <td>
+                                                <b>Nombre del Curso:</b>
+                                            </td>
+                                            <td>
+                                                @Html.TextBoxFor(c => c.N_CURSO, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <b>Nro Resolucion:</b>
+                                            </td>
+                                            <td>
+                                                @Html.TextBoxFor(c => c.NRORESOLUCION, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                            </td>
+                        </tr>
+                    </table>
+                    <table id="myIntituciones" align="center" width="700px">
+                        <tr>
+                            <td align="right" vlign="middle">
+                                <input type="submit" value="Guargar" class="btnIngresar" />&nbsp;&nbsp;
+                                @Html.ActionLink("Cancelar", "Index", "Cursos", null, new { Class = "btnIngresar" })
+                            </td>
+                        </tr>
+                    </table>
     
-   <table align="center" id="mytable" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
-        <tr>
-            <td>
-  <fieldset style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px; text-align:center;">
-                <legend>Nuevo Curso</legend>
-    <table align="center" id="mytable" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:750px;">
-        <tr>
-            <td>
-                Nombre
-            </td>
-            <td>
-                @Html.TextBoxFor(c => c.N_CURSO, new { style = "width:200px;", MaxLength = "50", Class="asd" })
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Nro Resolucion
-            </td>
-            <td>
-                @Html.TextBoxFor(c => c.NRORESOLUCION, new { style = "width:200px;", MaxLength = "50", Class="asd" })
+                }
             </td>
         </tr>
     </table>
-    </fieldset>
-     </td>
-        </tr>
-    </table>
-    
-     <table id="myIntituciones" align="center" width="800px">
-        <tr>
-            <td align="right" vlign="middle">
-                <input type="submit" value="Guargar" class="boton" />&nbsp;&nbsp;
-                 @Html.ActionLink("Cancelar", "Index", "Cursos", null, new { Class = "btnIngresar" })
-            </td>
-        </tr>
-    </table>
-}  <br /><br /><br /><br /><br />
+</div>
