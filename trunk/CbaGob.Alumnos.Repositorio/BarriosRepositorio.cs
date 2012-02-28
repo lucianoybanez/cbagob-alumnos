@@ -20,12 +20,12 @@ namespace CbaGob.Alumnos.Repositorio
         {
             try
             {
-                var ListBarrios = (from c in mDB.V_BARRIOS
-                                   where c.ID_LOCALIDAD == IdLocalidad
-                                   select new Barrios {ID_BARRIO = c.ID_BARRIO, N_BARRIO = c.N_BARRIO}).ToList().Cast
-                    <IBarrios>().ToList();
+                //var ListBarrios = (from c in mDB.V_BARRIOS
+                //                   where c.ID_LOCALIDAD == IdLocalidad
+                //                   select new Barrios {ID_BARRIO = c.ID_BARRIO, N_BARRIO = c.N_BARRIO}).ToList().Cast
+                //    <IBarrios>().ToList();
 
-                return ListBarrios;
+                return null;
             }
             catch (Exception ex)
             {
@@ -38,11 +38,11 @@ namespace CbaGob.Alumnos.Repositorio
         {
             try
             {
-                var mBarrio = (from c in mDB.V_BARRIOS
-                               where c.ID_BARRIO == IdBarrio
-                               select new Barrios {ID_BARRIO = c.ID_BARRIO, N_BARRIO = c.N_BARRIO}).SingleOrDefault();
+                //var mBarrio = (from c in mDB.V_BARRIOS
+                //               where c.ID_BARRIO == IdBarrio
+                //               select new Barrios {ID_BARRIO = c.ID_BARRIO, N_BARRIO = c.N_BARRIO}).SingleOrDefault();
 
-                return mBarrio;
+                return null;
             }
             catch (Exception ex)
             {

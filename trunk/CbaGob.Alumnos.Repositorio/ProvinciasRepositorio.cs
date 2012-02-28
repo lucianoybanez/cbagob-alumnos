@@ -22,12 +22,12 @@ namespace CbaGob.Alumnos.Repositorio
         {
             try
             {
-                var ListProvincias =
-                    (from r in mDb.V_PROVINCIAS
-                     select new Provincias {ID_PROVINCIA = r.ID_PROVINCIA, N_PROVINCIA = r.N_PROVINCIA}).ToList().Cast
-                        <IProvincias>().ToList();
+                //var ListProvincias =
+                //    (from r in mDb.V_PROVINCIAS
+                //     select new Provincias {ID_PROVINCIA = r.ID_PROVINCIA, N_PROVINCIA = r.N_PROVINCIA}).ToList().Cast
+                //        <IProvincias>().ToList();
 
-                return ListProvincias;
+                return null;
             }
             catch (Exception ex)
             {
@@ -42,12 +42,12 @@ namespace CbaGob.Alumnos.Repositorio
         {
             try
             {
-                var mProvincias = (from c in mDb.V_PROVINCIAS
-                                   where c.ID_PROVINCIA == IdProvincia
-                                   select new Provincias {ID_PROVINCIA = c.ID_PROVINCIA, N_PROVINCIA = c.N_PROVINCIA}).
-                    SingleOrDefault();
+                //var mProvincias = (from c in mDb.V_PROVINCIAS
+                //                   where c.ID_PROVINCIA == IdProvincia
+                //                   select new Provincias {ID_PROVINCIA = c.ID_PROVINCIA, N_PROVINCIA = c.N_PROVINCIA}).
+                //    SingleOrDefault();
 
-                return mProvincias;
+                return null;
             }
             catch (Exception)
             {

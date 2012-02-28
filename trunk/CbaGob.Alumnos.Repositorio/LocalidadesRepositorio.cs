@@ -22,13 +22,13 @@ namespace CbaGob.Alumnos.Repositorio
         {
             try
             {
-                var ListLocalidades = (from c in mDb.V_LOCALIDAES
-                                       where c.ID_DEPARTAMENTO == IdDepartamento
-                                       select
-                                           new Localidades {ID_LOCALIDAD = c.ID_LOCALIDAD, N_LOCALIDAD = c.N_LOCALIDAD})
-                    .ToList().Cast<ILocalidades>().ToList();
+                //var ListLocalidades = (from c in mDb.V_LOCALIDAES
+                //                       where c.ID_DEPARTAMENTO == IdDepartamento
+                //                       select
+                //                           new Localidades {ID_LOCALIDAD = c.ID_LOCALIDAD, N_LOCALIDAD = c.N_LOCALIDAD})
+                //    .ToList().Cast<ILocalidades>().ToList();
 
-                return ListLocalidades;
+                return null;
             }
             catch (Exception ex)
             {
@@ -41,12 +41,12 @@ namespace CbaGob.Alumnos.Repositorio
         {
             try
             {
-                var mLocalidades = (from c in mDb.V_LOCALIDAES
-                                    where c.ID_LOCALIDAD == IdLocalidad
-                                    select new Localidades {ID_LOCALIDAD = c.ID_LOCALIDAD, N_LOCALIDAD = c.N_LOCALIDAD})
-                    .SingleOrDefault();
+                //var mLocalidades = (from c in mDb.V_LOCALIDAES
+                //                    where c.ID_LOCALIDAD == IdLocalidad
+                //                    select new Localidades {ID_LOCALIDAD = c.ID_LOCALIDAD, N_LOCALIDAD = c.N_LOCALIDAD})
+                //    .SingleOrDefault();
 
-                return mLocalidades;
+                return null;
             }
             catch (Exception)
             {

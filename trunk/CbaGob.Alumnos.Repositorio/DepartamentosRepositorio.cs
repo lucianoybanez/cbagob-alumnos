@@ -21,15 +21,15 @@ namespace CbaGob.Alumnos.Repositorio
         {
             try
             {
-                var ListDepartamento = (from c in mDb.V_DEPARTAMENTOS
-                                        where c.ID_PROVINCIA == IdProvincia
-                                        select
-                                            new Departamentos
-                                                {ID_DEPARTAMENTO = c.ID_DEPARTAMENTO, N_DEPARTAMENTO = c.N_DEPARTAMENTO})
-                    .ToList().Cast<IDepartamentos>().ToList();
+                //var ListDepartamento = (from c in mDb.V_DEPARTAMENTOS
+                //                        where c.ID_PROVINCIA == IdProvincia
+                //                        select
+                //                            new Departamentos
+                //                                {ID_DEPARTAMENTO = c.ID_DEPARTAMENTO, N_DEPARTAMENTO = c.N_DEPARTAMENTO})
+                //    .ToList().Cast<IDepartamentos>().ToList();
 
 
-                return ListDepartamento;
+                return null;
             }
             catch (Exception ex)
             {
@@ -42,13 +42,13 @@ namespace CbaGob.Alumnos.Repositorio
         {
             try
             {
-                var mDepartamentos =
-                    (from c in mDb.V_DEPARTAMENTOS
-                     where c.ID_DEPARTAMENTO == IdDepartamento
-                     select new Departamentos {ID_DEPARTAMENTO = c.ID_DEPARTAMENTO, N_DEPARTAMENTO = c.N_DEPARTAMENTO}).
-                        SingleOrDefault();
+                //var mDepartamentos =
+                //    (from c in mDb.V_DEPARTAMENTOS
+                //     where c.ID_DEPARTAMENTO == IdDepartamento
+                //     select new Departamentos {ID_DEPARTAMENTO = c.ID_DEPARTAMENTO, N_DEPARTAMENTO = c.N_DEPARTAMENTO}).
+                //        SingleOrDefault();
 
-                return mDepartamentos;
+                return null;
 
             }
             catch (Exception)

@@ -30,7 +30,6 @@ namespace CbaGob.Alumnos.Repositorio
                              {
 
                                  Id_Condicion_Curso = d.ID_CONDICION_CURSO,
-                                 Id_Docente = d.ID_DOCENTE,
                                  Id_Establecimiento = d.ID_ESTABLECIMIENTO,
                                  Id_Grupo = d.ID_GRUPO,
                                  Id_Horario = d.ID_HORARIO,
@@ -42,7 +41,6 @@ namespace CbaGob.Alumnos.Repositorio
                                  Hr_Fin = d.T_HORARIOS.HR_FIN,
                                  Hr_Mes = d.T_HORARIOS.HR_MES,
                                  Id_Domicilio = d.T_ESTABLECIMINETOS.ID_DOMICILIO,
-                                 Id_PersonaJuridica = d.T_DOCENTES.ID_PERSONAJURIDICA,
                                  FechaAlta = d.FEC_ALTA,
                                  FechaModificacion = d.FEC_MODIF ?? System.DateTime.Now,
                                  UsuarioAlta = d.USR_ALTA,
@@ -109,7 +107,6 @@ namespace CbaGob.Alumnos.Repositorio
                                        {
                                            CAPACIDAD = grupo.Capacidad,
                                            ID_CONDICION_CURSO = grupo.Id_Condicion_Curso,
-                                           ID_DOCENTE = grupo.Id_Docente,
                                            ID_ESTABLECIMIENTO = grupo.Id_Establecimiento,
                                            ID_HORARIO = grupo.Id_Horario,
                                            FEC_ALTA = grupo.FechaAlta,
@@ -140,7 +137,6 @@ namespace CbaGob.Alumnos.Repositorio
                 var t_grupo = mDB.T_GRUPOS.Where(c => c.ID_GRUPO == grupo.Id_Grupo).FirstOrDefault();
 
                 t_grupo.ID_CONDICION_CURSO = grupo.Id_Condicion_Curso;
-                t_grupo.ID_DOCENTE = grupo.Id_Docente;
                 t_grupo.ID_ESTABLECIMIENTO = grupo.Id_Establecimiento;
                 t_grupo.ID_HORARIO = grupo.Id_Horario;
                 t_grupo.CAPACIDAD = grupo.Capacidad;
