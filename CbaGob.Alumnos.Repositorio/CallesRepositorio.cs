@@ -22,13 +22,13 @@ namespace CbaGob.Alumnos.Repositorio
         {
             try
             {
-                var ListCalles = (from c in mDb.V_CALLES
-                                  where
-                                      c.ID_DEPARTAMENTO == IdDepartamento && c.ID_LOCALIDAD == IdLocalidad &&
-                                      c.ID_PROVINCIA == IdProvincia
-                                  select new Calles {ID_CALLE = c.ID_CALLE, N_CALLE = c.N_CALLE}).ToList().Cast<ICalles>
-                    ().ToList();
-                return ListCalles;
+                //var ListCalles = (from c in mDb.V_CALLES
+                //                  where
+                //                      c.ID_DEPARTAMENTO == IdDepartamento && c.ID_LOCALIDAD == IdLocalidad &&
+                //                      c.ID_PROVINCIA == IdProvincia
+                //                  select new Calles {ID_CALLE = c.ID_CALLE, N_CALLE = c.N_CALLE}).ToList().Cast<ICalles>
+                //    ().ToList();
+                return null;
             }
             catch (Exception ex)
             {
@@ -41,11 +41,11 @@ namespace CbaGob.Alumnos.Repositorio
         {
             try
             {
-                var mCalles =
-                    (from c in mDb.V_CALLES
-                     where c.ID_CALLE == IdCalle
-                     select new Calles {ID_CALLE = c.ID_CALLE, N_CALLE = c.N_CALLE}).SingleOrDefault();
-                return mCalles;
+                //var mCalles =
+                //    (from c in mDb.V_CALLES
+                //     where c.ID_CALLE == IdCalle
+                //     select new Calles {ID_CALLE = c.ID_CALLE, N_CALLE = c.N_CALLE}).SingleOrDefault();
+                return null;
             }
             catch (Exception)
             {
