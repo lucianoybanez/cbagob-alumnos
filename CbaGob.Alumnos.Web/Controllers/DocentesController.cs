@@ -47,9 +47,12 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             model.ListaPersonaJuridica = personajuridicaservicio.GetTodasByRazonSocial("Test");
 
-            model.ListaDomicilios = domiciliosservicios.GetTodosDomicilios();
+            model.BuscadorDomicilio.Name = "BuDomicilio";
+            model.BuscadorDomicilio.Tipo = "Domicilios";
 
-
+            model.BuscadorPersonaJur.Name = "BuPersonasJur";
+            model.BuscadorPersonaJur.Tipo = "PersonasJuridica";
+            
             var combo = new List<IComboItem>();
 
             foreach (var comboItem in cargosservicio.GetTodosCargos())
@@ -70,11 +73,26 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             model.personajuridica = personajuridicaservicio.GetUno(docente.Id_PersonaJuridica);
 
+            model.BuscadorDomicilio.Name = "BuDomicilio";
+            model.BuscadorDomicilio.Tipo = "Domicilios";
+            
+
+            model.BuscadorPersonaJur.Name = "BuPersonasJur";
+            model.BuscadorPersonaJur.Tipo = "PersonasJuridica";
+            model.BuscadorPersonaJur.Valor = model.personajuridica.Cuit + "-" + model.personajuridica.Razon_Social;
+
             model.domicilios = domiciliosservicios.GetUno(docente.Id_Domicilio);
+
+            model.BuscadorDomicilio.Valor = model.domicilios.Provincia + "," + model.domicilios.Localidad + "," +
+                                            model.domicilios.Barrio + "," + model.domicilios.Calle + "," +
+                                            model.domicilios.Nro;
 
             model.ListaDomicilios = domiciliosservicios.GetTodosDomicilios();
 
             model.ListaPersonaJuridica = personajuridicaservicio.GetTodasByRazonSocial("");
+
+            model.Planta = docente.Planta;
+            model.Reproca = docente.Reproca;
 
             var combo = new List<IComboItem>();
 
@@ -104,7 +122,13 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             model.personajuridica = personajuridicaservicio.GetUno(docente.Id_PersonaJuridica);
 
+            model.DatosCompletosPerJur = model.personajuridica.Cuit + "," + model.personajuridica.Razon_Social;
+
             model.domicilios = domiciliosservicios.GetUno(docente.Id_Domicilio);
+
+            model.DatosCompletosDomicilio = model.domicilios.Provincia + "," + model.domicilios.Localidad + "," +
+                                            model.domicilios.Barrio + "," + model.domicilios.Calle + "," +
+                                            model.domicilios.Nro;
 
             model.ListaDomicilios = domiciliosservicios.GetTodosDomicilios();
 
@@ -123,9 +147,14 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             model.cargos.Combo = combo;
 
+            model.Planta = docente.Planta;
+            model.Reproca = docente.Reproca;
+
             model.N_Modalidad = docente.N_Modalidad;
 
             model.cargos.Selected = docente.Id_Cargo.ToString();
+
+            model.cargos.Enabled = false;
 
             return View("Eliminar", model);
         }
@@ -139,6 +168,8 @@ namespace CbaGob.Alumnos.Web.Controllers
             docentes.Id_PersonaJuridica = model.Id_PersonaJuridica;
             docentes.Id_Domicilio = model.Id_Domicilio;
             docentes.Id_Cargo = Convert.ToInt32(model.cargos.Selected);
+            docentes.Planta = model.Planta;
+            docentes.Reproca = model.Reproca;
 
             bool mret = docentesservicio.Agregar(docentes);
 
@@ -157,6 +188,8 @@ namespace CbaGob.Alumnos.Web.Controllers
             docentes.Id_Domicilio = model.Id_Domicilio;
             docentes.Id_Cargo = Convert.ToInt32(model.cargos.Selected);
             docentes.Id_Docente = model.Id_Docente;
+            docentes.Planta = model.Planta;
+            docentes.Reproca = model.Reproca;
 
             bool mret = docentesservicio.Modificar(docentes);
 
