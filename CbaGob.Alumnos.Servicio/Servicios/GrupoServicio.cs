@@ -41,12 +41,6 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
                 grupo = gruporepositorio.GetGrupo(id_grupo);
 
-                IDocentes docente = new Docentes();
-
-                docente = docentesrepositorio.GetUno(grupo.Id_Docente);
-
-                grupovista.Cuit = docente.Cuit;
-                grupovista.RazonSoial = docente.Razon_Social;
 
                 IDomicilios domicilio = new Domicilios();
 
