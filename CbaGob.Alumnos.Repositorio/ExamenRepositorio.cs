@@ -20,6 +20,9 @@ namespace CbaGob.Alumnos.Repositorio
         public IList<IExamen> GetExamenes()
         {
             var result = (from p in mDB.T_EXAMENES
+                          join ins in mDB.T_INSCRIPCIONES on p.ID_INSCRIPCION equals ins.ID_INSCRIPCION
+                          join alumnos in mDB.T_ALUMNOS on ins.ID_ALUMNO equals alumnos.ID_ALUMNO
+                          join personas in mDB.T_PERSONAS on alumnos.ID_PERSONA equals personas.ID_PERSONA
                           where p.ESTADO == "A"
                           select new Examen
                                      {
@@ -32,8 +35,10 @@ namespace CbaGob.Alumnos.Repositorio
                                          Nota = p.NOTA,
                                          UsuarioAlta = p.USR_ALTA,
                                          UsuarioModificacion = p.USR_MODIF,
-                                         NroExamen = p.NRO_EXAMEN
-                                     }).Cast<IExamen>().ToList();
+                                         NroExamen = p.NRO_EXAMEN,
+                                         NombreAlumno = personas.NOV_APELLIDO + ", " + personas.NOV_NOMBRE,
+                                         NombreGrupo = p.T_INSCRIPCIONES.T_GRUPOS.N_GRUPO
+                                     }).ToList().Cast<IExamen>().ToList();
             return result;
         }
 
@@ -52,7 +57,10 @@ namespace CbaGob.Alumnos.Repositorio
                                          Nota = p.NOTA,
                                          UsuarioAlta = p.USR_ALTA,
                                          UsuarioModificacion = p.USR_MODIF,
-                                         NroExamen = p.NRO_EXAMEN
+                                         NroExamen = p.NRO_EXAMEN,
+                                         IdAlumno = p.T_INSCRIPCIONES.ID_ALUMNO,
+                                         IdGrupo = p.T_INSCRIPCIONES.ID_GRUPO,
+                                         NombreGrupo = p.T_INSCRIPCIONES.T_GRUPOS.N_GRUPO
                                      }).FirstOrDefault();
             return result;
         }
@@ -92,15 +100,12 @@ namespace CbaGob.Alumnos.Repositorio
             {
                 base.AgregarDatosModificacion(examen);
                 var ex = mDB.T_EXAMENES.Where(c => c.ID_EXAMEN == examen.IdExamen).FirstOrDefault();
-                ex.ESTADO = examen.Estado;
                 ex.FEC_EXAMEN = examen.FechaExamen;
                 ex.FEC_MODIF = examen.FechaModificacion;
                 ex.USR_MODIF = examen.UsuarioModificacion;
-                ex.ID_EXAMEN = examen.IdExamen;
                 ex.ID_INSCRIPCION = examen.IdInscripcion;
                 ex.NOTA = examen.Nota;
                 ex.NRO_EXAMEN = examen.NroExamen;
-                mDB.AddToT_EXAMENES(ex);
                 mDB.SaveChanges();
                 return true;
             }

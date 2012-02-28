@@ -11,14 +11,14 @@ cbaAlumnosGlobal = function () {
         setJqueyUi();
     }
     
-    function changeCombo(idCombo,urlToChange) {
+    function changeCombo(idCombo,idForm,urlToChange) {
         $('.input-validation-error').removeClass("input-validation-error");
         $('.field-validation-error').addClass("field-validation-valid");
 
         $('#' + idCombo).bind('change', function (e) {
-            $("form").validate().cancelSubmit = true;
-            $('#FormFactura').attr('action', urlToChange);
-            $("#FormFactura").submit();
+            $('#'+idForm).validate().cancelSubmit = true;
+            $('#'+idForm).attr('action', urlToChange);
+            $('#'+idForm).submit();
         });
     }
     

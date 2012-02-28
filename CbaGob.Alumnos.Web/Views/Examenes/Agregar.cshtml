@@ -5,10 +5,11 @@
 @section Scripts{
     @Content.Script("CbaGob.Alumnos.Examenes.js", Url)
 }
-@using (Html.BeginForm("GuardarCondicionCurso", "CondicionesCurso", FormMethod.Post, null))
+@using (Html.BeginForm("GuardarExamen", "Examenes", FormMethod.Post,new {id = "FormExamenes"}))
 { 
     @Html.HiddenFor(c => c.Accion)
     @Html.HiddenFor(c => c.IdExamen)
+    <input type="hidden" name="UrlCambioCombo" id="UrlCambioCombo" value="@Url.Action("CambiarCombo")" />
     @Html.ValidationSummary(true)
     <div id="titulo">
         <div id="ttxt">
@@ -20,7 +21,8 @@
                 Numero de Examen
             </td>
             <td>
-                @Html.TextBoxFor(c => c.NroExamen, new { style = "width:200px;", MaxLength = "50", disabled = "disabled" })
+                @Html.TextBoxFor(c => c.NroExamen)
+                @Html.ValidationMessageFor(c => c.NroExamen, "*")
             </td>
         </tr>
         <tr>
@@ -28,16 +30,16 @@
                 Fecha de Examen
             </td>
             <td>
-                @Html.TextBoxFor(c => c.FechaExamen, new { style = "width:50px;", MaxLength = "4" })
+                @Html.TextBoxFor(c => c.FechaExamen)
                 @Html.ValidationMessageFor(c => c.FechaExamen, "*")
             </td>
         </tr>
         <tr>
             <td>
-                Cursos
+                Grupos
             </td>
             <td>
-                @Html.EditorFor(c => c.Cursos)
+                @Html.EditorFor(c => c.Grupos)
             </td>
         </tr>
         <tr>
@@ -45,7 +47,7 @@
                 Alumno
             </td>
             <td>
-                @Html.TextBoxFor(c => c.NombreAlumno, new { data_autocomplete = Url.Action("BuscarAlumno") })
+                 @Html.EditorFor(c => c.Alumnos)
             </td>
         </tr>
         <tr>
@@ -53,7 +55,7 @@
                 Nota
             </td>
             <td>
-                @Html.EditorFor(c => c.Nota)
+                @Html.TextBoxFor(c => c.Nota)
                 @Html.ValidationMessageFor(c => c.Nota, "*")
             </td>
         </tr>

@@ -14,7 +14,7 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         DateTime FechaExamen { get; set; }
         int NroExamen { get; set; }
         decimal Nota { get; set; }
-        IComboBox Cursos { get; set; }
-        string NombreAlumno { get; set; }
+        IComboBox Grupos { get; set; }
+        IComboBox Alumnos { get; set; }
     }
 }

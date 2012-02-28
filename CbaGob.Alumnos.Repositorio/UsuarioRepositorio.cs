@@ -17,7 +17,7 @@ namespace CbaGob.Alumnos.Repositorio
 
         public IUsuario GetUserByNamePassword(string name, string password)
         {
-            return DatosMock.GetUsuarios().Where(c => c.PersonaUsuario == name && c.PersonaPassword == password).SingleOrDefault();
+            return DatosMock.GetUsuarios().Where(c => c.PersonaUsuario.ToLower() == name.ToLower() && c.PersonaPassword == password).SingleOrDefault();
         }
 
         public IUsuario GetUsersByName(string nombre)

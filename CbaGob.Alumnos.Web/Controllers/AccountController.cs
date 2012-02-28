@@ -13,13 +13,10 @@ namespace JLY.Hotel.Web.Controllers
 {
     public class AccountController : BaseController
     {
-
-
+        
         private IUsuarioServicio _usuarioServicio;
 
-        //
-        // GET: /Account/LogOn
-
+  
         public AccountController(IUsuarioServicio _usuarioServicio )
         {
             this._usuarioServicio = _usuarioServicio;
@@ -30,8 +27,6 @@ namespace JLY.Hotel.Web.Controllers
             return View();
         }
 
-        //
-        // POST: /Account/LogOn
 
         [HttpPost]
         public ActionResult LogOn(LogOnModel model, string returnUrl)
@@ -41,36 +36,14 @@ namespace JLY.Hotel.Web.Controllers
                 if (_usuarioServicio.IsCuentaValida(model.UserName, model.Password))
                 {
                     _usuarioServicio.Login(model.UserName);
-                    //FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Instituciones");
                 }
                 else
                 {
                     AddError(_usuarioServicio.GetErrors());
                 }
-
-                /*
-                if (Membership.ValidateUser(model.UserName, model.Password))
-                {
-                    FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
-                    if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
-                        && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
-                    {
-                        return Redirect(returnUrl);
-                    }
-                    else
-                    {
-                        return RedirectToAction("Index", "Home");
-                    }
-                }
-                else
-                {
-                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
-                }
-                 * */
             }
 
-            // If we got this far, something failed, redisplay form
             return View(model);
         }
 

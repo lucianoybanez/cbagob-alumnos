@@ -16,10 +16,11 @@ namespace CbaGob.Alumnos.Repositorio
             Rol adminrol = new Rol() { RolId = 1, RolTipo = "Administrador" };
             Rol Nivel2 = new Rol() { RolId = 2, RolTipo = "Nivel2" };
 
-            users.Add(new Usuario() { PersonaID = 1, PersonaUsuario = "admin", PersonaPassword = "a123456", Rol = adminrol });
-            users.Add(new Usuario() { PersonaID = 2, PersonaUsuario = "Luciano", PersonaPassword = "a123456", Rol = Nivel2 });
-            users.Add(new Usuario() { PersonaID = 3, PersonaUsuario = "Juan Jose", PersonaPassword = "a123456" });
-            users.Add(new Usuario() { PersonaID = 4, PersonaUsuario = "Chango", PersonaPassword = "a123456" });
+            users.Add(new Usuario() { PersonaID = 1, PersonaUsuario = "administrador", PersonaPassword = "a123456", Rol = adminrol });
+            users.Add(new Usuario() { PersonaID = 2, PersonaUsuario = "luciano", PersonaPassword = "a123456", Rol = Nivel2 });
+            users.Add(new Usuario() { PersonaID = 3, PersonaUsuario = "dario", PersonaPassword = "a123456", Rol = Nivel2 });
+            users.Add(new Usuario() { PersonaID = 4, PersonaUsuario = "victor", PersonaPassword = "a123456", Rol = adminrol });
+            users.Add(new Usuario() { PersonaID = 4, PersonaUsuario = "a", PersonaPassword = "a", Rol = adminrol });
             return users;
         }
 

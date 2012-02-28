@@ -53,7 +53,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             var user = UsuarioRepositorio.GetUserByNamePassword(username, password);
             if (user == null)
             {
-                AddError(TypeError.NotExist, "The User don't exist.");
+                AddError(TypeError.NotExist, "El usuario no existe.");
             }
             else
             {

@@ -4,10 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
+using CbaGob.Alumnos.Servicio.Vistas;
+using CbaGob.Alumnos.Servicio.VistasInterface;
+using JLY.Hotel.Web.Controllers;
 
 namespace CbaGob.Alumnos.Web.Controllers
 {
-    public class ExamenesController : Controller
+    public class ExamenesController : BaseController
     {
         private IExamenServicio ExamenServicio;
 
@@ -28,6 +31,38 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             return View(ExamenServicio.GetExamenVista());
         }
+
+        public ActionResult Eliminar(int IdExamen)
+        {
+            if (!ExamenServicio.EliminarExamen(IdExamen))
+            {
+                base.AddError(ExamenServicio.GetErrors());
+            }
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Modificar(int IdExamen)
+        {
+            return View("Agregar",ExamenServicio.GetExamenVista(IdExamen));
+        }
+
+        public ActionResult CambiarCombo(ExamenVista vista)
+        {
+            return View("Agregar", ExamenServicio.GetExamenVistaCambioComboGrupo(vista));
+        }
+
+        public ActionResult GuardarExamen(ExamenVista vista)
+        {
+            bool result = ExamenServicio.GuardarExamen(vista);
+            if (!result)
+            {
+                base.AddError(ExamenServicio.GetErrors());
+                return View("Agregar", CambiarCombo(vista));
+            }
+            return RedirectToAction("Index");
+        }
+
+      
 
         public ActionResult BuscarAlumno(string term)
         {
