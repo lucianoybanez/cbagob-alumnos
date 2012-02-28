@@ -33,6 +33,15 @@ namespace CbaGob.Alumnos.Web.Controllers
         }
 
         [HttpPost]
+        public ActionResult PersonasJuridica(string busqueda, string IdRelacionado)
+        {
+            IPersonaJuridicaServicio personajuridicaServicio = new PersonaJuridicaServicio();
+            IList<IPersonaJuridica> lista = personajuridicaServicio.GetTodasByRazonSocial(busqueda);
+            
+            return Json(lista.ToArray());
+        }
+
+        [HttpPost]
         public ActionResult Domicilios(string busqueda, string IdRelacionado)
         {
             IDomiciliosServicios domiciliosservicios = new DomiciliosServicios();
