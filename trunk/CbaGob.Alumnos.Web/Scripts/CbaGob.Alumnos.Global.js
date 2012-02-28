@@ -108,7 +108,6 @@ cbaAlumnosGlobal = function () {
     }
 
     function Buscar(id, Tipo, texto, IdRelacionado) {
-        alert(IdRelacionado);
         $.ajax({
             type: "POST",
             url: "/Buscador/" + Tipo,
