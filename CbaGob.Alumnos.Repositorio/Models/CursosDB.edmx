@@ -15,6 +15,7 @@
           <EntitySet Name="T_CURSOS" EntityType="Model_Cursos.Store.T_CURSOS" store:Type="Tables" Schema="CURSOS" />
           <EntitySet Name="T_DETALLES_FACTURA" EntityType="Model_Cursos.Store.T_DETALLES_FACTURA" store:Type="Tables" Schema="CURSOS" />
           <EntitySet Name="T_DOCENTES" EntityType="Model_Cursos.Store.T_DOCENTES" store:Type="Tables" Schema="CURSOS" />
+          <EntitySet Name="T_DOCENTES_GRUPO" EntityType="Model_Cursos.Store.T_DOCENTES_GRUPO" store:Type="Tables" Schema="CURSOS" />
           <EntitySet Name="T_DOMICILIO" EntityType="Model_Cursos.Store.T_DOMICILIO" store:Type="Tables" Schema="CURSOS" />
           <EntitySet Name="T_EQUIPOS" EntityType="Model_Cursos.Store.T_EQUIPOS" store:Type="Tables" Schema="CURSOS" />
           <EntitySet Name="T_ESTABLECIMINETOS" EntityType="Model_Cursos.Store.T_ESTABLECIMINETOS" store:Type="Tables" Schema="CURSOS" />
@@ -40,68 +41,6 @@
           <EntitySet Name="T_SUPERVISORES" EntityType="Model_Cursos.Store.T_SUPERVISORES" store:Type="Tables" Schema="CURSOS" />
           <EntitySet Name="T_TEMARIO" EntityType="Model_Cursos.Store.T_TEMARIO" store:Type="Tables" Schema="CURSOS" />
           <EntitySet Name="T_TIPOS_MOVIMIENTOS" EntityType="Model_Cursos.Store.T_TIPOS_MOVIMIENTOS" store:Type="Tables" Schema="CURSOS" />
-          <EntitySet Name="V_BARRIOS" EntityType="Model_Cursos.Store.V_BARRIOS" store:Type="Views" store:Schema="CURSOS" store:Name="V_BARRIOS">
-            <DefiningQuery>SELECT 
-      "V_BARRIOS"."ID_BARRIO" AS "ID_BARRIO", 
-      "V_BARRIOS"."N_BARRIO" AS "N_BARRIO", 
-      "V_BARRIOS"."ID_LOCALIDAD" AS "ID_LOCALIDAD", 
-      "V_BARRIOS"."COMENTARIO" AS "COMENTARIO", 
-      "V_BARRIOS"."FEC_ULT_ACTUALIZACION" AS "FEC_ULT_ACTUALIZACION", 
-      "V_BARRIOS"."ID_USUARIO" AS "ID_USUARIO", 
-      "V_BARRIOS"."ID_PRECINTO" AS "ID_PRECINTO", 
-      "V_BARRIOS"."ID_BARRIO_C" AS "ID_BARRIO_C", 
-      "V_BARRIOS"."N_BARRIO_C" AS "N_BARRIO_C", 
-      "V_BARRIOS"."ID_SECCIONAL" AS "ID_SECCIONAL"
-      FROM "CURSOS"."V_BARRIOS" "V_BARRIOS"</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="V_CALLES" EntityType="Model_Cursos.Store.V_CALLES" store:Type="Views" store:Schema="CURSOS" store:Name="V_CALLES">
-            <DefiningQuery>SELECT 
-      "V_CALLES"."ID_TIPOCALLE" AS "ID_TIPOCALLE", 
-      "V_CALLES"."ID_CALLE" AS "ID_CALLE", 
-      "V_CALLES"."N_CALLE" AS "N_CALLE", 
-      "V_CALLES"."N_ABREVIADO" AS "N_ABREVIADO", 
-      "V_CALLES"."ID_PROVINCIA" AS "ID_PROVINCIA", 
-      "V_CALLES"."ID_LOCALIDAD" AS "ID_LOCALIDAD", 
-      "V_CALLES"."ID_DEPARTAMENTO" AS "ID_DEPARTAMENTO", 
-      "V_CALLES"."FEC_ULT_ACTUALIZACION" AS "FEC_ULT_ACTUALIZACION", 
-      "V_CALLES"."ID_USUARIO" AS "ID_USUARIO"
-      FROM "CURSOS"."V_CALLES" "V_CALLES"</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="V_DEPARTAMENTOS" EntityType="Model_Cursos.Store.V_DEPARTAMENTOS" store:Type="Views" store:Schema="CURSOS" store:Name="V_DEPARTAMENTOS">
-            <DefiningQuery>SELECT 
-      "V_DEPARTAMENTOS"."ID_DEPARTAMENTO" AS "ID_DEPARTAMENTO", 
-      "V_DEPARTAMENTOS"."N_DEPARTAMENTO" AS "N_DEPARTAMENTO", 
-      "V_DEPARTAMENTOS"."ID_PROVINCIA" AS "ID_PROVINCIA", 
-      "V_DEPARTAMENTOS"."FEC_ULT_ACTUALIZACION" AS "FEC_ULT_ACTUALIZACION", 
-      "V_DEPARTAMENTOS"."ID_USUARIO" AS "ID_USUARIO", 
-      "V_DEPARTAMENTOS"."SUPERFICIE" AS "SUPERFICIE", 
-      "V_DEPARTAMENTOS"."POBLACION" AS "POBLACION", 
-      "V_DEPARTAMENTOS"."DENSIDAD" AS "DENSIDAD", 
-      "V_DEPARTAMENTOS"."INDEC" AS "INDEC"
-      FROM "CURSOS"."V_DEPARTAMENTOS" "V_DEPARTAMENTOS"</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="V_LOCALIDAES" EntityType="Model_Cursos.Store.V_LOCALIDAES" store:Type="Views" store:Schema="CURSOS" store:Name="V_LOCALIDAES">
-            <DefiningQuery>SELECT 
-      "V_LOCALIDAES"."ID_LOCALIDAD" AS "ID_LOCALIDAD", 
-      "V_LOCALIDAES"."N_LOCALIDAD" AS "N_LOCALIDAD", 
-      "V_LOCALIDAES"."ID_PROVINCIA" AS "ID_PROVINCIA", 
-      "V_LOCALIDAES"."ID_DEPARTAMENTO" AS "ID_DEPARTAMENTO", 
-      "V_LOCALIDAES"."FEC_ULT_ACTUALIZACION" AS "FEC_ULT_ACTUALIZACION", 
-      "V_LOCALIDAES"."ID_USUARIO" AS "ID_USUARIO", 
-      "V_LOCALIDAES"."TIPO" AS "TIPO", 
-      "V_LOCALIDAES"."INDEC" AS "INDEC"
-      FROM "CURSOS"."V_LOCALIDAES" "V_LOCALIDAES"</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="V_PROVINCIAS" EntityType="Model_Cursos.Store.V_PROVINCIAS" store:Type="Views" store:Schema="CURSOS" store:Name="V_PROVINCIAS">
-            <DefiningQuery>SELECT 
-      "V_PROVINCIAS"."ID_PROVINCIA" AS "ID_PROVINCIA", 
-      "V_PROVINCIAS"."N_PROVINCIA" AS "N_PROVINCIA", 
-      "V_PROVINCIAS"."FEC_ULT_ACTUALIZACION" AS "FEC_ULT_ACTUALIZACION", 
-      "V_PROVINCIAS"."ID_USUARIO" AS "ID_USUARIO", 
-      "V_PROVINCIAS"."ID_PAIS" AS "ID_PAIS", 
-      "V_PROVINCIAS"."INDEC" AS "INDEC"
-      FROM "CURSOS"."V_PROVINCIAS" "V_PROVINCIAS"</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="T_ALUMNOS_T_PERSONAS_FK1" Association="Model_Cursos.Store.T_ALUMNOS_T_PERSONAS_FK1">
             <End Role="T_PERSONAS" EntitySet="T_PERSONAS" />
             <End Role="T_ALUMNOS" EntitySet="T_ALUMNOS" />
@@ -158,6 +97,18 @@
             <End Role="T_FACTURAS" EntitySet="T_FACTURAS" />
             <End Role="T_DETALLES_FACTURA" EntitySet="T_DETALLES_FACTURA" />
           </AssociationSet>
+          <AssociationSet Name="T_DOCENTES_GRUPO_T_CONDIC_FK1" Association="Model_Cursos.Store.T_DOCENTES_GRUPO_T_CONDIC_FK1">
+            <End Role="T_CONDICIONES_CURSO" EntitySet="T_CONDICIONES_CURSO" />
+            <End Role="T_DOCENTES_GRUPO" EntitySet="T_DOCENTES_GRUPO" />
+          </AssociationSet>
+          <AssociationSet Name="T_DOCENTES_GRUPO_T_DOCENT_FK1" Association="Model_Cursos.Store.T_DOCENTES_GRUPO_T_DOCENT_FK1">
+            <End Role="T_DOCENTES" EntitySet="T_DOCENTES" />
+            <End Role="T_DOCENTES_GRUPO" EntitySet="T_DOCENTES_GRUPO" />
+          </AssociationSet>
+          <AssociationSet Name="T_DOCENTES_GRUPO_T_GRUPOS_FK1" Association="Model_Cursos.Store.T_DOCENTES_GRUPO_T_GRUPOS_FK1">
+            <End Role="T_GRUPOS" EntitySet="T_GRUPOS" />
+            <End Role="T_DOCENTES_GRUPO" EntitySet="T_DOCENTES_GRUPO" />
+          </AssociationSet>
           <AssociationSet Name="T_DOCENTES_T_CARGOS_FK1" Association="Model_Cursos.Store.T_DOCENTES_T_CARGOS_FK1">
             <End Role="T_CARGOS" EntitySet="T_CARGOS" />
             <End Role="T_DOCENTES" EntitySet="T_DOCENTES" />
@@ -188,10 +139,6 @@
           </AssociationSet>
           <AssociationSet Name="T_GRUPOS_T_CONDICIONES_CU_FK2" Association="Model_Cursos.Store.T_GRUPOS_T_CONDICIONES_CU_FK2">
             <End Role="T_CONDICIONES_CURSO" EntitySet="T_CONDICIONES_CURSO" />
-            <End Role="T_GRUPOS" EntitySet="T_GRUPOS" />
-          </AssociationSet>
-          <AssociationSet Name="T_GRUPOS_T_DOCENTES_FK1" Association="Model_Cursos.Store.T_GRUPOS_T_DOCENTES_FK1">
-            <End Role="T_DOCENTES" EntitySet="T_DOCENTES" />
             <End Role="T_GRUPOS" EntitySet="T_GRUPOS" />
           </AssociationSet>
           <AssociationSet Name="T_GRUPOS_T_HORARIOS_FK1" Association="Model_Cursos.Store.T_GRUPOS_T_HORARIOS_FK1">
@@ -247,15 +194,6 @@
             <End Role="T_SUPERVICIONES" EntitySet="T_SUPERVICIONES" />
           </AssociationSet>
         </EntityContainer>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'CURSOS.BIN$9qxTzvv5Tu6vX+HqR0N5Zg==$0' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'CURSOS.BIN$CKvfd24jSsem7Hy9PlBD5Q==$0' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'CURSOS.BIN$VFlScA5HQuO7B+7OPulaUw==$0' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
         <EntityType Name="T_ALUMNOS">
           <Key>
             <PropertyRef Name="ID_ALUMNO" />
@@ -386,6 +324,22 @@
           <Property Name="FEC_MODIF" Type="date" Nullable="false" />
           <Property Name="USR_MODIF" Type="varchar2" Nullable="false" MaxLength="64" />
           <Property Name="ESTADO" Type="varchar2" Nullable="false" MaxLength="1" />
+          <Property Name="PLANTA" Type="varchar2" MaxLength="64" />
+          <Property Name="REPROCA" Type="varchar2" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="T_DOCENTES_GRUPO">
+          <Key>
+            <PropertyRef Name="ID_DOCENTES_GRUPO" />
+          </Key>
+          <Property Name="ID_DOCENTES_GRUPO" Type="number" Nullable="false" Precision="10" />
+          <Property Name="ID_DOCENTE" Type="number" Nullable="false" Precision="10" />
+          <Property Name="ID_GRUPO" Type="number" Nullable="false" Precision="10" />
+          <Property Name="ID_CONDICION_CURSO" Type="number" Nullable="false" Precision="10" />
+          <Property Name="FEC_ALTA" Type="date" Nullable="false" />
+          <Property Name="USR_ALTA" Type="varchar2" Nullable="false" MaxLength="64" />
+          <Property Name="FEC_MODIF" Type="date" Nullable="false" />
+          <Property Name="USR_MODIF" Type="varchar2" Nullable="false" MaxLength="64" />
+          <Property Name="ESTADO" Type="varchar2" Nullable="false" MaxLength="1" />
         </EntityType>
         <EntityType Name="T_DOMICILIO">
           <Key>
@@ -498,7 +452,6 @@
           <Property Name="ID_GRUPO" Type="number" Nullable="false" Precision="10" />
           <Property Name="ID_CONDICION_CURSO" Type="number" Nullable="false" Precision="10" />
           <Property Name="ID_ESTABLECIMIENTO" Type="number" Nullable="false" Precision="10" />
-          <Property Name="ID_DOCENTE" Type="number" Nullable="false" Precision="10" />
           <Property Name="ID_HORARIO" Type="number" Nullable="false" Precision="10" />
           <Property Name="CAPACIDAD" Type="number" Precision="10" />
           <Property Name="FEC_ALTA" Type="date" Nullable="false" />
@@ -728,89 +681,6 @@
           <Property Name="USR_MODIF" Type="varchar2" Nullable="false" MaxLength="64" />
           <Property Name="ESTADO" Type="varchar2" Nullable="false" MaxLength="1" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'CURSOS.V_BARRIOS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="V_BARRIOS">
-          <Key>
-            <PropertyRef Name="ID_BARRIO" />
-          </Key>
-          <Property Name="ID_BARRIO" Type="number" Nullable="false" Precision="10" />
-          <Property Name="N_BARRIO" Type="varchar2" MaxLength="1000" />
-          <Property Name="ID_LOCALIDAD" Type="number" Precision="6" />
-          <Property Name="COMENTARIO" Type="varchar2" MaxLength="2000" />
-          <Property Name="FEC_ULT_ACTUALIZACION" Type="date" />
-          <Property Name="ID_USUARIO" Type="varchar2" MaxLength="40" />
-          <Property Name="ID_PRECINTO" Type="number" Precision="6" />
-          <Property Name="ID_BARRIO_C" Type="number" Precision="4" />
-          <Property Name="N_BARRIO_C" Type="varchar2" MaxLength="1000" />
-          <Property Name="ID_SECCIONAL" Type="number" Precision="6" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'CURSOS.V_CALLES' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="V_CALLES">
-          <Key>
-            <PropertyRef Name="ID_TIPOCALLE" />
-            <PropertyRef Name="ID_CALLE" />
-          </Key>
-          <Property Name="ID_TIPOCALLE" Type="number" Nullable="false" Precision="2" />
-          <Property Name="ID_CALLE" Type="number" Nullable="false" Precision="10" />
-          <Property Name="N_CALLE" Type="varchar2" MaxLength="100" />
-          <Property Name="N_ABREVIADO" Type="varchar2" MaxLength="70" />
-          <Property Name="ID_PROVINCIA" Type="varchar2" MaxLength="2" />
-          <Property Name="ID_LOCALIDAD" Type="number" Precision="6" />
-          <Property Name="ID_DEPARTAMENTO" Type="number" Precision="6" />
-          <Property Name="FEC_ULT_ACTUALIZACION" Type="date" />
-          <Property Name="ID_USUARIO" Type="varchar2" MaxLength="40" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'CURSOS.V_DEPARTAMENTOS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="V_DEPARTAMENTOS">
-          <Key>
-            <PropertyRef Name="ID_DEPARTAMENTO" />
-          </Key>
-          <Property Name="ID_DEPARTAMENTO" Type="number" Nullable="false" Precision="6" />
-          <Property Name="N_DEPARTAMENTO" Type="varchar2" MaxLength="100" />
-          <Property Name="ID_PROVINCIA" Type="varchar2" MaxLength="2" />
-          <Property Name="FEC_ULT_ACTUALIZACION" Type="date" />
-          <Property Name="ID_USUARIO" Type="varchar2" MaxLength="40" />
-          <Property Name="SUPERFICIE" Type="number" Precision="10" />
-          <Property Name="POBLACION" Type="number" Precision="10" />
-          <Property Name="DENSIDAD" Type="number" Precision="4" Scale="2" />
-          <Property Name="INDEC" Type="varchar2" MaxLength="3" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'CURSOS.V_LOCALIDAES' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="V_LOCALIDAES">
-          <Key>
-            <PropertyRef Name="ID_LOCALIDAD" />
-          </Key>
-          <Property Name="ID_LOCALIDAD" Type="number" Nullable="false" Precision="6" />
-          <Property Name="N_LOCALIDAD" Type="varchar2" MaxLength="100" />
-          <Property Name="ID_PROVINCIA" Type="varchar2" MaxLength="2" />
-          <Property Name="ID_DEPARTAMENTO" Type="number" Precision="6" />
-          <Property Name="FEC_ULT_ACTUALIZACION" Type="date" />
-          <Property Name="ID_USUARIO" Type="varchar2" MaxLength="40" />
-          <Property Name="TIPO" Type="varchar2" MaxLength="1" />
-          <Property Name="INDEC" Type="varchar2" MaxLength="5" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'CURSOS.V_PROVINCIAS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="V_PROVINCIAS">
-          <Key>
-            <PropertyRef Name="ID_PROVINCIA" />
-          </Key>
-          <Property Name="ID_PROVINCIA" Type="varchar2" Nullable="false" MaxLength="2" />
-          <Property Name="N_PROVINCIA" Type="varchar2" MaxLength="60" />
-          <Property Name="FEC_ULT_ACTUALIZACION" Type="date" />
-          <Property Name="ID_USUARIO" Type="varchar2" MaxLength="40" />
-          <Property Name="ID_PAIS" Type="varchar2" MaxLength="3" />
-          <Property Name="INDEC" Type="varchar2" MaxLength="2" />
-        </EntityType>
         <Association Name="T_ALUMNOS_T_PERSONAS_FK1">
           <End Role="T_PERSONAS" Type="Model_Cursos.Store.T_PERSONAS" Multiplicity="0..1" />
           <End Role="T_ALUMNOS" Type="Model_Cursos.Store.T_ALUMNOS" Multiplicity="*" />
@@ -979,6 +849,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="T_DOCENTES_GRUPO_T_CONDIC_FK1">
+          <End Role="T_CONDICIONES_CURSO" Type="Model_Cursos.Store.T_CONDICIONES_CURSO" Multiplicity="1" />
+          <End Role="T_DOCENTES_GRUPO" Type="Model_Cursos.Store.T_DOCENTES_GRUPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_CONDICIONES_CURSO">
+              <PropertyRef Name="ID_CONDICION_CURSO" />
+            </Principal>
+            <Dependent Role="T_DOCENTES_GRUPO">
+              <PropertyRef Name="ID_CONDICION_CURSO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_DOCENTES_GRUPO_T_DOCENT_FK1">
+          <End Role="T_DOCENTES" Type="Model_Cursos.Store.T_DOCENTES" Multiplicity="1" />
+          <End Role="T_DOCENTES_GRUPO" Type="Model_Cursos.Store.T_DOCENTES_GRUPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_DOCENTES">
+              <PropertyRef Name="ID_DOCENTE" />
+            </Principal>
+            <Dependent Role="T_DOCENTES_GRUPO">
+              <PropertyRef Name="ID_DOCENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_DOCENTES_GRUPO_T_GRUPOS_FK1">
+          <End Role="T_GRUPOS" Type="Model_Cursos.Store.T_GRUPOS" Multiplicity="1" />
+          <End Role="T_DOCENTES_GRUPO" Type="Model_Cursos.Store.T_DOCENTES_GRUPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_GRUPOS">
+              <PropertyRef Name="ID_GRUPO" />
+            </Principal>
+            <Dependent Role="T_DOCENTES_GRUPO">
+              <PropertyRef Name="ID_GRUPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="T_DOCENTES_T_CARGOS_FK1">
           <End Role="T_CARGOS" Type="Model_Cursos.Store.T_CARGOS" Multiplicity="1" />
           <End Role="T_DOCENTES" Type="Model_Cursos.Store.T_DOCENTES" Multiplicity="*" />
@@ -1072,18 +978,6 @@
             </Principal>
             <Dependent Role="T_GRUPOS">
               <PropertyRef Name="ID_CONDICION_CURSO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="T_GRUPOS_T_DOCENTES_FK1">
-          <End Role="T_DOCENTES" Type="Model_Cursos.Store.T_DOCENTES" Multiplicity="1" />
-          <End Role="T_GRUPOS" Type="Model_Cursos.Store.T_GRUPOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="T_DOCENTES">
-              <PropertyRef Name="ID_DOCENTE" />
-            </Principal>
-            <Dependent Role="T_GRUPOS">
-              <PropertyRef Name="ID_DOCENTE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1243,16 +1137,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <!--Errors Found During Generation:
-      warning 6013: The table/view 'CURSOS.BIN$YbmuKM1eTwWodxJCAE3Cxg==$0' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-      
-      <EntityType Name="BIN$YbmuKM1eTwWodxJCAE3Cxg==$0">
-        <Property Name="GRP_ID" Type="number" Precision="10" />
-        <Property Name="ASI_FECHA" Type="date" />
-        <Property Name="ALU_ID" Type="number" Precision="10" />
-        <Property Name="NRO_CLASE" Type="number" Precision="10" />
-        <Property Name="ASISTIO" Type="char" MaxLength="1" />
-      </EntityType>-->
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -1263,26 +1147,12 @@
           <EntitySet Name="T_NIVELES" EntityType="Model_Cursos.T_NIVELES" />
           <EntitySet Name="T_PROGRAMAS" EntityType="Model_Cursos.T_PROGRAMAS" />
           <EntitySet Name="T_ALUMNOS" EntityType="Model_Cursos.T_ALUMNOS" />
-          <EntitySet Name="T_GRUPOS" EntityType="Model_Cursos.T_GRUPOS" />
           <EntitySet Name="T_ESTABLECIMINETOS" EntityType="Model_Cursos.T_ESTABLECIMINETOS" />
           <AssociationSet Name="T_ESTABLECIMINETOS_T_INST_FK1" Association="Model_Cursos.T_ESTABLECIMINETOS_T_INST_FK1">
             <End Role="T_INSTITUCIONES" EntitySet="T_INSTITUCIONES" />
             <End Role="T_ESTABLECIMINETOS" EntitySet="T_ESTABLECIMINETOS" />
           </AssociationSet>
-          <AssociationSet Name="T_GRUPOS_T_CONDICIONES_CU_FK1" Association="Model_Cursos.T_GRUPOS_T_CONDICIONES_CU_FK1">
-            <End Role="T_ESTABLECIMINETOS" EntitySet="T_ESTABLECIMINETOS" />
-            <End Role="T_GRUPOS" EntitySet="T_GRUPOS" />
-          </AssociationSet>
-          <EntitySet Name="T_DOCENTES" EntityType="Model_Cursos.T_DOCENTES" />
           <EntitySet Name="T_HORARIOS" EntityType="Model_Cursos.T_HORARIOS" />
-          <AssociationSet Name="T_GRUPOS_T_DOCENTES_FK1" Association="Model_Cursos.T_GRUPOS_T_DOCENTES_FK1">
-            <End Role="T_DOCENTES" EntitySet="T_DOCENTES" />
-            <End Role="T_GRUPOS" EntitySet="T_GRUPOS" />
-          </AssociationSet>
-          <AssociationSet Name="T_GRUPOS_T_HORARIOS_FK1" Association="Model_Cursos.T_GRUPOS_T_HORARIOS_FK1">
-            <End Role="T_HORARIOS" EntitySet="T_HORARIOS" />
-            <End Role="T_GRUPOS" EntitySet="T_GRUPOS" />
-          </AssociationSet>
           <EntitySet Name="T_CAJA_CHICA" EntityType="Model_Cursos.T_CAJA_CHICA" />
           <AssociationSet Name="T_CAJA_CHICA_T_INSTITUCIO_FK1" Association="Model_Cursos.T_CAJA_CHICA_T_INSTITUCIO_FK1">
             <End Role="T_INSTITUCIONES" EntitySet="T_INSTITUCIONES" />
@@ -1315,21 +1185,8 @@
           </AssociationSet>
           <EntitySet Name="T_CERTIFICACIONES" EntityType="Model_Cursos.T_CERTIFICACIONES" />
           <EntitySet Name="T_NOVEDADES" EntityType="Model_Cursos.T_NOVEDADES" />
-          <AssociationSet Name="T_NOVEDADES_T_GRUPOS_FK1" Association="Model_Cursos.T_NOVEDADES_T_GRUPOS_FK1">
-            <End Role="T_GRUPOS" EntitySet="T_GRUPOS" />
-            <End Role="T_NOVEDADES" EntitySet="T_NOVEDADES" />
-          </AssociationSet>
           <EntitySet Name="T_SUPERVISORES" EntityType="Model_Cursos.T_SUPERVISORES" />
-          <EntitySet Name="V_BARRIOS" EntityType="Model_Cursos.V_BARRIOS" />
-          <EntitySet Name="V_CALLES" EntityType="Model_Cursos.V_CALLES" />
-          <EntitySet Name="V_DEPARTAMENTOS" EntityType="Model_Cursos.V_DEPARTAMENTOS" />
-          <EntitySet Name="V_LOCALIDAES" EntityType="Model_Cursos.V_LOCALIDAES" />
-          <EntitySet Name="V_PROVINCIAS" EntityType="Model_Cursos.V_PROVINCIAS" />
           <EntitySet Name="T_CARGOS" EntityType="Model_Cursos.T_CARGOS" />
-          <AssociationSet Name="T_DOCENTES_T_CARGOS_FK1" Association="Model_Cursos.T_DOCENTES_T_CARGOS_FK1">
-            <End Role="T_CARGOS" EntitySet="T_CARGOS" />
-            <End Role="T_DOCENTES" EntitySet="T_DOCENTES" />
-          </AssociationSet>
           <EntitySet Name="T_CONDICIONES_CURSO" EntityType="Model_Cursos.T_CONDICIONES_CURSO" />
           <AssociationSet Name="T_CONDICIONES_CURSO_T_INS_FK1" Association="Model_Cursos.T_CONDICIONES_CURSO_T_INS_FK1">
             <End Role="T_INSTITUCIONES" EntitySet="T_INSTITUCIONES" />
@@ -1346,10 +1203,6 @@
           <AssociationSet Name="T_CONDICIONES_CURSO_T_PRO_FK1" Association="Model_Cursos.T_CONDICIONES_CURSO_T_PRO_FK1">
             <End Role="T_PROGRAMAS" EntitySet="T_PROGRAMAS" />
             <End Role="T_CONDICIONES_CURSO" EntitySet="T_CONDICIONES_CURSO" />
-          </AssociationSet>
-          <AssociationSet Name="T_GRUPOS_T_CONDICIONES_CU_FK2" Association="Model_Cursos.T_GRUPOS_T_CONDICIONES_CU_FK2">
-            <End Role="T_CONDICIONES_CURSO" EntitySet="T_CONDICIONES_CURSO" />
-            <End Role="T_GRUPOS" EntitySet="T_GRUPOS" />
           </AssociationSet>
           <EntitySet Name="T_MOVIMIENTOS" EntityType="Model_Cursos.T_MOVIMIENTOS" />
           <AssociationSet Name="T_MOVIMIENTOS_T_CAJA_CHIC_FK1" Association="Model_Cursos.T_MOVIMIENTOS_T_CAJA_CHIC_FK1">
@@ -1388,10 +1241,6 @@
           <AssociationSet Name="T_DETALLES_FACTURA_T_FACT_FK1" Association="Model_Cursos.T_DETALLES_FACTURA_T_FACT_FK1">
             <End Role="T_FACTURAS" EntitySet="T_FACTURAS" />
             <End Role="T_DETALLES_FACTURA" EntitySet="T_DETALLES_FACTURA" />
-          </AssociationSet>
-          <AssociationSet Name="T_SUPERVICIONES_T_GRUPOS_FK1" Association="Model_Cursos.T_SUPERVICIONES_T_GRUPOS_FK1">
-            <End Role="T_GRUPOS" EntitySet="T_GRUPOS" />
-            <End Role="T_SUPERVICIONES" EntitySet="T_SUPERVICIONES" />
           </AssociationSet>
           <AssociationSet Name="T_SUPERVICIONES_T_SUPERVI_FK1" Association="Model_Cursos.T_SUPERVICIONES_T_SUPERVI_FK1">
             <End Role="T_SUPERVISORES" EntitySet="T_SUPERVISORES" />
@@ -1437,9 +1286,48 @@
             <End Role="T_CONDICIONES_CURSO" EntitySet="T_CONDICIONES_CURSO" />
             <End Role="T_ALUMONOS_GRUPO" EntitySet="T_ALUMONOS_GRUPO" />
           </AssociationSet>
+          <EntitySet Name="T_DOCENTES_GRUPO" EntityType="Model_Cursos.T_DOCENTES_GRUPO" />
+          <AssociationSet Name="T_DOCENTES_GRUPO_T_CONDIC_FK1" Association="Model_Cursos.T_DOCENTES_GRUPO_T_CONDIC_FK1">
+            <End Role="T_CONDICIONES_CURSO" EntitySet="T_CONDICIONES_CURSO" />
+            <End Role="T_DOCENTES_GRUPO" EntitySet="T_DOCENTES_GRUPO" />
+          </AssociationSet>
+          <EntitySet Name="T_DOCENTES" EntityType="Model_Cursos.T_DOCENTES" />
+          <AssociationSet Name="T_DOCENTES_T_CARGOS_FK1" Association="Model_Cursos.T_DOCENTES_T_CARGOS_FK1">
+            <End Role="T_CARGOS" EntitySet="T_CARGOS" />
+            <End Role="T_DOCENTES" EntitySet="T_DOCENTES" />
+          </AssociationSet>
+          <AssociationSet Name="T_DOCENTES_GRUPO_T_DOCENT_FK1" Association="Model_Cursos.T_DOCENTES_GRUPO_T_DOCENT_FK1">
+            <End Role="T_DOCENTES" EntitySet="T_DOCENTES" />
+            <End Role="T_DOCENTES_GRUPO" EntitySet="T_DOCENTES_GRUPO" />
+          </AssociationSet>
+          <EntitySet Name="T_GRUPOS" EntityType="Model_Cursos.T_GRUPOS" />
           <AssociationSet Name="T_ALUMONOS_GRUPO_T_GRUPOS_FK1" Association="Model_Cursos.T_ALUMONOS_GRUPO_T_GRUPOS_FK1">
             <End Role="T_GRUPOS" EntitySet="T_GRUPOS" />
             <End Role="T_ALUMONOS_GRUPO" EntitySet="T_ALUMONOS_GRUPO" />
+          </AssociationSet>
+          <AssociationSet Name="T_GRUPOS_T_CONDICIONES_CU_FK2" Association="Model_Cursos.T_GRUPOS_T_CONDICIONES_CU_FK2">
+            <End Role="T_CONDICIONES_CURSO" EntitySet="T_CONDICIONES_CURSO" />
+            <End Role="T_GRUPOS" EntitySet="T_GRUPOS" />
+          </AssociationSet>
+          <AssociationSet Name="T_DOCENTES_GRUPO_T_GRUPOS_FK1" Association="Model_Cursos.T_DOCENTES_GRUPO_T_GRUPOS_FK1">
+            <End Role="T_GRUPOS" EntitySet="T_GRUPOS" />
+            <End Role="T_DOCENTES_GRUPO" EntitySet="T_DOCENTES_GRUPO" />
+          </AssociationSet>
+          <AssociationSet Name="T_GRUPOS_T_CONDICIONES_CU_FK1" Association="Model_Cursos.T_GRUPOS_T_CONDICIONES_CU_FK1">
+            <End Role="T_ESTABLECIMINETOS" EntitySet="T_ESTABLECIMINETOS" />
+            <End Role="T_GRUPOS" EntitySet="T_GRUPOS" />
+          </AssociationSet>
+          <AssociationSet Name="T_GRUPOS_T_HORARIOS_FK1" Association="Model_Cursos.T_GRUPOS_T_HORARIOS_FK1">
+            <End Role="T_HORARIOS" EntitySet="T_HORARIOS" />
+            <End Role="T_GRUPOS" EntitySet="T_GRUPOS" />
+          </AssociationSet>
+          <AssociationSet Name="T_NOVEDADES_T_GRUPOS_FK1" Association="Model_Cursos.T_NOVEDADES_T_GRUPOS_FK1">
+            <End Role="T_GRUPOS" EntitySet="T_GRUPOS" />
+            <End Role="T_NOVEDADES" EntitySet="T_NOVEDADES" />
+          </AssociationSet>
+          <AssociationSet Name="T_SUPERVICIONES_T_GRUPOS_FK1" Association="Model_Cursos.T_SUPERVICIONES_T_GRUPOS_FK1">
+            <End Role="T_GRUPOS" EntitySet="T_GRUPOS" />
+            <End Role="T_SUPERVICIONES" EntitySet="T_SUPERVICIONES" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="T_INSTITUCIONES">
@@ -1517,30 +1405,6 @@
           <NavigationProperty Name="T_INSCRIPCIONES" Relationship="Model_Cursos.T_INSCRIPCIONES_T_ALUMNOS_FK1" FromRole="T_ALUMNOS" ToRole="T_INSCRIPCIONES" />
           <NavigationProperty Name="T_ALUMONOS_GRUPO" Relationship="Model_Cursos.T_ALUMONOS_GRUPO_T_ALUMNO_FK1" FromRole="T_ALUMNOS" ToRole="T_ALUMONOS_GRUPO" />
         </EntityType>
-        <EntityType Name="T_GRUPOS">
-          <Key>
-            <PropertyRef Name="ID_GRUPO" />
-          </Key>
-          <Property Name="ID_GRUPO" Nullable="false" Type="Int32" />
-          <Property Name="ID_CONDICION_CURSO" Nullable="false" Type="Int32" />
-          <Property Name="ID_ESTABLECIMIENTO" Nullable="false" Type="Int32" />
-          <Property Name="ID_DOCENTE" Nullable="false" Type="Int32" />
-          <Property Name="ID_HORARIO" Nullable="false" Type="Int32" />
-          <Property Name="CAPACIDAD" Type="Int32" />
-          <Property Name="FEC_ALTA" Nullable="false" Type="DateTime" />
-          <Property Name="USR_ALTA" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="FEC_MODIF" Type="DateTime" />
-          <Property Name="USR_MODIF" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="ESTADO" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" Type="String" />
-          <NavigationProperty Name="T_ESTABLECIMINETOS" Relationship="Model_Cursos.T_GRUPOS_T_CONDICIONES_CU_FK1" FromRole="T_GRUPOS" ToRole="T_ESTABLECIMINETOS" />
-          <NavigationProperty Name="T_DOCENTES" Relationship="Model_Cursos.T_GRUPOS_T_DOCENTES_FK1" FromRole="T_GRUPOS" ToRole="T_DOCENTES" />
-          <NavigationProperty Name="T_HORARIOS" Relationship="Model_Cursos.T_GRUPOS_T_HORARIOS_FK1" FromRole="T_GRUPOS" ToRole="T_HORARIOS" />
-          <NavigationProperty Name="T_NOVEDADES" Relationship="Model_Cursos.T_NOVEDADES_T_GRUPOS_FK1" FromRole="T_GRUPOS" ToRole="T_NOVEDADES" />
-          <NavigationProperty Name="T_CONDICIONES_CURSO" Relationship="Model_Cursos.T_GRUPOS_T_CONDICIONES_CU_FK2" FromRole="T_GRUPOS" ToRole="T_CONDICIONES_CURSO" />
-          <Property Type="String" Name="N_GRUPO" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="T_SUPERVICIONES" Relationship="Model_Cursos.T_SUPERVICIONES_T_GRUPOS_FK1" FromRole="T_GRUPOS" ToRole="T_SUPERVICIONES" />
-          <NavigationProperty Name="T_ALUMONOS_GRUPO" Relationship="Model_Cursos.T_ALUMONOS_GRUPO_T_GRUPOS_FK1" FromRole="T_GRUPOS" ToRole="T_ALUMONOS_GRUPO" />
-        </EntityType>
         <EntityType Name="T_ESTABLECIMINETOS">
           <Key>
             <PropertyRef Name="ID_ESTABLECIMIENTO" />
@@ -1555,8 +1419,8 @@
           <Property Type="String" Name="USR_MODIF" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="T_INSTITUCIONES" Relationship="Model_Cursos.T_ESTABLECIMINETOS_T_INST_FK1" FromRole="T_ESTABLECIMINETOS" ToRole="T_INSTITUCIONES" />
-          <NavigationProperty Name="T_GRUPOS" Relationship="Model_Cursos.T_GRUPOS_T_CONDICIONES_CU_FK1" FromRole="T_ESTABLECIMINETOS" ToRole="T_GRUPOS" />
           <NavigationProperty Name="T_DOMICILIO" Relationship="Model_Cursos.T_ESTABLECIMINETOS_T_DOMI_FK1" FromRole="T_ESTABLECIMINETOS" ToRole="T_DOMICILIO" />
+          <NavigationProperty Name="T_GRUPOS" Relationship="Model_Cursos.T_GRUPOS_T_CONDICIONES_CU_FK1" FromRole="T_ESTABLECIMINETOS" ToRole="T_GRUPOS" />
         </EntityType>
         <Association Name="T_ESTABLECIMINETOS_T_INST_FK1">
           <End Type="Model_Cursos.T_INSTITUCIONES" Role="T_INSTITUCIONES" Multiplicity="1" />
@@ -1570,35 +1434,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="T_GRUPOS_T_CONDICIONES_CU_FK1">
-          <End Type="Model_Cursos.T_ESTABLECIMINETOS" Role="T_ESTABLECIMINETOS" Multiplicity="1" />
-          <End Type="Model_Cursos.T_GRUPOS" Role="T_GRUPOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="T_ESTABLECIMINETOS">
-              <PropertyRef Name="ID_ESTABLECIMIENTO" />
-            </Principal>
-            <Dependent Role="T_GRUPOS">
-              <PropertyRef Name="ID_ESTABLECIMIENTO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="T_DOCENTES">
-          <Key>
-            <PropertyRef Name="ID_DOCENTE" />
-          </Key>
-          <Property Type="Int32" Name="ID_DOCENTE" Nullable="false" />
-          <Property Type="Int32" Name="ID_PERSONAJURIDICA" Nullable="false" />
-          <Property Type="Int32" Name="ID_DOMICILIO" Nullable="false" />
-          <Property Type="Int32" Name="ID_CARGO" Nullable="false" />
-          <Property Type="String" Name="N_MODALIDAD" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="FEC_ALTA" Nullable="false" />
-          <Property Type="String" Name="USR_ALTA" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="FEC_MODIF" Nullable="false" />
-          <Property Type="String" Name="USR_MODIF" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="T_GRUPOS" Relationship="Model_Cursos.T_GRUPOS_T_DOCENTES_FK1" FromRole="T_DOCENTES" ToRole="T_GRUPOS" />
-          <NavigationProperty Name="T_CARGOS" Relationship="Model_Cursos.T_DOCENTES_T_CARGOS_FK1" FromRole="T_DOCENTES" ToRole="T_CARGOS" />
-        </EntityType>
         <EntityType Name="T_HORARIOS">
           <Key>
             <PropertyRef Name="ID_HORARIO" />
@@ -1616,30 +1451,6 @@
           <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="T_GRUPOS" Relationship="Model_Cursos.T_GRUPOS_T_HORARIOS_FK1" FromRole="T_HORARIOS" ToRole="T_GRUPOS" />
         </EntityType>
-        <Association Name="T_GRUPOS_T_DOCENTES_FK1">
-          <End Type="Model_Cursos.T_DOCENTES" Role="T_DOCENTES" Multiplicity="1" />
-          <End Type="Model_Cursos.T_GRUPOS" Role="T_GRUPOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="T_DOCENTES">
-              <PropertyRef Name="ID_DOCENTE" />
-            </Principal>
-            <Dependent Role="T_GRUPOS">
-              <PropertyRef Name="ID_DOCENTE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="T_GRUPOS_T_HORARIOS_FK1">
-          <End Type="Model_Cursos.T_HORARIOS" Role="T_HORARIOS" Multiplicity="1" />
-          <End Type="Model_Cursos.T_GRUPOS" Role="T_GRUPOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="T_HORARIOS">
-              <PropertyRef Name="ID_HORARIO" />
-            </Principal>
-            <Dependent Role="T_GRUPOS">
-              <PropertyRef Name="ID_HORARIO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="T_CAJA_CHICA">
           <Key>
             <PropertyRef Name="ID_CAJA_CHICA" />
@@ -1831,18 +1642,6 @@
           <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="T_GRUPOS" Relationship="Model_Cursos.T_NOVEDADES_T_GRUPOS_FK1" FromRole="T_NOVEDADES" ToRole="T_GRUPOS" />
         </EntityType>
-        <Association Name="T_NOVEDADES_T_GRUPOS_FK1">
-          <End Type="Model_Cursos.T_GRUPOS" Role="T_GRUPOS" Multiplicity="1" />
-          <End Type="Model_Cursos.T_NOVEDADES" Role="T_NOVEDADES" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="T_GRUPOS">
-              <PropertyRef Name="ID_GRUPO" />
-            </Principal>
-            <Dependent Role="T_NOVEDADES">
-              <PropertyRef Name="ID_GRUPO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="T_SUPERVISORES">
           <Key>
             <PropertyRef Name="ID_SUPERVISOR" />
@@ -1857,74 +1656,6 @@
           <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="T_SUPERVICIONES" Relationship="Model_Cursos.T_SUPERVICIONES_T_SUPERVI_FK1" FromRole="T_SUPERVISORES" ToRole="T_SUPERVICIONES" />
         </EntityType>
-        <EntityType Name="V_BARRIOS">
-          <Key>
-            <PropertyRef Name="ID_BARRIO" />
-          </Key>
-          <Property Name="ID_BARRIO" Nullable="false" Type="Int32" />
-          <Property Name="N_BARRIO" MaxLength="1000" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="ID_LOCALIDAD" Type="Int32" />
-          <Property Name="COMENTARIO" MaxLength="2000" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="FEC_ULT_ACTUALIZACION" Type="DateTime" />
-          <Property Name="ID_USUARIO" MaxLength="40" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="ID_PRECINTO" Type="Int32" />
-          <Property Name="ID_BARRIO_C" Type="Int16" />
-          <Property Name="N_BARRIO_C" MaxLength="1000" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="ID_SECCIONAL" Type="Int32" />
-        </EntityType>
-        <EntityType Name="V_CALLES">
-          <Key>
-            <PropertyRef Name="ID_TIPOCALLE" />
-            <PropertyRef Name="ID_CALLE" />
-          </Key>
-          <Property Type="Int16" Name="ID_TIPOCALLE" Nullable="false" />
-          <Property Type="Int32" Name="ID_CALLE" Nullable="false" />
-          <Property Type="String" Name="N_CALLE" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="N_ABREVIADO" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ID_PROVINCIA" MaxLength="2" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="ID_LOCALIDAD" />
-          <Property Type="Int32" Name="ID_DEPARTAMENTO" />
-          <Property Type="DateTime" Name="FEC_ULT_ACTUALIZACION" />
-          <Property Type="String" Name="ID_USUARIO" MaxLength="40" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="V_DEPARTAMENTOS">
-          <Key>
-            <PropertyRef Name="ID_DEPARTAMENTO" />
-          </Key>
-          <Property Type="Int32" Name="ID_DEPARTAMENTO" Nullable="false" />
-          <Property Type="String" Name="N_DEPARTAMENTO" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ID_PROVINCIA" MaxLength="2" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="FEC_ULT_ACTUALIZACION" />
-          <Property Type="String" Name="ID_USUARIO" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="SUPERFICIE" />
-          <Property Type="Int32" Name="POBLACION" />
-          <Property Type="Decimal" Name="DENSIDAD" Precision="4" Scale="2" />
-          <Property Type="String" Name="INDEC" MaxLength="3" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="V_LOCALIDAES">
-          <Key>
-            <PropertyRef Name="ID_LOCALIDAD" />
-          </Key>
-          <Property Type="Int32" Name="ID_LOCALIDAD" Nullable="false" />
-          <Property Type="String" Name="N_LOCALIDAD" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ID_PROVINCIA" MaxLength="2" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="ID_DEPARTAMENTO" />
-          <Property Type="DateTime" Name="FEC_ULT_ACTUALIZACION" />
-          <Property Type="String" Name="ID_USUARIO" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TIPO" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="INDEC" MaxLength="5" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="V_PROVINCIAS">
-          <Key>
-            <PropertyRef Name="ID_PROVINCIA" />
-          </Key>
-          <Property Type="String" Name="ID_PROVINCIA" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="N_PROVINCIA" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="FEC_ULT_ACTUALIZACION" />
-          <Property Type="String" Name="ID_USUARIO" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ID_PAIS" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="INDEC" MaxLength="2" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="T_CARGOS">
           <Key>
             <PropertyRef Name="ID_CARGO" />
@@ -1938,18 +1669,6 @@
           <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="T_DOCENTES" Relationship="Model_Cursos.T_DOCENTES_T_CARGOS_FK1" FromRole="T_CARGOS" ToRole="T_DOCENTES" />
         </EntityType>
-        <Association Name="T_DOCENTES_T_CARGOS_FK1">
-          <End Type="Model_Cursos.T_CARGOS" Role="T_CARGOS" Multiplicity="1" />
-          <End Type="Model_Cursos.T_DOCENTES" Role="T_DOCENTES" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="T_CARGOS">
-              <PropertyRef Name="ID_CARGO" />
-            </Principal>
-            <Dependent Role="T_DOCENTES">
-              <PropertyRef Name="ID_CARGO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="T_CONDICIONES_CURSO">
           <Key>
             <PropertyRef Name="ID_CONDICION_CURSO" />
@@ -1977,12 +1696,13 @@
           <NavigationProperty Name="T_MODALIDADES" Relationship="Model_Cursos.T_CONDICIONES_CURSO_T_MOD_FK1" FromRole="T_CONDICIONES_CURSO" ToRole="T_MODALIDADES" />
           <NavigationProperty Name="T_NIVELES" Relationship="Model_Cursos.T_CONDICIONES_CURSO_T_NIV_FK1" FromRole="T_CONDICIONES_CURSO" ToRole="T_NIVELES" />
           <NavigationProperty Name="T_PROGRAMAS" Relationship="Model_Cursos.T_CONDICIONES_CURSO_T_PRO_FK1" FromRole="T_CONDICIONES_CURSO" ToRole="T_PROGRAMAS" />
-          <NavigationProperty Name="T_GRUPOS" Relationship="Model_Cursos.T_GRUPOS_T_CONDICIONES_CU_FK2" FromRole="T_CONDICIONES_CURSO" ToRole="T_GRUPOS" />
           <NavigationProperty Name="T_CURSOS" Relationship="Model_Cursos.T_CONDICIONES_CURSO_T_CUR_FK1" FromRole="T_CONDICIONES_CURSO" ToRole="T_CURSOS" />
           <NavigationProperty Name="T_ESTADOS_CURSO" Relationship="Model_Cursos.T_CONDICIONES_CURSO_T_EST_FK1" FromRole="T_CONDICIONES_CURSO" ToRole="T_ESTADOS_CURSO" />
           <NavigationProperty Name="T_FACTURAS" Relationship="Model_Cursos.T_FACTURAS_T_CONDICIONES__FK1" FromRole="T_CONDICIONES_CURSO" ToRole="T_FACTURAS" />
           <NavigationProperty Name="T_INSCRIPCIONES" Relationship="Model_Cursos.T_INSCRIPCIONES_T_CONDICI_FK1" FromRole="T_CONDICIONES_CURSO" ToRole="T_INSCRIPCIONES" />
           <NavigationProperty Name="T_ALUMONOS_GRUPO" Relationship="Model_Cursos.T_ALUMONOS_GRUPO_T_CONDIC_FK1" FromRole="T_CONDICIONES_CURSO" ToRole="T_ALUMONOS_GRUPO" />
+          <NavigationProperty Name="T_DOCENTES_GRUPO" Relationship="Model_Cursos.T_DOCENTES_GRUPO_T_CONDIC_FK1" FromRole="T_CONDICIONES_CURSO" ToRole="T_DOCENTES_GRUPO" />
+          <NavigationProperty Name="T_GRUPOS" Relationship="Model_Cursos.T_GRUPOS_T_CONDICIONES_CU_FK2" FromRole="T_CONDICIONES_CURSO" ToRole="T_GRUPOS" />
         </EntityType>
         <Association Name="T_CONDICIONES_CURSO_T_INS_FK1">
           <End Type="Model_Cursos.T_INSTITUCIONES" Role="T_INSTITUCIONES" Multiplicity="1" />
@@ -2029,18 +1749,6 @@
             </Principal>
             <Dependent Role="T_CONDICIONES_CURSO">
               <PropertyRef Name="ID_PROGRAMA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="T_GRUPOS_T_CONDICIONES_CU_FK2">
-          <End Type="Model_Cursos.T_CONDICIONES_CURSO" Role="T_CONDICIONES_CURSO" Multiplicity="1" />
-          <End Type="Model_Cursos.T_GRUPOS" Role="T_GRUPOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="T_CONDICIONES_CURSO">
-              <PropertyRef Name="ID_CONDICION_CURSO" />
-            </Principal>
-            <Dependent Role="T_GRUPOS">
-              <PropertyRef Name="ID_CONDICION_CURSO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2214,8 +1922,8 @@
           <Property Type="String" Name="USR_MODIF" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="ID_GRUPO" Nullable="false" />
-          <NavigationProperty Name="T_GRUPOS" Relationship="Model_Cursos.T_SUPERVICIONES_T_GRUPOS_FK1" FromRole="T_SUPERVICIONES" ToRole="T_GRUPOS" />
           <NavigationProperty Name="T_SUPERVISORES" Relationship="Model_Cursos.T_SUPERVICIONES_T_SUPERVI_FK1" FromRole="T_SUPERVICIONES" ToRole="T_SUPERVISORES" />
+          <NavigationProperty Name="T_GRUPOS" Relationship="Model_Cursos.T_SUPERVICIONES_T_GRUPOS_FK1" FromRole="T_SUPERVICIONES" ToRole="T_GRUPOS" />
         </EntityType>
         <Association Name="T_CAJA_CHICA_T_ESTADOS_CA_FK1">
           <End Type="Model_Cursos.T_ESTADOS_CAJA_CHICA" Role="T_ESTADOS_CAJA_CHICA" Multiplicity="1" />
@@ -2274,18 +1982,6 @@
             </Principal>
             <Dependent Role="T_DETALLES_FACTURA">
               <PropertyRef Name="ID_DETALLE_FACTURA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="T_SUPERVICIONES_T_GRUPOS_FK1">
-          <End Type="Model_Cursos.T_GRUPOS" Role="T_GRUPOS" Multiplicity="1" />
-          <End Type="Model_Cursos.T_SUPERVICIONES" Role="T_SUPERVICIONES" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="T_GRUPOS">
-              <PropertyRef Name="ID_GRUPO" />
-            </Principal>
-            <Dependent Role="T_SUPERVICIONES">
-              <PropertyRef Name="ID_GRUPO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2474,6 +2170,101 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="T_DOCENTES_GRUPO">
+          <Key>
+            <PropertyRef Name="ID_DOCENTES_GRUPO" />
+          </Key>
+          <Property Type="Int32" Name="ID_DOCENTES_GRUPO" Nullable="false" />
+          <Property Type="Int32" Name="ID_DOCENTE" Nullable="false" />
+          <Property Type="Int32" Name="ID_GRUPO" Nullable="false" />
+          <Property Type="Int32" Name="ID_CONDICION_CURSO" Nullable="false" />
+          <Property Type="DateTime" Name="FEC_ALTA" Nullable="false" />
+          <Property Type="String" Name="USR_ALTA" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FEC_MODIF" Nullable="false" />
+          <Property Type="String" Name="USR_MODIF" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_CONDICIONES_CURSO" Relationship="Model_Cursos.T_DOCENTES_GRUPO_T_CONDIC_FK1" FromRole="T_DOCENTES_GRUPO" ToRole="T_CONDICIONES_CURSO" />
+          <NavigationProperty Name="T_DOCENTES" Relationship="Model_Cursos.T_DOCENTES_GRUPO_T_DOCENT_FK1" FromRole="T_DOCENTES_GRUPO" ToRole="T_DOCENTES" />
+          <NavigationProperty Name="T_GRUPOS" Relationship="Model_Cursos.T_DOCENTES_GRUPO_T_GRUPOS_FK1" FromRole="T_DOCENTES_GRUPO" ToRole="T_GRUPOS" />
+        </EntityType>
+        <Association Name="T_DOCENTES_GRUPO_T_CONDIC_FK1">
+          <End Type="Model_Cursos.T_CONDICIONES_CURSO" Role="T_CONDICIONES_CURSO" Multiplicity="1" />
+          <End Type="Model_Cursos.T_DOCENTES_GRUPO" Role="T_DOCENTES_GRUPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_CONDICIONES_CURSO">
+              <PropertyRef Name="ID_CONDICION_CURSO" />
+            </Principal>
+            <Dependent Role="T_DOCENTES_GRUPO">
+              <PropertyRef Name="ID_CONDICION_CURSO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="T_DOCENTES">
+          <Key>
+            <PropertyRef Name="ID_DOCENTE" />
+          </Key>
+          <Property Type="Int32" Name="ID_DOCENTE" Nullable="false" />
+          <Property Type="Int32" Name="ID_PERSONAJURIDICA" Nullable="false" />
+          <Property Type="Int32" Name="ID_DOMICILIO" Nullable="false" />
+          <Property Type="Int32" Name="ID_CARGO" Nullable="false" />
+          <Property Type="String" Name="N_MODALIDAD" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FEC_ALTA" Nullable="false" />
+          <Property Type="String" Name="USR_ALTA" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FEC_MODIF" Nullable="false" />
+          <Property Type="String" Name="USR_MODIF" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PLANTA" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="REPROCA" MaxLength="64" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_CARGOS" Relationship="Model_Cursos.T_DOCENTES_T_CARGOS_FK1" FromRole="T_DOCENTES" ToRole="T_CARGOS" />
+          <NavigationProperty Name="T_DOCENTES_GRUPO" Relationship="Model_Cursos.T_DOCENTES_GRUPO_T_DOCENT_FK1" FromRole="T_DOCENTES" ToRole="T_DOCENTES_GRUPO" />
+        </EntityType>
+        <Association Name="T_DOCENTES_T_CARGOS_FK1">
+          <End Type="Model_Cursos.T_CARGOS" Role="T_CARGOS" Multiplicity="1" />
+          <End Type="Model_Cursos.T_DOCENTES" Role="T_DOCENTES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_CARGOS">
+              <PropertyRef Name="ID_CARGO" />
+            </Principal>
+            <Dependent Role="T_DOCENTES">
+              <PropertyRef Name="ID_CARGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_DOCENTES_GRUPO_T_DOCENT_FK1">
+          <End Type="Model_Cursos.T_DOCENTES" Role="T_DOCENTES" Multiplicity="1" />
+          <End Type="Model_Cursos.T_DOCENTES_GRUPO" Role="T_DOCENTES_GRUPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_DOCENTES">
+              <PropertyRef Name="ID_DOCENTE" />
+            </Principal>
+            <Dependent Role="T_DOCENTES_GRUPO">
+              <PropertyRef Name="ID_DOCENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="T_GRUPOS">
+          <Key>
+            <PropertyRef Name="ID_GRUPO" />
+          </Key>
+          <Property Type="Int32" Name="ID_GRUPO" Nullable="false" />
+          <Property Type="Int32" Name="ID_CONDICION_CURSO" Nullable="false" />
+          <Property Type="Int32" Name="ID_ESTABLECIMIENTO" Nullable="false" />
+          <Property Type="Int32" Name="ID_HORARIO" Nullable="false" />
+          <Property Type="Int32" Name="CAPACIDAD" />
+          <Property Type="DateTime" Name="FEC_ALTA" Nullable="false" />
+          <Property Type="String" Name="USR_ALTA" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FEC_MODIF" />
+          <Property Type="String" Name="USR_MODIF" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="N_GRUPO" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_ALUMONOS_GRUPO" Relationship="Model_Cursos.T_ALUMONOS_GRUPO_T_GRUPOS_FK1" FromRole="T_GRUPOS" ToRole="T_ALUMONOS_GRUPO" />
+          <NavigationProperty Name="T_CONDICIONES_CURSO" Relationship="Model_Cursos.T_GRUPOS_T_CONDICIONES_CU_FK2" FromRole="T_GRUPOS" ToRole="T_CONDICIONES_CURSO" />
+          <NavigationProperty Name="T_DOCENTES_GRUPO" Relationship="Model_Cursos.T_DOCENTES_GRUPO_T_GRUPOS_FK1" FromRole="T_GRUPOS" ToRole="T_DOCENTES_GRUPO" />
+          <NavigationProperty Name="T_ESTABLECIMINETOS" Relationship="Model_Cursos.T_GRUPOS_T_CONDICIONES_CU_FK1" FromRole="T_GRUPOS" ToRole="T_ESTABLECIMINETOS" />
+          <NavigationProperty Name="T_HORARIOS" Relationship="Model_Cursos.T_GRUPOS_T_HORARIOS_FK1" FromRole="T_GRUPOS" ToRole="T_HORARIOS" />
+          <NavigationProperty Name="T_NOVEDADES" Relationship="Model_Cursos.T_NOVEDADES_T_GRUPOS_FK1" FromRole="T_GRUPOS" ToRole="T_NOVEDADES" />
+          <NavigationProperty Name="T_SUPERVICIONES" Relationship="Model_Cursos.T_SUPERVICIONES_T_GRUPOS_FK1" FromRole="T_GRUPOS" ToRole="T_SUPERVICIONES" />
+        </EntityType>
         <Association Name="T_ALUMONOS_GRUPO_T_GRUPOS_FK1">
           <End Type="Model_Cursos.T_GRUPOS" Role="T_GRUPOS" Multiplicity="1" />
           <End Type="Model_Cursos.T_ALUMONOS_GRUPO" Role="T_ALUMONOS_GRUPO" Multiplicity="*" />
@@ -2482,6 +2273,78 @@
               <PropertyRef Name="ID_GRUPO" />
             </Principal>
             <Dependent Role="T_ALUMONOS_GRUPO">
+              <PropertyRef Name="ID_GRUPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_GRUPOS_T_CONDICIONES_CU_FK2">
+          <End Type="Model_Cursos.T_CONDICIONES_CURSO" Role="T_CONDICIONES_CURSO" Multiplicity="1" />
+          <End Type="Model_Cursos.T_GRUPOS" Role="T_GRUPOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_CONDICIONES_CURSO">
+              <PropertyRef Name="ID_CONDICION_CURSO" />
+            </Principal>
+            <Dependent Role="T_GRUPOS">
+              <PropertyRef Name="ID_CONDICION_CURSO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_DOCENTES_GRUPO_T_GRUPOS_FK1">
+          <End Type="Model_Cursos.T_GRUPOS" Role="T_GRUPOS" Multiplicity="1" />
+          <End Type="Model_Cursos.T_DOCENTES_GRUPO" Role="T_DOCENTES_GRUPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_GRUPOS">
+              <PropertyRef Name="ID_GRUPO" />
+            </Principal>
+            <Dependent Role="T_DOCENTES_GRUPO">
+              <PropertyRef Name="ID_GRUPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_GRUPOS_T_CONDICIONES_CU_FK1">
+          <End Type="Model_Cursos.T_ESTABLECIMINETOS" Role="T_ESTABLECIMINETOS" Multiplicity="1" />
+          <End Type="Model_Cursos.T_GRUPOS" Role="T_GRUPOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ESTABLECIMINETOS">
+              <PropertyRef Name="ID_ESTABLECIMIENTO" />
+            </Principal>
+            <Dependent Role="T_GRUPOS">
+              <PropertyRef Name="ID_ESTABLECIMIENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_GRUPOS_T_HORARIOS_FK1">
+          <End Type="Model_Cursos.T_HORARIOS" Role="T_HORARIOS" Multiplicity="1" />
+          <End Type="Model_Cursos.T_GRUPOS" Role="T_GRUPOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_HORARIOS">
+              <PropertyRef Name="ID_HORARIO" />
+            </Principal>
+            <Dependent Role="T_GRUPOS">
+              <PropertyRef Name="ID_HORARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_NOVEDADES_T_GRUPOS_FK1">
+          <End Type="Model_Cursos.T_GRUPOS" Role="T_GRUPOS" Multiplicity="1" />
+          <End Type="Model_Cursos.T_NOVEDADES" Role="T_NOVEDADES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_GRUPOS">
+              <PropertyRef Name="ID_GRUPO" />
+            </Principal>
+            <Dependent Role="T_NOVEDADES">
+              <PropertyRef Name="ID_GRUPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_SUPERVICIONES_T_GRUPOS_FK1">
+          <End Type="Model_Cursos.T_GRUPOS" Role="T_GRUPOS" Multiplicity="1" />
+          <End Type="Model_Cursos.T_SUPERVICIONES" Role="T_SUPERVICIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_GRUPOS">
+              <PropertyRef Name="ID_GRUPO" />
+            </Principal>
+            <Dependent Role="T_SUPERVICIONES">
               <PropertyRef Name="ID_GRUPO" />
             </Dependent>
           </ReferentialConstraint>
@@ -2560,24 +2423,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="T_GRUPOS">
-            <EntityTypeMapping TypeName="Model_Cursos.T_GRUPOS">
-              <MappingFragment StoreEntitySet="T_GRUPOS">
-                <ScalarProperty Name="N_GRUPO" ColumnName="N_GRUPO" />
-                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
-                <ScalarProperty Name="USR_MODIF" ColumnName="USR_MODIF" />
-                <ScalarProperty Name="FEC_MODIF" ColumnName="FEC_MODIF" />
-                <ScalarProperty Name="USR_ALTA" ColumnName="USR_ALTA" />
-                <ScalarProperty Name="FEC_ALTA" ColumnName="FEC_ALTA" />
-                <ScalarProperty Name="CAPACIDAD" ColumnName="CAPACIDAD" />
-                <ScalarProperty Name="ID_HORARIO" ColumnName="ID_HORARIO" />
-                <ScalarProperty Name="ID_DOCENTE" ColumnName="ID_DOCENTE" />
-                <ScalarProperty Name="ID_ESTABLECIMIENTO" ColumnName="ID_ESTABLECIMIENTO" />
-                <ScalarProperty Name="ID_CONDICION_CURSO" ColumnName="ID_CONDICION_CURSO" />
-                <ScalarProperty Name="ID_GRUPO" ColumnName="ID_GRUPO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="T_ESTABLECIMINETOS">
             <EntityTypeMapping TypeName="Model_Cursos.T_ESTABLECIMINETOS">
               <MappingFragment StoreEntitySet="T_ESTABLECIMINETOS">
@@ -2590,22 +2435,6 @@
                 <ScalarProperty Name="ID_DOMICILIO" ColumnName="ID_DOMICILIO" />
                 <ScalarProperty Name="ID_INSTITUCION" ColumnName="ID_INSTITUCION" />
                 <ScalarProperty Name="ID_ESTABLECIMIENTO" ColumnName="ID_ESTABLECIMIENTO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="T_DOCENTES">
-            <EntityTypeMapping TypeName="Model_Cursos.T_DOCENTES">
-              <MappingFragment StoreEntitySet="T_DOCENTES">
-                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
-                <ScalarProperty Name="USR_MODIF" ColumnName="USR_MODIF" />
-                <ScalarProperty Name="FEC_MODIF" ColumnName="FEC_MODIF" />
-                <ScalarProperty Name="USR_ALTA" ColumnName="USR_ALTA" />
-                <ScalarProperty Name="FEC_ALTA" ColumnName="FEC_ALTA" />
-                <ScalarProperty Name="N_MODALIDAD" ColumnName="N_MODALIDAD" />
-                <ScalarProperty Name="ID_CARGO" ColumnName="ID_CARGO" />
-                <ScalarProperty Name="ID_DOMICILIO" ColumnName="ID_DOMICILIO" />
-                <ScalarProperty Name="ID_PERSONAJURIDICA" ColumnName="ID_PERSONAJURIDICA" />
-                <ScalarProperty Name="ID_DOCENTE" ColumnName="ID_DOCENTE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2751,78 +2580,6 @@
                 <ScalarProperty Name="ID_DOMICILIO" ColumnName="ID_DOMICILIO" />
                 <ScalarProperty Name="ID_PERSONAJURIDICA" ColumnName="ID_PERSONAJURIDICA" />
                 <ScalarProperty Name="ID_SUPERVISOR" ColumnName="ID_SUPERVISOR" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="V_BARRIOS">
-            <EntityTypeMapping TypeName="Model_Cursos.V_BARRIOS">
-              <MappingFragment StoreEntitySet="V_BARRIOS">
-                <ScalarProperty Name="ID_SECCIONAL" ColumnName="ID_SECCIONAL" />
-                <ScalarProperty Name="N_BARRIO_C" ColumnName="N_BARRIO_C" />
-                <ScalarProperty Name="ID_BARRIO_C" ColumnName="ID_BARRIO_C" />
-                <ScalarProperty Name="ID_PRECINTO" ColumnName="ID_PRECINTO" />
-                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
-                <ScalarProperty Name="FEC_ULT_ACTUALIZACION" ColumnName="FEC_ULT_ACTUALIZACION" />
-                <ScalarProperty Name="COMENTARIO" ColumnName="COMENTARIO" />
-                <ScalarProperty Name="ID_LOCALIDAD" ColumnName="ID_LOCALIDAD" />
-                <ScalarProperty Name="N_BARRIO" ColumnName="N_BARRIO" />
-                <ScalarProperty Name="ID_BARRIO" ColumnName="ID_BARRIO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="V_CALLES">
-            <EntityTypeMapping TypeName="Model_Cursos.V_CALLES">
-              <MappingFragment StoreEntitySet="V_CALLES">
-                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
-                <ScalarProperty Name="FEC_ULT_ACTUALIZACION" ColumnName="FEC_ULT_ACTUALIZACION" />
-                <ScalarProperty Name="ID_DEPARTAMENTO" ColumnName="ID_DEPARTAMENTO" />
-                <ScalarProperty Name="ID_LOCALIDAD" ColumnName="ID_LOCALIDAD" />
-                <ScalarProperty Name="ID_PROVINCIA" ColumnName="ID_PROVINCIA" />
-                <ScalarProperty Name="N_ABREVIADO" ColumnName="N_ABREVIADO" />
-                <ScalarProperty Name="N_CALLE" ColumnName="N_CALLE" />
-                <ScalarProperty Name="ID_CALLE" ColumnName="ID_CALLE" />
-                <ScalarProperty Name="ID_TIPOCALLE" ColumnName="ID_TIPOCALLE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="V_DEPARTAMENTOS">
-            <EntityTypeMapping TypeName="Model_Cursos.V_DEPARTAMENTOS">
-              <MappingFragment StoreEntitySet="V_DEPARTAMENTOS">
-                <ScalarProperty Name="INDEC" ColumnName="INDEC" />
-                <ScalarProperty Name="DENSIDAD" ColumnName="DENSIDAD" />
-                <ScalarProperty Name="POBLACION" ColumnName="POBLACION" />
-                <ScalarProperty Name="SUPERFICIE" ColumnName="SUPERFICIE" />
-                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
-                <ScalarProperty Name="FEC_ULT_ACTUALIZACION" ColumnName="FEC_ULT_ACTUALIZACION" />
-                <ScalarProperty Name="ID_PROVINCIA" ColumnName="ID_PROVINCIA" />
-                <ScalarProperty Name="N_DEPARTAMENTO" ColumnName="N_DEPARTAMENTO" />
-                <ScalarProperty Name="ID_DEPARTAMENTO" ColumnName="ID_DEPARTAMENTO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="V_LOCALIDAES">
-            <EntityTypeMapping TypeName="Model_Cursos.V_LOCALIDAES">
-              <MappingFragment StoreEntitySet="V_LOCALIDAES">
-                <ScalarProperty Name="INDEC" ColumnName="INDEC" />
-                <ScalarProperty Name="TIPO" ColumnName="TIPO" />
-                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
-                <ScalarProperty Name="FEC_ULT_ACTUALIZACION" ColumnName="FEC_ULT_ACTUALIZACION" />
-                <ScalarProperty Name="ID_DEPARTAMENTO" ColumnName="ID_DEPARTAMENTO" />
-                <ScalarProperty Name="ID_PROVINCIA" ColumnName="ID_PROVINCIA" />
-                <ScalarProperty Name="N_LOCALIDAD" ColumnName="N_LOCALIDAD" />
-                <ScalarProperty Name="ID_LOCALIDAD" ColumnName="ID_LOCALIDAD" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="V_PROVINCIAS">
-            <EntityTypeMapping TypeName="Model_Cursos.V_PROVINCIAS">
-              <MappingFragment StoreEntitySet="V_PROVINCIAS">
-                <ScalarProperty Name="INDEC" ColumnName="INDEC" />
-                <ScalarProperty Name="ID_PAIS" ColumnName="ID_PAIS" />
-                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
-                <ScalarProperty Name="FEC_ULT_ACTUALIZACION" ColumnName="FEC_ULT_ACTUALIZACION" />
-                <ScalarProperty Name="N_PROVINCIA" ColumnName="N_PROVINCIA" />
-                <ScalarProperty Name="ID_PROVINCIA" ColumnName="ID_PROVINCIA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3070,6 +2827,56 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="T_DOCENTES_GRUPO">
+            <EntityTypeMapping TypeName="Model_Cursos.T_DOCENTES_GRUPO">
+              <MappingFragment StoreEntitySet="T_DOCENTES_GRUPO">
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="USR_MODIF" ColumnName="USR_MODIF" />
+                <ScalarProperty Name="FEC_MODIF" ColumnName="FEC_MODIF" />
+                <ScalarProperty Name="USR_ALTA" ColumnName="USR_ALTA" />
+                <ScalarProperty Name="FEC_ALTA" ColumnName="FEC_ALTA" />
+                <ScalarProperty Name="ID_CONDICION_CURSO" ColumnName="ID_CONDICION_CURSO" />
+                <ScalarProperty Name="ID_GRUPO" ColumnName="ID_GRUPO" />
+                <ScalarProperty Name="ID_DOCENTE" ColumnName="ID_DOCENTE" />
+                <ScalarProperty Name="ID_DOCENTES_GRUPO" ColumnName="ID_DOCENTES_GRUPO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_DOCENTES">
+            <EntityTypeMapping TypeName="Model_Cursos.T_DOCENTES">
+              <MappingFragment StoreEntitySet="T_DOCENTES">
+                <ScalarProperty Name="REPROCA" ColumnName="REPROCA" />
+                <ScalarProperty Name="PLANTA" ColumnName="PLANTA" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="USR_MODIF" ColumnName="USR_MODIF" />
+                <ScalarProperty Name="FEC_MODIF" ColumnName="FEC_MODIF" />
+                <ScalarProperty Name="USR_ALTA" ColumnName="USR_ALTA" />
+                <ScalarProperty Name="FEC_ALTA" ColumnName="FEC_ALTA" />
+                <ScalarProperty Name="N_MODALIDAD" ColumnName="N_MODALIDAD" />
+                <ScalarProperty Name="ID_CARGO" ColumnName="ID_CARGO" />
+                <ScalarProperty Name="ID_DOMICILIO" ColumnName="ID_DOMICILIO" />
+                <ScalarProperty Name="ID_PERSONAJURIDICA" ColumnName="ID_PERSONAJURIDICA" />
+                <ScalarProperty Name="ID_DOCENTE" ColumnName="ID_DOCENTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_GRUPOS">
+            <EntityTypeMapping TypeName="Model_Cursos.T_GRUPOS">
+              <MappingFragment StoreEntitySet="T_GRUPOS">
+                <ScalarProperty Name="N_GRUPO" ColumnName="N_GRUPO" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="USR_MODIF" ColumnName="USR_MODIF" />
+                <ScalarProperty Name="FEC_MODIF" ColumnName="FEC_MODIF" />
+                <ScalarProperty Name="USR_ALTA" ColumnName="USR_ALTA" />
+                <ScalarProperty Name="FEC_ALTA" ColumnName="FEC_ALTA" />
+                <ScalarProperty Name="CAPACIDAD" ColumnName="CAPACIDAD" />
+                <ScalarProperty Name="ID_HORARIO" ColumnName="ID_HORARIO" />
+                <ScalarProperty Name="ID_ESTABLECIMIENTO" ColumnName="ID_ESTABLECIMIENTO" />
+                <ScalarProperty Name="ID_CONDICION_CURSO" ColumnName="ID_CONDICION_CURSO" />
+                <ScalarProperty Name="ID_GRUPO" ColumnName="ID_GRUPO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -3090,281 +2897,297 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="Model1" ZoomLevel="50">
-        <EntityTypeShape EntityType="Model_Cursos.T_INSTITUCIONES" Width="2" PointX="3" PointY="17.375" Height="3.7109993489583388" />
-        <EntityTypeShape EntityType="Model_Cursos.T_MODALIDADES" Width="1.5" PointX="3.5" PointY="11.875" Height="2.5571907552083388" />
-        <EntityTypeShape EntityType="Model_Cursos.T_NIVELES" Width="1.5" PointX="3.5" PointY="8.5" Height="2.5571907552083317" />
-        <EntityTypeShape EntityType="Model_Cursos.T_PROGRAMAS" Width="1.5" PointX="3.5" PointY="22.125" Height="2.9417936197916674" />
-        <EntityTypeShape EntityType="Model_Cursos.T_ALUMNOS" Width="1.5" PointX="6.25" PointY="0.75" Height="2.9417936197916674" />
-        <EntityTypeShape EntityType="Model_Cursos.T_GRUPOS" PointX="11.5" PointY="11.625" Width="2.625" Height="4.6725065104166674" />
-        <EntityTypeShape EntityType="Model_Cursos.T_ESTABLECIMINETOS" Width="1.875" PointX="5.75" PointY="22.5" Height="3.3263964843750102" />
+      <Diagram Name="Model1" ZoomLevel="100">
+        <EntityTypeShape EntityType="Model_Cursos.T_INSTITUCIONES" Width="2" PointX="3" PointY="16.5" Height="3.2357796223958388" />
+        <EntityTypeShape EntityType="Model_Cursos.T_MODALIDADES" Width="1.5" PointX="3.5" PointY="23.875" Height="2.2496956380208317" />
+        <EntityTypeShape EntityType="Model_Cursos.T_NIVELES" Width="1.5" PointX="3.5" PointY="20.875" Height="2.2496956380208317" />
+        <EntityTypeShape EntityType="Model_Cursos.T_PROGRAMAS" Width="1.5" PointX="3.5" PointY="26.875" Height="2.5783902994791674" />
+        <EntityTypeShape EntityType="Model_Cursos.T_ALUMNOS" Width="1.5" PointX="9.25" PointY="4.75" Height="2.5783902994791674" />
+        <EntityTypeShape EntityType="Model_Cursos.T_ESTABLECIMINETOS" Width="1.875" PointX="8.75" PointY="20.625" Height="2.9070849609375031" />
         <AssociationConnector Association="Model_Cursos.T_ESTABLECIMINETOS_T_INST_FK1" >
-          <ConnectorPoint PointX="3.21875" PointY="21.085999348958339" />
-          <ConnectorPoint PointX="3.21875" PointY="25.477845052083339" />
-          <ConnectorPoint PointX="5.291666666666667" PointY="25.477845052083339" />
-          <ConnectorPoint PointX="5.583333333333333" PointY="25.477845052083339" />
-          <ConnectorPoint PointX="5.75" PointY="25.477845052083339" />
+          <ConnectorPoint PointX="5" PointY="18.211643561197917" />
+          <ConnectorPoint PointX="5.291666666666667" PointY="18.211643561197917" />
+          <ConnectorPoint PointX="5.458333333333333" PointY="18.211643561197917" />
+          <ConnectorPoint PointX="5.5" PointY="18.211643561197917" />
+          <ConnectorPoint PointX="5.5" PointY="21.240336914062496" />
+          <ConnectorPoint PointX="5.8072891666666671" PointY="21.240336914062496" />
+          <ConnectorPoint PointX="5.9739558333333331" PointY="21.240336914062496" />
+          <ConnectorPoint PointX="6.010416666666667" PointY="21.240336914062496" />
+          <ConnectorPoint PointX="6.177083333333333" PointY="21.240336914062496" />
+          <ConnectorPoint PointX="6.2135441666666669" PointY="21.240336914062496" />
+          <ConnectorPoint PointX="6.3802108333333329" PointY="21.240336914062496" />
+          <ConnectorPoint PointX="8.5" PointY="21.240336914062496" />
+          <ConnectorPoint PointX="8.5" PointY="19.782084960937503" />
+          <ConnectorPoint PointX="9.937501000000001" PointY="19.782084960937503" />
+          <ConnectorPoint PointX="9.937501000000001" PointY="20.625" />
         </AssociationConnector>
-        <AssociationConnector Association="Model_Cursos.T_GRUPOS_T_CONDICIONES_CU_FK1" >
-          <ConnectorPoint PointX="7.625" PointY="25.482646484374996" />
-          <ConnectorPoint PointX="7.791666666666667" PointY="25.482646484374996" />
-          <ConnectorPoint PointX="7.958333333333333" PointY="25.482646484374996" />
-          <ConnectorPoint PointX="8.1666666666666661" PointY="25.482646484374996" />
-          <ConnectorPoint PointX="8.3333333333333339" PointY="25.482646484374996" />
-          <ConnectorPoint PointX="9.9166666666666661" PointY="25.482646484374996" />
-          <ConnectorPoint PointX="10.083333333333334" PointY="25.482646484374996" />
-          <ConnectorPoint PointX="12.619792166666665" PointY="25.482646484374996" />
-          <ConnectorPoint PointX="12.786458833333333" PointY="25.482646484374996" />
-          <ConnectorPoint PointX="13.65625" PointY="25.482646484374996" />
-          <ConnectorPoint PointX="13.65625" PointY="16.297506510416667" />
-        </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.T_DOCENTES" Width="1.5" PointX="9.25" PointY="34.25" Height="3.3263964843750102" />
-        <EntityTypeShape EntityType="Model_Cursos.T_HORARIOS" Width="1.5" PointX="9.25" PointY="30.25" Height="3.3263964843749783" />
-        <AssociationConnector Association="Model_Cursos.T_GRUPOS_T_DOCENTES_FK1" >
-          <ConnectorPoint PointX="10.75" PointY="35.913198242187505" />
-          <ConnectorPoint PointX="10.822916666666666" PointY="35.913198242187505" />
-          <ConnectorPoint PointX="10.989583333333334" PointY="35.913198242187505" />
-          <ConnectorPoint PointX="14.09375" PointY="35.913198242187505" />
-          <ConnectorPoint PointX="14.09375" PointY="16.297506510416667" />
-        </AssociationConnector>
-        <AssociationConnector Association="Model_Cursos.T_GRUPOS_T_HORARIOS_FK1" >
-          <ConnectorPoint PointX="10.75" PointY="31.913198242187491" />
-          <ConnectorPoint PointX="10.822916666666666" PointY="31.913198242187491" />
-          <ConnectorPoint PointX="10.989583333333334" PointY="31.913198242187491" />
-          <ConnectorPoint PointX="14.078125" PointY="31.913198242187491" />
-          <ConnectorPoint PointX="14.078125" PointY="16.297506510416667" />
-        </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.T_CAJA_CHICA" Width="2" PointX="8.75" PointY="17.5" Height="3.3263964843750031" />
+        <EntityTypeShape EntityType="Model_Cursos.T_HORARIOS" Width="1.5" PointX="12.125" PointY="20.875" Height="2.907084960937496" />
+        <EntityTypeShape EntityType="Model_Cursos.T_CAJA_CHICA" Width="2" PointX="8.75" PointY="16.625" Height="2.9070849609375031" />
         <AssociationConnector Association="Model_Cursos.T_CAJA_CHICA_T_INSTITUCIO_FK1" >
-          <ConnectorPoint PointX="5.0000000000000009" PointY="17.375" />
-          <ConnectorPoint PointX="5.375" PointY="17" />
-          <ConnectorPoint PointX="5.375" PointY="17.125" />
-          <ConnectorPoint PointX="7.635416666666667" PointY="17.125" />
-          <ConnectorPoint PointX="7.817708333333333" PointY="17.125" />
-          <ConnectorPoint PointX="8.375" PointY="17.125" />
-          <ConnectorPoint PointX="8.75" PointY="17.5" />
+          <ConnectorPoint PointX="4" PointY="19.735779622395839" />
+          <ConnectorPoint PointX="4" PointY="19.985779622395839" />
+          <ConnectorPoint PointX="5.291666666666667" PointY="19.985779622395839" />
+          <ConnectorPoint PointX="5.583333333333333" PointY="19.985779622395839" />
+          <ConnectorPoint PointX="5.625" PointY="19.985779622395839" />
+          <ConnectorPoint PointX="5.625" PointY="21.075989583333335" />
+          <ConnectorPoint PointX="5.8072891666666671" PointY="21.075989583333335" />
+          <ConnectorPoint PointX="5.9739558333333331" PointY="21.075989583333335" />
+          <ConnectorPoint PointX="6.010416666666667" PointY="21.075989583333335" />
+          <ConnectorPoint PointX="6.177083333333333" PointY="21.075989583333335" />
+          <ConnectorPoint PointX="6.2135441666666669" PointY="21.075989583333335" />
+          <ConnectorPoint PointX="6.3802108333333329" PointY="21.075989583333335" />
+          <ConnectorPoint PointX="8.375" PointY="21.075989583333335" />
+          <ConnectorPoint PointX="8.375" PointY="18.078542480468752" />
+          <ConnectorPoint PointX="8.75" PointY="18.078542480468752" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.T_TEMARIO" Width="1.5" PointX="9.5" PointY="39.25" Height="2.749492187499996" />
-        <EntityTypeShape EntityType="Model_Cursos.T_PROGRAMAS_TEMARIO" Width="2.25" PointX="11.75" PointY="26.125" Height="2.9417936197917243" />
+        <EntityTypeShape EntityType="Model_Cursos.T_TEMARIO" Width="1.5" PointX="3.5" PointY="34" Height="2.414042968749996" />
+        <EntityTypeShape EntityType="Model_Cursos.T_PROGRAMAS_TEMARIO" Width="2.25" PointX="5.75" PointY="28.875" Height="2.5783902994791674" />
         <AssociationConnector Association="Model_Cursos.T_PROGRAMAS_TEMARIO_T_PRO_FK1" >
-          <ConnectorPoint PointX="5" PointY="23.595896809895834" />
-          <ConnectorPoint PointX="5.291666666666667" PointY="23.595896809895834" />
-          <ConnectorPoint PointX="5.458333333333333" PointY="23.595896809895834" />
-          <ConnectorPoint PointX="5.5" PointY="23.595896809895834" />
-          <ConnectorPoint PointX="5.5" PointY="26.07639648437501" />
-          <ConnectorPoint PointX="7.791666666666667" PointY="26.07639648437501" />
-          <ConnectorPoint PointX="7.958333333333333" PointY="26.07639648437501" />
-          <ConnectorPoint PointX="8.25" PointY="26.07639648437501" />
-          <ConnectorPoint PointX="8.25" PointY="25.326396484374982" />
-          <ConnectorPoint PointX="9.9166666666666661" PointY="25.326396484374982" />
-          <ConnectorPoint PointX="10.083333333333334" PointY="25.326396484374982" />
-          <ConnectorPoint PointX="12.703125499999999" PointY="25.326396484374982" />
-          <ConnectorPoint PointX="12.703125499999999" PointY="26.125" />
+          <ConnectorPoint PointX="5" PointY="29.164195149739584" />
+          <ConnectorPoint PointX="5.354166666666667" PointY="29.164195149739584" />
+          <ConnectorPoint PointX="5.520833333333333" PointY="29.164195149739584" />
+          <ConnectorPoint PointX="5.75" PointY="29.164195149739584" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_PROGRAMAS_TEMARIO_T_TEM_FK1" >
-          <ConnectorPoint PointX="10.90625" PointY="39.25" />
-          <ConnectorPoint PointX="10.90625" PointY="28.843242187500039" />
-          <ConnectorPoint PointX="11.75" PointY="28.843242187500039" />
+          <ConnectorPoint PointX="5" PointY="35.207021484375" />
+          <ConnectorPoint PointX="6.875" PointY="35.207021484375" />
+          <ConnectorPoint PointX="6.875" PointY="31.453390299479167" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.T_PRESTAMOS" Width="1.5" PointX="5.75" PointY="17.5" Height="3.5186979166666674" />
+        <EntityTypeShape EntityType="Model_Cursos.T_PRESTAMOS" Width="1.5" PointX="8.75" PointY="12.5" Height="3.0714322916666674" />
         <AssociationConnector Association="Model_Cursos.T_PRESTAMOS_T_INSTITUCION_FK1" >
-          <ConnectorPoint PointX="5" PointY="19.259348958333334" />
-          <ConnectorPoint PointX="5.354166666666667" PointY="19.259348958333334" />
-          <ConnectorPoint PointX="5.520833333333333" PointY="19.259348958333334" />
-          <ConnectorPoint PointX="5.75" PointY="19.259348958333334" />
+          <ConnectorPoint PointX="3.34375" PointY="16.5" />
+          <ConnectorPoint PointX="3.34375" PointY="14.726695149739586" />
+          <ConnectorPoint PointX="6.041666666666667" PointY="14.726695149739586" />
+          <ConnectorPoint PointX="6.208333333333333" PointY="14.726695149739586" />
+          <ConnectorPoint PointX="8.75" PointY="14.726695149739586" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.T_EQUIPOS" Width="1.5" PointX="3.5" PointY="29.75" Height="2.9417936197917243" />
-        <EntityTypeShape EntityType="Model_Cursos.T_ESTADOS_EQUIPO" Width="2" PointX="0.75" PointY="30" Height="2.557190755208353" />
+        <EntityTypeShape EntityType="Model_Cursos.T_EQUIPOS" Width="1.5" PointX="6.5" PointY="11.75" Height="2.5783902994791674" />
+        <EntityTypeShape EntityType="Model_Cursos.T_ESTADOS_EQUIPO" Width="2" PointX="3.75" PointY="12" Height="2.2496956380208317" />
         <AssociationConnector Association="Model_Cursos.T_EQUIPOS_T_ESTADOS_EQUIP_FK1" >
-          <ConnectorPoint PointX="2.75" PointY="31.278595377604177" />
-          <ConnectorPoint PointX="3.5" PointY="31.278595377604177" />
+          <ConnectorPoint PointX="5.75" PointY="13.124847819010416" />
+          <ConnectorPoint PointX="6.041666666666667" PointY="13.124847819010416" />
+          <ConnectorPoint PointX="6.208333333333333" PointY="13.124847819010416" />
+          <ConnectorPoint PointX="6.5" PointY="13.124847819010416" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_PRESTAMOS_T_EQUIPOS_FK1" >
-          <ConnectorPoint PointX="5" PointY="29.751152846153843" />
-          <ConnectorPoint PointX="5.375" PointY="29.376152846153843" />
-          <ConnectorPoint PointX="5.375" PointY="20.170275437499996" />
-          <ConnectorPoint PointX="5.75" PointY="20.170275437499996" />
+          <ConnectorPoint PointX="8" PointY="13.414195149739584" />
+          <ConnectorPoint PointX="8.75" PointY="13.414195149739584" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.T_CERTIFICACIONES" Width="1.875" PointX="10.75" PointY="2.875" Height="2.5571907552083388" />
-        <EntityTypeShape EntityType="Model_Cursos.T_NOVEDADES" Width="1.5" PointX="14.875" PointY="20.875" Height="2.7494921874999818" />
-        <AssociationConnector Association="Model_Cursos.T_NOVEDADES_T_GRUPOS_FK1" >
-          <ConnectorPoint PointX="13.3906225" PointY="16.297506510416667" />
-          <ConnectorPoint PointX="13.3906225" PointY="21.480499674479166" />
-          <ConnectorPoint PointX="13.572916666666666" PointY="21.480499674479166" />
-          <ConnectorPoint PointX="13.739583333333334" PointY="21.480499674479166" />
-          <ConnectorPoint PointX="13.994791666666666" PointY="21.480499674479166" />
-          <ConnectorPoint PointX="14.177083333333334" PointY="21.480499674479166" />
-          <ConnectorPoint PointX="14.875" PointY="21.480499674479166" />
-        </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.T_SUPERVISORES" Width="1.5" PointX="15.625" PointY="16.5" Height="2.749492187499996" />
-        <EntityTypeShape EntityType="Model_Cursos.V_BARRIOS" PointX="0.75" PointY="2" Width="1.5" Height="2.9417936197917243" />
-        <EntityTypeShape EntityType="Model_Cursos.V_CALLES" Width="1.5" PointX="0.75" PointY="6" Height="2.7494921874999889" />
-        <EntityTypeShape EntityType="Model_Cursos.V_DEPARTAMENTOS" Width="1.5" PointX="5.75" PointY="5" Height="2.7494921874999854" />
-        <EntityTypeShape EntityType="Model_Cursos.V_LOCALIDAES" Width="1.5" PointX="7.75" PointY="5" Height="2.557190755208353" />
-        <EntityTypeShape EntityType="Model_Cursos.V_PROVINCIAS" Width="1.5" PointX="0.75" PointY="10" Height="2.1725878906249818" />
-        <EntityTypeShape EntityType="Model_Cursos.T_CARGOS" Width="1.5" PointX="7" PointY="34.625" Height="2.557190755208353" />
-        <AssociationConnector Association="Model_Cursos.T_DOCENTES_T_CARGOS_FK1" >
-          <ConnectorPoint PointX="8.5" PointY="35.903595377604177" />
-          <ConnectorPoint PointX="9.25" PointY="35.903595377604177" />
-        </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.T_CONDICIONES_CURSO" Width="2" PointX="5.75" PointY="9.875" Height="6.5955208333333317" />
+        <EntityTypeShape EntityType="Model_Cursos.T_CERTIFICACIONES" Width="1.875" PointX="13.75" PointY="11.25" Height="2.2496956380208317" />
+        <EntityTypeShape EntityType="Model_Cursos.T_NOVEDADES" Width="1.5" PointX="17.75" PointY="29.125" Height="2.4140429687500031" />
+        <EntityTypeShape EntityType="Model_Cursos.T_SUPERVISORES" Width="1.5" PointX="15.5" PointY="23.125" Height="2.4140429687500031" />
+        <EntityTypeShape EntityType="Model_Cursos.T_CARGOS" Width="1.5" PointX="9.875" PointY="30" Height="2.2496956380208282" />
+        <EntityTypeShape EntityType="Model_Cursos.T_CONDICIONES_CURSO" Width="2" PointX="5.75" PointY="15.125" Height="5.8653369140625014" />
         <AssociationConnector Association="Model_Cursos.T_CONDICIONES_CURSO_T_INS_FK1" >
-          <ConnectorPoint PointX="3.21875" PointY="17.375" />
-          <ConnectorPoint PointX="3.21875" PointY="15.482605794270835" />
-          <ConnectorPoint PointX="5.354166666666667" PointY="15.482605794270835" />
-          <ConnectorPoint PointX="5.520833333333333" PointY="15.482605794270835" />
-          <ConnectorPoint PointX="5.75" PointY="15.482605794270835" />
+          <ConnectorPoint PointX="5" PointY="17.293321780598959" />
+          <ConnectorPoint PointX="5.291666666666667" PointY="17.293321780598959" />
+          <ConnectorPoint PointX="5.458333333333333" PointY="17.293321780598959" />
+          <ConnectorPoint PointX="5.75" PointY="17.293321780598959" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_CONDICIONES_CURSO_T_MOD_FK1" >
-          <ConnectorPoint PointX="5" PointY="13.153595377604169" />
-          <ConnectorPoint PointX="5.75" PointY="13.153595377604169" />
+          <ConnectorPoint PointX="5" PointY="25.218445638020835" />
+          <ConnectorPoint PointX="5.291666666666667" PointY="25.218445638020835" />
+          <ConnectorPoint PointX="5.520833333333333" PointY="25.218445638020835" />
+          <ConnectorPoint PointX="6.09375" PointY="25.218445638020835" />
+          <ConnectorPoint PointX="6.09375" PointY="20.9903369140625" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_CONDICIONES_CURSO_T_NIV_FK1" >
-          <ConnectorPoint PointX="5" PointY="10.466095377604166" />
-          <ConnectorPoint PointX="5.291666666666667" PointY="10.466095377604166" />
-          <ConnectorPoint PointX="5.458333333333333" PointY="10.466095377604166" />
-          <ConnectorPoint PointX="5.75" PointY="10.466095377604166" />
+          <ConnectorPoint PointX="5" PointY="21.588918457031248" />
+          <ConnectorPoint PointX="5.291666666666667" PointY="21.588918457031248" />
+          <ConnectorPoint PointX="5.520833333333333" PointY="21.588918457031248" />
+          <ConnectorPoint PointX="5.8906225" PointY="21.588918457031248" />
+          <ConnectorPoint PointX="5.8906225" PointY="20.9903369140625" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_CONDICIONES_CURSO_T_PRO_FK1" >
-          <ConnectorPoint PointX="5" PointY="22.28125" />
-          <ConnectorPoint PointX="5.291666666666667" PointY="22.28125" />
-          <ConnectorPoint PointX="5.520833333333333" PointY="22.28125" />
-          <ConnectorPoint PointX="7.71875" PointY="22.28125" />
-          <ConnectorPoint PointX="7.71875" PointY="16.470520833333332" />
+          <ConnectorPoint PointX="5" PointY="26.876152846153843" />
+          <ConnectorPoint PointX="5.375" PointY="26.501152846153843" />
+          <ConnectorPoint PointX="5.375" PointY="16.177908890299484" />
+          <ConnectorPoint PointX="5.75" PointY="16.177908890299484" />
         </AssociationConnector>
-        <AssociationConnector Association="Model_Cursos.T_GRUPOS_T_CONDICIONES_CU_FK2" >
-          <ConnectorPoint PointX="7.75" PointY="15.72300292968751" />
-          <ConnectorPoint PointX="11.5" PointY="15.72300292968751" />
-        </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.T_MOVIMIENTOS" Width="1.5" PointX="11.5" PointY="17.375" Height="3.7109993489583317" />
+        <EntityTypeShape EntityType="Model_Cursos.T_MOVIMIENTOS" Width="1.5" PointX="11.5" PointY="16.5" Height="3.2357796223958388" />
         <AssociationConnector Association="Model_Cursos.T_MOVIMIENTOS_T_CAJA_CHIC_FK1" >
-          <ConnectorPoint PointX="10.75" PointY="19.1631982421875" />
-          <ConnectorPoint PointX="11.5" PointY="19.1631982421875" />
+          <ConnectorPoint PointX="10.75" PointY="18.078542480468752" />
+          <ConnectorPoint PointX="11.041666666666666" PointY="18.078542480468752" />
+          <ConnectorPoint PointX="11.208333333333334" PointY="18.078542480468752" />
+          <ConnectorPoint PointX="11.5" PointY="18.078542480468752" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.T_TIPOS_MOVIMIENTOS" Width="1.5" PointX="9.25" PointY="26" Height="2.557190755208353" />
+        <EntityTypeShape EntityType="Model_Cursos.T_TIPOS_MOVIMIENTOS" Width="1.5" PointX="9.25" PointY="9" Height="2.2496956380208388" />
         <AssociationConnector Association="Model_Cursos.T_MOVIMIENTOS_T_TIPOS_MOV_FK1" >
-          <ConnectorPoint PointX="10" PointY="26" />
-          <ConnectorPoint PointX="10" PointY="25.201396484374982" />
-          <ConnectorPoint PointX="11" PointY="25.201396484374982" />
-          <ConnectorPoint PointX="11" PointY="20.15585079557291" />
-          <ConnectorPoint PointX="11.5" PointY="20.15585079557291" />
+          <ConnectorPoint PointX="10.75" PointY="11.249695638020839" />
+          <ConnectorPoint PointX="11.125" PointY="11.624695638020839" />
+          <ConnectorPoint PointX="11.125" PointY="18.938413051432288" />
+          <ConnectorPoint PointX="11.5" PointY="18.938413051432288" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.T_PERSONASJUR" Width="2.125" PointX="12.75" PointY="7" Height="1.9802864583333246" />
-        <EntityTypeShape EntityType="Model_Cursos.T_CURSOS" Width="1.5" PointX="3.5" PointY="5" Height="2.7494921874999818" />
-        <EntityTypeShape EntityType="Model_Cursos.T_DETALLES_FACTURA" Width="1.875" PointX="11.25" PointY="21.875" Height="3.134095052083353" />
-        <EntityTypeShape EntityType="Model_Cursos.T_ESTADOS_CAJA_CHICA" Width="1.5" PointX="6.5" PointY="27" Height="2.557190755208353" />
-        <EntityTypeShape EntityType="Model_Cursos.T_ESTADOS_CURSO" Width="1.5" PointX="3.5" PointY="25.875" Height="2.557190755208353" />
-        <EntityTypeShape EntityType="Model_Cursos.T_EXAMENES" Width="1.5" PointX="10.75" PointY="7" Height="3.1340950520833388" />
-        <EntityTypeShape EntityType="Model_Cursos.T_FACTURAS" Width="2" PointX="8.5" PointY="21.75" Height="3.3263964843749818" />
-        <EntityTypeShape EntityType="Model_Cursos.T_SUPERVICIONES" Width="1.5" PointX="17.875" PointY="12.125" Height="3.5186979166666674" />
+        <EntityTypeShape EntityType="Model_Cursos.T_PERSONASJUR" Width="2.125" PointX="0.75" PointY="0.75" Height="1.7566536458333335" />
+        <EntityTypeShape EntityType="Model_Cursos.T_CURSOS" Width="1.5" PointX="3.5" PointY="8.75" Height="2.4140429687499996" />
+        <EntityTypeShape EntityType="Model_Cursos.T_DETALLES_FACTURA" Width="1.875" PointX="11.25" PointY="25.125" Height="2.7427376302083388" />
+        <EntityTypeShape EntityType="Model_Cursos.T_ESTADOS_CAJA_CHICA" Width="1.5" PointX="6.5" PointY="22" Height="2.2496956380208388" />
+        <EntityTypeShape EntityType="Model_Cursos.T_ESTADOS_CURSO" Width="1.5" PointX="3.5" PointY="30.125" Height="2.2496956380208388" />
+        <EntityTypeShape EntityType="Model_Cursos.T_EXAMENES" Width="1.5" PointX="13.75" PointY="7.25" Height="2.7427376302083317" />
+        <EntityTypeShape EntityType="Model_Cursos.T_FACTURAS" Width="2" PointX="8.5" PointY="25.125" Height="2.907084960937496" />
+        <EntityTypeShape EntityType="Model_Cursos.T_SUPERVICIONES" Width="1.5" PointX="17.75" PointY="20.75" Height="3.0714322916666674" />
         <AssociationConnector Association="Model_Cursos.T_CAJA_CHICA_T_ESTADOS_CA_FK1" >
-          <ConnectorPoint PointX="7.25" PointY="27" />
-          <ConnectorPoint PointX="7.25" PointY="26.32639648437501" />
-          <ConnectorPoint PointX="7.875" PointY="26.32639648437501" />
-          <ConnectorPoint PointX="7.875" PointY="19.1944502421875" />
-          <ConnectorPoint PointX="8.75" PointY="19.1944502421875" />
+          <ConnectorPoint PointX="8" PointY="23.839966634114589" />
+          <ConnectorPoint PointX="10.71875" PointY="23.839966634114589" />
+          <ConnectorPoint PointX="10.71875" PointY="19.532084960937503" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_CONDICIONES_CURSO_T_CUR_FK1" >
-          <ConnectorPoint PointX="5" PointY="7.7494921874999818" />
-          <ConnectorPoint PointX="5.375" PointY="8.1244921874999818" />
-          <ConnectorPoint PointX="5.375" PointY="11.809845377604168" />
-          <ConnectorPoint PointX="5.75" PointY="11.809845377604168" />
+          <ConnectorPoint PointX="5" PointY="9.957021484375" />
+          <ConnectorPoint PointX="6.125" PointY="9.957021484375" />
+          <ConnectorPoint PointX="6.125" PointY="15.125" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_CONDICIONES_CURSO_T_EST_FK1" >
-          <ConnectorPoint PointX="5" PointY="25.938460538461534" />
-          <ConnectorPoint PointX="5.3160744349011209" PointY="25.622386103560412" />
-          <ConnectorPoint PointX="5.4339255650988791" PointY="25.504534973362656" />
-          <ConnectorPoint PointX="5.4375" PointY="25.500960538461534" />
-          <ConnectorPoint PointX="5.4375" PointY="14.318100585937502" />
-          <ConnectorPoint PointX="5.75" PointY="14.318100585937502" />
+          <ConnectorPoint PointX="5" PointY="30.188460538461534" />
+          <ConnectorPoint PointX="5.4375" PointY="29.750960538461534" />
+          <ConnectorPoint PointX="5.4375" PointY="19.098711591796878" />
+          <ConnectorPoint PointX="5.75" PointY="19.098711591796878" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_FACTURAS_T_CONDICIONES__FK1" >
-          <ConnectorPoint PointX="7.734375" PointY="16.470520833333332" />
-          <ConnectorPoint PointX="7.734375" PointY="22.015625" />
-          <ConnectorPoint PointX="7.791666666666667" PointY="22.015625" />
-          <ConnectorPoint PointX="7.958333333333333" PointY="22.015625" />
-          <ConnectorPoint PointX="8.5" PointY="22.015625" />
+          <ConnectorPoint PointX="6.2968775" PointY="20.9903369140625" />
+          <ConnectorPoint PointX="6.2968775" PointY="26.625265299479167" />
+          <ConnectorPoint PointX="8.5" PointY="26.625265299479167" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_DETALLES_FACTURA_T_FACT_FK1" >
-          <ConnectorPoint PointX="10.5" PointY="23.442047526041677" />
-          <ConnectorPoint PointX="10.916666666666666" PointY="23.442047526041677" />
-          <ConnectorPoint PointX="11.083333333333334" PointY="23.442047526041677" />
-          <ConnectorPoint PointX="11.25" PointY="23.442047526041677" />
-        </AssociationConnector>
-        <AssociationConnector Association="Model_Cursos.T_SUPERVICIONES_T_GRUPOS_FK1" >
-          <ConnectorPoint PointX="14.125" PointY="15.266297200520825" />
-          <ConnectorPoint PointX="15.541666666666666" PointY="15.266297200520825" />
-          <ConnectorPoint PointX="15.708333333333334" PointY="15.266297200520825" />
-          <ConnectorPoint PointX="17.875" PointY="15.266297200520825" />
+          <ConnectorPoint PointX="10.5" PointY="26.496368815104169" />
+          <ConnectorPoint PointX="11.25" PointY="26.496368815104169" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_SUPERVICIONES_T_SUPERVI_FK1" >
-          <ConnectorPoint PointX="16.78125" PointY="16.5" />
-          <ConnectorPoint PointX="16.78125" PointY="15.48625005859374" />
-          <ConnectorPoint PointX="17.875" PointY="15.48625005859374" />
+          <ConnectorPoint PointX="17" PointY="23.473216145833334" />
+          <ConnectorPoint PointX="17.291666666666668" PointY="23.473216145833334" />
+          <ConnectorPoint PointX="17.458333333333332" PointY="23.473216145833334" />
+          <ConnectorPoint PointX="17.75" PointY="23.473216145833334" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.T_PERSONAS" Width="1.5" PointX="4" PointY="1.125" Height="3.134095052083353" />
+        <EntityTypeShape EntityType="Model_Cursos.T_PERSONAS" Width="1.5" PointX="7" PointY="4.75" Height="2.7427376302083335" />
         <AssociationConnector Association="Model_Cursos.T_ALUMNOS_T_PERSONAS_FK1" >
-          <ConnectorPoint PointX="5.5" PointY="2.4083968098958337" />
-          <ConnectorPoint PointX="6.25" PointY="2.4083968098958337" />
+          <ConnectorPoint PointX="8.5" PointY="6.0391951497395837" />
+          <ConnectorPoint PointX="9.25" PointY="6.0391951497395837" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.T_DOMICILIO" Width="1.5" PointX="0.75" PointY="18" Height="2.5571907552083246" />
+        <EntityTypeShape EntityType="Model_Cursos.T_DOMICILIO" Width="1.5" PointX="0.75" PointY="17" Height="2.2496956380208388" />
         <AssociationConnector Association="Model_Cursos.T_ESTABLECIMINETOS_T_DOMI_FK1" >
-          <ConnectorPoint PointX="1.5" PointY="20.557190755208325" />
-          <ConnectorPoint PointX="1.5" PointY="25.272316835937502" />
-          <ConnectorPoint PointX="3.1354166666666665" PointY="25.272316835937502" />
-          <ConnectorPoint PointX="3.3020833333333335" PointY="25.272316835937502" />
-          <ConnectorPoint PointX="5.291666666666667" PointY="25.272316835937502" />
-          <ConnectorPoint PointX="5.583333333333333" PointY="25.272316835937502" />
-          <ConnectorPoint PointX="5.75" PointY="25.272316835937502" />
+          <ConnectorPoint PointX="2.25" PointY="18.124847819010419" />
+          <ConnectorPoint PointX="2.75" PointY="18.124847819010419" />
+          <ConnectorPoint PointX="2.75" PointY="20.017029622395839" />
+          <ConnectorPoint PointX="5.25" PointY="20.017029622395839" />
+          <ConnectorPoint PointX="5.25" PointY="21.365336914062496" />
+          <ConnectorPoint PointX="5.291666666666667" PointY="21.365336914062496" />
+          <ConnectorPoint PointX="5.520833333333333" PointY="21.365336914062496" />
+          <ConnectorPoint PointX="5.8072891666666671" PointY="21.365336914062496" />
+          <ConnectorPoint PointX="5.9739558333333331" PointY="21.365336914062496" />
+          <ConnectorPoint PointX="6.010416666666667" PointY="21.365336914062496" />
+          <ConnectorPoint PointX="6.177083333333333" PointY="21.365336914062496" />
+          <ConnectorPoint PointX="6.2135441666666669" PointY="21.365336914062496" />
+          <ConnectorPoint PointX="6.3802108333333329" PointY="21.365336914062496" />
+          <ConnectorPoint PointX="8.625" PointY="21.365336914062496" />
+          <ConnectorPoint PointX="8.625" PointY="20.032084960937503" />
+          <ConnectorPoint PointX="9.3124985" PointY="20.032084960937503" />
+          <ConnectorPoint PointX="9.3124985" PointY="20.625" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_INSTITUCIONES_T_DOMICIL_FK1" >
-          <ConnectorPoint PointX="2.25" PointY="19.278595377604162" />
-          <ConnectorPoint PointX="3" PointY="19.278595377604162" />
+          <ConnectorPoint PointX="2.25" PointY="17.49992390950521" />
+          <ConnectorPoint PointX="3" PointY="17.49992390950521" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.T_INSCRIPCIONES" Width="1.5" PointX="8.5" PointY="11.375" Height="3.710999348958353" />
+        <EntityTypeShape EntityType="Model_Cursos.T_INSCRIPCIONES" Width="1.5" PointX="11.5" PointY="12.5" Height="3.2357796223958317" />
         <AssociationConnector Association="Model_Cursos.T_INSCRIPCIONES_T_ALUMNOS_FK1" >
-          <ConnectorPoint PointX="7.75" PointY="2.2208968098958337" />
-          <ConnectorPoint PointX="9.65625" PointY="2.2208968098958337" />
-          <ConnectorPoint PointX="9.65625" PointY="11.375" />
+          <ConnectorPoint PointX="10.75" PointY="6.0391951497395837" />
+          <ConnectorPoint PointX="12.25" PointY="6.0391951497395837" />
+          <ConnectorPoint PointX="12.25" PointY="12.5" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_CERTIFICACIONES_T_INSCR_FK1" >
-          <ConnectorPoint PointX="9.8593775" PointY="11.375" />
-          <ConnectorPoint PointX="9.8593775" PointY="3.90625" />
-          <ConnectorPoint PointX="10.75" PointY="3.90625" />
+          <ConnectorPoint PointX="13" PointY="12.999847819010416" />
+          <ConnectorPoint PointX="13.75" PointY="12.999847819010416" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_INSCRIPCIONES_T_CONDICI_FK1" >
-          <ConnectorPoint PointX="7.75" PointY="13.230499674479177" />
-          <ConnectorPoint PointX="8.5" PointY="13.230499674479177" />
+          <ConnectorPoint PointX="7.75" PointY="15.68485595703125" />
+          <ConnectorPoint PointX="11.041666666666666" PointY="15.68485595703125" />
+          <ConnectorPoint PointX="11.208333333333334" PointY="15.68485595703125" />
+          <ConnectorPoint PointX="11.5" PointY="15.68485595703125" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_EXAMENES_T_INSCRIPCIONE_FK1" >
-          <ConnectorPoint PointX="9.4531225" PointY="11.375" />
-          <ConnectorPoint PointX="9.4531225" PointY="8.8768929036458459" />
-          <ConnectorPoint PointX="9.5729166666666661" PointY="8.8768929036458459" />
-          <ConnectorPoint PointX="9.7395833333333339" PointY="8.8768929036458459" />
-          <ConnectorPoint PointX="9.7760441666666669" PointY="8.8768929036458459" />
-          <ConnectorPoint PointX="9.9427108333333347" PointY="8.8768929036458459" />
-          <ConnectorPoint PointX="10.75" PointY="8.8768929036458459" />
+          <ConnectorPoint PointX="12.6562525" PointY="12.5" />
+          <ConnectorPoint PointX="12.6562525" PointY="8.6213688151041659" />
+          <ConnectorPoint PointX="13.75" PointY="8.6213688151041659" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.T_ALUMONOS_GRUPO" Width="1.5" PointX="14.875" PointY="11.5" Height="3.3263964843749818" />
+        <EntityTypeShape EntityType="Model_Cursos.T_ALUMONOS_GRUPO" Width="1.5" PointX="20.75" PointY="16.875" Height="2.907084960937496" />
         <AssociationConnector Association="Model_Cursos.T_ALUMONOS_GRUPO_T_ALUMNO_FK1" >
-          <ConnectorPoint PointX="7.75" PointY="1.34375" />
-          <ConnectorPoint PointX="15.3125" PointY="1.34375" />
-          <ConnectorPoint PointX="15.3125" PointY="11.5" />
+          <ConnectorPoint PointX="10.75" PointY="5.3633450748697911" />
+          <ConnectorPoint PointX="21.5" PointY="5.3633450748697911" />
+          <ConnectorPoint PointX="21.5" PointY="16.875" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_ALUMONOS_GRUPO_T_CONDIC_FK1" >
-          <ConnectorPoint PointX="7.75" PointY="16.415263671875" />
-          <ConnectorPoint PointX="13.307289166666665" PointY="16.415263671875" />
-          <ConnectorPoint PointX="13.473955833333333" PointY="16.415263671875" />
-          <ConnectorPoint PointX="13.572916666666666" PointY="16.415263671875" />
-          <ConnectorPoint PointX="13.739583333333334" PointY="16.415263671875" />
-          <ConnectorPoint PointX="13.994791666666666" PointY="16.415263671875" />
-          <ConnectorPoint PointX="14.177083333333334" PointY="16.415263671875" />
-          <ConnectorPoint PointX="15.625" PointY="16.415263671875" />
-          <ConnectorPoint PointX="15.625" PointY="14.826396484374982" />
+          <ConnectorPoint PointX="7.75" PointY="16.277694905598956" />
+          <ConnectorPoint PointX="11.041666666666666" PointY="16.277694905598956" />
+          <ConnectorPoint PointX="11.208333333333334" PointY="16.277694905598956" />
+          <ConnectorPoint PointX="18.416666666666668" PointY="16.277694905598956" />
+          <ConnectorPoint PointX="18.583333333333332" PointY="16.277694905598956" />
+          <ConnectorPoint PointX="21.0937475" PointY="16.277694905598956" />
+          <ConnectorPoint PointX="21.0937475" PointY="16.875" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="Model_Cursos.T_DOCENTES_GRUPO" Width="1.5" PointX="17.75" PointY="16.875" Height="2.7427376302083388" />
+        <AssociationConnector Association="Model_Cursos.T_DOCENTES_GRUPO_T_CONDIC_FK1" >
+          <ConnectorPoint PointX="7.75" PointY="16.0067347639974" />
+          <ConnectorPoint PointX="11.041666666666666" PointY="16.0067347639974" />
+          <ConnectorPoint PointX="11.208333333333334" PointY="16.0067347639974" />
+          <ConnectorPoint PointX="18.5" PointY="16.0067347639974" />
+          <ConnectorPoint PointX="18.5" PointY="16.875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Model_Cursos.T_DOCENTES" Width="1.5" PointX="12.125" PointY="28.625" Height="3.0714322916666639" />
+        <AssociationConnector Association="Model_Cursos.T_DOCENTES_T_CARGOS_FK1" >
+          <ConnectorPoint PointX="11.375" PointY="30.930389811197919" />
+          <ConnectorPoint PointX="12.125" PointY="30.930389811197919" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model_Cursos.T_DOCENTES_GRUPO_T_DOCENT_FK1" >
+          <ConnectorPoint PointX="13.625" PointY="28.625" />
+          <ConnectorPoint PointX="14" PointY="28.25" />
+          <ConnectorPoint PointX="14.822916666666666" PointY="28.25" />
+          <ConnectorPoint PointX="14.989583333333334" PointY="28.25" />
+          <ConnectorPoint PointX="17.375" PointY="28.25" />
+          <ConnectorPoint PointX="17.375" PointY="20.157084960937503" />
+          <ConnectorPoint PointX="17.75" PointY="19.782084960937503" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Model_Cursos.T_GRUPOS" Width="1.5" PointX="14.375" PointY="17.5" Height="3.893168945312496" />
         <AssociationConnector Association="Model_Cursos.T_ALUMONOS_GRUPO_T_GRUPOS_FK1" >
-          <ConnectorPoint PointX="14.125" PointY="13.225698242187491" />
-          <ConnectorPoint PointX="14.875" PointY="13.225698242187491" />
+          <ConnectorPoint PointX="15.875" PointY="20.266044980468752" />
+          <ConnectorPoint PointX="17.291666666666668" PointY="20.266044980468752" />
+          <ConnectorPoint PointX="17.458333333333332" PointY="20.266044980468752" />
+          <ConnectorPoint PointX="21.5" PointY="20.266044980468752" />
+          <ConnectorPoint PointX="21.5" PointY="19.782084960937503" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model_Cursos.T_GRUPOS_T_CONDICIONES_CU_FK2" >
+          <ConnectorPoint PointX="7.75" PointY="20.359792480468752" />
+          <ConnectorPoint PointX="8.2916666666666661" PointY="20.359792480468752" />
+          <ConnectorPoint PointX="8.7083333333333339" PointY="20.359792480468752" />
+          <ConnectorPoint PointX="9.2291651666666663" PointY="20.359792480468752" />
+          <ConnectorPoint PointX="9.3958318333333342" PointY="20.359792480468752" />
+          <ConnectorPoint PointX="9.8541676666666671" PointY="20.359792480468752" />
+          <ConnectorPoint PointX="10.020834333333335" PointY="20.359792480468752" />
+          <ConnectorPoint PointX="10.635416666666666" PointY="20.359792480468752" />
+          <ConnectorPoint PointX="10.802083333333334" PointY="20.359792480468752" />
+          <ConnectorPoint PointX="14.375" PointY="20.359792480468752" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model_Cursos.T_DOCENTES_GRUPO_T_GRUPOS_FK1" >
+          <ConnectorPoint PointX="15.875" PointY="18.609789980468751" />
+          <ConnectorPoint PointX="17.75" PointY="18.609789980468751" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model_Cursos.T_GRUPOS_T_CONDICIONES_CU_FK1" >
+          <ConnectorPoint PointX="10.625" PointY="20.71875" />
+          <ConnectorPoint PointX="10.635416666666666" PointY="20.71875" />
+          <ConnectorPoint PointX="10.802083333333334" PointY="20.71875" />
+          <ConnectorPoint PointX="14.375" PointY="20.71875" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model_Cursos.T_GRUPOS_T_HORARIOS_FK1" >
+          <ConnectorPoint PointX="13.625" PointY="21.134084472656248" />
+          <ConnectorPoint PointX="14.375" PointY="21.134084472656248" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model_Cursos.T_NOVEDADES_T_GRUPOS_FK1" >
+          <ConnectorPoint PointX="14.90625" PointY="21.393168945312496" />
+          <ConnectorPoint PointX="14.90625" PointY="30.332021484375" />
+          <ConnectorPoint PointX="17.75" PointY="30.332021484375" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model_Cursos.T_SUPERVICIONES_T_GRUPOS_FK1" >
+          <ConnectorPoint PointX="15.875" PointY="21.071584472656248" />
+          <ConnectorPoint PointX="17.291666666666668" PointY="21.071584472656248" />
+          <ConnectorPoint PointX="17.458333333333332" PointY="21.071584472656248" />
+          <ConnectorPoint PointX="17.75" PointY="21.071584472656248" />
         </AssociationConnector>
         </Diagram>
     </Diagrams>
