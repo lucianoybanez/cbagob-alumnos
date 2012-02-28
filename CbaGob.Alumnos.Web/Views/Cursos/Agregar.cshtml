@@ -1,4 +1,4 @@
-﻿@model CbaGob.Alumnos.Servicio.VistasInterface.ICursosVista
+﻿@model CursosVista
 @{
     ViewBag.Title = "SGC - Gobierno de Córdoba - Cursos";
     Layout = "~/Views/Shared/_MasterSGC.cshtml";
@@ -16,29 +16,28 @@
                 </div>
                 @using (Html.BeginForm("Agregar_Cursos", "Cursos", FormMethod.Post, new { Id = "FormularioCursos" }))
                 { 
-                   
-                    <table align="left" id="mytable" style="font-family: Arial, Helvetica, sans-serif;
-                        font-size: 12px; width: 700px;">
+                    <table align="center" id="mytable" style="font-family: Arial, Helvetica, sans-serif;
+                        font-size: 12px; width: 750px;">
                         <tr>
                             <td>
-                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 690px;
                                     text-align: center;">
-                                    <legend>Datos Curso</legend>
-                                    <table align="left" id="mytable" style="font-family: Arial, Helvetica, sans-serif;
-                                        font-size: 12px; width: 750px;">
+                                    <legend>Datos del Curso</legend>
+                                    <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                                        width: 690px;">
                                         <tr>
-                                            <td>
+                                            <td align="left">
                                                 <b>Nombre del Curso:</b>
                                             </td>
-                                            <td>
+                                            <td align="left">
                                                 @Html.TextBoxFor(c => c.N_CURSO, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td align="left">
                                                 <b>Nro Resolucion:</b>
                                             </td>
-                                            <td>
+                                            <td align="left">
                                                 @Html.TextBoxFor(c => c.NRORESOLUCION, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
                                             </td>
                                         </tr>
@@ -47,15 +46,17 @@
                             </td>
                         </tr>
                     </table>
-                    <table id="myIntituciones" align="center" width="700px">
+                  
+    
+                    <table id="myIntituciones" align="center" width="690px">
                         <tr>
-                            <td align="right" vlign="middle">
+                            <td align="right" valign="middle">
                                 <input type="submit" value="Guargar" class="btnIngresar" />&nbsp;&nbsp;
                                 @Html.ActionLink("Cancelar", "Index", "Cursos", null, new { Class = "btnIngresar" })
                             </td>
                         </tr>
                     </table>
-    
+
                 }
             </td>
         </tr>
