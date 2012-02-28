@@ -55,10 +55,29 @@
                             </tr>
                         </table>
                     </fieldset>
+                    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
+                        <legend><b>Docentes para el Grupo</b></legend>
+                        <table>
+                            <tr>
+                                <td>@Html.Partial("_DocentesNoGrupoLista", Model)
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
+                        <legend><b>Docentes Asignado al Grupo</b></legend>
+                        <table>
+                            <tr>
+                                <td>@Html.Partial("_DocentesInGrupoLista", Model)
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
                     <table style="width: 700px;">
                         <tr>
                             <td align="right">
                                 @Html.ActionLink("Volver al Listado de Instituciones", "Index", "Instituciones", null, new { @class = "btnIngresar" })
+                                @Html.ActionLink("Volver", "VerCondicionCurso", "CondicionesCurso", new { idCondicionCurso = Model.Id_Condicion_Curso }, new { @class = "btnIngresar" })
                             </td>
                         </tr>
                     </table>
