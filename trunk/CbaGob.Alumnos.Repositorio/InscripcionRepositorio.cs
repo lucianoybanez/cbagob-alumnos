@@ -67,6 +67,42 @@ namespace CbaGob.Alumnos.Repositorio
             }
         }
 
+        public IList<IInscripcion> GetAllInscripcionByGrupo(int idGrupo)
+        {
+            var inscripciones = (from c in mDb.T_INSCRIPCIONES
+                                 join alu in mDb.T_ALUMNOS on c.ID_ALUMNO equals alu.ID_ALUMNO
+                                 join per in mDb.T_PERSONAS on alu.ID_PERSONA equals per.ID_PERSONA
+                                 where c.ESTADO == "A" && c.ID_GRUPO == idGrupo
+                                 select
+                                     new Inscripcion
+                                     {
+                                         Fecha = c.FECHA,
+                                         FechaAlta = c.FEC_ALTA,
+                                         FechaModificacion = c.FEC_MODIF,
+                                         Id_Alumno = c.ID_ALUMNO,
+                                         Nombre_Grupo = c.T_GRUPOS.N_GRUPO,
+                                         Nombre_Curso = c.T_GRUPOS.T_CONDICIONES_CURSO.T_CURSOS.N_CURSO,
+                                         UsuarioAlta = c.USR_ALTA,
+                                         UsuarioModificacion = c.USR_MODIF,
+                                         Descripcion = c.DESCRIPCION,
+                                         Id_Grupo = c.ID_GRUPO,
+                                         Id_Inscipcion = c.ID_INSCRIPCION,
+                                         Nov_Apellido = per.NOV_APELLIDO,
+                                         Nov_Nombre = per.NOV_NOMBRE
+                                     }).ToList().Cast<IInscripcion>().ToList();
+            return inscripciones;
+        }
+
+        public int GetInscripcionIdByAlumnoGrupo(int idGrupo, int idAlumno)
+        {
+            var inscripciones = mDb.T_INSCRIPCIONES.Where(c => c.ID_ALUMNO == idAlumno && c.ID_GRUPO == idGrupo).FirstOrDefault();
+            if (inscripciones != null)
+            {
+                return inscripciones.ID_INSCRIPCION;
+            }
+            return 0;
+        }
+
         public IInscripcion GetInscripcion(int id_inscripcion)
         {
             try
@@ -130,7 +166,7 @@ namespace CbaGob.Alumnos.Repositorio
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }

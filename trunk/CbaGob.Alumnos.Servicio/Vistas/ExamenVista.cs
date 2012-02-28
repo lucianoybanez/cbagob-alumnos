@@ -10,16 +10,19 @@ namespace CbaGob.Alumnos.Servicio.Vistas
     {
         public ExamenVista()
         {
-            Cursos = new ComboBox();
+            Grupos = new ComboBox();
+            Alumnos = new ComboBox();
         }
 
         public string Accion { get; set; }
         public int IdExamen { get; set; }
+        [Required]
         public DateTime FechaExamen { get; set; }
+        [Required]
         public int NroExamen { get; set; }
         [Required]
         public decimal Nota { get; set; }
-        public IComboBox Cursos { get; set; }
-        public string NombreAlumno { get; set; }
+        public IComboBox Grupos { get; set; }
+        public IComboBox Alumnos { get; set; }
     }
 }

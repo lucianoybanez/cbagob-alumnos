@@ -39,7 +39,7 @@ namespace CbaGob.Alumnos.Repositorio
                                  Id_Sexo = e.ID_SEXO,
                                  Id_Tipo_Documento = e.ID_TIPO_DOCUMENTO,
                                  Nov_Nombre = e.NOV_NOMBRE,
-                                 Nov_Apellido = e.NOV_NOMBRE,
+                                 Nov_Apellido = e.NOV_APELLIDO,
                                  Nro_Documento = e.NRO_DOCUMENTO
                              }).ToList().Cast<IAlumnos>().ToList();
                 return ListaAlumno;

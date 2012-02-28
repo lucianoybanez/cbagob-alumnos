@@ -2,5 +2,5 @@
 /// <reference path="CbaGob.Alumnos.Global.js" />
 
 $(function () {
-    cbaAlumnosGlobal.changeCombo('Institucion_Selected', $("#CambioUrl").val());
+    cbaAlumnosGlobal.changeCombo('Institucion_Selected', 'FormFactura', $("#CambioUrl").val());
 });

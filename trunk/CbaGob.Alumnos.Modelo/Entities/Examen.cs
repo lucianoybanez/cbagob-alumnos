@@ -15,5 +15,9 @@ namespace CbaGob.Alumnos.Modelo.Entities
         public int NroExamen { get; set; }
         public decimal Nota { get; set; }
         public int IdInscripcion { get; set; }
+        public int IdGrupo { get; set; }
+        public int IdAlumno { get; set; }
+        public string NombreGrupo { get; set; }
+        public string NombreAlumno { get; set; }
     }
 }

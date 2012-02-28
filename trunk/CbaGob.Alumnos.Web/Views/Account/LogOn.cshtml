@@ -1,45 +1,45 @@
 ﻿@model CbaGob.Alumnos.Web.Models.LogOnModel
-
 @{
-    ViewBag.Title = "Log On";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
 }
+@section Stylesheets{
+    @Content.Stylesheet("MVCFramework.css", Url)
+}
+<div id="contenido">
 
-<h2>Log On</h2>
-<p>
-    Please enter your user name and password. @Html.ActionLink("Register", "Register") if you don't have an account.
-</p>
 
-@Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
+@using (Html.BeginForm("Logon", "Account", FormMethod.Post, new { id = "login" }))
+{
+      <h1>Ingresar al Sistema</h1>
+            <div>
+                <label for="login_username">
+                    Usuario:</label>
+                      @Html.TextBoxFor(c=> c.UserName,new { @class="field required"})
+                       @Html.ValidationMessageFor(c=> c.UserName,"*")
 
-@using (Html.BeginForm()) {
-    <div>
-        <fieldset>
-            <legend>Account Information</legend>
-
-            <div class="editor-label">
-                @Html.LabelFor(m => m.UserName)
             </div>
-            <div class="editor-field">
-                @Html.TextBoxFor(m => m.UserName)
-                @Html.ValidationMessageFor(m => m.UserName)
+            <div>
+                <label for="login_password">Password:</label>
+                  @Html.PasswordFor(c=> c.Password,new { @class="field required"})
+                  @Html.ValidationMessageFor(c=> c.Password,"*")
             </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(m => m.Password)
-            </div>
-            <div class="editor-field">
-                @Html.PasswordFor(m => m.Password)
-                @Html.ValidationMessageFor(m => m.Password)
-            </div>
-
-            <div class="editor-label">
-                @Html.CheckBoxFor(m => m.RememberMe)
-                @Html.LabelFor(m => m.RememberMe)
-            </div>
-
-            <p>
-                <input type="submit" value="Log On" />
+            <p class="forgot">           
             </p>
-        </fieldset>
-    </div>
-}
+            <div class="submit">  
+           
+            <a href="javascript: document.forms['login'].submit();" class="btnIngresar">Ingresar</a>  
+            </div>
+            <p class="back">
+             
+            </p>  
+}   
+
+</div>
+<div align="center">@Html.ValidationSummary(true)</div>
+
+
+
+
+
+
+
