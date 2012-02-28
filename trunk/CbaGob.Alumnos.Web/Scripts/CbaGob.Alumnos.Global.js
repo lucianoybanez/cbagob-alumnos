@@ -31,7 +31,7 @@ cbaAlumnosGlobal = function () {
 
 
     function BuscadorPersonas(id) {
-        $("#" + id).dialog({
+        $("#" + id + "Div").dialog({
             autoOpen: false,
             width: 500,
             modal: true,
@@ -45,7 +45,7 @@ cbaAlumnosGlobal = function () {
     }
 
     function BuscadorPersonasJuridica(id) {
-        $("#" + id).dialog({
+        $("#" + id + "Div").dialog({
             autoOpen: false,
             width: 500,
             modal: true,
@@ -117,7 +117,7 @@ cbaAlumnosGlobal = function () {
                 $('#Id_Establecimiento').val(codigo);
                 break;
             case "PersonasJuridica":
-                $('#Id_PersonaJur').val(codigo);
+                $('#Id_PersonaJuridica').val(codigo);
                 break;
         }
         $('#' + id + "Div").dialog("close");
