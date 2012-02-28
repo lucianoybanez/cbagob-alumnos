@@ -4,121 +4,76 @@
     Layout = "~/Views/Shared/_MasterSGC.cshtml";
 }
 @section Scripts{
-    @Content.Script("CbaGob.Alumnos.Instituciones.js",Url)
+    @Content.Script("CbaGob.Alumnos.Instituciones.js", Url)
 }
-
 <div class="box">
-  <h2>Modificar Institución</h2>
+    <h2>
+        Modificar Institución</h2>
     <table align="center" style="width: 622px;">
         <tr>
             <td class="style1" style="font-weight: bold">
                 <div id="titulo">
-                    
-                </div>  
-
-@using (Html.BeginForm("Modificar_Institucion", "Instituciones", FormMethod.Post, new { Id = "FormularioInstituciones" }))
-{ 
+                </div>
+                @using (Html.BeginForm("Modificar_Institucion", "Instituciones", FormMethod.Post, new { Id = "FormularioInstituciones" }))
+                { 
     
-    
-    <div style=" padding-top:5px;"> 
-        <div id="iconobuscar" style="text-align:right;">
-            @Html.ActionLink("Cursos Asignados", "CursosAsignados", new { IdInstitucion = Model.ID_INSTITUCION }, new { @class = "btnIngresar" })
-        </div>
-    </div>
-    <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
-        <tr>
-            <td>
-                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
-                    text-align: center;">
-                    <legend>Institucion</legend>
-                    <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
+@* <div style="padding-top: 5px;">
+                        <div id="iconobuscar" style="text-align: right;">
+                            @Html.ActionLink("Cursos Asignados", "CursosAsignados", new { IdInstitucion = Model.ID_INSTITUCION }, new { @class = "btnIngresar" })
+                        </div>
+                    </div>*@
+                    <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                        width: 700px;">
                         <tr>
                             <td>
-                                Nombre
-                            </td>
-                            <td align="left" valign="middle">
-                                @Html.TextBoxFor(c => c.N_INSTITUCION, new { style = "width:400px;", MaxLength = "50" })
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Propia
-                            </td>
-                            <td align="left" valign="middle">
-                                @Html.CheckBoxFor(c => c.INS_PROPIA)
+                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+                                    text-align: center;">
+                                    <legend style="color: #FF9900"><b>Datos Institucion</b></legend>
+                                    <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                                        width: 700px;">
+                                        <tr>
+                                            <td align="left">
+                                                Nombre de la Institucion:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Nombre_Institucion, new { style = "width:400px;", MaxLength = "50" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Es Propia de la Institucion:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.CheckBoxFor(c => c.espropia)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Buscar Domicilio:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.EditorFor(c => c.DomicilioBusqueda)
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
                             </td>
                         </tr>
                     </table>
-                </fieldset>
-            </td>
-        </tr>
-    </table>
-    @Html.Partial("_Domicilios", Model.ListaDomicilios)
-
-    <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
-        <tr>
-            <td>
-                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px; text-align: center;">
-                    <legend>Domicilio</legend>
-                    <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
-                        <tr>
-                            <td>
-                                Provincia
-                            </td>
-                            <td align="left" valign="middle">
-                                @Html.TextBoxFor(c => c.domicilios.Provincia, new { disabled = "disabled", style = "width:200px;", MaxLength = "64", Class = "asd", Id = "Provincia" })
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Localidad
-                            </td>
-                            <td align="left" valign="middle">
-                                @Html.TextBoxFor(c => c.domicilios.Localidad, new { disabled = "disabled", style = "width:350px;", MaxLength = "64", Class = "asd", Id = "Localidad" })
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Barrio
-                            </td>
-                            <td align="left" valign="middle">
-                                @Html.TextBoxFor(c => c.domicilios.Barrio, new { disabled = "disabled", style = "width:350px;", MaxLength = "64", Class = "asd", Id = "Barrio" })
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Calle
-                            </td>
-                            <td align="left" valign="middle">
-                                @Html.TextBoxFor(c => c.domicilios.Calle, new { disabled = "disabled", style = "width:350px;", MaxLength = "64", Class = "asd", Id = "Calle" })
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Nro
-                            </td>
-                            <td align="left" valign="middle">
-                                @Html.TextBoxFor(c => c.domicilios.Nro, new { disabled = "disabled", style = "width:60px;", MaxLength = "64", Class = "asd", Id = "Nro" })
-                            </td>
-                        </tr>
-                    </table>
-                </fieldset>
-            </td>
-        </tr>
-    </table>
-    @Html.HiddenFor(d => d.ID_DOMICILIO)
-    @Html.HiddenFor(d => d.ID_INSTITUCION)
+    
+                    @Html.HiddenFor(d => d.Id_Domicilio)
+                    @Html.HiddenFor(d => d.Id_Institucion)
  
-    <table id="myIntituciones" align="center" width="700px">
-        <tr>
-            <td align="right" valign="middle">
-                <input type="submit" value="Guargar" Class = "btnIngresar" />&nbsp;&nbsp;
-                @Html.ActionLink("Cancelar", "Index", "Instituciones", null, new { Class = "btnIngresar" })
+                    <table id="myIntituciones" align="center" width="700px">
+                        <tr>
+                            <td align="right" valign="middle">
+                                <input type="submit" value="Guargar" class="btnIngresar" />&nbsp;&nbsp;
+                                @Html.ActionLink("Cancelar", "Index", "Instituciones", null, new { Class = "btnIngresar" })
+                            </td>
+                        </tr>
+                    </table>
+                }
             </td>
-        </tr>
-    </table>
-}
-</td>
         </tr>
     </table>
 </div>

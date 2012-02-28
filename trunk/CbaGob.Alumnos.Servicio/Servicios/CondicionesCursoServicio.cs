@@ -77,6 +77,12 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             vista.Programa.Selected = result.IdPrograma.ToString();
             ConvertCursos(vista, cursos);
             vista.Curso.Selected = result.IdCurso.ToString();
+
+            vista.NombreCurso = result.NombreCurso;
+            vista.NombreModalidad = result.NombreModalidad;
+            vista.NombreNivel = result.NombreNivel;
+            vista.NombrePrograma = result.NombrePrograma;
+
             vista.Accion = "Modificacion";
             return vista;
         }
@@ -151,7 +157,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             var estadoCurso = EstadoCursoRepositorio.GetEstadosCursos();
 
             ICondicionCursoVista vista = new CondicionCursoVista();
-            vista.NombeInstitucion = result.N_INSTITUCION;
+            vista.NombeInstitucion = result.Nombre_Institucion;
             ConvertModalidades(vista, modalidades);
             ConvertNiveles(vista, niveles);
             ConvertProgramas(vista, programas);
@@ -207,6 +213,11 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
             AddError("Ocurrio un error al eliminar la asignacion de un curso a una institucion.");
             return false;
+        }
+
+        public bool CambiarEstadoCurso(int IdCondicion, int NuevoEstado)
+        {
+            return CondicionCursoRepositorio.CambiarEstadoCurso(IdCondicion, NuevoEstado);
         }
 
         public IList<IErrores> GetErrors()

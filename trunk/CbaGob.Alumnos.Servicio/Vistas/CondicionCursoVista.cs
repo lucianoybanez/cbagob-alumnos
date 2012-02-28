@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Servicio.Vistas.Shared;
 using CbaGob.Alumnos.Servicio.VistasInterface;
 using CbaGob.Alumnos.Servicio.VistasInterface.Shared;
@@ -39,5 +41,12 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         [Range(1, 99999)]
         public decimal Presupuesto { get; set; }
         public string Accion{ get; set; }
+        public string NombrePrograma { get; set; }
+        public string NombreEstadoCurso { get; set; }
+        public string NombreCurso { get; set; }
+        public string NombreNivel { get; set; }
+        public string NombreModalidad { get; set; }
+        public IList<IGrupo> ListaGrupos { get; set; }
+        public IList<IAlumnos> ListaAlumno { get; set; }
     }
 }

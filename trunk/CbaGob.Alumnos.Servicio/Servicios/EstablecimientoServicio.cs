@@ -33,21 +33,6 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
                 establecimientosvista.ListaEstablecimiento = establecimientorepositorio.GetAllEstablecimiento();
 
-                foreach (var establecimiento in establecimientosvista.ListaEstablecimiento)
-                {
-                    IDomicilios domicilio = new Domicilios();
-
-                    domicilio = domiciliosrepositorio.GetUno(establecimiento.Id_Domicilio);
-
-                    establecimiento.Barrio = domicilio.Barrio;
-                    establecimiento.Calle = domicilio.Calle;
-                    establecimiento.Localidad = domicilio.Localidad;
-                    establecimiento.Provincia = domicilio.Provincia;
-                    establecimiento.Nro = domicilio.Nro;
-
-                }
-
-
                 return establecimientosvista;
 
             }
@@ -65,20 +50,6 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 IEstablecimientosVista establecimientosvista = new EstablecimientosVista();
 
                 establecimientosvista.ListaEstablecimiento = establecimientorepositorio.GetAllEstablecimientoByInstitucion(id_institucion);
-
-                foreach (var establecimiento in establecimientosvista.ListaEstablecimiento)
-                {
-                    IDomicilios domicilio = new Domicilios();
-
-                    domicilio = domiciliosrepositorio.GetUno(establecimiento.Id_Domicilio);
-
-                    establecimiento.Barrio = domicilio.Barrio;
-                    establecimiento.Calle = domicilio.Calle;
-                    establecimiento.Localidad = domicilio.Localidad;
-                    establecimiento.Provincia = domicilio.Provincia;
-                    establecimiento.Nro = domicilio.Nro;
-
-                }
 
                 return establecimientosvista;
 
@@ -98,19 +69,18 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
                 IEstablecimiento establecimiento = establecimientorepositorio.GetEstablecimiento(id_establecimiento);
 
-                IDomicilios domicilio = new Domicilios();
+                establecimientovista.Barrio = establecimiento.Barrio;
+                establecimientovista.Calle = establecimiento.Calle;
+                establecimientovista.Localidad = establecimiento.Localidad;
+                establecimientovista.Provincia = establecimiento.Provincia;
+                establecimientovista.Nro = establecimiento.Nro;
 
-                domicilio = domiciliosrepositorio.GetUno(establecimiento.Id_Domicilio);
-
-                establecimientovista.Barrio = domicilio.Barrio;
-                establecimientovista.Calle = domicilio.Calle;
-                establecimientovista.Localidad = domicilio.Localidad;
-                establecimientovista.Provincia = domicilio.Provincia;
-                establecimientovista.Nro = domicilio.Nro;
+                establecimientovista.NombreInstitucion = establecimiento.NombreInstitucion;
+                establecimientovista.DomicilioCompleto = establecimiento.DomicilioCompleto;
 
                 establecimientovista.Id_Domicilio = establecimiento.Id_Domicilio;
                 establecimientovista.Id_Establecimiento = establecimiento.Id_Establecimiento;
-                establecimientovista.N_Establecimiento = establecimiento.N_Establecimiento;
+                establecimientovista.NombreEstablecimiento = establecimiento.NombreEstablecimiento;
                 establecimientovista.Id_Institucion = establecimiento.Id_Institucion;
 
                 return establecimientovista;
@@ -130,7 +100,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 IEstablecimiento addestablecimiento = new Establecimiento();
                 addestablecimiento.Id_Institucion = establecimiento.Id_Institucion;
                 addestablecimiento.Id_Domicilio = establecimiento.Id_Domicilio;
-                addestablecimiento.N_Establecimiento = establecimiento.N_Establecimiento;
+                addestablecimiento.NombreEstablecimiento = establecimiento.NombreEstablecimiento;
 
                 return establecimientorepositorio.AgregarEstablecimiento(addestablecimiento);
             }
@@ -148,7 +118,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 IEstablecimiento addestablecimiento = new Establecimiento();
                 addestablecimiento.Id_Institucion = establecimiento.Id_Institucion;
                 addestablecimiento.Id_Domicilio = establecimiento.Id_Domicilio;
-                addestablecimiento.N_Establecimiento = establecimiento.N_Establecimiento;
+                addestablecimiento.NombreEstablecimiento = establecimiento.NombreEstablecimiento;
                 addestablecimiento.Id_Establecimiento = establecimiento.Id_Establecimiento;
 
                 return establecimientorepositorio.ModificarEstablecimiento(addestablecimiento);

@@ -13,6 +13,7 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         int Id_Establecimiento { get; set; }
         int Id_Docente { get; set; }
         int Id_Horario { get; set; }
+        int Id_Institucion { get; set; }
         int Capacidad { get; set; }
         string NombreGrupo { get; set; }
 
@@ -34,8 +35,10 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         string Hr_Año { get; set; }
         string Hr_Mes { get; set; }
 
-       IList<IDocentes> ListaDocentes {get;set;}
-       IList<IEstablecimiento> ListaEstableimiento { get; set; }
-        
+        IList<IDocentes> ListaDocentes { get; set; }
+        IList<IEstablecimiento> ListaEstableimiento { get; set; }
+        IList<IAlumnos> ListaAlumnos { get; set; }
+        IList<IAlumnos> ListaAlumnosInGrupo { get; set; }
+
     }
 }

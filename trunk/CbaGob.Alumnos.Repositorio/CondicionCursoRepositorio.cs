@@ -157,6 +157,25 @@ namespace CbaGob.Alumnos.Repositorio
             }
         }
 
+        public bool CambiarEstadoCurso(int IdCondicion, int NuevoEstado)
+        {
+            IComunDatos datos = new ComunDatos();
+            base.AgregarDatosEliminacion(datos);
+            try
+            {
+                var a = mDB.T_CONDICIONES_CURSO.Where(c => c.ID_CONDICION_CURSO == IdCondicion).FirstOrDefault();
+                a.ID_ESTADO_CURSO = NuevoEstado;
+                a.FEC_MODIF = datos.FechaModificacion;
+                a.USR_MODIF = datos.UsuarioModificacion;
+                mDB.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         #endregion
     }
 }

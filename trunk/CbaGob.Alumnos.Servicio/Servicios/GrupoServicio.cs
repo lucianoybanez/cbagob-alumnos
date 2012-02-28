@@ -80,7 +80,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -88,7 +88,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         public IGruposVista GetAllGrupo()
         {
             IGruposVista gruposvista = new GruposVista();
-            
+
             gruposvista.ListaGrupos = gruporepositorio.GetAllGrupo();
 
             return gruposvista;
@@ -97,7 +97,19 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         public IGruposVista GetAllGrupoByCurso(int id_condicioncurso)
         {
-            throw new NotImplementedException();
+            try
+            {
+                IGruposVista gruposvista = new GruposVista();
+
+                gruposvista.ListaGrupos = gruporepositorio.GetAllGrupoByCurso(id_condicioncurso);
+
+                return gruposvista;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool AgregarGrupo(IGrupoVista grupo)

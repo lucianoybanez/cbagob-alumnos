@@ -4,175 +4,140 @@
     Layout = "~/Views/Shared/_MasterSGC.cshtml";
 }
 @section Scripts{
-    @Content.Script("CbaGob.Alumnos.Grupos.js",Url)
+    @Content.Script("CbaGob.Alumnos.Grupos.js", Url)
 }
 <div class="box">
-  <h2>Modificar Grupo</h2>
+    <h2>
+        Modificar Grupo</h2>
     <table align="center" style="width: 700px;">
         <tr>
             <td class="style1" style="font-weight: bold">
                 <div id="titulo">
-                    
-                </div> 
-@using (Html.BeginForm("Modificar_Grupo", "Grupos", FormMethod.Post, new { Id = "FormularioGrupos" }))
-{ 
+                </div>
+                @using (Html.BeginForm("Modificar_Grupo", "Grupos", FormMethod.Post, new { Id = "FormularioGrupos" }))
+                { 
    
-    <div id="tabs" style="width:700px;">
-        <ul>
-            <li><a href="#tabs-1">Datos</a></li>
-            <li><a href="#tabs-2">Docente</a></li>
-            <li><a href="#tabs-3">Establecimiento</a></li>
-        </ul>
-        <div id="tabs-1">
-              <table style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
-                <tr>
-                <td>
-                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 660px; text-align: center;">
-               <legend>Grupos</legend>
-                <table align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:660px;">
-                <tr>
-                    <td width="200" align="right" valign="middle">
-                        <b>Nombre:</b>
-                    </td>
-                    <td align="left" valign="middle">
-                        @Html.TextBoxFor(c => c.NombreGrupo, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
-                    </td>
-                </tr>
-                 <tr>
-                    <td width="200" align="right" valign="middle">
-                        <b>Capacidad</b>
-                    </td>
-                    <td align="left" valign="middle">
-                        @Html.TextBoxFor(c => c.Capacidad, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
-                    </td>
-                </tr>
-                <tr>
-                    <td width="200" align="right" valign="middle">
-                        <b>Horario</b>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-            </table>
-            </fieldset>
-                </td>
-                </tr>
-                </table>
-        </div>
-        <div id="tabs-2">
-            @Html.Partial("_DocenteLista", Model)
-            <br />
-       <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
-        <tr>
-            <td>
-                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 660px; text-align: center;">
-                    <legend>Docentes</legend>
-                    <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
-                <tr>
-                    <td width="220" align="right" valign="middle">
-                       <b> Cuit:</b>
-                    </td>
-                    <td align="left" valign="middle">
-                        @Html.TextBoxFor(c => c.Cuit, new { disabled = "disabled", style = "width:200px;", MaxLength = "64", Class = "asd", Id = "Cuit" })
-                    </td>
-                </tr>
-                <tr>
-                    <td width="220" align="right" valign="middle">
-                       <b>Razon Social</b>
-                    </td>
-                    <td align="left" valign="middle">
-                        @Html.TextBoxFor(c => c.RazonSoial, new { disabled = "disabled", style = "width:200px;", MaxLength = "64", Class = "asd", Id = "Razonsocial" })
-                    </td>
-                </tr>
-            </table>
-            </fieldset>
-            </td>
-        </tr>
-    </table>
-        </div>
-        <div id="tabs-3">
-            @Html.Partial("_EstablecimientoLista", Model)
-
-            <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
-        <tr>
-            <td>
-                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 660px; text-align: center;">
-                    <legend>Docentes</legend>
-                    <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
-                <tr>
-                    <td width="200" align="right" valign="middle">
-                         <b>Nombre Establecimiento: </b>
-                    </td>
-                    <td align="left" valign="middle">
-                        @Html.TextBoxFor(c => c.NombreEstablecimiento, new { disabled = "disabled", style = "width:200px;", MaxLength = "64", Class = "asd", Id = "N_Establecimiento" })
-                    </td>
-                </tr>
-                <tr>
-                    <td width="200" align="right" valign="middle">
-                         <b>Provincia: </b>
-                    </td>
-                    <td align="left" valign="middle">
-                        @Html.TextBoxFor(c => c.Provincia, new { disabled = "disabled", style = "width:200px;", MaxLength = "64", Class = "asd", Id = "Provincia" })
-                    </td>
-                </tr>
-                <tr>
-                    <td width="200" align="right" valign="middle">
-                         <b>Localidad: </b>
-                    </td>
-                    <td align="left" valign="middle">
-                        @Html.TextBoxFor(c => c.Localidad, new { disabled = "disabled", style = "width:350px;", MaxLength = "64", Class = "asd", Id = "Localidad" })
-                    </td>
-                </tr>
-                <tr>
-                    <td width="200" align="right" valign="middle">
-                         <b>Barrio: </b>
-                    </td>
-                    <td align="left" valign="middle">
-                        @Html.TextBoxFor(c => c.Barrio, new { disabled = "disabled", style = "width:350px;", MaxLength = "64", Class = "asd", Id = "Barrio" })
-                    </td>
-                </tr>
-                <tr>
-                    <td width="200" align="right" valign="middle">
-                         <b>Calle </b>
-                    </td>
-                    <td align="left" valign="middle">
-                        @Html.TextBoxFor(c => c.Calle, new { disabled = "disabled", style = "width:350px;", MaxLength = "64", Class = "asd", Id = "Calle" })
-                    </td>
-                </tr>
-                <tr>
-                    <td width="200" align="right" valign="middle">
-                       <b>Nro:</b>
-                    </td>
-                    <td align="left" valign="middle">
-                        @Html.TextBoxFor(c => c.Nro, new { disabled = "disabled", style = "width:60px;", MaxLength = "64", Class = "asd", Id = "Nro" })
-                    </td>
-                </tr>
-            </table>
-             </fieldset>
-            </td>
-        </tr>
-    </table>
-        </div>
-    </div>
+                    <div id="tabs">
+                        <ul>
+                            <li><a href="#tabs-1">Datos</a></li>
+                            <li><a href="#tabs-2">Docente</a></li>
+                            <li><a href="#tabs-3">Establecimiento</a></li>
+                        </ul>
+                        <div id="tabs-1">
+                            <table>
+                                <tr>
+                                    <td>
+                                        Nombre
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(c => c.NombreGrupo, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Capacidad
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(c => c.Capacidad, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Horario
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="tabs-2">
+                            @Html.Partial("_DocenteLista", Model)
+                            <table>
+                                <tr>
+                                    <td>
+                                        Cuit
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(c => c.Cuit, new { disabled = "disabled", style = "width:200px;", MaxLength = "64", Class = "asd", Id = "Cuit" })
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Razon Social
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(c => c.RazonSoial, new { disabled = "disabled", style = "width:200px;", MaxLength = "64", Class = "asd", Id = "Razonsocial" })
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="tabs-3">
+                            @Html.Partial("_EstablecimientoLista", Model)
+                            <table>
+                                <tr>
+                                    <td>
+                                        Nombre Establecimiento
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(c => c.NombreEstablecimiento, new { disabled = "disabled", style = "width:200px;", MaxLength = "64", Class = "asd", Id = "N_Establecimiento" })
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Provincia
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(c => c.Provincia, new { disabled = "disabled", style = "width:200px;", MaxLength = "64", Class = "asd", Id = "Provincia" })
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Localidad
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(c => c.Localidad, new { disabled = "disabled", style = "width:350px;", MaxLength = "64", Class = "asd", Id = "Localidad" })
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Barrio
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(c => c.Barrio, new { disabled = "disabled", style = "width:350px;", MaxLength = "64", Class = "asd", Id = "Barrio" })
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Calle
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(c => c.Calle, new { disabled = "disabled", style = "width:350px;", MaxLength = "64", Class = "asd", Id = "Calle" })
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Nro
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(c => c.Nro, new { disabled = "disabled", style = "width:60px;", MaxLength = "64", Class = "asd", Id = "Nro" })
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
     
-   
+                    <p>
+                        <input type="submit" value="Guargar" />
+                        @Html.ActionLink("Cancelar", "Index", "Grupos")
+                    </p>
     
-    @Html.HiddenFor(d => d.Id_Establecimiento)
-    @Html.HiddenFor(d => d.Id_Docente)
-    @Html.HiddenFor(d => d.Id_Grupo)
+                    @Html.HiddenFor(d => d.Id_Establecimiento)
+                    @Html.HiddenFor(d => d.Id_Docente)
+                    @Html.HiddenFor(d => d.Id_Grupo)
+                    @Html.HiddenFor(d => d.Id_Condicion_Curso)
     
-    <table id ="myIntituciones" align="center" width="700px">
-        <tr>
-            <td align="right" valign="middle">
-                <input type="submit" value="Guargar" Class = "btnIngresar" />&nbsp;&nbsp;
-        @Html.ActionLink("Cancelar", "Index", "Grupos", null, new { Class = "btnIngresar" })
+                }
             </td>
-            
-        </tr>
-    </table>
-}
-
-</td>
         </tr>
     </table>
 </div>

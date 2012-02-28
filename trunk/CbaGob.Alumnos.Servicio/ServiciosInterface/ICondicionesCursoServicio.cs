@@ -11,5 +11,6 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
         ICondicionCursoVista GetForAlta(int IdInstitucion);
         bool GuardarCondicionCurso(ICondicionCursoVista condicion);
         bool EliminarCondicionCurso(int IdCondicionCurso);
+        bool CambiarEstadoCurso(int IdCondicion, int NuevoEstado);
     }
 }

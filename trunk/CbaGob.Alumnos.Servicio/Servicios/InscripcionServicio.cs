@@ -75,9 +75,8 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 inscripcionvista.Fecha = inscripcion.Fecha;
                 inscripcionvista.Fecha_Nacimiento = inscripcion.Fecha_Nacimiento;
                 inscripcionvista.Id_Alumno = inscripcion.Id_Alumno;
-                inscripcionvista.Id_Grupo = inscripcion.Id_Grupo;
+                inscripcionvista.Id_Grupo = inscripcion.Id_Condicion_Curso;
                 inscripcionvista.Id_Inscipcion = inscripcion.Id_Inscipcion;
-                inscripcionvista.Nombre_Grupo = inscripcion.Nombre_Grupo;
                 inscripcionvista.Nombre_Curso = inscripcion.Nombre_Curso;
 
                 inscripcionvista.ListaAlumnos = alumnosrepositorio.GetTodos();

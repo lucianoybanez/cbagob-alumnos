@@ -16,12 +16,13 @@ namespace CbaGob.Alumnos.Modelo.Entities
         public int Id_Establecimiento { get; set; }
         public int Id_Institucion { get; set; }
         public int Id_Domicilio { get; set; }
-        public string N_Establecimiento { get; set; }
-
+        public string NombreEstablecimiento { get; set; }
         public string Provincia { get; set; }
         public string Localidad { get; set; }
         public string Barrio { get; set; }
         public string Calle { get; set; }
         public string Nro { get; set; }
+        public string DomicilioCompleto { get; set; }
+        public string NombreInstitucion { get; set; }
     }
 }

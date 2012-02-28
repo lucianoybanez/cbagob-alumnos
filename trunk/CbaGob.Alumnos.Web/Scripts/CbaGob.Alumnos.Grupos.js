@@ -21,3 +21,8 @@
         $('#dialog').dialog("open");
     });
 });
+
+
+$(function () {
+    cbaAlumnosGlobal.BuscadorDomicilios('BuDomicilio');
+});

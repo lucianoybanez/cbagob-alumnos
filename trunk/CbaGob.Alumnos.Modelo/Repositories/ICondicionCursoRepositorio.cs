@@ -13,5 +13,6 @@ namespace CbaGob.Alumnos.Modelo.Repositories
         bool AgregarCondicion(ICondicionCurso condicion);
         bool ModificarCondicion(ICondicionCurso condicion);
         bool EliminarCondicion(int IdCondicion);
+        bool CambiarEstadoCurso(int IdCondicion, int NuevoEstado);
     }
 }

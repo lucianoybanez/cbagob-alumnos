@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Servicio.VistasInterface.Shared;
 
 namespace CbaGob.Alumnos.Servicio.VistasInterface
@@ -20,5 +22,12 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         int Cupo { get; set; }
         decimal Presupuesto { get; set; }
         string Accion { get; set; }
+        string NombrePrograma { get; set; }
+        string NombreEstadoCurso { get; set; }
+        string NombreCurso { get; set; }
+        string NombreNivel { get; set; }
+        string NombreModalidad { get; set; }
+        IList<IGrupo> ListaGrupos { get; set; }
+        IList<IAlumnos> ListaAlumno { get; set; }
     }
 }

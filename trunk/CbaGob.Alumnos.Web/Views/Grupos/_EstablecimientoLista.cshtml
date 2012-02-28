@@ -14,7 +14,7 @@
 @if (Model.ListaEstableimiento != null && Model.ListaEstableimiento.Count > 0)
 { 
     <div id="tab" style="text-align: center;">
-        <table align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:660px;">
+        <table align="center" id="mytable">
             <thead>
                 <tr>
                     <th height="30">
@@ -52,7 +52,7 @@
                 {
                     <tr>
                         <td align="left">
-                            @item.N_Establecimiento
+                            @item.NombreEstablecimiento
                         </td>
                         <td align="left">
                             @item.Provincia
@@ -70,7 +70,7 @@
                             @item.Nro
                         </td>
                         <td align="center">
-                            <img onclick="Establecimiento(@item.Id_Establecimiento,'@item.N_Establecimiento' ,'@item.Provincia','@item.Localidad', '@item.Barrio', '@item.Calle', '@item.Nro' );"  src=@Content.ImageSite("seleccionar.jpg", Url) width="25" height="25"  />
+                            <img onclick="Establecimiento(@item.Id_Establecimiento,'@item.NombreEstablecimiento' ,'@item.Provincia','@item.Localidad', '@item.Barrio', '@item.Calle', '@item.Nro' );"  src=@Content.ImageSite("seleccionar.jpg", Url) width="25" height="25"  />
                         </td>
                     </tr>
                 }

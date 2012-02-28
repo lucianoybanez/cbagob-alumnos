@@ -68,13 +68,12 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
                 mInstitucion = mInstitucionRepositorio.GetInstitucion(IdInstitucion);
 
-                
-                model.INS_PROPIA = (mInstitucion.INS_PROPIA == "SI" ? true : false);
-                model.ID_INSTITUCION = mInstitucion.ID_INSTITUCION;
-                model.N_INSTITUCION = mInstitucion.N_INSTITUCION;
-                model.ID_DOMICILIO = mInstitucion.ID_DOMICILIO;
+                model.espropia = (mInstitucion.espropia == "SI" ? true : false);
+                model.Id_Institucion = mInstitucion.Id_Institucion;
+                model.Nombre_Institucion = mInstitucion.Nombre_Institucion;
+                model.Id_Domicilio = mInstitucion.Id_Domicilio;
+                model.DireccionCompleta = mInstitucion.DireccionCompleta;
                
-
                 return model;
 
 

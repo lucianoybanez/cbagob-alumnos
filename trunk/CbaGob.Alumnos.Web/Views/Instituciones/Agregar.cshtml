@@ -3,116 +3,71 @@
     ViewBag.Title = "SGC - Gobierno de Córdoba - Instituciones";
     Layout = "~/Views/Shared/_MasterSGC.cshtml";
 }
-
 @section Scripts{
-    @Content.Script("CbaGob.Alumnos.Instituciones.js",Url)
+    @Content.Script("CbaGob.Alumnos.Instituciones.js", Url)
 }
-
-  <div class="box">
-  <h2>Agregar Institución</h2>
+<div class="box">
+    <h2>
+        Agregar Institución</h2>
     <table align="center" style="width: 700px;">
         <tr>
             <td class="style1" style="font-weight: bold">
                 <div id="titulo">
-                    
-                </div>  
-    @using (Html.BeginForm("Agregar_Institucion", "Instituciones", FormMethod.Post, new { Id = "FormularioInstituciones" }))
-{ 
-    <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
-        <tr>
-            <td>
-                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px; text-align: center;">
-                    <legend>Institucion</legend>
-                    <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
+                </div>
+                @using (Html.BeginForm("Agregar_Institucion", "Instituciones", FormMethod.Post, new { Id = "FormularioInstituciones" }))
+                { 
+                    <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                        width: 700px;">
                         <tr>
                             <td>
-                                Nombre
-                            </td>
-                            <td align="left" valign="middle">
-                                @Html.TextBoxFor(c => c.N_INSTITUCION, new { style = "width:400px;", MaxLength = "50" })
-                                @Html.ValidationMessageFor(m => m.N_INSTITUCION)
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Propia
-                            </td>
-                            <td align="left" valign="middle">
-                                @Html.CheckBoxFor(c => c.INS_PROPIA)
-                            </td>
-                        </tr>
-                    </table>
-                </fieldset>
-            </td>
-        </tr>
-    </table>
-    @Html.Partial("_Domicilios", Model.ListaDomicilios)
-    <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
-        <tr>
-            <td>
-                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px; text-align: center;">
-                    <legend>Domicilio</legend>
-                    <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
-                        <tr>
-                            <td>
-                                Provincia
-                            </td>
-                            <td align="left" valign="middle">
-                                <input id="Provincia" disabled style="width: 200px;" />
-                                @Html.ValidationMessageFor(m => m.ID_DOMICILIO)
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Localidad
-                            </td>
-                            <td align="left" valign="middle">
-                                <input id="Localidad" disabled style="width: 250px;" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Barrio
-                            </td>
-                            <td align="left" valign="middle">
-                                <input id="Barrio" disabled style="width: 250px;" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Calle
-                            </td>
-                            <td align="left" valign="middle">
-                                <input id="Calle" disabled style="width: 250px;" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Nro
-                            </td>
-                            <td align="left" valign="middle">
-                                <input id="Nro" disabled style="width: 60px;" />
+                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+                                    text-align: center;">
+                                    <legend style="color: #FF9900"><b>Datos Institucion</b></legend>
+                                    <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                                        width: 700px;">
+                                        <tr>
+                                            <td align="left">
+                                                <b>Nombre de la Institucion:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Nombre_Institucion, new { style = "width:400px;", MaxLength = "50" })
+                                                @Html.ValidationMessageFor(m => m.Nombre_Institucion)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Propia de la Institucion:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.CheckBoxFor(c => c.espropia)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Buscar Domicilio:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.EditorFor(c => c.DomicilioBusqueda)
+                                                @Html.ValidationMessageFor(m => m.Id_Domicilio)
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
                             </td>
                         </tr>
                     </table>
-                </fieldset>
-            </td>
-        </tr>
-    </table>
     
-  
-    
-    @Html.HiddenFor(d => d.ID_DOMICILIO)
-    <table id="myIntituciones" align="center" width="700px">
-        <tr>
-            <td align="right" valign="middle">
-                <input type="submit" value="Guargar" class="btnIngresar" />&nbsp;&nbsp;
-                @Html.ActionLink("Cancelar", "Index", "Instituciones", null, new { Class = "btnIngresar" })
-            </td>
-        </tr>
-    </table>
+                    @Html.HiddenFor(d => d.Id_Domicilio)
+                    <table id="myIntituciones" align="center" width="700px">
+                        <tr>
+                            <td align="right" valign="middle">
+                                <input type="submit" value="Guargar" class="btnIngresar" />&nbsp;&nbsp;
+                                @Html.ActionLink("Cancelar", "Index", "Instituciones", null, new { Class = "btnIngresar" })
+                            </td>
+                        </tr>
+                    </table>
    
-}
+                }
             </td>
         </tr>
     </table>

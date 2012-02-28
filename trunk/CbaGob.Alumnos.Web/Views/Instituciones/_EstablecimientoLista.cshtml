@@ -1,0 +1,82 @@
+﻿@model InstitucionVista
+@if (Model.ListaEstablecimiento != null && Model.ListaEstablecimiento.Count > 0)
+{ 
+    <div id="tab" style="text-align: center;">
+        <table class="TablaPersonal" align="center" width="690px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30">
+                        <div align="center">
+                            Nombre Establecimiento</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Provincia</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Locaidad</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Barrio</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Calle</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Nro</div>
+                    </th>
+                    <th height="30">
+                        <div align="right" style="margin-right: 2px;">
+                            Accion</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ListaEstablecimiento)
+                {
+                    <tr>
+                        <td align="center" height="28">
+                            @item.NombreEstablecimiento
+                        </td>
+                        <td align="center">
+                            @item.Provincia
+                        </td>
+                        <td align="center">
+                            @item.Localidad
+                        </td>
+                        <td align="center">
+                            @item.Barrio
+                        </td>
+                        <td align="center">
+                            @item.Calle
+                        </td>
+                        <td align="center">
+                            @item.Nro
+                        </td>
+                        <td align="right" style="margin-right: 2px;">
+                            @Html.ActionLink("Modificar", "Modificar", "Establecimientos", new { id_establecimiento = item.Id_Establecimiento }, new { @class = "btnIngresar" })
+                            @Html.ActionLink("Eliminar", "Eliminar", "Establecimientos", new { id_establecimiento = item.Id_Establecimiento }, new { @class = "btnIngresar" })
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td align="left" valign="middle" colspan="4" height="20">
+                    </td>
+                    <td align="right" valign="bottom" colspan="3" height="20">
+                        <div id="resumenPag" style="height: 30px; padding: 15px 5px 0 2px;">
+                            @Html.ActionLink("Agregar Establecimiento", "Agregar", "Establecimientos", null, new { @class = "btnIngresar" })
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    @Html.Partial("_SinDatos", "Establecimiento")
+}

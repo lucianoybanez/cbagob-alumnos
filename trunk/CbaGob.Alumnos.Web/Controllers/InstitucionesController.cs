@@ -39,9 +39,9 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             IInstitucionVista model = mInstitucionServicio.GetUnaVista(INST_ID);
 
-            model.ListaDomicilios = Domiciliosdervicios.GetTodosDomicilios();
-
-            model.domicilios = Domiciliosdervicios.GetUno(model.ID_DOMICILIO);
+            model.DomicilioBusqueda.Tipo = "Domicilios";
+            model.DomicilioBusqueda.Name = "BuDomicilio";
+            model.DomicilioBusqueda.Valor = model.DireccionCompleta;
 
             return View("Modificar", model);
         }
@@ -52,16 +52,29 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             IInstitucionVista model = mInstitucionServicio.GetUnaVista(INST_ID);
 
-            model.domicilios = Domiciliosdervicios.GetUno(model.ID_DOMICILIO);
-
             return View("Eliminar", model);
         }
-        
+
+        public ActionResult Ver(Int32 INST_ID)
+        {
+
+            IInstitucionVista model = InstitucionServicio.GetUnaVista(INST_ID);
+
+            IEstablecimientoServicio establecimientoservicio = new EstablecimientoServicio();
+
+            model.ListaEstablecimiento = establecimientoservicio.GetAllEstableciminetoByInstitucion(model.Id_Institucion).ListaEstablecimiento;
+
+            model.CondicionesCursos = CondicionesCursoServicio.GetByInstitucionId(INST_ID).CondicionesCursos;
+           
+            return View("Ver", model);
+        }
+
         public ActionResult Agregar()
         {
             InstitucionVista model = new InstitucionVista();
 
-            model.ListaDomicilios = Domiciliosdervicios.GetTodosDomicilios();
+            model.DomicilioBusqueda.Tipo = "Domicilios";
+            model.DomicilioBusqueda.Name = "BuDomicilio";
 
             return View(model);
         }
@@ -72,9 +85,9 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             IInstitucion mInstitucion = new Institucion();
 
-            mInstitucion.INS_PROPIA = (model.INS_PROPIA == true ? "1" : "0");
-            mInstitucion.N_INSTITUCION = model.N_INSTITUCION;
-            mInstitucion.ID_DOMICILIO = model.ID_DOMICILIO;
+            mInstitucion.espropia = (model.espropia == true ? "1" : "0");
+            mInstitucion.Nombre_Institucion = model.Nombre_Institucion;
+            mInstitucion.Id_Domicilio = model.Id_Domicilio;
 
             IInstitucionServicio mInstitucionServicio = new InstitucionServicio();
 
@@ -92,13 +105,13 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             IInstitucion mInstitucion = new Institucion();
 
-            mInstitucion.INS_PROPIA = (model.INS_PROPIA == true ? "1" : "0");
+            mInstitucion.espropia = (model.espropia == true ? "1" : "0");
 
-            mInstitucion.N_INSTITUCION = model.N_INSTITUCION;
+            mInstitucion.Nombre_Institucion = model.Nombre_Institucion;
 
-            mInstitucion.ID_INSTITUCION = model.ID_INSTITUCION;
+            mInstitucion.Id_Institucion = model.Id_Institucion;
 
-            mInstitucion.ID_DOMICILIO = model.ID_DOMICILIO;
+            mInstitucion.Id_Domicilio = model.Id_Domicilio;
 
             bool ret = mInstitucionServicio.ModificarInstitucion(mInstitucion);
 
@@ -111,7 +124,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             IInstitucionServicio mInstitucionServicio = new InstitucionServicio();
 
-            bool mReturn = mInstitucionServicio.EliminarInstitucion(model.ID_INSTITUCION);
+            bool mReturn = mInstitucionServicio.EliminarInstitucion(model.Id_Institucion);
 
 
             return View("Index", InstitucionServicio.GetIndex());
@@ -127,5 +140,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("CursosAsignados", CondicionesCursoServicio.GetByInstitucionId(IdInstitucion));
 
         }
+
+
     }
 }
