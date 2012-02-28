@@ -153,6 +153,7 @@
                         <tr>
                             <td align="right">
                                 @Html.ActionLink("Volver al Listado de Instituciones", "Index", "Instituciones", null, new { @class = "btnIngresar" })
+                                @Html.ActionLink("Volver", "Ver", "Instituciones", new { INST_ID = Model.IdInstitucion }, new { @class = "btnIngresar" })
                             </td>
                         </tr>
                     </table>
