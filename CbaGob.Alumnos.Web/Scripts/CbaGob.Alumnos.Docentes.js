@@ -22,3 +22,8 @@
         $('#dialog').dialog("open");
     });
 });
+
+$(function () {
+    cbaAlumnosGlobal.BuscadorDomicilios('BuDomicilio');
+    cbaAlumnosGlobal.BuscadorPersonasJuridica('BuPersonasJur');
+});
