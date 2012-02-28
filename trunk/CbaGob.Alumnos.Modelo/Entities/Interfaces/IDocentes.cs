@@ -13,5 +13,7 @@ namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
         int Id_Cargo { get; set; }
         string N_Modalidad { get; set; }
         string Estado { get; set; }
+        string Planta { get; set; }
+        string Reproca { get; set; }
     }
 }
