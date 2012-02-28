@@ -1,245 +1,286 @@
-﻿* {
-	PADDING-BOTTOM: 0px;
-	MARGIN: 0px;
-	PADDING-LEFT: 0px;
-	PADDING-RIGHT: 0px;
-	PADDING-TOP: 0px
+﻿*
+{
+    padding-bottom: 0px;
+    margin: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
 }
-BODY {
-	LINE-HEIGHT: 17px;
-	FONT-FAMILY: Arial, Helvetica, sans-serif;
-	BACKGROUND: #d0d0d0;
-	COLOR: #333;
-	FONT-SIZE: 12px
+BODY
+{
+    line-height: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #d0d0d0;
+    color: #333;
+    font-size: 12px;
 }
-A {
-	COLOR: #004990;
-	TEXT-DECORATION: none;
-	outline:none
+A
+{
+    color: #004990;
+    text-decoration: none;
+    outline: none;
 }
-A:hover {
-	COLOR: #111;
-	TEXT-DECORATION: underline
+A:hover
+{
+    color: #111;
+    text-decoration: underline;
 }
-#wrap {
-	MARGIN: 0px auto;
-	WIDTH: 1000px;
-	BACKGROUND: #fff
+#wrap
+{
+    margin: 0px auto;
+    width: 1000px;
+    background: #fff;
 }
-#header {
-	BACKGROUND-IMAGE: url(../images/Bg_encabezado.jpg);
-	HEIGHT: 130px
+#header
+{
+    background-image: url(../images/Bg_encabezado.jpg);
+    height: 130px;
 }
-#header H1 {
-	PADDING-BOTTOM: 0px;
-	PADDING-LEFT: 20px;
-	PADDING-RIGHT: 0px;
-	LETTER-SPACING: -1px;
-	COLOR: #aaa;
-	FONT-SIZE: 28px;
-	PADDING-TOP: 23px
+#header H1
+{
+    padding-bottom: 0px;
+    padding-left: 20px;
+    padding-right: 0px;
+    letter-spacing: -1px;
+    color: #aaa;
+    font-size: 28px;
+    padding-top: 23px;
 }
-#header H1 A {
-	LETTER-SPACING: -2px;
-	COLOR: #aaa;
-	FONT-WEIGHT: 100;
-	TEXT-DECORATION: none
+#header H1 A
+{
+    letter-spacing: -2px;
+    color: #aaa;
+    font-weight: 100;
+    text-decoration: none;
 }
-#header H1 A:hover {
-	COLOR: #111
+#header H1 A:hover
+{
+    color: #111;
 }
-#header H2 {
-	PADDING-BOTTOM: 0px;
-	PADDING-LEFT: 20px;
-	PADDING-RIGHT: 0px;
-	LETTER-SPACING: -1px;
-	COLOR: #111;
-	FONT-SIZE: 19px;
-	FONT-WEIGHT: 100;
-	PADDING-TOP: 5px
+#header H2
+{
+    padding-bottom: 0px;
+    padding-left: 20px;
+    padding-right: 0px;
+    letter-spacing: -1px;
+    color: #111;
+    font-size: 19px;
+    font-weight: 100;
+    padding-top: 5px;
 }
-#menu {
-	BORDER-BOTTOM: #555 1px dotted;
-	LINE-HEIGHT: 30px;
-	HEIGHT: 30px;
-	BORDER-TOP: #555 1px dotted
+#menu
+{
+    border-bottom: #555 1px dotted;
+    line-height: 30px;
+    height: 30px;
+    border-top: #555 1px dotted;
 }
-#menu UL {
-	LIST-STYLE-TYPE: none;
-	PADDING-LEFT: 20px
+#menu UL
+{
+    list-style-type: none;
+    padding-left: 20px;
 }
-#menu UL LI {
-	DISPLAY: block;
-	FLOAT: left
+#menu UL LI
+{
+    display: block;
+    float: left;
 }
-#menu UL LI A {
-	PADDING-BOTTOM: 0px;
-	PADDING-LEFT: 0px;
-	PADDING-RIGHT: 20px;
-	COLOR: #004990;
-	FONT-SIZE: 14px;
-	FONT-WEIGHT: 100;
-	TEXT-DECORATION: none;
-	PADDING-TOP: 0px;
-	FONT-WEIGHT: 600;
+#menu UL LI A
+{
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 20px;
+    color: #004990;
+    font-size: 14px;
+    font-weight: 100;
+    text-decoration: none;
+    padding-top: 0px;
+    font-weight: 600;
 }
-#menu UL LI A:hover {
-	COLOR: #007EFD;
-	FONT-WEIGHT: 600;
-	TEXT-DECORATION: none
+#menu UL LI A:hover
+{
+    color: #007EFD;
+    font-weight: 600;
+    text-decoration: none;
 }
-#content {
-	PADDING-BOTTOM: 5px;
-	PADDING-LEFT: 20px;
-	PADDING-RIGHT: 20px;
-	min-height: 458px;
-    height : auto !important;
-	PADDING-TOP: 0px
+#content
+{
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    min-height: 458px;
+    height: auto !important;
+    padding-top: 0px;
 }
-.right {
-	TEXT-ALIGN: justify;
-	WIDTH: 750px;
-	FLOAT: right
+.right
+{
+    text-align: justify;
+    width: 750px;
+    float: right;
 }
-.right H2 {
-	PADDING-BOTTOM: 7px;
-	PADDING-LEFT: 0px;
-	PADDING-RIGHT: 0px;
-	FONT-SIZE: 18px;
-	FONT-WEIGHT: 100;
-	PADDING-TOP: 15px
+.right H2
+{
+    padding-bottom: 7px;
+    padding-left: 0px;
+    padding-right: 0px;
+    font-size: 18px;
+    font-weight: 100;
+    padding-top: 15px;
 }
-.right H2 A {
-	COLOR: #004990;
-	TEXT-DECORATION: none
+.right H2 A
+{
+    color: #004990;
+    text-decoration: none;
 }
-.right H2 A:hover {
-	COLOR: #111
+.right H2 A:hover
+{
+    color: #111;
 }
-.left {
-	MARGIN-TOP: 10px;
-	WIDTH: 200px;
-	BACKGROUND: #004990;
-	FLOAT: left
+.left
+{
+    margin-top: 10px;
+    width: 200px;
+    background: #004990;
+    float: left;
 }
-.left H2 {
-	LINE-HEIGHT: 28px;
-	MARGIN: 10px 0px 0px;
-	PADDING-LEFT: 10px;
-	BACKGROUND: #788bbd;
-	HEIGHT: 28px;
-	COLOR: #fff;
-	FONT-SIZE: 13px
+.left H2
+{
+    line-height: 28px;
+    margin: 10px 0px 0px;
+    padding-left: 10px;
+    background: #788bbd;
+    height: 28px;
+    color: #fff;
+    font-size: 13px;
 }
-.left UL {
-	PADDING-BOTTOM: 15px;
-	LIST-STYLE-TYPE: square;
-	PADDING-LEFT: 20px;
-	PADDING-RIGHT: 0px;
-	COLOR: #788bbd;
-	PADDING-TOP: 10px
+.left UL
+{
+    padding-bottom: 15px;
+    list-style-type: square;
+    padding-left: 20px;
+    padding-right: 0px;
+    color: #788bbd;
+    padding-top: 10px;
 }
-.left UL LI A {
-	COLOR: #fff;
-	FONT-SIZE: 13px;
-	FONT-WEIGHT: 100;
-	TEXT-DECORATION: none
+.left UL LI A
+{
+    color: #fff;
+    font-size: 13px;
+    font-weight: 100;
+    text-decoration: none;
 }
-.left UL LI A:hover {
-	COLOR: #fff;
-	FONT-WEIGHT: 600;
+.left UL LI A:hover
+{
+    color: #fff;
+    font-weight: 600;
 }
-#footer {
-	TEXT-ALIGN: center;
-	BACKGROUND: #657983;
-	HEIGHT: 25px;
-	COLOR: #fff;
-	FONT-SIZE: 11px;
-	padding-top:10px;
-	padding-left:80px;
+#footer
+{
+    text-align: center;
+    background: #657983;
+    height: 25px;
+    color: #fff;
+    font-size: 11px;
+    padding-top: 10px;
+    padding-left: 80px;
 }
-#footer A {
-	COLOR: #fff
+#footer A
+{
+    color: #fff;
 }
 /* Box */
 .box
-    {
-        border: 2px solid #6787AD;
-        margin: 10px;
-        padding:0px;
-    }
+{
+    border: 2px solid #6787AD;
+    margin: 10px;
+    padding: 0px;
+}
 .box h2
-    {
-        background: #6787AD;
-        color: white;
-        padding: 7px;
-    }
+{
+    background: #6787AD;
+    color: white;
+    padding: 7px;
+}
 .box h2 p
-    {
-        background: #6787AD;
-        color: white;
-        height: 9px;
-    }
+{
+    background: #6787AD;
+    color: white;
+    height: 9px;
+}
 .box p
-    {
-        color: #333;
-        padding: 5px;
-    }
+{
+    color: #333;
+    padding: 5px;
+}
 .style1
-    {
-        width: 117px;
-    }
+{
+    width: 117px;
+}
 .style2
-    {
-        width: 274px;
-    }
-a.btnIngresar {
-   text-decoration: none;
-   background: #3e83c9;
-   padding: 2px 2px;
-   border: 1px outset #CCC;
-   color : #000;
-   font-size: 12px;
-   font-family : arial, sans-serif;
-   font-weight : bold;
+{
+    width: 274px;
 }
-a.btnIngresar:hover {
-   background: #bcd4ec;
+a.btnIngresar
+{
+    text-decoration: none;
+    background: #3e83c9;
+    padding: 2px 2px;
+    border: 1px outset #CCC;
+    color: #000;
+    font-size: 12px;
+    font-family: arial, sans-serif;
+    font-weight: bold;
 }
-a.btnIngresar:active {
-   border: 1px inset #000;
-}    
-input.btnIngresar {
-   text-decoration: none;
-   background: #3e83c9;
-   padding: 2px 2px;
-   border: 1px outset #CCC;
-   color : #000;
-   font-size: 12px;
-   font-family : arial, sans-serif;
-   font-weight : bold;
+a.btnIngresar:hover
+{
+    background: #bcd4ec;
 }
-input.btnIngresar:hover {
-   background: #bcd4ec;
+a.btnIngresar:active
+{
+    border: 1px inset #000;
 }
-th {
-	background: #3e83c9;
-	color: #fff;
-	font-weight: bold;
-	text-align: left;
+input.btnIngresar
+{
+    text-decoration: none;
+    background: #3e83c9;
+    padding: 2px 2px;
+    border: 1px outset #CCC;
+    color: #000;
+    font-size: 12px;
+    font-family: arial, sans-serif;
+    font-weight: bold;
+}
+input.btnIngresar:hover
+{
+    background: #bcd4ec;
+}
+th
+{
+    background: #3e83c9;
+    color: #fff;
+    font-weight: bold;
+    text-align: left;
 }
 
 
-.TablaPersonal tr:hover td {
-	background: #bcd4ec;
+.TablaPersonal tr:hover td
+{
+    background: #bcd4ec;
 }
 
-.TablaPersonal th {
-	background: #3e83c9;
-	color: #fff;
-	font-weight: bold;
-	text-align: left;
+.TablaPersonal th
+{
+    background: #3e83c9;
+    color: #fff;
+    font-weight: bold;
+    text-align: left;
 }
-.TablaPersonal td{
-    border-bottom:#ccc 1px solid;
+.TablaPersonal td
+{
+    border-bottom: #ccc 1px solid;
+}
+
+legend
+{
+    color: #FF9900;
 }
