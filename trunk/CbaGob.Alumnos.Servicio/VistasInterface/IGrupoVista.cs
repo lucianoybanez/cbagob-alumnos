@@ -36,9 +36,12 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         string Hr_Mes { get; set; }
 
         IList<IDocentes> ListaDocentes { get; set; }
+        IList<IDocentes> ListaDocentesNoGrupo { get; set; }
+        IList<IDocentes> ListaDocentesInGrupo { get; set; }
         IList<IEstablecimiento> ListaEstableimiento { get; set; }
         IList<IAlumnos> ListaAlumnos { get; set; }
         IList<IAlumnos> ListaAlumnosInGrupo { get; set; }
+        
 
     }
 }
