@@ -22,5 +22,8 @@ namespace CbaGob.Alumnos.Modelo.Entities
         public string Cuit { get; set; }
         public string Razon_Social { get; set; }
         public string Estado { get; set; }
+
+        public string Planta { get; set; }
+        public string Reproca { get; set; }
     }
 }
