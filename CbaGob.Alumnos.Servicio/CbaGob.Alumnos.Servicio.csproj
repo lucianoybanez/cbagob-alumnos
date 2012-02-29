@@ -44,6 +44,8 @@
     <Compile Include="Comun\ComboHelper.cs" />
     <Compile Include="Comun\CookieData.cs" />
     <Compile Include="Comun\ICookieData.cs" />
+    <Compile Include="ServiciosInterface\ISupervicionesServicio.cs" />
+    <Compile Include="ServiciosInterface\ISupervisoresServicio.cs" />
     <Compile Include="Servicios\ExamenServicio.cs" />
     <Compile Include="ServiciosInterface\IEstablecimientoServicio.cs" />
     <Compile Include="ServiciosInterface\IExamenServicio.cs" />
@@ -90,8 +92,14 @@
     <Compile Include="ServiciosInterface\IAutenticacionServicio.cs" />
     <Compile Include="ServiciosInterface\IUsuarioServicio.cs" />
     <Compile Include="Servicios\ProvinciasServicio.cs" />
+    <Compile Include="Servicios\SupervicionesServicio.cs" />
+    <Compile Include="Servicios\SupervisoresServicio.cs" />
     <Compile Include="Servicios\UsuarioServicio.cs" />
     <Compile Include="Servicios\HomeServicio.cs" />
+    <Compile Include="VistasInterface\ISupervicionesVista.cs" />
+    <Compile Include="VistasInterface\ISupervicionVista.cs" />
+    <Compile Include="VistasInterface\ISupervisoresVista.cs" />
+    <Compile Include="VistasInterface\ISupervisorVista.cs" />
     <Compile Include="VistasInterface\Shared\IBuscador.cs" />
     <Compile Include="Vistas\ExamenesVista.cs" />
     <Compile Include="Vistas\ExamenVista.cs" />
@@ -130,6 +138,10 @@
     <Compile Include="Vistas\InstitucionVista.cs" />
     <Compile Include="Vistas\Shared\Buscador.cs" />
     <Compile Include="Vistas\Shared\ComboBox.cs" />
+    <Compile Include="Vistas\SupervicionesVista.cs" />
+    <Compile Include="Vistas\SupervicionVista.cs" />
+    <Compile Include="Vistas\SupervisoresVista.cs" />
+    <Compile Include="Vistas\SupervisorVista.cs" />
     <Compile Include="Vistas\UsuarioVista.cs" />
     <Compile Include="Vistas\HomeVista.cs" />
   </ItemGroup>

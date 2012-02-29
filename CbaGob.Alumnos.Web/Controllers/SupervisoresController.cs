@@ -1,0 +1,91 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using CbaGob.Alumnos.Servicio.Servicios;
+using CbaGob.Alumnos.Servicio.ServiciosInterface;
+using CbaGob.Alumnos.Servicio.Vistas;
+using CbaGob.Alumnos.Servicio.VistasInterface;
+
+namespace CbaGob.Alumnos.Web.Controllers
+{
+    public class SupervisoresController : Controller
+    {
+        //
+        // GET: /Supervisores/
+
+        private ISupervisoresServicio supervisoresservicio;
+
+        public SupervisoresController()
+        {
+            supervisoresservicio = new SupervisoresServicio();
+        }
+
+        public ActionResult Index()
+        {
+
+            return View(supervisoresservicio.GetSupervisores());
+        }
+
+        public ActionResult Agregar()
+        {
+            ISupervisorVista model = new SupervisorVista();
+
+            model.BuscadorDomicilio.Tipo = "Domicilios";
+            model.BuscadorDomicilio.Name = "BuDomicilio";
+            model.BuscadorPersonaJur.Tipo = "PersonasJuridica";
+            model.BuscadorPersonaJur.Name = "BuPersonaJuridica";
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Agregar_Supervisor(SupervisorVista model)
+        {
+            bool mret = supervisoresservicio.AgregarSupervisor(model);
+
+            return View("Index", supervisoresservicio.GetSupervisores());
+        }
+
+        public ActionResult Modificar(int id_supervisor)
+        {
+            ISupervisorVista model = supervisoresservicio.GetSupervisor(id_supervisor);
+
+            model.BuscadorDomicilio.Tipo = "Domicilios";
+            model.BuscadorDomicilio.Name = "BuDomicilio";
+            model.BuscadorDomicilio.Valor = model.DomicilioCompleto;
+
+            model.BuscadorPersonaJur.Tipo = "PersonasJuridica";
+            model.BuscadorPersonaJur.Name = "BuPersonaJuridica";
+            model.BuscadorPersonaJur.Valor = model.DatosCompletoPersonajur;
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Modificar_Supervisor(SupervisorVista model)
+        {
+            bool mret = supervisoresservicio.ModificarSupervisor(model);
+
+            return View("Index", supervisoresservicio.GetSupervisores());
+        }
+
+        public ActionResult Eliminar(int id_supervisor)
+        {
+            ISupervisorVista model = supervisoresservicio.GetSupervisor(id_supervisor);
+
+            return View(model);
+        }
+
+        
+        [HttpPost]
+        public ActionResult Eliminar_Supervisor(SupervisorVista model)
+        {
+            bool mret = supervisoresservicio.EliminarSupervisor(model.Id_Supervisor);
+
+            return View("Index", supervisoresservicio.GetSupervisores());
+        }
+
+    }
+}

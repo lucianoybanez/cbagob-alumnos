@@ -44,6 +44,9 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public IList<IAlumnos> ListaAlumnos { get; set; }
         public IList<IAlumnos> ListaAlumnosInGrupo { get; set; }
 
+        public string Nombre_Institucion { get; set; }
+        public string Nombre_Curso { get; set; }
+
         public IList<IDocentes> ListaDocentesNoGrupo { get; set; }
         public IList<IDocentes> ListaDocentesInGrupo { get; set; }
         

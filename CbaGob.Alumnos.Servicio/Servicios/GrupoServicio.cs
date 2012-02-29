@@ -68,6 +68,8 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 grupovista.Id_Domicilio = grupo.Id_Domicilio;
                 grupovista.Id_PersonaJuridica = grupo.Id_PersonaJuridica;
                 grupovista.NombreGrupo = grupo.NombreGrupo;
+                grupovista.Nombre_Institucion = grupo.Nombre_Institucion;
+                grupovista.Nombre_Curso = grupo.Nombre_Curso;
 
                 return grupovista;
 

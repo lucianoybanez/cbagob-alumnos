@@ -75,6 +75,8 @@
     <Compile Include="ProgramaRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProvinciasRepositorio.cs" />
+    <Compile Include="SupervicionesRepositorio.cs" />
+    <Compile Include="SupervisoresRepositorio.cs" />
     <Compile Include="UsuarioRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>

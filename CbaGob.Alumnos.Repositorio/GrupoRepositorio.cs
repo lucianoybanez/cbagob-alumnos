@@ -47,7 +47,8 @@ namespace CbaGob.Alumnos.Repositorio
                                  UsuarioModificacion = d.USR_MODIF,
                                  NombreGrupo = d.N_GRUPO,
                                  Nombre_Curso = d.T_CONDICIONES_CURSO.T_CURSOS.N_CURSO,
-                                 Id_Institucion = d.T_CONDICIONES_CURSO.ID_INSTITUCION 
+                                 Id_Institucion = d.T_CONDICIONES_CURSO.ID_INSTITUCION ,
+                                 Nombre_Institucion = d.T_CONDICIONES_CURSO.T_INSTITUCIONES.N_INSTITUCION   
                              });
 
             return g;
