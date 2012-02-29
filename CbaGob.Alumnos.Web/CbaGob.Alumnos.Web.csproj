@@ -82,6 +82,7 @@
     <Compile Include="Controllers\GruposController.cs" />
     <Compile Include="Controllers\FacturaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InscripcionesController.cs" />
     <Compile Include="Controllers\InstitucionesController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
@@ -209,6 +210,7 @@
     <Content Include="Scripts\CbaGob.Alumnos.Global.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Grupos.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Examenes.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Inscripciones.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Instituciones.js" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.5.1.js" />
@@ -447,6 +449,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Grupos\_AlumnosEnGrupoLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inscripciones\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Paginacion.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_BuscadorAlumno.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

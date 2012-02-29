@@ -8,7 +8,7 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
 {
     public interface IInscripcionesVista
     {
-        IList<IInscripcion> ListaInscripcions { get; set; }
+        IList<IInscripcion> ListaInscripciones { get; set; }
         int id_inscripcion { get; set; }
     }
 }

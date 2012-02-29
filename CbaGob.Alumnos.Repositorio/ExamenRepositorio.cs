@@ -37,7 +37,7 @@ namespace CbaGob.Alumnos.Repositorio
                                          UsuarioModificacion = p.USR_MODIF,
                                          NroExamen = p.NRO_EXAMEN,
                                          NombreAlumno = personas.NOV_APELLIDO + ", " + personas.NOV_NOMBRE,
-                                         NombreGrupo = p.T_INSCRIPCIONES.T_GRUPOS.N_GRUPO
+                                        // NombreGrupo = p.T_INSCRIPCIONES.T_GRUPOS.N_GRUPO
                                      }).ToList().Cast<IExamen>().ToList();
             return result;
         }
@@ -59,8 +59,8 @@ namespace CbaGob.Alumnos.Repositorio
                                          UsuarioModificacion = p.USR_MODIF,
                                          NroExamen = p.NRO_EXAMEN,
                                          IdAlumno = p.T_INSCRIPCIONES.ID_ALUMNO,
-                                         IdGrupo = p.T_INSCRIPCIONES.ID_GRUPO,
-                                         NombreGrupo = p.T_INSCRIPCIONES.T_GRUPOS.N_GRUPO
+                                        // IdGrupo = p.T_INSCRIPCIONES.ID_GRUPO,
+                                        // NombreGrupo = p.T_INSCRIPCIONES.T_GRUPOS.N_GRUPO
                                      }).FirstOrDefault();
             return result;
         }

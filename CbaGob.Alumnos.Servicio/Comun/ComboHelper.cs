@@ -50,7 +50,7 @@ namespace CbaGob.Alumnos.Servicio.Comun
                 a.Add(new ComboItem()
                 {
                     id = curso.Id_Alumno,
-                    description = curso.Nov_Apellido + ", " +curso.Nov_Nombre
+                    description = curso.ApellidoAlumno + ", " +curso.ApellidoAlumno
                 });
             }
             return a;

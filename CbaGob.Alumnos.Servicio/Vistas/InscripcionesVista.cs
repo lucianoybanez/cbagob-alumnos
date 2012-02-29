@@ -9,7 +9,7 @@ namespace CbaGob.Alumnos.Servicio.Vistas
 {
     public class InscripcionesVista : IInscripcionesVista
     {
-        public IList<IInscripcion> ListaInscripcions { get; set; }
+        public IList<IInscripcion> ListaInscripciones { get; set; }
         public int id_inscripcion { get; set; }
     }
 }

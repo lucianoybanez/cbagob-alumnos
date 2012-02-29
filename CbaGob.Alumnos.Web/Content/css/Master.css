@@ -84,6 +84,7 @@ A:hover
 {
     display: block;
     float: left;
+    padding-left: 10px;
 }
 #menu UL LI A
 {
@@ -95,8 +96,17 @@ A:hover
     font-weight: 100;
     text-decoration: none;
     padding-top: 0px;
-    font-weight: 600;
+    font-weight: 600;    
 }
+#menu UL LI.selected
+{
+    background-color: #004990;   
+}
+#menu UL LI.selected A
+{    
+    color: white;    
+}
+
 #menu UL LI A:hover
 {
     color: #007EFD;
@@ -162,12 +172,21 @@ A:hover
     color: #788bbd;
     padding-top: 10px;
 }
+
+
 .left UL LI A
 {
     color: #fff;
     font-size: 13px;
     font-weight: 100;
-    text-decoration: none;
+    text-decoration: none;    
+   
+}
+
+.left UL LI A.selected
+{
+    font-weight: 600;
+    text-decoration: underline;    
 }
 .left UL LI A:hover
 {
