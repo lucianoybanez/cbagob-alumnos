@@ -38,5 +38,7 @@ namespace CbaGob.Alumnos.Modelo.Entities
         public string Hr_Año { get; set; }
         public string Hr_Mes { get; set; }
         public string Nombre_Curso { get; set; }
+        public string Nombre_Institucion { get; set; }
+       
     }
 }

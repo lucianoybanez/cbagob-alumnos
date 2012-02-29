@@ -41,7 +41,9 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         IList<IEstablecimiento> ListaEstableimiento { get; set; }
         IList<IAlumnos> ListaAlumnos { get; set; }
         IList<IAlumnos> ListaAlumnosInGrupo { get; set; }
-        
+
+        string Nombre_Institucion { get; set; }
+        string Nombre_Curso { get; set; }
 
     }
 }

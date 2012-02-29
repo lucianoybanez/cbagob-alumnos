@@ -1,0 +1,68 @@
+﻿@model SupervisorVista
+@{
+    ViewBag.Title = "Superviciones";
+    ViewBag.SubMenuSelected = "Supervisores";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Supervisores.js", Url)
+}
+<div class="box">
+    <h2>
+        Agregar Supervisor</h2>
+    <table align="center" style="width: 700px;">
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                @using (Html.BeginForm("Agregar_Supervisor", "Supervisores", FormMethod.Post, new { Id = "FormularioSupervisores" }))
+                { 
+                    <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                        width: 700px;">
+                        <tr>
+                            <td>
+                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+                                    text-align: center;">
+                                    <legend style="color: #FF9900"><b>Datos Supervisor</b></legend>
+                                    <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                                        width: 700px;">
+                                        <tr>
+                                            <td align="left">
+                                                <b>Buscar Persona Juridica:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.EditorFor(c => c.BuscadorPersonaJur)
+                                                @Html.ValidationMessageFor(m => m.Id_PersonaJuridica)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Buscar Domicilo:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.EditorFor(c => c.BuscadorDomicilio)
+                                                @Html.ValidationMessageFor(m => m.Id_Domicilio)
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                            </td>
+                        </tr>
+                    </table>
+    
+                    @Html.HiddenFor(d => d.Id_PersonaJuridica)
+                    @Html.HiddenFor(d => d.Id_Domicilio)
+                    <table id="myIntituciones" align="center" width="700px">
+                        <tr>
+                            <td align="right" valign="middle">
+                                <input type="submit" value="Guargar" class="btnIngresar" />&nbsp;&nbsp;
+                                @Html.ActionLink("Cancelar", "Index", "Supervisores", null, new { Class = "btnIngresar" })
+                            </td>
+                        </tr>
+                    </table>
+   
+                }
+            </td>
+        </tr>
+    </table>
+</div>

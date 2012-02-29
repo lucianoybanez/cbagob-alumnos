@@ -1,0 +1,27 @@
+﻿@model SupervisoresVista
+@{
+    ViewBag.Title = "Superviciones";
+    ViewBag.SubMenuSelected = "Supervisores";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Supervisores.js", Url)
+}
+@section Stylesheets {
+    @Content.Stylesheet("css/instituciones.css", Url)
+}
+<div class="box">
+    <h2>
+        Listado de Supervisores</h2>
+    <table>
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                <div id="DivSupervisores">
+                 @Html.Partial("_SupervisoresLista", Model)
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

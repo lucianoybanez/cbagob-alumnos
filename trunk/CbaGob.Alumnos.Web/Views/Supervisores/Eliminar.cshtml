@@ -1,0 +1,68 @@
+﻿@model SupervisorVista
+@{
+    ViewBag.Title = "Superviciones";
+    ViewBag.SubMenuSelected = "Supervisores";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Supervisores.js", Url)
+}
+<div class="box">
+    <h2>
+        Eliminar Supervisor</h2>
+    <table align="center" style="width: 700px;">
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                @using (Html.BeginForm("Eliminar_Supervisor", "Supervisores", FormMethod.Post, new { Id = "FormularioSupervisores" }))
+                { 
+                    <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                        width: 700px;">
+                        <tr>
+                            <td>
+                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+                                    text-align: center;">
+                                    <legend style="color: #FF9900"><b>Datos Supervisor</b></legend>
+                                    <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                                        width: 700px;">
+                                        <tr>
+                                            <td align="left">
+                                                <b>Buscar Persona Juridica:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(Model => Model.DatosCompletoPersonajur, new { disabled = "disabled", style = "width:350px;", MaxLength = "20" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Buscar Domicilo:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(Model => Model.DomicilioCompleto, new { disabled = "disabled", style = "width:350px;", MaxLength = "20" })
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                            </td>
+                        </tr>
+                    </table>
+                    @Html.HiddenFor(d => d.Id_Supervisor)
+                    <table id="myIntituciones" align="center" width="700px">
+                        <tr>
+                            <td align="right" valign="middle">
+                                <input id="Eliminar" type="button" value="Eliminar" class="btnIngresar" />&nbsp;&nbsp;
+                                @Html.ActionLink("Cancelar", "Index", "Supervisores", null, new { Class = "btnIngresar" })
+                            </td>
+                        </tr>
+                    </table>
+   
+                }
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="dialog" title="Eliminar">
+    <p>
+        Esta Seguro de Eliminar?</p>
+</div>

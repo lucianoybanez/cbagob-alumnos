@@ -1,0 +1,100 @@
+﻿@model SupervicionVista
+@{
+    ViewBag.Title = "Superviciones";
+    ViewBag.SubMenuSelected = "Superviciones";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Superviciones.js", Url)
+}
+<div class="box">
+    <h2>
+        Agregar Supervicion</h2>
+    <table align="center" style="width: 700px;">
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                @using (Html.BeginForm("Agregar_Supervicion", "Superviciones", FormMethod.Post, new { Id = "FormularioSuperviciones" }))
+                { 
+                    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+                                    text-align: center;">
+                        <legend>Datos de la Supervicion:</legend>
+                        <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                            width: 700px;">
+                            <tr>
+                                <td>
+                                    <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                                        width: 700px;">
+                                        <tr>
+                                            <td align="left">
+                                                <b>Nombre Institucion:</b>
+                                            </td>
+                                            <td align="left">
+                                                @Html.TextBoxFor(c => c.Grupo.Nombre_Institucion, new { disabled = "disabled", style = "width:200px;", MaxLength = "50" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Nombre Curso:</b>
+                                            </td>
+                                            <td align="left">
+                                                @Html.TextBoxFor(c => c.Grupo.Nombre_Curso, new { disabled = "disabled", style = "width:200px;", MaxLength = "50" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Nombre Grupo:</b>
+                                            </td>
+                                            <td align="left">
+                                                @Html.TextBoxFor(c => c.Grupo.NombreGrupo, new { disabled = "disabled", style = "width:200px;", MaxLength = "50" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Buscador Supervisor:</b>
+                                            </td>
+                                            <td align="left">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Fecha de Supervicion:</b>
+                                            </td>
+                                            <td align="left">
+                                                @Html.TextBoxFor(c => c.Fec_Supervision, new {Id= "fecSup", style = "width:90px;", MaxLength = "50" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Hora de Supervicion:</b>
+                                            </td>
+                                            <td align="left">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Observacion:</b>
+                                            </td>
+                                            <td align="left">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                  
+                    <table id="myIntituciones" align="center" width="700px">
+                        <tr>
+                            <td align="right" valign="middle">
+                                @Html.ActionLink("Cancelar", "Index", "Superviciones", null, new { Class = "btnIngresar" })
+                            </td>
+                        </tr>
+                    </table>
+   
+                }
+            </td>
+        </tr>
+    </table>
+</div>
