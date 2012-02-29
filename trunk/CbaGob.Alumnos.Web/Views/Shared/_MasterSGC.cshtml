@@ -1,27 +1,26 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>@ViewBag.Title</title> 
+    <title>@ViewBag.Title</title>
     @Content.Stylesheet("css/Master.css", Url)
-    @Content.Stylesheet("MVCFramework.css", Url)   
+    @Content.Stylesheet("MVCFramework.css", Url)
     @Content.Stylesheet("start/jquery-ui-1.8.17.custom.css", Url)
-    @RenderSection("Stylesheets", false) 
+    @RenderSection("Stylesheets", false)
 </head>
 <body>
     <div id="wrap">
         <div id="header">
-            
         </div>
         <div id="menu">
-             <ul>
-                <li>@Html.ActionLink("Instituciones", "Index", "Instituciones", null, new { @class = ViewBag.Title.Contains("Instituciones") ? "activo" : "" })</li>
-                <li>@Html.ActionLink("Superviciones", "Index", "Superviciones", null, new { @class = ViewBag.Title.Contains("Superviciones") ? "activo" : "" })</li>
-                <li>@Html.ActionLink("Inscripciones", "Index", "Inscripciones", null, new { @class = ViewBag.Title.Contains("Inscripciones") ? "activo" : "" })</li>
-                <li>@Html.ActionLink("Facturaciones", "Index", "Facturaciones", null, new { @class = ViewBag.Title.Contains("Facturaciones") ? "activo" : "" })</li>
-                <li>@Html.ActionLink("Equipamientos", "Index", "Equipamientos", null, new { @class = ViewBag.Title.Contains("Equipamientos") ? "activo" : "" })</li>
-
+            <ul>
+                <li @{if (ViewBag.Title.Contains("Instituciones")){@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Instituciones", "Index", "Instituciones", null, null)</li>
+                <li @{if (ViewBag.Title.Contains("Superviciones")){@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Superviciones", "Index", "Superviciones", null, null)</li>
+                <li @{if (ViewBag.Title.Contains("Inscripciones")){@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Inscripciones", "Index", "Inscripciones", null, null)</li>
+                <li @{if (ViewBag.Title.Contains("Facturaciones")){@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Facturaciones", "Index", "Facturaciones", null, null)</li>
+                <li @{if (ViewBag.Title.Contains("Equipamientos")){@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Equipamientos", "Index", "Equipamientos", null, null)</li>
             </ul>
-            <div align="right">&nbsp;</div>
+            <div align="right">
+                &nbsp;</div>
         </div>
         <div id="content">
             <div class="right">
@@ -30,32 +29,24 @@
             <div class="left">
                 <h2>
                     Categories :</h2>
-                 <ul>
-                    <li>@Html.ActionLink("Instituciones", "Index", "Instituciones", null, new { @class = ViewBag.Title.Contains("Instituciones") ? "activo" : "" })</li>
-                   @* <li>@Html.ActionLink("Establecimientos", "Index", "Establecimientos", null, new { @class = ViewBag.Title.Contains("Establecimientos") ? "activo" : "" })</li>*@
-                    <li>@Html.ActionLink("Docentes", "Index", "Docentes", null, new { @class = ViewBag.Title.Contains("Docentes") ? "activo" : "" })</li>
-                    <li>@Html.ActionLink("Cursos", "Index", "Cursos", null, new { @class = ViewBag.Title.Contains("Cursos") ? "activo" : "" })</li>
-                    @*<li>@Html.ActionLink("Grupos", "Index", "Grupos", null, new { @class = ViewBag.Title.Contains("Grupos") ? "activo" : "" })</li>*@
-                    <li>@Html.ActionLink("Alumnos", "Index", "Alumnos", null, new { @class = ViewBag.Title.Contains("Alumnos") ? "activo" : "" })</li>
-                </ul>
-               
-                <!--<h2>
-                    Archives
-                </h2>
                 <ul>
-                    <li><a href="#">January 2007</a></li>
-                    <li><a href="#">February 2007</a></li>
-                    <li><a href="#">March 2007</a></li>
-                    <li><a href="#">April 2007</a></li>
-                    <li><a href="#">May 2007</a></li>
-                    <li><a href="#">June 2007</a></li>
-                    <li><a href="#">July 2007</a></li>
-                    <li><a href="#">August 2007</a></li>
-                    <li><a href="#">September 2007</a></li>
-                    <li><a href="#">October 2007</a></li>
-                    <li><a href="#">November 2007</a></li>
-                    <li><a href="#">December 2007</a></li>
-                </ul>-->
+                    @{ if (ViewBag.Title.Contains("Instituciones"))
+                       {
+                        <li>@Html.ActionLink("Instituciones", "Index", "Instituciones", null, new { @class = ViewBag.SubMenuSelected == "Instituciones" ? "selected" : "" })</li>                  
+                        <li>@Html.ActionLink("Docentes", "Index", "Docentes", null,  new { @class = ViewBag.SubMenuSelected == "Docentes" ? "selected" : "" })</li>
+                        <li>@Html.ActionLink("Cursos", "Index", "Cursos", null,  new { @class = ViewBag.SubMenuSelected == "Cursos" ? "selected" : "" })</li>                  
+                        <li>@Html.ActionLink("Alumnos", "Index", "Alumnos", null,  new { @class = ViewBag.SubMenuSelected == "Alumnos" ? "selected" : "" })</li>
+                       }
+
+                       if (ViewBag.Title.Contains("Inscripciones"))
+                       {
+                          <li>@Html.ActionLink("Inscripciones", "Index", "Inscripciones", null, null)</li> 
+                       }
+                       
+                       
+                       
+                        }
+                </ul>
             </div>
             <div style="clear: both;">
             </div>
@@ -64,12 +55,12 @@
             Copyright - Terminos de Uso - Gobierno de Córdoba - Contáctenos
         </div>
     </div>
-    @Content.Script("jquery-1.5.1.min.js", Url)    
+    @Content.Script("jquery-1.5.1.min.js", Url)
     @Content.Script("jquery.unobtrusive-ajax.min.js", Url)
-    @Content.Script("jquery.validate.min.js", Url)   
-    @Content.Script("jquery.validate.unobtrusive.min.js", Url)    
+    @Content.Script("jquery.validate.min.js", Url)
+    @Content.Script("jquery.validate.unobtrusive.min.js", Url)
     @Content.Script("jquery-ui-1.8.11.min.js", Url)
-    @Content.Script("CbaGob.Alumnos.Global.js", Url)    
+    @Content.Script("CbaGob.Alumnos.Global.js", Url)
     @RenderSection("Scripts", false)
 </body>
 </html>

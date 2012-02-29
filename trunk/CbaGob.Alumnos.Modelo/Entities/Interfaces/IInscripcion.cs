@@ -7,16 +7,28 @@ namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
 {
     public interface IInscripcion : IComunDatos
     {
-        int Id_Inscipcion { get; set; }
-        int Id_Alumno { get; set; }
-        int Id_Condicion_Curso { get; set; }
-        System.DateTime Fecha { get; set; }
-        string Nov_Apellido { get; set; }
-        string Nov_Nombre { get; set; }
-        string Cuil { get; set; }
-        DateTime Fecha_Nacimiento { get; set; }
-        string Nro_Documento { get; set; }
-        string Nombre_Curso { get; set; }
+        int IdInscripcion { get; set; }
         string Descripcion { get; set; }
+        int Id_Condicion_Curso { get; set; }
+        DateTime Fecha { get; set; }
+
+        int IdInstitucion { get; set; }
+        string NombreInstitucion { get; set; }
+
+        int IdEstadoCurso { get; set; }
+        string NombreEstadoCurso { get; set; }
+
+        int IdCurso { get; set; }
+        string NombreCurso { get; set; }
+
+        int IdNivel { get; set; }
+        string NombreNivel { get; set; }
+
+        int IdModalidad { get; set; }
+        string NombreModalidad { get; set; }
+
+        int Id_Alumno { get; set; }
+        string NombreAlumno { get; set; }
+        string ApellidoAlumno { get; set; }
     }
 }

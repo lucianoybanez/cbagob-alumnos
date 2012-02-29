@@ -22,22 +22,9 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         public IInscripcionesVista GetAllInscripcion()
         {
-            try
-            {
-                IInscripcionesVista inscripcionesvista = new InscripcionesVista();
-
-                IList<IInscripcion> ListaInscripcion = inscripcionrepositorio.GetAllInscripcion();
-
-                inscripcionesvista.ListaInscripcions = ListaInscripcion;
-
-                return inscripcionesvista;
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            IInscripcionesVista inscripcionesvista = new InscripcionesVista();
+            inscripcionesvista.ListaInscripciones = inscripcionrepositorio.GetAllInscripcion();
+            return inscripcionesvista;
         }
 
         public IInscripcionesVista GetAllInscripcionByAlumno(int id_alumno)
@@ -48,7 +35,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
                 IList<IInscripcion> ListaInscripcion = inscripcionrepositorio.GetAllInscripcionByAlumno(id_alumno);
 
-                inscripcionesvista.ListaInscripcions = ListaInscripcion;
+                inscripcionesvista.ListaInscripciones = ListaInscripcion;
 
                 return inscripcionesvista;
 
@@ -70,17 +57,14 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
 
                 IInscripcion inscripcion = inscripcionrepositorio.GetInscripcion(id_inscripcion);
-                inscripcionvista.Cuil = inscripcion.Cuil;
                 inscripcionvista.Descripcion = inscripcion.Descripcion;
                 inscripcionvista.Fecha = inscripcion.Fecha;
-                inscripcionvista.Fecha_Nacimiento = inscripcion.Fecha_Nacimiento;
                 inscripcionvista.Id_Alumno = inscripcion.Id_Alumno;
                 inscripcionvista.Id_Grupo = inscripcion.Id_Condicion_Curso;
-                inscripcionvista.Id_Inscipcion = inscripcion.Id_Inscipcion;
-                inscripcionvista.Nombre_Curso = inscripcion.Nombre_Curso;
+                inscripcionvista.Id_Inscipcion = inscripcion.IdInscripcion;
 
                 inscripcionvista.ListaAlumnos = alumnosrepositorio.GetTodos();
-                
+
                 return inscripcionvista;
 
             }
@@ -99,7 +83,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }

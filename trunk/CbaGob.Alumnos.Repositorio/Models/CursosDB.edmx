@@ -2897,297 +2897,236 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="Model1" ZoomLevel="100">
-        <EntityTypeShape EntityType="Model_Cursos.T_INSTITUCIONES" Width="2" PointX="3" PointY="16.5" Height="3.2357796223958388" />
+      <Diagram Name="Model1" ZoomLevel="77">
+        <EntityTypeShape EntityType="Model_Cursos.T_INSTITUCIONES" Width="2" PointX="2.75" PointY="13.375" Height="3.7109993489583353" />
         <EntityTypeShape EntityType="Model_Cursos.T_MODALIDADES" Width="1.5" PointX="3.5" PointY="23.875" Height="2.2496956380208317" />
         <EntityTypeShape EntityType="Model_Cursos.T_NIVELES" Width="1.5" PointX="3.5" PointY="20.875" Height="2.2496956380208317" />
-        <EntityTypeShape EntityType="Model_Cursos.T_PROGRAMAS" Width="1.5" PointX="3.5" PointY="26.875" Height="2.5783902994791674" />
-        <EntityTypeShape EntityType="Model_Cursos.T_ALUMNOS" Width="1.5" PointX="9.25" PointY="4.75" Height="2.5783902994791674" />
-        <EntityTypeShape EntityType="Model_Cursos.T_ESTABLECIMINETOS" Width="1.875" PointX="8.75" PointY="20.625" Height="2.9070849609375031" />
+        <EntityTypeShape EntityType="Model_Cursos.T_PROGRAMAS" Width="1.5" PointX="10.875" PointY="28.5" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="Model_Cursos.T_ALUMNOS" Width="1.5" PointX="17.875" PointY="3.625" Height="2.9417936197916656" />
+        <EntityTypeShape EntityType="Model_Cursos.T_ESTABLECIMINETOS" Width="1.875" PointX="0.5" PointY="16" Height="3.3263964843750031" />
         <AssociationConnector Association="Model_Cursos.T_ESTABLECIMINETOS_T_INST_FK1" >
-          <ConnectorPoint PointX="5" PointY="18.211643561197917" />
-          <ConnectorPoint PointX="5.291666666666667" PointY="18.211643561197917" />
-          <ConnectorPoint PointX="5.458333333333333" PointY="18.211643561197917" />
-          <ConnectorPoint PointX="5.5" PointY="18.211643561197917" />
-          <ConnectorPoint PointX="5.5" PointY="21.240336914062496" />
-          <ConnectorPoint PointX="5.8072891666666671" PointY="21.240336914062496" />
-          <ConnectorPoint PointX="5.9739558333333331" PointY="21.240336914062496" />
-          <ConnectorPoint PointX="6.010416666666667" PointY="21.240336914062496" />
-          <ConnectorPoint PointX="6.177083333333333" PointY="21.240336914062496" />
-          <ConnectorPoint PointX="6.2135441666666669" PointY="21.240336914062496" />
-          <ConnectorPoint PointX="6.3802108333333329" PointY="21.240336914062496" />
-          <ConnectorPoint PointX="8.5" PointY="21.240336914062496" />
-          <ConnectorPoint PointX="8.5" PointY="19.782084960937503" />
-          <ConnectorPoint PointX="9.937501000000001" PointY="19.782084960937503" />
-          <ConnectorPoint PointX="9.937501000000001" PointY="20.625" />
+          <ConnectorPoint PointX="2.75" PointY="16.542999674479169" />
+          <ConnectorPoint PointX="2.375" PointY="16.542999674479169" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.T_HORARIOS" Width="1.5" PointX="12.125" PointY="20.875" Height="2.907084960937496" />
-        <EntityTypeShape EntityType="Model_Cursos.T_CAJA_CHICA" Width="2" PointX="8.75" PointY="16.625" Height="2.9070849609375031" />
+        <EntityTypeShape EntityType="Model_Cursos.T_HORARIOS" Width="1.5" PointX="15.625" PointY="12.75" Height="3.3263964843750031" />
+        <EntityTypeShape EntityType="Model_Cursos.T_CAJA_CHICA" Width="2" PointX="11.125" PointY="16.625" Height="3.3263964843750031" />
         <AssociationConnector Association="Model_Cursos.T_CAJA_CHICA_T_INSTITUCIO_FK1" >
-          <ConnectorPoint PointX="4" PointY="19.735779622395839" />
-          <ConnectorPoint PointX="4" PointY="19.985779622395839" />
-          <ConnectorPoint PointX="5.291666666666667" PointY="19.985779622395839" />
-          <ConnectorPoint PointX="5.583333333333333" PointY="19.985779622395839" />
-          <ConnectorPoint PointX="5.625" PointY="19.985779622395839" />
-          <ConnectorPoint PointX="5.625" PointY="21.075989583333335" />
-          <ConnectorPoint PointX="5.8072891666666671" PointY="21.075989583333335" />
-          <ConnectorPoint PointX="5.9739558333333331" PointY="21.075989583333335" />
-          <ConnectorPoint PointX="6.010416666666667" PointY="21.075989583333335" />
-          <ConnectorPoint PointX="6.177083333333333" PointY="21.075989583333335" />
-          <ConnectorPoint PointX="6.2135441666666669" PointY="21.075989583333335" />
-          <ConnectorPoint PointX="6.3802108333333329" PointY="21.075989583333335" />
-          <ConnectorPoint PointX="8.375" PointY="21.075989583333335" />
-          <ConnectorPoint PointX="8.375" PointY="18.078542480468752" />
-          <ConnectorPoint PointX="8.75" PointY="18.078542480468752" />
+          <ConnectorPoint PointX="4.75" PointY="16.855499674479169" />
+          <ConnectorPoint PointX="9.6666666666666661" PointY="16.855499674479169" />
+          <ConnectorPoint PointX="9.8333333333333339" PointY="16.855499674479169" />
+          <ConnectorPoint PointX="11.125" PointY="16.855499674479169" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.T_TEMARIO" Width="1.5" PointX="3.5" PointY="34" Height="2.414042968749996" />
-        <EntityTypeShape EntityType="Model_Cursos.T_PROGRAMAS_TEMARIO" Width="2.25" PointX="5.75" PointY="28.875" Height="2.5783902994791674" />
+        <EntityTypeShape EntityType="Model_Cursos.T_TEMARIO" Width="1.5" PointX="14.125" PointY="32.125" Height="2.749492187499996" />
+        <EntityTypeShape EntityType="Model_Cursos.T_PROGRAMAS_TEMARIO" Width="2.25" PointX="10.75" PointY="31.875" Height="2.9417936197916674" />
         <AssociationConnector Association="Model_Cursos.T_PROGRAMAS_TEMARIO_T_PRO_FK1" >
-          <ConnectorPoint PointX="5" PointY="29.164195149739584" />
-          <ConnectorPoint PointX="5.354166666666667" PointY="29.164195149739584" />
-          <ConnectorPoint PointX="5.520833333333333" PointY="29.164195149739584" />
-          <ConnectorPoint PointX="5.75" PointY="29.164195149739584" />
+          <ConnectorPoint PointX="11.625" PointY="31.441793619791667" />
+          <ConnectorPoint PointX="11.625" PointY="31.875" />
         </AssociationConnector>
-        <AssociationConnector Association="Model_Cursos.T_PROGRAMAS_TEMARIO_T_TEM_FK1" >
-          <ConnectorPoint PointX="5" PointY="35.207021484375" />
-          <ConnectorPoint PointX="6.875" PointY="35.207021484375" />
-          <ConnectorPoint PointX="6.875" PointY="31.453390299479167" />
+        <AssociationConnector Association="Model_Cursos.T_PROGRAMAS_TEMARIO_T_TEM_FK1" ManuallyRouted="false" >
+          <ConnectorPoint PointX="15.625" PointY="32.29541989731306" />
+          <ConnectorPoint PointX="15.865" PointY="32.29541989731306" />
+          <ConnectorPoint PointX="15.865" PointY="31.635" />
+          <ConnectorPoint PointX="12.343752" PointY="31.635" />
+          <ConnectorPoint PointX="12.343752" PointY="31.875" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.T_PRESTAMOS" Width="1.5" PointX="8.75" PointY="12.5" Height="3.0714322916666674" />
+        <EntityTypeShape EntityType="Model_Cursos.T_PRESTAMOS" Width="1.5" PointX="2.625" PointY="9.25" Height="3.5186979166666674" />
         <AssociationConnector Association="Model_Cursos.T_PRESTAMOS_T_INSTITUCION_FK1" >
-          <ConnectorPoint PointX="3.34375" PointY="16.5" />
-          <ConnectorPoint PointX="3.34375" PointY="14.726695149739586" />
-          <ConnectorPoint PointX="6.041666666666667" PointY="14.726695149739586" />
-          <ConnectorPoint PointX="6.208333333333333" PointY="14.726695149739586" />
-          <ConnectorPoint PointX="8.75" PointY="14.726695149739586" />
+          <ConnectorPoint PointX="3.4375" PointY="13.375" />
+          <ConnectorPoint PointX="3.4375" PointY="12.768697916666667" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.T_EQUIPOS" Width="1.5" PointX="6.5" PointY="11.75" Height="2.5783902994791674" />
-        <EntityTypeShape EntityType="Model_Cursos.T_ESTADOS_EQUIPO" Width="2" PointX="3.75" PointY="12" Height="2.2496956380208317" />
+        <EntityTypeShape EntityType="Model_Cursos.T_EQUIPOS" Width="1.5" PointX="2.5" PointY="6" Height="2.9417936197916656" />
+        <EntityTypeShape EntityType="Model_Cursos.T_ESTADOS_EQUIPO" Width="2" PointX="2.25" PointY="3.125" Height="2.5571907552083317" />
         <AssociationConnector Association="Model_Cursos.T_EQUIPOS_T_ESTADOS_EQUIP_FK1" >
-          <ConnectorPoint PointX="5.75" PointY="13.124847819010416" />
-          <ConnectorPoint PointX="6.041666666666667" PointY="13.124847819010416" />
-          <ConnectorPoint PointX="6.208333333333333" PointY="13.124847819010416" />
-          <ConnectorPoint PointX="6.5" PointY="13.124847819010416" />
+          <ConnectorPoint PointX="3.25" PointY="5.6821907552083317" />
+          <ConnectorPoint PointX="3.25" PointY="6" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_PRESTAMOS_T_EQUIPOS_FK1" >
-          <ConnectorPoint PointX="8" PointY="13.414195149739584" />
-          <ConnectorPoint PointX="8.75" PointY="13.414195149739584" />
+          <ConnectorPoint PointX="3.3125" PointY="8.9417936197916656" />
+          <ConnectorPoint PointX="3.3125" PointY="9.25" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.T_CERTIFICACIONES" Width="1.875" PointX="13.75" PointY="11.25" Height="2.2496956380208317" />
+        <EntityTypeShape EntityType="Model_Cursos.T_CERTIFICACIONES" Width="1.875" PointX="17.625" PointY="11.25" Height="2.5571907552083317" />
         <EntityTypeShape EntityType="Model_Cursos.T_NOVEDADES" Width="1.5" PointX="17.75" PointY="29.125" Height="2.4140429687500031" />
-        <EntityTypeShape EntityType="Model_Cursos.T_SUPERVISORES" Width="1.5" PointX="15.5" PointY="23.125" Height="2.4140429687500031" />
-        <EntityTypeShape EntityType="Model_Cursos.T_CARGOS" Width="1.5" PointX="9.875" PointY="30" Height="2.2496956380208282" />
-        <EntityTypeShape EntityType="Model_Cursos.T_CONDICIONES_CURSO" Width="2" PointX="5.75" PointY="15.125" Height="5.8653369140625014" />
+        <EntityTypeShape EntityType="Model_Cursos.T_SUPERVISORES" Width="1.5" PointX="18.75" PointY="25.625" Height="2.7494921875000031" />
+        <EntityTypeShape EntityType="Model_Cursos.T_CARGOS" Width="1.5" PointX="20.875" PointY="28.5" Height="2.5571907552083317" />
+        <EntityTypeShape EntityType="Model_Cursos.T_CONDICIONES_CURSO" Width="2" PointX="8.75" PointY="20.875" Height="6.787822265625" />
         <AssociationConnector Association="Model_Cursos.T_CONDICIONES_CURSO_T_INS_FK1" >
-          <ConnectorPoint PointX="5" PointY="17.293321780598959" />
-          <ConnectorPoint PointX="5.291666666666667" PointY="17.293321780598959" />
-          <ConnectorPoint PointX="5.458333333333333" PointY="17.293321780598959" />
-          <ConnectorPoint PointX="5.75" PointY="17.293321780598959" />
+          <ConnectorPoint PointX="3.3125" PointY="17.085999348958335" />
+          <ConnectorPoint PointX="3.3125" PointY="26.778595377604169" />
+          <ConnectorPoint PointX="8.75" PointY="26.778595377604169" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_CONDICIONES_CURSO_T_MOD_FK1" >
-          <ConnectorPoint PointX="5" PointY="25.218445638020835" />
-          <ConnectorPoint PointX="5.291666666666667" PointY="25.218445638020835" />
-          <ConnectorPoint PointX="5.520833333333333" PointY="25.218445638020835" />
-          <ConnectorPoint PointX="6.09375" PointY="25.218445638020835" />
-          <ConnectorPoint PointX="6.09375" PointY="20.9903369140625" />
+          <ConnectorPoint PointX="5" PointY="25.153595377604169" />
+          <ConnectorPoint PointX="8.75" PointY="25.153595377604169" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_CONDICIONES_CURSO_T_NIV_FK1" >
-          <ConnectorPoint PointX="5" PointY="21.588918457031248" />
-          <ConnectorPoint PointX="5.291666666666667" PointY="21.588918457031248" />
-          <ConnectorPoint PointX="5.520833333333333" PointY="21.588918457031248" />
-          <ConnectorPoint PointX="5.8906225" PointY="21.588918457031248" />
-          <ConnectorPoint PointX="5.8906225" PointY="20.9903369140625" />
+          <ConnectorPoint PointX="5" PointY="22.153595377604169" />
+          <ConnectorPoint PointX="8.75" PointY="22.153595377604169" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_CONDICIONES_CURSO_T_PRO_FK1" >
-          <ConnectorPoint PointX="5" PointY="26.876152846153843" />
-          <ConnectorPoint PointX="5.375" PointY="26.501152846153843" />
-          <ConnectorPoint PointX="5.375" PointY="16.177908890299484" />
-          <ConnectorPoint PointX="5.75" PointY="16.177908890299484" />
+          <ConnectorPoint PointX="10.875" PointY="28.56455755967087" />
+          <ConnectorPoint PointX="10.0000025" PointY="28.56455755967087" />
+          <ConnectorPoint PointX="10.0000025" PointY="27.662822265625" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.T_MOVIMIENTOS" Width="1.5" PointX="11.5" PointY="16.5" Height="3.2357796223958388" />
+        <EntityTypeShape EntityType="Model_Cursos.T_MOVIMIENTOS" Width="1.5" PointX="11.125" PointY="11.875" Height="3.7109993489583353" />
         <AssociationConnector Association="Model_Cursos.T_MOVIMIENTOS_T_CAJA_CHIC_FK1" >
-          <ConnectorPoint PointX="10.75" PointY="18.078542480468752" />
-          <ConnectorPoint PointX="11.041666666666666" PointY="18.078542480468752" />
-          <ConnectorPoint PointX="11.208333333333334" PointY="18.078542480468752" />
-          <ConnectorPoint PointX="11.5" PointY="18.078542480468752" />
+          <ConnectorPoint PointX="11.875" PointY="16.625" />
+          <ConnectorPoint PointX="11.875" PointY="15.585999348958335" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.T_TIPOS_MOVIMIENTOS" Width="1.5" PointX="9.25" PointY="9" Height="2.2496956380208388" />
+        <EntityTypeShape EntityType="Model_Cursos.T_TIPOS_MOVIMIENTOS" Width="1.5" PointX="11.125" PointY="7.5" Height="2.5571907552083317" />
         <AssociationConnector Association="Model_Cursos.T_MOVIMIENTOS_T_TIPOS_MOV_FK1" >
-          <ConnectorPoint PointX="10.75" PointY="11.249695638020839" />
-          <ConnectorPoint PointX="11.125" PointY="11.624695638020839" />
-          <ConnectorPoint PointX="11.125" PointY="18.938413051432288" />
-          <ConnectorPoint PointX="11.5" PointY="18.938413051432288" />
+          <ConnectorPoint PointX="11.875" PointY="10.057190755208332" />
+          <ConnectorPoint PointX="11.875" PointY="11.875" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Model_Cursos.T_PERSONASJUR" Width="2.125" PointX="0.75" PointY="0.75" Height="1.7566536458333335" />
-        <EntityTypeShape EntityType="Model_Cursos.T_CURSOS" Width="1.5" PointX="3.5" PointY="8.75" Height="2.4140429687499996" />
-        <EntityTypeShape EntityType="Model_Cursos.T_DETALLES_FACTURA" Width="1.875" PointX="11.25" PointY="25.125" Height="2.7427376302083388" />
-        <EntityTypeShape EntityType="Model_Cursos.T_ESTADOS_CAJA_CHICA" Width="1.5" PointX="6.5" PointY="22" Height="2.2496956380208388" />
-        <EntityTypeShape EntityType="Model_Cursos.T_ESTADOS_CURSO" Width="1.5" PointX="3.5" PointY="30.125" Height="2.2496956380208388" />
-        <EntityTypeShape EntityType="Model_Cursos.T_EXAMENES" Width="1.5" PointX="13.75" PointY="7.25" Height="2.7427376302083317" />
-        <EntityTypeShape EntityType="Model_Cursos.T_FACTURAS" Width="2" PointX="8.5" PointY="25.125" Height="2.907084960937496" />
-        <EntityTypeShape EntityType="Model_Cursos.T_SUPERVICIONES" Width="1.5" PointX="17.75" PointY="20.75" Height="3.0714322916666674" />
+        <EntityTypeShape EntityType="Model_Cursos.T_CURSOS" Width="1.5" PointX="1.625" PointY="27.125" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="Model_Cursos.T_DETALLES_FACTURA" Width="1.875" PointX="8.125" PointY="33.25" Height="3.1340950520833353" />
+        <EntityTypeShape EntityType="Model_Cursos.T_ESTADOS_CAJA_CHICA" Width="1.5" PointX="13.5" PointY="13.75" Height="2.5571907552083353" />
+        <EntityTypeShape EntityType="Model_Cursos.T_ESTADOS_CURSO" Width="1.5" PointX="11.25" PointY="25.125" Height="2.5571907552083317" />
+        <EntityTypeShape EntityType="Model_Cursos.T_EXAMENES" Width="1.5" PointX="17.125" PointY="7.25" Height="3.1340950520833317" />
+        <EntityTypeShape EntityType="Model_Cursos.T_FACTURAS" Width="2" PointX="7.875" PointY="28.875" Height="3.3263964843749996" />
+        <EntityTypeShape EntityType="Model_Cursos.T_SUPERVICIONES" Width="1.5" PointX="16" PointY="24.625" Height="3.5186979166666674" />
         <AssociationConnector Association="Model_Cursos.T_CAJA_CHICA_T_ESTADOS_CA_FK1" >
-          <ConnectorPoint PointX="8" PointY="23.839966634114589" />
-          <ConnectorPoint PointX="10.71875" PointY="23.839966634114589" />
-          <ConnectorPoint PointX="10.71875" PointY="19.532084960937503" />
+          <ConnectorPoint PointX="13.5" PointY="16.307190755208335" />
+          <ConnectorPoint PointX="13.125" PointY="16.625" />
         </AssociationConnector>
-        <AssociationConnector Association="Model_Cursos.T_CONDICIONES_CURSO_T_CUR_FK1" >
-          <ConnectorPoint PointX="5" PointY="9.957021484375" />
-          <ConnectorPoint PointX="6.125" PointY="9.957021484375" />
-          <ConnectorPoint PointX="6.125" PointY="15.125" />
+        <AssociationConnector Association="Model_Cursos.T_CONDICIONES_CURSO_T_CUR_FK1" ManuallyRouted="false" >
+          <ConnectorPoint PointX="3.125" PointY="27.488641793619784" />
+          <ConnectorPoint PointX="8.75" PointY="27.488641793619784" />
         </AssociationConnector>
-        <AssociationConnector Association="Model_Cursos.T_CONDICIONES_CURSO_T_EST_FK1" >
-          <ConnectorPoint PointX="5" PointY="30.188460538461534" />
-          <ConnectorPoint PointX="5.4375" PointY="29.750960538461534" />
-          <ConnectorPoint PointX="5.4375" PointY="19.098711591796878" />
-          <ConnectorPoint PointX="5.75" PointY="19.098711591796878" />
+        <AssociationConnector Association="Model_Cursos.T_CONDICIONES_CURSO_T_EST_FK1" ManuallyRouted="false" >
+          <ConnectorPoint PointX="11.25" PointY="26.393911132812498" />
+          <ConnectorPoint PointX="10.75" PointY="26.393911132812498" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_FACTURAS_T_CONDICIONES__FK1" >
-          <ConnectorPoint PointX="6.2968775" PointY="20.9903369140625" />
-          <ConnectorPoint PointX="6.2968775" PointY="26.625265299479167" />
-          <ConnectorPoint PointX="8.5" PointY="26.625265299479167" />
+          <ConnectorPoint PointX="9.1875" PointY="27.662822265625" />
+          <ConnectorPoint PointX="9.1875" PointY="28.875" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_DETALLES_FACTURA_T_FACT_FK1" >
-          <ConnectorPoint PointX="10.5" PointY="26.496368815104169" />
-          <ConnectorPoint PointX="11.25" PointY="26.496368815104169" />
+          <ConnectorPoint PointX="9" PointY="32.201396484374996" />
+          <ConnectorPoint PointX="9" PointY="33.25" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_SUPERVICIONES_T_SUPERVI_FK1" >
-          <ConnectorPoint PointX="17" PointY="23.473216145833334" />
-          <ConnectorPoint PointX="17.291666666666668" PointY="23.473216145833334" />
-          <ConnectorPoint PointX="17.458333333333332" PointY="23.473216145833334" />
-          <ConnectorPoint PointX="17.75" PointY="23.473216145833334" />
+          <ConnectorPoint PointX="18.75" PointY="26.884348958333334" />
+          <ConnectorPoint PointX="17.5" PointY="26.884348958333334" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.T_PERSONAS" Width="1.5" PointX="7" PointY="4.75" Height="2.7427376302083335" />
+        <EntityTypeShape EntityType="Model_Cursos.T_PERSONAS" Width="1.5" PointX="20" PointY="1.625" Height="3.1340950520833317" />
         <AssociationConnector Association="Model_Cursos.T_ALUMNOS_T_PERSONAS_FK1" >
-          <ConnectorPoint PointX="8.5" PointY="6.0391951497395837" />
-          <ConnectorPoint PointX="9.25" PointY="6.0391951497395837" />
+          <ConnectorPoint PointX="20.987940289068483" PointY="1.625" />
+          <ConnectorPoint PointX="20.987940289068483" PointY="1.375" />
+          <ConnectorPoint PointX="19.75" PointY="1.375" />
+          <ConnectorPoint PointX="19.75" PointY="5.0958968098958328" />
+          <ConnectorPoint PointX="19.375" PointY="5.0958968098958328" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.T_DOMICILIO" Width="1.5" PointX="0.75" PointY="17" Height="2.2496956380208388" />
+        <EntityTypeShape EntityType="Model_Cursos.T_DOMICILIO" Width="1.5" PointX="0.875" PointY="11.5" Height="2.5571907552083353" />
         <AssociationConnector Association="Model_Cursos.T_ESTABLECIMINETOS_T_DOMI_FK1" >
-          <ConnectorPoint PointX="2.25" PointY="18.124847819010419" />
-          <ConnectorPoint PointX="2.75" PointY="18.124847819010419" />
-          <ConnectorPoint PointX="2.75" PointY="20.017029622395839" />
-          <ConnectorPoint PointX="5.25" PointY="20.017029622395839" />
-          <ConnectorPoint PointX="5.25" PointY="21.365336914062496" />
-          <ConnectorPoint PointX="5.291666666666667" PointY="21.365336914062496" />
-          <ConnectorPoint PointX="5.520833333333333" PointY="21.365336914062496" />
-          <ConnectorPoint PointX="5.8072891666666671" PointY="21.365336914062496" />
-          <ConnectorPoint PointX="5.9739558333333331" PointY="21.365336914062496" />
-          <ConnectorPoint PointX="6.010416666666667" PointY="21.365336914062496" />
-          <ConnectorPoint PointX="6.177083333333333" PointY="21.365336914062496" />
-          <ConnectorPoint PointX="6.2135441666666669" PointY="21.365336914062496" />
-          <ConnectorPoint PointX="6.3802108333333329" PointY="21.365336914062496" />
-          <ConnectorPoint PointX="8.625" PointY="21.365336914062496" />
-          <ConnectorPoint PointX="8.625" PointY="20.032084960937503" />
-          <ConnectorPoint PointX="9.3124985" PointY="20.032084960937503" />
-          <ConnectorPoint PointX="9.3124985" PointY="20.625" />
+          <ConnectorPoint PointX="1.625" PointY="14.057190755208335" />
+          <ConnectorPoint PointX="1.625" PointY="16" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_INSTITUCIONES_T_DOMICIL_FK1" >
-          <ConnectorPoint PointX="2.25" PointY="17.49992390950521" />
-          <ConnectorPoint PointX="3" PointY="17.49992390950521" />
+          <ConnectorPoint PointX="2.375" PointY="13.716095377604168" />
+          <ConnectorPoint PointX="2.75" PointY="13.716095377604168" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.T_INSCRIPCIONES" Width="1.5" PointX="11.5" PointY="12.5" Height="3.2357796223958317" />
+        <EntityTypeShape EntityType="Model_Cursos.T_INSCRIPCIONES" Width="1.875" PointX="14.125" PointY="6" Height="3.7109993489583353" />
         <AssociationConnector Association="Model_Cursos.T_INSCRIPCIONES_T_ALUMNOS_FK1" >
-          <ConnectorPoint PointX="10.75" PointY="6.0391951497395837" />
-          <ConnectorPoint PointX="12.25" PointY="6.0391951497395837" />
-          <ConnectorPoint PointX="12.25" PointY="12.5" />
+          <ConnectorPoint PointX="17.875" PointY="6.2833968098958328" />
+          <ConnectorPoint PointX="16" PointY="6.2833968098958328" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_CERTIFICACIONES_T_INSCR_FK1" >
-          <ConnectorPoint PointX="13" PointY="12.999847819010416" />
-          <ConnectorPoint PointX="13.75" PointY="12.999847819010416" />
+          <ConnectorPoint PointX="15.3125" PointY="9.7109993489583353" />
+          <ConnectorPoint PointX="15.3125" PointY="11.96875" />
+          <ConnectorPoint PointX="17.625" PointY="11.96875" />
         </AssociationConnector>
-        <AssociationConnector Association="Model_Cursos.T_INSCRIPCIONES_T_CONDICI_FK1" >
-          <ConnectorPoint PointX="7.75" PointY="15.68485595703125" />
-          <ConnectorPoint PointX="11.041666666666666" PointY="15.68485595703125" />
-          <ConnectorPoint PointX="11.208333333333334" PointY="15.68485595703125" />
-          <ConnectorPoint PointX="11.5" PointY="15.68485595703125" />
+        <AssociationConnector Association="Model_Cursos.T_INSCRIPCIONES_T_CONDICI_FK1" ManuallyRouted="false" >
+          <ConnectorPoint PointX="9.75" PointY="20.875" />
+          <ConnectorPoint PointX="9.75" PointY="6.71875" />
+          <ConnectorPoint PointX="14.125" PointY="6.71875" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_EXAMENES_T_INSCRIPCIONE_FK1" >
-          <ConnectorPoint PointX="12.6562525" PointY="12.5" />
-          <ConnectorPoint PointX="12.6562525" PointY="8.6213688151041659" />
-          <ConnectorPoint PointX="13.75" PointY="8.6213688151041659" />
+          <ConnectorPoint PointX="16" PointY="8.4804996744791676" />
+          <ConnectorPoint PointX="17.125" PointY="8.4804996744791676" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Model_Cursos.T_ALUMONOS_GRUPO" Width="1.5" PointX="20.75" PointY="16.875" Height="2.907084960937496" />
         <AssociationConnector Association="Model_Cursos.T_ALUMONOS_GRUPO_T_ALUMNO_FK1" >
-          <ConnectorPoint PointX="10.75" PointY="5.3633450748697911" />
-          <ConnectorPoint PointX="21.5" PointY="5.3633450748697911" />
-          <ConnectorPoint PointX="21.5" PointY="16.875" />
+          <ConnectorPoint PointX="19.375" PointY="5.86259771484375" />
+          <ConnectorPoint PointX="21.90625" PointY="5.86259771484375" />
+          <ConnectorPoint PointX="21.90625" PointY="16.875" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_ALUMONOS_GRUPO_T_CONDIC_FK1" >
-          <ConnectorPoint PointX="7.75" PointY="16.277694905598956" />
-          <ConnectorPoint PointX="11.041666666666666" PointY="16.277694905598956" />
-          <ConnectorPoint PointX="11.208333333333334" PointY="16.277694905598956" />
-          <ConnectorPoint PointX="18.416666666666668" PointY="16.277694905598956" />
-          <ConnectorPoint PointX="18.583333333333332" PointY="16.277694905598956" />
-          <ConnectorPoint PointX="21.0937475" PointY="16.277694905598956" />
-          <ConnectorPoint PointX="21.0937475" PointY="16.875" />
+          <ConnectorPoint PointX="10.75" PointY="23.008203154296872" />
+          <ConnectorPoint PointX="15.036666666666667" PointY="23.008203154296872" />
+          <ConnectorPoint PointX="15.203333333333335" PointY="23.008203154296872" />
+          <ConnectorPoint PointX="15.445419166666666" PointY="23.008203154296872" />
+          <ConnectorPoint PointX="15.612085833333333" PointY="23.008203154296872" />
+          <ConnectorPoint PointX="18.182294166666669" PointY="23.008203154296872" />
+          <ConnectorPoint PointX="18.348960833333333" PointY="23.008203154296872" />
+          <ConnectorPoint PointX="20.78125" PointY="23.008203154296872" />
+          <ConnectorPoint PointX="20.78125" PointY="20.201396484375003" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Model_Cursos.T_DOCENTES_GRUPO" Width="1.5" PointX="17.75" PointY="16.875" Height="2.7427376302083388" />
         <AssociationConnector Association="Model_Cursos.T_DOCENTES_GRUPO_T_CONDIC_FK1" >
-          <ConnectorPoint PointX="7.75" PointY="16.0067347639974" />
-          <ConnectorPoint PointX="11.041666666666666" PointY="16.0067347639974" />
-          <ConnectorPoint PointX="11.208333333333334" PointY="16.0067347639974" />
-          <ConnectorPoint PointX="18.5" PointY="16.0067347639974" />
-          <ConnectorPoint PointX="18.5" PointY="16.875" />
+          <ConnectorPoint PointX="10.75" PointY="22.641401308593757" />
+          <ConnectorPoint PointX="15.036666666666667" PointY="22.641401308593757" />
+          <ConnectorPoint PointX="15.203333333333335" PointY="22.641401308593757" />
+          <ConnectorPoint PointX="15.445419166666666" PointY="22.641401308593757" />
+          <ConnectorPoint PointX="15.612085833333333" PointY="22.641401308593757" />
+          <ConnectorPoint PointX="17.78125" PointY="22.641401308593757" />
+          <ConnectorPoint PointX="17.78125" PointY="20.201396484375003" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.T_DOCENTES" Width="1.5" PointX="12.125" PointY="28.625" Height="3.0714322916666639" />
+        <EntityTypeShape EntityType="Model_Cursos.T_DOCENTES" Width="1.5" PointX="20.875" PointY="23.375" Height="3.7109993489583388" />
         <AssociationConnector Association="Model_Cursos.T_DOCENTES_T_CARGOS_FK1" >
-          <ConnectorPoint PointX="11.375" PointY="30.930389811197919" />
-          <ConnectorPoint PointX="12.125" PointY="30.930389811197919" />
+          <ConnectorPoint PointX="21.625" PointY="28.5" />
+          <ConnectorPoint PointX="21.625" PointY="27.085999348958339" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_DOCENTES_GRUPO_T_DOCENT_FK1" >
-          <ConnectorPoint PointX="13.625" PointY="28.625" />
-          <ConnectorPoint PointX="14" PointY="28.25" />
-          <ConnectorPoint PointX="14.822916666666666" PointY="28.25" />
-          <ConnectorPoint PointX="14.989583333333334" PointY="28.25" />
-          <ConnectorPoint PointX="17.375" PointY="28.25" />
-          <ConnectorPoint PointX="17.375" PointY="20.157084960937503" />
-          <ConnectorPoint PointX="17.75" PointY="19.782084960937503" />
+          <ConnectorPoint PointX="20.875" PointY="24.271497337239591" />
+          <ConnectorPoint PointX="18.2656275" PointY="24.271497337239591" />
+          <ConnectorPoint PointX="18.2656275" PointY="20.201396484375003" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Model_Cursos.T_GRUPOS" Width="1.5" PointX="14.375" PointY="17.5" Height="3.893168945312496" />
         <AssociationConnector Association="Model_Cursos.T_ALUMONOS_GRUPO_T_GRUPOS_FK1" >
-          <ConnectorPoint PointX="15.875" PointY="20.266044980468752" />
-          <ConnectorPoint PointX="17.291666666666668" PointY="20.266044980468752" />
-          <ConnectorPoint PointX="17.458333333333332" PointY="20.266044980468752" />
-          <ConnectorPoint PointX="21.5" PointY="20.266044980468752" />
-          <ConnectorPoint PointX="21.5" PointY="19.782084960937503" />
+          <ConnectorPoint PointX="15.875" PointY="21.069450742187495" />
+          <ConnectorPoint PointX="17.697916666666668" PointY="21.069450742187495" />
+          <ConnectorPoint PointX="17.864583333333332" PointY="21.069450742187495" />
+          <ConnectorPoint PointX="18.182294166666669" PointY="21.069450742187495" />
+          <ConnectorPoint PointX="18.348960833333333" PointY="21.069450742187495" />
+          <ConnectorPoint PointX="20.697916666666668" PointY="21.069450742187495" />
+          <ConnectorPoint PointX="20.864583333333332" PointY="21.069450742187495" />
+          <ConnectorPoint PointX="21.0937475" PointY="21.069450742187495" />
+          <ConnectorPoint PointX="21.0937475" PointY="20.201396484375003" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_GRUPOS_T_CONDICIONES_CU_FK2" >
-          <ConnectorPoint PointX="7.75" PointY="20.359792480468752" />
-          <ConnectorPoint PointX="8.2916666666666661" PointY="20.359792480468752" />
-          <ConnectorPoint PointX="8.7083333333333339" PointY="20.359792480468752" />
-          <ConnectorPoint PointX="9.2291651666666663" PointY="20.359792480468752" />
-          <ConnectorPoint PointX="9.3958318333333342" PointY="20.359792480468752" />
-          <ConnectorPoint PointX="9.8541676666666671" PointY="20.359792480468752" />
-          <ConnectorPoint PointX="10.020834333333335" PointY="20.359792480468752" />
-          <ConnectorPoint PointX="10.635416666666666" PointY="20.359792480468752" />
-          <ConnectorPoint PointX="10.802083333333334" PointY="20.359792480468752" />
-          <ConnectorPoint PointX="14.375" PointY="20.359792480468752" />
+          <ConnectorPoint PointX="10.75" PointY="21.4276025390625" />
+          <ConnectorPoint PointX="14.375" PointY="21.4276025390625" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_DOCENTES_GRUPO_T_GRUPOS_FK1" >
-          <ConnectorPoint PointX="15.875" PointY="18.609789980468751" />
-          <ConnectorPoint PointX="17.75" PointY="18.609789980468751" />
+          <ConnectorPoint PointX="15.875" PointY="18.8506982421875" />
+          <ConnectorPoint PointX="16.447919166666669" PointY="18.8506982421875" />
+          <ConnectorPoint PointX="16.614585833333333" PointY="18.8506982421875" />
+          <ConnectorPoint PointX="17.75" PointY="18.8506982421875" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_GRUPOS_T_CONDICIONES_CU_FK1" >
-          <ConnectorPoint PointX="10.625" PointY="20.71875" />
-          <ConnectorPoint PointX="10.635416666666666" PointY="20.71875" />
-          <ConnectorPoint PointX="10.802083333333334" PointY="20.71875" />
-          <ConnectorPoint PointX="14.375" PointY="20.71875" />
+          <ConnectorPoint PointX="1.4375" PointY="19.326396484375003" />
+          <ConnectorPoint PointX="1.4375" PointY="20.4131982421875" />
+          <ConnectorPoint PointX="3.2291666666666665" PointY="20.4131982421875" />
+          <ConnectorPoint PointX="3.3958333333333335" PointY="20.4131982421875" />
+          <ConnectorPoint PointX="9.6666666666666661" PointY="20.4131982421875" />
+          <ConnectorPoint PointX="9.8333333333333339" PointY="20.4131982421875" />
+          <ConnectorPoint PointX="14.375" PointY="20.4131982421875" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_GRUPOS_T_HORARIOS_FK1" >
-          <ConnectorPoint PointX="13.625" PointY="21.134084472656248" />
-          <ConnectorPoint PointX="14.375" PointY="21.134084472656248" />
+          <ConnectorPoint PointX="16.5312525" PointY="16.076396484375003" />
+          <ConnectorPoint PointX="16.5312525" PointY="19.737849121093753" />
+          <ConnectorPoint PointX="15.875" PointY="19.737849121093753" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_NOVEDADES_T_GRUPOS_FK1" >
-          <ConnectorPoint PointX="14.90625" PointY="21.393168945312496" />
-          <ConnectorPoint PointX="14.90625" PointY="30.332021484375" />
-          <ConnectorPoint PointX="17.75" PointY="30.332021484375" />
+          <ConnectorPoint PointX="15.120000000000001" PointY="21.980205078125003" />
+          <ConnectorPoint PointX="15.120000000000001" PointY="30.380000000000003" />
+          <ConnectorPoint PointX="17.75" PointY="30.380000000000003" />
         </AssociationConnector>
         <AssociationConnector Association="Model_Cursos.T_SUPERVICIONES_T_GRUPOS_FK1" >
-          <ConnectorPoint PointX="15.875" PointY="21.071584472656248" />
-          <ConnectorPoint PointX="17.291666666666668" PointY="21.071584472656248" />
-          <ConnectorPoint PointX="17.458333333333332" PointY="21.071584472656248" />
-          <ConnectorPoint PointX="17.75" PointY="21.071584472656248" />
+          <ConnectorPoint PointX="15.5287525" PointY="21.980205078125003" />
+          <ConnectorPoint PointX="15.5287525" PointY="26.384348958333334" />
+          <ConnectorPoint PointX="16" PointY="26.384348958333334" />
         </AssociationConnector>
         </Diagram>
     </Diagrams>

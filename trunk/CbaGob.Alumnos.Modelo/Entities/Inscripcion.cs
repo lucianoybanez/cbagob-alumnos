@@ -13,16 +13,22 @@ namespace CbaGob.Alumnos.Modelo.Entities
         public DateTime FechaModificacion { get; set; }
         public string UsuarioModificacion { get; set; }
         public string Estado { get; set; }
-        public int Id_Inscipcion { get; set; }
-        public int Id_Alumno { get; set; }
+        public int IdInscripcion { get; set; }
+        public string Descripcion { get; set; }
         public int Id_Condicion_Curso { get; set; }
         public DateTime Fecha { get; set; }
-        public string Nov_Apellido { get; set; }
-        public string Nov_Nombre { get; set; }
-        public string Cuil { get; set; }
-        public DateTime Fecha_Nacimiento { get; set; }
-        public string Nro_Documento { get; set; }
-        public string Nombre_Curso { get; set; }
-        public string Descripcion { get; set; }
+        public int IdInstitucion { get; set; }
+        public string NombreInstitucion { get; set; }
+        public int IdEstadoCurso { get; set; }
+        public string NombreEstadoCurso { get; set; }
+        public int IdCurso { get; set; }
+        public string NombreCurso { get; set; }
+        public int IdNivel { get; set; }
+        public string NombreNivel { get; set; }
+        public int IdModalidad { get; set; }
+        public string NombreModalidad { get; set; }
+        public int Id_Alumno { get; set; }
+        public string NombreAlumno { get; set; }
+        public string ApellidoAlumno { get; set; }
     }
 }
