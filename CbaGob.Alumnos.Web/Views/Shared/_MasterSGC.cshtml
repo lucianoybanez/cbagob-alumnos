@@ -13,11 +13,16 @@
         </div>
         <div id="menu">
             <ul>
-                <li @{if (ViewBag.Title.Contains("Instituciones")){@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Instituciones", "Index", "Instituciones", null, null)</li>
-                <li @{if (ViewBag.Title.Contains("Superviciones")){@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Superviciones", "Index", "Superviciones", null, null)</li>
-                <li @{if (ViewBag.Title.Contains("Inscripciones")){@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Inscripciones", "Index", "Inscripciones", null, null)</li>
-                <li @{if (ViewBag.Title.Contains("Facturaciones")){@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Facturaciones", "Index", "Facturaciones", null, null)</li>
-                <li @{if (ViewBag.Title.Contains("Equipamientos")){@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Equipamientos", "Index", "Equipamientos", null, null)</li>
+                <li @{if (ViewBag.Title.Contains("Instituciones"))
+                      {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Instituciones", "Index", "Instituciones", null, null)</li>
+                <li @{if (ViewBag.Title.Contains("Superviciones"))
+                      {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Superviciones", "Index", "Superviciones", null, null)</li>
+                <li @{if (ViewBag.Title.Contains("Inscripciones"))
+                      {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Inscripciones", "Index", "Inscripciones", null, null)</li>
+                <li @{if (ViewBag.Title.Contains("Facturaciones"))
+                      {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Facturaciones", "Index", "Facturaciones", null, null)</li>
+                <li @{if (ViewBag.Title.Contains("Equipamientos"))
+                      {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Equipamientos", "Index", "Equipamientos", null, null)</li>
             </ul>
             <div align="right">
                 &nbsp;</div>
@@ -32,20 +37,26 @@
                 <ul>
                     @{ if (ViewBag.Title.Contains("Instituciones"))
                        {
-                        <li>@Html.ActionLink("Instituciones", "Index", "Instituciones", null, new { @class = ViewBag.SubMenuSelected == "Instituciones" ? "selected" : "" })</li>                  
-                        <li>@Html.ActionLink("Docentes", "Index", "Docentes", null,  new { @class = ViewBag.SubMenuSelected == "Docentes" ? "selected" : "" })</li>
-                        <li>@Html.ActionLink("Cursos", "Index", "Cursos", null,  new { @class = ViewBag.SubMenuSelected == "Cursos" ? "selected" : "" })</li>                  
-                        <li>@Html.ActionLink("Alumnos", "Index", "Alumnos", null,  new { @class = ViewBag.SubMenuSelected == "Alumnos" ? "selected" : "" })</li>
+                        <li>@Html.ActionLink("Gestion Instituciones", "Index", "Instituciones", null, new { @class = ViewBag.SubMenuSelected == "Instituciones" ? "selected" : "" })</li>                  
+                        <li>@Html.ActionLink("Gestion Docentes", "Index", "Docentes", null, new { @class = ViewBag.SubMenuSelected == "Docentes" ? "selected" : "" })</li>
+                        <li>@Html.ActionLink("Gestion Cursos", "Index", "Cursos", null, new { @class = ViewBag.SubMenuSelected == "Cursos" ? "selected" : "" })</li>                  
+                        <li>@Html.ActionLink("Gestion Alumnos", "Index", "Alumnos", null, new { @class = ViewBag.SubMenuSelected == "Alumnos" ? "selected" : "" })</li>
                        }
 
                        if (ViewBag.Title.Contains("Inscripciones"))
                        {
-                          <li>@Html.ActionLink("Inscripciones", "Index", "Inscripciones", null, null)</li> 
+                        <li>@Html.ActionLink("Gestion Inscripciones", "Index", "Inscripciones", null, null)</li> 
+                       }
+
+                       if (ViewBag.Title.Contains("Superviciones"))
+                       {
+                        <li>@Html.ActionLink("Gestion Superviciones", "Index", "Inscripciones", null, null)</li> 
+                        <li>@Html.ActionLink("Gestion Supervisor", "Index", "Inscripciones", null, null)</li> 
                        }
                        
                        
                        
-                        }
+                    }
                 </ul>
             </div>
             <div style="clear: both;">
