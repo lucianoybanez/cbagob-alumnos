@@ -1,0 +1,25 @@
+﻿@model InventariosVista
+@{
+    ViewBag.Title = "Equipamientos";
+    ViewBag.SubMenuSelected = "Inventarios";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+
+@section Stylesheets {
+    @Content.Stylesheet("css/instituciones.css", Url)
+}
+<div class="box">
+    <h2>
+        Inventario</h2>
+    <table>
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                <div id="DivSuperviciones">
+                     @Html.Partial("_InventarioLista", Model)
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
