@@ -9,6 +9,7 @@ namespace CbaGob.Alumnos.Modelo.Repositories
     public interface ISupervisoresRepositorio
     {
         IList<ISupervisores> GetSupervisores();
+        IList<ISupervisores> GetSupervisoresByRazonSocial(string razonsocial);
         ISupervisores GetSupervisor(int idsupervisor);
         bool AgregarSupervisor(ISupervisores supervisor);
         bool ModificarSupervisor(ISupervisores supervisor);

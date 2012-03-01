@@ -9,13 +9,13 @@
 }
 <div class="box">
     <h2>
-        Agregar Supervicion</h2>
+        Modificar Supervicion</h2>
     <table align="center" style="width: 700px;">
         <tr>
             <td class="style1" style="font-weight: bold">
                 <div id="titulo">
                 </div>
-                @using (Html.BeginForm("Agregar_Supervicion", "Superviciones", FormMethod.Post, new { Id = "FormularioSuperviciones" }))
+                @using (Html.BeginForm("Modificar_Supervicion", "Superviciones", FormMethod.Post, new { Id = "FormularioSuperviciones" }))
                 { 
                     <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
                         text-align: center;">
@@ -106,6 +106,7 @@
                     @Html.HiddenFor(c => c.Id_Grupo)
                     @Html.HiddenFor(c => c.hora)
                     @Html.HiddenFor(c => c.minuto)
+                    @Html.HiddenFor(c => c.Id_Supervision)
                     <table id="myIntituciones" align="center" width="700px">
                         <tr>
                             <td align="right" valign="middle">

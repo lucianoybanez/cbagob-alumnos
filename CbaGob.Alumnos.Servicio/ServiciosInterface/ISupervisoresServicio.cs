@@ -9,6 +9,7 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
     public interface ISupervisoresServicio
     {
         ISupervisoresVista GetSupervisores();
+        ISupervisoresVista GetSupervisoresByRazonSocial(string razonsocial);
         ISupervisorVista GetSupervisor(int idsupervisor);
         bool AgregarSupervisor(ISupervisorVista supervisor);
         bool ModificarSupervisor(ISupervisorVista supervisor);

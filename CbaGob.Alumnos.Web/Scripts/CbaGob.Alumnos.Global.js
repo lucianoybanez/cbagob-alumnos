@@ -44,6 +44,20 @@ cbaAlumnosGlobal = function () {
         });
     }
 
+    function BuscadorSupervisores(id) {
+        $("#" + id + "Div").dialog({
+            autoOpen: false,
+            width: 500,
+            modal: true,
+            resizable: false,
+            buttons: {
+                "Cancel": function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+    }
+
     function BuscadorPersonasJuridica(id) {
         $("#" + id + "Div").dialog({
             autoOpen: false,
@@ -119,6 +133,9 @@ cbaAlumnosGlobal = function () {
             case "PersonasJuridica":
                 $('#Id_PersonaJuridica').val(codigo);
                 break;
+            case "Supervisores":
+                $('#Id_Supervisor').val(codigo);
+                break;
         }
         $('#' + id + "Div").dialog("close");
     }
@@ -187,6 +204,16 @@ cbaAlumnosGlobal = function () {
                     $(table).append(trFileds);
                 }
                 break;
+            case "Supervisores":
+                var trHeader = "<tr><td>Cuit</td><td>Razon_Social</td><td></td></tr>"
+                var table = '#' + id + 'table';
+                $(table).empty();
+                $(table).append(trHeader);
+                for (var i = 0; i < data.length; i++) {
+                    var trFileds = "<tr><td>" + data[i].Cuit + "</td><td>" + data[i].RazonSocial + '</td><td><img onclick="cbaAlumnosGlobal.Seleccion(' + "'" + id + "'" + ',' + "'" + Tipo + "'" + ',' + "'" + data[i].Cuit + "-" + data[i].RazonSocial + "'," + data[i].Id_Supervisor + ');"  src="../../../Content/images/seleccionar.jpg"  width="25" height="25"  /></td></tr>';
+                    $(table).append(trFileds);
+                }
+                break;
         }
     }
 
@@ -199,7 +226,8 @@ cbaAlumnosGlobal = function () {
         Seleccion: Seleccion,
         BuscadorDomicilios: BuscadorDomicilios,
         BuscadorInstituciones: BuscadorInstituciones,
-        BuscadorPersonasJuridica: BuscadorPersonasJuridica
+        BuscadorPersonasJuridica: BuscadorPersonasJuridica,
+        BuscadorSupervisores: BuscadorSupervisores
     };
 } ();
 

@@ -35,7 +35,6 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View(supervicionesservicio.GetSuperviciones());
         }
 
-
         public ActionResult Agregar()
         {
             ISupervicionVista model = new SupervicionVista();
@@ -77,13 +76,67 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             model.Fec_Supervision = System.DateTime.Now;
 
+            model.supervisor.Name = "BuSupervsores";
+            model.supervisor.Tipo = "Supervisores";
+
             return View("Agregar_2Paso", model);
         }
-        
+
+        public ActionResult Agregar_Supervicion(SupervicionVista model)
+        {
+            model.Hs_Supervision = model.Fec_Supervision.AddHours(Convert.ToDouble(model.hora)).AddMinutes(Convert.ToDouble(model.minuto));
+
+            bool mreturn = supervicionesservicio.AgregarSuperviciones(model);
+
+            return View("Index", supervicionesservicio.GetSuperviciones());
+        }
 
 
+        public ActionResult Modificar(int id_supervisor)
+        {
+            ISupervicionVista model = new SupervicionVista();
+
+            model = supervicionesservicio.GetSupervicion(id_supervisor);
+            model.Grupo = gruposservicio.GetGrupo(model.Id_Grupo);
+            model.supervisor.Name = "BuSupervsores";
+            model.supervisor.Tipo = "Supervisores";
+            model.supervisor.Valor = model.NombrePersonaJuridica;
 
 
+            return View(model);
+        }
+
+
+        public ActionResult Modificar_Supervicion(SupervicionVista model)
+        {
+            model.Hs_Supervision = model.Fec_Supervision.AddHours(Convert.ToDouble(model.hora)).AddMinutes(Convert.ToDouble(model.minuto));
+
+            bool mreturn = supervicionesservicio.ModificarSuperviciones(model);
+
+            return View("Index", supervicionesservicio.GetSuperviciones());
+        }
+
+        public ActionResult Eliminar(int id_supervisor)
+        {
+            ISupervicionVista model = new SupervicionVista();
+
+            model = supervicionesservicio.GetSupervicion(id_supervisor);
+            model.Grupo = gruposservicio.GetGrupo(model.Id_Grupo);
+            model.supervisor.Name = "BuSupervsores";
+            model.supervisor.Tipo = "Supervisores";
+            model.supervisor.Valor = model.NombrePersonaJuridica;
+
+
+            return View(model);
+        }
+
+        public ActionResult Eliminar_Supervicion(SupervicionVista model)
+        {
+
+            bool mreturn = supervicionesservicio.EliminarSuperviciones(model.Id_Supervision);
+
+            return View("Index", supervicionesservicio.GetSuperviciones());
+        }
 
     }
 }

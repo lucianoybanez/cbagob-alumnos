@@ -42,6 +42,15 @@ namespace CbaGob.Alumnos.Web.Controllers
         }
 
         [HttpPost]
+        public ActionResult Supervisores(string busqueda, string IdRelacionado)
+        {
+            ISupervisoresServicio supervisoresservicio = new SupervisoresServicio();
+            IList<ISupervisores> lista = supervisoresservicio.GetSupervisoresByRazonSocial(busqueda).ListaSupervisores;
+
+            return Json(lista.ToArray());
+        }
+
+        [HttpPost]
         public ActionResult Domicilios(string busqueda, string IdRelacionado)
         {
             IDomiciliosServicios domiciliosservicios = new DomiciliosServicios();

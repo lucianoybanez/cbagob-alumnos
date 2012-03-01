@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CbaGob.Alumnos.Servicio.Vistas.Shared;
 using CbaGob.Alumnos.Servicio.VistasInterface;
+using CbaGob.Alumnos.Servicio.VistasInterface.Shared;
 
 namespace CbaGob.Alumnos.Servicio.Vistas
 {
@@ -15,6 +17,7 @@ namespace CbaGob.Alumnos.Servicio.Vistas
             Cursos = new CondicionesCursoVista();
             Grupos = new GruposVista();
             Grupo = new GrupoVista();
+            supervisor = new Buscador();
         }
 
        
@@ -33,5 +36,8 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public IGruposVista Grupos { get; set; }
         public ISupervisoresVista Supervisores { get; set; }
         public IGrupoVista Grupo { get; set; }
+        public IBuscador supervisor { get; set; }
+        public int hora { get; set; }
+        public int minuto { get; set; }
     }
 }
