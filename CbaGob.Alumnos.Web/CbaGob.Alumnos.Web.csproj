@@ -85,6 +85,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InscripcionesController.cs" />
     <Compile Include="Controllers\InstitucionesController.cs" />
+    <Compile Include="Controllers\InventariosController.cs" />
     <Compile Include="Controllers\PrestamosController.cs" />
     <Compile Include="Controllers\SupervicionesController.cs" />
     <Compile Include="Controllers\SupervisoresController.cs" />
@@ -554,6 +555,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Prestamos\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inventarios\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inventarios\_InventarioLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inventarios\_EquiposLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inventarios\Ver.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

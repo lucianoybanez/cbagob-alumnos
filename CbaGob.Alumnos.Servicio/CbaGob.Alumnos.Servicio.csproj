@@ -45,6 +45,7 @@
     <Compile Include="Comun\CookieData.cs" />
     <Compile Include="Comun\ICookieData.cs" />
     <Compile Include="ServiciosInterface\IEquipoServicio.cs" />
+    <Compile Include="ServiciosInterface\IInventarioServicio.cs" />
     <Compile Include="ServiciosInterface\IPrestamoServicio.cs" />
     <Compile Include="ServiciosInterface\ISupervicionesServicio.cs" />
     <Compile Include="ServiciosInterface\ISupervisoresServicio.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Servicios\GrupoServicio.cs" />
     <Compile Include="Servicios\InscripcionServicio.cs" />
     <Compile Include="Servicios\InstitucionServicio.cs" />
+    <Compile Include="Servicios\InventarioServicio.cs" />
     <Compile Include="Servicios\LocalidadesServicio.cs" />
     <Compile Include="Servicios\PersonaJuridicaServicio.cs" />
     <Compile Include="Servicios\PersonaServicio.cs" />
@@ -102,6 +104,8 @@
     <Compile Include="Servicios\HomeServicio.cs" />
     <Compile Include="VistasInterface\IEquiposVista.cs" />
     <Compile Include="VistasInterface\IEquipoVista.cs" />
+    <Compile Include="VistasInterface\IInventariosVista.cs" />
+    <Compile Include="VistasInterface\IInventarioVista.cs" />
     <Compile Include="VistasInterface\IPrestamosVista.cs" />
     <Compile Include="VistasInterface\IPrestamoVista.cs" />
     <Compile Include="VistasInterface\ISupervicionesVista.cs" />
@@ -146,6 +150,8 @@
     <Compile Include="Vistas\InscripcionesVista.cs" />
     <Compile Include="Vistas\InscripcionVista.cs" />
     <Compile Include="Vistas\InstitucionVista.cs" />
+    <Compile Include="Vistas\InventariosVista.cs" />
+    <Compile Include="Vistas\InventarioVista.cs" />
     <Compile Include="Vistas\PrestamosVista.cs" />
     <Compile Include="Vistas\PrestamoVista.cs" />
     <Compile Include="Vistas\Shared\Buscador.cs" />
