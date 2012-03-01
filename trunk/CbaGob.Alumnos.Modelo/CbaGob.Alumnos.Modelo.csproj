@@ -49,9 +49,11 @@
     <Compile Include="Entities\Domicilios.cs" />
     <Compile Include="Entities\CondicionCurso.cs" />
     <Compile Include="Entities\ComunDatos.cs" />
+    <Compile Include="Entities\Equipo.cs" />
     <Compile Include="Entities\Establecimiento.cs" />
     <Compile Include="Entities\EstadoCurso.cs" />
     <Compile Include="Entities\DetalleFactura.cs" />
+    <Compile Include="Entities\Estado_Equipo.cs" />
     <Compile Include="Entities\Factura.cs" />
     <Compile Include="Entities\Grupo.cs" />
     <Compile Include="Entities\Inscripcion.cs" />
@@ -70,8 +72,10 @@
     <Compile Include="Entities\Interfaces\IDireccion.cs" />
     <Compile Include="Entities\Interfaces\IDocentes.cs" />
     <Compile Include="Entities\Interfaces\IDomicilios.cs" />
+    <Compile Include="Entities\Interfaces\IEquipo.cs" />
     <Compile Include="Entities\Interfaces\IEstablecimiento.cs" />
     <Compile Include="Entities\Interfaces\IEstadoCurso.cs" />
+    <Compile Include="Entities\Interfaces\IEstado_Equipo.cs" />
     <Compile Include="Entities\Interfaces\IExamen.cs" />
     <Compile Include="Entities\Interfaces\IFactura.cs" />
     <Compile Include="Entities\Interfaces\IGrupo.cs" />
@@ -82,6 +86,7 @@
     <Compile Include="Entities\Interfaces\INivel.cs" />
     <Compile Include="Entities\Interfaces\IPersona.cs" />
     <Compile Include="Entities\Interfaces\IPersonaJuridica.cs" />
+    <Compile Include="Entities\Interfaces\IPrestamo.cs" />
     <Compile Include="Entities\Interfaces\IPrograma.cs" />
     <Compile Include="Entities\Interfaces\IProvincias.cs" />
     <Compile Include="Entities\Interfaces\IRol.cs" />
@@ -91,6 +96,7 @@
     <Compile Include="Entities\Interfaces\IUsuario.cs" />
     <Compile Include="Entities\Modalidad.cs" />
     <Compile Include="Entities\Nivel.cs" />
+    <Compile Include="Entities\Prestamo.cs" />
     <Compile Include="Entities\Programa.cs" />
     <Compile Include="Entities\Localidades.cs" />
     <Compile Include="Entities\Persona.cs" />
@@ -122,8 +128,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Repositories\IDomiciliosRepositorio.cs" />
+    <Compile Include="Repositories\IEquipoRepositorio.cs" />
     <Compile Include="Repositories\IEstablecimientoRepositorio.cs" />
     <Compile Include="Repositories\IEstadoCursoRepositorio.cs" />
+    <Compile Include="Repositories\IEstado_EquipoRepositorio.cs" />
     <Compile Include="Repositories\IExamenRepositorio.cs" />
     <Compile Include="Repositories\IFacturaRepositorio.cs" />
     <Compile Include="Repositories\IGrupoRepositorio.cs" />
@@ -142,6 +150,7 @@
     <Compile Include="Repositories\IPersonaRepositorio.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Repositories\IPrestamoRepositorio.cs" />
     <Compile Include="Repositories\IProgramaRepositorio.cs" />
     <Compile Include="Repositories\IProvinciasRepositorio.cs">
       <SubType>Code</SubType>

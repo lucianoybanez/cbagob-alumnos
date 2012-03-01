@@ -1,0 +1,90 @@
+﻿@model PrestamoVista
+@{
+    ViewBag.Title = "Equipamientos";
+    ViewBag.SubMenuSelected = "Prestamos";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Prestamo.js", Url)
+}
+<div class="box">
+    <h2>
+        Agregar Prestamo</h2>
+    <table align="center" style="width: 700px;">
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                @using (Html.BeginForm("Agregar_Prestamo", "Prestamos", FormMethod.Post, new { Id = "FormularioPrestamos" }))
+                { 
+                    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+                        text-align: center;">
+                        <legend>Datos del Prestamo:</legend>
+                        <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                            width: 700px;">
+                            <tr>
+                                <td>
+                                    <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                                        width: 700px;">
+                                        <tr>
+                                            <td align="left">
+                                                <b>Nombre del Equipo:</b>
+                                            </td>
+                                            <td align="left">
+                                                @Html.EditorFor(c => c.Equipos)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Nombre Institucion:</b>
+                                            </td>
+                                            <td align="left">
+                                                @Html.EditorFor(c => c.Institucion)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Fecha Inicio:</b>
+                                            </td>
+                                            <td align="left">
+                                                @Html.TextBoxFor(c => c.Fec_Inicio, new { Id = "fecini", style = "width:90px;", MaxLength = "50" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Fecha Fin:</b>
+                                            </td>
+                                            <td align="left">
+                                                @Html.TextBoxFor(c => c.Fec_Fin, new { Id = "fecfin", style = "width:90px;", MaxLength = "50" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Observacion:</b>
+                                            </td>
+                                            <td align="left">
+                                                @Html.TextAreaFor(c => c.Observaciones, new { Id = "fecSup", style = "width:350px;height:50px;", MaxLength = "50" })
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                    @Html.HiddenFor(c => c.Id_Institucion);
+                    @Html.HiddenFor(c => c.Id_Equipo);
+                  
+                    <table id="myIntituciones" align="center" width="700px">
+                        <tr>
+                            <td align="right" valign="middle">
+                                <input type="submit" value="Guargar" class="btnIngresar" />&nbsp;&nbsp;
+                                @Html.ActionLink("Cancelar", "Index", "Prestamos", null, new { Class = "btnIngresar" })
+                            </td>
+                        </tr>
+                    </table>
+   
+                }
+            </td>
+        </tr>
+    </table>
+</div>
