@@ -54,7 +54,11 @@
                         <li>@Html.ActionLink("Gestion Supervisores", "Index", "Supervisores", null, new { @class = ViewBag.SubMenuSelected == "Supervisores" ? "selected" : "" })</li>
                        }
                        
-                       
+                       if (ViewBag.Title.Contains("Equipamientos"))
+                       {
+                        <li>@Html.ActionLink("Gestion de Equipos", "Index", "Equipamientos", null, new { @class = ViewBag.SubMenuSelected == "Equipos" ? "selected" : "" })</li> 
+                        <li>@Html.ActionLink("Gestion de Prestamos", "Index", "Prestamos", null, new { @class = ViewBag.SubMenuSelected == "Prestamos" ? "selected" : "" })</li>
+                       }
                        
                     }
                 </ul>
