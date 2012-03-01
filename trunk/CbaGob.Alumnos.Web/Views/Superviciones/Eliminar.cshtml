@@ -9,13 +9,13 @@
 }
 <div class="box">
     <h2>
-        Agregar Supervicion</h2>
+        Eliminar Supervicion</h2>
     <table align="center" style="width: 700px;">
         <tr>
             <td class="style1" style="font-weight: bold">
                 <div id="titulo">
                 </div>
-                @using (Html.BeginForm("Agregar_Supervicion", "Superviciones", FormMethod.Post, new { Id = "FormularioSuperviciones" }))
+                @using (Html.BeginForm("Eliminar_Supervicion", "Superviciones", FormMethod.Post, new { Id = "FormularioSuperviciones" }))
                 { 
                     <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
                         text-align: center;">
@@ -48,7 +48,6 @@
                                             </td>
                                             <td align="left">
                                                 @Html.TextBoxFor(c => c.Grupo.NombreGrupo, new { disabled = "disabled", style = "width:200px;", MaxLength = "50" })
-                                                @Html.ActionLink("Cambiar estos datos", "VerGrupos", "Superviciones", new { idCondicionCurso = Model.Grupo.Id_Condicion_Curso, IdInstitucion = Model.Grupo.Id_Institucion }, new { Class = "btnIngresar" })
                                             </td>
                                         </tr>
                                         <tr>
@@ -56,7 +55,7 @@
                                                 <b>Buscador Supervisor:</b>
                                             </td>
                                             <td align="left">
-                                                @Html.EditorFor(c => c.supervisor)
+                                                @Html.TextBoxFor(c => c.NombrePersonaJuridica, new { disabled = "disabled", Id = "fecSup", style = "width:90px;", MaxLength = "50" })
                                             </td>
                                         </tr>
                                         <tr>
@@ -64,7 +63,7 @@
                                                 <b>Fecha de Supervicion:</b>
                                             </td>
                                             <td align="left">
-                                                @Html.TextBoxFor(c => c.Fec_Supervision, new { Id = "fecSup", style = "width:90px;", MaxLength = "50" })
+                                                @Html.TextBoxFor(c => c.Fec_Supervision, new {disabled = "disabled", Id = "fecSup", style = "width:90px;", MaxLength = "50" })
                                             </td>
                                         </tr>
                                         <tr>
@@ -94,7 +93,7 @@
                                                 <b>Observacion:</b>
                                             </td>
                                             <td align="left">
-                                                @Html.TextAreaFor(c => c.Observaciones, new { style = "width:300px;height:50px;", MaxLength = "3999" })
+                                                @Html.TextAreaFor(c => c.Observaciones, new {disabled = "disabled", style = "width:300px;height:50px;", MaxLength = "3999" })
                                             </td>
                                         </tr>
                                     </table>
@@ -106,10 +105,11 @@
                     @Html.HiddenFor(c => c.Id_Grupo)
                     @Html.HiddenFor(c => c.hora)
                     @Html.HiddenFor(c => c.minuto)
+                    @Html.HiddenFor(c => c.Id_Supervision)
                     <table id="myIntituciones" align="center" width="700px">
                         <tr>
                             <td align="right" valign="middle">
-                                <input type="submit" value="Guargar" class="btnIngresar" />&nbsp;&nbsp;
+                                  <input id="Eliminar" type="button" value="Eliminar" class="btnIngresar" />&nbsp;&nbsp;
                                 @Html.ActionLink("Cancelar", "Index", "Superviciones", null, new { Class = "btnIngresar" })
                             </td>
                         </tr>
@@ -119,4 +119,8 @@
             </td>
         </tr>
     </table>
+</div>
+<div id="dialog" title="Eliminar">
+    <p>
+        Esta Seguro de Eliminar?</p>
 </div>

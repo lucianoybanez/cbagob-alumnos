@@ -37,6 +37,22 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
         }
 
+        public ISupervisoresVista GetSupervisoresByRazonSocial(string razonsocial)
+        {
+            try
+            {
+                ISupervisoresVista supervisoresvista = new SupervisoresVista();
+                supervisoresvista.ListaSupervisores = supervisoresrepositorio.GetSupervisoresByRazonSocial(razonsocial);
+
+                return supervisoresvista;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public ISupervisorVista GetSupervisor(int idsupervisor)
         {
             try

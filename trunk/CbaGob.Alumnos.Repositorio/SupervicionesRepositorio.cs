@@ -144,7 +144,7 @@ namespace CbaGob.Alumnos.Repositorio
             try
             {
                 IComunDatos datos = new ComunDatos();
-                base.AgregarDatosModificacion(datos);
+                base.AgregarDatosEliminacion(datos);
 
                 var t_supervisiones = mDb.T_SUPERVICIONES.Where(c => c.ID_SUPERVISION == idsupervicion).FirstOrDefault();
 

@@ -9,11 +9,11 @@
                         <div align="center">
                             Nombre de la Institucion</div>
                     </th>
-                    <th height="30" width="50">
+                    <th height="30" width="100">
                         <div align="center">
                             Nombre del Supervisor</div>
                     </th>
-                    <th height="30" width="50">
+                    <th height="30" width="100">
                         <div align="center">
                             Fecha de Supervicion</div>
                     </th>
@@ -33,9 +33,12 @@
                         <td align="center" width="50">
                             @item.NombrePersonaJuridica
                         </td>
+                        <td align="center" width="50">
+                            @item.Fec_Supervision.ToShortDateString()
+                        </td>
                         <td align="center">
-                            @Html.ActionLink("Modificar", "Modificar", "Superviciones", new { id_supervisor = item.Id_Supervisor }, new { @class = "btnIngresar" })
-                            @Html.ActionLink("Eliminar", "Eliminar", "Superviciones", new { id_supervisor = item.Id_Supervisor }, new { @class = "btnIngresar" })
+                            @Html.ActionLink("Modificar", "Modificar", "Superviciones", new { id_supervisor = item.Id_Supervision }, new { @class = "btnIngresar" })
+                            @Html.ActionLink("Eliminar", "Eliminar", "Superviciones", new { id_supervisor = item.Id_Supervision }, new { @class = "btnIngresar" })
                         </td>
                     </tr>
                 }

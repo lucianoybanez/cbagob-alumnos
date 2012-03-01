@@ -31,5 +31,5 @@ $(document).ready(function () {
 });
 
 $(function () {
-    cbaAlumnosGlobal.BuscadorDomicilios('BuDomicilio');
+    cbaAlumnosGlobal.BuscadorDomicilios('BuSupervsores');
 });

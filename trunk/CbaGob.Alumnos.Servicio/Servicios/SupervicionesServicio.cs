@@ -62,7 +62,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
                 return supervicionvista;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;
@@ -101,7 +101,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 superviciones.Id_Supervisor = supervicionvista.Id_Supervisor;
                 superviciones.Id_Supervision = supervicionvista.Id_Supervision;
 
-                return supervicionesrepositorio.AgregarSuperviciones(superviciones);
+                return supervicionesrepositorio.ModificarSuperviciones(superviciones);
             }
             catch (Exception)
             {
