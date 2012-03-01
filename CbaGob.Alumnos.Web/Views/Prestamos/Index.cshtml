@@ -1,0 +1,27 @@
+﻿@model PrestamosVista
+@{
+    ViewBag.Title = "Equipamientos";
+    ViewBag.SubMenuSelected = "Prestamos";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Prestamo.js", Url)
+}
+@section Stylesheets {
+    @Content.Stylesheet("css/instituciones.css", Url)
+}
+<div class="box">
+    <h2>
+        Listado de Prestamos</h2>
+    <table>
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                <div id="DivSuperviciones">
+                    @Html.Partial("_PrestamoLista", Model)
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

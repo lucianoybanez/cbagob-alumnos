@@ -77,6 +77,7 @@
     <Compile Include="Controllers\CondicionesCursoController.cs" />
     <Compile Include="Controllers\CursosController.cs" />
     <Compile Include="Controllers\DocentesController.cs" />
+    <Compile Include="Controllers\EquipamientosController.cs" />
     <Compile Include="Controllers\EstablecimientosController.cs" />
     <Compile Include="Controllers\ExamenesController.cs" />
     <Compile Include="Controllers\GruposController.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InscripcionesController.cs" />
     <Compile Include="Controllers\InstitucionesController.cs" />
+    <Compile Include="Controllers\PrestamosController.cs" />
     <Compile Include="Controllers\SupervicionesController.cs" />
     <Compile Include="Controllers\SupervisoresController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -223,6 +225,7 @@
     <Content Include="Scripts\CbaGob.Alumnos.CondicionesCurso.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Cursos.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Docentes.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Equipos.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Establecimientos.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Factura.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Global.js" />
@@ -230,6 +233,7 @@
     <Content Include="Scripts\CbaGob.Alumnos.Examenes.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Inscripciones.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Instituciones.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Prestamo.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Superviciones.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Supervisores.js" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
@@ -521,6 +525,36 @@
   <ItemGroup>
     <Content Include="Views\Superviciones\Eliminar.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Equipamientos\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Equipamientos\_EquiposLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Equipamientos\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Equipamientos\Modificar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Equipamientos\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Prestamos\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Prestamos\_PrestamoLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Prestamos\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Prestamos\Modificar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Prestamos\Eliminar.cshtml" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -538,7 +572,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>3954</DevelopmentServerPort>
+          <DevelopmentServerPort>13770</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

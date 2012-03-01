@@ -33,6 +33,15 @@ namespace CbaGob.Alumnos.Web.Controllers
         }
 
         [HttpPost]
+        public ActionResult Equipos(string busqueda, string IdRelacionado)
+        {
+            IEquipoServicio equiposervicio = new EquipoServicio();
+            IList<IEquipo> lista = equiposervicio.GetEquipos().ListaEquipos.Where(c => c.N_Equipos.StartsWith(busqueda) && c.Id_Estado_Equipo != 2).ToList();
+
+            return Json(lista.ToArray());
+        }
+
+        [HttpPost]
         public ActionResult PersonasJuridica(string busqueda, string IdRelacionado)
         {
             IPersonaJuridicaServicio personajuridicaServicio = new PersonaJuridicaServicio();

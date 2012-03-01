@@ -44,6 +44,20 @@ cbaAlumnosGlobal = function () {
         });
     }
 
+    function BuscadorEquipo(id) {
+        $("#" + id + "Div").dialog({
+            autoOpen: false,
+            width: 500,
+            modal: true,
+            resizable: false,
+            buttons: {
+                "Cancel": function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+    }
+
     function BuscadorSupervisores(id) {
         $("#" + id + "Div").dialog({
             autoOpen: false,
@@ -136,6 +150,9 @@ cbaAlumnosGlobal = function () {
             case "Supervisores":
                 $('#Id_Supervisor').val(codigo);
                 break;
+            case "Equipos":
+                $('#Id_Equipo').val(codigo);
+                break;
         }
         $('#' + id + "Div").dialog("close");
     }
@@ -214,6 +231,16 @@ cbaAlumnosGlobal = function () {
                     $(table).append(trFileds);
                 }
                 break;
+            case "Equipos":
+                var trHeader = "<tr><td>Nombre del Equipo</td><td></td></tr>"
+                var table = '#' + id + 'table';
+                $(table).empty();
+                $(table).append(trHeader);
+                for (var i = 0; i < data.length; i++) {
+                    var trFileds = "<tr><td>" + data[i].N_Equipos + '</td><td><img onclick="cbaAlumnosGlobal.Seleccion(' + "'" + id + "'" + ',' + "'" + Tipo + "'" + ',' + "'" + data[i].N_Equipos + "'," + data[i].Id_Equipo + ');"  src="../../../Content/images/seleccionar.jpg"  width="25" height="25"  /></td></tr>';
+                    $(table).append(trFileds);
+                }
+                break;
         }
     }
 
@@ -227,7 +254,8 @@ cbaAlumnosGlobal = function () {
         BuscadorDomicilios: BuscadorDomicilios,
         BuscadorInstituciones: BuscadorInstituciones,
         BuscadorPersonasJuridica: BuscadorPersonasJuridica,
-        BuscadorSupervisores: BuscadorSupervisores
+        BuscadorSupervisores: BuscadorSupervisores,
+        BuscadorEquipo: BuscadorEquipo
     };
 } ();
 
