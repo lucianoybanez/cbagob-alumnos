@@ -23,6 +23,8 @@
                       {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Facturaciones", "Index", "Factura", null, null)</li>
                 <li @{if (ViewBag.Title.Contains("Equipamientos"))
                       {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Equipamientos", "Index", "Equipamientos", null, null)</li>
+                <li @{if (ViewBag.Title.Contains("Ayuda"))
+                             {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Ayuda", "Index", "Ayuda", null, null)</li>
             </ul>
             <div align="right">
                 &nbsp;</div>
@@ -41,6 +43,7 @@
                         <li>@Html.ActionLink("Gestion Docentes", "Index", "Docentes", null, new { @class = ViewBag.SubMenuSelected == "Docentes" ? "selected" : "" })</li>
                         <li>@Html.ActionLink("Gestion Cursos", "Index", "Cursos", null, new { @class = ViewBag.SubMenuSelected == "Cursos" ? "selected" : "" })</li>                  
                         <li>@Html.ActionLink("Gestion Alumnos", "Index", "Alumnos", null, new { @class = ViewBag.SubMenuSelected == "Alumnos" ? "selected" : "" })</li>
+                        <li>@Html.ActionLink("Gestion Caja Chica", "Index", "Factura", null, new { @class = ViewBag.SubMenuSelected == "CajaChica" ? "selected" : "" })</li> 
                        }
 
                        if (ViewBag.Title.Contains("Inscripciones"))
@@ -53,7 +56,7 @@
                         <li>@Html.ActionLink("Gestion Superviciones", "Index", "Superviciones", null, new { @class = ViewBag.SubMenuSelected == "Superviciones" ? "selected" : "" })</li> 
                         <li>@Html.ActionLink("Gestion Supervisores", "Index", "Supervisores", null, new { @class = ViewBag.SubMenuSelected == "Supervisores" ? "selected" : "" })</li>
                        }
-                       
+
                        if (ViewBag.Title.Contains("Equipamientos"))
                        {
                         <li>@Html.ActionLink("Gestion de Equipos", "Index", "Equipamientos", null, new { @class = ViewBag.SubMenuSelected == "Equipos" ? "selected" : "" })</li> 
@@ -61,11 +64,10 @@
                         <li>@Html.ActionLink("Gestion de Inventarios", "Index", "Inventarios", null, new { @class = ViewBag.SubMenuSelected == "Inventarios" ? "selected" : "" })</li>
                        }
 
-                        if (ViewBag.Title.Contains("Facturaciones"))
+                       if (ViewBag.Title.Contains("Facturaciones"))
                        {
                         <li>@Html.ActionLink("Gestion Factura", "Index", "Factura", null, new { @class = ViewBag.SubMenuSelected == "Facturacion" ? "selected" : "" })</li> 
                         <li>@Html.ActionLink("Liquidacion Cursos", "Index", "Factura", null, new { @class = ViewBag.SubMenuSelected == "liquidacion" ? "selected" : "" })</li> 
-                        <li>@Html.ActionLink("Gestion Caja Chica", "Index", "Factura", null, new { @class = ViewBag.SubMenuSelected == "CajaChica" ? "selected" : "" })</li> 
                        }
                        
                     }

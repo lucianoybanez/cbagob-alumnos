@@ -1,21 +1,27 @@
 ﻿@model FacturasVista
 @{
-    ViewBag.Title = "SGC - Gobierno de Córdoba - Facturas";
+    ViewBag.Title = "Facturaciones";
+    ViewBag.SubMenuSelected = "Facturacion";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
 }
 @section Scripts{
     @Content.Script("CbaGob.Alumnos.Factura.js",Url)
 }
-<div id="titulo">
-    <div id="ttxt">
-        Facturas</div>
-     <div id="iconobuscar">
-        @Html.ActionLink("Buscar", "", "",  new { @class = "btngral" })
-    </div>
-    <div id="iconomodificar">
-       @Html.ActionLink("Nuevo", "Agregar", "Factura", null, new { Class = "btngral" })
-    </div>
+@section Stylesheets {
+    @Content.Stylesheet("css/instituciones.css", Url)
+}
+<div class="box">
+    <h2>
+        Listado de Facturas</h2>
+    <table>
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                <div id="DivSuperviciones">
+                     @Html.Partial("_FacturaLista", Model)
+                </div>
+            </td>
+        </tr>
+    </table>
 </div>
-<div id="DivInstituciones">
-    @Html.Partial("_FacturaLista", Model)
-</div>
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />

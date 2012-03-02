@@ -46,8 +46,8 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                                           IdFactura = result.IdFactura,
                                           NroFactura = result.NroFactura,
                                           Monto = result.MontoTotal,
-                                          Item ="",
-                                          
+                                          Item = "",
+
                                       };
             var condiciones = CondicionCursoRepositorio.GetCondicionesByInstitucion(result.IdInstitucion);
             var instituciones = InstitucionRepositorio.GetInstituciones();
@@ -128,18 +128,18 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                                                     Concepto = factura.Concepto,
                                                     IdCondicionCurso = int.Parse(factura.CondicionCurso.Selected),
                                                     MontoTotal = factura.Monto,
-                                                    NroFactura = factura.NroFactura,
-                                                    DetalleFactura = new DetalleFactura()
-                                                                         {
-                                                                             Descripcion = factura.Descripcion,
-                                                                             Item = factura.Item,
-                                                                             Monto = factura.Monto,
+                                                    NroFactura = factura.NroFactura
 
-                                                                         }
-                                                };;
+                                                };
+
+
+                    IDetalleFactura obj = new DetalleFactura() { Descripcion = factura.Descripcion, Item = factura.Item, Monto = factura.Monto };
+
+                    modelFactura.DetalleFactura = obj;
+
                     int idFactura = FacturaRepositorio.AgregarFactura(modelFactura);
                     modelFactura.DetalleFactura.IdFactura = idFactura;
-                    if (idFactura!=0)
+                    if (idFactura != 0)
                     {
                         if (FacturaRepositorio.AgregarDetalle(modelFactura.DetalleFactura))
                         {
