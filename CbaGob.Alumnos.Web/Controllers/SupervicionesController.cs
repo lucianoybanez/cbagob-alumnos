@@ -91,7 +91,6 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Index", supervicionesservicio.GetSuperviciones());
         }
 
-
         public ActionResult Modificar(int id_supervisor)
         {
             ISupervicionVista model = new SupervicionVista();
@@ -105,7 +104,6 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             return View(model);
         }
-
 
         public ActionResult Modificar_Supervicion(SupervicionVista model)
         {
