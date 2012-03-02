@@ -22,7 +22,7 @@ namespace CbaGob.Alumnos.Repositorio
         public IList<IFactura> GetFacturas()
         {
             var a = (from p in mDB.T_FACTURAS
-                     where p.ESTADO=="A"
+                     where p.ESTADO == "A"
                      select new Factura()
                      {
                          Concepto = p.CONCEPTO,
@@ -88,15 +88,35 @@ namespace CbaGob.Alumnos.Repositorio
                     ESTADO = factura.Estado,
                     FEC_ALTA = factura.FechaAlta,
                     FEC_MODIF = factura.FechaModificacion,
-                    MONTO_TOTAL = factura.MontoTotal,
+                    MONTO_TOTAL = 0,
                     NRO_FACTURA = factura.NroFactura,
                     USR_ALTA = factura.UsuarioAlta,
                     USR_MODIF = factura.UsuarioModificacion,
-                    ID_CONDICION_CURSO = factura.IdCondicionCurso,
+                    ID_CONDICION_CURSO = factura.IdCondicionCurso
                 };
+
                 mDB.AddToT_FACTURAS(facturas);
                 mDB.SaveChanges();
-             
+
+
+
+                T_DETALLES_FACTURA obj = new T_DETALLES_FACTURA()
+                                             {
+                                                 ESTADO = factura.Estado,
+                                                 FEC_ALTA = factura.FechaAlta,
+                                                 DESCRIPCION = "asd",
+                                                 FEC_MODIF = factura.FechaModificacion,
+                                                 ITEM = "asd",
+                                                 USR_MODIF = factura.UsuarioModificacion,
+                                                 USR_ALTA = factura.UsuarioAlta,
+                                                 MONTO = 0,
+                                                 ID_FACTURA = mDB.T_FACTURAS.OrderByDescending(c => c.ID_FACTURA).First().ID_FACTURA
+
+                                             };
+                mDB.AddToT_DETALLES_FACTURA(obj);
+                mDB.SaveChanges();
+
+
 
                 return mDB.T_FACTURAS.OrderByDescending(c => c.ID_FACTURA).First().ID_FACTURA;
 

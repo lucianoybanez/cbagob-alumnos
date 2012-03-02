@@ -1,0 +1,60 @@
+﻿@model FacturaVista
+@{
+    ViewBag.Title = "Facturaciones";
+    ViewBag.SubMenuSelected = "Facturacion";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Factura.js", Url)
+}
+<div class="box">
+    <h2>
+        Agregar Factura</h2>
+    <table align="center" style="width: 700px;">
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                @using (Html.BeginForm("Agregar_Factura", "Factura", FormMethod.Post, new { Id = "FormularioFacturacion" }))
+                { 
+                    <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                        width: 700px;">
+                        <tr>
+                            <td>
+                                <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                                    width: 700px;">
+                                    <tr>
+                                        <td align="left">
+                                            <fieldset>
+                                                <legend>Seleccione la Institucion:</legend>
+                                                @Html.Partial("_InstitucionesLista", Model)
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <fieldset>
+                                                <legend>Seleccione el Curso:</legend>
+                                                @Html.Partial("_CursosLista", Model)
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+    
+                  
+                    <table id="myIntituciones" align="center" width="700px">
+                        <tr>
+                            <td align="right" valign="middle">
+                                @Html.ActionLink("Cancelar", "Index", "Factura", null, new { Class = "btnIngresar" })
+                            </td>
+                        </tr>
+                    </table>
+   
+                }
+            </td>
+        </tr>
+    </table>
+</div>

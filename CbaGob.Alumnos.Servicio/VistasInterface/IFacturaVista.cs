@@ -17,5 +17,9 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         string Item { get; set; }
         decimal Monto { get; set; }
         string Descripcion { get; set; }
+        IInstitucionVista Instituciones { get; set; }
+        ICondicionesCursoVista Cursos { get; set; }
+        ICondicionCursoVista Curso { get; set; }
+        int Id_Condicion_Curso { get; set; }
     }
 }

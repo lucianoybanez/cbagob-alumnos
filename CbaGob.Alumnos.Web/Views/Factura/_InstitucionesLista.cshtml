@@ -1,0 +1,51 @@
+﻿@model FacturaVista
+@if (Model.Instituciones.ListaInstituciones != null && Model.Instituciones.ListaInstituciones.Count > 0)
+{ 
+    <div style="text-align: center;">
+        <table class="TablaPersonal" align="center" width="690px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30" width="280">
+                        <div align="center">
+                            Nombre de la Institucion</div>
+                    </th>
+                    <th height="30" width="50">
+                        <div align="center">
+                            Es Propia</div>
+                    </th>
+                    <th height="30" width="80">
+                        <div align="center">
+                            Fecha Alta</div>
+                    </th>
+                    <th height="30" width="200">
+                        <div align="center">
+                            Accion</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Instituciones.ListaInstituciones)
+                {
+                    <tr>
+                        <td align="left" height="28">
+                            @item.Nombre_Institucion
+                        </td>
+                        <td>
+                            @item.espropia
+                        </td>
+                        <td>
+                            @item.FechaAlta.ToShortDateString()
+                        </td>
+                        <td>
+                            @Html.ActionLink("Ver Cursos", "VerCursos", "Factura", new { IdInstitucion = item.Id_Institucion }, new { @class = "btnIngresar" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    @Html.Partial("_SinDatos", "instituciones")
+}

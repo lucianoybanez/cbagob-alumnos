@@ -14,6 +14,9 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         {
             CondicionCurso = new ComboBox();
             Institucion = new ComboBox();
+            Instituciones = new InstitucionVista();
+            Cursos = new CondicionesCursoVista();
+            Curso = new CondicionCursoVista();
         }
 
         public int IdFactura { get; set; }
@@ -30,5 +33,10 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public decimal Monto { get; set; }
         [Required]
         public string Descripcion { get; set; }
+        public IInstitucionVista Instituciones { get; set; }
+        public ICondicionesCursoVista Cursos { get; set; }
+        public ICondicionCursoVista Curso { get; set; }
+        public int Id_Condicion_Curso { get; set; }
+        
     }
 }
