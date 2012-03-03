@@ -12,7 +12,7 @@ using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.Servicios
 {
-    public class ExamenServicio :BaseServicio, IExamenServicio
+    public class ExamenServicio : BaseServicio, IExamenServicio
     {
         private IExamenRepositorio ExamenRepositorio;
 
@@ -34,39 +34,55 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         public IExamenVista GetExamenVista()
         {
             IExamenVista vista = new ExamenVista();
-            vista.Accion = "Alta";
-            vista.Grupos.Combo = ComboHelper.GetComboParaGrupos(GrupoRepositorio);
-
-            var primerGrupo = vista.Grupos.Combo.FirstOrDefault();
-            if (primerGrupo != null)
-            {
-                vista.Grupos.Selected = primerGrupo.id.ToString();
-                vista.Alumnos.Combo = ComboHelper.GetComboParaAlumnosInInscripcionesByIdGrupo(InscripcionRepositorio, int.Parse(vista.Grupos.Selected));
-            }
-
             return vista;
         }
 
         public IExamenVista GetExamenVista(int IdExamen)
         {
-            IExamenVista vista = new ExamenVista();
-            vista.Accion = "Modificacion";
 
             var examen = ExamenRepositorio.GetExamen(IdExamen);
-            vista.FechaExamen = examen.FechaExamen;
-            vista.IdExamen = examen.IdExamen;
-            vista.Nota = examen.Nota;
-            vista.NroExamen = examen.NroExamen;
-            vista.Grupos.Combo = ComboHelper.GetComboParaGrupos(GrupoRepositorio);
-            vista.Grupos.Selected = examen.IdGrupo.ToString();
-            vista.Alumnos.Combo = ComboHelper.GetComboParaAlumnosInInscripcionesByIdGrupo(InscripcionRepositorio, examen.IdGrupo);
+            var inscripcion = InscripcionRepositorio.GetInscripcion(examen.IdInscripcion);
+
+            IExamenVista vista = new ExamenVista()
+                                     {
+                                         FechaExamen = examen.FechaExamen,
+                                         IdExamen = examen.IdExamen,
+                                         Nota = examen.Nota,
+                                         NroExamen = examen.NroExamen,
+                                         NombreAlumno = inscripcion.NombreAlumno,
+                                         NombreCurso = inscripcion.NombreCurso,
+                                         NombreEstadoCurso = inscripcion.NombreEstadoCurso,
+                                         NombreInstitucion = inscripcion.NombreInstitucion,
+                                         NombreModalidad = inscripcion.NombreModalidad,
+                                         NombreNivel = inscripcion.NombreNivel,
+                                         NombrePrograma = inscripcion.NombrePrograma,
+                                         idInscripcion = inscripcion.IdInscripcion,
+                                     };
+
+
             return vista;
+        }
+
+        public IExamenVista GetExamenVistaByInscripcion(int IdInscripcion)
+        {
+            var a = InscripcionRepositorio.GetInscripcion(IdInscripcion);
+            IExamenVista vista = new ExamenVista()
+                                     {
+                                         NombreAlumno = a.NombreAlumno,
+                                         NombreCurso = a.NombreCurso,
+                                         NombreEstadoCurso = a.NombreEstadoCurso,
+                                         NombreInstitucion = a.NombreInstitucion,
+                                         NombreModalidad = a.NombreModalidad,
+                                         NombreNivel = a.NombreNivel,
+                                         NombrePrograma = a.NombrePrograma,
+                                     };
+            return vista;
+
         }
 
         public IExamenVista GetExamenVistaCambioComboGrupo(IExamenVista vista)
         {
-            vista.Grupos.Combo = ComboHelper.GetComboParaGrupos(GrupoRepositorio);
-            vista.Alumnos.Combo = ComboHelper.GetComboParaAlumnosInInscripcionesByIdGrupo(InscripcionRepositorio, int.Parse(vista.Grupos.Selected));
+
             return vista;
         }
 
@@ -79,40 +95,29 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         public bool GuardarExamen(IExamenVista vista)
         {
-
-            if (!string.IsNullOrEmpty(vista.Grupos.Selected))
+            IExamen examen = new Examen()
             {
-                if (!string.IsNullOrEmpty(vista.Alumnos.Selected))
-                {
-                    var IdInscripcion = InscripcionRepositorio.GetInscripcionIdByAlumnoGrupo(int.Parse(vista.Grupos.Selected), int.Parse(vista.Alumnos.Selected));
-                    IExamen examen = new Examen()
-                    {
-                        IdInscripcion = IdInscripcion,
-                        NroExamen = vista.NroExamen,
-                        Nota = vista.Nota,
-                        FechaExamen = vista.FechaExamen,
-                        IdExamen = vista.IdExamen
-                    };
-                    bool result = false;
-                    if (vista.Accion == "Alta")
-                    {
-                        result =  ExamenRepositorio.AgregarExamen(examen);
-                    }
-                    if (vista.Accion == "Modificacion")
-                    {
-                        result = ExamenRepositorio.ModificarExamen(examen);
-                    }
-                    if (!result)
-                    {
-                        base.AddError("Se produjo un error al guardar el examen");
-                    }
-                    return result;
-                }
-                base.AddError("Debe Seleccionar un Alumno");
-                return false;
+                IdInscripcion = vista.idInscripcion,
+                NroExamen = vista.NroExamen,
+                Nota = vista.Nota,
+                FechaExamen = vista.FechaExamen,
+                IdExamen = vista.IdExamen
+            };
+            bool result = false;
+            if (vista.Accion == "Agregar")
+            {
+                result = ExamenRepositorio.AgregarExamen(examen);
             }
-            base.AddError("Debe Seleccionar un Grupo");
-            return false;
+            if (vista.Accion == "Modificar")
+            {
+                result = ExamenRepositorio.ModificarExamen(examen);
+            }
+            if (!result)
+            {
+                base.AddError("Se produjo un error al guardar el examen.");
+                base.AddError("Verifique q el Examen no este cargado.");
+            }
+            return result;
         }
 
         public bool EliminarExamen(int IdExamen)
@@ -125,9 +130,14 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             return true;
         }
 
+        public IList<IExamen> GetExamenes(int IdInscripcion)
+        {
+            return ExamenRepositorio.GetExamenesByInscripcion(IdInscripcion);
+        }
+
         public IList<IErrores> GetErrors()
         {
-           return base.Errors;
+            return base.Errors;
         }
     }
 }

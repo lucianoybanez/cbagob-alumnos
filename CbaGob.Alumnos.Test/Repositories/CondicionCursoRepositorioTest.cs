@@ -39,5 +39,27 @@ namespace CbaGob.Alumnos.Test.Repositories
 
         }
 
+        [Test]
+        public void GetCondicionCursoVariousParameter()
+        {
+            var a = repo.GetCondicionCursoBy(27,41, 0, 0, 0,0);
+            Debug.WriteLine(a.Count);
+           
+
+            Assert.IsTrue(a.Count==1);
+
+        }
+
+        [Test]
+        public void GetCondicionCursoVarious()
+        {
+            var a = repo.BuscarCondiciones("", "int", "");
+            Debug.WriteLine(a.Count);
+
+
+            Assert.IsTrue(a.Count>0);
+
+        }
+
     }
 }

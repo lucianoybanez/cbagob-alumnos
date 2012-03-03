@@ -8,6 +8,7 @@
     @RenderSection("Stylesheets", false)
 </head>
 <body>
+    <input type="hidden" name="CurrentDate" id="CurrentDate" value="@System.DateTime.Today" />
     <div id="wrap">
         <div id="header">
         </div>
@@ -48,7 +49,7 @@
 
                        if (ViewBag.Title.Contains("Inscripciones"))
                        {
-                        <li>@Html.ActionLink("Gestion Inscripciones", "Index", "Inscripciones", null, null)</li> 
+                        <li>@Html.ActionLink("Gestion Inscripciones", "Index", "Inscripciones", null, new { @class = ViewBag.SubMenuSelected == "Inscripciones" ? "selected" : "" })</li> 
                        }
 
                        if (ViewBag.Title.Contains("Superviciones"))
@@ -85,7 +86,9 @@
     @Content.Script("jquery.validate.min.js", Url)
     @Content.Script("jquery.validate.unobtrusive.min.js", Url)
     @Content.Script("jquery-ui-1.8.11.min.js", Url)
-    @Content.Script("CbaGob.Alumnos.Global.js", Url)
+    @Content.Script("jquery.maskedinput-1.3.min.js", Url)    
+    @Content.Script("CbaGob.Alumnos.Global.js", Url)   
     @RenderSection("Scripts", false)
+    @Content.Script("cbaGob.Alumnos.SetFront.js", Url)
 </body>
 </html>

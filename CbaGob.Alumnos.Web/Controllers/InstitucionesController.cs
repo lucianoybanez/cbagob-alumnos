@@ -92,9 +92,12 @@ namespace CbaGob.Alumnos.Web.Controllers
             IInstitucionServicio mInstitucionServicio = new InstitucionServicio();
 
             bool mReturn = mInstitucionServicio.AgregarInstitucion(mInstitucion);
-
-
-            return View("Index", InstitucionServicio.GetIndex());
+            if (mReturn)
+            {
+                return View("Index", InstitucionServicio.GetIndex());
+            }
+            base.AddError(InstitucionServicio.GetErrors());
+            return View("Agregar", model);
         }
 
         [HttpPost]
@@ -114,8 +117,13 @@ namespace CbaGob.Alumnos.Web.Controllers
             mInstitucion.Id_Domicilio = model.Id_Domicilio;
 
             bool ret = mInstitucionServicio.ModificarInstitucion(mInstitucion);
-
-            return View("Index", InstitucionServicio.GetIndex());
+            if (ret)
+            {
+                return View("Index", InstitucionServicio.GetIndex());
+            }
+            base.AddError(InstitucionServicio.GetErrors());
+            return View("Modificar", model);
+            
         }
 
         [HttpPost]
@@ -125,9 +133,12 @@ namespace CbaGob.Alumnos.Web.Controllers
             IInstitucionServicio mInstitucionServicio = new InstitucionServicio();
 
             bool mReturn = mInstitucionServicio.EliminarInstitucion(model.Id_Institucion);
-
-
-            return View("Index", InstitucionServicio.GetIndex());
+            if (mReturn)
+            {
+                return View("Index", InstitucionServicio.GetIndex());
+            }
+            base.AddError(InstitucionServicio.GetErrors());
+            return View("Eliminar", model);
         }
 
         public ActionResult ListarCondicionCurso(int INST_ID)

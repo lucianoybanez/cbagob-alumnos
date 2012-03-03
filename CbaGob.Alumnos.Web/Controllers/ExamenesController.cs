@@ -27,23 +27,25 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View(ExamenServicio.GetExamanes());
         }
 
-        public ActionResult Agregar()
+        public ActionResult Agregar(int IdInscripcion)
         {
-            return View(ExamenServicio.GetExamenVista());
+            var vista = ExamenServicio.GetExamenVistaByInscripcion(IdInscripcion);
+            vista.Accion = "Agregar";
+            return View(vista);
         }
 
         public ActionResult Eliminar(int IdExamen)
         {
-            if (!ExamenServicio.EliminarExamen(IdExamen))
-            {
-                base.AddError(ExamenServicio.GetErrors());
-            }
-            return RedirectToAction("Index");
+            var vista = ExamenServicio.GetExamenVista(IdExamen);
+            vista.Accion = "Eliminar";
+            return View("Agregar", vista);
         }
 
         public ActionResult Modificar(int IdExamen)
         {
-            return View("Agregar",ExamenServicio.GetExamenVista(IdExamen));
+            var vista = ExamenServicio.GetExamenVista(IdExamen);
+            vista.Accion = "Modificar";
+            return View("Agregar",vista);
         }
 
         public ActionResult CambiarCombo(ExamenVista vista)
@@ -57,11 +59,22 @@ namespace CbaGob.Alumnos.Web.Controllers
             if (!result)
             {
                 base.AddError(ExamenServicio.GetErrors());
-                return View("Agregar", CambiarCombo(vista));
+                return View("Agregar", vista);
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Ver", "Inscripciones", new { idInscripcion = vista.idInscripcion});
         }
 
+
+        public ActionResult EliminarExamen(ExamenVista vista)
+        {
+            bool result = ExamenServicio.EliminarExamen(vista.IdExamen);
+            if (!result)
+            {
+                base.AddError(ExamenServicio.GetErrors());
+                return View("Agregar", vista);
+            }
+            return RedirectToAction("Ver", "Inscripciones", new { idInscripcion = vista.idInscripcion });
+        }
       
 
         public ActionResult BuscarAlumno(string term)

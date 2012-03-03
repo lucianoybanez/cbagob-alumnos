@@ -12,8 +12,10 @@
         Agregar Institución</h2>
     <table align="center" style="width: 700px;">
         <tr>
+         
             <td class="style1" style="font-weight: bold">
                 <div id="titulo">
+                   @Html.ValidationSummary()
                 </div>
                 @using (Html.BeginForm("Agregar_Institucion", "Instituciones", FormMethod.Post, new { Id = "FormularioInstituciones" }))
                 { 

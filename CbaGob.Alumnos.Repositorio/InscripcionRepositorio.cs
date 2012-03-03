@@ -48,7 +48,9 @@ namespace CbaGob.Alumnos.Repositorio
                                  NombreModalidad = c.T_CONDICIONES_CURSO.T_MODALIDADES.N_MODALIDAD,
                                  NombreEstadoCurso = c.T_CONDICIONES_CURSO.T_ESTADOS_CURSO.N_ESTADO_CURSO,
                                  NombreInstitucion = c.T_CONDICIONES_CURSO.T_INSTITUCIONES.N_INSTITUCION,
-                                 NombreNivel = c.T_CONDICIONES_CURSO.T_NIVELES.N_NIVEL
+                                 NombreNivel = c.T_CONDICIONES_CURSO.T_NIVELES.N_NIVEL,
+                                 NombrePrograma = c.T_CONDICIONES_CURSO.T_PROGRAMAS.N_PROGRAMA,
+                                 idPrograma = c.T_CONDICIONES_CURSO.ID_PROGRAMA
                              });
             return a;
         }
@@ -125,7 +127,7 @@ namespace CbaGob.Alumnos.Repositorio
         {
             try
             {
-                base.AgregarDatosModificacion(inscripcion);
+                base.AgregarDatosAlta(inscripcion);
 
                 T_INSCRIPCIONES t_inscripcion = new T_INSCRIPCIONES
                                                     {
@@ -139,14 +141,13 @@ namespace CbaGob.Alumnos.Repositorio
                                                         USR_MODIF = inscripcion.UsuarioModificacion,
                                                         DESCRIPCION = inscripcion.Descripcion
                                                     };
-
+                mDb.AddToT_INSCRIPCIONES(t_inscripcion);
                 mDb.SaveChanges();
                 return true;
             }
             catch (Exception)
             {
-
-                throw;
+                return false;
             }
         }
 

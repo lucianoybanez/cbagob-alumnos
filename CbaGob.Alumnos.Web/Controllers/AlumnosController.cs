@@ -201,5 +201,13 @@ namespace CbaGob.Alumnos.Web.Controllers
         }
 
         
+        public PartialViewResult BuscarAlumno(string nombre,string apellido,string dni)
+        {
+            if (!string.IsNullOrEmpty(dni))
+            {
+                return PartialView("_BuscadorAlumnoLista", alumnosservicios.GetTodosByDni(dni));
+            }
+            return PartialView("_BuscadorAlumnoLista", alumnosservicios.GetTodosByNombreApellido(nombre, apellido));
+        }
     }
 }

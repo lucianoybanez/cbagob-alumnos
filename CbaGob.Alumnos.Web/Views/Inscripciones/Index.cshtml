@@ -1,6 +1,7 @@
 ﻿@model InscripcionesVista
 @{
     ViewBag.Title = "Inscripciones";
+    ViewBag.SubMenuSelected = "Inscripciones";
     Layout = "~/Views/Shared/_MasterSGC.cshtml";
 }
 @section Stylesheets {
@@ -68,24 +69,15 @@
                                                 @item.NombreModalidad
                                             </td>
                                             <td>
-                                                @Html.Encode(item.ApellidoAlumno + ", " + item.NombreAlumno)
+                                                @Html.Raw(item.ApellidoAlumno + ", " + item.NombreAlumno)
                                             </td>
                                             <td>
-                                                @Html.ActionLink("Modificar", "Modificar", "Inscripciones", new { idInscripcion = item.IdInscripcion }, new { @class = "btnIngresar" })&nbsp;&nbsp;&nbsp;&nbsp;
+                                               
                                                 @Html.ActionLink("Eliminar", "Eliminar", "Inscripciones", new { idInscripcion = item.IdInscripcion }, new { @class = "btnIngresar" })&nbsp;&nbsp;&nbsp;&nbsp;
+                                                @Html.ActionLink("Ver", "Ver", "Inscripciones", new { idInscripcion = item.IdInscripcion }, new { @class = "btnIngresar" })&nbsp;&nbsp;&nbsp;&nbsp;
                                             </td>
                                         </tr>
-                                    }
-                                    <tr>
-                                        <td align="left" valign="middle" colspan="2" height="20">
-                                            @Html.Partial("_Paginacion")
-                                        </td>
-                                        <td align="right" valign="bottom" colspan="2" height="20">
-                                            <div style="height: 20px; padding: 15px 5px 0 2px;">
-                                                @Html.ActionLink("Agregar Inscripcion", "Agregar", "Inscripciones", null, new { @class = "btnIngresar" })
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    }                                   
                                 </tbody>
                             </table>
                         </div>
@@ -94,6 +86,15 @@
                     {
                         @Html.Partial("_SinDatos", "Inscripciones")
                     }
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                       
+                         <tr>
+                            <td align="right">
+                              @Html.Partial("_Paginacion")
+                               @Html.ActionLink("Agregar Inscripcion", "Agregar", "Inscripciones", null, new { @class = "btnIngresar" })
+                            </td>
+                        </tr>
+                    </table>      
                     <br />
                 </div>
             </td>

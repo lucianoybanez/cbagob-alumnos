@@ -17,12 +17,9 @@ namespace CbaGob.Alumnos.Repositorio
             mDB = new CursosDB();
         }
 
-        public IList<IExamen> GetExamenes()
+        private IQueryable<IExamen> GetExamen()
         {
             var result = (from p in mDB.T_EXAMENES
-                          join ins in mDB.T_INSCRIPCIONES on p.ID_INSCRIPCION equals ins.ID_INSCRIPCION
-                          join alumnos in mDB.T_ALUMNOS on ins.ID_ALUMNO equals alumnos.ID_ALUMNO
-                          join personas in mDB.T_PERSONAS on alumnos.ID_PERSONA equals personas.ID_PERSONA
                           where p.ESTADO == "A"
                           select new Examen
                                      {
@@ -35,11 +32,15 @@ namespace CbaGob.Alumnos.Repositorio
                                          Nota = p.NOTA,
                                          UsuarioAlta = p.USR_ALTA,
                                          UsuarioModificacion = p.USR_MODIF,
-                                         NroExamen = p.NRO_EXAMEN,
-                                         NombreAlumno = personas.NOV_APELLIDO + ", " + personas.NOV_NOMBRE,
-                                        // NombreGrupo = p.T_INSCRIPCIONES.T_GRUPOS.N_GRUPO
-                                     }).ToList().Cast<IExamen>().ToList();
+                                         NroExamen = p.NRO_EXAMEN
+                                     });
             return result;
+
+        } 
+
+        public IList<IExamen> GetExamenes()
+        {
+            return GetExamen().ToList();
         }
 
         public IExamen GetExamen(int idExamen)
@@ -57,10 +58,7 @@ namespace CbaGob.Alumnos.Repositorio
                                          Nota = p.NOTA,
                                          UsuarioAlta = p.USR_ALTA,
                                          UsuarioModificacion = p.USR_MODIF,
-                                         NroExamen = p.NRO_EXAMEN,
-                                         IdAlumno = p.T_INSCRIPCIONES.ID_ALUMNO,
-                                        // IdGrupo = p.T_INSCRIPCIONES.ID_GRUPO,
-                                        // NombreGrupo = p.T_INSCRIPCIONES.T_GRUPOS.N_GRUPO
+                                         NroExamen = p.NRO_EXAMEN
                                      }).FirstOrDefault();
             return result;
         }
@@ -132,6 +130,11 @@ namespace CbaGob.Alumnos.Repositorio
             {
                 return false;
             }
+        }
+
+        public IList<IExamen> GetExamenesByInscripcion(int idInscripcion)
+        {
+            return GetExamen().Where(c => c.IdInscripcion == idInscripcion).ToList();
         }
     }
 }

@@ -23,8 +23,7 @@ namespace CbaGob.Alumnos.Repositorio
 
         private IQueryable<IInstitucion> QInstitucion()
         {
-            try
-            {
+         
                 var qIns = (from e in mDb.T_INSTITUCIONES
                             where e.ESTADO == "A"
                             select
@@ -43,41 +42,24 @@ namespace CbaGob.Alumnos.Repositorio
                                             e.T_DOMICILIO.BARRIO + "," + e.T_DOMICILIO.CALLE + "," + e.T_DOMICILIO.NRO
                                     });
                 return qIns;
-            }
-            catch (Exception)
-            {
-                
-                throw;
-            }
+            
+      
         }
 
         public IList<IInstitucion> GetInstituciones()
         {
-            try
-            {
+      
                 return  QInstitucion().ToList();;
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
+  
         }
 
         public IInstitucion GetInstitucion(int IdInstitucion)
         {
-            try
-            {
+           
                 var mInstirucion = QInstitucion().Where(c => c.Id_Institucion == IdInstitucion).SingleOrDefault();
 
                 return mInstirucion;
 
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
         }
 
         #region CRUD
@@ -107,8 +89,7 @@ namespace CbaGob.Alumnos.Repositorio
             }
             catch (Exception ex)
             {
-
-                throw;
+                return false;
             }
         }
 
@@ -132,8 +113,7 @@ namespace CbaGob.Alumnos.Repositorio
             }
             catch (Exception ex)
             {
-
-                throw;
+                return false;
             }
         }
 
@@ -158,7 +138,7 @@ namespace CbaGob.Alumnos.Repositorio
             catch (Exception)
             {
 
-                throw;
+                return false;
             }
         }
 

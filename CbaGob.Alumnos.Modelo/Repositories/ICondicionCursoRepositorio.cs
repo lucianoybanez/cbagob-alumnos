@@ -10,9 +10,12 @@ namespace CbaGob.Alumnos.Modelo.Repositories
     {
         ICondicionCurso GetCondicion(int IdCondicion);
         IList<ICondicionCurso> GetCondicionesByInstitucion(int IdInstitucion);
+        IList<ICondicionCurso> GetCondicionCursoBy(int IdInstitucion, int IdCurso, int IdEstadoCurso, int IdNivel, int IdModalidad, int IdPrograma);
+        ICondicionCurso GetFirstCondicion();
         bool AgregarCondicion(ICondicionCurso condicion);
         bool ModificarCondicion(ICondicionCurso condicion);
         bool EliminarCondicion(int IdCondicion);
         bool CambiarEstadoCurso(int IdCondicion, int NuevoEstado);
+        IList<ICondicionCurso> BuscarCondiciones(string institucion, string nivel, string curso);
     }
 }

@@ -6,13 +6,14 @@ using CbaGob.Alumnos.Modelo.Entities;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Modelo.Repositories;
 using CbaGob.Alumnos.Repositorio;
+using CbaGob.Alumnos.Servicio.Comun;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
 using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.Servicios
 {
-    public class InstitucionServicio : IInstitucionServicio
+    public class InstitucionServicio : BaseServicio, IInstitucionServicio
     {
         private IInstitucionRepositorio mInstitucionRepositorio;
 
@@ -24,33 +25,19 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         public IList<IInstitucion> GetTodas()
         {
-            try
-            {
                 return mInstitucionRepositorio.GetInstituciones();
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+
         }
 
         public InstitucionVista GetIndex()
         {
-            try
-            {
-
+          
                 InstitucionVista mInstitucionVista = new InstitucionVista();
 
                 mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones();
 
                 return mInstitucionVista;
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
-
+  
         }
 
         public IInstitucion GetUna(int IdInstitucion)
@@ -60,8 +47,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         public IInstitucionVista GetUnaVista(int IdInstitucion)
         {
-            try
-            {
+         
                 IInstitucionVista model = new InstitucionVista();
 
                 IInstitucion mInstitucion;
@@ -77,43 +63,44 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 return model;
 
 
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
         }
 
         public bool AgregarInstitucion(IInstitucion pInstitucion)
         {
-            try
+            bool result = mInstitucionRepositorio.AgregarInstitucion(pInstitucion);
+            if (!result)
             {
-                return mInstitucionRepositorio.AgregarInstitucion(pInstitucion);
+                base.AddError("Error: No pueden existir dos Instituciones Iguales.");
+                base.AddError("Error: Dos Instituciones no pueden tener el mismo domicilio.");
             }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
+            return result;
         }
 
         public bool ModificarInstitucion(IInstitucion pInstitucion)
         {
-            try
+            bool result = mInstitucionRepositorio.ModificarInstitucion(pInstitucion);
+            if (!result)
             {
-                return mInstitucionRepositorio.ModificarInstitucion(pInstitucion);
+                base.AddError("Error: No pueden existir dos Instituciones Iguales.");
+                base.AddError("Error: Dos Instituciones no pueden tener el mismo domicilio.");
             }
-            catch (Exception ex)
-            {
-                
-                throw;
-            }
+            return result;
+         
         }
 
         public bool EliminarInstitucion(int IdInstitucion)
         {
-            return mInstitucionRepositorio.EliminarInstitucion(IdInstitucion);
+            bool result = mInstitucionRepositorio.EliminarInstitucion(IdInstitucion);
+            if (!result)
+            {
+                base.AddError("Error: No se pudo eliminar la Institucion.");
+            }
+            return result;
+        }
+
+        public IList<IErrores> GetErrors()
+        {
+            return base.Errors;
         }
     }
 }

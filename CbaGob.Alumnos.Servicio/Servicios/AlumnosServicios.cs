@@ -33,28 +33,13 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         public IList<IAlumnos> GetTodosByNombreApellido(string nombre, string apellido)
         {
-            try
-            {
-                return alumnosrepositorio.GetTodosByNombreApellido(nombre, apellido);
-            }
-            catch (Exception ex)
-            {
+            return alumnosrepositorio.GetTodosByNombreApellido(nombre, apellido);
 
-                throw;
-            }
         }
 
         public IList<IAlumnos> GetTodosByDni(string dni)
         {
-            try
-            {
-                return alumnosrepositorio.GetTodosByDni(dni);
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
+            return alumnosrepositorio.GetTodosByDni(dni);
         }
 
         public IList<IAlumnos> GetTodosByCondicionCurso(int id_condicion_curso)
