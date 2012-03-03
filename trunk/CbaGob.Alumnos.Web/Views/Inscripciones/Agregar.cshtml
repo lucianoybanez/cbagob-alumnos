@@ -1,0 +1,160 @@
+﻿@model  InscripcionVista
+@{
+    ViewBag.Title = "Inscripciones";
+    ViewBag.SubMenuSelected = "Inscripciones";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Inscripciones.js", Url)
+    @Content.Script("CbaGob.Alumnos.BuscadorAlumno.js", Url)
+    @Content.Script("CbaGob.Alumnos.BuscadorCondicionCurso.js", Url)
+}
+<div class="box">
+    <h2>
+        Agregar Inscripcion</h2>
+    <table align="center" style="width: 700px;">
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                @using (Html.BeginForm("Guardar", "Inscripciones", FormMethod.Post, new { Id = "FormularioInscripciones" }))
+                { 
+                    @Html.HiddenFor(c => c.Accion)
+                    @Html.HiddenFor(c => c.IdInscripcion)                 
+                    @Html.HiddenFor(c => c.IdAlumno)
+                    @Html.HiddenFor(c => c.IdCondicionCurso)  
+                    <input type="hidden" id="urlEliminar" value="@Url.Action("GuardarEliminacion")"/>
+                    <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                        width: 700px;">
+                        <tr>
+                            <td>
+                                @Html.ValidationSummary(true)
+                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+                                    text-align: center;">
+                                    <legend style="color: #FF9900"><b>Datos Inscripcion</b></legend>
+                                    <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                                        width: 700px;">
+                                        <tr>
+                                            <td align="left">
+                                                <b>Descripcion:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Descripcion)
+                                                @Html.ValidationMessageFor(m => m.Descripcion, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Fecha:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.EditorFor(c => c.Fecha)
+                                                @Html.ValidationMessageFor(m => m.Fecha, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Alumno:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.NombreAlumno, new { @readonly = "readonly" })
+                                                <a href="#" id="BuscarAlumno">Buscar</a>
+                                                @Html.ValidationMessageFor(m => m.NombreAlumno, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Institucion:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.NombreInstitucion, new { @readonly = "readonly" })
+                                                <a href="#" id="BuscarInstitucion">Buscar Institucion</a>
+                                                @Html.ValidationMessageFor(m => m.NombreInstitucion, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Curso:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.NombreCurso, new { @readonly = "readonly" })
+                                                @Html.ValidationMessageFor(m => m.NombreCurso, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Estado de Curso:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.NombreEstadoCurso, new { @readonly = "readonly" })
+                                                @Html.ValidationMessageFor(m => m.NombreEstadoCurso, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Nivel:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.NombreNivel, new { @readonly = "readonly" })
+                                                @Html.ValidationMessageFor(m => m.NombreNivel, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Modalidad:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.NombreModalidad, new { @readonly = "readonly" })
+                                                @Html.ValidationMessageFor(m => m.NombreModalidad, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Programa:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.NombrePrograma, new { @readonly = "readonly" })
+                                                @Html.ValidationMessageFor(m => m.NombrePrograma, "*")
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                            </td>
+                        </tr>
+                    </table>
+                    <table id="myIntituciones" align="center" width="700px">
+                        <tr>
+                            <td align="right" valign="middle">
+                                @if (Model.Accion == "Eliminar")
+                                {
+                                    <input type="submit" value="Eliminar" class="btnIngresar" />
+                                }
+                                else if (Model.Accion == "Agregar")
+                                {
+                                    <input type="submit" value="Guardar" class="btnIngresar" />
+                                }
+                                @Html.ActionLink("Cancelar", "Index", "Inscripciones", null, new { Class = "btnIngresar" })
+                            </td>
+                        </tr>
+                    </table>
+                }
+            </td>
+        </tr>
+        @if (Model.Accion == "Ver")
+        {
+            <tr>
+                <td>
+                    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+                        text-align: center;">
+                        <legend style="color: #FF9900"><b>Datos Examenes</b></legend>
+                        @Html.Partial("_ExamenesAsignados",Model.examens)
+                        @Html.ActionLink("Agregar Examen", "Agregar", "Examenes", new { IdInscripcion = @Model.IdInscripcion}, new { @class = "btnIngresar" })
+
+                    </fieldset>
+                </td>
+            </tr> 
+        }
+    </table>
+</div>
+@Html.Partial("BuscadorAlumno")
+@Html.Partial("BuscadorCondicionCurso")

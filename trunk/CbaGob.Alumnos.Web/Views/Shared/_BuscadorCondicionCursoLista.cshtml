@@ -1,0 +1,58 @@
+﻿@model IList<ICondicionCurso>
+@if (Model != null && Model.Count > 0)
+{ 
+    <table id="CondicionCursoLista">
+        <thead>
+            <tr>
+                <th height="30">
+                    Institucion
+                </th>
+                <th height="30">
+                    Curso
+                </th>
+                <th height="30">
+                    Modalidad
+                </th>
+                <th height="30">
+                    Nivel
+                </th>
+                <th height="30">
+                    Programa
+                </th>
+                <th height="30">
+                    Accion
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td align="left" height="28">
+                        @item.NombeInstitucion
+                    </td>
+                    <td align="left" height="28">
+                        @item.NombreCurso
+                    </td>
+                    <td align="left" height="28">
+                        @item.NombreModalidad
+                    </td>
+                    <td align="left" height="28">
+                        @item.NombreNivel
+                    </td>
+                    <td align="left" height="28">
+                        @item.NombrePrograma
+                    </td>
+                    <td align="right" style="margin-right: 2px;">
+                        <a href="JavaScript:cbaAlumnosBuscadorCondicionCurso.Seleccionar('@item.IdCondicionCurso','@item.NombeInstitucion','@item.NombreCurso','@item.NombreEstadoCurso','@item.NombreNivel','@item.NombreModalidad','@item.NombrePrograma')" class = "btnIngresar">Seleccionar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+else
+{
+    @Html.Partial("_SinDatos", "Cursos Asignados a instituciones")
+}

@@ -13,7 +13,6 @@ namespace CbaGob.Alumnos.Repositorio
     {
         public CursosDB mDb;
 
-
         public AlumnosRepositorio()
         {
             mDb = new CursosDB();
@@ -21,43 +20,73 @@ namespace CbaGob.Alumnos.Repositorio
 
         public IList<IAlumnos> GetTodos()
         {
-            try
-            {
-                var ListaAlumno =
-                    (from c in mDb.T_ALUMNOS
-                     join e in mDb.T_PERSONAS on c.ID_PERSONA equals e.ID_PERSONA
-                     where c.ESTADO == "A"
-                     select
-                         new Alumno
-                             {
-                                 Cuil = e.CUIL,
-                                 Fecha_Nacimiento = e.FECHA_NACIMIENTO ?? System.DateTime.Now,
-                                 Id_Alumno = c.ID_ALUMNO,
-                                 Id_Persona = c.ID_PERSONA ?? 0,
-                                 Id_Estado_Civil = e.ID_ESTADO_CIVIL,
-                                 Id_Sexo = e.ID_SEXO,
-                                 Id_Tipo_Documento = e.ID_TIPO_DOCUMENTO,
-                                 Nov_Nombre = e.NOV_NOMBRE,
-                                 Nov_Apellido = e.NOV_APELLIDO,
-                                 Nro_Documento = e.NRO_DOCUMENTO
-                             }).ToList().Cast<IAlumnos>().ToList();
-                return ListaAlumno;
-            }
-            catch (Exception)
-            {
 
-                throw;
-            }
+            var ListaAlumno =
+                (from c in mDb.T_ALUMNOS
+                 join e in mDb.T_PERSONAS on c.ID_PERSONA equals e.ID_PERSONA
+                 where c.ESTADO == "A"
+                 select
+                     new Alumno
+                         {
+                             Cuil = e.CUIL,
+                             Fecha_Nacimiento = e.FECHA_NACIMIENTO ?? System.DateTime.Now,
+                             Id_Alumno = c.ID_ALUMNO,
+                             Id_Persona = c.ID_PERSONA ?? 0,
+                             Id_Estado_Civil = e.ID_ESTADO_CIVIL,
+                             Id_Sexo = e.ID_SEXO,
+                             Id_Tipo_Documento = e.ID_TIPO_DOCUMENTO,
+                             Nov_Nombre = e.NOV_NOMBRE,
+                             Nov_Apellido = e.NOV_APELLIDO,
+                             Nro_Documento = e.NRO_DOCUMENTO
+                         }).ToList().Cast<IAlumnos>().ToList();
+            return ListaAlumno;
+
         }
 
         public IList<IAlumnos> GetTodosByNombreApellido(string nombre, string apellido)
         {
-            throw new NotImplementedException();
+            var ListaAlumno =
+                (from c in mDb.T_ALUMNOS
+                 join e in mDb.T_PERSONAS on c.ID_PERSONA equals e.ID_PERSONA
+                 where c.ESTADO == "A" && e.NOV_NOMBRE.ToLower().Contains(nombre.ToLower()) || e.NOV_APELLIDO.ToLower().Contains(apellido.ToLower())
+                 select
+                     new Alumno
+                         {
+                             Cuil = e.CUIL,
+                             Fecha_Nacimiento = e.FECHA_NACIMIENTO ?? System.DateTime.Now,
+                             Id_Alumno = c.ID_ALUMNO,
+                             Id_Persona = c.ID_PERSONA ?? 0,
+                             Id_Estado_Civil = e.ID_ESTADO_CIVIL,
+                             Id_Sexo = e.ID_SEXO,
+                             Id_Tipo_Documento = e.ID_TIPO_DOCUMENTO,
+                             Nov_Nombre = e.NOV_NOMBRE,
+                             Nov_Apellido = e.NOV_APELLIDO,
+                             Nro_Documento = e.NRO_DOCUMENTO
+                         }).ToList().Cast<IAlumnos>().ToList();
+            return ListaAlumno;
         }
 
         public IList<IAlumnos> GetTodosByDni(string dni)
         {
-            throw new NotImplementedException();
+            var ListaAlumno =
+                (from c in mDb.T_ALUMNOS
+                 join e in mDb.T_PERSONAS on c.ID_PERSONA equals e.ID_PERSONA
+                 where c.ESTADO == "A" && e.NRO_DOCUMENTO == dni
+                 select
+                     new Alumno
+                         {
+                             Cuil = e.CUIL,
+                             Fecha_Nacimiento = e.FECHA_NACIMIENTO ?? System.DateTime.Now,
+                             Id_Alumno = c.ID_ALUMNO,
+                             Id_Persona = c.ID_PERSONA ?? 0,
+                             Id_Estado_Civil = e.ID_ESTADO_CIVIL,
+                             Id_Sexo = e.ID_SEXO,
+                             Id_Tipo_Documento = e.ID_TIPO_DOCUMENTO,
+                             Nov_Nombre = e.NOV_NOMBRE,
+                             Nov_Apellido = e.NOV_APELLIDO,
+                             Nro_Documento = e.NRO_DOCUMENTO
+                         }).ToList().Cast<IAlumnos>().ToList();
+            return ListaAlumno;
         }
 
         public IList<IAlumnos> GetTodosByCondicionCurso(int id_condicion_curso)

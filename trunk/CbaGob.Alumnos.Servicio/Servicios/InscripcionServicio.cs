@@ -2,28 +2,52 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CbaGob.Alumnos.Modelo.Entities;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Modelo.Repositories;
 using CbaGob.Alumnos.Repositorio;
+using CbaGob.Alumnos.Servicio.Comun;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
 using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.Servicios
 {
-    public class InscripcionServicio : IInscripcionServicio
+    public class InscripcionServicio : BaseServicio, IInscripcionServicio
     {
-        private IInscripcionRepositorio inscripcionrepositorio;
+        private IInscripcionRepositorio Inscripcionrepositorio;
 
-        public InscripcionServicio()
+        private IInstitucionRepositorio InstitucionRepositorio;
+
+        private ICursosRepositorio CursosRepositorio;
+
+        private IEstadoCursoRepositorio EstadoCursoRepositorio;
+
+        private INivelRepositorio NivelRepositorio;
+
+        private IModalidadRepositorio ModalidadRepositorio;
+
+        private ICondicionCursoRepositorio CondicionCursoRepositorio;
+
+        private IProgramaRepositorio ProgramaRepositorio;
+
+
+        public InscripcionServicio(IInscripcionRepositorio inscripcionrepositorio, IInstitucionRepositorio institucionRepositorio, ICursosRepositorio cursosRepositorio, IEstadoCursoRepositorio estadoCursoRepositorio, INivelRepositorio nivelRepositorio, IModalidadRepositorio modalidadRepositorio, ICondicionCursoRepositorio condicionCursoRepositorio, IProgramaRepositorio programaRepositorio)
         {
-            inscripcionrepositorio = new InscripcionRepositorio();
+            Inscripcionrepositorio = inscripcionrepositorio;
+            InstitucionRepositorio = institucionRepositorio;
+            CursosRepositorio = cursosRepositorio;
+            EstadoCursoRepositorio = estadoCursoRepositorio;
+            NivelRepositorio = nivelRepositorio;
+            ModalidadRepositorio = modalidadRepositorio;
+            CondicionCursoRepositorio = condicionCursoRepositorio;
+            ProgramaRepositorio = programaRepositorio;
         }
 
         public IInscripcionesVista GetAllInscripcion()
         {
             IInscripcionesVista inscripcionesvista = new InscripcionesVista();
-            inscripcionesvista.ListaInscripciones = inscripcionrepositorio.GetAllInscripcion();
+            inscripcionesvista.ListaInscripciones = Inscripcionrepositorio.GetAllInscripcion();
             return inscripcionesvista;
         }
 
@@ -33,7 +57,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 IInscripcionesVista inscripcionesvista = new InscripcionesVista();
 
-                IList<IInscripcion> ListaInscripcion = inscripcionrepositorio.GetAllInscripcionByAlumno(id_alumno);
+                IList<IInscripcion> ListaInscripcion = Inscripcionrepositorio.GetAllInscripcionByAlumno(id_alumno);
 
                 inscripcionesvista.ListaInscripciones = ListaInscripcion;
 
@@ -49,69 +73,89 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         public IInscripcionVista GetInscripcion(int id_inscripcion)
         {
-            try
+
+            var inscripcion = Inscripcionrepositorio.GetInscripcion(id_inscripcion);
+
+            if (inscripcion!=null)
             {
-                IInscripcionVista inscripcionvista = new InscripcionVista();
-                IAlumnosRepositorio alumnosrepositorio = new AlumnosRepositorio();
-                ICondicionCursoRepositorio condicionCursorepositorio = new CondicionCursoRepositorio();
-
-
-                IInscripcion inscripcion = inscripcionrepositorio.GetInscripcion(id_inscripcion);
-                inscripcionvista.Descripcion = inscripcion.Descripcion;
-                inscripcionvista.Fecha = inscripcion.Fecha;
-                inscripcionvista.Id_Alumno = inscripcion.Id_Alumno;
-                inscripcionvista.Id_Grupo = inscripcion.Id_Condicion_Curso;
-                inscripcionvista.Id_Inscipcion = inscripcion.IdInscripcion;
-
-                inscripcionvista.ListaAlumnos = alumnosrepositorio.GetTodos();
-
-                return inscripcionvista;
-
+                IInscripcionVista vista = new InscripcionVista()
+                {
+                    Descripcion = inscripcion.Descripcion,
+                    Fecha = inscripcion.Fecha,
+                    IdAlumno = inscripcion.Id_Alumno,
+                    IdCondicionCurso = inscripcion.Id_Condicion_Curso,
+                    IdInscripcion = inscripcion.IdInscripcion,
+                    NombreAlumno = inscripcion.NombreAlumno,
+                    NombreCurso = inscripcion.NombreCurso,
+                    NombreEstadoCurso = inscripcion.NombreEstadoCurso,
+                    NombreInstitucion = inscripcion.NombreInstitucion,
+                    NombreModalidad = inscripcion.NombreModalidad,
+                    NombreNivel = inscripcion.NombreNivel,
+                    NombrePrograma = inscripcion.NombrePrograma
+                };
+                return vista;
             }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            return new InscripcionVista();
         }
 
-        public bool AgregarInscripcion(IInscripcion inscripcion)
+        public bool AgregarInscripcion(IInscripcionVista vista)
         {
-            try
+            if (vista.IdCondicionCurso != 0)
             {
-                return inscripcionrepositorio.AgregarInscripcion(inscripcion);
+                if (vista.IdAlumno != 0)
+                {
+                    IInscripcion inscripcion = new Inscripcion();
+                    inscripcion.Id_Condicion_Curso = vista.IdCondicionCurso;
+                    inscripcion.Id_Alumno = vista.IdAlumno;
+                    inscripcion.Fecha = vista.Fecha;
+                    inscripcion.Descripcion = vista.Descripcion;
+                    bool result = Inscripcionrepositorio.AgregarInscripcion(inscripcion);
+                    if (result)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        base.AddError("Ocurrio un Error al agregar la Inscripcion. Verifique q no fue Inscripto anteriormente.");
+                    }
+                }
+                else
+                {
+                    base.AddError("Debe Seleccionar un Alumno");
+                }
             }
-            catch (Exception)
+            else
             {
+                base.AddError("Debe Seleccionar un Curso asginado a una Institucion");
+            }
+            return false;
 
-                throw;
-            }
+
         }
 
-        public bool ModificarInscripcion(IInscripcion inscripcion)
+        public bool ModificarInscripcion(IInscripcionVista inscripcion)
         {
-            try
-            {
-                return inscripcionrepositorio.ModificarInscripcion(inscripcion);
-            }
-            catch (Exception)
-            {
 
-                throw;
-            }
+            //return Inscripcionrepositorio.ModificarInscripcion(inscripcion);
+            return true;
         }
 
         public bool EliminarInscripcion(int id_inscripcion)
         {
-            try
-            {
-                return inscripcionrepositorio.EliminarInscripcion(id_inscripcion);
-            }
-            catch (Exception)
-            {
+            bool result = Inscripcionrepositorio.EliminarInscripcion(id_inscripcion);
 
-                throw;
+            if (!result)
+            {
+                base.AddError("Ocurrio un error al Eliminar la Inscripcion");
             }
+
+            return result;
+
+        }
+
+        public IList<IErrores> GetErrors()
+        {
+            return base.Errors;
         }
     }
 }

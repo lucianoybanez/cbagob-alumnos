@@ -9,21 +9,26 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
 {
     public interface IInscripcionVista
     {
-        int Id_Inscipcion { get; set; }
-        int Id_Alumno { get; set; }
-        int Id_Grupo { get; set; }
-        System.DateTime Fecha { get; set; }
-        string Nov_Apellido { get; set; }
-        string Nov_Nombre { get; set; }
-        string Cuil { get; set; }
-        DateTime Fecha_Nacimiento { get; set; }
-        string Nro_Documento { get; set; }
-        string Nombre_Curso { get; set; }
-        string Nombre_Grupo { get; set; }
+        string Accion { get; set; }
+        int IdCondicionCurso { get; set; }
+        int IdInscripcion { get; set; }
         string Descripcion { get; set; }
-        IList<ICondicionCurso> ListaCondicionCurso { get; set; }
-        IList<IAlumnos> ListaAlumnos { get; set; }
-        IList<IGrupo> ListaGrupo { get; set; }
-        IList<IInstitucion> ListaInstitucion { get; set; }
+        DateTime Fecha { get; set; }
+
+        string NombreInstitucion { get; set; }
+        string NombreEstadoCurso { get; set; }
+
+        string  NombreCurso { get; set; }
+
+        string NombreNivel { get; set; }
+
+        string NombreModalidad { get; set; }
+
+        string NombrePrograma { get; set; }
+
+        int IdAlumno { get; set; }
+        string NombreAlumno { get; set; }
+
+        IList<IExamen> examens { get; set; }  
     }
 }

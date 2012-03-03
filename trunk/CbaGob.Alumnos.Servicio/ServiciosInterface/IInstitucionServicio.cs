@@ -8,7 +8,7 @@ using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.ServiciosInterface
 {
-    public interface IInstitucionServicio
+    public interface IInstitucionServicio : IBaseServicio
     {
         IList<IInstitucion> GetTodas();
         InstitucionVista GetIndex();

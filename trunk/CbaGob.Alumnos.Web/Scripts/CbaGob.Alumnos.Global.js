@@ -8,24 +8,29 @@ $(document).ready(function () {
 cbaAlumnosGlobal = function () {
 
     function init() {
-        setJqueyUi();
+       
     }
 
-    function changeCombo(idCombo, urlToChange) {
+    function changeCombo(idCombo, idForm, urlToChange) {
         $('.input-validation-error').removeClass("input-validation-error");
         $('.field-validation-error').addClass("field-validation-valid");
 
         $('#' + idCombo).bind('change', function (e) {
-            $("form").validate().cancelSubmit = true;
-            $('#FormFactura').attr('action', urlToChange);
-            $("#FormFactura").submit();
+            $('#' + idForm).validate().cancelSubmit = true;
+            $('#' + idForm).attr('action', urlToChange);
+            $('#' + idForm).submit();
         });
     }
 
-    function setJqueyUi() {
-        $("#tabs").tabs();
-        $(":input[data-autocomplete]").each(function () {
-            $(this).autocomplete({ source: $(this).attr("data-autocomplete") });
+    function ChangeMultipleCombo(idCombo, idForm, urlToChange, hiddenComboName) {
+        $('.input-validation-error').removeClass("input-validation-error");
+        $('.field-validation-error').addClass("field-validation-valid");
+
+        $('#' + idCombo).bind('change', function (e) {
+            $("#" + hiddenComboName).val(idCombo);
+            $('#' + idForm).validate().cancelSubmit = true;
+            $('#' + idForm).attr('action', urlToChange);
+            $('#' + idForm).submit();
         });
     }
 
@@ -255,7 +260,8 @@ cbaAlumnosGlobal = function () {
         BuscadorInstituciones: BuscadorInstituciones,
         BuscadorPersonasJuridica: BuscadorPersonasJuridica,
         BuscadorSupervisores: BuscadorSupervisores,
-        BuscadorEquipo: BuscadorEquipo
+        BuscadorEquipo: BuscadorEquipo,
+        ChangeMultipleCombo: ChangeMultipleCombo
     };
 } ();
 

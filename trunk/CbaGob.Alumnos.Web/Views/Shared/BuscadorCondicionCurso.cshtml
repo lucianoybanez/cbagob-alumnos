@@ -1,0 +1,41 @@
+﻿@{
+    Layout = null;
+}
+<div id="CondicionCursoDialog" title="Buscar Cursos Asignados a Instituciones">
+    @using (Ajax.BeginForm("BuscarCondicion", "CondicionesCurso", new AjaxOptions() { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "CondicionCursoLista" }))
+    {
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    Institucion:
+                </td>
+                <td>
+                    <input type="text" name="institucion" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Curso:
+                </td>
+                <td>
+                    <input type="text" name="curso" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Nivel:
+                </td>
+                <td>
+                    <input type="text" name="nivel" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Buscar" />
+                </td>
+            </tr>
+        </table>
+      }
+    <table id="CondicionCursoLista">
+    </table>
+</div>

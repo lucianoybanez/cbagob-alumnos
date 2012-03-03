@@ -1,0 +1,52 @@
+﻿@model IList<IAlumnos>
+@if (Model != null && Model.Count > 0)
+{ 
+    <table align="center" cellpadding="2" cellspacing="2" id="searchResults">
+        <thead>
+            <tr>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Apellido
+                </th>
+                <th>
+                    DNI
+                </th>
+                <th>
+                    Fecha Nacimiento
+                </th>
+                <th>
+                    Accion
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td align="left" height="30">
+                        @item.Nov_Nombre
+                    </td>
+                    <td align="left" height="30">
+                        @item.Nov_Apellido
+                    </td>
+                    <td align="left" height="30">
+                        @item.Nro_Documento
+                    </td>
+                    <td align="left" height="30">
+                        @item.Fecha_Nacimiento.ToShortDateString()
+                    </td>
+                    <td>                        
+                        <a href="JavaScript:cbaAlumnosBuscadorAlumno.SeleccionarAlumno('@(item.Nov_Apellido + ", " + item.Nov_Nombre )','@item.Id_Alumno')" class = "btnIngresar">Seleccionar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    
+}
+else
+{
+    @Html.Partial("_SinDatos", "Alumnos")
+}

@@ -30,5 +30,8 @@ namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
         int Id_Alumno { get; set; }
         string NombreAlumno { get; set; }
         string ApellidoAlumno { get; set; }
+
+        int idPrograma { get; set; }
+        string NombrePrograma { get; set; }
     }
 }

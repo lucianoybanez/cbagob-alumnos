@@ -32,7 +32,7 @@ namespace CbaGob.Alumnos.Repositorio
                                     CantidadExamenes = p.CANTIDADEXAMENES,
                                     CargaHoraria = p.CARGAHORARIA,
                                     Cupo = p.CUPO,
-                                    NombreEstadoCurso = p.ESTADO,
+                                    NombreEstadoCurso = p.T_ESTADOS_CURSO.N_ESTADO_CURSO,
                                     FechaAlta = p.FEC_ALTA,
                                     FechaModificacion = p.FEC_MODIF,
                                     IdCurso = p.ID_CURSO,
@@ -50,7 +50,9 @@ namespace CbaGob.Alumnos.Repositorio
                                     UsuarioAlta = p.USR_ALTA,
                                     UsuarioModificacion = p.USR_MODIF,
                                     IdInstitucion = p.T_INSTITUCIONES.ID_INSTITUCION,
-                                    IdCondicionCurso = p.ID_CONDICION_CURSO
+                                    IdCondicionCurso = p.ID_CONDICION_CURSO,
+                                    IdEstadoCurso = p.T_ESTADOS_CURSO.ID_ESTADO_CURSO,
+                                    Estado = p.ESTADO
                                 });
             return a;
         }
@@ -65,6 +67,23 @@ namespace CbaGob.Alumnos.Repositorio
         {
             var result = GetCondicion().Where(c => c.IdInstitucion == IdInstitucion).ToList();
             return result;
+        }
+
+        public IList<ICondicionCurso> GetCondicionCursoBy(int IdInstitucion, int IdCurso, int IdEstadoCurso, int IdNivel, int IdModalidad, int IdPrograma)
+        {
+            var result = GetCondicion().Where(c => (c.IdInstitucion == IdInstitucion || IdInstitucion == 0)
+                                                    && (c.IdCurso == IdCurso || IdCurso == 0)
+                                                    && (c.IdEstadoCurso == IdEstadoCurso || IdEstadoCurso == 0)
+                                                    && (c.IdNivel == IdNivel || IdNivel == 0)
+                                                    && (c.IdModalidad == IdModalidad || IdModalidad == 0)
+                                                    && (c.IdPrograma == IdPrograma || IdPrograma == 0))
+                                                    .ToList();
+            return result;
+        }
+
+        public ICondicionCurso GetFirstCondicion()
+        {
+            return GetCondicion().FirstOrDefault();
         }
 
         #endregion
@@ -174,6 +193,20 @@ namespace CbaGob.Alumnos.Repositorio
             {
                 return false;
             }
+        }
+
+        public IList<ICondicionCurso> BuscarCondiciones(string institucion, string nivel, string curso)
+        {
+            if (!string.IsNullOrEmpty(institucion))
+            {
+                return GetCondicion().Where(c => (c.NombeInstitucion.ToLower().Contains(institucion.ToLower()))).ToList();
+            }
+            else if (!string.IsNullOrEmpty(curso))
+            {
+                return GetCondicion().Where(c => (c.NombreCurso.ToLower().Contains(curso.ToLower()) )).ToList();
+            }
+            return GetCondicion().Where(c => (c.NombreNivel.ToLower().Contains(nivel.ToLower()))).ToList();
+            
         }
 
         #endregion
