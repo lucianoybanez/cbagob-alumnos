@@ -18,6 +18,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         private IInstitucionServicio InstitucionServicio;
         private IDomiciliosServicios Domiciliosdervicios;
         private ICondicionesCursoServicio CondicionesCursoServicio;
+        private ICajaChicaServicio cajachicaservice;
 
 
         public InstitucionesController(IInstitucionServicio institucionServicio, IDomiciliosServicios domiciliosdervicios, ICondicionesCursoServicio condicionesCursoServicio)
@@ -25,6 +26,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             InstitucionServicio = institucionServicio;
             Domiciliosdervicios = domiciliosdervicios;
             CondicionesCursoServicio = condicionesCursoServicio;
+            cajachicaservice = new CajaChicaServicio();
         }
 
         public ActionResult Index()
@@ -65,6 +67,8 @@ namespace CbaGob.Alumnos.Web.Controllers
             model.ListaEstablecimiento = establecimientoservicio.GetAllEstableciminetoByInstitucion(model.Id_Institucion).ListaEstablecimiento;
 
             model.CondicionesCursos = CondicionesCursoServicio.GetByInstitucionId(INST_ID).CondicionesCursos;
+
+            model.CajaChica = cajachicaservice.GetCajaChicasByInstitucion(INST_ID);
            
             return View("Ver", model);
         }

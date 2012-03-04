@@ -52,16 +52,26 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Agregar", FacturaServicio.CambiarCondicion(factura));
         }
 
+        
         public ActionResult Eliminar(int Idfactura)
         {
-            FacturaServicio.EliminarFactura(Idfactura);
+            IFacturaVista model = new FacturaVista();
+
+            model = FacturaServicio.GetFactura(Idfactura);
+
+            return View(model);
+        }
+
+        public ActionResult EliminarFactura(FacturaVista model)
+        {
+            FacturaServicio.EliminarFactura(model.IdFactura);
             return RedirectToAction("Index");
         }
 
         public ActionResult GuardarFactura(FacturaVista factura)
         {
             factura.CondicionCurso.Selected = factura.Id_Condicion_Curso.ToString();
-            
+
             if (ModelState.IsValid)
             {
                 if (FacturaServicio.AgregarFactura(factura))
@@ -92,6 +102,32 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             return View("Seleccion", model);
         }
+
+
+
+        public ActionResult LiquidarFactura()
+        {
+            return View("Liquidacion", FacturaServicio.GetFacturasbyLiquidacion());
+        }
+
+
+        public ActionResult VerFactura(int Idfactura)
+        {
+            IFacturaVista model = new FacturaVista();
+
+            model = FacturaServicio.GetFactura(Idfactura);
+
+            return View(model);
+        }
+
+
+        [HttpPost]
+        public ActionResult RealizarLiquidacion(FacturaVista model)
+        {
+            FacturaServicio.LiquidarFactura(model.IdFactura);
+            return View("Liquidacion", FacturaServicio.GetFacturasbyLiquidacion());
+        }
+
 
     }
 }

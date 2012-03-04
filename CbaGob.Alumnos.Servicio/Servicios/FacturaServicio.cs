@@ -35,6 +35,13 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             return vista;
         }
 
+        public IFacturasVista GetFacturasbyLiquidacion()
+        {
+            IFacturasVista vista = new FacturasVista();
+            vista.Facturas = FacturaRepositorio.GetFacturasbyLiquidacion();
+            return vista;
+        }
+
         public IFacturaVista GetFactura(int IdFactura)
         {
             var result = FacturaRepositorio.GetFacturabyId(IdFactura);
@@ -42,12 +49,13 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                                       {
                                           Accion = "Modificacion",
                                           Concepto = result.Concepto,
-                                          Descripcion = "",
+                                          Descripcion = result.DetalleFactura.Descripcion,
                                           IdFactura = result.IdFactura,
                                           NroFactura = result.NroFactura,
                                           Monto = result.MontoTotal,
-                                          Item = "",
-
+                                          Item = result.DetalleFactura.Item,
+                                          NombreCurso = result.NombreCurso,
+                                          NombreInstitucion= result.NombreInstitucion
                                       };
             var condiciones = CondicionCursoRepositorio.GetCondicionesByInstitucion(result.IdInstitucion);
             var instituciones = InstitucionRepositorio.GetInstituciones();
@@ -139,13 +147,13 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
                     int idFactura = FacturaRepositorio.AgregarFactura(modelFactura);
                     modelFactura.DetalleFactura.IdFactura = idFactura;
-                    if (idFactura != 0)
-                    {
-                        if (FacturaRepositorio.AgregarDetalle(modelFactura.DetalleFactura))
-                        {
-                            return true;
-                        }
-                    }
+                    //if (idFactura != 0)
+                    //{
+                    //    if (FacturaRepositorio.AgregarDetalle(modelFactura.DetalleFactura))
+                    //    {
+                    //        return true;
+                    //    }
+                    //}
                     base.AddError("Ocurrio un error al agregar la Factura");
                     return false;
                 }
@@ -157,6 +165,11 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         public bool EliminarFactura(int idFactura)
         {
             return FacturaRepositorio.EliminarFactura(idFactura);
+        }
+
+        public bool LiquidarFactura(int idFactura)
+        {
+            return FacturaRepositorio.LiquidarFactura(idFactura);
         }
 
         public IList<IErrores> GetErrors()

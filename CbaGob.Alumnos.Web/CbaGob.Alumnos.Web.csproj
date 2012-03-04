@@ -74,6 +74,7 @@
     <Compile Include="Controllers\AlumnosController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BuscadorController.cs" />
+    <Compile Include="Controllers\CajaChicaController.cs" />
     <Compile Include="Controllers\CondicionesCursoController.cs" />
     <Compile Include="Controllers\CursosController.cs" />
     <Compile Include="Controllers\DocentesController.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="Controllers\InscripcionesController.cs" />
     <Compile Include="Controllers\InstitucionesController.cs" />
     <Compile Include="Controllers\InventariosController.cs" />
+    <Compile Include="Controllers\MovimientoController.cs" />
     <Compile Include="Controllers\PrestamosController.cs" />
     <Compile Include="Controllers\SupervicionesController.cs" />
     <Compile Include="Controllers\SupervisoresController.cs" />
@@ -225,6 +227,7 @@
     <Content Include="Scripts\CbaGob.Alumnos.Buscador.js" />
     <Content Include="Scripts\CbaGob.Alumnos.BuscadorAlumno.js" />
     <Content Include="Scripts\CbaGob.Alumnos.BuscadorCondicionCurso.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.CajaChica.js" />
     <Content Include="Scripts\CbaGob.Alumnos.CondicionesCurso.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Cursos.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Docentes.js" />
@@ -236,6 +239,7 @@
     <Content Include="Scripts\CbaGob.Alumnos.Examenes.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Inscripciones.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Instituciones.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Movimientos.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Prestamo.js" />
     <Content Include="Scripts\cbaGob.Alumnos.SetFront.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Superviciones.js" />
@@ -598,6 +602,48 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Inscripciones\_ExamenesAsignados.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Factura\Liquidacion.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Factura\VerFactura.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Factura\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CajaChica\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CajaChica\_CajaChicaLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Instituciones\_CajaChicaLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CajaChica\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CajaChica\Modificar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CajaChica\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CajaChica\Ver.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Movimiento\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Movimiento\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Movimiento\Modificar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CajaChica\_MovimientosLista.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

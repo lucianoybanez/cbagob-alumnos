@@ -35,7 +35,6 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_CONDICIONES_CURSO_T_CUR_FK1", "T_CURSOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_CURSOS), "T_CONDICIONES_CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_CONDICIONES_CURSO), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_CONDICIONES_CURSO_T_EST_FK1", "T_ESTADOS_CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_ESTADOS_CURSO), "T_CONDICIONES_CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_CONDICIONES_CURSO), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_FACTURAS_T_CONDICIONES__FK1", "T_CONDICIONES_CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_CONDICIONES_CURSO), "T_FACTURAS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_FACTURAS), true)]
-[assembly: EdmRelationshipAttribute("Model_Cursos", "T_DETALLES_FACTURA_T_FACT_FK1", "T_FACTURAS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_FACTURAS), "T_DETALLES_FACTURA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CbaGob.Alumnos.Repositorio.Models.T_DETALLES_FACTURA), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_ALUMNOS_T_PERSONAS_FK1", "T_PERSONAS", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CbaGob.Alumnos.Repositorio.Models.T_PERSONAS), "T_ALUMNOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_ALUMNOS), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_ESTABLECIMINETOS_T_DOMI_FK1", "T_DOMICILIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_DOMICILIO), "T_ESTABLECIMINETOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_ESTABLECIMINETOS), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_INSTITUCIONES_T_DOMICIL_FK1", "T_DOMICILIO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CbaGob.Alumnos.Repositorio.Models.T_DOMICILIO), "T_INSTITUCIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_INSTITUCIONES), true)]
@@ -58,6 +57,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_SUPERVICIONES_T_GRUPOS_FK1", "T_GRUPOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_GRUPOS), "T_SUPERVICIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_SUPERVICIONES), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_SUPERVISORES_T_PERSONAS_FK1", "T_PERSONASJUR", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_PERSONASJUR), "T_SUPERVISORES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_SUPERVISORES), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_SUPERVICIONES_T_SUPERVI_FK1", "T_SUPERVISORES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_SUPERVISORES), "T_SUPERVICIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_SUPERVICIONES), true)]
+[assembly: EdmRelationshipAttribute("Model_Cursos", "T_DETALLES_FACTURA_T_FACT_FK1", "T_FACTURAS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_FACTURAS), "T_DETALLES_FACTURA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_DETALLES_FACTURA), true)]
 
 #endregion
 
@@ -432,22 +432,6 @@ namespace CbaGob.Alumnos.Repositorio.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<T_DETALLES_FACTURA> T_DETALLES_FACTURA
-        {
-            get
-            {
-                if ((_T_DETALLES_FACTURA == null))
-                {
-                    _T_DETALLES_FACTURA = base.CreateObjectSet<T_DETALLES_FACTURA>("T_DETALLES_FACTURA");
-                }
-                return _T_DETALLES_FACTURA;
-            }
-        }
-        private ObjectSet<T_DETALLES_FACTURA> _T_DETALLES_FACTURA;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<T_ESTADOS_CAJA_CHICA> T_ESTADOS_CAJA_CHICA
         {
             get
@@ -668,6 +652,22 @@ namespace CbaGob.Alumnos.Repositorio.Models
             }
         }
         private ObjectSet<T_SUPERVISORES> _T_SUPERVISORES;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<T_DETALLES_FACTURA> T_DETALLES_FACTURA
+        {
+            get
+            {
+                if ((_T_DETALLES_FACTURA == null))
+                {
+                    _T_DETALLES_FACTURA = base.CreateObjectSet<T_DETALLES_FACTURA>("T_DETALLES_FACTURA");
+                }
+                return _T_DETALLES_FACTURA;
+            }
+        }
+        private ObjectSet<T_DETALLES_FACTURA> _T_DETALLES_FACTURA;
 
         #endregion
         #region AddTo Methods
@@ -833,14 +833,6 @@ namespace CbaGob.Alumnos.Repositorio.Models
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the T_DETALLES_FACTURA EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToT_DETALLES_FACTURA(T_DETALLES_FACTURA t_DETALLES_FACTURA)
-        {
-            base.AddObject("T_DETALLES_FACTURA", t_DETALLES_FACTURA);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the T_ESTADOS_CAJA_CHICA EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToT_ESTADOS_CAJA_CHICA(T_ESTADOS_CAJA_CHICA t_ESTADOS_CAJA_CHICA)
@@ -950,6 +942,14 @@ namespace CbaGob.Alumnos.Repositorio.Models
         public void AddToT_SUPERVISORES(T_SUPERVISORES t_SUPERVISORES)
         {
             base.AddObject("T_SUPERVISORES", t_SUPERVISORES);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the T_DETALLES_FACTURA EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToT_DETALLES_FACTURA(T_DETALLES_FACTURA t_DETALLES_FACTURA)
+        {
+            base.AddObject("T_DETALLES_FACTURA", t_DETALLES_FACTURA);
         }
 
         #endregion
@@ -6948,6 +6948,30 @@ namespace CbaGob.Alumnos.Repositorio.Models
         private global::System.Int32 _ID_CONDICION_CURSO;
         partial void OnID_CONDICION_CURSOChanging(global::System.Int32 value);
         partial void OnID_CONDICION_CURSOChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String LIQUIDADA
+        {
+            get
+            {
+                return _LIQUIDADA;
+            }
+            set
+            {
+                OnLIQUIDADAChanging(value);
+                ReportPropertyChanging("LIQUIDADA");
+                _LIQUIDADA = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("LIQUIDADA");
+                OnLIQUIDADAChanged();
+            }
+        }
+        private global::System.String _LIQUIDADA;
+        partial void OnLIQUIDADAChanging(global::System.String value);
+        partial void OnLIQUIDADAChanged();
 
         #endregion
     
@@ -6998,33 +7022,17 @@ namespace CbaGob.Alumnos.Repositorio.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_DETALLES_FACTURA_T_FACT_FK1", "T_DETALLES_FACTURA")]
-        public T_DETALLES_FACTURA T_DETALLES_FACTURA
+        public EntityCollection<T_DETALLES_FACTURA> T_DETALLES_FACTURA
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_DETALLES_FACTURA>("Model_Cursos.T_DETALLES_FACTURA_T_FACT_FK1", "T_DETALLES_FACTURA").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_DETALLES_FACTURA>("Model_Cursos.T_DETALLES_FACTURA_T_FACT_FK1", "T_DETALLES_FACTURA").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<T_DETALLES_FACTURA> T_DETALLES_FACTURAReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_DETALLES_FACTURA>("Model_Cursos.T_DETALLES_FACTURA_T_FACT_FK1", "T_DETALLES_FACTURA");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<T_DETALLES_FACTURA>("Model_Cursos.T_DETALLES_FACTURA_T_FACT_FK1", "T_DETALLES_FACTURA");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<T_DETALLES_FACTURA>("Model_Cursos.T_DETALLES_FACTURA_T_FACT_FK1", "T_DETALLES_FACTURA", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<T_DETALLES_FACTURA>("Model_Cursos.T_DETALLES_FACTURA_T_FACT_FK1", "T_DETALLES_FACTURA", value);
                 }
             }
         }

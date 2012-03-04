@@ -1,11 +1,4 @@
-﻿/// <reference path="jquery-1.5.1-vsdoc.js" />
-/// <reference path="CbaGob.Alumnos.Global.js" />
-
-$(function () {
-    cbaAlumnosGlobal.changeCombo('Institucion_Selected', 'FormFactura', $("#CambioUrl").val());
-});
-
-$(document).ready(function () {
+﻿$(document).ready(function () {
 
     $('#dialog').dialog({
         autoOpen: false,
@@ -14,8 +7,8 @@ $(document).ready(function () {
         resizable: false,
         buttons: {
             "Ok": function () {
-                var f = $("#FormFactura");
-                $("#FormFactura").submit()
+                var f = $("#FormularioMovimiento");
+                $("#FormularioMovimiento").submit()
                 $(this).dialog("close");
             },
             "Cancel": function () {
@@ -28,3 +21,4 @@ $(document).ready(function () {
         $('#dialog').dialog("open");
     });
 });
+

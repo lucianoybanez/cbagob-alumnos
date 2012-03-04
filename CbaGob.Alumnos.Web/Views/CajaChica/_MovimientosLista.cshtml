@@ -1,0 +1,71 @@
+﻿@model CajaChicaVista
+@if (Model.Moviminetos.ListaMoviento != null && Model.Moviminetos.ListaMoviento.Count > 0)
+{ 
+    <div id="tab" style="text-align: center;">
+        <table class="TablaPersonal" align="center" width="690px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30">
+                        <div align="center">
+                            Nombre Movimiento</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Fecha</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Monto</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Accion</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Moviminetos.ListaMoviento)
+                {
+                    <tr>
+                        <td align="left" height="28">
+                            @item.Nombre_Movimiento
+                        </td>
+                        <td align="left">
+                            @item.Fecha
+                        </td>
+                        <td align="left">
+                            @item.Monto
+                        </td>
+                        <td>
+                            @Html.ActionLink("Modificar", "Modificar", "Movimiento", new { Id_Movimineto = item.Id_Movimiento }, new { @class = "btnIngresar" })
+                            @Html.ActionLink("Eliminar", "Eliminar", "Movimiento", new { Id_Movimineto = item.Id_Movimiento }, new { @class = "btnIngresar" })
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td align="left" valign="middle" colspan="4" height="20">
+                    </td>
+                    <td align="right" valign="bottom" colspan="3" height="20">
+                        <div id="resumenPag" style="height: 30px; padding: 15px 5px 0 2px;">
+                            @Html.ActionLink("Agregar", "Agregar", "Movimiento", new { Id_Caja_Chica = Model.Id_Caja_Chica }, new { @class = "btnIngresar" })
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <table id="grilla" align="center" width="690px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="722px">
+                @Html.Partial("_SinDatos", "Movimiento")
+            </td>
+        </tr>
+        <tr>
+            <td align="right" width="722px">
+                @Html.ActionLink("Agregar", "Agregar", "Movimiento", new { Id_Caja_Chica = Model.Id_Caja_Chica }, new { @class = "btnIngresar" })
+            </td>
+    </table>
+}

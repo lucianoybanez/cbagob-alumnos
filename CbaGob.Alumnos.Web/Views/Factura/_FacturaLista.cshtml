@@ -37,15 +37,25 @@
                             @item.MontoTotal
                         </td>
                         <td>
-                            @Html.ActionLink("Eliminar", "Eliminar", "Factura", new { Idfactura = item.IdFactura }, new { @class = "btnIngresar" })
+                            @if (ViewBag.SubMenuSelected != "Liquidacion")
+                            {
+                                @Html.ActionLink("Eliminar", "Eliminar", "Factura", new { Idfactura = item.IdFactura }, new { @class = "btnIngresar" })
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Liquidar Factura", "VerFactura", "Factura", new { Idfactura = item.IdFactura }, new { @class = "btnIngresar" })
+                            }
                         </td>
                     </tr>
                 }
-                <tr>
-                    <td align="right" valign="middle" colspan="4" height="20">
-                        @Html.ActionLink("Agregar Factura", "Seleccion", "Factura", null, new { @class = "btnIngresar" })
-                    </td>
-                </tr>
+                @if (ViewBag.SubMenuSelected != "Liquidacion")
+                {
+                    <tr>
+                        <td align="right" valign="middle" colspan="4" height="20">
+                            @Html.ActionLink("Agregar Factura", "Seleccion", "Factura", null, new { @class = "btnIngresar" })
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>
@@ -58,11 +68,14 @@ else
                 @Html.Partial("_SinDatos", "Facturas")
             </td>
         </tr>
-        <tr>
-            <td align="right" width="722px">
-                @Html.ActionLink("Agregar Factura", "Seleccion", "Factura", null, new { @class = "btnIngresar" })
-            </td>
-        </tr>
+        @if (ViewBag.SubMenuSelected != "Liquidacion")
+        {
+            <tr>
+                <td align="right" width="722px">
+                    @Html.ActionLink("Agregar Factura", "Seleccion", "Factura", null, new { @class = "btnIngresar" })
+                </td>
+            </tr>
+        }
     </table>
     
 }

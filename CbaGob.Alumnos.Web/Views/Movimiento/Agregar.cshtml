@@ -1,0 +1,82 @@
+﻿@model MovimientoVista
+@{
+    ViewBag.Title = "Instituciones";
+    ViewBag.SubMenuSelected = "Instituciones";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Movimientos.js", Url)
+}
+<div class="box">
+    <h2>
+        Agregar Movimineto</h2>
+    <table align="center" style="width: 700px;">
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                @using (Html.BeginForm("GuardarMovimineto", "Movimiento", FormMethod.Post, new { Id = "FormularioMovimiento" }))
+                { 
+                   
+                    @Html.HiddenFor(c => c.Id_Institucion)
+                    @Html.HiddenFor(c => c.Id_Caja_Chica)
+                    @Html.ValidationSummary(true)
+                    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
+                        <legend style="color: #FF9900"><b>Datos del Movimiento</b></legend>
+                        <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                            width: 700px;">
+                            <tr>
+                                <td>
+                                    <b>Nombre del Movimiento:</b>
+                                </td>
+                                <td>
+                                    @Html.TextBoxFor(c => c.Nombre_Movimiento, new { style = "width:350px;", MaxLength = "50" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Tipo Movimiento:</b>
+                                </td>
+                                <td>
+                                    @Html.EditorFor(c => c.TipoMovimiento)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Fecha:</b>
+                                </td>
+                                <td>
+                                    @Html.EditorFor(c => c.Fecha)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Monto:</b>
+                                </td>
+                                <td>
+                                    @Html.TextBoxFor(c => c.Monto, new { style = "width:150px;", MaxLength = "50" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Monto:</b>
+                                </td>
+                                <td>
+                                    @Html.TextAreaFor(c => c.Descripcion, new { style = "width:150px;", MaxLength = "50" })
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                    <table id="myIntituciones" align="center" width="700px">
+                        <tr>
+                            <td align="right" valign="middle">
+                                <input type="submit" value="Guargar" class="btnIngresar" />
+                                @Html.ActionLink("Cancelar", "Ver", "Instituciones", new { INST_ID = Model.Id_Institucion }, new { Class = "btnIngresar" })
+                            </td>
+                        </tr>
+                    </table>
+                }
+            </td>
+        </tr>
+    </table>
+</div>

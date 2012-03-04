@@ -24,5 +24,6 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         IBuscador DomicilioBusqueda { get; set; }
         IList<IEstablecimiento> ListaEstablecimiento { get; set; }
         IList<ICondicionCurso> CondicionesCursos { get; set; }
+        ICajaChicasVista CajaChica { get; set; }
     }
 }

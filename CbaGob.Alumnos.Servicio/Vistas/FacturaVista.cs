@@ -37,6 +37,7 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public ICondicionesCursoVista Cursos { get; set; }
         public ICondicionCursoVista Curso { get; set; }
         public int Id_Condicion_Curso { get; set; }
-        
+        public string NombreCurso { get; set; }
+        public string NombreInstitucion { get; set; }
     }
 }

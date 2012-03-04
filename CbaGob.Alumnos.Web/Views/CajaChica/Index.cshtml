@@ -1,0 +1,25 @@
+﻿@model  CajaChicasVista
+@{
+    ViewBag.Title = "CajaChica";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Stylesheets {
+    @Content.Stylesheet("css/instituciones.css", Url)
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.CajaChica.js", Url)
+}
+<div class="box">
+    <h2>
+        Listado de Caja Chica</h2>
+    <table>
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                    <div id="DivInstituciones">
+                        @Html.Partial("_CajaChicaLista", Model)
+                    </div>
+            </td>
+        </tr>
+    </table>
+</div>
