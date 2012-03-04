@@ -80,6 +80,21 @@
                             </fieldset>
                         </td>
                     </tr>
+                     <tr>
+                        <td>
+                            <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+                                text-align: center;">
+                                <legend style="color: #FF9900"><b>Caja Chica</b></legend>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            @Html.Partial("_CajaChicaLista", Model)
+                                        </td>
+                                    </tr>
+                                </table>
+                            </fieldset>
+                        </td>
+                    </tr>
                     <tr>
                         <td align="right">
                             @Html.ActionLink("Volver al Listado", "Index", "Instituciones", null, new { @class = "btnIngresar" })

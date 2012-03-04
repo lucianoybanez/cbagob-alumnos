@@ -68,7 +68,7 @@
                        if (ViewBag.Title.Contains("Facturaciones"))
                        {
                         <li>@Html.ActionLink("Gestion Factura", "Index", "Factura", null, new { @class = ViewBag.SubMenuSelected == "Facturacion" ? "selected" : "" })</li> 
-                        <li>@Html.ActionLink("Liquidacion Cursos", "Index", "Factura", null, new { @class = ViewBag.SubMenuSelected == "liquidacion" ? "selected" : "" })</li> 
+                        <li>@Html.ActionLink("Liquidacion Cursos", "LiquidarFactura", "Factura", null, new { @class = ViewBag.SubMenuSelected == "Liquidacion" ? "selected" : "" })</li> 
                        }
                        
                     }

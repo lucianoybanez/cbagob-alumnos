@@ -1,0 +1,118 @@
+﻿@model FacturaVista
+@{
+    ViewBag.Title = "Facturaciones";
+    ViewBag.SubMenuSelected = "Facturacion";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Factura.js", Url)
+}
+<div class="box">
+    <h2>
+        Eliminar Factura</h2>
+    <table align="center" style="width: 700px;">
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                @using (Html.BeginForm("EliminarFactura", "Factura", FormMethod.Post, new { id = "FormFactura" }))
+                { 
+                    @Html.HiddenFor(c => c.Accion)
+                    <input type="hidden" name="CambioUrl" id="CambioUrl" value="@Url.Action("CambiarCondicion")" />
+                    @Html.ValidationSummary(true)               
+                    <table align="center" id="mytable" style="font-family: Arial, Helvetica, sans-serif;
+                        font-size: 12px; width: 722px;">
+                        <tr>
+                            <td>
+                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 710px;
+                                    text-align: center;">
+                                    <legend>Datos de la Factura</legend>
+                                    <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                                        width: 710px;">
+                                        <tr>
+                                            <td align="left" valign="middle">
+                                                <b>Nombre Institucion:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.NombreInstitucion, new { disabled = "disabled", style = "width:350px;", MaxLength = "50" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="middle">
+                                                <b>Curso Asignado a la Institucion:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.NombreCurso, new { disabled = "disabled", style = "width:350px;", MaxLength = "50" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="middle">
+                                                <b>Numero de Factura:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.NroFactura, new { disabled = "disabled", style = "width:200px", MaxLength = "50" })
+                                                @Html.ValidationMessageFor(c => c.NroFactura, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="middle">
+                                                <b>Concepto de Factura:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextAreaFor(c => c.Concepto, new { disabled = "disabled", style = "width:350px;height:45px", MaxLength = "50" })
+                                                @Html.ValidationMessageFor(c => c.Concepto, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="middle">
+                                                <b>Descripcion:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextAreaFor(c => c.Descripcion, new { disabled = "disabled", style = "width:350px;height:45px", MaxLength = "50" })
+                                                @Html.ValidationMessageFor(c => c.Descripcion, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="middle">
+                                                <b>Item:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextAreaFor(c => c.Item, new { disabled = "disabled", style = "width:350px;height:45px", MaxLength = "50" })
+                                                @Html.ValidationMessageFor(c => c.Item, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="middle">
+                                                <b>Monto:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Monto, new { disabled = "disabled", style = "width:100px;", MaxLength = "8" })
+                                                @Html.ValidationMessageFor(c => c.Monto, "*")
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                            </td>
+                        </tr>
+                    </table>
+                    @Html.HiddenFor(c => c.Id_Condicion_Curso)
+                    @Html.HiddenFor(c => c.IdFactura)
+   
+                    <table id="myIntituciones" align="center" width="710px">
+                        <tr>
+                            <td align="right" valign="middle">
+                                <input id="Eliminar" type="button" value="Eliminar" class="btnIngresar" />&nbsp;&nbsp;
+                                @Html.ActionLink("Cancelar", "Index", "Factura", null, new { Class = "btnIngresar" })
+                            </td>
+                        </tr>
+                    </table>
+                
+                }
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="dialog" title="Eliminar">
+    <p>
+        Esta Seguro de Eliminar?</p>
+</div>

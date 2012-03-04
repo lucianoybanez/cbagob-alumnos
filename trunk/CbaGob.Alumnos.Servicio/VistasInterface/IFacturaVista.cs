@@ -21,5 +21,7 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         ICondicionesCursoVista Cursos { get; set; }
         ICondicionCursoVista Curso { get; set; }
         int Id_Condicion_Curso { get; set; }
+        string NombreCurso { get; set; }
+        string NombreInstitucion { get; set; }
     }
 }

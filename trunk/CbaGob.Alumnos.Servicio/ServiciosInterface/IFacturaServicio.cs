@@ -8,10 +8,12 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
     public interface IFacturaServicio : IBaseServicio
     {
         IFacturasVista GetFacturas();
+        IFacturasVista GetFacturasbyLiquidacion();
         IFacturaVista GetFactura(int IdFactura);
         IFacturaVista CambiarCondicion(IFacturaVista vista);
         IFacturaVista GetIndex();
         bool AgregarFactura(IFacturaVista factura);
         bool EliminarFactura(int idFactura);
+        bool LiquidarFactura(int idFactura);
     }
 }

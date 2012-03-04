@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="AlumnosRepositorio.cs" />
     <Compile Include="BaseRepositorio.cs" />
+    <Compile Include="CajaChicaRepositorio.cs" />
     <Compile Include="CallesRepositorio.cs" />
     <Compile Include="CargosRepositorio.cs" />
     <Compile Include="CondicionCursoRepositorio.cs" />
@@ -71,6 +72,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CursosDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="MovimientoRepositorio.cs" />
     <Compile Include="NivelRepositorio.cs" />
     <Compile Include="PersonaJuridicaRepositorio.cs" />
     <Compile Include="PersonaRepositorio.cs" />
