@@ -7,7 +7,7 @@ using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.ServiciosInterface
 {
-    public interface ISupervicionesServicio
+    public interface ISupervicionesServicio:IBaseServicio
     {
         ISupervicionesVista GetSuperviciones();
         ISupervicionVista GetSupervicion(int idsupervision);

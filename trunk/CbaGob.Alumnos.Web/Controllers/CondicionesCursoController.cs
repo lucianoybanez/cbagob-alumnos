@@ -24,7 +24,11 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         public ActionResult AgregarCondicionCurso(int idInstitucion)
         {
-            return View("Agregar", CondicionesCursoServicio.GetForAlta(idInstitucion));
+            ICondicionCursoVista model = CondicionesCursoServicio.GetForAlta(idInstitucion);
+
+            model.IdInstitucion = idInstitucion;
+
+            return View("Agregar", model);
         }
 
         public ActionResult ModificarCondicionCurso(int idCondicionCurso)

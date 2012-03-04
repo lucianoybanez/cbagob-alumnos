@@ -28,7 +28,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         public IList<IErrores> GetErrors()
         {
-            throw new NotImplementedException();
+            return base.Errors;
         }
 
         public IGrupoVista GetGrupo(int id_grupo)
@@ -75,10 +75,10 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 return grupovista;
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return null;
             }
         }
 
@@ -111,37 +111,66 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         public bool AgregarGrupo(IGrupoVista grupo)
         {
-            IGrupo grupoadd = new Grupo();
 
-            grupoadd.Id_Condicion_Curso = grupo.Id_Condicion_Curso;
-            grupoadd.Id_Docente = grupo.Id_Docente;
-            grupoadd.Id_Establecimiento = grupo.Id_Establecimiento;
-            grupoadd.Id_Horario = grupo.Id_Horario;
-            grupoadd.NombreGrupo = grupo.NombreGrupo;
-            grupoadd.Capacidad = grupo.Capacidad;
+            try
+            {
+                IGrupo grupoadd = new Grupo();
 
-            return gruporepositorio.AgregarGrupo(grupoadd);
+                grupoadd.Id_Condicion_Curso = grupo.Id_Condicion_Curso;
+                grupoadd.Id_Docente = grupo.Id_Docente;
+                grupoadd.Id_Establecimiento = grupo.Id_Establecimiento;
+                grupoadd.Id_Horario = grupo.Id_Horario;
+                grupoadd.NombreGrupo = grupo.NombreGrupo;
+                grupoadd.Capacidad = grupo.Capacidad;
+
+                return gruporepositorio.AgregarGrupo(grupoadd);
+            }
+            catch (Exception ex)
+            {
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return false;
+            }
+           
 
         }
 
         public bool ModificarGrupo(IGrupoVista grupo)
         {
-            IGrupo grupoadd = new Grupo();
+            try
+            {
+                IGrupo grupoadd = new Grupo();
 
-            grupoadd.Id_Condicion_Curso = grupo.Id_Condicion_Curso;
-            grupoadd.Id_Docente = grupo.Id_Docente;
-            grupoadd.Id_Establecimiento = grupo.Id_Establecimiento;
-            grupoadd.Id_Horario = grupo.Id_Horario;
-            grupoadd.NombreGrupo = grupo.NombreGrupo;
-            grupoadd.Capacidad = grupo.Capacidad;
-            grupoadd.Id_Grupo = grupo.Id_Grupo;
+                grupoadd.Id_Condicion_Curso = grupo.Id_Condicion_Curso;
+                grupoadd.Id_Docente = grupo.Id_Docente;
+                grupoadd.Id_Establecimiento = grupo.Id_Establecimiento;
+                grupoadd.Id_Horario = grupo.Id_Horario;
+                grupoadd.NombreGrupo = grupo.NombreGrupo;
+                grupoadd.Capacidad = grupo.Capacidad;
+                grupoadd.Id_Grupo = grupo.Id_Grupo;
 
-            return gruporepositorio.ModificarGrupo(grupoadd);
+                return gruporepositorio.ModificarGrupo(grupoadd);
+            }
+            catch (Exception ex)
+            {
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return false;
+            }
+            
+            
+          
         }
 
         public bool EliminarGrupo(int id_grupo)
         {
-            return gruporepositorio.EliminarGrupo(id_grupo);
+            try
+            {
+                return gruporepositorio.EliminarGrupo(id_grupo);
+            }
+            catch (Exception ex)
+            {
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return false;
+            }
         }
     }
 }

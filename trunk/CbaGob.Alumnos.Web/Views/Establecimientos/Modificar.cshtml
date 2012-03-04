@@ -16,7 +16,8 @@
                 </div>
                 @using (Html.BeginForm("Modificar_Establecimiento", "Establecimientos", FormMethod.Post, new { Id = "FormularioEstablecimiento" }))
                 { 
-   
+                    @Html.ValidationSummary(true)
+                    <br />
                     <table align="center" id="mytable" style="font-family: Arial, Helvetica, sans-serif;
                         font-size: 12px; width: 700px;">
                         <tr>
@@ -35,7 +36,7 @@
                                                 @Html.ValidationMessageFor(m => m.NombreEstablecimiento)
                                             </td>
                                         </tr>
-                                         <tr>
+                                        <tr>
                                             <td align="left">
                                                 Buscador Instituciones:
                                             </td>

@@ -16,128 +16,76 @@
                 </div>
                 @using (Html.BeginForm("Agregar_Grupo", "Grupos", FormMethod.Post, new { Id = "FormularioGrupos" }))
                 { 
-                    <div id="titulo">
-                        <div id="ttxt">
-                            Nuevo Grupo</div>
-                    </div>
-                    <div id="tabs">
-                        <ul>
-                            <li><a href="#tabs-1">Datos</a></li>
-                            <li><a href="#tabs-2">Docente</a></li>
-                            <li><a href="#tabs-3">Establecimiento</a></li>
-                        </ul>
-                        <div id="tabs-1">
-                            <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
-                                width: 700px;">
-                                <tr>
-                                    <td>
-                                        Nombre
-                                    </td>
-                                    <td>
-                                        @Html.TextBoxFor(c => c.NombreGrupo, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Capacidad
-                                    </td>
-                                    <td>
-                                        @Html.TextBoxFor(c => c.Capacidad, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Horario
-                                    </td>
-                                    <td>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div id="tabs-2">
-                            @Html.Partial("_DocenteLista", Model)
-                            <table>
-                                <tr>
-                                    <td>
-                                        Cuit
-                                    </td>
-                                    <td>
-                                        <input id="Cuit" disabled style="width: 200px;" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Razon Social
-                                    </td>
-                                    <td>
-                                        <input id="Razonsocial" disabled style="width: 200px;" />
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div id="tabs-3">
-                            @Html.Partial("_EstablecimientoLista", Model)
-                            <table>
-                                <tr>
-                                    <td>
-                                        Nombre Establecimiento
-                                    </td>
-                                    <td>
-                                        <input id="N_Establecimiento" disabled style="width: 200px;" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Provincia
-                                    </td>
-                                    <td>
-                                        <input id="Provincia" disabled style="width: 200px;" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Localidad
-                                    </td>
-                                    <td>
-                                        <input id="Localidad" disabled style="width: 350px;" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Barrio
-                                    </td>
-                                    <td>
-                                        <input id="Barrio" disabled style="width: 350px;" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Calle
-                                    </td>
-                                    <td>
-                                        <input id="Calle" disabled style="width: 350px;" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Nro
-                                    </td>
-                                    <td>
-                                        <input id="Nro" disabled style="width: 60px;" />
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-    
-                    <p>
-                        <input type="submit" value="Guargar" />
-                        @Html.ActionLink("Cancelar", "Index", "Grupos")
-                    </p>
+                    @Html.ValidationSummary(true)
+                    <br />
+                    <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                        width: 700px;">
+                        <tr>
+                            <td>
+                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+                                    text-align: center;">
+                                    <legend>Datos del Grupo</legend>
+                                    <table align="left" id="mytable" style="font-family: Arial, Helvetica, sans-serif;
+                                        font-size: 12px; width: 700px;">
+                                        <tr>
+                                            <td align="left">
+                                                Nombre Instituciones:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Nombre_Institucion, new { style = "width:350px;", MaxLength = "50", disabled = "disabled" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Nombre del Curso:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Nombre_Curso, new { style = "width:350px;", MaxLength = "50", disabled = "disabled" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Nombre del Grupo:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.NombreGrupo, new { style = "width:350px;", MaxLength = "50" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Capacidad del Grupo:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Capacidad, new { style = "width:150px;", MaxLength = "50" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Buscador Establecimiento:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.EditorFor(c => c.BuscadorEstablecimientos)
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                            </td>
+                        </tr>
+                    </table>
+                    <table id="myIntituciones" align="center" width="700px">
+                        <tr>
+                            <td align="right" vlign="middle">
+                                <input type="submit" value="Guargar" class="btnIngresar" />
+                                @Html.ActionLink("Cancelar", "VerCondicionCurso", "CondicionesCurso", new { idCondicionCurso = Model.Id_Condicion_Curso, IdInstitucion = Model.Id_Institucion }, new { Class = "btnIngresar" })
+                            </td>
+                        </tr>
+                    </table>
+                    
     
                     @Html.HiddenFor(d => d.Id_Establecimiento)
                     @Html.HiddenFor(d => d.Id_Docente)
                     @Html.HiddenFor(d => d.Id_Condicion_Curso)
+                    @Html.HiddenFor(d => d.Id_Institucion)
                 }
             </td>
         </tr>

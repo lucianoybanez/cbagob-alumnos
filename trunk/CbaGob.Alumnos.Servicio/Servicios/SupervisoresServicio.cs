@@ -6,13 +6,14 @@ using CbaGob.Alumnos.Modelo.Entities;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Modelo.Repositories;
 using CbaGob.Alumnos.Repositorio;
+using CbaGob.Alumnos.Servicio.Comun;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
 using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.Servicios
 {
-    public class SupervisoresServicio : ISupervisoresServicio
+    public class SupervisoresServicio :BaseServicio, ISupervisoresServicio
     {
         private ISupervisoresRepositorio supervisoresrepositorio;
 
@@ -86,10 +87,10 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
                 return supervisoresrepositorio.AgregarSupervisor(supervisores);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return false;
             }
         }
 
@@ -106,10 +107,10 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
                 return supervisoresrepositorio.ModificarSupervisor(supervisores);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return false;
             }
         }
 
@@ -119,11 +120,16 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 return supervisoresrepositorio.EliminarSupervisor(idsupervisor);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return false;
             }
+        }
+
+        public IList<IErrores> GetErrors()
+        {
+            return base.Errors;
         }
     }
 }

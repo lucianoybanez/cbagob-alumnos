@@ -29,11 +29,14 @@ namespace CbaGob.Alumnos.Web.Controllers
         }
 
 
-        public ActionResult Agregar(int Id_Caja_Chica)
+        public ActionResult Agregar(int id_institucion, int Id_Caja_Chica)
         {
             IMovimientoVista model = moviminetoservicio.GetIndex();
 
             model.Id_Caja_Chica = Id_Caja_Chica;
+
+            model.Id_Institucion = id_institucion;
+
 
             return View(model);
         }

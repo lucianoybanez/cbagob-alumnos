@@ -27,27 +27,27 @@
                 @foreach (var item in Model.Moviminetos.ListaMoviento)
                 {
                     <tr>
-                        <td align="left" height="28">
+                        <td align="center" height="28">
                             @item.Nombre_Movimiento
                         </td>
-                        <td align="left">
-                            @item.Fecha
+                        <td align="center">
+                            @item.Fecha.ToShortDateString()
                         </td>
-                        <td align="left">
+                        <td align="center">
                             @item.Monto
                         </td>
                         <td>
-                            @Html.ActionLink("Modificar", "Modificar", "Movimiento", new { Id_Movimineto = item.Id_Movimiento }, new { @class = "btnIngresar" })
-                            @Html.ActionLink("Eliminar", "Eliminar", "Movimiento", new { Id_Movimineto = item.Id_Movimiento }, new { @class = "btnIngresar" })
+                            @Html.ActionLink("Modificar", "Modificar", "Movimiento", new { id_institucion = Model.Id_Institucion, Id_Movimineto = item.Id_Movimiento }, new { @class = "btnIngresar" })
+                            @Html.ActionLink("Eliminar", "Eliminar", "Movimiento", new { id_institucion = Model.Id_Institucion, Id_Movimineto = item.Id_Movimiento }, new { @class = "btnIngresar" })
                         </td>
                     </tr>
                 }
                 <tr>
                     <td align="left" valign="middle" colspan="4" height="20">
                     </td>
-                    <td align="right" valign="bottom" colspan="3" height="20">
+                    <td align="right" valign="bottom" colspan="4" height="20">
                         <div id="resumenPag" style="height: 30px; padding: 15px 5px 0 2px;">
-                            @Html.ActionLink("Agregar", "Agregar", "Movimiento", new { Id_Caja_Chica = Model.Id_Caja_Chica }, new { @class = "btnIngresar" })
+                            @Html.ActionLink("Agregar", "Agregar", "Movimiento", new { id_institucion = Model.Id_Institucion, Id_Caja_Chica = Model.Id_Caja_Chica }, new { @class = "btnIngresar" })
                         </div>
                     </td>
                 </tr>
@@ -65,7 +65,7 @@ else
         </tr>
         <tr>
             <td align="right" width="722px">
-                @Html.ActionLink("Agregar", "Agregar", "Movimiento", new { Id_Caja_Chica = Model.Id_Caja_Chica }, new { @class = "btnIngresar" })
+                @Html.ActionLink("Agregar", "Agregar", "Movimiento", new { id_institucion = Model.Id_Institucion, Id_Caja_Chica = Model.Id_Caja_Chica }, new { @class = "btnIngresar" })
             </td>
     </table>
 }

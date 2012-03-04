@@ -8,7 +8,7 @@ $(document).ready(function () {
 cbaAlumnosGlobal = function () {
 
     function init() {
-       
+
     }
 
     function changeCombo(idCombo, idForm, urlToChange) {
@@ -146,7 +146,7 @@ cbaAlumnosGlobal = function () {
             case "Instituciones":
                 $('#Id_Institucion').val(codigo);
                 break;
-            case "Establecimientos":
+            case "Estableciminetos":
                 $('#Id_Establecimiento').val(codigo);
                 break;
             case "PersonasJuridica":
@@ -246,6 +246,16 @@ cbaAlumnosGlobal = function () {
                     $(table).append(trFileds);
                 }
                 break;
+            case "Estableciminetos":
+                var trHeader = "<tr><td>Nombre del Establecimiento</td><td></td></tr>"
+                var table = '#' + id + 'table';
+                $(table).empty();
+                $(table).append(trHeader);
+                for (var i = 0; i < data.length; i++) {
+                    var trFileds = "<tr><td>" + data[i].NombreEstablecimiento + '</td><td><img onclick="cbaAlumnosGlobal.Seleccion(' + "'" + id + "'" + ',' + "'" + Tipo + "'" + ',' + "'" + data[i].NombreEstablecimiento + "'," + data[i].Id_Establecimiento + ');"  src="../../../Content/images/seleccionar.jpg"  width="25" height="25"  /></td></tr>';
+                    $(table).append(trFileds);
+                }
+                break;
         }
     }
 
@@ -261,7 +271,8 @@ cbaAlumnosGlobal = function () {
         BuscadorPersonasJuridica: BuscadorPersonasJuridica,
         BuscadorSupervisores: BuscadorSupervisores,
         BuscadorEquipo: BuscadorEquipo,
-        ChangeMultipleCombo: ChangeMultipleCombo
+        ChangeMultipleCombo: ChangeMultipleCombo,
+        BuscadorEstablecimientos: BuscadorEstablecimientos
     };
 } ();
 

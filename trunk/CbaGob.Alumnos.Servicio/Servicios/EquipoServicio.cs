@@ -6,6 +6,7 @@ using CbaGob.Alumnos.Modelo.Entities;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Modelo.Repositories;
 using CbaGob.Alumnos.Repositorio;
+using CbaGob.Alumnos.Servicio.Comun;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
 using CbaGob.Alumnos.Servicio.Vistas.Shared;
@@ -13,7 +14,7 @@ using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.Servicios
 {
-    public class EquipoServicio : IEquipoServicio
+    public class EquipoServicio :BaseServicio, IEquipoServicio
     {
         private IEquipoRepositorio equiporepositorio;
         private IEstado_EquipoRepositorio estado_equiporepositorio; 
@@ -115,10 +116,10 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 return equiporepositorio.AgregarEquipo(addequipo);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return false;
             }
         }
 
@@ -135,10 +136,10 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 return equiporepositorio.ModificarEquipo(addequipo);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return false;
             }
         }
 
@@ -148,10 +149,10 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 return equiporepositorio.EliminarEquipo(id_equipo);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return false;
             }
         }
 
@@ -165,6 +166,11 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                     description = est.Nombre_Estado_Equipo
                 });
             }
+        }
+
+        public IList<IErrores> GetErrors()
+        {
+            return base.Errors;
         }
     }
 }

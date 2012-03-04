@@ -12,12 +12,12 @@ using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.Servicios
 {
-    public class EstablecimientoServicio : IEstablecimientoServicio
+    public class EstablecimientoServicio :BaseServicio, IEstablecimientoServicio
     {
         private EstablecimientoRepositorio establecimientorepositorio;
 
         private DomiciliosRepositorio domiciliosrepositorio;
-        
+
         public EstablecimientoServicio()
         {
             establecimientorepositorio = new EstablecimientoRepositorio();
@@ -38,7 +38,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -104,10 +104,10 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
                 return establecimientorepositorio.AgregarEstablecimiento(addestablecimiento);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                AddError("Ocurrio un error Por Favor Intentelo de Nuevo");
+                return false;
             }
         }
 
@@ -123,10 +123,10 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
                 return establecimientorepositorio.ModificarEstablecimiento(addestablecimiento);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                AddError("Ocurrio un error Por Favor Intentelo de Nuevo");
+                return false;
             }
         }
 
@@ -136,16 +136,16 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 return establecimientorepositorio.EliminarEstablecimiento(id_establecimiento);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                AddError("Ocurrio un error Por Favor Intentelo de Nuevo");
+                return false;
             }
         }
 
         public IList<IErrores> GetErrors()
         {
-            throw new NotImplementedException();
+            return base.Errors;
         }
     }
 }

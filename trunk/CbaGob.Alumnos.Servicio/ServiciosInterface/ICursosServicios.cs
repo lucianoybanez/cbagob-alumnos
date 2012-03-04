@@ -7,7 +7,7 @@ using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.ServiciosInterface
 {
-    public interface ICursosServicios
+    public interface ICursosServicios : IBaseServicio
     {
         IList<ICursos> GetTodosbyInstitucion(int IdInstitucion);
         IList<ICursos> GetTodos();

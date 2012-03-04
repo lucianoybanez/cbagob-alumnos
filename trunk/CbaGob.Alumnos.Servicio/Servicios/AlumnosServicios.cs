@@ -5,11 +5,12 @@ using System.Text;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Modelo.Repositories;
 using CbaGob.Alumnos.Repositorio;
+using CbaGob.Alumnos.Servicio.Comun;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 
 namespace CbaGob.Alumnos.Servicio.Servicios
 {
-    public class AlumnosServicios : IAlumnosServicios
+    public class AlumnosServicios :BaseServicio, IAlumnosServicios
     {
         private IAlumnosRepositorio alumnosrepositorio;
 
@@ -117,8 +118,8 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
             catch (Exception ex)
             {
-
-                throw;
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return false;
             }
         }
 
@@ -130,8 +131,8 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
             catch (Exception ex)
             {
-
-                throw;
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return false;
             }
         }
 
@@ -143,8 +144,8 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
             catch (Exception ex)
             {
-
-                throw;
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return false;
             }
         }
 
@@ -156,8 +157,8 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
             catch (Exception ex)
             {
-
-                throw;
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return false;
             }
         }
 
@@ -169,9 +170,14 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
             catch (Exception ex)
             {
-
-                throw;
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return false;
             }
+        }
+
+        public IList<IErrores> GetErrors()
+        {
+            return base.Errors; 
         }
     }
 }

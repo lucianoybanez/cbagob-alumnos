@@ -67,8 +67,21 @@
 }
 else
 {
-    @Html.Partial("_SinDatos", "condiciones de cursos Asignados a instituciones")
-    <div style="height: 20px; padding: 15px 5px 0 2px;">
-        @Html.ActionLink("Agregar Curso", "AgregarCondicionCurso", "CondicionesCurso", new { idInstitucion = Model.Id_Institucion }, new { @class = "btnIngresar" })
-    </div>
+   
+   
+    
+    <table id="grilla" width="690px" cellpadding="0" cellspacing="0" align="left">
+        <tr>
+            <td width="722px">
+                 @Html.Partial("_SinDatos", "No Existen Cursos Asignados Para esta Institucion")
+            </td>
+        </tr>
+        <tr>
+            <td align="left" width="722px">
+                <div style="height: 20px; padding: 15px 5px 0 2px;margin-right: 2px;" align="right">
+                    @Html.ActionLink("Agregar Curso", "AgregarCondicionCurso", "CondicionesCurso", new { idInstitucion = Model.Id_Institucion }, new { @class = "btnIngresar" })
+                </div>
+            </td>
+        </tr>
+    </table>
 }

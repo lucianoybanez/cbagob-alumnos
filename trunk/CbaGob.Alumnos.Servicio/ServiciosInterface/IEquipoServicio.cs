@@ -7,7 +7,7 @@ using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.ServiciosInterface
 {
-    public interface IEquipoServicio
+    public interface IEquipoServicio : IBaseServicio
     {
         IEquiposVista GetEquipos();
         IEquiposVista GetEquiposByEstado(int id_estado_equipo);

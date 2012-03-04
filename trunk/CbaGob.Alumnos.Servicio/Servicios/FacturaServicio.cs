@@ -55,7 +55,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                                           Monto = result.MontoTotal,
                                           Item = result.DetalleFactura.Item,
                                           NombreCurso = result.NombreCurso,
-                                          NombreInstitucion= result.NombreInstitucion
+                                          NombreInstitucion = result.NombreInstitucion
                                       };
             var condiciones = CondicionCursoRepositorio.GetCondicionesByInstitucion(result.IdInstitucion);
             var instituciones = InstitucionRepositorio.GetInstituciones();
@@ -164,12 +164,32 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         public bool EliminarFactura(int idFactura)
         {
-            return FacturaRepositorio.EliminarFactura(idFactura);
+            try
+            {
+                return FacturaRepositorio.EliminarFactura(idFactura);
+            }
+            catch (Exception ex)
+            {
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return false;
+            }
+
+
         }
 
         public bool LiquidarFactura(int idFactura)
         {
-            return FacturaRepositorio.LiquidarFactura(idFactura);
+            try
+            {
+                return FacturaRepositorio.LiquidarFactura(idFactura);
+            }
+            catch (Exception)
+            {
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return false;
+            }
+            
+           
         }
 
         public IList<IErrores> GetErrors()

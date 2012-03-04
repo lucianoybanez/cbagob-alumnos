@@ -14,7 +14,7 @@
                             Estado</div>
                     </th>
                     <th height="30">
-                        <div align="center">
+                        <div  align="right" style="margin-right: 2px;">
                             Accion</div>
                     </th>
                 </tr>
@@ -23,13 +23,13 @@
                 @foreach (var item in Model.CajaChica.ListaCajaChica)
                 {
                     <tr>
-                        <td align="left" height="28">
+                        <td align="center" height="28">
                             @item.Monto
                         </td>
-                        <td align="left">
+                        <td align="center">
                             @item.NombreEstadoCaja
                         </td>
-                        <td>
+                        <td align="right" style="margin-right: 2px;">
                             @Html.ActionLink("Modificar", "Modificar", "CajaChica", new { id_institucion = Model.Id_Institucion, Id_Caja_Chica = item.Id_Caja_Chica }, new { @class = "btnIngresar" })
                             @Html.ActionLink("Eliminar", "Eliminar", "CajaChica", new { id_institucion = Model.Id_Institucion, Id_Caja_Chica = item.Id_Caja_Chica }, new { @class = "btnIngresar" })
                             @Html.ActionLink("Ver Movimiento", "Ver", "CajaChica", new { id_institucion = Model.Id_Institucion, Id_Caja_Chica = item.Id_Caja_Chica }, new { @class = "btnIngresar" })
@@ -51,15 +51,16 @@
 }
 else
 {
-    <table id="grilla" align="center" width="690px" cellpadding="0" cellspacing="0">
+    <table id="grilla" width="690px" cellpadding="0" cellspacing="0" align="left">
         <tr>
             <td width="722px">
-                @Html.Partial("_SinDatos", "Caja Chica")
+                @Html.Partial("_SinDatos", "No Existen Caja Chica para esta Institucion")
             </td>
         </tr>
         <tr>
-            <td align="right" width="722px">
+            <td style="height: 20px; padding: 15px 5px 0 2px;margin-right: 2px;" align="right">
                 @Html.ActionLink("Agregar Caja", "Agregar", "CajaChica", new { id_institucion = Model.Id_Institucion }, new { @class = "btnIngresar" })
             </td>
+        </tr>
     </table>
 }

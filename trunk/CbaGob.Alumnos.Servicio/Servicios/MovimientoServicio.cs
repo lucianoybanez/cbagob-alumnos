@@ -6,6 +6,7 @@ using CbaGob.Alumnos.Modelo.Entities;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Modelo.Repositories;
 using CbaGob.Alumnos.Repositorio;
+using CbaGob.Alumnos.Servicio.Comun;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
 using CbaGob.Alumnos.Servicio.Vistas.Shared;
@@ -13,7 +14,7 @@ using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.Servicios
 {
-    public class MovimientoServicio : IMovimientoServicio
+    public class MovimientoServicio :BaseServicio, IMovimientoServicio
     {
         private IMovimientoRepositorio movimientorepositorio;
 
@@ -112,13 +113,14 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 addmovimiento.Monto = movimiento.Monto;
                 addmovimiento.Nombre_Movimiento = movimiento.Nombre_Movimiento;
                 addmovimiento.Descripcion = movimiento.Descripcion;
+                addmovimiento.Fecha = movimiento.Fecha;
 
                 return movimientorepositorio.AgregarMovimiento(addmovimiento);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return false;
             }
         }
 
@@ -135,13 +137,14 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 addmovimiento.Monto = movimiento.Monto;
                 addmovimiento.Nombre_Movimiento = movimiento.Nombre_Movimiento;
                 addmovimiento.Descripcion = movimiento.Descripcion;
+                addmovimiento.Fecha = movimiento.Fecha;
 
                 return movimientorepositorio.ModificarMovimiento(addmovimiento);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return false;
             }
         }
 
@@ -151,11 +154,16 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 return movimientorepositorio.EliminarMovimiento(id_movimiento);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return false;
             }
+        }
+
+        public IList<IErrores> GetErrors()
+        {
+            return base.Errors;
         }
     }
 }
