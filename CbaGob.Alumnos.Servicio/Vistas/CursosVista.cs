@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
@@ -10,6 +11,7 @@ namespace CbaGob.Alumnos.Servicio.Vistas
     public class CursosVista : ICursosVista
     {
         public int ID_CURSO { get; set; }
+        [Required(ErrorMessage = "*")]
         public string N_CURSO { get; set; }
         public string ESTADO { get; set; }
         public int NRORESOLUCION { get; set; }
