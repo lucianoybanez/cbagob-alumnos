@@ -300,6 +300,7 @@ namespace CbaGob.Alumnos.Repositorio
                 doc.ESTADO = datos.Estado;
                 doc.FEC_MODIF = datos.FechaModificacion;
                 doc.USR_MODIF = datos.UsuarioModificacion;
+                mDb.T_DOCENTES_GRUPO.DeleteObject(doc);
                 mDb.SaveChanges();
                 return true;
             }
