@@ -9,7 +9,7 @@ using CbaGob.Alumnos.Repositorio.Models;
 
 namespace CbaGob.Alumnos.Repositorio
 {
-    public class PersonaRepositorio : IPersonaRepositorio
+    public class PersonaRepositorio :BaseRepositorio, IPersonaRepositorio
     {
 
         public CursosDB mDb;
@@ -85,6 +85,36 @@ namespace CbaGob.Alumnos.Repositorio
             catch (Exception)
             {
 
+                throw;
+            }
+        }
+
+        public bool AgregarPersona(IPersona persona)
+        {
+            try
+            {
+                base.AgregarDatosAlta(persona);
+
+                T_PERSONAS t_persona = new T_PERSONAS()
+                                           {
+                                               CUIL = persona.Cuil,
+                                               ESTADO = persona.Estado,
+                                               FECHA_NACIMIENTO = System.DateTime.Now,
+                                               NOV_APELLIDO = persona.Nov_Apellido,
+                                               NOV_NOMBRE = persona.Nov_Nombre,
+                                               NRO_DOCUMENTO = persona.Nro_Documento,
+                                               ID_ESTADO_CIVIL= persona.Id_Estado_Civil,
+                                               ID_SEXO = persona.Id_Sexo,
+                                               ID_TIPO_DOCUMENTO = persona.Id_Tipo_Documento
+                                           };
+
+                mDb.AddToT_PERSONAS(t_persona);
+                mDb.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                
                 throw;
             }
         }
