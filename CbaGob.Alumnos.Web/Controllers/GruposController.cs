@@ -34,20 +34,19 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             IGrupoVista model = new GrupoVista();
 
-            IDocentesServicio docenteServicio = new DocentesServicio();
-
-            model.ListaDocentes = docenteServicio.GetTodos();
-
             model.Id_Condicion_Curso = id_condicionCurso;
 
-            model.Id_Institucion = CondicionesCursoServicio.GetForModificacion(id_condicionCurso).IdInstitucion;
+            ICondicionCursoVista condicioncursovista = CondicionesCursoServicio.GetForModificacion(id_condicionCurso);
 
-            IEstablecimientoServicio establecimientoservicio = new EstablecimientoServicio();
+            model.Id_Institucion = condicioncursovista.IdInstitucion;
 
-            IEstablecimientosVista establecimientosvista = establecimientoservicio.GetAllEstableciminetoByInstitucion(model.Id_Institucion);
+            model.Nombre_Curso = condicioncursovista.NombreCurso;
 
-            model.ListaEstableimiento = establecimientosvista.ListaEstablecimiento;
+            model.Nombre_Institucion = condicioncursovista.NombeInstitucion;
 
+            model.BuscadorEstablecimientos.Name = "BuscadorEstablecimientos";
+            model.BuscadorEstablecimientos.Tipo = "Estableciminetos";
+            model.BuscadorEstablecimientos.Relacionado = "Id_Institucion";
 
             return View(model);
         }
@@ -58,15 +57,16 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             model = gruposervicio.GetGrupo(id_grupo);
 
-            IDocentesServicio docenteServicio = new DocentesServicio();
+            ICondicionCursoVista condicioncursovista = CondicionesCursoServicio.GetForModificacion(model.Id_Condicion_Curso);
 
-            model.ListaDocentes = docenteServicio.GetTodos();
+            model.Nombre_Curso = condicioncursovista.NombreCurso;
 
-            IEstablecimientoServicio establecimientoservicio = new EstablecimientoServicio();
+            model.Nombre_Institucion = condicioncursovista.NombeInstitucion;
 
-            IEstablecimientosVista establecimientosvista = establecimientoservicio.GetAllEstableciminetoByInstitucion(26);
-
-            model.ListaEstableimiento = establecimientosvista.ListaEstablecimiento;
+            model.BuscadorEstablecimientos.Name = "BuscadorEstablecimientos";
+            model.BuscadorEstablecimientos.Tipo = "Estableciminetos";
+            model.BuscadorEstablecimientos.Relacionado = "Id_Institucion";
+            model.BuscadorEstablecimientos.Valor = model.NombreEstablecimiento;
 
             return View(model);
         }
@@ -77,15 +77,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             model = gruposervicio.GetGrupo(id_grupo);
 
-            IDocentesServicio docenteServicio = new DocentesServicio();
-
-            model.ListaDocentes = docenteServicio.GetTodos();
-
-            IEstablecimientoServicio establecimientoservicio = new EstablecimientoServicio();
-
-            IEstablecimientosVista establecimientosvista = establecimientoservicio.GetAllEstableciminetoByInstitucion(26);
-
-            model.ListaEstableimiento = establecimientosvista.ListaEstablecimiento;
+           
 
             return View(model);
         }
@@ -157,7 +149,6 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Ver", model);
         }
 
-
         public ActionResult AsignarDocente(int id_grupo, int id_docente)
         {
             IGrupoVista model = new GrupoVista();
@@ -215,21 +206,15 @@ namespace CbaGob.Alumnos.Web.Controllers
             model.Id_Horario = 1;
             bool mRet = gruposervicio.AgregarGrupo(model);
 
-            IGruposVista gruposvista = gruposervicio.GetAllGrupo();
-
-            return View("Index", gruposvista);
+            return RedirectToAction("VerCondicionCurso", "CondicionesCurso", new { idCondicionCurso = model.Id_Condicion_Curso, IdInstitucion = model.Id_Institucion });
         }
 
         [HttpPost]
         public ActionResult Eliminar_Grupo(GrupoVista model)
         {
-
-           
             bool mRet = gruposervicio.EliminarGrupo(model.Id_Grupo);
 
-            IGruposVista gruposvista = gruposervicio.GetAllGrupo();
-
-            return View("Index", gruposvista);
+            return RedirectToAction("VerCondicionCurso", "CondicionesCurso", new { idCondicionCurso = model.Id_Condicion_Curso, IdInstitucion = model.Id_Institucion });
         }
 
         [HttpPost]
@@ -240,9 +225,8 @@ namespace CbaGob.Alumnos.Web.Controllers
             model.Id_Horario = 1;
             bool mRet = gruposervicio.ModificarGrupo(model);
 
-            IGruposVista gruposvista = gruposervicio.GetAllGrupo();
 
-            return View("Index", gruposvista);
+            return RedirectToAction("VerCondicionCurso", "CondicionesCurso", new { idCondicionCurso = model.Id_Condicion_Curso, IdInstitucion = model.Id_Institucion });
         }
 
     }

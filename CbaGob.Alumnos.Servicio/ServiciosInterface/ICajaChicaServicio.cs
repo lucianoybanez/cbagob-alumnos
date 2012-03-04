@@ -6,7 +6,7 @@ using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.ServiciosInterface
 {
-    public interface ICajaChicaServicio
+    public interface ICajaChicaServicio : IBaseServicio
     {
         ICajaChicasVista GetCajaChicas();
         ICajaChicasVista GetCajaChicasByInstitucion(int id_institucion);

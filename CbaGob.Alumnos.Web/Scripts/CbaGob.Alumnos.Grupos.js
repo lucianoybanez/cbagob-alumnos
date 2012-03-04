@@ -25,4 +25,5 @@
 
 $(function () {
     cbaAlumnosGlobal.BuscadorDomicilios('BuDomicilio');
+    cbaAlumnosGlobal.BuscadorEstablecimientos('BuscadorEstablecimientos'); 
 });

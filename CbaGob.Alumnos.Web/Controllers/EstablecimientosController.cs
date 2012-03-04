@@ -7,13 +7,15 @@ using CbaGob.Alumnos.Servicio.Servicios;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
 using CbaGob.Alumnos.Servicio.VistasInterface;
+using JLY.Hotel.Web.Controllers;
 
 namespace CbaGob.Alumnos.Web.Controllers
 {
-    public class EstablecimientosController : Controller
+    public class EstablecimientosController : BaseController
     {
         private IEstablecimientoServicio establecimientoservicio;
         private IDomiciliosServicios domiciliosservicios;
+        private IInstitucionServicio institucionservicio;
 
         //
         // GET: /Establecimientos/
@@ -22,6 +24,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             establecimientoservicio = new EstablecimientoServicio();
             domiciliosservicios = new DomiciliosServicios();
+            institucionservicio = new InstitucionServicio();
 
         }
 
@@ -34,10 +37,15 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View(model);
         }
 
-        public ActionResult Agregar()
+        public ActionResult Agregar(int Id_institucion)
         {
 
             IEstablecimientoVista model = new EstablecimientoVista();
+
+            model.Id_Institucion = Id_institucion;
+
+            model.NombreInstitucion = institucionservicio.GetUnaVista(Id_institucion).Nombre_Institucion;
+
 
             model.DomicilioBuscador.Tipo = "Domicilios";
             model.DomicilioBuscador.Name = "BuDomicilio";
@@ -82,11 +90,25 @@ namespace CbaGob.Alumnos.Web.Controllers
             model.Id_Institucion = model.Id_Institucion;
             bool mRet = establecimientoservicio.AgregarEstablecimiento(model);
 
+            if (mRet == true)
+            {
             IEstablecimientosVista establecimientosvista = new EstablecimientosVista();
 
             establecimientosvista = establecimientoservicio.GetAllEstablecimiento();
 
             return RedirectToAction("Ver", "Instituciones", new { INST_ID = model.Id_Institucion });
+            }
+            else
+            {
+                base.AddError(establecimientoservicio.GetErrors());
+                model.Id_Institucion = model.Id_Institucion;
+                model.NombreInstitucion = institucionservicio.GetUnaVista(model.Id_Institucion).Nombre_Institucion;
+                model.DomicilioBuscador.Tipo = "Domicilios";
+                model.DomicilioBuscador.Name = "BuDomicilio";
+                model.InstitucionesBuscador.Tipo = "Instituciones";
+                model.InstitucionesBuscador.Name = "BuInstituciones";
+                return View("Agregar", model);
+            }
         }
 
         [HttpPost]

@@ -39,7 +39,7 @@
                                         </tr>
                                         <tr>
                                             <td align="left">
-                                                <b>Propia de la Institucion:</b>
+                                                <b>Es Propia:</b>
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.CheckBoxFor(c => c.espropia)
@@ -50,8 +50,7 @@
                                                 <b>Buscar Domicilio:</b>
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.EditorFor(c => c.DomicilioBusqueda)
-                                                @Html.ValidationMessageFor(m => m.Id_Domicilio)
+                                                @Html.EditorFor(c => c.DomicilioBusqueda) @Html.ValidationMessageFor(m => m.Id_Domicilio)
                                             </td>
                                         </tr>
                                     </table>

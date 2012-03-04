@@ -16,7 +16,8 @@
                 </div>
                 @using (Html.BeginForm("Eliminar_Establecimiento", "Establecimientos", FormMethod.Post, new { Id = "FormularioEstablecimiento" }))
                 { 
-
+                    @Html.ValidationSummary(true)
+                    <br />
                     <table id="myIntituciones" align="center" width="630px">
                         <tr>
                             <td align="left">
@@ -46,6 +47,8 @@
     
                     @Html.HiddenFor(d => d.Id_Establecimiento)
                     @Html.HiddenFor(d => d.Id_Domicilio)
+                    @Html.HiddenFor(d => d.Id_Institucion)
+
                     <table id="myIntituciones" align="center" width="700px">
                         <tr>
                             <td align="right" vlign="middle">

@@ -120,9 +120,8 @@ namespace CbaGob.Alumnos.Repositorio
                 return true;
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
                 throw;
             }
         }
@@ -144,9 +143,8 @@ namespace CbaGob.Alumnos.Repositorio
                 return true;
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
                 throw;
             }
         }
@@ -168,9 +166,8 @@ namespace CbaGob.Alumnos.Repositorio
                 return true;
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
                 throw;
             }
         }

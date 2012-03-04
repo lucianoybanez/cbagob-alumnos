@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
+using CbaGob.Alumnos.Servicio.Vistas.Shared;
 using CbaGob.Alumnos.Servicio.VistasInterface;
+using CbaGob.Alumnos.Servicio.VistasInterface.Shared;
 
 namespace CbaGob.Alumnos.Servicio.Vistas
 {
@@ -11,7 +13,7 @@ namespace CbaGob.Alumnos.Servicio.Vistas
     {
         public GrupoVista()
         {
-            
+            BuscadorEstablecimientos = new Buscador();
         }
 
         public int Id_Grupo { get; set; }
@@ -46,6 +48,7 @@ namespace CbaGob.Alumnos.Servicio.Vistas
 
         public string Nombre_Institucion { get; set; }
         public string Nombre_Curso { get; set; }
+        public IBuscador BuscadorEstablecimientos { get; set; }
 
         public IList<IDocentes> ListaDocentesNoGrupo { get; set; }
         public IList<IDocentes> ListaDocentesInGrupo { get; set; }

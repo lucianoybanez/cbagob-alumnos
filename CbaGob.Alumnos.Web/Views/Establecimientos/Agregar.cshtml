@@ -16,16 +16,25 @@
                 </div>
                 @using (Html.BeginForm("Agregar_Establecimiento", "Establecimientos", FormMethod.Post, new { Id = "FormularioEstablecimiento" }))
                 { 
-
+                    @Html.ValidationSummary(true)
+                    <br />
                     <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
                         width: 700px;">
                         <tr>
                             <td>
                                 <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
                                     text-align: center;">
-                                    <legend>Agregar Establecimiento</legend>
+                                    <legend>Datos Establecimiento</legend>
                                     <table align="left" id="mytable" style="font-family: Arial, Helvetica, sans-serif;
                                         font-size: 12px; width: 700px;">
+                                        <tr>
+                                            <td align="left">
+                                                Nombre Instituciones:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.NombreInstitucion, new { style = "width:400px;", MaxLength = "50", disabled = "disabled" })
+                                            </td>
+                                        </tr>
                                         <tr>
                                             <td align="left">
                                                 Nombre Establecimiento:
@@ -33,15 +42,6 @@
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.NombreEstablecimiento, new { style = "width:400px;", MaxLength = "50" })
                                                 @Html.ValidationMessageFor(m => m.NombreEstablecimiento)
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td align="left">
-                                                Buscador Instituciones:
-                                            </td>
-                                            <td align="left" valign="middle">
-                                                @Html.EditorFor(c => c.InstitucionesBuscador)
-                                                @Html.ValidationMessageFor(m => m.Id_Institucion)
                                             </td>
                                         </tr>
                                         <tr>

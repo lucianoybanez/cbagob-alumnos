@@ -6,6 +6,7 @@ using CbaGob.Alumnos.Modelo.Entities;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Modelo.Repositories;
 using CbaGob.Alumnos.Repositorio;
+using CbaGob.Alumnos.Servicio.Comun;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
 using CbaGob.Alumnos.Servicio.Vistas.Shared;
@@ -13,11 +14,10 @@ using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.Servicios
 {
-    public class CajaChicaServicio : ICajaChicaServicio
+    public class CajaChicaServicio : BaseServicio, ICajaChicaServicio
     {
         private ICajaChicaRepositorio cajachicarepositorio;
         private IInstitucionRepositorio institucionrepositorio;
-
 
         public CajaChicaServicio()
         {
@@ -135,10 +135,10 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 return cajachicarepositorio.AgregarCajaChica(addcajachica);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                AddError("Ocurrio un error Por Favor Intentelo de Nuevo");
+                return false;
             }
         }
 
@@ -156,10 +156,10 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 return cajachicarepositorio.ModificaCajaChica(addcajachica);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                AddError("Ocurrio un error Por Favor Intentelo de Nuevo");
+                return false;
             }
         }
 
@@ -169,11 +169,16 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 return cajachicarepositorio.EliminarCajaChica(idcajachica);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                AddError("Ocurrio un error Por Favor Intentelo de Nuevo");
+                return false;
             }
+        }
+
+        public IList<IErrores> GetErrors()
+        {
+            return base.Errors;
         }
     }
 }

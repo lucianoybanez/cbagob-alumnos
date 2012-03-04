@@ -82,5 +82,17 @@ namespace CbaGob.Alumnos.Web.Controllers
             return Json(lista.ToArray());
         }
 
+
+        [HttpPost]
+        public ActionResult Estableciminetos(string busqueda, string IdRelacionado)
+        {
+            IEstablecimientoServicio establecimientoservicio = new EstablecimientoServicio();
+            IList<IEstablecimiento> lista = establecimientoservicio.GetAllEstableciminetoByInstitucion(Convert.ToInt32(IdRelacionado)).ListaEstablecimiento;
+
+            lista = lista.Where(c => (c.NombreEstablecimiento.ToLower().Contains(busqueda.ToLower()))).ToList();
+
+            return Json(lista.ToArray());
+        }
+
     }
 }

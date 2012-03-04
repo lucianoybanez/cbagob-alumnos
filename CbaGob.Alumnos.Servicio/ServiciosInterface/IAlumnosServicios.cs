@@ -6,7 +6,7 @@ using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 
 namespace CbaGob.Alumnos.Servicio.ServiciosInterface
 {
-    public interface IAlumnosServicios
+    public interface IAlumnosServicios : IBaseServicio
     {
         IList<IAlumnos> GetTodos();
         IList<IAlumnos> GetTodosByNombreApellido(string nombre, string apellido);

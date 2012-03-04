@@ -19,7 +19,7 @@
                             Fecha Alta</div>
                     </th>
                     <th height="30" width="200">
-                        <div align="center">
+                        <div align="right" style="margin-right: 2px;">
                         Accion</div>
                     </th>
                 </tr>
@@ -37,7 +37,7 @@
                          <td>
                            @item.FechaAlta.ToShortDateString()
                         </td>
-                        <td>
+                        <td align="right" style="margin-right: 2px;">
                             @Html.ActionLink("Modificar", "Modificar", "Instituciones", new { INST_ID = item.Id_Institucion }, new { @class = "btnIngresar" })&nbsp;&nbsp;&nbsp;&nbsp;
                             @Html.ActionLink("Eliminar", "Eliminar", "Instituciones", new { INST_ID = item.Id_Institucion }, new { @class = "btnIngresar" })&nbsp;&nbsp;&nbsp;&nbsp;
                             @Html.ActionLink("Ver", "Ver", "Instituciones", new { INST_ID = item.Id_Institucion }, new { @class = "btnIngresar" })
@@ -48,7 +48,7 @@
                     <tr>
                         <td align="left" valign="middle" colspan="2" height="20">
                             <div id="resumenPag" style="height:20px; padding:10px 5px 0 2px;">
-                              <div align="center">
+                            @*  <div align="center">
                                 <ul id="pagination-clean">
                                   <li class="previous-off">Ant</li>
                                   <li class="active">1</li>
@@ -60,7 +60,7 @@
                                   <li><a href="?page=7">7</a></li>
                                   <li class="next"><a href="?page=2">Sig</a></li>
                                 </ul>
-                              </div>
+                              </div>*@
                          </div>
                         </td> 
                         <td align="right" valign="bottom" colspan="2" height="20">

@@ -6,7 +6,7 @@ using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.ServiciosInterface
 {
-    public interface IMovimientoServicio
+    public interface IMovimientoServicio: IBaseServicio
     {
         IMovimientosVista GetMovimientosByCajaChica(int id_caja_chica);
         IMovimientoVista GetMovimiento(int Id_Movimento);
