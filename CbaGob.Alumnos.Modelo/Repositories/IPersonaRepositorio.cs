@@ -11,5 +11,6 @@ namespace CbaGob.Alumnos.Modelo.Repositories
         IList<IPersona> GetTodasByNombre(string nombre);
         IList<IPersona> GetPersonasDni(int dni);
         IPersona GetUno(int id_persona);
+        bool AgregarPersona(IPersona persona);
     }
 }

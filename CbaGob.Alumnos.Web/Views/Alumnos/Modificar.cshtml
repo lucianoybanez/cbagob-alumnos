@@ -5,105 +5,60 @@
     Layout = "~/Views/Shared/_MasterSGC.cshtml";
 }
 @section Scripts{
-    @Content.Script("CbaGob.Alumnos.Alumnos.js",Url)
+    @Content.Script("CbaGob.Alumnos.Alumnos.js", Url)
 }
-
 <div class="box">
-  <h2>Modificar Alumnos</h2>
+    <h2>
+        Modificar Alumno</h2>
     <table align="center" style="width: 700px;">
         <tr>
             <td class="style1" style="font-weight: bold">
                 <div id="titulo">
-                    
-                </div> 
-@using (Html.BeginForm("Modificar_Alumno", "Alumnos", FormMethod.Post, new { Id = "FormularioAlumnos" }))
-{ 
+                </div>
+                @using (Html.BeginForm("Agregar_Alumno", "Alumnos", FormMethod.Post, new { Id = "FormularioAlumnos" }))
+                { 
+                    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+                        text-align: center;">
+                        <legend style="color: #FF9900"><b>Seleccione la Personas</b></legend>
+                        @Html.Partial("_Personas", Model.ListaPersona)
+                    </fieldset>
+                    <table align="center" id="mytable" style="font-family: Arial, Helvetica, sans-serif;
+                        font-size: 12px; width: 700px;">
+                        <tr>
+                            <td>
+                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+                                    text-align: center;">
+                                    <legend><b>Es Alumno</b></legend>
+                                    <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                                        width: 700px;">
+                                        <tr>
+                                            <td align="left">
+                                                <b>Alumno:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Nov_Nombre, new { disabled = "disabled", style = "width:350px;", MaxLength = "50", Class = "asd" })
+                                                @Html.ValidationMessageFor(m => m.Id_Persona)
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                            </td>
+                        </tr>
+                    </table>
+    
+                    <table id="myIntituciones" align="center" width="700px">
+                        <tr>
+                            <td align="right" valign="middle">
+                                <input type="submit" value="Guargar" class="btnIngresar" />&nbsp;&nbsp;
+                                @Html.ActionLink("Cancelar", "Index", "Alumnos", null, new { Class = "btnIngresar" })
+                            </td>
+                        </tr>
+                    </table>
       
-    @Html.Partial("_Personas", Model.ListaPersona)
-   
-    <table align="center" id="mytable" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:700px;">
-        <tr>
-            <td>
-  <fieldset style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:700px; text-align:center;">
-                <legend>Domicilio</legend>
-    <table align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:700px;">
-        <tr>
-            <td align="right" width="300">
-                <b>Nombre:</b>
+                    @Html.HiddenFor(d => d.Id_Persona)
+                    @Html.ValidationSummary(true)
+                }
             </td>
-           <td align="left" valign="middle">
-                @Html.TextBoxFor(c => c.Nov_Nombre, new { disabled = "disabled", style = "width:200px;", MaxLength = "50", Class = "asd" })
-                @Html.ValidationMessageFor(m => m.Id_Persona)
-            </td>
-        </tr>
-        <tr>
-             <td align="right">
-                 <b>Apellido: </b>
-            </td>
-             <td align="left" valign="middle">
-                @Html.TextBoxFor(c => c.Nov_Apellido, new { disabled = "disabled", style = "width:200px;", MaxLength = "50", Class = "asd" })
-            </td>
-        </tr>
-        <tr>
-            <td align="right">
-                 <b>Tipo: </b>
-            </td>
-            <td align="left" valign="middle">
-                @Html.EditorFor(c => c.TipoDocumento)
-            </td>
-        </tr>
-        <tr>
-          <td align="right">
-                 <b>Dni: </b>
-            </td>
-            <td align="left" valign="middle">
-                @Html.TextBoxFor(c => c.Nro_Documento, new { disabled = "disabled", style = "width:100px;", MaxLength = "50", Class = "asd" })
-            </td>
-        </tr>
-        <tr>
-            <td align="right">
-                 <b>Cuil: </b>
-            </td>
-            <td align="left" valign="middle">
-                @Html.TextBoxFor(c => c.Cuil, new { disabled = "disabled", style = "width:100px;", MaxLength = "50", Class = "asd" })
-            </td>
-        </tr>
-        <tr>
-             <td align="right">
-                 <b>Sexo:</b>
-            </td>
-            <td align="left" valign="middle">
-                @Html.EditorFor(c => c.Sexo)
-            </td>
-        </tr>
-        <tr>
-            <td align="right">
-                 <b>Estado Civil: </b>
-            </td>
-           <td align="left" valign="middle">
-                @Html.EditorFor(c => c.EstadoCivil)
-            </td>
-        </tr>
-    </table>
-    </fieldset>
-    </td>
-        </tr>
-    </table>
-   
-     <table id ="myIntituciones" align="center" width="700px">
-        <tr>
-            <td align="right" valign="middle">
-                <input type="submit" value="Guargar" class="btnIngresar" />&nbsp;&nbsp;
-       @Html.ActionLink("Cancelar", "Index", "Alumnos", null, new { Class = "btnIngresar" })
-            </td>
-            
-        </tr>
-    </table>
-    @Html.HiddenFor(d => d.Id_Persona)
-    @Html.HiddenFor(d => d.Id_Alumno)
-}
-
-</td>
         </tr>
     </table>
 </div>

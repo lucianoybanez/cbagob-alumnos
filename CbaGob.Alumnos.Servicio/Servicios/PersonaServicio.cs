@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Modelo.Repositories;
 using CbaGob.Alumnos.Repositorio;
+using CbaGob.Alumnos.Servicio.Comun;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
 
 namespace CbaGob.Alumnos.Servicio.Servicios
 {
-    public class PersonaServicio : IPersonaServicio
+    public class PersonaServicio :BaseServicio, IPersonaServicio
     {
         private IPersonaRepositorio PersonaRepositorio;
 
@@ -71,6 +72,24 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
                 throw;
             }
+        }
+
+        public bool AgregarPersona(IPersona persona)
+        {
+            try
+            {
+                return PersonaRepositorio.AgregarPersona(persona);
+            }
+            catch (Exception ex)
+            {
+                base.AddError("Se Produjo un Error Vuelva a Intentarlo");
+                return false;
+            }
+        }
+
+        public IList<IErrores> GetErrors()
+        {
+            return base.Errors;
         }
     }
 }
