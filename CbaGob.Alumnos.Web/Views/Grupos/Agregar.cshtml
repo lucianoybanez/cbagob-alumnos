@@ -1,6 +1,7 @@
 ﻿@model GrupoVista
 @{
-    ViewBag.Title = "SGC - Gobierno de Córdoba - Grupos";
+    ViewBag.Title = "Instituciones";
+    ViewBag.SubMenuSelected = "Instituciones";
     Layout = "~/Views/Shared/_MasterSGC.cshtml";
 }
 @section Scripts{
@@ -49,6 +50,7 @@
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.NombreGrupo, new { style = "width:350px;", MaxLength = "50" })
+                                                @Html.ValidationMessageFor(c => c.NombreGrupo,"*")
                                             </td>
                                         </tr>
                                         <tr>
@@ -57,6 +59,7 @@
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.Capacidad, new { style = "width:150px;", MaxLength = "50" })
+                                                @Html.ValidationMessageFor(c => c.Capacidad, "*")
                                             </td>
                                         </tr>
                                         <tr>
@@ -65,6 +68,7 @@
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.EditorFor(c => c.BuscadorEstablecimientos)
+                                                @Html.ValidationMessageFor(c => c.Id_Establecimiento, "*")
                                             </td>
                                         </tr>
                                     </table>
@@ -86,7 +90,7 @@
                     @Html.HiddenFor(d => d.Id_Docente)
                     @Html.HiddenFor(d => d.Id_Condicion_Curso)
                     @Html.HiddenFor(d => d.Id_Institucion)
-                     @Html.HiddenFor(d => d.Id_Institucion, new { Id = "Id_Instituciontxt" })
+                    @Html.HiddenFor(d => d.Id_Institucion, new { Id = "Id_Instituciontxt" })
                 }
             </td>
         </tr>

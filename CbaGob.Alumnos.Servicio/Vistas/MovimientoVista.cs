@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using CbaGob.Alumnos.Servicio.Vistas.Shared;
@@ -19,9 +20,11 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public int Id_Caja_Chica { get; set; }
         public int Id_Tipo_Movimiento { get; set; }
         public int Id_Institucion { get; set; }
+        [Required(ErrorMessage = "*")]
         public string Nombre_Movimiento { get; set; }
         public DateTime Fecha { get; set; }
         public decimal Monto { get; set; }
+        [Required(ErrorMessage = "*")]
         public string Descripcion { get; set; }
         public string NombreTipoMovimiento { get; set; }
         public decimal MontoCaja { get; set; }

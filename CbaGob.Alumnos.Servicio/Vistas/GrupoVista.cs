@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
@@ -18,12 +19,15 @@ namespace CbaGob.Alumnos.Servicio.Vistas
 
         public int Id_Grupo { get; set; }
         public int Id_Condicion_Curso { get; set; }
+        [Range(1, 9999999999999999999)]
         public int Id_Establecimiento { get; set; }
         public int Id_Docente { get; set; }
         public int Id_Horario { get; set; }
         public int Id_Institucion { get; set; }
 
+        [Required(ErrorMessage = "*")]
         public int Capacidad { get; set; }
+        [Required(ErrorMessage = "*")]
         public string NombreGrupo { get; set; }
         public string NombreEstablecimiento { get; set; }
         public int Id_Domicilio { get; set; }
@@ -52,6 +56,6 @@ namespace CbaGob.Alumnos.Servicio.Vistas
 
         public IList<IDocentes> ListaDocentesNoGrupo { get; set; }
         public IList<IDocentes> ListaDocentesInGrupo { get; set; }
-        
+
     }
 }
