@@ -29,6 +29,8 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         int IdAlumno { get; set; }
         string NombreAlumno { get; set; }
 
-        IList<IExamen> examens { get; set; }  
+        IList<IExamen> examens { get; set; }
+
+        IInscripcionPresentismoVista Presentismo { get; set; }
     }
 }

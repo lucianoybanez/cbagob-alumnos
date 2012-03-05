@@ -50,9 +50,19 @@ namespace JLY.Hotel.Web.Controllers
         //
         // GET: /Account/LogOff
 
+
+
         public ActionResult LogOff()
         {
-            FormsAuthentication.SignOut();
+            try
+            {
+                FormsAuthentication.SignOut();
+            }
+            catch (Exception)
+            {
+               
+            }
+           
 
             return RedirectToAction("Index", "Home");
         }
@@ -67,6 +77,23 @@ namespace JLY.Hotel.Web.Controllers
 
         //
         // POST: /Account/Register
+
+        [ChildActionOnly]
+        public PartialViewResult GetLoguedUser()
+        {
+            try
+            {
+                var usuario = _usuarioServicio.GetCookieData();
+                return PartialView("_LogOnPartial", usuario.Usuario);
+            }
+            catch (Exception)
+            {
+
+                return PartialView("_LogOnPartial",string.Empty);
+            }
+            
+            
+        }
 
         [HttpPost]
         public ActionResult Register(RegisterModel model)
@@ -145,6 +172,8 @@ namespace JLY.Hotel.Web.Controllers
         {
             return View();
         }
+
+
 
         #region Status Codes
         private static string ErrorCodeToString(MembershipCreateStatus createStatus)

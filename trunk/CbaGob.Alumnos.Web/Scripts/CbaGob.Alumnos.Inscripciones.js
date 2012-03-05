@@ -31,5 +31,23 @@ $(function () {
         $("#BuscarInstitucion").hide();
         $("#BuscarAlumno").hide();
     }
+
+    $("#AbrirPresentismo").click(function () {
+        $("#PresentismoDialog").dialog('open');
+    });
+
+    $("#PresentismoDialog").dialog({
+        autoOpen: false,
+        width: 400,
+        height: 200,
+        modal: true,
+        resizable: false,
+        buttons: { "Cancelar": function () { $(this).dialog("close"); }, "Guardar": function () {
+            $("#PresentismoIdInscripcion").val($("#IdInscripcion").val());
+            $("#FormularioPresentismo").submit();
+        }
+        }
+    });
+
 });
 

@@ -110,6 +110,7 @@
     <Compile Include="VistasInterface\ICajaChicaVista.cs" />
     <Compile Include="VistasInterface\IEquiposVista.cs" />
     <Compile Include="VistasInterface\IEquipoVista.cs" />
+    <Compile Include="VistasInterface\IInscripcionPresentismoVista.cs" />
     <Compile Include="VistasInterface\IInventariosVista.cs" />
     <Compile Include="VistasInterface\IInventarioVista.cs" />
     <Compile Include="VistasInterface\IMovimientosVista.cs" />
@@ -158,6 +159,7 @@
     <Compile Include="VistasInterface\IExamenesVista.cs" />
     <Compile Include="Vistas\CajaChicasVista.cs" />
     <Compile Include="Vistas\InscripcionesVista.cs" />
+    <Compile Include="Vistas\InscripcionPresentismoVista.cs" />
     <Compile Include="Vistas\InscripcionVista.cs" />
     <Compile Include="Vistas\InstitucionVista.cs" />
     <Compile Include="Vistas\InventariosVista.cs" />

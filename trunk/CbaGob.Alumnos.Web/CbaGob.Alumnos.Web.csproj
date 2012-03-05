@@ -132,6 +132,7 @@
     <Content Include="Content\images\49_.png" />
     <Content Include="Content\images\Bg_encabezado.jpg" />
     <Content Include="Content\images\Bg_pie.jpg" />
+    <Content Include="Content\images\Logout_button.png" />
     <Content Include="Content\images\seleccionar.jpg" />
     <Content Include="Content\MVCFramework.css" />
     <Content Include="Content\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -652,6 +653,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Personas\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inscripciones\Presentismo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inscripciones\Certificado.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inscripciones\_AgregarPresentismo.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
