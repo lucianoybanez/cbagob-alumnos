@@ -32,6 +32,7 @@
                                 </td>
                                 <td>
                                     @Html.TextBoxFor(c => c.Nombre_Movimiento, new { style = "width:350px;", MaxLength = "50" })
+                                    @Html.ValidationMessageFor(c => c.Nombre_Movimiento)
                                 </td>
                             </tr>
                             <tr>
@@ -63,7 +64,8 @@
                                     <b>Monto:</b>
                                 </td>
                                 <td>
-                                    @Html.TextAreaFor(c => c.Descripcion, new { style = "width:150px;", MaxLength = "50" })
+                                    @Html.TextAreaFor(c => c.Descripcion, new { style = "width:350px; height:45px;", MaxLength = "50" })
+                                    @Html.ValidationMessageFor(c => c.Descripcion)
                                 </td>
                             </tr>
                         </table>
@@ -81,4 +83,3 @@
         </tr>
     </table>
 </div>
-

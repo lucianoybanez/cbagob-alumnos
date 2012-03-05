@@ -184,7 +184,7 @@ cbaAlumnosGlobal = function () {
 
         switch (Tipo) {
             case "Personas":
-                var trHeader = "<tr><td>Nombre</td><td>Apellido</td><td>Dni</td><td>Cuil</td><td>Fecha Nacimiento</td><td></td></tr>"
+                var trHeader = "<thead><tr><th>Nombre</th><th>Apellido</th><th>Dni</th><th>Cuil</th><th>Fecha Nacimiento</th><th></th></tr></thead>"
                 var table = '#' + id + 'table';
                 $(table).empty();
                 $(table).append(trHeader);
@@ -192,69 +192,70 @@ cbaAlumnosGlobal = function () {
                     var myDate = new Date(parseInt(data[i].Fecha_Nacimiento.replace(/\/+Date\(([\d+-]+)\)\/+/, '$1')));
                     var mMonth = myDate.getMonth() + 1;
                     var ViewDate = myDate.getDate() + '/' + mMonth + '/' + myDate.getFullYear();
-                    var trFileds = "<tr><td>" + data[i].Nov_Nombre + "</td><td>" + data[i].Nov_Apellido + "</td><td>" + data[i].Nro_Documento + "</td><td>" + data[i].Cuil + "</td><td>" + ViewDate + '</td><td><img onclick="cbaAlumnosGlobal.Seleccion(' + "'" + id + "'" + ',' + "'" + Tipo + "'" + ',' + "'" + data[i].Nov_Nombre + "," + data[i].Nov_Apellido + "-" + data[i].Nro_Documento + "'" + ');"  src="../../../Content/images/seleccionar.jpg"  width="25" height="25"  /></td></tr>';
+                    var trFileds = "<tr><td>" + data[i].Nov_Nombre + "</td><td>" + data[i].Nov_Apellido + "</td><td>" + data[i].Nro_Documento + "</td><td>" + data[i].Cuil + "</td><td>" + ViewDate + '</td><td><img style="cursor: pointer" onclick="cbaAlumnosGlobal.Seleccion(' + "'" + id + "'" + ',' + "'" + Tipo + "'" + ',' + "'" + data[i].Nov_Nombre + "," + data[i].Nov_Apellido + "-" + data[i].Nro_Documento + "'" + ');"  src="../../../Content/images/seleccionar.jpg"  width="25" height="25"  /></td></tr>';
                     $(table).append(trFileds);
                 }
                 break;
             case "Domicilios":
-                var trHeader = "<tr><td>Provincia</td><td>Localidad</td><td>Barrio</td><td>Calle</td><td>Nro</td><td></td></tr>"
+                var trHeader = "<thead><tr><th>Provincia</th><th>Localidad</th><th>Barrio</th><th>Calle</th><th>Nro</th><th></th></tr></thead>"
                 var table = '#' + id + 'table';
                 $(table).empty();
                 $(table).append(trHeader);
                 for (var i = 0; i < data.length; i++) {
-                    var trFileds = "<tr><td>" + data[i].Provincia + "</td><td>" + data[i].Localidad + "</td><td>" + data[i].Barrio + "</td><td>" + data[i].Calle + "</td><td>" + data[i].Nro + '</td><td><img onclick="cbaAlumnosGlobal.Seleccion(' + "'" + id + "'" + ',' + "'" + Tipo + "'" + ',' + "'" + data[i].Provincia + "," + data[i].Localidad + "," + data[i].Barrio + "," + data[i].Calle + "," + data[i].Nro + "'," + data[i].Id_Domicilio + ');"  src="../../../Content/images/seleccionar.jpg"  width="25" height="25"  /></td></tr>';
+                    var trFileds = "<tr><td>" + data[i].Provincia + "</td><td>" + data[i].Localidad + "</td><td>" + data[i].Barrio + "</td><td>" + data[i].Calle + "</td><td>" + data[i].Nro + '</td><td><img style="cursor: pointer" onclick="cbaAlumnosGlobal.Seleccion(' + "'" + id + "'" + ',' + "'" + Tipo + "'" + ',' + "'" + data[i].Provincia + "," + data[i].Localidad + "," + data[i].Barrio + "," + data[i].Calle + "," + data[i].Nro + "'," + data[i].Id_Domicilio + ');"  src="../../../Content/images/seleccionar.jpg"  width="25" height="25"  /></td></tr>';
                     $(table).append(trFileds);
                 }
                 break;
             case "Instituciones":
-                var trHeader = "<tr><td>Nombre Institucion</td><td>Direccion</td><td></td></tr>"
+                var trHeader = "<thead><tr><th>Nombre Institucion</th><th>Direccion</th><th></th></tr></thead>"
                 var table = '#' + id + 'table';
                 $(table).empty();
                 $(table).append(trHeader);
                 for (var i = 0; i < data.length; i++) {
-                    var trFileds = "<tr><td>" + data[i].Nombre_Institucion + "</td><td>" + data[i].DireccionCompleta + '</td><td><img onclick="cbaAlumnosGlobal.Seleccion(' + "'" + id + "'" + ',' + "'" + Tipo + "'" + ',' + "'" + data[i].Nombre_Institucion + "'," + data[i].Id_Institucion + ');"  src="../../../Content/images/seleccionar.jpg"  width="25" height="25"  /></td></tr>';
+                    var trFileds = "<tr><td>" + data[i].Nombre_Institucion + "</td><td>" + data[i].DireccionCompleta + '</td><td><img style="cursor: pointer" onclick="cbaAlumnosGlobal.Seleccion(' + "'" + id + "'" + ',' + "'" + Tipo + "'" + ',' + "'" + data[i].Nombre_Institucion + "'," + data[i].Id_Institucion + ');"  src="../../../Content/images/seleccionar.jpg"  width="25" height="25"  /></td></tr>';
                     $(table).append(trFileds);
                 }
                 break;
             case "PersonasJuridica":
-                var trHeader = "<tr><td>Cuit</td><td>Razon_Social</td><td></td></tr>"
+                var trHeader = "<thead><tr><th>Cuit</th><th>Razon_Social</th><th></th></tr></thead>"
                 var table = '#' + id + 'table';
                 $(table).empty();
                 $(table).append(trHeader);
                 for (var i = 0; i < data.length; i++) {
-                    var trFileds = "<tr><td>" + data[i].Cuit + "</td><td>" + data[i].Razon_Social + '</td><td><img onclick="cbaAlumnosGlobal.Seleccion(' + "'" + id + "'" + ',' + "'" + Tipo + "'" + ',' + "'" + data[i].Cuit + "-" + data[i].Razon_Social + "'," + data[i].Id_PersonaJur + ');"  src="../../../Content/images/seleccionar.jpg"  width="25" height="25"  /></td></tr>';
+                    var trFileds = "<tr><td>" + data[i].Cuit + "</td><td>" + data[i].Razon_Social + '</td><td><img style="cursor: pointer" onclick="cbaAlumnosGlobal.Seleccion(' + "'" + id + "'" + ',' + "'" + Tipo + "'" + ',' + "'" + data[i].Cuit + "-" + data[i].Razon_Social + "'," + data[i].Id_PersonaJur + ');"  src="../../../Content/images/seleccionar.jpg"  width="25" height="25"  /></td></tr>';
                     $(table).append(trFileds);
                 }
                 break;
             case "Supervisores":
-                var trHeader = "<tr><td>Cuit</td><td>Razon_Social</td><td></td></tr>"
+                var trHeader = "<thead><tr><th>Cuit</th><th>Razon_Social</th><th></th></tr></thead>"
                 var table = '#' + id + 'table';
                 $(table).empty();
                 $(table).append(trHeader);
                 for (var i = 0; i < data.length; i++) {
-                    var trFileds = "<tr><td>" + data[i].Cuit + "</td><td>" + data[i].RazonSocial + '</td><td><img onclick="cbaAlumnosGlobal.Seleccion(' + "'" + id + "'" + ',' + "'" + Tipo + "'" + ',' + "'" + data[i].Cuit + "-" + data[i].RazonSocial + "'," + data[i].Id_Supervisor + ');"  src="../../../Content/images/seleccionar.jpg"  width="25" height="25"  /></td></tr>';
+                    var trFileds = "<tr><td>" + data[i].Cuit + "</td><td>" + data[i].RazonSocial + '</td><td><img style="cursor: pointer" onclick="cbaAlumnosGlobal.Seleccion(' + "'" + id + "'" + ',' + "'" + Tipo + "'" + ',' + "'" + data[i].Cuit + "-" + data[i].RazonSocial + "'," + data[i].Id_Supervisor + ');"  src="../../../Content/images/seleccionar.jpg"  width="25" height="25"  /></td></tr>';
                     $(table).append(trFileds);
                 }
                 break;
             case "Equipos":
-                var trHeader = "<tr><td>Nombre del Equipo</td><td></td></tr>"
+                var trHeader = "<thead><tr><th>Nombre del Equipo</th><th></th></tr></thead>"
                 var table = '#' + id + 'table';
                 $(table).empty();
                 $(table).append(trHeader);
                 for (var i = 0; i < data.length; i++) {
-                    var trFileds = "<tr><td>" + data[i].N_Equipos + '</td><td><img onclick="cbaAlumnosGlobal.Seleccion(' + "'" + id + "'" + ',' + "'" + Tipo + "'" + ',' + "'" + data[i].N_Equipos + "'," + data[i].Id_Equipo + ');"  src="../../../Content/images/seleccionar.jpg"  width="25" height="25"  /></td></tr>';
+                    var trFileds = "<tr><td>" + data[i].N_Equipos + '</td><td><img style="cursor: pointer" onclick="cbaAlumnosGlobal.Seleccion(' + "'" + id + "'" + ',' + "'" + Tipo + "'" + ',' + "'" + data[i].N_Equipos + "'," + data[i].Id_Equipo + ');"  src="../../../Content/images/seleccionar.jpg"  width="25" height="25"  /></td></tr>';
                     $(table).append(trFileds);
                 }
                 break;
             case "Estableciminetos":
-                var trHeader = "<tr><td>Nombre del Establecimiento</td><td></td></tr>"
+                var trHeader = "<thead><tr><th>Nombre del Establecimiento</th><th></th></tr></thead><tbody>"
                 var table = '#' + id + 'table';
                 $(table).empty();
                 $(table).append(trHeader);
                 for (var i = 0; i < data.length; i++) {
-                    var trFileds = "<tr><td>" + data[i].NombreEstablecimiento + '</td><td><img onclick="cbaAlumnosGlobal.Seleccion(' + "'" + id + "'" + ',' + "'" + Tipo + "'" + ',' + "'" + data[i].NombreEstablecimiento + "'," + data[i].Id_Establecimiento + ');"  src="../../../Content/images/seleccionar.jpg"  width="25" height="25"  /></td></tr>';
+                    var trFileds = "<tr><td>" + data[i].NombreEstablecimiento + '</td><td><img style="cursor: pointer" onclick="cbaAlumnosGlobal.Seleccion(' + "'" + id + "'" + ',' + "'" + Tipo + "'" + ',' + "'" + data[i].NombreEstablecimiento + "'," + data[i].Id_Establecimiento + ');"  src="../../../Content/images/seleccionar.jpg"  width="25" height="25"  /></td></tr>';
                     $(table).append(trFileds);
                 }
+                $(table).append("<tbody>");
                 break;
         }
     }
