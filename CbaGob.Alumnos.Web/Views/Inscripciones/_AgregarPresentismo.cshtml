@@ -2,7 +2,8 @@
 <div id="PresentismoDialog" title="Agregar Presentismo">
     @using (Html.BeginForm("GuardarPresentismo", "Inscripciones", FormMethod.Get, new { Id = "FormularioPresentismo" }))
     {
-        <input type="hidden" id="PresentismoIdInscripcion" name="PresentismoIdInscripcion"/>
+       @Html.HiddenFor(c=> c.IdInscripcion)
+       @Html.HiddenFor(c => c.IdPresentismo)
         <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
             width: 200px;">
             <tr>

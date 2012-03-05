@@ -16,5 +16,8 @@ namespace CbaGob.Alumnos.Modelo.Repositories
         bool AgregarInscripcion(IInscripcion inscripcion);
         bool ModificarInscripcion(IInscripcion inscripcion);
         bool EliminarInscripcion(int id_inscripcion);
+        bool GuardarPresentismo(IPresentismo presentismo);
+        bool ModificarPresentismo(IPresentismo presentismo);
+        IPresentismo GetPresentismo(int idInscripcion);
     }
 }

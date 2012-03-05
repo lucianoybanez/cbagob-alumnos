@@ -51,8 +51,8 @@
                        if (ViewBag.Title.Contains("Inscripciones"))
                        {
                         <li>@Html.ActionLink("Gestion Inscripciones", "Index", "Inscripciones", null, new { @class = ViewBag.SubMenuSelected == "Inscripciones" ? "selected" : "" })</li> 
-                        <li>@Html.ActionLink("Gestion Examenes", "Index", "Inscripciones", null, new { @class = ViewBag.SubMenuSelected == "Examenes" ? "selected" : "" })</li>  
-                        <li>@Html.ActionLink("Gestion Presentismo", "Index", "Inscripciones", null, new { @class = ViewBag.SubMenuSelected == "Presentismo" ? "selected" : "" })</li>  
+                        <li>@Html.ActionLink("Gestion Examenes", "Examenes", "Inscripciones", null, new { @class = ViewBag.SubMenuSelected == "Examenes" ? "selected" : "" })</li>  
+                        <li>@Html.ActionLink("Gestion Presentismo", "Presentismo", "Inscripciones", null, new { @class = ViewBag.SubMenuSelected == "Presentismo" ? "selected" : "" })</li>  
                         <li>@Html.ActionLink("Emitir Certificado", "Certificado", "Inscripciones", null, new { @class = ViewBag.SubMenuSelected == "Certificado" ? "selected" : "" })</li>
                        }
 
