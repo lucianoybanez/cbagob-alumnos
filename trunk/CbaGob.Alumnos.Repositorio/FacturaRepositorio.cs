@@ -130,12 +130,12 @@ namespace CbaGob.Alumnos.Repositorio
                                              {
                                                  ESTADO = factura.Estado,
                                                  FEC_ALTA = factura.FechaAlta,
-                                                 DESCRIPCION = "asd",
+                                                 DESCRIPCION = factura.DetalleFactura.Descripcion,
                                                  FEC_MODIF = factura.FechaModificacion,
-                                                 ITEM = "asd",
+                                                 ITEM = factura.DetalleFactura.Item,
                                                  USR_MODIF = factura.UsuarioModificacion,
                                                  USR_ALTA = factura.UsuarioAlta,
-                                                 MONTO = 0,
+                                                 MONTO = factura.DetalleFactura.Monto,
                                                  ID_FACTURA = mDB.T_FACTURAS.OrderByDescending(c => c.ID_FACTURA).First().ID_FACTURA
 
                                              };

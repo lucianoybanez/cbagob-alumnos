@@ -14,7 +14,7 @@
                             Cantidad Equipos</div>
                     </th>
                     <th height="30" align="center">
-                        <div align="center">
+                        <div align="right" style="margin-right: 2px;">
                             Accion</div>
                     </th>
                 </tr>
@@ -29,7 +29,7 @@
                         <td align="center" width="50">
                             @item.CantidadEquipos
                         </td>
-                        <td align="center">
+                        <td align="right" style="margin-right: 2px;">
                             @Html.ActionLink("Ver", "Ver", "Inventarios", new { id_estado = item.Id_EstadoEquipo }, new { @class = "btnIngresar" })
                         </td>
                     </tr>

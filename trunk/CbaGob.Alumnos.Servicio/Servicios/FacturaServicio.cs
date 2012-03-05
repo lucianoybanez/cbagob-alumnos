@@ -147,13 +147,10 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
                     int idFactura = FacturaRepositorio.AgregarFactura(modelFactura);
                     modelFactura.DetalleFactura.IdFactura = idFactura;
-                    //if (idFactura != 0)
-                    //{
-                    //    if (FacturaRepositorio.AgregarDetalle(modelFactura.DetalleFactura))
-                    //    {
-                    //        return true;
-                    //    }
-                    //}
+                    if (idFactura != 0)
+                    {
+                        return true;
+                    }
                     base.AddError("Ocurrio un error al agregar la Factura");
                     return false;
                 }

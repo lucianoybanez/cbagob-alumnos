@@ -32,6 +32,7 @@
                                             </td>
                                             <td align="left">
                                                 @Html.TextBoxFor(c => c.N_Equipos, new { style = "width:250px;", MaxLength = "50" })
+                                                @Html.ValidationMessageFor(c => c.N_Equipos, "*")
                                             </td>
                                         </tr>
                                         <tr>
@@ -40,6 +41,7 @@
                                             </td>
                                             <td align="left">
                                                 @Html.EditorFor(c => c.EstadoEquipo)
+                                                @Html.ValidationMessageFor(c => c.Id_Estado_Equipo, "*")
                                             </td>
                                         </tr>
                                     </table>

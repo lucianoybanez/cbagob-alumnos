@@ -14,7 +14,7 @@
                             Estado del Equipo</div>
                     </th>
                     <th height="30" align="center">
-                        <div align="center">
+                        <div align="right" style="margin-right: 2px;">
                             Accion</div>
                     </th>
                 </tr>
@@ -29,7 +29,7 @@
                         <td align="center" width="50">
                             @item.NombreEstadoEquipo
                         </td>
-                        <td align="center">
+                        <td align="right" style="margin-right: 2px;">
                             @Html.ActionLink("Modificar", "Modificar", "Equipamientos", new { id_equipo = item.Id_Equipo }, new { @class = "btnIngresar" })
                             @Html.ActionLink("Eliminar", "Eliminar", "Equipamientos", new { id_equipo = item.Id_Equipo }, new { @class = "btnIngresar" })
                         </td>
@@ -39,7 +39,7 @@
                     <td align="left" valign="middle" colspan="2" height="20">
                         <div id="resumenPag" style="height: 20px; padding: 10px 5px 0 2px;">
                             <div align="center">
-                                <ul id="pagination-clean">
+                            @*    <ul id="pagination-clean">
                                     <li class="previous-off">Ant</li>
                                     <li class="active">1</li>
                                     <li><a href="?page=2">2</a></li>
@@ -49,7 +49,7 @@
                                     <li><a href="?page=6">6</a></li>
                                     <li><a href="?page=7">7</a></li>
                                     <li class="next"><a href="?page=2">Sig</a></li>
-                                </ul>
+                                </ul>*@
                             </div>
                         </div>
                     </td>

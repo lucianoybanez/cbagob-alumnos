@@ -65,7 +65,11 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         {
             try
             {
-                return null;
+                IInventarioVista vistaretorno = new InventarioVista();
+
+                vistaretorno.ListaEquipo = equiporepositorio.GetEquiposByEstado(id_estado);
+
+                return vistaretorno;
             }
             catch (Exception)
             {

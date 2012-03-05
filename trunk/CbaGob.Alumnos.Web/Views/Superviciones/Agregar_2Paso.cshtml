@@ -57,6 +57,7 @@
                                             </td>
                                             <td align="left">
                                                 @Html.EditorFor(c => c.supervisor)
+                                                @Html.ValidationMessageFor(c => c.Id_Supervisor, "*")
                                             </td>
                                         </tr>
                                         <tr>
@@ -64,7 +65,8 @@
                                                 <b>Fecha de Supervicion:</b>
                                             </td>
                                             <td align="left">
-                                                @Html.TextBoxFor(c => c.Fec_Supervision, new { Id = "fecSup", style = "width:90px;", MaxLength = "50" })
+                                                @*@Html.TextBoxFor(c => c.Fec_Supervision, new { Id = "fecSup", style = "width:90px;", MaxLength = "50" })*@
+                                                @Html.EditorFor(c => c.Fec_Supervision)
                                             </td>
                                         </tr>
                                         <tr>
@@ -87,6 +89,8 @@
                                                         <option value = @i >@i </option>
                                                     }
                                                 </select>
+                                                @Html.ValidationMessageFor(m => m.hora, "*")
+                                                @Html.ValidationMessageFor(m => m.minuto, "*")
                                             </td>
                                         </tr>
                                         <tr>

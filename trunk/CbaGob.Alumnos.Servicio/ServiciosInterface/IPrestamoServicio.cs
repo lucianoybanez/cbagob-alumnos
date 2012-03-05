@@ -6,7 +6,7 @@ using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.ServiciosInterface
 {
-    public interface IPrestamoServicio
+    public interface IPrestamoServicio : IBaseServicio
     {
         IPrestamosVista GetPrestamos();
         IPrestamosVista GetPrestamosByInstitucion(int id_institucion);
