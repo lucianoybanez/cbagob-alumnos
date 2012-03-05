@@ -1,8 +1,8 @@
 ﻿@model InventarioVista
-@if (Model.ListaEquipo != null && Model.ListaEquipos.Count > 0)
+@if (Model.ListaEquipo != null && Model.ListaEquipo.Count > 0)
 { 
     <div style="text-align: center;">
-        <table id="grilla" align="center" width="722px" cellpadding="0" cellspacing="0">
+        <table id="grilla" align="center" width="690px" cellpadding="0" cellspacing="0">
             <thead>
                 <tr>
                     <th height="30" width="280">
@@ -16,7 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model.ListaEquipos)
+                @foreach (var item in Model.ListaEquipo)
                 {
                     <tr>
                         <td align="center" height="28">
@@ -33,7 +33,7 @@
 }
 else
 {
-    <table id="grilla" align="center" width="722px" cellpadding="0" cellspacing="0">
+    <table id="grilla" align="center" width="690px" cellpadding="0" cellspacing="0">
         <tr>
             <td width="722px">
                 @Html.Partial("_SinDatos", "Equipos")
