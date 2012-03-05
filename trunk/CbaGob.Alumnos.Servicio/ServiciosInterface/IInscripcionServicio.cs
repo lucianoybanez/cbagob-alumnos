@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
+using CbaGob.Alumnos.Servicio.Vistas;
 using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.ServiciosInterface
@@ -15,5 +16,7 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
         bool AgregarInscripcion(IInscripcionVista inscripcion);
         bool ModificarInscripcion(IInscripcionVista inscripcion);
         bool EliminarInscripcion(int id_inscripcion);
+        bool GuardarPresentismo(InscripcionPresentismoVista vista);
+        IInscripcionPresentismoVista GetPresentismo(int idInscripcion);
     }
 }

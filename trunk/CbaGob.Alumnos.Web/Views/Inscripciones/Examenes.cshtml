@@ -1,7 +1,7 @@
 ﻿@model InscripcionesVista
 @{
     ViewBag.Title = "Inscripciones";
-    ViewBag.SubMenuSelected = "Presentismo";
+    ViewBag.SubMenuSelected = "Examenes";
     Layout = "~/Views/Shared/_MasterSGC.cshtml";
 }
 @section Stylesheets {
@@ -12,7 +12,7 @@
 }
 <div class="box">
     <h2>
-        Presentismo - Listado de Alumnos</h2>
+        Examenes - Listado de Alumnos</h2>
     <table>
         <tr>
             <td class="style1" style="font-weight: bold">
@@ -71,7 +71,7 @@
                                             <td>
                                                 @Html.Raw(item.ApellidoAlumno + ", " + item.NombreAlumno)
                                             </td>
-                                            <td>                                         
+                                            <td>                                        
                                                 
                                                 @Html.ActionLink("Ver", "Ver", "Inscripciones", new { idInscripcion = item.IdInscripcion }, new { @class = "btnIngresar" })&nbsp;&nbsp;&nbsp;&nbsp;
                                             </td>

@@ -203,5 +203,74 @@ namespace CbaGob.Alumnos.Repositorio
                 throw;
             }
         }
+
+        public bool GuardarPresentismo(IPresentismo presentismo)
+        {
+            try
+            {
+                base.AgregarDatosAlta(presentismo);
+
+                T_PRESENTISMO obj = new T_PRESENTISMO()
+                {
+                    ESTADO = presentismo.Estado,
+                    USR_ALTA = presentismo.UsuarioAlta,
+                    USR_MODIF = presentismo.UsuarioModificacion,
+                    FEC_MODIF = presentismo.FechaModificacion,
+                    FEC_ALTA = presentismo.FechaAlta,
+                    CLASES_ASISTIDAS = presentismo.ClasesAsistidas,
+                    ID_INSCRIPCION = presentismo.IdInscripcion,
+                    ID_PRESENTISMO = presentismo.IdPresentismo,
+                };
+
+                mDb.AddToT_PRESENTISMO(obj);
+                mDb.SaveChanges();
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public bool ModificarPresentismo(IPresentismo presentismo)
+        {
+            try
+            {
+                base.AgregarDatosModificacion(presentismo);
+
+                var IN = mDb.T_PRESENTISMO.FirstOrDefault(c => c.ID_PRESENTISMO == presentismo.IdPresentismo);
+                IN.FEC_MODIF = presentismo.FechaModificacion;
+                IN.USR_MODIF = presentismo.UsuarioModificacion;
+                IN.CLASES_ASISTIDAS = presentismo.ClasesAsistidas;
+                mDb.SaveChanges();
+
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public IPresentismo GetPresentismo(int idInscripcion)
+        {
+            var a = (from c in mDb.T_PRESENTISMO
+                     where c.ESTADO == "A" && c.ID_INSCRIPCION == idInscripcion
+                     select
+                         new Presentismo()
+                         {
+                             FechaAlta = c.FEC_ALTA,
+                             FechaModificacion = c.FEC_MODIF,
+                             UsuarioAlta = c.USR_ALTA,
+                             UsuarioModificacion = c.USR_MODIF,
+                             IdInscripcion = c.ID_INSCRIPCION,
+                             Estado = c.ESTADO,
+                             ClasesAsistidas = c.CLASES_ASISTIDAS,
+                             IdPresentismo = c.ID_PRESENTISMO,
+                         }).FirstOrDefault();
+            return a;
+        }
     }
 }

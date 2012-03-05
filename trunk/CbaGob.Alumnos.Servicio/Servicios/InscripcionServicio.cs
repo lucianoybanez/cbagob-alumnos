@@ -153,6 +153,52 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         }
 
+        public bool GuardarPresentismo(InscripcionPresentismoVista vista)
+        {
+            IPresentismo presentismo = new Presentismo()
+                                           {
+                                               ClasesAsistidas = vista.ClasesAsistidas,
+                                               IdInscripcion = vista.IdInscripcion,
+                                               IdPresentismo = vista.IdInscripcion
+                                           };
+            bool result = false;
+
+            bool alta = Inscripcionrepositorio.GuardarPresentismo(presentismo);
+
+            if (!alta)
+            {
+                result = Inscripcionrepositorio.ModificarPresentismo(presentismo);
+            }
+            else
+            {
+                result = true;
+            }
+
+            if (!result)
+            {
+                base.AddError("Ocurrio un Error al guardar el Presentismo.");
+            }
+            return result;
+        }
+
+        public IInscripcionPresentismoVista GetPresentismo(int idInscripcion)
+        {
+            var a = Inscripcionrepositorio.GetPresentismo(idInscripcion);
+            if (a!=null)
+            {
+                IInscripcionPresentismoVista vista = new InscripcionPresentismoVista()
+                {
+                    ClasesAsistidas = a.ClasesAsistidas,
+                    IdPresentismo = a.IdPresentismo,
+                    IdInscripcion = a.IdInscripcion,
+                    PorcentajePresentismo = a.PorcentajePresentismo
+                };
+                return vista;
+            }
+           
+            return new InscripcionPresentismoVista();
+        }
+
         public IList<IErrores> GetErrors()
         {
             return base.Errors;

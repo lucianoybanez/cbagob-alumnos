@@ -48,7 +48,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             var vista = InscripcionServicio.GetInscripcion(idInscripcion);
             var listaExamnes = ExamenServicio.GetExamenes(idInscripcion);
             vista.examens = listaExamnes;
-            vista.Presentismo = new InscripcionPresentismoVista();
+            vista.Presentismo = InscripcionServicio.GetPresentismo(idInscripcion);
             vista.Accion = "Ver";
             return View("Agregar", vista);
         }
@@ -95,14 +95,18 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         public ActionResult Presentismo()
         {
-            return View();
+            return View(InscripcionServicio.GetAllInscripcion());
         }
 
 
-        public ActionResult GuardarPresentismo(InscripcionPresentismoVista vista, int PresentismoIdInscripcion)
+        public ActionResult GuardarPresentismo(InscripcionPresentismoVista vista)
         {
-
-            return RedirectToAction("Ver", "Inscripciones", new { idInscripcion = PresentismoIdInscripcion });
+            bool result = InscripcionServicio.GuardarPresentismo(vista);
+            if (!result)
+            {
+                base.AddError(InscripcionServicio.GetErrors());
+            }
+            return RedirectToAction("Ver", "Inscripciones", new { idInscripcion = vista.IdInscripcion });
         }
 
         #endregion
@@ -111,8 +115,17 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         public ActionResult Certificado()
         {
-           
+
             return View();
+        }
+
+        #endregion
+
+        #region 'Examenes'
+
+        public ActionResult Examenes()
+        {
+            return View(InscripcionServicio.GetAllInscripcion());
         }
 
         #endregion

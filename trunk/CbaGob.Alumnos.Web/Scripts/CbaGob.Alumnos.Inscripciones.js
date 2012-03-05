@@ -43,7 +43,6 @@ $(function () {
         modal: true,
         resizable: false,
         buttons: { "Cancelar": function () { $(this).dialog("close"); }, "Guardar": function () {
-            $("#PresentismoIdInscripcion").val($("#IdInscripcion").val());
             $("#FormularioPresentismo").submit();
         }
         }

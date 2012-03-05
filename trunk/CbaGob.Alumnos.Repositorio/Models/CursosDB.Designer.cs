@@ -58,6 +58,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_SUPERVISORES_T_PERSONAS_FK1", "T_PERSONASJUR", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_PERSONASJUR), "T_SUPERVISORES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_SUPERVISORES), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_SUPERVICIONES_T_SUPERVI_FK1", "T_SUPERVISORES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_SUPERVISORES), "T_SUPERVICIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_SUPERVICIONES), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_DETALLES_FACTURA_T_FACT_FK1", "T_FACTURAS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_FACTURAS), "T_DETALLES_FACTURA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_DETALLES_FACTURA), true)]
+[assembly: EdmRelationshipAttribute("Model_Cursos", "T_PRESENTISMO_T_INSCRIPCI_FK1", "T_INSCRIPCIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_INSCRIPCIONES), "T_PRESENTISMO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_PRESENTISMO), true)]
 
 #endregion
 
@@ -668,6 +669,22 @@ namespace CbaGob.Alumnos.Repositorio.Models
             }
         }
         private ObjectSet<T_DETALLES_FACTURA> _T_DETALLES_FACTURA;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<T_PRESENTISMO> T_PRESENTISMO
+        {
+            get
+            {
+                if ((_T_PRESENTISMO == null))
+                {
+                    _T_PRESENTISMO = base.CreateObjectSet<T_PRESENTISMO>("T_PRESENTISMO");
+                }
+                return _T_PRESENTISMO;
+            }
+        }
+        private ObjectSet<T_PRESENTISMO> _T_PRESENTISMO;
 
         #endregion
         #region AddTo Methods
@@ -950,6 +967,14 @@ namespace CbaGob.Alumnos.Repositorio.Models
         public void AddToT_DETALLES_FACTURA(T_DETALLES_FACTURA t_DETALLES_FACTURA)
         {
             base.AddObject("T_DETALLES_FACTURA", t_DETALLES_FACTURA);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the T_PRESENTISMO EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToT_PRESENTISMO(T_PRESENTISMO t_PRESENTISMO)
+        {
+            base.AddObject("T_PRESENTISMO", t_PRESENTISMO);
         }
 
         #endregion
@@ -8304,6 +8329,28 @@ namespace CbaGob.Alumnos.Repositorio.Models
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_PRESENTISMO_T_INSCRIPCI_FK1", "T_PRESENTISMO")]
+        public EntityCollection<T_PRESENTISMO> T_PRESENTISMO
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<T_PRESENTISMO>("Model_Cursos.T_PRESENTISMO_T_INSCRIPCI_FK1", "T_PRESENTISMO");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<T_PRESENTISMO>("Model_Cursos.T_PRESENTISMO_T_INSCRIPCI_FK1", "T_PRESENTISMO", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -10345,6 +10392,284 @@ namespace CbaGob.Alumnos.Repositorio.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<T_SUPERVISORES>("Model_Cursos.T_SUPERVISORES_T_PERSONAS_FK1", "T_SUPERVISORES", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model_Cursos", Name="T_PRESENTISMO")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class T_PRESENTISMO : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new T_PRESENTISMO object.
+        /// </summary>
+        /// <param name="iD_PRESENTISMO">Initial value of the ID_PRESENTISMO property.</param>
+        /// <param name="iD_INSCRIPCION">Initial value of the ID_INSCRIPCION property.</param>
+        /// <param name="cLASES_ASISTIDAS">Initial value of the CLASES_ASISTIDAS property.</param>
+        /// <param name="eSTADO">Initial value of the ESTADO property.</param>
+        /// <param name="fEC_ALTA">Initial value of the FEC_ALTA property.</param>
+        /// <param name="fEC_MODIF">Initial value of the FEC_MODIF property.</param>
+        /// <param name="uSR_ALTA">Initial value of the USR_ALTA property.</param>
+        /// <param name="uSR_MODIF">Initial value of the USR_MODIF property.</param>
+        public static T_PRESENTISMO CreateT_PRESENTISMO(global::System.Int32 iD_PRESENTISMO, global::System.Int32 iD_INSCRIPCION, global::System.Int32 cLASES_ASISTIDAS, global::System.String eSTADO, global::System.DateTime fEC_ALTA, global::System.DateTime fEC_MODIF, global::System.String uSR_ALTA, global::System.String uSR_MODIF)
+        {
+            T_PRESENTISMO t_PRESENTISMO = new T_PRESENTISMO();
+            t_PRESENTISMO.ID_PRESENTISMO = iD_PRESENTISMO;
+            t_PRESENTISMO.ID_INSCRIPCION = iD_INSCRIPCION;
+            t_PRESENTISMO.CLASES_ASISTIDAS = cLASES_ASISTIDAS;
+            t_PRESENTISMO.ESTADO = eSTADO;
+            t_PRESENTISMO.FEC_ALTA = fEC_ALTA;
+            t_PRESENTISMO.FEC_MODIF = fEC_MODIF;
+            t_PRESENTISMO.USR_ALTA = uSR_ALTA;
+            t_PRESENTISMO.USR_MODIF = uSR_MODIF;
+            return t_PRESENTISMO;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_PRESENTISMO
+        {
+            get
+            {
+                return _ID_PRESENTISMO;
+            }
+            set
+            {
+                if (_ID_PRESENTISMO != value)
+                {
+                    OnID_PRESENTISMOChanging(value);
+                    ReportPropertyChanging("ID_PRESENTISMO");
+                    _ID_PRESENTISMO = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID_PRESENTISMO");
+                    OnID_PRESENTISMOChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID_PRESENTISMO;
+        partial void OnID_PRESENTISMOChanging(global::System.Int32 value);
+        partial void OnID_PRESENTISMOChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_INSCRIPCION
+        {
+            get
+            {
+                return _ID_INSCRIPCION;
+            }
+            set
+            {
+                OnID_INSCRIPCIONChanging(value);
+                ReportPropertyChanging("ID_INSCRIPCION");
+                _ID_INSCRIPCION = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ID_INSCRIPCION");
+                OnID_INSCRIPCIONChanged();
+            }
+        }
+        private global::System.Int32 _ID_INSCRIPCION;
+        partial void OnID_INSCRIPCIONChanging(global::System.Int32 value);
+        partial void OnID_INSCRIPCIONChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 CLASES_ASISTIDAS
+        {
+            get
+            {
+                return _CLASES_ASISTIDAS;
+            }
+            set
+            {
+                OnCLASES_ASISTIDASChanging(value);
+                ReportPropertyChanging("CLASES_ASISTIDAS");
+                _CLASES_ASISTIDAS = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CLASES_ASISTIDAS");
+                OnCLASES_ASISTIDASChanged();
+            }
+        }
+        private global::System.Int32 _CLASES_ASISTIDAS;
+        partial void OnCLASES_ASISTIDASChanging(global::System.Int32 value);
+        partial void OnCLASES_ASISTIDASChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ESTADO
+        {
+            get
+            {
+                return _ESTADO;
+            }
+            set
+            {
+                OnESTADOChanging(value);
+                ReportPropertyChanging("ESTADO");
+                _ESTADO = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ESTADO");
+                OnESTADOChanged();
+            }
+        }
+        private global::System.String _ESTADO;
+        partial void OnESTADOChanging(global::System.String value);
+        partial void OnESTADOChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime FEC_ALTA
+        {
+            get
+            {
+                return _FEC_ALTA;
+            }
+            set
+            {
+                OnFEC_ALTAChanging(value);
+                ReportPropertyChanging("FEC_ALTA");
+                _FEC_ALTA = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FEC_ALTA");
+                OnFEC_ALTAChanged();
+            }
+        }
+        private global::System.DateTime _FEC_ALTA;
+        partial void OnFEC_ALTAChanging(global::System.DateTime value);
+        partial void OnFEC_ALTAChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime FEC_MODIF
+        {
+            get
+            {
+                return _FEC_MODIF;
+            }
+            set
+            {
+                OnFEC_MODIFChanging(value);
+                ReportPropertyChanging("FEC_MODIF");
+                _FEC_MODIF = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FEC_MODIF");
+                OnFEC_MODIFChanged();
+            }
+        }
+        private global::System.DateTime _FEC_MODIF;
+        partial void OnFEC_MODIFChanging(global::System.DateTime value);
+        partial void OnFEC_MODIFChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String USR_ALTA
+        {
+            get
+            {
+                return _USR_ALTA;
+            }
+            set
+            {
+                OnUSR_ALTAChanging(value);
+                ReportPropertyChanging("USR_ALTA");
+                _USR_ALTA = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("USR_ALTA");
+                OnUSR_ALTAChanged();
+            }
+        }
+        private global::System.String _USR_ALTA;
+        partial void OnUSR_ALTAChanging(global::System.String value);
+        partial void OnUSR_ALTAChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String USR_MODIF
+        {
+            get
+            {
+                return _USR_MODIF;
+            }
+            set
+            {
+                OnUSR_MODIFChanging(value);
+                ReportPropertyChanging("USR_MODIF");
+                _USR_MODIF = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("USR_MODIF");
+                OnUSR_MODIFChanged();
+            }
+        }
+        private global::System.String _USR_MODIF;
+        partial void OnUSR_MODIFChanging(global::System.String value);
+        partial void OnUSR_MODIFChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_PRESENTISMO_T_INSCRIPCI_FK1", "T_INSCRIPCIONES")]
+        public T_INSCRIPCIONES T_INSCRIPCIONES
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_INSCRIPCIONES>("Model_Cursos.T_PRESENTISMO_T_INSCRIPCI_FK1", "T_INSCRIPCIONES").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_INSCRIPCIONES>("Model_Cursos.T_PRESENTISMO_T_INSCRIPCI_FK1", "T_INSCRIPCIONES").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<T_INSCRIPCIONES> T_INSCRIPCIONESReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_INSCRIPCIONES>("Model_Cursos.T_PRESENTISMO_T_INSCRIPCI_FK1", "T_INSCRIPCIONES");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<T_INSCRIPCIONES>("Model_Cursos.T_PRESENTISMO_T_INSCRIPCI_FK1", "T_INSCRIPCIONES", value);
                 }
             }
         }
