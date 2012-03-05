@@ -1,7 +1,4 @@
-﻿@if(Request.IsAuthenticated) {
-    <text>Welcome <strong>@User.Identity.Name</strong>!
-    [ @Html.ActionLink("Log Off", "LogOff", "Account") ]</text>
-}
-else {
-    @:[ @Html.ActionLink("Log On", "LogOn", "Account") ]
-}
+﻿@model string
+<div id="LogOut">
+    Usuario: @Model <a href="@Url.Action("LogOff", "Account")" title="Salir del Sistema.">@Html.Image("Logout_button.png", new { id = "LogOutImage" })</a>
+</div>

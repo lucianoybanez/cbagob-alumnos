@@ -27,8 +27,10 @@
                 <li @{if (ViewBag.Title.Contains("Ayuda"))
                              {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Ayuda", "Index", "Ayuda", null, null)</li>
             </ul>
-            <div align="right">
-                &nbsp;</div>
+            <div align="right">@Html.Action("GetLoguedUser","Account")
+            </div>
+            
+           
         </div>
         <div id="content">
             <div class="right">
@@ -49,6 +51,9 @@
                        if (ViewBag.Title.Contains("Inscripciones"))
                        {
                         <li>@Html.ActionLink("Gestion Inscripciones", "Index", "Inscripciones", null, new { @class = ViewBag.SubMenuSelected == "Inscripciones" ? "selected" : "" })</li> 
+                        <li>@Html.ActionLink("Gestion Examenes", "Index", "Inscripciones", null, new { @class = ViewBag.SubMenuSelected == "Examenes" ? "selected" : "" })</li>  
+                        <li>@Html.ActionLink("Gestion Presentismo", "Index", "Inscripciones", null, new { @class = ViewBag.SubMenuSelected == "Presentismo" ? "selected" : "" })</li>  
+                        <li>@Html.ActionLink("Emitir Certificado", "Certificado", "Inscripciones", null, new { @class = ViewBag.SubMenuSelected == "Certificado" ? "selected" : "" })</li>
                        }
 
                        if (ViewBag.Title.Contains("Superviciones"))

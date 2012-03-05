@@ -91,6 +91,7 @@
     <Compile Include="Entities\Interfaces\INivel.cs" />
     <Compile Include="Entities\Interfaces\IPersona.cs" />
     <Compile Include="Entities\Interfaces\IPersonaJuridica.cs" />
+    <Compile Include="Entities\Interfaces\IPresentismo.cs" />
     <Compile Include="Entities\Interfaces\IPrestamo.cs" />
     <Compile Include="Entities\Interfaces\IPrograma.cs" />
     <Compile Include="Entities\Interfaces\IProvincias.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="Entities\Interfaces\ITelefono.cs" />
     <Compile Include="Entities\Interfaces\ITipo_Movimiento.cs" />
     <Compile Include="Entities\Interfaces\IUsuario.cs" />
+    <Compile Include="Entities\Presentismo.cs" />
     <Compile Include="Entities\Modalidad.cs" />
     <Compile Include="Entities\Movimiento.cs" />
     <Compile Include="Entities\Nivel.cs" />

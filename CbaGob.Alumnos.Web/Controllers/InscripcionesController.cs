@@ -10,7 +10,7 @@ using JLY.Hotel.Web.Controllers;
 
 namespace CbaGob.Alumnos.Web.Controllers
 {
-    public class InscripcionesController : BaseController 
+    public class InscripcionesController : BaseController
     {
         private IInscripcionServicio InscripcionServicio;
 
@@ -21,6 +21,8 @@ namespace CbaGob.Alumnos.Web.Controllers
             InscripcionServicio = inscripcionServicio;
             ExamenServicio = examenServicio;
         }
+
+        #region 'Inscripciones'
 
         public ActionResult Index()
         {
@@ -38,7 +40,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             var vista = InscripcionServicio.GetInscripcion(idInscripcion);
             vista.Accion = "Modificar";
-            return View("Agregar",vista);
+            return View("Agregar", vista);
         }
 
         public ActionResult Ver(int idInscripcion)
@@ -46,6 +48,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             var vista = InscripcionServicio.GetInscripcion(idInscripcion);
             var listaExamnes = ExamenServicio.GetExamenes(idInscripcion);
             vista.examens = listaExamnes;
+            vista.Presentismo = new InscripcionPresentismoVista();
             vista.Accion = "Ver";
             return View("Agregar", vista);
         }
@@ -86,10 +89,32 @@ namespace CbaGob.Alumnos.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult CambioCambo(InscripcionVista vista)
+        #endregion
+
+        #region 'Presentismo'
+
+        public ActionResult Presentismo()
         {
-            return null;
+            return View();
         }
 
+
+        public ActionResult GuardarPresentismo(InscripcionPresentismoVista vista, int PresentismoIdInscripcion)
+        {
+
+            return RedirectToAction("Ver", "Inscripciones", new { idInscripcion = PresentismoIdInscripcion });
+        }
+
+        #endregion
+
+        #region 'EmitirCertificado'
+
+        public ActionResult Certificado()
+        {
+           
+            return View();
+        }
+
+        #endregion
     }
 }

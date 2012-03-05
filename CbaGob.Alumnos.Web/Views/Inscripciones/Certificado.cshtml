@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "Inscripciones";
+    ViewBag.SubMenuSelected = "Certificado";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Inscripciones.js", Url)
+    @Content.Script("CbaGob.Alumnos.BuscadorAlumno.js", Url)
+}
+<div class="box">
+    <h2>
+        Emitir Certificado</h2>
+    <table align="center" style="width: 700px;">
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                <input type="hidden" id="urlEliminar" value="@Url.Action("GuardarEliminacion")"/>
+                <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                    width: 700px;">
+                    <tr>
+                        <td>
+                            <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+                                text-align: center;">
+                                <legend style="color: #FF9900"><b>Datos Certificado</b></legend>
+                                <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                                    width: 700px;">
+                                    <tr>
+                                        <td align="left">
+                                            <b>Descripcion:</b>
+                                        </td>
+                                        <td align="left" valign="middle">
+                                            <input type="text" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <b>Fecha:</b>
+                                        </td>
+                                        <td align="left" valign="middle">
+                                        
+                                        <input type="text" data-datepicker="true" value="@(new DateTime())" />
+                                           
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <b>Alumno:</b>
+                                        </td>
+                                        <td align="left" valign="middle">
+                                            <input disabled="disabled" type="text" id="NombreAlumno" name="NombreAlumno" />                                          
+                                            <a href="#" id="BuscarAlumno">Buscar</a>
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                        <td align="left">
+                                            <b>Cuerpo del Certificado:</b>
+                                        </td>
+                                        <td align="left" valign="middle">
+                                        @Html.TextArea("Cuerpo")                                           
+                                        </td>
+                                    </tr>
+                                </table>
+                            </fieldset>
+                        </td>
+                    </tr>
+                </table>
+                <table id="myIntituciones" align="center" width="700px">
+                    <tr>
+                        <td align="right" valign="middle">
+                            <input type="submit" value="Emitir" class="btnIngresar" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+@Html.Partial("BuscadorAlumno")
