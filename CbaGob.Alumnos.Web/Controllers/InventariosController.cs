@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using CbaGob.Alumnos.Servicio.Servicios;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
+using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Web.Controllers
 {
@@ -28,12 +29,10 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         public ActionResult Ver(int id_estado)
         {
-            
-            
-            
-            
-            
-            return View();
+
+            IInventarioVista model = inventarioservicio.GetInventario(id_estado);
+
+            return View(model);
         }
 
     }

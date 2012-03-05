@@ -129,10 +129,6 @@
             <End Role="T_INSCRIPCIONES" EntitySet="T_INSCRIPCIONES" />
             <End Role="T_EXAMENES" EntitySet="T_EXAMENES" />
           </AssociationSet>
-          <AssociationSet Name="T_FACTURAS_T_CONDICIONES__FK1" Association="Model_Cursos.Store.T_FACTURAS_T_CONDICIONES__FK1">
-            <End Role="T_CONDICIONES_CURSO" EntitySet="T_CONDICIONES_CURSO" />
-            <End Role="T_FACTURAS" EntitySet="T_FACTURAS" />
-          </AssociationSet>
           <AssociationSet Name="T_GRUPOS_T_CONDICIONES_CU_FK1" Association="Model_Cursos.Store.T_GRUPOS_T_CONDICIONES_CU_FK1">
             <End Role="T_ESTABLECIMINETOS" EntitySet="T_ESTABLECIMINETOS" />
             <End Role="T_GRUPOS" EntitySet="T_GRUPOS" />
@@ -235,7 +231,7 @@
           <Property Name="ID_CAJA_CHICA" Type="number" Nullable="false" Precision="10" />
           <Property Name="ID_ESTADO_CAJA_CHICA" Type="number" Nullable="false" Precision="10" />
           <Property Name="ID_INSTITUCION" Type="number" Nullable="false" Precision="10" />
-          <Property Name="MONTO" Type="number" Nullable="false" Precision="4" Scale="2" />
+          <Property Name="MONTO" Type="number" Nullable="false" Precision="10" Scale="2" />
           <Property Name="FEC_ALTA" Type="date" Nullable="false" />
           <Property Name="USR_ALTA" Type="varchar2" Nullable="false" MaxLength="64" />
           <Property Name="FEC_MODIF" Type="date" Nullable="false" />
@@ -310,7 +306,7 @@
           <Property Name="ID_DETALLE_FACTURA" Type="number" Nullable="false" Precision="10" />
           <Property Name="ID_FACTURA" Type="number" Nullable="false" Precision="10" />
           <Property Name="ITEM" Type="varchar2" Nullable="false" />
-          <Property Name="MONTO" Type="number" Nullable="false" Precision="4" Scale="2" />
+          <Property Name="MONTO" Type="number" Nullable="false" Precision="10" Scale="2" />
           <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" />
           <Property Name="FEC_ALTA" Type="date" Nullable="false" />
           <Property Name="USR_ALTA" Type="varchar2" Nullable="false" MaxLength="64" />
@@ -444,7 +440,7 @@
           </Key>
           <Property Name="ID_FACTURA" Type="number" Nullable="false" Precision="10" />
           <Property Name="NRO_FACTURA" Type="varchar2" Nullable="false" MaxLength="64" />
-          <Property Name="MONTO_TOTAL" Type="number" Nullable="false" Precision="4" Scale="2" />
+          <Property Name="MONTO_TOTAL" Type="number" Nullable="false" Precision="10" Scale="2" />
           <Property Name="CONCEPTO" Type="varchar2" Nullable="false" MaxLength="64" />
           <Property Name="FEC_ALTA" Type="date" Nullable="false" />
           <Property Name="USR_ALTA" Type="varchar2" Nullable="false" MaxLength="64" />
@@ -951,18 +947,6 @@
             </Principal>
             <Dependent Role="T_EXAMENES">
               <PropertyRef Name="ID_INSCRIPCION" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="T_FACTURAS_T_CONDICIONES__FK1">
-          <End Role="T_CONDICIONES_CURSO" Type="Model_Cursos.Store.T_CONDICIONES_CURSO" Multiplicity="1" />
-          <End Role="T_FACTURAS" Type="Model_Cursos.Store.T_FACTURAS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="T_CONDICIONES_CURSO">
-              <PropertyRef Name="ID_CONDICION_CURSO" />
-            </Principal>
-            <Dependent Role="T_FACTURAS">
-              <PropertyRef Name="ID_CONDICION_CURSO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

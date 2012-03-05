@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using CbaGob.Alumnos.Servicio.Vistas.Shared;
@@ -10,7 +11,7 @@ namespace CbaGob.Alumnos.Servicio.Vistas
 {
     public class SupervicionVista : ISupervicionVista
     {
-        
+
         public SupervicionVista()
         {
             Institucions = new InstitucionVista();
@@ -20,9 +21,10 @@ namespace CbaGob.Alumnos.Servicio.Vistas
             supervisor = new Buscador();
         }
 
-       
         public int Id_Supervision { get; set; }
+
         public int Id_Grupo { get; set; }
+        [Range(1, 999999999999999999)]
         public int Id_Supervisor { get; set; }
         public string Observaciones { get; set; }
         public DateTime Fec_Supervision { get; set; }
@@ -37,7 +39,9 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public ISupervisoresVista Supervisores { get; set; }
         public IGrupoVista Grupo { get; set; }
         public IBuscador supervisor { get; set; }
+        [Range(1, 999999999999999999)]
         public int hora { get; set; }
+        [Range(1, 999999999999999999)]
         public int minuto { get; set; }
     }
 }

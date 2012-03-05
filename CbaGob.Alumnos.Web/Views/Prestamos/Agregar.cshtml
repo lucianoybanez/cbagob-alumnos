@@ -32,6 +32,7 @@
                                             </td>
                                             <td align="left">
                                                 @Html.EditorFor(c => c.Equipos)
+                                                @Html.ValidationMessageFor(c => c.Id_Equipo, "*")
                                             </td>
                                         </tr>
                                         <tr>
@@ -40,6 +41,7 @@
                                             </td>
                                             <td align="left">
                                                 @Html.EditorFor(c => c.Institucion)
+                                                @Html.ValidationMessageFor(c => c.Id_Institucion, "*")
                                             </td>
                                         </tr>
                                         <tr>
@@ -47,7 +49,8 @@
                                                 <b>Fecha Inicio:</b>
                                             </td>
                                             <td align="left">
-                                                @Html.TextBoxFor(c => c.Fec_Inicio, new { Id = "fecini", style = "width:90px;", MaxLength = "50" })
+                                                @* @Html.TextBoxFor(c => c.Fec_Inicio, new { Id = "fecini", style = "width:90px;", MaxLength = "50" })*@
+                                                @Html.EditorFor(c => c.Fec_Inicio)
                                             </td>
                                         </tr>
                                         <tr>
@@ -55,7 +58,8 @@
                                                 <b>Fecha Fin:</b>
                                             </td>
                                             <td align="left">
-                                                @Html.TextBoxFor(c => c.Fec_Fin, new { Id = "fecfin", style = "width:90px;", MaxLength = "50" })
+                                                @*@Html.TextBoxFor(c => c.Fec_Fin, new { Id = "fecfin", style = "width:90px;", MaxLength = "50" })*@
+                                                @Html.EditorFor(c => c.Fec_Fin)
                                             </td>
                                         </tr>
                                         <tr>
