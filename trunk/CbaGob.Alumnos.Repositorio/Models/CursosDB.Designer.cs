@@ -8609,6 +8609,198 @@ namespace CbaGob.Alumnos.Repositorio.Models
         private Nullable<global::System.Int32> _ID_DOMICILIO;
         partial void OnID_DOMICILIOChanging(Nullable<global::System.Int32> value);
         partial void OnID_DOMICILIOChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String PROVINCIA
+        {
+            get
+            {
+                return _PROVINCIA;
+            }
+            set
+            {
+                OnPROVINCIAChanging(value);
+                ReportPropertyChanging("PROVINCIA");
+                _PROVINCIA = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("PROVINCIA");
+                OnPROVINCIAChanged();
+            }
+        }
+        private global::System.String _PROVINCIA;
+        partial void OnPROVINCIAChanging(global::System.String value);
+        partial void OnPROVINCIAChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String LOCALIDAD
+        {
+            get
+            {
+                return _LOCALIDAD;
+            }
+            set
+            {
+                OnLOCALIDADChanging(value);
+                ReportPropertyChanging("LOCALIDAD");
+                _LOCALIDAD = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("LOCALIDAD");
+                OnLOCALIDADChanged();
+            }
+        }
+        private global::System.String _LOCALIDAD;
+        partial void OnLOCALIDADChanging(global::System.String value);
+        partial void OnLOCALIDADChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String BARRIO
+        {
+            get
+            {
+                return _BARRIO;
+            }
+            set
+            {
+                OnBARRIOChanging(value);
+                ReportPropertyChanging("BARRIO");
+                _BARRIO = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("BARRIO");
+                OnBARRIOChanged();
+            }
+        }
+        private global::System.String _BARRIO;
+        partial void OnBARRIOChanging(global::System.String value);
+        partial void OnBARRIOChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CALLE
+        {
+            get
+            {
+                return _CALLE;
+            }
+            set
+            {
+                OnCALLEChanging(value);
+                ReportPropertyChanging("CALLE");
+                _CALLE = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("CALLE");
+                OnCALLEChanged();
+            }
+        }
+        private global::System.String _CALLE;
+        partial void OnCALLEChanging(global::System.String value);
+        partial void OnCALLEChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> NRO
+        {
+            get
+            {
+                return _NRO;
+            }
+            set
+            {
+                OnNROChanging(value);
+                ReportPropertyChanging("NRO");
+                _NRO = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("NRO");
+                OnNROChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _NRO;
+        partial void OnNROChanging(Nullable<global::System.Int32> value);
+        partial void OnNROChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> DEPTO
+        {
+            get
+            {
+                return _DEPTO;
+            }
+            set
+            {
+                OnDEPTOChanging(value);
+                ReportPropertyChanging("DEPTO");
+                _DEPTO = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DEPTO");
+                OnDEPTOChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _DEPTO;
+        partial void OnDEPTOChanging(Nullable<global::System.Int32> value);
+        partial void OnDEPTOChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String NRO_EXPEDIENTE
+        {
+            get
+            {
+                return _NRO_EXPEDIENTE;
+            }
+            set
+            {
+                OnNRO_EXPEDIENTEChanging(value);
+                ReportPropertyChanging("NRO_EXPEDIENTE");
+                _NRO_EXPEDIENTE = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("NRO_EXPEDIENTE");
+                OnNRO_EXPEDIENTEChanged();
+            }
+        }
+        private global::System.String _NRO_EXPEDIENTE;
+        partial void OnNRO_EXPEDIENTEChanging(global::System.String value);
+        partial void OnNRO_EXPEDIENTEChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String NRO_RESOLUCION
+        {
+            get
+            {
+                return _NRO_RESOLUCION;
+            }
+            set
+            {
+                OnNRO_RESOLUCIONChanging(value);
+                ReportPropertyChanging("NRO_RESOLUCION");
+                _NRO_RESOLUCION = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("NRO_RESOLUCION");
+                OnNRO_RESOLUCIONChanged();
+            }
+        }
+        private global::System.String _NRO_RESOLUCION;
+        partial void OnNRO_RESOLUCIONChanging(global::System.String value);
+        partial void OnNRO_RESOLUCIONChanged();
 
         #endregion
     

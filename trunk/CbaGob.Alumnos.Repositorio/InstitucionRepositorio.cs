@@ -10,7 +10,7 @@ using CbaGob.Alumnos.Repositorio.Models;
 
 namespace CbaGob.Alumnos.Repositorio
 {
-    public class InstitucionRepositorio : BaseRepositorio,IInstitucionRepositorio
+    public class InstitucionRepositorio : BaseRepositorio, IInstitucionRepositorio
     {
         public CursosDB mDb;
 
@@ -23,42 +23,51 @@ namespace CbaGob.Alumnos.Repositorio
 
         private IQueryable<IInstitucion> QInstitucion()
         {
-         
-                var qIns = (from e in mDb.T_INSTITUCIONES
-                            where e.ESTADO == "A"
-                            select
-                                new Institucion
-                                    {
-                                        Id_Institucion = e.ID_INSTITUCION,
-                                        FechaAlta = e.FEC_ALTA,
-                                        FechaModificacion = e.FEC_MODIF,
-                                        Id_Domicilio = e.ID_DOMICILIO ?? 0,
-                                        espropia = (e.INS_PROPIA == "1" ? "SI" : "NO"),
-                                        Nombre_Institucion = e.N_INSTITUCION,
-                                        UsuarioAlta = e.USR_ALTA,
-                                        UsuarioModificacion = e.USR_MODIF,
-                                        DireccionCompleta =
-                                            e.T_DOMICILIO.PROVINCIA + "," + e.T_DOMICILIO.LOCALIDAD + "," +
-                                            e.T_DOMICILIO.BARRIO + "," + e.T_DOMICILIO.CALLE + "," + e.T_DOMICILIO.NRO
-                                    });
-                return qIns;
-            
-      
+
+            var qIns = (from e in mDb.T_INSTITUCIONES
+                        where e.ESTADO == "A"
+                        select
+                            new Institucion
+                                {
+                                    Id_Institucion = e.ID_INSTITUCION,
+                                    FechaAlta = e.FEC_ALTA,
+                                    FechaModificacion = e.FEC_MODIF,
+                                    Id_Domicilio = e.ID_DOMICILIO ?? 0,
+                                    espropia = (e.INS_PROPIA == "1" ? "SI" : "NO"),
+                                    Nombre_Institucion = e.N_INSTITUCION,
+                                    UsuarioAlta = e.USR_ALTA,
+                                    UsuarioModificacion = e.USR_MODIF,
+                                    DireccionCompleta =
+                                        e.T_DOMICILIO.PROVINCIA + "," + e.T_DOMICILIO.LOCALIDAD + "," +
+                                        e.T_DOMICILIO.BARRIO + "," + e.T_DOMICILIO.CALLE + "," + e.T_DOMICILIO.NRO,
+                                    Provincia = e.PROVINCIA,
+                                    Barrio = e.BARRIO,
+                                    Localidad = e.LOCALIDAD,
+                                    Calle = e.CALLE,
+                                    Nro = e.NRO ?? 0,
+                                    Depto = e.DEPTO ?? 0,
+                                    Nro_Expediente = e.NRO_EXPEDIENTE,
+                                    Nro_Resolucion = e.NRO_RESOLUCION
+
+                                });
+            return qIns;
+
+
         }
 
         public IList<IInstitucion> GetInstituciones()
         {
-      
-                return  QInstitucion().ToList();;
-  
+
+            return QInstitucion().ToList(); ;
+
         }
 
         public IInstitucion GetInstitucion(int IdInstitucion)
         {
-           
-                var mInstirucion = QInstitucion().Where(c => c.Id_Institucion == IdInstitucion).SingleOrDefault();
 
-                return mInstirucion;
+            var mInstirucion = QInstitucion().Where(c => c.Id_Institucion == IdInstitucion).SingleOrDefault();
+
+            return mInstirucion;
 
         }
 
@@ -79,7 +88,15 @@ namespace CbaGob.Alumnos.Repositorio
                                               USR_MODIF = institucion.UsuarioModificacion,
                                               FEC_MODIF = institucion.FechaModificacion,
                                               FEC_ALTA = DateTime.Now,
-                                              ID_DOMICILIO = institucion.Id_Domicilio
+                                              ID_DOMICILIO = institucion.Id_Domicilio,
+                                              NRO = institucion.Nro,
+                                              PROVINCIA = institucion.Provincia,
+                                              LOCALIDAD =  institucion.Localidad,
+                                              BARRIO = institucion.Barrio,
+                                              CALLE = institucion.Calle,
+                                              DEPTO = institucion.Depto,
+                                              NRO_EXPEDIENTE = institucion.Nro_Expediente,
+                                              NRO_RESOLUCION = institucion.Nro_Resolucion
                                           };
 
                 mDb.AddToT_INSTITUCIONES(obj);
@@ -106,6 +123,14 @@ namespace CbaGob.Alumnos.Repositorio
                 IN.INS_PROPIA = institucion.espropia;
                 IN.FEC_MODIF = institucion.FechaModificacion;
                 IN.USR_MODIF = institucion.UsuarioModificacion;
+                IN.NRO = institucion.Nro;
+                IN.PROVINCIA = institucion.Provincia;
+                IN.LOCALIDAD = institucion.Localidad;
+                IN.BARRIO = institucion.Barrio;
+                IN.CALLE = institucion.Calle;
+                IN.DEPTO = institucion.Depto;
+                IN.NRO_EXPEDIENTE = institucion.Nro_Expediente;
+                IN.NRO_RESOLUCION = institucion.Nro_Resolucion;
                 mDb.SaveChanges();
 
                 return true;
@@ -124,7 +149,7 @@ namespace CbaGob.Alumnos.Repositorio
                 IComunDatos comun = new ComunDatos();
 
                 base.AgregarDatosEliminacion(comun);
-                
+
                 var IN = mDb.T_INSTITUCIONES.FirstOrDefault(c => c.ID_INSTITUCION == idinstitucion);
 
                 IN.ESTADO = "I";

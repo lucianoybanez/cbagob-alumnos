@@ -28,6 +28,22 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public string Nombre_Institucion { get; set; }
         public bool espropia { get; set; }
         public string DireccionCompleta { get; set; }
+        [Required(ErrorMessage = "*")]
+        public string Provincia { get; set; }
+        [Required(ErrorMessage = "*")]
+        public string Localidad { get; set; }
+        [Required(ErrorMessage = "*")]
+        public string Barrio { get; set; }
+        [Required(ErrorMessage = "*")]
+        public string Calle { get; set; }
+        [Required(ErrorMessage = "*")]
+        public int Nro { get; set; }
+        [Required(ErrorMessage = "*")]
+        public int Depto { get; set; }
+        [Required(ErrorMessage = "*")]
+        public string Nro_Resolucion { get; set; }
+        [Required(ErrorMessage = "*")]
+        public string Nro_Expediente { get; set; }
         public IList<IInstitucion> ListaInstituciones { get; set; }
         public DateTime FechaAlta { get; set; }
         public string UsuarioAlta { get; set; }

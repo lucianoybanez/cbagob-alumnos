@@ -54,6 +54,8 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             IInstitucionVista model = mInstitucionServicio.GetUnaVista(INST_ID);
 
+            model.Nro_Resolucion = "";
+
             return View("Eliminar", model);
         }
 
@@ -91,7 +93,16 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             mInstitucion.espropia = (model.espropia == true ? "1" : "0");
             mInstitucion.Nombre_Institucion = model.Nombre_Institucion;
-            mInstitucion.Id_Domicilio = model.Id_Domicilio;
+            mInstitucion.Id_Domicilio = 1;
+            mInstitucion.Provincia = model.Provincia;
+            mInstitucion.Localidad = model.Localidad;
+            mInstitucion.Barrio = model.Barrio;
+            mInstitucion.Calle = model.Calle;
+            mInstitucion.Nro = model.Nro;
+            mInstitucion.Depto = model.Depto;
+            mInstitucion.Nro_Expediente = model.Nro_Expediente;
+            mInstitucion.Nro_Resolucion = model.Nro_Resolucion;
+
 
             IInstitucionServicio mInstitucionServicio = new InstitucionServicio();
 
@@ -118,7 +129,17 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             mInstitucion.Id_Institucion = model.Id_Institucion;
 
-            mInstitucion.Id_Domicilio = model.Id_Domicilio;
+            mInstitucion.Id_Domicilio = 1;
+
+            mInstitucion.Provincia = model.Provincia;
+            mInstitucion.Localidad = model.Localidad;
+            mInstitucion.Barrio = model.Barrio;
+            mInstitucion.Calle = model.Calle;
+            mInstitucion.Nro = model.Nro;
+            mInstitucion.Depto = model.Depto;
+            mInstitucion.Nro_Expediente = model.Nro_Expediente;
+            mInstitucion.Nro_Resolucion = model.Nro_Resolucion;
+
 
             bool ret = mInstitucionServicio.ModificarInstitucion(mInstitucion);
             if (ret)

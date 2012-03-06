@@ -25,19 +25,19 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         public IList<IInstitucion> GetTodas()
         {
-                return mInstitucionRepositorio.GetInstituciones();
+            return mInstitucionRepositorio.GetInstituciones();
 
         }
 
         public InstitucionVista GetIndex()
         {
-          
-                InstitucionVista mInstitucionVista = new InstitucionVista();
 
-                mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones();
+            InstitucionVista mInstitucionVista = new InstitucionVista();
 
-                return mInstitucionVista;
-  
+            mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones();
+
+            return mInstitucionVista;
+
         }
 
         public IInstitucion GetUna(int IdInstitucion)
@@ -47,20 +47,29 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         public IInstitucionVista GetUnaVista(int IdInstitucion)
         {
-         
-                IInstitucionVista model = new InstitucionVista();
 
-                IInstitucion mInstitucion;
+            IInstitucionVista model = new InstitucionVista();
 
-                mInstitucion = mInstitucionRepositorio.GetInstitucion(IdInstitucion);
+            IInstitucion mInstitucion;
 
-                model.espropia = (mInstitucion.espropia == "SI" ? true : false);
-                model.Id_Institucion = mInstitucion.Id_Institucion;
-                model.Nombre_Institucion = mInstitucion.Nombre_Institucion;
-                model.Id_Domicilio = mInstitucion.Id_Domicilio;
-                model.DireccionCompleta = mInstitucion.DireccionCompleta;
-               
-                return model;
+            mInstitucion = mInstitucionRepositorio.GetInstitucion(IdInstitucion);
+
+            model.espropia = (mInstitucion.espropia == "SI" ? true : false);
+            model.Id_Institucion = mInstitucion.Id_Institucion;
+            model.Nombre_Institucion = mInstitucion.Nombre_Institucion;
+            model.Id_Domicilio = mInstitucion.Id_Domicilio;
+            model.DireccionCompleta = mInstitucion.DireccionCompleta;
+            
+            model.Provincia = mInstitucion.Provincia;
+            model.Localidad = mInstitucion.Localidad;
+            model.Calle = mInstitucion.Calle;
+            model.Barrio = mInstitucion.Barrio;
+            model.Nro = mInstitucion.Nro;
+            model.Nro_Expediente = mInstitucion.Nro_Expediente;
+            model.Nro_Resolucion = mInstitucion.Nro_Resolucion;
+            model.Depto = mInstitucion.Depto;
+
+            return model;
 
 
         }
@@ -85,7 +94,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 base.AddError("Error: Dos Instituciones no pueden tener el mismo domicilio.");
             }
             return result;
-         
+
         }
 
         public bool EliminarInstitucion(int IdInstitucion)
