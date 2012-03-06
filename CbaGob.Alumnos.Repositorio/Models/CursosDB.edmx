@@ -511,6 +511,14 @@
           <Property Name="USR_MODIF" Type="varchar2" Nullable="false" MaxLength="64" />
           <Property Name="ESTADO" Type="char" MaxLength="1" />
           <Property Name="ID_DOMICILIO" Type="number" Precision="10" />
+          <Property Name="PROVINCIA" Type="varchar2" MaxLength="200" />
+          <Property Name="LOCALIDAD" Type="varchar2" MaxLength="200" />
+          <Property Name="BARRIO" Type="varchar2" MaxLength="200" />
+          <Property Name="CALLE" Type="varchar2" MaxLength="200" />
+          <Property Name="NRO" Type="number" Precision="10" />
+          <Property Name="DEPTO" Type="number" Precision="10" />
+          <Property Name="NRO_EXPEDIENTE" Type="varchar2" MaxLength="64" />
+          <Property Name="NRO_RESOLUCION" Type="varchar2" MaxLength="64" />
         </EntityType>
         <EntityType Name="T_MODALIDADES">
           <Key>
@@ -1392,6 +1400,14 @@
           <NavigationProperty Name="T_PRESTAMOS" Relationship="Model_Cursos.T_PRESTAMOS_T_INSTITUCION_FK1" FromRole="T_INSTITUCIONES" ToRole="T_PRESTAMOS" />
           <NavigationProperty Name="T_CONDICIONES_CURSO" Relationship="Model_Cursos.T_CONDICIONES_CURSO_T_INS_FK1" FromRole="T_INSTITUCIONES" ToRole="T_CONDICIONES_CURSO" />
           <NavigationProperty Name="T_DOMICILIO" Relationship="Model_Cursos.T_INSTITUCIONES_T_DOMICIL_FK1" FromRole="T_INSTITUCIONES" ToRole="T_DOMICILIO" />
+          <Property Type="String" Name="PROVINCIA" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LOCALIDAD" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="BARRIO" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CALLE" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="NRO" />
+          <Property Type="Int32" Name="DEPTO" />
+          <Property Type="String" Name="NRO_EXPEDIENTE" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NRO_RESOLUCION" MaxLength="64" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="T_MODALIDADES">
           <Key>
@@ -2458,6 +2474,14 @@
           <EntitySetMapping Name="T_INSTITUCIONES">
             <EntityTypeMapping TypeName="Model_Cursos.T_INSTITUCIONES">
               <MappingFragment StoreEntitySet="T_INSTITUCIONES">
+                <ScalarProperty Name="NRO_RESOLUCION" ColumnName="NRO_RESOLUCION" />
+                <ScalarProperty Name="NRO_EXPEDIENTE" ColumnName="NRO_EXPEDIENTE" />
+                <ScalarProperty Name="DEPTO" ColumnName="DEPTO" />
+                <ScalarProperty Name="NRO" ColumnName="NRO" />
+                <ScalarProperty Name="CALLE" ColumnName="CALLE" />
+                <ScalarProperty Name="BARRIO" ColumnName="BARRIO" />
+                <ScalarProperty Name="LOCALIDAD" ColumnName="LOCALIDAD" />
+                <ScalarProperty Name="PROVINCIA" ColumnName="PROVINCIA" />
                 <ScalarProperty Name="ID_DOMICILIO" ColumnName="ID_DOMICILIO" />
                 <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
                 <ScalarProperty Name="USR_MODIF" ColumnName="USR_MODIF" />

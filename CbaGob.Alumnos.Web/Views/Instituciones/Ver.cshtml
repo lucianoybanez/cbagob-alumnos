@@ -47,6 +47,62 @@
                                             @Html.TextBoxFor(c => c.DireccionCompleta, new { disabled = "disabled", style = "width:350px;", MaxLength = "20" })
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <b>Provincia:</b>
+                                        </td>
+                                        <td align="left" valign="middle">
+                                            @Html.TextBoxFor(c => c.Provincia, new { disabled = "disabled", style = "width:250px;", MaxLength = "50" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <b>Localidad:</b>
+                                        </td>
+                                        <td align="left" valign="middle">
+                                            @Html.TextBoxFor(c => c.Localidad, new { disabled = "disabled", style = "width:250px;", MaxLength = "50" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <b>Barrio:</b>
+                                        </td>
+                                        <td align="left" valign="middle">
+                                            @Html.TextBoxFor(c => c.Barrio, new { disabled = "disabled", style = "width:250px;", MaxLength = "50" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <b>Nro:</b>
+                                        </td>
+                                        <td align="left" valign="middle">
+                                            @Html.TextBoxFor(c => c.Nro, new { disabled = "disabled", style = "width:150px;", MaxLength = "50" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <b>Depto:</b>
+                                        </td>
+                                        <td align="left" valign="middle">
+                                            @Html.TextBoxFor(c => c.Depto, new { disabled = "disabled", style = "width:150px;", MaxLength = "50" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <b>Nro Resolucion:</b>
+                                        </td>
+                                        <td align="left" valign="middle">
+                                            @Html.TextBoxFor(c => c.Nro_Resolucion, new { disabled = "disabled", style = "width:250px;", MaxLength = "50" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <b>Nro Expediente:</b>
+                                        </td>
+                                        <td align="left" valign="middle">
+                                            @Html.TextBoxFor(c => c.Nro_Expediente, new { disabled = "disabled", style = "width:250px;", MaxLength = "50" })
+                                        </td>
+                                    </tr>
                                 </table>
                             </fieldset>
                         </td>
@@ -80,7 +136,7 @@
                             </fieldset>
                         </td>
                     </tr>
-                     <tr>
+                    <tr>
                         <td>
                             <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
                                 text-align: center;">

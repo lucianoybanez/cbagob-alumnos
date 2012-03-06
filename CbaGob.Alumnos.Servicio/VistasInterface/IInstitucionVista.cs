@@ -15,6 +15,14 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         string Nombre_Institucion { get; set; }
         bool espropia { get; set; }
         string DireccionCompleta { get; set; }
+        string Provincia { get; set; }
+        string Localidad { get; set; }
+        string Barrio { get; set; }
+        string Calle { get; set; }
+        int Nro { get; set; }
+        int Depto { get; set; }
+        string Nro_Resolucion { get; set; }
+        string Nro_Expediente { get; set; }
         IList<IInstitucion> ListaInstituciones { get; set; }
         DateTime FechaAlta { get; set; }
         string UsuarioAlta { get; set; }
