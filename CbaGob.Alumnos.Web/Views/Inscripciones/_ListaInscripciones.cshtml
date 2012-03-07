@@ -1,0 +1,64 @@
+﻿@model IList<IInscripcion>
+@if (Model != null && Model.Count > 0)
+{ 
+    <table id="grilla" align="center" width="722px" cellpadding="0" cellspacing="0">
+        <thead>
+            <tr>
+                <th>
+                    <div align="center">
+                        Institucion</div>
+                </th>
+                <th>
+                    <div align="center">
+                        Curso</div>
+                </th>
+                <th>
+                    <div align="center">
+                        Nivel</div>
+                </th>
+                <th>
+                    <div align="center">
+                        Modalidad</div>
+                </th>
+                <th>
+                    <div align="center">
+                        Alumno</div>
+                </th>
+                <th height="30">
+                    <div align="center">
+                        Accion</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td height="30">
+                        @item.NombreInstitucion
+                    </td>
+                    <td>
+                        @item.NombreCurso
+                    </td>
+                    <td>
+                        @item.NombreNivel
+                    </td>
+                    <td>
+                        @item.NombreModalidad
+                    </td>
+                    <td>
+                        @Html.Raw(item.ApellidoAlumno + ", " + item.NombreAlumno)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Eliminar", "Eliminar", "Inscripciones", new { idInscripcion = item.IdInscripcion }, new { @class = "btnIngresar toHide" })&nbsp;&nbsp;&nbsp;&nbsp;
+                        @Html.ActionLink("Ver", "Ver", "Inscripciones", new { idInscripcion = item.IdInscripcion }, new { @class = "btnIngresar" })&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    @Html.Partial("_SinDatos", "Inscripciones")
+}

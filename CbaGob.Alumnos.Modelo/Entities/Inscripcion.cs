@@ -30,6 +30,7 @@ namespace CbaGob.Alumnos.Modelo.Entities
         public int Id_Alumno { get; set; }
         public string NombreAlumno { get; set; }
         public string ApellidoAlumno { get; set; }
+        public string Dni{get; set; }
         public int idPrograma { get; set; }
         public string NombrePrograma { get; set; }
     }

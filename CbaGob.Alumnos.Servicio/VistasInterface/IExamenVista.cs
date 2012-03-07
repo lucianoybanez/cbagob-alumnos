@@ -13,7 +13,7 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         string Accion { get; set; }
         int IdExamen { get; set; }
         DateTime FechaExamen { get; set; }
-        int NroExamen { get; set; }
+        IComboBox NroExamen { get; set; }
         decimal Nota { get; set; }
 
         string NombreInstitucion { get; set; }

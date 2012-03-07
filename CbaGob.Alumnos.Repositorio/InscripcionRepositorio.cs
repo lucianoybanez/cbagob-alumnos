@@ -18,6 +18,8 @@ namespace CbaGob.Alumnos.Repositorio
             mDb = new CursosDB();
         }
 
+        #region  'Inscripciones'
+
         private IQueryable<IInscripcion> QInscripcion()
         {
             var a = (from c in mDb.T_INSCRIPCIONES
@@ -50,12 +52,12 @@ namespace CbaGob.Alumnos.Repositorio
                                  NombreInstitucion = c.T_CONDICIONES_CURSO.T_INSTITUCIONES.N_INSTITUCION,
                                  NombreNivel = c.T_CONDICIONES_CURSO.T_NIVELES.N_NIVEL,
                                  NombrePrograma = c.T_CONDICIONES_CURSO.T_PROGRAMAS.N_PROGRAMA,
-                                 idPrograma = c.T_CONDICIONES_CURSO.ID_PROGRAMA
+                                 idPrograma = c.T_CONDICIONES_CURSO.ID_PROGRAMA,
+                                 Dni = personas.NRO_DOCUMENTO
                              });
             return a;
         }
-
-
+        
         public IList<IInscripcion> GetAllInscripcion()
         {
             return QInscripcion().ToList();
@@ -122,6 +124,28 @@ namespace CbaGob.Alumnos.Repositorio
                 throw;
             }
         }
+
+        public IList<IInscripcion> GetAllInscripcionBy(string nombre, string apellido, string dni, string institucion)
+        {
+            apellido = apellido == "" ? null : apellido;
+            nombre = nombre == "" ? null : nombre;
+
+            if(!string.IsNullOrEmpty(dni))
+            {
+                return QInscripcion().Where(c => c.Dni == dni).ToList();
+            }
+            if (!string.IsNullOrEmpty(nombre) || !string.IsNullOrEmpty(apellido))
+            {
+                return QInscripcion().Where(c => (c.NombreAlumno.ToLower() == nombre.ToLower() || nombre == null) && (c.ApellidoAlumno.ToLower() == apellido.ToLower() || apellido == null)).ToList();
+            }
+            if(!string.IsNullOrEmpty(institucion))
+            {
+                return QInscripcion().Where(c => c.NombreInstitucion.ToLower() == institucion.ToLower()).ToList();
+            }
+            return null;
+        }
+
+        #endregion
 
         public bool AgregarInscripcion(IInscripcion inscripcion)
         {
@@ -200,9 +224,11 @@ namespace CbaGob.Alumnos.Repositorio
             catch (Exception)
             {
 
-                throw;
+                return false;
             }
         }
+
+        #region 'Presentismo'
 
         public bool GuardarPresentismo(IPresentismo presentismo)
         {
@@ -272,5 +298,9 @@ namespace CbaGob.Alumnos.Repositorio
                          }).FirstOrDefault();
             return a;
         }
+
+        #endregion
+
+      
     }
 }

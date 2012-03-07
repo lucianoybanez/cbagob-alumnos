@@ -167,6 +167,7 @@ A:hover {
         }
         #login p
         {
+            background-color: white;
             margin: .5em 25px;
         }
         #login div
@@ -236,6 +237,11 @@ A:hover {
             text-align: left;
             white-space: nowrap;
             border: 1px solid #500;
+        }
+         #login div.validation-summary-errors
+        {
+            background-color: white;
+            margin: .5em 25px;
         }
 a.btnIngresar {
    text-decoration: none;

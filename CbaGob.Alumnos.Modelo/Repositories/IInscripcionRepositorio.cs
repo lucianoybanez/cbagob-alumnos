@@ -19,5 +19,6 @@ namespace CbaGob.Alumnos.Modelo.Repositories
         bool GuardarPresentismo(IPresentismo presentismo);
         bool ModificarPresentismo(IPresentismo presentismo);
         IPresentismo GetPresentismo(int idInscripcion);
+        IList<IInscripcion> GetAllInscripcionBy(string nombre, string apellido, string dni, string institucion);
     }
 }

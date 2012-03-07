@@ -16,7 +16,12 @@
 .validation-summary-errors {
     font-weight: bold;
     color: #ff0000;
+    float: left;
+    text-align: left;
+    background-color: white;
 }
+
+
 
 .validation-summary-valid {
     display: none;

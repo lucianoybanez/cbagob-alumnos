@@ -199,6 +199,14 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             return new InscripcionPresentismoVista();
         }
 
+        public IInscripcionesVista GetAllInscripcionBy(string nombre, string apellido, string dni, string institucion)
+        {
+            IInscripcionesVista vista = new InscripcionesVista();
+            vista.ListaInscripciones = Inscripcionrepositorio.GetAllInscripcionBy(nombre, apellido, dni, institucion);
+
+            return vista;
+        }
+
         public IList<IErrores> GetErrors()
         {
             return base.Errors;

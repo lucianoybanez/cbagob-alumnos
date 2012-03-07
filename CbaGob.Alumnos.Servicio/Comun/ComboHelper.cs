@@ -130,5 +130,21 @@ namespace CbaGob.Alumnos.Servicio.Comun
             }
             return a;
         }
+
+        public static List<IComboItem> GetComboParaCantidadExamenes(int cantExamenes)
+        {
+            List<IComboItem> a = new List<IComboItem>();
+
+            for (int i = 1; i <= cantExamenes; i++)
+            {
+                a.Add(new ComboItem()
+                {
+                    id = i,
+                    description = "Examen Nº " + i
+                });
+            }
+           
+            return a;
+        }
     }
 }

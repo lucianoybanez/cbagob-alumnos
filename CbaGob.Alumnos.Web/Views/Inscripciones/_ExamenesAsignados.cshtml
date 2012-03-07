@@ -28,10 +28,10 @@
                 {
                     <tr>
                         <td height="30">
-                            @item.FechaExamen
+                            @(String.Format("{0:MM/dd/yyyy}", item.FechaExamen))
                         </td>
                         <td>
-                            @item.NroExamen
+                         Examen Nº @item.NroExamen
                         </td>
                         <td>
                             @item.Nota

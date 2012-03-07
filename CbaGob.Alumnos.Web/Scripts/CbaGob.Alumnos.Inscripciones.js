@@ -7,46 +7,70 @@
 
 $(function () {
 
-    $("#BuscarAlumno").click(function () {
-        cbaAlumnosBuscadorAlumno.AbrirBuscadorAlumno('NombreAlumno', 'IdAlumno');
-    });
+    cbaAlumnosInscripciones.initInscripciones();
+    cbaAlumnosInscripciones.initCertificado();
+    cbaAlumnosInscripciones.hideEliminarButton();
 
-    $("#BuscarInstitucion").click(function () {
-        cbaAlumnosBuscadorCondicionCurso.AbrirBuscador('IdCondicionCurso', 'NombreInstitucion', 'NombreCurso', 'NombreEstadoCurso', 'NombreNivel', 'NombreModalidad', 'NombrePrograma');
-    });
-
-    var accion = $("#Accion").val();
-    if (accion == "Eliminar") {
-        $("fieldset input").attr('set-readonly', 'true');
-        $("fieldset input").attr('readonly', 'readonly');
-        var urleliminar = $("#urlEliminar").val();
-        $("#FormularioInscripciones").attr('action', urleliminar);
-        $("#BuscarInstitucion").hide();
-        $("#BuscarAlumno").hide();
-    }
-
-    if (accion == "Ver") {
-        $("fieldset input").attr("set-readonly", "true");
-        $("fieldset input").attr('readonly', 'readonly');
-        $("#BuscarInstitucion").hide();
-        $("#BuscarAlumno").hide();
-    }
-
-    $("#AbrirPresentismo").click(function () {
-        $("#PresentismoDialog").dialog('open');
-    });
-
-    $("#PresentismoDialog").dialog({
-        autoOpen: false,
-        width: 400,
-        height: 200,
-        modal: true,
-        resizable: false,
-        buttons: { "Cancelar": function () { $(this).dialog("close"); }, "Guardar": function () {
-            $("#FormularioPresentismo").submit();
-        }
-        }
-    });
 
 });
+
+cbaAlumnosInscripciones = function () {
+    var current = null;
+    function initInscripciones() {
+
+        var accion = $("#Accion").val();
+        if (accion == "Eliminar") {
+            $("fieldset input").attr('set-readonly', 'true');
+            $("fieldset input").attr('readonly', 'readonly');
+            var urleliminar = $("#urlEliminar").val();
+            $("#FormularioInscripciones").attr('action', urleliminar);
+            $("#BuscarInstitucion").hide();
+            $("#BuscarAlumno").hide();
+        }
+
+        if (accion == "Ver") {
+            $("fieldset input").attr("set-readonly", "true");
+            $("fieldset input").attr('readonly', 'readonly');
+            $("#BuscarInstitucion").hide();
+            $("#BuscarAlumno").hide();
+        }
+
+        $("#AbrirPresentismo").click(function () {
+            $("#PresentismoDialog").dialog('open');
+        });
+
+        $("#PresentismoDialog").dialog({
+            autoOpen: false,
+            width: 400,
+            height: 200,
+            modal: true,
+            resizable: false,
+            buttons: { "Cancelar": function () { $(this).dialog("close"); }, "Guardar": function () {
+                $("#FormularioPresentismo").submit();
+            }
+            }
+        });
+
+    }
+    function initCertificado() {
+        $("#BuscarAlumno").click(function () {
+            cbaAlumnosBuscadorAlumno.AbrirBuscadorAlumno('NombreAlumno', 'IdAlumno');
+        });
+
+        $("#BuscarInstitucion").click(function () {
+            cbaAlumnosBuscadorCondicionCurso.AbrirBuscador('IdCondicionCurso', 'NombreInstitucion', 'NombreCurso', 'NombreEstadoCurso', 'NombreNivel', 'NombreModalidad', 'NombrePrograma');
+        });
+    }
+
+    function hideEliminarButton() {
+        $(".toHide").hide();
+    }
+    
+    return {
+        initInscripciones: initInscripciones,
+        initCertificado: initCertificado,
+        hideEliminarButton: hideEliminarButton
+
+    };
+} ();
 

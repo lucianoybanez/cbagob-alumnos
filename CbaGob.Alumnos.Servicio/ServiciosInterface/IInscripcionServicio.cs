@@ -18,5 +18,7 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
         bool EliminarInscripcion(int id_inscripcion);
         bool GuardarPresentismo(InscripcionPresentismoVista vista);
         IInscripcionPresentismoVista GetPresentismo(int idInscripcion);
+
+        IInscripcionesVista GetAllInscripcionBy(string nombre, string apellido, string dni, string institucion);
     }
 }
