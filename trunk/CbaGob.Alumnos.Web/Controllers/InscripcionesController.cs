@@ -129,5 +129,10 @@ namespace CbaGob.Alumnos.Web.Controllers
         }
 
         #endregion
+
+        public PartialViewResult GetListaInscriptos(string nombre, string apellido, string dni, string institucion)
+        {
+            return PartialView("_ListaInscripciones",InscripcionServicio.GetAllInscripcionBy(nombre, apellido, dni, institucion).ListaInscripciones);
+        }
     }
 }

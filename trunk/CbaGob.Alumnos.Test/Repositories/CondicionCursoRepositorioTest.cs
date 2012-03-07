@@ -16,11 +16,13 @@ namespace CbaGob.Alumnos.Test.Repositories
     {
         private ICondicionCursoRepositorio repo;
 
+        private IInscripcionRepositorio InscripcionRepositorio;
+
         [SetUp]
         public void Setup()
         {
             repo = new CondicionCursoRepositorio();
-           
+            InscripcionRepositorio = new InscripcionRepositorio();
 
         }
 
@@ -57,6 +59,15 @@ namespace CbaGob.Alumnos.Test.Repositories
             Debug.WriteLine(a.Count);
 
 
+            Assert.IsTrue(a.Count>0);
+
+        }
+
+        [Test]
+        public void GetInscripcionesFilter()
+        {
+            var a = InscripcionRepositorio.GetAllInscripcionBy("", "salas", "", "");
+            Debug.WriteLine(a.Count);
             Assert.IsTrue(a.Count>0);
 
         }

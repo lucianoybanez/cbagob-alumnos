@@ -16,18 +16,15 @@ namespace CbaGob.Alumnos.Servicio.Servicios
     {
         private IExamenRepositorio ExamenRepositorio;
 
-        private ICursosRepositorio CursosRepositorio;
-
-        private IGrupoRepositorio GrupoRepositorio;
+        private ICondicionCursoRepositorio CondicionCursoRepositorio;
 
         private IInscripcionRepositorio InscripcionRepositorio;
 
 
-        public ExamenServicio(IExamenRepositorio examenRepositorio, ICursosRepositorio cursosRepositorio, IGrupoRepositorio grupoRepositorio, IInscripcionRepositorio inscripcionRepositorio)
+        public ExamenServicio(IExamenRepositorio examenRepositorio, IInscripcionRepositorio inscripcionRepositorio, ICondicionCursoRepositorio condicionCursoRepositorio)
         {
             ExamenRepositorio = examenRepositorio;
-            CursosRepositorio = cursosRepositorio;
-            GrupoRepositorio = grupoRepositorio;
+            CondicionCursoRepositorio = condicionCursoRepositorio;
             InscripcionRepositorio = inscripcionRepositorio;
         }
 
@@ -42,13 +39,13 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
             var examen = ExamenRepositorio.GetExamen(IdExamen);
             var inscripcion = InscripcionRepositorio.GetInscripcion(examen.IdInscripcion);
+            var condicionCurso = CondicionCursoRepositorio.GetCondicion(inscripcion.Id_Condicion_Curso);
 
             IExamenVista vista = new ExamenVista()
                                      {
                                          FechaExamen = examen.FechaExamen,
                                          IdExamen = examen.IdExamen,
                                          Nota = examen.Nota,
-                                         NroExamen = examen.NroExamen,
                                          NombreAlumno = inscripcion.NombreAlumno,
                                          NombreCurso = inscripcion.NombreCurso,
                                          NombreEstadoCurso = inscripcion.NombreEstadoCurso,
@@ -58,24 +55,31 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                                          NombrePrograma = inscripcion.NombrePrograma,
                                          idInscripcion = inscripcion.IdInscripcion,
                                      };
-
-
+            vista.NroExamen.Combo = ComboHelper.GetComboParaCantidadExamenes(condicionCurso.CantidadExamenes);
+            vista.NroExamen.Selected = examen.NroExamen.ToString();
             return vista;
         }
 
         public IExamenVista GetExamenVistaByInscripcion(int IdInscripcion)
         {
-            var a = InscripcionRepositorio.GetInscripcion(IdInscripcion);
+            var inscripcion = InscripcionRepositorio.GetInscripcion(IdInscripcion);
+            var condicionCurso = CondicionCursoRepositorio.GetCondicion(inscripcion.Id_Condicion_Curso);
+
+
+
             IExamenVista vista = new ExamenVista()
                                      {
-                                         NombreAlumno = a.NombreAlumno,
-                                         NombreCurso = a.NombreCurso,
-                                         NombreEstadoCurso = a.NombreEstadoCurso,
-                                         NombreInstitucion = a.NombreInstitucion,
-                                         NombreModalidad = a.NombreModalidad,
-                                         NombreNivel = a.NombreNivel,
-                                         NombrePrograma = a.NombrePrograma,
+                                         NombreAlumno = inscripcion.NombreAlumno,
+                                         NombreCurso = inscripcion.NombreCurso,
+                                         NombreEstadoCurso = inscripcion.NombreEstadoCurso,
+                                         NombreInstitucion = inscripcion.NombreInstitucion,
+                                         NombreModalidad = inscripcion.NombreModalidad,
+                                         NombreNivel = inscripcion.NombreNivel,
+                                         NombrePrograma = inscripcion.NombrePrograma,
                                      };
+
+            vista.NroExamen.Combo = ComboHelper.GetComboParaCantidadExamenes(condicionCurso.CantidadExamenes);
+
             return vista;
 
         }
@@ -98,7 +102,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             IExamen examen = new Examen()
             {
                 IdInscripcion = vista.idInscripcion,
-                NroExamen = vista.NroExamen,
+                NroExamen = int.Parse(vista.NroExamen.Selected),
                 Nota = vista.Nota,
                 FechaExamen = vista.FechaExamen,
                 IdExamen = vista.IdExamen
@@ -133,6 +137,14 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         public IList<IExamen> GetExamenes(int IdInscripcion)
         {
             return ExamenRepositorio.GetExamenesByInscripcion(IdInscripcion);
+        }
+
+        public IExamenVista GetOnlyCombo(IExamenVista vista)
+        {
+            var inscripcion = InscripcionRepositorio.GetInscripcion(vista.idInscripcion);
+            var condicionCurso = CondicionCursoRepositorio.GetCondicion(inscripcion.Id_Condicion_Curso);
+            vista.NroExamen.Combo = ComboHelper.GetComboParaCantidadExamenes(condicionCurso.CantidadExamenes);
+            return vista;
         }
 
         public IList<IErrores> GetErrors()

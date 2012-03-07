@@ -23,19 +23,20 @@
                   @Html.PasswordFor(c=> c.Password,new { @class="field required"})
                   @Html.ValidationMessageFor(c=> c.Password,"*")
             </div>
-            <p class="forgot">           
+            <p>
+            @Html.ValidationSummary(true)   
             </p>
+                   
+           
             <div class="submit">  
            
             <a href="javascript: document.forms['login'].submit();" class="btnIngresar">Ingresar</a>  
             </div>
-            <p class="back">
-             
-            </p>  
+           
 }   
 
 </div>
-<div align="center">@Html.ValidationSummary(true)</div>
+
 
 
 

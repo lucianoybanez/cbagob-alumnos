@@ -16,5 +16,6 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
         bool GuardarExamen(IExamenVista vista);
         bool EliminarExamen(int IdExamen);
         IList<IExamen> GetExamenes(int IdInscripcion);
+        IExamenVista GetOnlyCombo(IExamenVista vista);
     }
 }

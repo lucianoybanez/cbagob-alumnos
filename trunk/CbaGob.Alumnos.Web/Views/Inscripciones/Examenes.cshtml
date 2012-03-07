@@ -17,80 +17,80 @@
         <tr>
             <td class="style1" style="font-weight: bold">
                 <div id="titulo">
-                @Html.ValidationSummary()
+                    @Html.ValidationSummary()
                 </div>
                 <div id="DivExamenes">
-                    @if (Model.ListaInscripciones != null && Model.ListaInscripciones.Count > 0)
-                    { 
-                        <div style="text-align: center;">
-                            <table id="grilla" align="center" width="722px" cellpadding="0" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            <div align="center">
-                                                Institucion</div>
-                                        </th>
-                                        <th>
-                                            <div align="center">
-                                                Curso</div>
-                                        </th>
-                                        <th>
-                                            <div align="center">
-                                                Nivel</div>
-                                        </th>
-                                        <th>
-                                            <div align="center">
-                                                Modalidad</div>
-                                        </th>
-                                         <th>
-                                            <div align="center">
-                                                Alumno</div>
-                                        </th>
-                                        <th height="30">
-                                            <div align="center">
-                                                Accion</div>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model.ListaInscripciones)
-                                    {
-                                        <tr>
-                                            <td height="30">
-                                                @item.NombreInstitucion
-                                            </td>
-                                            <td>
-                                                @item.NombreCurso
-                                            </td>
-                                            <td>
-                                                @item.NombreNivel
-                                            </td>
-                                            <td>
-                                                @item.NombreModalidad
-                                            </td>
-                                            <td>
-                                                @Html.Raw(item.ApellidoAlumno + ", " + item.NombreAlumno)
-                                            </td>
-                                            <td>                                        
-                                                
-                                                @Html.ActionLink("Ver", "Ver", "Inscripciones", new { idInscripcion = item.IdInscripcion }, new { @class = "btnIngresar" })&nbsp;&nbsp;&nbsp;&nbsp;
-                                            </td>
-                                        </tr>
-                                    }                                   
-                                </tbody>
-                            </table>
-                        </div>
-                    }
-                    else
+                    @using (Ajax.BeginForm("GetListaInscriptos", "Inscripciones", new AjaxOptions()
+                                                                              {
+                                                                                  HttpMethod = "GET",
+                                                                                  InsertionMode = InsertionMode.Replace,
+                                                                                  OnSuccess = "cbaAlumnosInscripciones.hideEliminarButton();",
+                                                                                  UpdateTargetId = "grilla"
+                                                                              }))
                     {
-                        @Html.Partial("_SinDatos", "Inscripciones")
-                    }                   
-                    <br />
+                        <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                            width: 700px;">
+                            <tr>
+                                <td>
+                                    @Html.ValidationSummary(true)
+                                    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+                                        text-align: center;">
+                                        <legend style="color: #FF9900"><b>Buscar Alumno</b></legend>
+                                        <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                                            width: 700px;">
+                                            <tr>
+                                                <td align="left">
+                                                    <b>Nombre:</b>
+                                                </td>
+                                                <td align="left" valign="middle">
+                                                    <input type="text" name="nombre" id="nombre" />
+                                                </td>
+                                            </tr>
+                                             <tr>
+                                                <td align="left">
+                                                    <b>Apellido:</b>
+                                                </td>
+                                                <td align="left" valign="middle">
+                                                    <input type="text" name="apellido" id="apellido" />
+                                                </td>
+                                            </tr>
+                                             <tr>
+                                                <td align="left">
+                                                    <b>DNI:</b>
+                                                </td>
+                                                <td align="left" valign="middle">
+                                                    <input type="text" name="dni" id="dni" />
+                                                </td>
+                                            </tr>
+                                             <tr>
+                                                <td align="left">
+                                                    <b>Institucion:</b>
+                                                </td>
+                                                <td align="left" valign="middle">
+                                                    <input type="text" name="institucion" id="institucion" />
+                                                </td>
+                                            </tr>
+                                             <tr>
+                                                <td align="left">
+                                                    
+                                                </td>
+                                                <td align="left" valign="middle">
+                                                    <input type="submit" value="buscar" class = "btnIngresar" />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </fieldset>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                    }
+                    <div style="text-align: center;">
+                        <table id="grilla">
+                        </table>
+                    </div>
                 </div>
             </td>
         </tr>
     </table>
 </div>
-
-
-

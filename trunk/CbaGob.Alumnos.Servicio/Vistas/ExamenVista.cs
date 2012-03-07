@@ -8,14 +8,19 @@ namespace CbaGob.Alumnos.Servicio.Vistas
 {
     public class ExamenVista : IExamenVista
     {
+        public ExamenVista()
+        {
+            NroExamen = new ComboBox();
+        }
+
         public  int idInscripcion { get; set; }
         public string Accion { get; set; }
         public int IdExamen { get; set; }
         [Required]
         public DateTime FechaExamen { get; set; }
-        [Required]
-        [Range(1, 20)]
-        public int NroExamen { get; set; }
+        
+        
+        public IComboBox NroExamen { get; set; }
         [Required]
         [Range(1, 10)]
         public decimal Nota { get; set; }

@@ -59,7 +59,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             if (!result)
             {
                 base.AddError(ExamenServicio.GetErrors());
-                return View("Agregar", vista);
+                return View("Agregar", ExamenServicio.GetOnlyCombo(vista));
             }
             return RedirectToAction("Ver", "Inscripciones", new { idInscripcion = vista.idInscripcion});
         }
@@ -71,7 +71,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             if (!result)
             {
                 base.AddError(ExamenServicio.GetErrors());
-                return View("Agregar", vista);
+                return View("Agregar", ExamenServicio.GetOnlyCombo(vista));
             }
             return RedirectToAction("Ver", "Inscripciones", new { idInscripcion = vista.idInscripcion });
         }
