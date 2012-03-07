@@ -52,7 +52,11 @@ namespace CbaGob.Alumnos.Repositorio
                                     IdInstitucion = p.T_INSTITUCIONES.ID_INSTITUCION,
                                     IdCondicionCurso = p.ID_CONDICION_CURSO,
                                     IdEstadoCurso = p.T_ESTADOS_CURSO.ID_ESTADO_CURSO,
-                                    Estado = p.ESTADO
+                                    Estado = p.ESTADO,
+                                    Fecha_Fin = p.FEC_FIN ?? System.DateTime.Now,
+                                    Fecha_Inicio = p.FEC_INICIO ?? System.DateTime.Now,
+                                    Nro_Resolucion = p.NRO_RESOLUCION
+                                    
                                 });
             return a;
         }
@@ -115,13 +119,16 @@ namespace CbaGob.Alumnos.Repositorio
                     USR_ALTA = condicion.UsuarioAlta,
                     FEC_MODIF = condicion.FechaModificacion,
                     USR_MODIF = condicion.UsuarioModificacion,
+                    FEC_FIN = condicion.Fecha_Fin,
+                    FEC_INICIO = condicion.Fecha_Inicio,
+                    NRO_RESOLUCION = condicion.Nro_Resolucion
                     
                 };
                 mDB.AddToT_CONDICIONES_CURSO(condicionesCurso);
                 mDB.SaveChanges();
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return false;
             }
@@ -148,6 +155,9 @@ namespace CbaGob.Alumnos.Repositorio
                 a.PROMEDIOREQUERIDO = condicion.PromedioRequerido;
                 a.FEC_MODIF = condicion.FechaModificacion;
                 a.USR_MODIF = condicion.UsuarioModificacion;
+                a.FEC_FIN = condicion.Fecha_Fin;
+                a.FEC_INICIO = condicion.Fecha_Inicio;
+                a.NRO_RESOLUCION = condicion.Nro_Resolucion;
                 mDB.SaveChanges();
                 return true;
             }
@@ -157,13 +167,14 @@ namespace CbaGob.Alumnos.Repositorio
             }
         }
 
-        public bool EliminarCondicion(int IdCondicion)
+        public bool EliminarCondicion(int IdCondicion, string nroresolucion)
         {
             IComunDatos datos = new ComunDatos();
             base.AgregarDatosEliminacion(datos);
             try
             {
                 var a = mDB.T_CONDICIONES_CURSO.Where(c => c.ID_CONDICION_CURSO == IdCondicion).FirstOrDefault();
+                a.NRO_RESOLUCION = nroresolucion;
                 a.ESTADO = datos.Estado;
                 a.FEC_MODIF = datos.FechaModificacion;
                 a.USR_MODIF = datos.UsuarioModificacion;

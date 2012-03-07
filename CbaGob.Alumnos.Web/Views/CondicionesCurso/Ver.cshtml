@@ -58,14 +58,6 @@
                             </tr>
                             <tr>
                                 <td align="left">
-                                    <b>Nivel:</b>
-                                </td>
-                                <td align="left" valign="middle">
-                                    @Html.TextBoxFor(c => c.NombreNivel, new { style = "width:200px;", MaxLength = "50", disabled = "disabled" })
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="left">
                                     <b>Cantidad de Clases:</b>
                                 </td>
                                 <td align="left" valign="middle">
@@ -105,6 +97,22 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td>
+                                    <b>Fecha Inicio:</b>
+                                </td>
+                                <td>
+                                    @Html.TextBoxFor(c => c.Fecha_Inicio, new { style = "width:100px;", MaxLength = "3", disabled = "disabled" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Fecha Fin:</b>
+                                </td>
+                                <td>
+                                    @Html.TextBoxFor(c => c.Fecha_Fin, new { style = "width:100px;", MaxLength = "3", disabled = "disabled" })
+                                </td>
+                            </tr>
+                            <tr>
                                 <td align="left">
                                     <b>Presupuesto:</b>
                                 </td>
@@ -128,11 +136,19 @@
                                     @Html.TextBoxFor(c => c.PromedioRequerido, new { style = "width:50px;", MaxLength = "4", disabled = "disabled" })
                                 </td>
                             </tr>
+                            <tr>
+                                <td align="left">
+                                    <b>Nro Resolucion:</b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.TextBoxFor(c => c.Nro_Resolucion, new { style = "width:100px;", MaxLength = "4", disabled = "disabled" })
+                                </td>
+                            </tr>
                         </table>
                     </fieldset>
                     
                     <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
-                        <legend style="color: #FF9900"><b>Grupos del Curso</b></legend>
+                        <legend style="color: #FF9900"><b>Modulos del Curso</b></legend>
                         <table>
                             <tr>
                                 <td>@Html.Partial("_GrupoLista", Model)

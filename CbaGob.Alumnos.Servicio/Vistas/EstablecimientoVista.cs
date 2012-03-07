@@ -35,9 +35,15 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public string Localidad { get; set; }
         public string Barrio { get; set; }
         public string Calle { get; set; }
+        int IEstablecimientoVista.Nro { get; set; }
+        public int Depto { get; set; }
+        public string Emial { get; set; }
+        public string Telefono { get; set; }
+        public string Resposable { get; set; }
         public string Nro { get; set; }
         public string DomicilioCompleto { get; set; }
         public string NombreInstitucion { get; set; }
+        public string Nro_Resolucion { get; set; }
         public IBuscador DomicilioBuscador { get; set; }
         public IBuscador InstitucionesBuscador { get; set; }
     }

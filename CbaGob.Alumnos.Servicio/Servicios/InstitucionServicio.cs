@@ -57,9 +57,6 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             model.espropia = (mInstitucion.espropia == "SI" ? true : false);
             model.Id_Institucion = mInstitucion.Id_Institucion;
             model.Nombre_Institucion = mInstitucion.Nombre_Institucion;
-            model.Id_Domicilio = mInstitucion.Id_Domicilio;
-            model.DireccionCompleta = mInstitucion.DireccionCompleta;
-            
             model.Provincia = mInstitucion.Provincia;
             model.Localidad = mInstitucion.Localidad;
             model.Calle = mInstitucion.Calle;
@@ -97,9 +94,9 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         }
 
-        public bool EliminarInstitucion(int IdInstitucion)
+        public bool EliminarInstitucion(int IdInstitucion, string nro_resolucion)
         {
-            bool result = mInstitucionRepositorio.EliminarInstitucion(IdInstitucion);
+            bool result = mInstitucionRepositorio.EliminarInstitucion(IdInstitucion, nro_resolucion);
             if (!result)
             {
                 base.AddError("Error: No se pudo eliminar la Institucion.");

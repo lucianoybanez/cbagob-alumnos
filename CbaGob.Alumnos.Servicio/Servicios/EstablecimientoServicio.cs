@@ -12,7 +12,7 @@ using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.Servicios
 {
-    public class EstablecimientoServicio :BaseServicio, IEstablecimientoServicio
+    public class EstablecimientoServicio : BaseServicio, IEstablecimientoServicio
     {
         private EstablecimientoRepositorio establecimientorepositorio;
 
@@ -78,7 +78,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 establecimientovista.NombreInstitucion = establecimiento.NombreInstitucion;
                 establecimientovista.DomicilioCompleto = establecimiento.DomicilioCompleto;
 
-                establecimientovista.Id_Domicilio = establecimiento.Id_Domicilio;
+
                 establecimientovista.Id_Establecimiento = establecimiento.Id_Establecimiento;
                 establecimientovista.NombreEstablecimiento = establecimiento.NombreEstablecimiento;
                 establecimientovista.Id_Institucion = establecimiento.Id_Institucion;
@@ -99,8 +99,16 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 IEstablecimiento addestablecimiento = new Establecimiento();
                 addestablecimiento.Id_Institucion = establecimiento.Id_Institucion;
-                addestablecimiento.Id_Domicilio = establecimiento.Id_Domicilio;
                 addestablecimiento.NombreEstablecimiento = establecimiento.NombreEstablecimiento;
+                addestablecimiento.Provincia = establecimiento.Provincia;
+                addestablecimiento.Localidad = establecimiento.Localidad;
+                addestablecimiento.Barrio = establecimiento.Barrio;
+                addestablecimiento.Calle = establecimiento.Calle;
+                addestablecimiento.Nro = establecimiento.Nro;
+                addestablecimiento.Depto = establecimiento.Depto;
+                addestablecimiento.Resposable = establecimiento.Resposable;
+                addestablecimiento.Telefono = establecimiento.Telefono;
+                addestablecimiento.Emial = establecimiento.Emial;
 
                 return establecimientorepositorio.AgregarEstablecimiento(addestablecimiento);
             }
@@ -117,9 +125,17 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 IEstablecimiento addestablecimiento = new Establecimiento();
                 addestablecimiento.Id_Institucion = establecimiento.Id_Institucion;
-                addestablecimiento.Id_Domicilio = establecimiento.Id_Domicilio;
-                addestablecimiento.NombreEstablecimiento = establecimiento.NombreEstablecimiento;
                 addestablecimiento.Id_Establecimiento = establecimiento.Id_Establecimiento;
+                addestablecimiento.NombreEstablecimiento = establecimiento.NombreEstablecimiento;
+                addestablecimiento.Provincia = establecimiento.Provincia;
+                addestablecimiento.Localidad = establecimiento.Localidad;
+                addestablecimiento.Barrio = establecimiento.Barrio;
+                addestablecimiento.Calle = establecimiento.Calle;
+                addestablecimiento.Nro = establecimiento.Nro;
+                addestablecimiento.Depto = establecimiento.Depto;
+                addestablecimiento.Resposable = establecimiento.Resposable;
+                addestablecimiento.Telefono = establecimiento.Telefono;
+                addestablecimiento.Emial = establecimiento.Emial;
 
                 return establecimientorepositorio.ModificarEstablecimiento(addestablecimiento);
             }
@@ -130,11 +146,11 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
         }
 
-        public bool EliminarEstablecimiento(int id_establecimiento)
+        public bool EliminarEstablecimiento(int id_establecimiento, string nroresolucion)
         {
             try
             {
-                return establecimientorepositorio.EliminarEstablecimiento(id_establecimiento);
+                return establecimientorepositorio.EliminarEstablecimiento(id_establecimiento, nroresolucion);
             }
             catch (Exception ex)
             {

@@ -1,4 +1,4 @@
-﻿@model CbaGob.Alumnos.Servicio.VistasInterface.ICursosVista
+﻿@model CursosVista
 @{
     ViewBag.Title = "Instituciones";
     ViewBag.SubMenuSelected = "Cursos";
@@ -32,6 +32,15 @@
                                             </td>
                                             <td align="left">
                                                 @Html.TextBoxFor(c => c.N_CURSO, new { disabled = "disabled", style = "width:200px;", MaxLength = "50", Class = "asd" })
+                                                @Html.ValidationMessageFor(m => m.N_CURSO, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Area tipo Curso:</b>
+                                            </td>
+                                            <td align="left">
+                                                @Html.EditorFor(c => c.AreasTipoCursos)
                                             </td>
                                         </tr>
                                         <tr>
@@ -39,7 +48,8 @@
                                                 <b>Nro Resolucion:</b>
                                             </td>
                                             <td align="left">
-                                                @Html.TextBoxFor(c => c.NRORESOLUCION, new { disabled = "disabled", style = "width:200px;", MaxLength = "50", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.NRORESOLUCION, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
+                                                @Html.ValidationMessageFor(m => m.NRORESOLUCION, "*")
                                             </td>
                                         </tr>
                                     </table>

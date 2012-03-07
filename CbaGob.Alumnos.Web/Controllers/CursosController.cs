@@ -33,7 +33,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         public ActionResult Agregar()
         {
-            CursosVista model = new CursosVista();
+            ICursosVista model = mCursosServicios.GetVistaIndex();
 
             return View(model);
         }
@@ -49,6 +49,8 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             ICursosVista model = mCursosServicios.GetUnaVista(id_curso);
 
+            model.AreasTipoCursos.Enabled = false;
+
             return View("Eliminar", model);
         }
 
@@ -58,7 +60,8 @@ namespace CbaGob.Alumnos.Web.Controllers
             ICursos mCursos = new Cursos();
 
             mCursos.N_CURSO = model.N_CURSO;
-            mCursos.NRORESOLUCION = model.NRORESOLUCION; 
+            mCursos.NRORESOLUCION = model.NRORESOLUCION;
+            mCursos.Id_Area_Tipo_Curso = Convert.ToInt32(model.AreasTipoCursos.Selected);
 
             bool mret = mCursosServicios.Agregar(mCursos);
 
@@ -75,6 +78,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             mCursos.N_CURSO = model.N_CURSO;
             mCursos.ID_CURSO = model.ID_CURSO;
             mCursos.NRORESOLUCION = model.NRORESOLUCION;
+            mCursos.Id_Area_Tipo_Curso = Convert.ToInt32(model.AreasTipoCursos.Selected);
 
             bool mret = mCursosServicios.Modificar(mCursos);
 
@@ -87,7 +91,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         public ActionResult Eliminar_Cursos(CursosVista model)
         {
 
-            bool mret = mCursosServicios.Eliminar(model.ID_CURSO);
+            bool mret = mCursosServicios.Eliminar(model.ID_CURSO, model.NRORESOLUCION);
 
             model.ListaCursos = mCursosServicios.GetTodos();
 

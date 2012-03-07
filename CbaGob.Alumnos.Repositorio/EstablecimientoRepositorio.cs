@@ -31,21 +31,26 @@ namespace CbaGob.Alumnos.Repositorio
                                  Estado = c.ESTADO,
                                  FechaAlta = c.FEC_ALTA,
                                  FechaModificacion = c.FEC_ALTA,
-                                 Id_Domicilio = c.ID_DOMICILIO,
                                  Id_Establecimiento = c.ID_ESTABLECIMIENTO,
                                  Id_Institucion = c.ID_INSTITUCION,
                                  NombreEstablecimiento = c.N_ESTABLECIMIENTO,
                                  UsuarioAlta = c.USR_ALTA,
                                  UsuarioModificacion = c.USR_MODIF,
-                                 Provincia = c.T_DOMICILIO.PROVINCIA,
-                                 Localidad = c.T_DOMICILIO.LOCALIDAD,
-                                 Barrio = c.T_DOMICILIO.BARRIO,
-                                 Calle = c.T_DOMICILIO.CALLE,
-                                 Nro = c.T_DOMICILIO.NRO,
-                                 NombreInstitucion = c.T_INSTITUCIONES.N_INSTITUCION, 
-                                 DomicilioCompleto = c.T_DOMICILIO.PROVINCIA + "," + c.T_DOMICILIO.LOCALIDAD + "," +
-                                                     c.T_DOMICILIO.BARRIO + "," + c.T_DOMICILIO.CALLE + "," +
-                                                     c.T_DOMICILIO.NRO
+                                 Provincia = c.PROVINCIA ?? "",
+                                 Localidad = c.LOCALIDAD ?? "",
+                                 Barrio = c.BARRIO ?? "",
+                                 Calle = c.CALLE ?? "",
+                                 Nro = c.NRO ?? 0,
+                                 Depto = c.DEPTO ?? 0,
+                                 Telefono = c.TELEFONO ?? "",
+                                 Emial = c.EMAIL ?? "",
+                                 Resposable = c.RESPONSABLE ?? "",
+                                 Nro_Resolucion = c.NRO_RESOLUCION ?? "",
+                                 NombreInstitucion = c.T_INSTITUCIONES.N_INSTITUCION,
+                                 DomicilioCompleto =
+                                     c.PROVINCIA ??
+                                     "." + "," + c.LOCALIDAD ??
+                                     "." + "," + c.BARRIO ?? "." + "," + c.CALLE ?? "."
                              });
 
             return a;
@@ -108,11 +113,20 @@ namespace CbaGob.Alumnos.Repositorio
                                                              ESTADO = establecimiento.Estado,
                                                              FEC_ALTA = establecimiento.FechaAlta,
                                                              FEC_MODIF = establecimiento.FechaModificacion,
-                                                             ID_DOMICILIO = establecimiento.Id_Domicilio,
                                                              ID_INSTITUCION = establecimiento.Id_Institucion,
                                                              N_ESTABLECIMIENTO = establecimiento.NombreEstablecimiento,
                                                              USR_ALTA = establecimiento.UsuarioAlta,
-                                                             USR_MODIF = establecimiento.UsuarioModificacion
+                                                             USR_MODIF = establecimiento.UsuarioModificacion,
+                                                             RESPONSABLE = establecimiento.Resposable,
+                                                             EMAIL = establecimiento.Emial,
+                                                             TELEFONO = establecimiento.Telefono,
+                                                             PROVINCIA = establecimiento.Provincia,
+                                                             LOCALIDAD = establecimiento.Localidad,
+                                                             BARRIO = establecimiento.Barrio,
+                                                             NRO = establecimiento.Nro,
+                                                             DEPTO = establecimiento.Depto,
+                                                             CALLE = establecimiento.Calle,
+                                                             NRO_RESOLUCION = establecimiento.Nro_Resolucion
                                                          };
 
                 mDB.AddToT_ESTABLECIMINETOS(t_estableciento);
@@ -134,11 +148,21 @@ namespace CbaGob.Alumnos.Repositorio
 
                 var modestablecimiento = mDB.T_ESTABLECIMINETOS.FirstOrDefault(c => c.ID_ESTABLECIMIENTO == establecimiento.Id_Establecimiento);
 
-                modestablecimiento.ID_DOMICILIO = establecimiento.Id_Domicilio;
                 modestablecimiento.ID_INSTITUCION = establecimiento.Id_Institucion;
                 modestablecimiento.N_ESTABLECIMIENTO = establecimiento.NombreEstablecimiento;
                 modestablecimiento.USR_MODIF = establecimiento.UsuarioModificacion;
                 modestablecimiento.FEC_MODIF = establecimiento.FechaModificacion;
+                modestablecimiento.RESPONSABLE = establecimiento.Resposable;
+                modestablecimiento.TELEFONO = establecimiento.Telefono;
+                modestablecimiento.EMAIL = establecimiento.Emial;
+                modestablecimiento.BARRIO = establecimiento.Barrio;
+                modestablecimiento.CALLE = establecimiento.Calle;
+                modestablecimiento.LOCALIDAD = establecimiento.Localidad;
+                modestablecimiento.NRO = establecimiento.Nro;
+                modestablecimiento.DEPTO = establecimiento.Depto;
+                modestablecimiento.PROVINCIA = establecimiento.Provincia;
+                modestablecimiento.NRO_RESOLUCION = establecimiento.Nro_Resolucion;
+
                 mDB.SaveChanges();
                 return true;
 
@@ -149,7 +173,7 @@ namespace CbaGob.Alumnos.Repositorio
             }
         }
 
-        public bool EliminarEstablecimiento(int id_establecimiento)
+        public bool EliminarEstablecimiento(int id_establecimiento, string nroresolucion)
         {
             try
             {

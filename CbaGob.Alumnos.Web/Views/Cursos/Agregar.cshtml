@@ -17,8 +17,8 @@
                 </div>
                 @using (Html.BeginForm("Agregar_Cursos", "Cursos", FormMethod.Post, new { Id = "FormularioCursos" }))
                 { 
-                     @Html.ValidationSummary(true)
-                     <br />
+                    @Html.ValidationSummary(true)
+                    <br />
                     <table align="center" id="mytable" style="font-family: Arial, Helvetica, sans-serif;
                         font-size: 12px; width: 750px;">
                         <tr>
@@ -34,7 +34,16 @@
                                             </td>
                                             <td align="left">
                                                 @Html.TextBoxFor(c => c.N_CURSO, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
-                                                @Html.ValidationMessageFor(m => m.N_CURSO)
+                                                @Html.ValidationMessageFor(m => m.N_CURSO, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Area tipo Curso:</b>
+                                            </td>
+                                            <td align="left">
+                                                @Html.EditorFor(c => c.AreasTipoCursos)
+                                                @Html.ValidationMessageFor(m => m.Id_Area_Tipo_Curso, "*")
                                             </td>
                                         </tr>
                                         <tr>
@@ -43,6 +52,7 @@
                                             </td>
                                             <td align="left">
                                                 @Html.TextBoxFor(c => c.NRORESOLUCION, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
+                                                @Html.ValidationMessageFor(m => m.NRORESOLUCION, "*")
                                             </td>
                                         </tr>
                                     </table>

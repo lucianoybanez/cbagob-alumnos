@@ -8,7 +8,7 @@ using CbaGob.Alumnos.Repositorio.Models;
 
 namespace CbaGob.Alumnos.Repositorio
 {
-    public class CursosRepositorio : ICursosRepositorio
+    public class CursosRepositorio : BaseRepositorio, ICursosRepositorio
     {
         private CursosDB mDb;
 
@@ -31,7 +31,8 @@ namespace CbaGob.Alumnos.Repositorio
                                                ID_CURSO = c.ID_CURSO,
                                                N_CURSO = c.N_CURSO,
                                                ESTADO = c.ESTADO,
-                                               NRORESOLUCION = c.NRO_RESOLUCION ?? 0
+                                               NRORESOLUCION = c.NRO_RESOLUCION,
+                                               Id_Area_Tipo_Curso = c.ID_AREA_TIPO_CURSO
 
                                            }).ToList().Cast<ICursos>().ToList();
                 return ListaCursos;
@@ -55,7 +56,8 @@ namespace CbaGob.Alumnos.Repositorio
                                            ID_CURSO = c.ID_CURSO,
                                            N_CURSO = c.N_CURSO,
                                            ESTADO = c.ESTADO,
-                                           NRORESOLUCION = c.NRO_RESOLUCION ?? 0
+                                           NRORESOLUCION = c.NRO_RESOLUCION,
+                                           Id_Area_Tipo_Curso = c.ID_AREA_TIPO_CURSO
                                        }).ToList().Cast<ICursos>().ToList();
                 return ListaCursos;
             }
@@ -78,7 +80,8 @@ namespace CbaGob.Alumnos.Repositorio
                                        ID_CURSO = c.ID_CURSO,
                                        N_CURSO = c.N_CURSO,
                                        ESTADO = c.ESTADO,
-                                       NRORESOLUCION = c.NRO_RESOLUCION ?? 0
+                                       NRORESOLUCION = c.NRO_RESOLUCION,
+                                       Id_Area_Tipo_Curso = c.ID_AREA_TIPO_CURSO
 
                                    }).SingleOrDefault();
                 return mCursos;
@@ -94,15 +97,18 @@ namespace CbaGob.Alumnos.Repositorio
         {
             try
             {
+                base.AgregarDatosAlta(pCursos);
+
                 T_CURSOS mT_CURSOS = new T_CURSOS()
                                          {
                                              N_CURSO = pCursos.N_CURSO,
-                                             ESTADO = "A",
+                                             ESTADO = pCursos.Estado,
                                              NRO_RESOLUCION = pCursos.NRORESOLUCION,
-                                             FEC_ALTA = System.DateTime.Now,
-                                             USR_ALTA = "Test",
-                                             FEC_MODIF = System .DateTime.Now,
-                                             USR_MODIF = "Test"
+                                             FEC_ALTA = pCursos.FechaAlta,
+                                             USR_ALTA = pCursos.UsuarioAlta,
+                                             FEC_MODIF = pCursos.FechaModificacion,
+                                             USR_MODIF = pCursos.UsuarioModificacion,
+                                             ID_AREA_TIPO_CURSO = pCursos.Id_Area_Tipo_Curso
                                          };
 
                 mDb.AddToT_CURSOS(mT_CURSOS);
@@ -120,11 +126,14 @@ namespace CbaGob.Alumnos.Repositorio
         {
             try
             {
+                base.AgregarDatosModificacion(pCursos);
+
                 var cur = mDb.T_CURSOS.FirstOrDefault(c => c.ID_CURSO == pCursos.ID_CURSO);
                 cur.N_CURSO = pCursos.N_CURSO;
                 cur.NRO_RESOLUCION = pCursos.NRORESOLUCION;
-                cur.FEC_MODIF = System.DateTime.Now;
-                cur.USR_MODIF = "Test";
+                cur.FEC_MODIF = pCursos.FechaModificacion;
+                cur.USR_MODIF = pCursos.UsuarioModificacion;
+                cur.ID_AREA_TIPO_CURSO = pCursos.Id_Area_Tipo_Curso;
                 mDb.SaveChanges();
                 return true;
 
@@ -136,14 +145,18 @@ namespace CbaGob.Alumnos.Repositorio
             }
         }
 
-        public bool Eliminar(int IdCurso)
+        public bool Eliminar(int IdCurso, string nroresolucion)
         {
             try
             {
+                IComunDatos datos = new ComunDatos();
+                base.AgregarDatosEliminacion(datos);
+
                 var cur = mDb.T_CURSOS.FirstOrDefault(c => c.ID_CURSO == IdCurso);
-                cur.ESTADO = "I";
-                cur.FEC_MODIF = System.DateTime.Now;
-                cur.USR_MODIF = "Test";
+                cur.ESTADO = datos.Estado;
+                cur.NRO_RESOLUCION = nroresolucion;
+                cur.FEC_MODIF = datos.FechaModificacion;
+                cur.USR_MODIF = datos.UsuarioModificacion;
                 mDb.SaveChanges();
                 return true;
             }

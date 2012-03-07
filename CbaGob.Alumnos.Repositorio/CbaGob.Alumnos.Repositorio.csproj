@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlumnosRepositorio.cs" />
+    <Compile Include="AreaTipoCursoRepositorio.cs" />
     <Compile Include="BaseRepositorio.cs" />
     <Compile Include="CajaChicaRepositorio.cs" />
     <Compile Include="CallesRepositorio.cs" />
