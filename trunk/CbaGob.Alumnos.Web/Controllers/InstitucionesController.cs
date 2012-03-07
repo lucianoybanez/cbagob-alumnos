@@ -41,10 +41,6 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             IInstitucionVista model = mInstitucionServicio.GetUnaVista(INST_ID);
 
-            model.DomicilioBusqueda.Tipo = "Domicilios";
-            model.DomicilioBusqueda.Name = "BuDomicilio";
-            model.DomicilioBusqueda.Valor = model.DireccionCompleta;
-
             return View("Modificar", model);
         }
 
@@ -71,16 +67,13 @@ namespace CbaGob.Alumnos.Web.Controllers
             model.CondicionesCursos = CondicionesCursoServicio.GetByInstitucionId(INST_ID).CondicionesCursos;
 
             model.CajaChica = cajachicaservice.GetCajaChicasByInstitucion(INST_ID);
-           
+
             return View("Ver", model);
         }
 
         public ActionResult Agregar()
         {
             InstitucionVista model = new InstitucionVista();
-
-            model.DomicilioBusqueda.Tipo = "Domicilios";
-            model.DomicilioBusqueda.Name = "BuDomicilio";
 
             return View(model);
         }
@@ -93,7 +86,6 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             mInstitucion.espropia = (model.espropia == true ? "1" : "0");
             mInstitucion.Nombre_Institucion = model.Nombre_Institucion;
-            mInstitucion.Id_Domicilio = 1;
             mInstitucion.Provincia = model.Provincia;
             mInstitucion.Localidad = model.Localidad;
             mInstitucion.Barrio = model.Barrio;
@@ -129,8 +121,6 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             mInstitucion.Id_Institucion = model.Id_Institucion;
 
-            mInstitucion.Id_Domicilio = 1;
-
             mInstitucion.Provincia = model.Provincia;
             mInstitucion.Localidad = model.Localidad;
             mInstitucion.Barrio = model.Barrio;
@@ -148,7 +138,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             }
             base.AddError(InstitucionServicio.GetErrors());
             return View("Modificar", model);
-            
+
         }
 
         [HttpPost]
@@ -157,7 +147,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             IInstitucionServicio mInstitucionServicio = new InstitucionServicio();
 
-            bool mReturn = mInstitucionServicio.EliminarInstitucion(model.Id_Institucion);
+            bool mReturn = mInstitucionServicio.EliminarInstitucion(model.Id_Institucion, model.Nro_Resolucion);
             if (mReturn)
             {
                 return View("Index", InstitucionServicio.GetIndex());

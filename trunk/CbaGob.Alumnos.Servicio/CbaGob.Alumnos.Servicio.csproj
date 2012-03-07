@@ -44,6 +44,7 @@
     <Compile Include="Comun\ComboHelper.cs" />
     <Compile Include="Comun\CookieData.cs" />
     <Compile Include="Comun\ICookieData.cs" />
+    <Compile Include="ServiciosInterface\IAreasTipoCursoServicio.cs" />
     <Compile Include="ServiciosInterface\ICajaChicaServicio.cs" />
     <Compile Include="ServiciosInterface\IEquipoServicio.cs" />
     <Compile Include="ServiciosInterface\IInventarioServicio.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="ServiciosInterface\IPrestamoServicio.cs" />
     <Compile Include="ServiciosInterface\ISupervicionesServicio.cs" />
     <Compile Include="ServiciosInterface\ISupervisoresServicio.cs" />
+    <Compile Include="Servicios\AreasTipoCursoServicio.cs" />
     <Compile Include="Servicios\CajaChicaServicio.cs" />
     <Compile Include="Servicios\EquipoServicio.cs" />
     <Compile Include="Servicios\ExamenServicio.cs" />
@@ -106,6 +108,7 @@
     <Compile Include="Servicios\SupervisoresServicio.cs" />
     <Compile Include="Servicios\UsuarioServicio.cs" />
     <Compile Include="Servicios\HomeServicio.cs" />
+    <Compile Include="VistasInterface\IAreasTipoCursoVista.cs" />
     <Compile Include="VistasInterface\ICajaChicasVista.cs" />
     <Compile Include="VistasInterface\ICajaChicaVista.cs" />
     <Compile Include="VistasInterface\IEquiposVista.cs" />
@@ -122,6 +125,7 @@
     <Compile Include="VistasInterface\ISupervisoresVista.cs" />
     <Compile Include="VistasInterface\ISupervisorVista.cs" />
     <Compile Include="VistasInterface\Shared\IBuscador.cs" />
+    <Compile Include="Vistas\AreasTipoCursoVista.cs" />
     <Compile Include="Vistas\CajaChicaVista.cs" />
     <Compile Include="Vistas\EquiposVista.cs" />
     <Compile Include="Vistas\EquipoVista.cs" />

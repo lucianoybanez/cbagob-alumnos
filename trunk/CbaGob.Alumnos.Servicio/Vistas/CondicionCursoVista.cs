@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
@@ -21,7 +22,7 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public int IdCondicionCurso { get; set; }
         public int IdInstitucion { get; set; }
         public string NombeInstitucion { get; set; }
-        public IComboBox EstadoCurso{ get; set; }
+        public IComboBox EstadoCurso { get; set; }
         public IComboBox Curso { get; set; }
         public IComboBox Nivel { get; set; }
         public IComboBox Modalidad { get; set; }
@@ -40,7 +41,7 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public int Cupo { get; set; }
         [Range(1, 99999)]
         public decimal Presupuesto { get; set; }
-        public string Accion{ get; set; }
+        public string Accion { get; set; }
         public string NombrePrograma { get; set; }
         public string NombreEstadoCurso { get; set; }
         public string NombreCurso { get; set; }
@@ -48,5 +49,9 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public string NombreModalidad { get; set; }
         public IList<IGrupo> ListaGrupos { get; set; }
         public IList<IAlumnos> ListaAlumno { get; set; }
+        public DateTime Fecha_Inicio { get; set; }
+        public DateTime Fecha_Fin { get; set; }
+        [Required(ErrorMessage = "*")]
+        public string Nro_Resolucion { get; set; }
     }
 }

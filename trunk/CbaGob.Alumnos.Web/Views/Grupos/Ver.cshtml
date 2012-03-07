@@ -8,7 +8,7 @@
 }
 <div class="box">
     <h2>
-        Grupo</h2>
+        Modulo</h2>
     <table align="center" style="width: 700px;">
         <tr>
             <td class="style1" style="font-weight: bold">
@@ -21,7 +21,7 @@
                         <table>
                             <tr>
                                 <td>
-                                    <b>Nombre del Grupo:</b>
+                                    <b>Nombre del Modulo:</b>
                                 </td>
                                 <td>
                                     @Html.TextBoxFor(c => c.NombreGrupo, new { disabled = "disabled", style = "width:200px;", MaxLength = "50", Class = "asd" })
@@ -29,7 +29,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <b>Capacidad del Grupo:</b>
+                                    <b>Capacidad del Modulo:</b>
                                 </td>
                                 <td>
                                     @Html.TextBoxFor(c => c.Capacidad, new { disabled = "disabled", style = "width:50px;", MaxLength = "50", Class = "asd" })
@@ -44,7 +44,7 @@
                         </ul>
                         <div id="tabs-1">
                             <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 690px;">
-                                <legend style="color: #FF9900"><b>Alumnos inscriptos Sin Grupo</b></legend>
+                                <legend style="color: #FF9900"><b>Alumnos inscriptos Sin Modulo</b></legend>
                                 <table>
                                     <tr>
                                         <td>@Html.Partial("_AlumnosLista", Model)
@@ -53,7 +53,7 @@
                                 </table>
                             </fieldset>
                             <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 690px;">
-                                <legend style="color: #FF9900"><b>Alumnos inscriptos en el Grupo</b></legend>
+                                <legend style="color: #FF9900"><b>Alumnos inscriptos en el Moludo</b></legend>
                                 <table>
                                     <tr>
                                         <td>@Html.Partial("_AlumnosEnGrupoLista", Model)
@@ -64,7 +64,7 @@
                         </div>
                         <div id="tabs-2">
                             <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 690px;">
-                                <legend><b>Docentes para el Grupo</b></legend>
+                                <legend><b>Docentes para el Modulo</b></legend>
                                 <table>
                                     <tr>
                                         <td>@Html.Partial("_DocentesNoGrupoLista", Model)

@@ -31,5 +31,8 @@ namespace CbaGob.Alumnos.Modelo.Entities
         public int Cupo { get; set; }
         public decimal Presupuesto { get; set; }
         public int IdEstadoCurso{get; set; }
+        public string Nro_Resolucion { get; set; }
+        public DateTime Fecha_Inicio { get; set; }
+        public DateTime Fecha_Fin { get; set; }
     }
 }

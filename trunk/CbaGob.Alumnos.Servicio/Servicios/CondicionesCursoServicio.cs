@@ -77,11 +77,14 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             vista.Programa.Selected = result.IdPrograma.ToString();
             ConvertCursos(vista, cursos);
             vista.Curso.Selected = result.IdCurso.ToString();
+            vista.Fecha_Fin = result.Fecha_Fin;
+            vista.Fecha_Inicio = result.Fecha_Inicio;
 
             vista.NombreCurso = result.NombreCurso;
             vista.NombreModalidad = result.NombreModalidad;
             vista.NombreNivel = result.NombreNivel;
             vista.NombrePrograma = result.NombrePrograma;
+            vista.Nro_Resolucion = result.Nro_Resolucion;
 
             vista.Accion = "Modificacion";
             return vista;
@@ -182,12 +185,15 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                                                      IdCurso = Convert.ToInt32(condicion.Curso.Selected),
                                                      IdInstitucion = condicion.IdInstitucion,
                                                      IdModalidad = int.Parse(condicion.Modalidad.Selected),
-                                                     IdNivel = int.Parse(condicion.Nivel.Selected),
+                                                     IdNivel = 1,
                                                      IdPrograma = int.Parse(condicion.Programa.Selected),
                                                      Presentismo = condicion.Presentismo,
                                                      Presupuesto = condicion.Presupuesto,
                                                      PromedioRequerido = condicion.PromedioRequerido,
                                                      IdEstadoCurso = int.Parse(condicion.EstadoCurso.Selected),
+                                                     Fecha_Inicio = condicion.Fecha_Inicio,
+                                                     Fecha_Fin = condicion.Fecha_Fin,
+                                                     Nro_Resolucion = condicion.Nro_Resolucion
                                                  };
 
             if(condicion.Accion=="Alta")
@@ -205,9 +211,9 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             return ret;
         }
 
-        public bool EliminarCondicionCurso(int IdCondicionCurso)
+        public bool EliminarCondicionCurso(int IdCondicionCurso, string nroresolucion)
         {
-            if (CondicionCursoRepositorio.EliminarCondicion(IdCondicionCurso))
+            if (CondicionCursoRepositorio.EliminarCondicion(IdCondicionCurso, nroresolucion))
             {
                 return true;
             }

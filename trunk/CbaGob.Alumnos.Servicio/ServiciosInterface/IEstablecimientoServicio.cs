@@ -14,6 +14,6 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
         IEstablecimientoVista GetEstablecimiento(int id_establecimiento);
         bool AgregarEstablecimiento(IEstablecimientoVista establecimiento);
         bool ModificarEstablecimiento(IEstablecimientoVista establecimiento);
-        bool EliminarEstablecimiento(int id_establecimiento);
+        bool EliminarEstablecimiento(int id_establecimiento, string nroresolucion);
     }
 }

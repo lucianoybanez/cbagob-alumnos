@@ -18,9 +18,14 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         string Localidad { get; set; }
         string Barrio { get; set; }
         string Calle { get; set; }
-        string Nro { get; set; }
+        int Nro { get; set; }
+        int Depto { get; set; }
+        string Emial { get; set; }
+        string Telefono { get; set; }
+        string Resposable { get; set; }
         string DomicilioCompleto { get; set; }
         string NombreInstitucion { get; set; }
+        string Nro_Resolucion { get; set; }
         IBuscador DomicilioBuscador { get; set; }
         IBuscador InstitucionesBuscador { get; set; }
     }

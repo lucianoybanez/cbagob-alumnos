@@ -10,17 +10,20 @@ using CbaGob.Alumnos.Repositorio.Models;
 using CbaGob.Alumnos.Servicio.Comun;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
+using CbaGob.Alumnos.Servicio.Vistas.Shared;
 using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.Servicios
 {
-    public class CursosServicios :BaseServicio, ICursosServicios
+    public class CursosServicios : BaseServicio, ICursosServicios
     {
         private ICursosRepositorio mCursosRepositorio;
-        
+        private IAreasTipoCursoServicio areacursoservicio;
+
         public CursosServicios()
         {
             mCursosRepositorio = new CursosRepositorio();
+            areacursoservicio = new AreasTipoCursoServicio();
         }
 
         public IList<ICursos> GetTodosbyInstitucion(int IdInstitucion)
@@ -31,7 +34,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -76,6 +79,10 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 mCursosVista.N_CURSO = mCursos.N_CURSO;
                 mCursosVista.NRORESOLUCION = mCursos.NRORESOLUCION;
 
+                CargarAreas(mCursosVista, areacursoservicio.GetAreasTipoCurso().ListaAreaTipoCurso);
+
+                mCursosVista.AreasTipoCursos.Selected = mCursos.Id_Area_Tipo_Curso.ToString();
+
                 return mCursosVista;
             }
             catch (Exception)
@@ -111,11 +118,11 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
         }
 
-        public bool Eliminar(int IdCurso)
+        public bool Eliminar(int IdCurso, string nroresolucion)
         {
             try
             {
-                return mCursosRepositorio.Eliminar(IdCurso);
+                return mCursosRepositorio.Eliminar(IdCurso, nroresolucion);
             }
             catch (Exception ex)
             {
@@ -127,6 +134,37 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         public IList<IErrores> GetErrors()
         {
             return base.Errors;
+        }
+
+        private static void CargarAreas(ICursosVista vista, IList<IAreaTipoCurso> areastipo)
+        {
+            foreach (var est in areastipo)
+            {
+                vista.AreasTipoCursos.Combo.Add(new ComboItem()
+                {
+                    id = est.Id_Area_Tipo_Curso,
+                    description = est.Nombre_AreaTipoCurso
+                });
+            }
+        }
+
+        public ICursosVista GetVistaIndex()
+        {
+            try
+            {
+                
+                ICursosVista mCursosVista = new CursosVista();
+
+                CargarAreas(mCursosVista, areacursoservicio.GetAreasTipoCurso().ListaAreaTipoCurso);
+            
+
+                return mCursosVista;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

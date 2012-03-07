@@ -92,11 +92,11 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             if (mRet == true)
             {
-            IEstablecimientosVista establecimientosvista = new EstablecimientosVista();
+                IEstablecimientosVista establecimientosvista = new EstablecimientosVista();
 
-            establecimientosvista = establecimientoservicio.GetAllEstablecimiento();
+                establecimientosvista = establecimientoservicio.GetAllEstablecimiento();
 
-            return RedirectToAction("Ver", "Instituciones", new { INST_ID = model.Id_Institucion });
+                return RedirectToAction("Ver", "Instituciones", new { INST_ID = model.Id_Institucion });
             }
             else
             {
@@ -116,7 +116,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
 
 
-            bool mRet = establecimientoservicio.EliminarEstablecimiento(model.Id_Establecimiento);
+            bool mRet = establecimientoservicio.EliminarEstablecimiento(model.Id_Establecimiento, model.Nro_Resolucion);
 
             IEstablecimientosVista establecimientosvista = new EstablecimientosVista();
 

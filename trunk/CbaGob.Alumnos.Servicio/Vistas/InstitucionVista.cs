@@ -16,14 +16,10 @@ namespace CbaGob.Alumnos.Servicio.Vistas
     {
         public InstitucionVista()
         {
-            domicilios = new Domicilios();
-            DomicilioBusqueda = new Buscador();
+
 
         }
         public int Id_Institucion { get; set; }
-        [Required(ErrorMessage = "*")]
-        [Range(1, 99999999999999999, ErrorMessage = "*")]
-        public int Id_Domicilio { get; set; }
         [Required(ErrorMessage = "*")]
         public string Nombre_Institucion { get; set; }
         public bool espropia { get; set; }
@@ -49,8 +45,6 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public string UsuarioAlta { get; set; }
         public DateTime FechaModificacion { get; set; }
         public string UsuarioModificacion { get; set; }
-        public IDomicilios domicilios { get; set; }
-        public IBuscador DomicilioBusqueda { get; set; }
         public IList<IEstablecimiento> ListaEstablecimiento { get; set; }
         public IList<ICondicionCurso> CondicionesCursos { get; set; }
         public ICajaChicasVista CajaChica { get; set; }

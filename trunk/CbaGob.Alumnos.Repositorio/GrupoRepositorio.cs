@@ -40,7 +40,6 @@ namespace CbaGob.Alumnos.Repositorio
                                  Hr_DiaSemana = d.T_HORARIOS.HR_DIASEMANA,
                                  Hr_Fin = d.T_HORARIOS.HR_FIN,
                                  Hr_Mes = d.T_HORARIOS.HR_MES,
-                                 Id_Domicilio = d.T_ESTABLECIMINETOS.ID_DOMICILIO,
                                  FechaAlta = d.FEC_ALTA,
                                  FechaModificacion = d.FEC_MODIF ?? System.DateTime.Now,
                                  UsuarioAlta = d.USR_ALTA,

@@ -32,14 +32,10 @@ namespace CbaGob.Alumnos.Repositorio
                                     Id_Institucion = e.ID_INSTITUCION,
                                     FechaAlta = e.FEC_ALTA,
                                     FechaModificacion = e.FEC_MODIF,
-                                    Id_Domicilio = e.ID_DOMICILIO ?? 0,
                                     espropia = (e.INS_PROPIA == "1" ? "SI" : "NO"),
                                     Nombre_Institucion = e.N_INSTITUCION,
                                     UsuarioAlta = e.USR_ALTA,
                                     UsuarioModificacion = e.USR_MODIF,
-                                    DireccionCompleta =
-                                        e.T_DOMICILIO.PROVINCIA + "," + e.T_DOMICILIO.LOCALIDAD + "," +
-                                        e.T_DOMICILIO.BARRIO + "," + e.T_DOMICILIO.CALLE + "," + e.T_DOMICILIO.NRO,
                                     Provincia = e.PROVINCIA,
                                     Barrio = e.BARRIO,
                                     Localidad = e.LOCALIDAD,
@@ -88,7 +84,6 @@ namespace CbaGob.Alumnos.Repositorio
                                               USR_MODIF = institucion.UsuarioModificacion,
                                               FEC_MODIF = institucion.FechaModificacion,
                                               FEC_ALTA = DateTime.Now,
-                                              ID_DOMICILIO = institucion.Id_Domicilio,
                                               NRO = institucion.Nro,
                                               PROVINCIA = institucion.Provincia,
                                               LOCALIDAD =  institucion.Localidad,
@@ -119,7 +114,6 @@ namespace CbaGob.Alumnos.Repositorio
                 var IN = mDb.T_INSTITUCIONES.FirstOrDefault(c => c.ID_INSTITUCION == institucion.Id_Institucion);
 
                 IN.N_INSTITUCION = institucion.Nombre_Institucion;
-                IN.ID_DOMICILIO = institucion.Id_Domicilio;
                 IN.INS_PROPIA = institucion.espropia;
                 IN.FEC_MODIF = institucion.FechaModificacion;
                 IN.USR_MODIF = institucion.UsuarioModificacion;
@@ -142,7 +136,7 @@ namespace CbaGob.Alumnos.Repositorio
             }
         }
 
-        public bool EliminarInstitucion(int idinstitucion)
+        public bool EliminarInstitucion(int idinstitucion, string nro_resolucion)
         {
             try
             {
@@ -152,6 +146,7 @@ namespace CbaGob.Alumnos.Repositorio
 
                 var IN = mDb.T_INSTITUCIONES.FirstOrDefault(c => c.ID_INSTITUCION == idinstitucion);
 
+                IN.NRO_RESOLUCION = nro_resolucion;
                 IN.ESTADO = "I";
                 IN.USR_MODIF = comun.UsuarioModificacion;
                 IN.FEC_MODIF = comun.FechaModificacion;

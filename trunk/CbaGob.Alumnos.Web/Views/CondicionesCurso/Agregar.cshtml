@@ -59,14 +59,6 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <b>Nivel:</b>
-                                </td>
-                                <td>
-                                    @Html.EditorFor(c => c.Nivel)
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
                                     <b>Cantidad de Clases:</b>
                                 </td>
                                 <td>
@@ -106,7 +98,7 @@
                                     <b>Presentismo:</b>
                                 </td>
                                 <td>
-                                    @Html.TextBoxFor(c => c.Presentismo, new { style = "width:50px;", MaxLength = "3" })
+                                    @Html.TextBoxFor(c => c.Presentismo, new { style = "width:50px;", MaxLength = "3" })%
                                     @Html.ValidationMessageFor(c => c.Presentismo, "*")
                                 </td>
                             </tr>
@@ -115,8 +107,24 @@
                                     <b>Presupuesto:</b>
                                 </td>
                                 <td>
-                                    @Html.TextBoxFor(c => c.Presupuesto, new { style = "width:50px;", MaxLength = "3" })
+                                    $@Html.TextBoxFor(c => c.Presupuesto, new { style = "width:50px;", MaxLength = "3" })
                                     @Html.ValidationMessageFor(c => c.Presupuesto, "*")
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Fecha Inicio:</b>
+                                </td>
+                                <td>
+                                    @Html.EditorFor(c => c.Fecha_Inicio)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Fecha Fin:</b>
+                                </td>
+                                <td>
+                                    @Html.EditorFor(c => c.Fecha_Fin)
                                 </td>
                             </tr>
                             <tr>
@@ -127,13 +135,13 @@
                                     @Html.EditorFor(c => c.Programa)
                                 </td>
                             </tr>
-                            <tr>
+                               <tr>
                                 <td>
-                                    <b>Promedio Requerido:</b>
+                                    <b>Nro Resolucion:</b>
                                 </td>
                                 <td>
-                                    @Html.TextBoxFor(c => c.PromedioRequerido, new { style = "width:50px;", MaxLength = "4" })
-                                    @Html.ValidationMessageFor(c => c.PromedioRequerido, "*")
+                                    @Html.TextBoxFor(c => c.Nro_Resolucion, new { style = "width:100px;", MaxLength = "3" })
+                                    @Html.ValidationMessageFor(c => c.Nro_Resolucion, "*")
                                 </td>
                             </tr>
                         </table>

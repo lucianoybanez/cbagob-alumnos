@@ -46,11 +46,74 @@
                                         </tr>
                                         <tr>
                                             <td align="left">
-                                                Buscador Domicilio:
+                                                Provincia:
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.EditorFor(c => c.DomicilioBuscador)
-                                                @Html.ValidationMessageFor(m => m.Id_Domicilio)
+                                                @Html.TextBoxFor(c => c.Provincia, new { style = "width:400px;", MaxLength = "50" })
+                                                @Html.ValidationMessageFor(m => m.Provincia)
+                                            </td>
+                                        </tr>
+                                         <tr>
+                                            <td align="left">
+                                                Localidad:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Localidad, new { style = "width:350px;", MaxLength = "50" })
+                                                @Html.ValidationMessageFor(m => m.Provincia)
+                                            </td>
+                                        </tr>
+                                         <tr>
+                                            <td align="left">
+                                                Barrio:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Barrio, new { style = "width:350px;", MaxLength = "50" })
+                                                @Html.ValidationMessageFor(m => m.Provincia)
+                                            </td>
+                                        </tr>
+                                         <tr>
+                                            <td align="left">
+                                                Calle:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Calle, new { style = "width:350px;", MaxLength = "50" })
+                                                @Html.ValidationMessageFor(m => m.Provincia)
+                                            </td>
+                                        </tr>
+                                         <tr>
+                                            <td align="left">
+                                                Nro:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Nro, new { style = "width:80px;", MaxLength = "50" })
+                                                @Html.ValidationMessageFor(m => m.Provincia)
+                                            </td>
+                                        </tr>
+                                         <tr>
+                                            <td align="left">
+                                                Representante:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Resposable, new { style = "width:350px;", MaxLength = "50" })
+                                                @Html.ValidationMessageFor(m => m.Provincia)
+                                            </td>
+                                        </tr>
+                                         <tr>
+                                            <td align="left">
+                                                Emial Representante:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Emial, new { style = "width:350px;", MaxLength = "50" })
+                                                @Html.ValidationMessageFor(m => m.Provincia)
+                                            </td>
+                                        </tr>
+                                         <tr>
+                                            <td align="left">
+                                                Telefono Representante:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Telefono, new { style = "width:400px;", MaxLength = "50" })
+                                                @Html.ValidationMessageFor(m => m.Provincia)
                                             </td>
                                         </tr>
                                     </table>

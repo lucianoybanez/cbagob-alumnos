@@ -15,6 +15,7 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
         ICursosVista GetUnaVista(int id);
         bool Agregar(ICursos pCursos);
         bool Modificar(ICursos pCursos);
-        bool Eliminar(int IdCurso);
+        bool Eliminar(int IdCurso, string nroresulucion);
+        ICursosVista GetVistaIndex();
     }
 }

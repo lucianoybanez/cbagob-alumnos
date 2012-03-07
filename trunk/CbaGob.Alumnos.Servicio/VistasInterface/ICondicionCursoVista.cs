@@ -29,5 +29,8 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         string NombreModalidad { get; set; }
         IList<IGrupo> ListaGrupos { get; set; }
         IList<IAlumnos> ListaAlumno { get; set; }
+        System.DateTime Fecha_Inicio { get; set; }
+        System.DateTime Fecha_Fin { get; set; }
+        string Nro_Resolucion { get; set; }
     }
 }

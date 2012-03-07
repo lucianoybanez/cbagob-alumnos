@@ -13,6 +13,6 @@ namespace CbaGob.Alumnos.Modelo.Repositories
         ICursos GetUno(int IdCurso);
         bool Agregar(ICursos pCursos);
         bool Modificar(ICursos pCursos);
-        bool Eliminar(int IdCurso);
+        bool Eliminar(int IdCurso, string nroresolucion);
     }
 }

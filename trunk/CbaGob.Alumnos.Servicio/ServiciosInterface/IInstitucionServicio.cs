@@ -16,6 +16,6 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
         IInstitucionVista GetUnaVista(Int32 IdInstitucion);
         bool AgregarInstitucion(IInstitucion pInstitucion);
         bool ModificarInstitucion(IInstitucion pInstitucion);
-        bool EliminarInstitucion(Int32 IdInstitucion);
+        bool EliminarInstitucion(Int32 IdInstitucion, string nro_resolucion);
     }
 }

@@ -70,7 +70,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         public ActionResult EliminarCondicionCurso(int idCondicionCurso, int IdInstitucion)
         {
-            if (CondicionesCursoServicio.EliminarCondicionCurso(idCondicionCurso))
+            if (CondicionesCursoServicio.EliminarCondicionCurso(idCondicionCurso, "sss"))
             {
                 base.AddError(CondicionesCursoServicio.GetErrors());
             }
@@ -80,14 +80,14 @@ namespace CbaGob.Alumnos.Web.Controllers
         [HttpPost]
         public ActionResult CambairEstadoCurso(CondicionCursoVista vista)
         {
-           
+
             bool mret = CondicionesCursoServicio.CambiarEstadoCurso(vista.IdCondicionCurso, Convert.ToInt32(vista.EstadoCurso.Selected));
 
             return RedirectToAction("VerCondicionCurso", "CondicionesCurso", new { idCondicionCurso = vista.IdCondicionCurso });
         }
-        
 
-        public PartialViewResult BuscarCondicion(string institucion,string nivel,string curso)
+
+        public PartialViewResult BuscarCondicion(string institucion, string nivel, string curso)
         {
             return PartialView("_BuscadorCondicionCursoLista", CondicionesCursoServicio.BuscarCondiciones(institucion, nivel, curso).CondicionesCursos);
         }

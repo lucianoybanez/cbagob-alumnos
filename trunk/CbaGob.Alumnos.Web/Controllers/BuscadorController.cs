@@ -46,7 +46,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             IPersonaJuridicaServicio personajuridicaServicio = new PersonaJuridicaServicio();
             IList<IPersonaJuridica> lista = personajuridicaServicio.GetTodasByRazonSocial(busqueda);
-            
+
             return Json(lista.ToArray());
         }
 
@@ -72,12 +72,12 @@ namespace CbaGob.Alumnos.Web.Controllers
 
 
         [HttpPost]
-        public ActionResult Instituciones(string busqueda , string IdRelacionado)
+        public ActionResult Instituciones(string busqueda, string IdRelacionado)
         {
             IInstitucionServicio institucionservicio = new InstitucionServicio();
             IList<IInstitucion> lista = institucionservicio.GetTodas();
 
-            lista = lista.Where(c => (c.Nombre_Institucion.ToLower().Contains(busqueda.ToLower()) || c.DireccionCompleta.ToLower().Contains(busqueda.ToLower()))).ToList();
+            lista = lista.Where(c => (c.Nombre_Institucion.ToLower().Contains(busqueda.ToLower()))).ToList();
 
             return Json(lista.ToArray());
         }
