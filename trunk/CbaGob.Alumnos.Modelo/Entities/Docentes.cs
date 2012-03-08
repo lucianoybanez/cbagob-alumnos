@@ -12,18 +12,23 @@ namespace CbaGob.Alumnos.Modelo.Entities
         public string UsuarioAlta { get; set; }
         public DateTime FechaModificacion { get; set; }
         public string UsuarioModificacion { get; set; }
+        public string Estado { get; set; }
         public int Id_Docente { get; set; }
-        public int Id_PersonaJuridica { get; set; }
-        public int Id_Domicilio { get; set; }
         public int Id_Cargo { get; set; }
         public string N_Modalidad { get; set; }
-        public int Id_PersonaJur { get; set; }
-        public int Id_Sede { get; set; }
-        public string Cuit { get; set; }
-        public string Razon_Social { get; set; }
-        public string Estado { get; set; }
-
         public string Planta { get; set; }
         public string Reproca { get; set; }
+        public string Provincia { get; set; }
+        public string Localidad { get; set; }
+        public string Barrio { get; set; }
+        public string Calle { get; set; }
+        public int Nro { get; set; }
+        public string Cuit_Cuil { get; set; }
+        public string RazonSoial { get; set; }
+        public string Nro_Resolucion { get; set; }
+        public string Dni { get; set; }
+        public int id_tipo_docente { get; set; }
+        public string NombreTipoDocente { get; set; }
+        public string Resolucion_Reproca { get; set; }
     }
 }

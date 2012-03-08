@@ -96,9 +96,9 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             IDocentesServicio docentesservicio = new DocentesServicio();
 
-            model.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo);
+            model.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo).ListaDocentes;
 
-            model.ListaDocentesInGrupo = docentesservicio.GetDocentesInGrupo(id_grupo);
+            model.ListaDocentesInGrupo = docentesservicio.GetDocentesInGrupo(id_grupo).ListaDocentes;
 
             return View("Ver", model);
         }
@@ -119,9 +119,9 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             IDocentesServicio docentesservicio = new DocentesServicio();
 
-            model.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo);
+            model.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo).ListaDocentes;
 
-            model.ListaDocentesInGrupo = docentesservicio.GetDocentesInGrupo(id_grupo);
+            model.ListaDocentesInGrupo = docentesservicio.GetDocentesInGrupo(id_grupo).ListaDocentes;
 
             return View("Ver", model);
         }
@@ -142,9 +142,9 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             IDocentesServicio docentesservicio = new DocentesServicio();
 
-            model.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo);
+            model.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo).ListaDocentes;
 
-            model.ListaDocentesInGrupo = docentesservicio.GetDocentesInGrupo(id_grupo);
+            model.ListaDocentesInGrupo = docentesservicio.GetDocentesInGrupo(id_grupo).ListaDocentes;
 
             return View("Ver", model);
         }
@@ -167,9 +167,9 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             
 
-            model.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo);
+            model.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo).ListaDocentes;
 
-            model.ListaDocentesInGrupo = docentesservicio.GetDocentesInGrupo(id_grupo);
+            model.ListaDocentesInGrupo = docentesservicio.GetDocentesInGrupo(id_grupo).ListaDocentes;
 
             return View("Ver", model);
         }
@@ -191,9 +191,9 @@ namespace CbaGob.Alumnos.Web.Controllers
             model.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, model.Id_Condicion_Curso);
 
 
-            model.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo);
+            model.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo).ListaDocentes;
 
-            model.ListaDocentesInGrupo = docentesservicio.GetDocentesInGrupo(id_grupo);
+            model.ListaDocentesInGrupo = docentesservicio.GetDocentesInGrupo(id_grupo).ListaDocentes;
 
             return View("Ver", model);
         }

@@ -8,7 +8,7 @@
 }
 <div class="box">
     <h2>
-        Agregar Establecimientos</h2>
+        Agregar Sede</h2>
     <table align="center" style="width: 622px;">
         <tr>
             <td class="style1" style="font-weight: bold">
@@ -24,7 +24,7 @@
                             <td>
                                 <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
                                     text-align: center;">
-                                    <legend>Datos Establecimiento</legend>
+                                    <legend>Datos Sede</legend>
                                     <table align="left" id="mytable" style="font-family: Arial, Helvetica, sans-serif;
                                         font-size: 12px; width: 700px;">
                                         <tr>
@@ -41,7 +41,7 @@
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.NombreEstablecimiento, new { style = "width:400px;", MaxLength = "50" })
-                                                @Html.ValidationMessageFor(m => m.NombreEstablecimiento)
+                                                @Html.ValidationMessageFor(m => m.NombreEstablecimiento, "*")
                                             </td>
                                         </tr>
                                         <tr>
@@ -50,70 +50,65 @@
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.Provincia, new { style = "width:400px;", MaxLength = "50" })
-                                                @Html.ValidationMessageFor(m => m.Provincia)
                                             </td>
                                         </tr>
-                                         <tr>
+                                        <tr>
                                             <td align="left">
                                                 Localidad:
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.Localidad, new { style = "width:350px;", MaxLength = "50" })
-                                                @Html.ValidationMessageFor(m => m.Provincia)
                                             </td>
                                         </tr>
-                                         <tr>
+                                        <tr>
                                             <td align="left">
                                                 Barrio:
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.Barrio, new { style = "width:350px;", MaxLength = "50" })
-                                                @Html.ValidationMessageFor(m => m.Provincia)
                                             </td>
                                         </tr>
-                                         <tr>
+                                        <tr>
                                             <td align="left">
                                                 Calle:
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.Calle, new { style = "width:350px;", MaxLength = "50" })
-                                                @Html.ValidationMessageFor(m => m.Provincia)
                                             </td>
                                         </tr>
-                                         <tr>
+                                        <tr>
                                             <td align="left">
                                                 Nro:
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.Nro, new { style = "width:80px;", MaxLength = "50" })
-                                                @Html.ValidationMessageFor(m => m.Provincia)
                                             </td>
                                         </tr>
-                                         <tr>
+                                        <tr>
                                             <td align="left">
                                                 Representante:
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.Resposable, new { style = "width:350px;", MaxLength = "50" })
-                                                @Html.ValidationMessageFor(m => m.Provincia)
+                                                @Html.ValidationMessageFor(m => m.Resposable, "*")
                                             </td>
                                         </tr>
-                                         <tr>
+                                        <tr>
                                             <td align="left">
                                                 Emial Representante:
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Emial, new { style = "width:350px;", MaxLength = "50" })
-                                                @Html.ValidationMessageFor(m => m.Provincia)
+                                                @Html.TextBoxFor(c => c.Emial, new { style = "width:200px;", MaxLength = "50", type = "email" })
+                                                @Html.ValidationMessageFor(m => m.Emial, "*")
                                             </td>
                                         </tr>
-                                         <tr>
+                                        <tr>
                                             <td align="left">
                                                 Telefono Representante:
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Telefono, new { style = "width:400px;", MaxLength = "50" })
-                                                @Html.ValidationMessageFor(m => m.Provincia)
+                                                @Html.TextBoxFor(c => c.Telefono, new { style = "width:150px;", MaxLength = "50" })
+                                                @Html.ValidationMessageFor(m => m.Telefono, "*")
                                             </td>
                                         </tr>
                                     </table>
@@ -122,7 +117,6 @@
                         </tr>
                     </table>
                     @Html.HiddenFor(d => d.Id_Institucion)
-                    @Html.HiddenFor(d => d.Id_Domicilio)
                     <table id="myIntituciones" align="center" width="700px">
                         <tr>
                             <td align="right" vlign="middle">

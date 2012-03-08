@@ -15,7 +15,7 @@ namespace CbaGob.Alumnos.Modelo.Repositories
         IDocentes GetUno(int id_docente);
         bool Agregar(IDocentes docente);
         bool Modificar(IDocentes docente);
-        bool Eliminar(int id_docente);
+        bool Eliminar(int id_docente, string nroresolucion);
         bool AsignarDocentes(int id_docente, int id_grupo, int id_condicion_curso);
         bool DesasignarDocentes(int id_docente, int id_grupo, int id_condicion_curso);
     }

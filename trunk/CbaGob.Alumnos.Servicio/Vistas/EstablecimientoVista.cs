@@ -15,36 +15,31 @@ namespace CbaGob.Alumnos.Servicio.Vistas
     {
         public EstablecimientoVista()
         {
-            DomicilioBuscador = new Buscador();
-            InstitucionesBuscador = new Buscador();
+            
         }
 
         public int Id_Establecimiento { get; set; }
-
         [Required(ErrorMessage = "*")]
         [Range(1, 99999999999999999, ErrorMessage = "*")]
         public int Id_Institucion { get; set; }
-
-        [Required(ErrorMessage = "*")]
-        [Range(1, 99999999999999999, ErrorMessage = "*")]
-        public int Id_Domicilio { get; set; }
-
         [Required(ErrorMessage = "*")]
         public string NombreEstablecimiento { get; set; }
         public string Provincia { get; set; }
         public string Localidad { get; set; }
         public string Barrio { get; set; }
         public string Calle { get; set; }
-        int IEstablecimientoVista.Nro { get; set; }
+        public int Nro { get; set; }
         public int Depto { get; set; }
+        [Required]
+        [DataType(DataType.EmailAddress, ErrorMessage = "*")]
         public string Emial { get; set; }
+        [Required(ErrorMessage = "*")]
         public string Telefono { get; set; }
+        [Required(ErrorMessage = "*")]
         public string Resposable { get; set; }
-        public string Nro { get; set; }
         public string DomicilioCompleto { get; set; }
         public string NombreInstitucion { get; set; }
         public string Nro_Resolucion { get; set; }
-        public IBuscador DomicilioBuscador { get; set; }
-        public IBuscador InstitucionesBuscador { get; set; }
+       
     }
 }

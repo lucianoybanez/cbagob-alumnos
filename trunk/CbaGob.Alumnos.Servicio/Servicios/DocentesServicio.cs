@@ -2,42 +2,41 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CbaGob.Alumnos.Modelo.Entities;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Modelo.Repositories;
 using CbaGob.Alumnos.Repositorio;
 using CbaGob.Alumnos.Servicio.Comun;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
+using CbaGob.Alumnos.Servicio.Vistas;
+using CbaGob.Alumnos.Servicio.Vistas.Shared;
+using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.Servicios
 {
-    public class DocentesServicio :BaseServicio, IDocentesServicio
+    public class DocentesServicio : BaseServicio, IDocentesServicio
     {
         private IDocentesRepositorio docentesrepositorio;
+        private ICargosRepositorio cargorepositorio;
+        private ITipo_DocentesRepositorio tipodocentesrepositorio;
 
 
         public DocentesServicio()
         {
             docentesrepositorio = new DocentesRepositorio();
+            cargorepositorio = new CargosRepositorio();
+            tipodocentesrepositorio = new Tipo_DocentesRepositorio();
         }
 
-        public IList<IDocentes> GetTodos()
+        public IDocentesVista GetTodos()
         {
             try
             {
-                return docentesrepositorio.GetTodos();
-            }
-            catch (Exception ex)
-            {
-                
-                throw;
-            }
-        }
+                IDocentesVista vista = new DocentesVista();
 
-        public IList<IDocentes> GetTodosByRazonSocial(string razonsocial)
-        {
-            try
-            {
-                return docentesrepositorio.GetTodosByRazonSocial(razonsocial);
+                vista.ListaDocentes = docentesrepositorio.GetTodos();
+
+                return vista;
             }
             catch (Exception ex)
             {
@@ -46,85 +45,192 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
         }
 
-        public IDocentes GetUno(int id_docente)
+        public IDocentesVista GetIndex()
         {
             try
             {
-                return docentesrepositorio.GetUno(id_docente);
-            }
-            catch (Exception ex)
-            {
+                IDocentesVista vista = new DocentesVista();
 
-                throw;
-            }
-        }
+                vista.ListaDocentes = docentesrepositorio.GetTodos();
 
-        public bool Agregar(IDocentes docente)
-        {
-            try
-            {
-                return docentesrepositorio.Agregar(docente);
-            }
-            catch (Exception ex)
-            {
-                base.AddError("Surgio Un Error Vuelva a Intentarlo");
-                return false;
-            }
-        }
+                CaragrCargos(vista, cargorepositorio.GetTodosCargos());
 
-        public bool Modificar(IDocentes docente)
-        {
-            try
-            {
-                return docentesrepositorio.Modificar(docente);
-            }
-            catch (Exception ex)
-            {
-                base.AddError("Surgio Un Error Vuelva a Intentarlo");
-                return false;
-            }
-        }
+                CaragrTipoDocente(vista, tipodocentesrepositorio.GetTiposDocentes());
 
-        public bool Eliminar(int id_docente)
-        {
-            try
-            {
-                return docentesrepositorio.Eliminar(id_docente);
+                return vista;
             }
-            catch (Exception ex)
-            {
-                base.AddError("Surgio Un Error Vuelva a Intentarlo");
-                return false;
-            }
-        }
-
-
-        public IList<IDocentes> GetDocentesNotInGrupo(int id_grupo)
-        {
-            try
-            {
-                return docentesrepositorio.GetDocentesNotInGrupo(id_grupo);
-            }
-             catch (Exception ex)
+            catch (Exception)
             {
                 base.AddError("Surgio Un Error Vuelva a Intentarlo");
                 return null;
             }
         }
 
-        public IList<IDocentes> GetDocentesInGrupo(int id_grupo)
+        public IDocentesVista GetTodosByRazonSocial(string razonsocial)
         {
             try
             {
-                return docentesrepositorio.GetDocentesInGrupo(id_grupo);
+                IDocentesVista vista = new DocentesVista();
+
+                vista.ListaDocentes = docentesrepositorio.GetTodosByRazonSocial(razonsocial);
+
+                return vista;
             }
-             catch (Exception ex)
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        public IDocentesVista GetUno(int id_docente)
+        {
+            try
+            {
+                IDocentesVista vista = new DocentesVista();
+
+                IDocentes docente = docentesrepositorio.GetUno(id_docente);
+
+                vista.Barrio = docente.Barrio;
+                vista.Calle = docente.Calle;
+                vista.Cuit_Cuil = docente.Cuit_Cuil;
+                vista.Provincia = docente.Provincia;
+                vista.Localidad = docente.Localidad;
+                vista.NombreTipoDocente = docente.NombreTipoDocente;
+                vista.Nro = docente.Nro;
+                vista.Nro_Resolucion = docente.Nro_Resolucion;
+                vista.Reproca = docente.Reproca;
+                vista.N_Modalidad = docente.N_Modalidad;
+                vista.Id_Cargo = docente.Id_Cargo;
+                vista.Id_Docente = docente.Id_Docente;
+                vista.id_tipo_docente = docente.id_tipo_docente;
+                vista.RazonSoial = docente.RazonSoial;
+                vista.Dni = docente.Dni;
+                vista.Resolucion_Reproca = docente.Resolucion_Reproca;
+
+                CaragrCargos(vista, cargorepositorio.GetTodosCargos());
+
+                CaragrTipoDocente(vista, tipodocentesrepositorio.GetTiposDocentes());
+
+                return vista;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        public bool Agregar(IDocentesVista docente)
+        {
+            try
+            {
+                IDocentes addDocente = new Docentes();
+
+                addDocente.Barrio = docente.Barrio;
+                addDocente.Calle = docente.Calle;
+                addDocente.Cuit_Cuil = docente.Cuit_Cuil;
+                addDocente.RazonSoial = docente.RazonSoial;
+                addDocente.Provincia = docente.Provincia;
+                addDocente.Localidad = docente.Localidad;
+                addDocente.NombreTipoDocente = docente.NombreTipoDocente;
+                addDocente.Nro = docente.Nro;
+                addDocente.Nro_Resolucion = docente.Nro_Resolucion;
+                addDocente.Reproca = docente.Reproca;
+                addDocente.N_Modalidad = docente.N_Modalidad;
+                addDocente.Id_Cargo =  Convert.ToInt32(docente.cargos.Selected);
+                addDocente.Id_Docente = docente.Id_Docente;
+                addDocente.id_tipo_docente = Convert.ToInt32(docente.TiposDocentes.Selected);
+                addDocente.Resolucion_Reproca = docente.Resolucion_Reproca;
+                addDocente.Dni = docente.Dni;
+
+                return docentesrepositorio.Agregar(addDocente);
+            }
+            catch (Exception ex)
+            {
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return false;
+            }
+        }
+
+        public bool Modificar(IDocentesVista docente)
+        {
+            try
+            {
+                IDocentes addDocente = new Docentes();
+
+                addDocente.Barrio = docente.Barrio;
+                addDocente.Calle = docente.Calle;
+                addDocente.Cuit_Cuil = docente.Cuit_Cuil;
+                addDocente.RazonSoial = docente.RazonSoial;
+                addDocente.Provincia = docente.Provincia;
+                addDocente.Localidad = docente.Localidad;
+                addDocente.NombreTipoDocente = docente.NombreTipoDocente;
+                addDocente.Nro = docente.Nro;
+                addDocente.Nro_Resolucion = docente.Nro_Resolucion;
+                addDocente.Reproca = docente.Reproca;
+                addDocente.N_Modalidad = docente.N_Modalidad;
+                addDocente.Id_Cargo = Convert.ToInt32(docente.cargos.Selected);
+                addDocente.Id_Docente = docente.Id_Docente;
+                addDocente.id_tipo_docente = Convert.ToInt32(docente.TiposDocentes.Selected);
+                addDocente.Resolucion_Reproca = docente.Resolucion_Reproca;
+                addDocente.Dni = docente.Dni;
+
+                return docentesrepositorio.Modificar(addDocente);
+            }
+            catch (Exception ex)
+            {
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return false;
+            }
+        }
+
+        public bool Eliminar(int id_docente, string nroresolucion)
+        {
+            try
+            {
+                return docentesrepositorio.Eliminar(id_docente, nroresolucion);
+            }
+            catch (Exception ex)
+            {
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return false;
+            }
+        }
+
+        public IDocentesVista GetDocentesNotInGrupo(int id_grupo)
+        {
+            try
+            {
+                IDocentesVista vista = new DocentesVista();
+
+                vista.ListaDocentes = docentesrepositorio.GetDocentesNotInGrupo(id_grupo);
+
+                return vista;
+            }
+            catch (Exception ex)
             {
                 base.AddError("Surgio Un Error Vuelva a Intentarlo");
                 return null;
             }
         }
 
+        public IDocentesVista GetDocentesInGrupo(int id_grupo)
+        {
+            try
+            {
+                IDocentesVista vista = new DocentesVista();
+
+                vista.ListaDocentes = docentesrepositorio.GetDocentesInGrupo(id_grupo);
+
+                return vista;
+            }
+            catch (Exception ex)
+            {
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return null;
+            }
+        }
 
         public bool AsignarDocentes(int id_docente, int id_grupo, int id_condicion_curso)
         {
@@ -156,5 +262,30 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         {
             return base.Errors;
         }
+
+        private static void CaragrCargos(IDocentesVista vista, IList<ICargos> cargos)
+        {
+            foreach (var mod in cargos)
+            {
+                vista.cargos.Combo.Add(new ComboItem()
+                {
+                    id = mod.Id_Cargo,
+                    description = mod.N_Cargo
+                });
+            }
+        }
+
+        private static void CaragrTipoDocente(IDocentesVista vista, IList<ITipo_Docentes> tiposdocentes)
+        {
+            foreach (var mod in tiposdocentes)
+            {
+                vista.TiposDocentes.Combo.Add(new ComboItem()
+                {
+                    id = mod.Id_Tipo_Docente,
+                    description = mod.NombreTipoDocente
+                });
+            }
+        }
+
     }
 }

@@ -18,11 +18,13 @@ namespace CbaGob.Alumnos.Servicio.Servicios
     {
         private ICajaChicaRepositorio cajachicarepositorio;
         private IInstitucionRepositorio institucionrepositorio;
+        private IMovimientoRepositorio movimientorepositorio;
 
         public CajaChicaServicio()
         {
             cajachicarepositorio = new CajaChicaRepositorio();
             institucionrepositorio = new InstitucionRepositorio();
+            movimientorepositorio = new MovimientoRepositorio();
         }
 
         public ICajaChicasVista GetCajaChicas()
@@ -147,13 +149,24 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             try
             {
                 ICajaChica addcajachica = new CajaChica();
+                bool mreturn;
 
                 addcajachica.Id_Estado_Caja_Chica = Convert.ToInt32(cajachica.EstadoCaja.Selected);
                 addcajachica.Id_Institucion = cajachica.Id_Institucion;
                 addcajachica.Monto = cajachica.Monto;
                 addcajachica.Id_Caja_Chica = cajachica.Id_Caja_Chica;
 
-                return cajachicarepositorio.ModificaCajaChica(addcajachica);
+                mreturn = cajachicarepositorio.ModificaCajaChica(addcajachica);
+
+                if (mreturn == true)
+                {
+                    foreach (var caja in movimientorepositorio.GetMovimientosByCajaChica(cajachica.Id_Caja_Chica))
+                    {
+                        movimientorepositorio.EliminarMovimiento(caja.Id_Movimiento);
+                    }
+                }
+
+                return mreturn;
 
             }
             catch (Exception ex)

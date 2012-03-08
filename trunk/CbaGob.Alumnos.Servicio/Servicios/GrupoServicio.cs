@@ -41,18 +41,12 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
                 grupo = gruporepositorio.GetGrupo(id_grupo);
 
-
-                IDomicilios domicilio = new Domicilios();
-
-                domicilio = domiciliosrepositorio.GetUno(grupo.Id_Domicilio);
-
                 grupovista.Id_Domicilio = grupo.Id_Domicilio;
-                grupovista.Provincia = domicilio.Provincia;
-                grupovista.Localidad = domicilio.Localidad;
-                grupovista.Barrio = domicilio.Barrio;
-                grupovista.Calle = domicilio.Calle;
-                grupovista.Nro = domicilio.Nro;
-
+                grupovista.Provincia = grupo.Provincia;
+                grupovista.Localidad = grupo.Localidad;
+                grupovista.Barrio = grupo.Barrio;
+                grupovista.Calle = grupo.Calle;
+                grupovista.Nro = grupo.Nro;
                 grupovista.Id_Condicion_Curso = grupo.Id_Condicion_Curso;
                 grupovista.Id_Docente = grupo.Id_Docente;
                 grupovista.Id_Establecimiento = grupo.Id_Establecimiento;

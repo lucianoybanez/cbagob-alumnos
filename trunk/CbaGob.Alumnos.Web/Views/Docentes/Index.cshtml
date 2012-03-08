@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Instituciones";
     ViewBag.SubMenuSelected = "Docentes";
-Layout = "~/Views/Shared/_MasterSGC.cshtml";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
 }
 @section Stylesheets {
     @Content.Stylesheet("css/instituciones.css", Url)
@@ -11,27 +11,17 @@ Layout = "~/Views/Shared/_MasterSGC.cshtml";
     @Content.Script("CbaGob.Alumnos.Docentes.js", Url)
 }
 <div class="box">
-  <h2>Listado Docente</h2>
+    <h2>
+        Listado Docente</h2>
     <table>
         <tr>
             <td class="style1" style="font-weight: bold">
                 <div id="titulo">
-                    
                 </div>
-@*<div id="titulo">
-    <div id="ttxt">
-        Docentes</div>
-     <div id="iconobuscar">
-        @Html.ActionLink("Buscar", "", "", new { @class = "btngral" })
-    </div>
-    <div id="iconomodificar">
-       @Html.ActionLink("Nuevo", "Agregar", "Docentes", null, new { Class = "btngral" })
-    </div>
-</div>*@
-<div id="DivDocentes">
-    @Html.Partial("_DocentesLista", Model.ListaDocentes)
-</div>
-</td>
+                <div id="DivDocentes">
+                    @Html.Partial("_DocentesLista", Model.ListaDocentes)
+                </div>
+            </td>
         </tr>
     </table>
 </div>

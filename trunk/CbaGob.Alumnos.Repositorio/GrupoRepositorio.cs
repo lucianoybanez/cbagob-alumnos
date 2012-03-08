@@ -46,8 +46,14 @@ namespace CbaGob.Alumnos.Repositorio
                                  UsuarioModificacion = d.USR_MODIF,
                                  NombreGrupo = d.N_GRUPO,
                                  Nombre_Curso = d.T_CONDICIONES_CURSO.T_CURSOS.N_CURSO,
-                                 Id_Institucion = d.T_CONDICIONES_CURSO.ID_INSTITUCION ,
-                                 Nombre_Institucion = d.T_CONDICIONES_CURSO.T_INSTITUCIONES.N_INSTITUCION   
+                                 Id_Institucion = d.T_CONDICIONES_CURSO.ID_INSTITUCION,
+                                 Nombre_Institucion = d.T_CONDICIONES_CURSO.T_INSTITUCIONES.N_INSTITUCION,
+                                 Provincia = d.T_ESTABLECIMINETOS.PROVINCIA,
+                                 Localidad = d.T_ESTABLECIMINETOS.LOCALIDAD,
+                                 Barrio = d.T_ESTABLECIMINETOS.BARRIO,
+                                 Calle = d.T_ESTABLECIMINETOS.CALLE,
+                                 Nro = d.T_ESTABLECIMINETOS.NRO ?? 0
+
                              });
 
             return g;
