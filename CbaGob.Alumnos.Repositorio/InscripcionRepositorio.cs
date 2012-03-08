@@ -57,10 +57,15 @@ namespace CbaGob.Alumnos.Repositorio
                              });
             return a;
         }
-        
-        public IList<IInscripcion> GetAllInscripcion()
+
+        public IList<IInscripcion> GetAllInscripcion(int skip, int take)
         {
-            return QInscripcion().ToList();
+            return QInscripcion().OrderBy(c=> c.NombreInstitucion).Skip(skip).Take(take).ToList();
+        }
+
+        public int GetAllInscripcion()
+        {
+            return QInscripcion().Count();
         }
 
         public IList<IInscripcion> GetAllInscripcionByAlumno(int id_alumno)

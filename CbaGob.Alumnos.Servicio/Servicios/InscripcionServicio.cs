@@ -9,6 +9,7 @@ using CbaGob.Alumnos.Repositorio;
 using CbaGob.Alumnos.Servicio.Comun;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
+using CbaGob.Alumnos.Servicio.Vistas.Shared;
 using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.Servicios
@@ -17,37 +18,28 @@ namespace CbaGob.Alumnos.Servicio.Servicios
     {
         private IInscripcionRepositorio Inscripcionrepositorio;
 
-        private IInstitucionRepositorio InstitucionRepositorio;
+        private IAutenticacionServicio Aut;
 
-        private ICursosRepositorio CursosRepositorio;
-
-        private IEstadoCursoRepositorio EstadoCursoRepositorio;
-
-        private INivelRepositorio NivelRepositorio;
-
-        private IModalidadRepositorio ModalidadRepositorio;
-
-        private ICondicionCursoRepositorio CondicionCursoRepositorio;
-
-        private IProgramaRepositorio ProgramaRepositorio;
-
-
-        public InscripcionServicio(IInscripcionRepositorio inscripcionrepositorio, IInstitucionRepositorio institucionRepositorio, ICursosRepositorio cursosRepositorio, IEstadoCursoRepositorio estadoCursoRepositorio, INivelRepositorio nivelRepositorio, IModalidadRepositorio modalidadRepositorio, ICondicionCursoRepositorio condicionCursoRepositorio, IProgramaRepositorio programaRepositorio)
+        public InscripcionServicio(IInscripcionRepositorio inscripcionrepositorio, IAutenticacionServicio aut)
         {
             Inscripcionrepositorio = inscripcionrepositorio;
-            InstitucionRepositorio = institucionRepositorio;
-            CursosRepositorio = cursosRepositorio;
-            EstadoCursoRepositorio = estadoCursoRepositorio;
-            NivelRepositorio = nivelRepositorio;
-            ModalidadRepositorio = modalidadRepositorio;
-            CondicionCursoRepositorio = condicionCursoRepositorio;
-            ProgramaRepositorio = programaRepositorio;
+            Aut = aut;
         }
 
         public IInscripcionesVista GetAllInscripcion()
         {
             IInscripcionesVista inscripcionesvista = new InscripcionesVista();
-            inscripcionesvista.ListaInscripciones = Inscripcionrepositorio.GetAllInscripcion();
+            var pager = new Pager(Inscripcionrepositorio.GetAllInscripcion(), 1, "FormIndexInscripciones", Aut.GetUrl("IndexPager", "Inscripciones"));
+            inscripcionesvista.pager = pager;
+            inscripcionesvista.ListaInscripciones = Inscripcionrepositorio.GetAllInscripcion(pager.Skip,pager.PageSize);
+            return inscripcionesvista;
+        }
+
+        public IInscripcionesVista GetAllInscripcion(IPager pager)
+        {
+            IInscripcionesVista inscripcionesvista = new InscripcionesVista();
+            inscripcionesvista.pager = pager;
+            inscripcionesvista.ListaInscripciones = Inscripcionrepositorio.GetAllInscripcion(pager.Skip, pager.PageSize);
             return inscripcionesvista;
         }
 
