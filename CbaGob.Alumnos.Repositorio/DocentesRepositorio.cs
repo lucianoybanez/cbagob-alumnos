@@ -18,35 +18,44 @@ namespace CbaGob.Alumnos.Repositorio
             mDb = new CursosDB();
         }
 
+        IQueryable<IDocentes> QDocentes()
+        {
+            var a = (from c in mDb.T_DOCENTES
+                     where c.ESTADO == "A"
+                     select new Docentes
+                                {
+                                    Id_Cargo = c.ID_CARGO,
+                                    N_Modalidad = c.N_MODALIDAD,
+                                    Estado = c.ESTADO,
+                                    FechaAlta = c.FEC_ALTA,
+                                    FechaModificacion = c.FEC_MODIF,
+                                    UsuarioAlta = c.USR_ALTA,
+                                    UsuarioModificacion = c.USR_MODIF,
+                                    Id_Docente = c.ID_DOCENTE,
+                                    RazonSoial = c.RAZON_SOCIAL,
+                                    Cuit_Cuil = c.CUIT_CUIL,
+                                    Reproca = c.REPROCA,
+                                    Nro_Resolucion = c.NRO_RESOLUCION,
+                                    Provincia = c.PROVINCIA,
+                                    Barrio = c.BARRIO,
+                                    Localidad = c.LOCALIDAD,
+                                    Nro = c.NRO ?? 0,
+                                    Calle = c.CALLE,
+                                    id_tipo_docente = c.ID_TIPO_DOCENTE,
+                                    NombreTipoDocente = c.T_TIPOS_DOCENTE.N_TIPO_DOCENTE,
+                                    Resolucion_Reproca = c.ROSOL_REPROCA,
+                                    Dni = c.DNI
+                                });
+
+            return a;
+        }
+
         public IList<IDocentes> GetTodos()
         {
             try
             {
 
-                var ListRetorno = (from e in mDb.T_DOCENTES
-                                   join t in mDb.T_PERSONASJUR on e.ID_PERSONAJURIDICA equals t.ID_PERSONAJUR
-                                   where e.ESTADO == "A"
-                                   select
-                                       new Docentes
-                                           {
-                                               Id_PersonaJuridica = e.ID_PERSONAJURIDICA,
-                                               Id_Cargo = e.ID_CARGO,
-                                               Id_Domicilio = e.ID_DOMICILIO,
-                                               N_Modalidad = e.N_MODALIDAD,
-                                               Estado = e.ESTADO,
-                                               FechaAlta = e.FEC_ALTA,
-                                               FechaModificacion = e.FEC_MODIF,
-                                               UsuarioAlta = e.USR_ALTA,
-                                               UsuarioModificacion = e.USR_MODIF,
-                                               Id_Docente = e.ID_DOCENTE,
-                                               Razon_Social = t.RAZON_SOCIAL,
-                                               Cuit = t.CUIT,
-                                               Planta = e.PLANTA ?? ".",
-                                               Reproca = e.REPROCA ?? "."
-                                           }).ToList().Cast<IDocentes>().ToList();
-
-
-                return ListRetorno;
+                return QDocentes().ToList();
 
             }
             catch (Exception ex)
@@ -58,7 +67,7 @@ namespace CbaGob.Alumnos.Repositorio
 
         public IList<IDocentes> GetTodosByRazonSocial(string razonsocial)
         {
-            throw new NotImplementedException();
+            return QDocentes().Where(c => c.RazonSoial.StartsWith(razonsocial)).ToList();
         }
 
         public IDocentes GetUno(int id_docente)
@@ -66,30 +75,7 @@ namespace CbaGob.Alumnos.Repositorio
             try
             {
 
-                var Retorno = (from e in mDb.T_DOCENTES
-                               join t in mDb.T_PERSONASJUR on e.ID_PERSONAJURIDICA equals t.ID_PERSONAJUR
-                               where e.ESTADO == "A" && e.ID_DOCENTE == id_docente
-                               select
-                                   new Docentes
-                                       {
-                                           Id_PersonaJuridica = e.ID_PERSONAJURIDICA,
-                                           Id_Cargo = e.ID_CARGO,
-                                           Id_Domicilio = e.ID_DOMICILIO,
-                                           N_Modalidad = e.N_MODALIDAD,
-                                           Estado = e.ESTADO,
-                                           FechaAlta = e.FEC_ALTA,
-                                           FechaModificacion = e.FEC_MODIF,
-                                           UsuarioAlta = e.USR_ALTA,
-                                           UsuarioModificacion = e.USR_MODIF,
-                                           Id_Docente = e.ID_DOCENTE,
-                                           Razon_Social = t.RAZON_SOCIAL,
-                                           Cuit = t.CUIT,
-                                           Planta = e.PLANTA ?? ".",
-                                           Reproca = e.REPROCA ?? "."
-                                       }).SingleOrDefault();
-
-
-                return Retorno;
+                return QDocentes().Where(c => c.Id_Docente == id_docente).SingleOrDefault();
 
             }
             catch (Exception ex)
@@ -103,19 +89,29 @@ namespace CbaGob.Alumnos.Repositorio
         {
             try
             {
+                base.AgregarDatosAlta(docente);
+
                 T_DOCENTES T_Docentes = new T_DOCENTES()
                                             {
-                                                ESTADO = "A",
-                                                FEC_ALTA = DateTime.Now,
-                                                USR_ALTA = "Test",
-                                                FEC_MODIF = DateTime.Now,
-                                                USR_MODIF = "Test",
+                                                ESTADO = docente.Estado,
+                                                FEC_ALTA = docente.FechaAlta,
+                                                USR_ALTA = docente.UsuarioAlta,
+                                                FEC_MODIF = docente.FechaModificacion,
+                                                USR_MODIF = docente.UsuarioModificacion,
                                                 ID_CARGO = docente.Id_Cargo,
-                                                ID_DOMICILIO = docente.Id_Domicilio,
-                                                ID_PERSONAJURIDICA = docente.Id_PersonaJuridica,
                                                 N_MODALIDAD = docente.N_Modalidad,
-                                                PLANTA = docente.Planta,
-                                                REPROCA = docente.Reproca
+                                                REPROCA = docente.Reproca,
+                                                PROVINCIA = docente.Provincia,
+                                                LOCALIDAD = docente.Localidad,
+                                                BARRIO = docente.Barrio,
+                                                CALLE = docente.Calle,
+                                                NRO = docente.Nro,
+                                                NRO_RESOLUCION = docente.Nro_Resolucion,
+                                                ID_TIPO_DOCENTE = docente.id_tipo_docente,
+                                                ROSOL_REPROCA = docente.Resolucion_Reproca,
+                                                CUIT_CUIL = docente.Cuit_Cuil,
+                                                DNI = docente.Dni,
+                                                RAZON_SOCIAL = docente.RazonSoial
                                             };
 
 
@@ -132,17 +128,32 @@ namespace CbaGob.Alumnos.Repositorio
 
         public bool Modificar(IDocentes docente)
         {
+
+            base.AgregarDatosModificacion(docente);
+
             try
             {
                 var doc = mDb.T_DOCENTES.FirstOrDefault(c => c.ID_DOCENTE == docente.Id_Docente);
+
+                doc.ESTADO = docente.Estado;
+                doc.FEC_MODIF = docente.FechaModificacion;
+                doc.USR_MODIF = docente.UsuarioModificacion;
                 doc.ID_CARGO = docente.Id_Cargo;
-                doc.ID_DOMICILIO = docente.Id_Domicilio;
                 doc.N_MODALIDAD = docente.N_Modalidad;
-                doc.ID_PERSONAJURIDICA = docente.Id_PersonaJuridica;
-                doc.FEC_MODIF = System.DateTime.Now;
-                doc.USR_MODIF = "Test";
                 doc.REPROCA = docente.Reproca;
-                doc.PLANTA = docente.Planta;
+                doc.PROVINCIA = docente.Provincia;
+                doc.LOCALIDAD = docente.Localidad;
+                doc.BARRIO = docente.Barrio;
+                doc.CALLE = docente.Calle;
+                doc.NRO = docente.Nro;
+                doc.NRO_RESOLUCION = docente.Nro_Resolucion;
+                doc.ID_TIPO_DOCENTE = docente.id_tipo_docente;
+                doc.ROSOL_REPROCA = docente.Resolucion_Reproca;
+
+                doc.CUIT_CUIL = docente.Cuit_Cuil;
+                doc.DNI = docente.Dni;
+                doc.RAZON_SOCIAL = docente.RazonSoial;
+
                 mDb.SaveChanges();
                 return true;
             }
@@ -153,14 +164,20 @@ namespace CbaGob.Alumnos.Repositorio
             }
         }
 
-        public bool Eliminar(int id_docente)
+        public bool Eliminar(int id_docente, string nroresolucion)
         {
             try
             {
+                IComunDatos datos = new ComunDatos();
+
+                base.AgregarDatosEliminacion(datos);
+
                 var doc = mDb.T_DOCENTES.FirstOrDefault(c => c.ID_DOCENTE == id_docente);
-                doc.ESTADO = "I";
-                doc.FEC_MODIF = System.DateTime.Now;
-                doc.USR_MODIF = "Test";
+                doc.ESTADO = datos.Estado;
+                doc.FEC_MODIF = datos.FechaModificacion;
+                doc.USR_MODIF = datos.UsuarioModificacion;
+                doc.NRO_RESOLUCION = nroresolucion;
+
                 mDb.SaveChanges();
                 return true;
             }
@@ -175,30 +192,34 @@ namespace CbaGob.Alumnos.Repositorio
         {
             try
             {
-                var ListRetorno = (from e in mDb.T_DOCENTES
-                                   join t in mDb.T_PERSONASJUR on e.ID_PERSONAJURIDICA equals t.ID_PERSONAJUR
+                var ListRetorno = (from c in mDb.T_DOCENTES
                                    where
-                                       e.ESTADO == "A" &&
+                                       c.ESTADO == "A" &&
                                        !(from d in mDb.T_DOCENTES_GRUPO
                                          where d.ESTADO == "A" && d.ID_GRUPO == id_grupo
-                                         select d.ID_DOCENTE).Contains(e.ID_DOCENTE)
+                                         select d.ID_DOCENTE).Contains(c.ID_DOCENTE)
                                    select
                                        new Docentes
                                            {
-                                               Id_PersonaJuridica = e.ID_PERSONAJURIDICA,
-                                               Id_Cargo = e.ID_CARGO,
-                                               Id_Domicilio = e.ID_DOMICILIO,
-                                               N_Modalidad = e.N_MODALIDAD,
-                                               Estado = e.ESTADO,
-                                               FechaAlta = e.FEC_ALTA,
-                                               FechaModificacion = e.FEC_MODIF,
-                                               UsuarioAlta = e.USR_ALTA,
-                                               UsuarioModificacion = e.USR_MODIF,
-                                               Id_Docente = e.ID_DOCENTE,
-                                               Razon_Social = t.RAZON_SOCIAL,
-                                               Planta = e.PLANTA ?? ".",
-                                               Reproca = e.REPROCA ?? ".",
-                                               Cuit = t.CUIT
+                                               Id_Cargo = c.ID_CARGO,
+                                               N_Modalidad = c.N_MODALIDAD,
+                                               Estado = c.ESTADO,
+                                               FechaAlta = c.FEC_ALTA,
+                                               FechaModificacion = c.FEC_MODIF,
+                                               UsuarioAlta = c.USR_ALTA,
+                                               UsuarioModificacion = c.USR_MODIF,
+                                               Id_Docente = c.ID_DOCENTE,
+                                               RazonSoial = c.RAZON_SOCIAL,
+                                               Cuit_Cuil = c.CUIT_CUIL,
+                                               Reproca = c.REPROCA,
+                                               Nro_Resolucion = c.NRO_RESOLUCION,
+                                               Provincia = c.PROVINCIA,
+                                               Barrio = c.BARRIO,
+                                               Localidad = c.LOCALIDAD,
+                                               Nro = c.NRO ?? 0,
+                                               Calle = c.CALLE,
+                                               id_tipo_docente = c.ID_TIPO_DOCENTE,
+                                               NombreTipoDocente = c.T_TIPOS_DOCENTE.N_TIPO_DOCENTE
                                            }).ToList().Cast<IDocentes>().ToList();
 
 
@@ -216,31 +237,35 @@ namespace CbaGob.Alumnos.Repositorio
         {
             try
             {
-                var ListRetorno = (from e in mDb.T_DOCENTES
-                                   join t in mDb.T_PERSONASJUR on e.ID_PERSONAJURIDICA equals t.ID_PERSONAJUR
+                var ListRetorno = (from c in mDb.T_DOCENTES
                                    where
-                                       e.ESTADO == "A" &&
+                                       c.ESTADO == "A" &&
                                        (from d in mDb.T_DOCENTES_GRUPO
                                         where d.ESTADO == "A" && d.ID_GRUPO == id_grupo
-                                        select d.ID_DOCENTE).Contains(e.ID_DOCENTE)
+                                        select d.ID_DOCENTE).Contains(c.ID_DOCENTE)
                                    select
                                        new Docentes
-                                       {
-                                           Id_PersonaJuridica = e.ID_PERSONAJURIDICA,
-                                           Id_Cargo = e.ID_CARGO,
-                                           Id_Domicilio = e.ID_DOMICILIO,
-                                           N_Modalidad = e.N_MODALIDAD,
-                                           Estado = e.ESTADO,
-                                           FechaAlta = e.FEC_ALTA,
-                                           FechaModificacion = e.FEC_MODIF,
-                                           UsuarioAlta = e.USR_ALTA,
-                                           UsuarioModificacion = e.USR_MODIF,
-                                           Id_Docente = e.ID_DOCENTE,
-                                           Razon_Social = t.RAZON_SOCIAL,
-                                           Planta = e.PLANTA ?? ".",
-                                           Reproca = e.REPROCA ?? ".",
-                                           Cuit = t.CUIT
-                                       }).ToList().Cast<IDocentes>().ToList();
+                                           {
+                                               Id_Cargo = c.ID_CARGO,
+                                               N_Modalidad = c.N_MODALIDAD,
+                                               Estado = c.ESTADO,
+                                               FechaAlta = c.FEC_ALTA,
+                                               FechaModificacion = c.FEC_MODIF,
+                                               UsuarioAlta = c.USR_ALTA,
+                                               UsuarioModificacion = c.USR_MODIF,
+                                               Id_Docente = c.ID_DOCENTE,
+                                               RazonSoial = c.RAZON_SOCIAL,
+                                               Cuit_Cuil = c.CUIT_CUIL,
+                                               Reproca = c.REPROCA,
+                                               Nro_Resolucion = c.NRO_RESOLUCION,
+                                               Provincia = c.PROVINCIA,
+                                               Barrio = c.BARRIO,
+                                               Localidad = c.LOCALIDAD,
+                                               Nro = c.NRO ?? 0,
+                                               Calle = c.CALLE,
+                                               id_tipo_docente = c.ID_TIPO_DOCENTE,
+                                               NombreTipoDocente = c.T_TIPOS_DOCENTE.N_TIPO_DOCENTE
+                                           }).ToList().Cast<IDocentes>().ToList();
 
 
                 return ListRetorno;

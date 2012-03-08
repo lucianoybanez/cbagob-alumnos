@@ -74,14 +74,20 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 establecimientovista.Localidad = establecimiento.Localidad;
                 establecimientovista.Provincia = establecimiento.Provincia;
                 establecimientovista.Nro = establecimiento.Nro;
-
                 establecimientovista.NombreInstitucion = establecimiento.NombreInstitucion;
                 establecimientovista.DomicilioCompleto = establecimiento.DomicilioCompleto;
-
-
                 establecimientovista.Id_Establecimiento = establecimiento.Id_Establecimiento;
                 establecimientovista.NombreEstablecimiento = establecimiento.NombreEstablecimiento;
                 establecimientovista.Id_Institucion = establecimiento.Id_Institucion;
+                establecimientovista.Provincia = establecimiento.Provincia;
+                establecimientovista.Localidad = establecimiento.Localidad;
+                establecimientovista.Barrio = establecimiento.Barrio;
+                establecimientovista.Calle = establecimiento.Calle;
+                establecimientovista.Nro = establecimiento.Nro;
+                establecimientovista.Depto = establecimiento.Depto;
+                establecimientovista.Resposable = establecimiento.Resposable;
+                establecimientovista.Telefono = establecimiento.Telefono;
+                establecimientovista.Emial = establecimiento.Emial;
 
                 return establecimientovista;
 

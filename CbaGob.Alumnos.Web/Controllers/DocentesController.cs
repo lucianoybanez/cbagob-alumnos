@@ -34,180 +34,68 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         public ActionResult Index()
         {
-            IDocentesVista model = new DocentesVista();
-
-            model.ListaDocentes = docentesservicio.GetTodos();
-
-            return View(model);
+            return View(docentesservicio.GetTodos());
         }
 
         public ActionResult Agregar()
         {
-            DocentesVista model = new DocentesVista();
 
-            model.ListaPersonaJuridica = personajuridicaservicio.GetTodasByRazonSocial("Test");
-
-            model.BuscadorDomicilio.Name = "BuDomicilio";
-            model.BuscadorDomicilio.Tipo = "Domicilios";
-
-            model.BuscadorPersonaJur.Name = "BuPersonasJur";
-            model.BuscadorPersonaJur.Tipo = "PersonasJuridica";
-            
-            var combo = new List<IComboItem>();
-
-            foreach (var comboItem in cargosservicio.GetTodosCargos())
-            {
-                combo.Add(new ComboItem() { description = comboItem.N_Cargo, id = comboItem.Id_Cargo });
-            }
-
-            model.cargos.Combo = combo;
-
-            return View(model);
+            return View(docentesservicio.GetIndex());
         }
 
         public ActionResult Modificar(Int32 id_docente)
         {
-            IDocentes docente = docentesservicio.GetUno(id_docente);
 
             IDocentesVista model = new DocentesVista();
 
-            model.personajuridica = personajuridicaservicio.GetUno(docente.Id_PersonaJuridica);
+            model = docentesservicio.GetUno(id_docente);
 
-            model.BuscadorDomicilio.Name = "BuDomicilio";
-            model.BuscadorDomicilio.Tipo = "Domicilios";
-            
-
-            model.BuscadorPersonaJur.Name = "BuPersonasJur";
-            model.BuscadorPersonaJur.Tipo = "PersonasJuridica";
-            model.BuscadorPersonaJur.Valor = model.personajuridica.Cuit + "-" + model.personajuridica.Razon_Social;
-
-            model.domicilios = domiciliosservicios.GetUno(docente.Id_Domicilio);
-
-            model.BuscadorDomicilio.Valor = model.domicilios.Provincia + "," + model.domicilios.Localidad + "," +
-                                            model.domicilios.Barrio + "," + model.domicilios.Calle + "," +
-                                            model.domicilios.Nro;
-
-            model.ListaDomicilios = domiciliosservicios.GetTodosDomicilios();
-
-            model.ListaPersonaJuridica = personajuridicaservicio.GetTodasByRazonSocial("");
-
-            model.Planta = docente.Planta;
-            model.Reproca = docente.Reproca;
-
-            var combo = new List<IComboItem>();
-
-            foreach (var comboItem in cargosservicio.GetTodosCargos())
-            {
-                combo.Add(new ComboItem() { description = comboItem.N_Cargo, id = comboItem.Id_Cargo });
-            }
-
-            model.Id_Domicilio = docente.Id_Domicilio;
-
-            model.Id_PersonaJuridica = docente.Id_PersonaJuridica;
-
-            model.cargos.Combo = combo;
-
-            model.N_Modalidad = docente.N_Modalidad;
-
-            model.cargos.Selected = docente.Id_Cargo.ToString();  
-
-            return View("Modificar", model);
+            return View(model);
         }
 
         public ActionResult Eliminar(Int32 id_docente)
         {
-            IDocentes docente = docentesservicio.GetUno(id_docente);
-
             IDocentesVista model = new DocentesVista();
 
-            model.personajuridica = personajuridicaservicio.GetUno(docente.Id_PersonaJuridica);
+            model = docentesservicio.GetUno(id_docente);
 
-            model.DatosCompletosPerJur = model.personajuridica.Cuit + "," + model.personajuridica.Razon_Social;
-
-            model.domicilios = domiciliosservicios.GetUno(docente.Id_Domicilio);
-
-            model.DatosCompletosDomicilio = model.domicilios.Provincia + "," + model.domicilios.Localidad + "," +
-                                            model.domicilios.Barrio + "," + model.domicilios.Calle + "," +
-                                            model.domicilios.Nro;
-
-            model.ListaDomicilios = domiciliosservicios.GetTodosDomicilios();
-
-            model.ListaPersonaJuridica = personajuridicaservicio.GetTodasByRazonSocial("");
-
-            var combo = new List<IComboItem>();
-
-            foreach (var comboItem in cargosservicio.GetTodosCargos())
-            {
-                combo.Add(new ComboItem() { description = comboItem.N_Cargo, id = comboItem.Id_Cargo });
-            }
-
-            model.Id_Domicilio = docente.Id_Domicilio;
-
-            model.Id_PersonaJuridica = docente.Id_PersonaJuridica;
-
-            model.cargos.Combo = combo;
-
-            model.Planta = docente.Planta;
-            model.Reproca = docente.Reproca;
-
-            model.N_Modalidad = docente.N_Modalidad;
-
-            model.cargos.Selected = docente.Id_Cargo.ToString();
+            model.TiposDocentes.Enabled = false;
 
             model.cargos.Enabled = false;
 
-            return View("Eliminar", model);
+            model.Nro_Resolucion = "";
+
+            return View(model);
         }
 
         [HttpPost]
         public ActionResult Agregar_Docente(DocentesVista model)
         {
-            IDocentes docentes = new Docentes();
 
-            docentes.N_Modalidad = model.N_Modalidad;
-            docentes.Id_PersonaJuridica = model.Id_PersonaJuridica;
-            docentes.Id_Domicilio = model.Id_Domicilio;
-            docentes.Id_Cargo = Convert.ToInt32(model.cargos.Selected);
-            docentes.Planta = model.Planta;
-            docentes.Reproca = model.Reproca;
+            bool mret = docentesservicio.Agregar(model);
 
-            bool mret = docentesservicio.Agregar(docentes);
+            IDocentesVista vista = docentesservicio.GetIndex();
 
-            model.ListaDocentes = docentesservicio.GetTodos();
-
-            return View("Index", model);
+            return View("Index", vista);
         }
 
         [HttpPost]
         public ActionResult Modificar_Docente(DocentesVista model)
         {
-            IDocentes docentes = new Docentes();
 
-            docentes.N_Modalidad = model.N_Modalidad;
-            docentes.Id_PersonaJuridica = model.Id_PersonaJuridica;
-            docentes.Id_Domicilio = model.Id_Domicilio;
-            docentes.Id_Cargo = Convert.ToInt32(model.cargos.Selected);
-            docentes.Id_Docente = model.Id_Docente;
-            docentes.Planta = model.Planta;
-            docentes.Reproca = model.Reproca;
+            bool mret = docentesservicio.Modificar(model);
 
-            bool mret = docentesservicio.Modificar(docentes);
-
-            model.ListaDocentes = docentesservicio.GetTodos();
-
-            return View("Index", model);
+            return View("Index", docentesservicio.GetIndex());
         }
 
-          [HttpPost]
+        [HttpPost]
         public ActionResult Eliminar_Docente(DocentesVista model)
         {
 
-            bool mret = docentesservicio.Eliminar(model.Id_Docente);
+            bool mret = docentesservicio.Eliminar(model.Id_Docente, model.Nro_Resolucion);
 
-            model.ListaDocentes = docentesservicio.GetTodos();
-
-            return View("Index", model);
+            return View("Index", docentesservicio.GetIndex());
         }
-        
+
     }
 }

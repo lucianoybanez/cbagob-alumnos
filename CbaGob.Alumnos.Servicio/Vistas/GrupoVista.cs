@@ -35,7 +35,7 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public string Localidad { get; set; }
         public string Barrio { get; set; }
         public string Calle { get; set; }
-        public string Nro { get; set; }
+        public int Nro { get; set; }
         public int Id_PersonaJuridica { get; set; }
         public string Cuit { get; set; }
         public string RazonSoial { get; set; }

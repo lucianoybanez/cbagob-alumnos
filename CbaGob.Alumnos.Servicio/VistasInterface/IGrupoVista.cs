@@ -24,7 +24,7 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         string Localidad { get; set; }
         string Barrio { get; set; }
         string Calle { get; set; }
-        string Nro { get; set; }
+        int Nro { get; set; }
 
         int Id_PersonaJuridica { get; set; }
         string Cuit { get; set; }

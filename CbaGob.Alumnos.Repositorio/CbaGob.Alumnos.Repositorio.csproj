@@ -83,6 +83,7 @@
     <Compile Include="ProvinciasRepositorio.cs" />
     <Compile Include="SupervicionesRepositorio.cs" />
     <Compile Include="SupervisoresRepositorio.cs" />
+    <Compile Include="Tipo_DocentesRepositorio.cs" />
     <Compile Include="UsuarioRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>

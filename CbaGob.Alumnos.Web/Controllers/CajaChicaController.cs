@@ -82,7 +82,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             bool mreturn = cajachicaservicio.EliminarCajaChica(model.Id_Caja_Chica);
 
-            if (mreturn )
+            if (mreturn)
             {
                 return RedirectToAction("Ver", "Instituciones", new { INST_ID = model.Id_Institucion });
             }
@@ -91,7 +91,7 @@ namespace CbaGob.Alumnos.Web.Controllers
                 ICajaChicaVista vista = cajachicaservicio.GetCajaChica(model.Id_Caja_Chica);
                 return View("Eliminar", vista);
             }
-           
+
         }
 
         public ActionResult Ver(int id_institucion, int Id_Caja_Chica)
@@ -99,6 +99,15 @@ namespace CbaGob.Alumnos.Web.Controllers
             ICajaChicaVista model = cajachicaservicio.GetCajaChica(Id_Caja_Chica);
 
             model.Moviminetos = movimientoservicio.GetMovimientosByCajaChica(Id_Caja_Chica);
+
+            decimal montototalmovimineto = 0;
+
+            foreach (var movimientos in model.Moviminetos.ListaMoviento)
+            {
+                montototalmovimineto = montototalmovimineto + movimientos.Monto;
+            }
+
+            model.SaldoCaja = model.Monto - montototalmovimineto;
 
             return View(model);
         }

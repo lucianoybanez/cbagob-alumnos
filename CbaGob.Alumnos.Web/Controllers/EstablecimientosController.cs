@@ -46,30 +46,14 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             model.NombreInstitucion = institucionservicio.GetUnaVista(Id_institucion).Nombre_Institucion;
 
-
-            model.DomicilioBuscador.Tipo = "Domicilios";
-            model.DomicilioBuscador.Name = "BuDomicilio";
-
-            model.InstitucionesBuscador.Tipo = "Instituciones";
-            model.InstitucionesBuscador.Name = "BuInstituciones";
-
             return View(model);
         }
-
 
         public ActionResult Modificar(int id_establecimiento)
         {
             IEstablecimientoVista model;
 
             model = establecimientoservicio.GetEstablecimiento(id_establecimiento);
-
-            model.DomicilioBuscador.Tipo = "Domicilios";
-            model.DomicilioBuscador.Name = "BuDomicilio";
-            model.DomicilioBuscador.Valor = model.DomicilioCompleto;
-
-            model.InstitucionesBuscador.Tipo = "Instituciones";
-            model.InstitucionesBuscador.Name = "BuInstituciones";
-            model.InstitucionesBuscador.Valor = model.NombreInstitucion;
 
             return View(model);
         }
@@ -103,10 +87,6 @@ namespace CbaGob.Alumnos.Web.Controllers
                 base.AddError(establecimientoservicio.GetErrors());
                 model.Id_Institucion = model.Id_Institucion;
                 model.NombreInstitucion = institucionservicio.GetUnaVista(model.Id_Institucion).Nombre_Institucion;
-                model.DomicilioBuscador.Tipo = "Domicilios";
-                model.DomicilioBuscador.Name = "BuDomicilio";
-                model.InstitucionesBuscador.Tipo = "Instituciones";
-                model.InstitucionesBuscador.Name = "BuInstituciones";
                 return View("Agregar", model);
             }
         }

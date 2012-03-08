@@ -16,5 +16,6 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         string NombreEstadoCaja { get; set; }
         IComboBox EstadoCaja { get; set; }
         IMovimientosVista Moviminetos { get; set; }
+        decimal SaldoCaja { get; set; }
     }
 }

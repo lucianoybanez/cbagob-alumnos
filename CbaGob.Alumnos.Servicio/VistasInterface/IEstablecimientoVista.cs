@@ -12,7 +12,6 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
     {
         int Id_Establecimiento { get; set; }
         int Id_Institucion { get; set; }
-        int Id_Domicilio { get; set; }
         string NombreEstablecimiento { get; set; }
         string Provincia { get; set; }
         string Localidad { get; set; }
@@ -26,7 +25,5 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         string DomicilioCompleto { get; set; }
         string NombreInstitucion { get; set; }
         string Nro_Resolucion { get; set; }
-        IBuscador DomicilioBuscador { get; set; }
-        IBuscador InstitucionesBuscador { get; set; }
     }
 }
