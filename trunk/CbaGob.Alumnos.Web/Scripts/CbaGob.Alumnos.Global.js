@@ -9,6 +9,31 @@ cbaAlumnosGlobal = function () {
 
     function init() {
 
+        setPager();
+
+    }
+
+    function setPager() {
+
+        var PageNumber = parseInt($("#PageNumber").val());
+        var PageCount = parseInt($("#TotalPages").val());
+
+        PageClick = function(pageclickednumber) {
+            $("#PageNumber").val(pageclickednumber);
+            $("#pager").pager({ pagenumber: pageclickednumber, pagecount: PageCount, buttonClickCallback: PageClick });
+            var formName = $('#FormName').val();
+
+            $('#' + formName).attr('action', $("#ActionName").val());
+            $('#' + formName).submit();
+        };
+
+        if (parseInt($("#TotalPages").val()) > 1) {
+            $("#pager").pager({ pagenumber: PageNumber, pagecount: PageCount, buttonClickCallback: PageClick });
+            $("#pager").show();
+        }
+        else {
+            $("#pager").hide();
+        }
     }
 
     function changeCombo(idCombo, idForm, urlToChange) {

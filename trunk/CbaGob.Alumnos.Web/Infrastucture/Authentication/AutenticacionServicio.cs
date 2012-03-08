@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using System.Web.Security;
 using CbaGob.Alumnos.Servicio.Comun;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
@@ -77,5 +78,13 @@ namespace CbaGob.Alumnos.Web.Infrastucture
             // Manually add the authCookie to the Cookies collection
             m_responseBase.Cookies.Add(m_Cookie);
         }
+
+        public string GetUrl(string action,string controller)
+        {
+            UrlHelper url = new UrlHelper(HttpContext.Current.Request.RequestContext);
+            var result = url.Action(action, controller);
+            return result;
+        }
+
     }
 }

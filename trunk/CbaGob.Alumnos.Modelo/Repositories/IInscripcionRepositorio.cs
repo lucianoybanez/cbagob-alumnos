@@ -8,7 +8,8 @@ namespace CbaGob.Alumnos.Modelo.Repositories
 {
     public interface IInscripcionRepositorio
     {
-        IList<IInscripcion> GetAllInscripcion();
+        IList<IInscripcion> GetAllInscripcion(int skip, int take);
+        int GetAllInscripcion();
         IList<IInscripcion> GetAllInscripcionByAlumno(int id_alumno);
         IList<IInscripcion> GetAllInscripcionByGrupo(int idGrupo);
         int GetInscripcionIdByAlumnoGrupo(int idGrupo, int idAlumno);

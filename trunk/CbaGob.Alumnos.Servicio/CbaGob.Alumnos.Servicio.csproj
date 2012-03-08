@@ -174,6 +174,7 @@
     <Compile Include="Vistas\PrestamoVista.cs" />
     <Compile Include="Vistas\Shared\Buscador.cs" />
     <Compile Include="Vistas\Shared\ComboBox.cs" />
+    <Compile Include="Vistas\Shared\Pager.cs" />
     <Compile Include="Vistas\SupervicionesVista.cs" />
     <Compile Include="Vistas\SupervicionVista.cs" />
     <Compile Include="Vistas\SupervisoresVista.cs" />

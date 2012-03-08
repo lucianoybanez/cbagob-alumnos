@@ -24,6 +24,12 @@
                     <div style="text-align: center;" >  
                     @Html.Partial("_ListaInscripciones", Model.ListaInscripciones)
                     </div>
+                    <div style="text-align: left;" >  
+                    @using (Html.BeginForm("IndexPager","Inscripciones",FormMethod.Post, new {id = "FormIndexInscripciones"}))
+                    {
+                        @Html.Partial("_Pager", Model.pager)
+                    }                    
+                    </div>
 
                     <div style="text-align: right;" >  
                     @Html.ActionLink("Agregar Inscripcion", "Agregar", "Inscripciones", null, new { @class = "btnIngresar" })
