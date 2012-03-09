@@ -65,6 +65,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 grupovista.Nombre_Institucion = grupo.Nombre_Institucion;
                 grupovista.Nombre_Curso = grupo.Nombre_Curso;
                 grupovista.Id_Institucion = grupo.Id_Institucion;
+                grupovista.Nro_Resolucion = grupo.Nro_Resolucion; 
 
                 return grupovista;
 
@@ -116,6 +117,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 grupoadd.Id_Horario = grupo.Id_Horario;
                 grupoadd.NombreGrupo = grupo.NombreGrupo;
                 grupoadd.Capacidad = grupo.Capacidad;
+                grupoadd.Nro_Resolucion = grupo.Nro_Resolucion;
 
                 return gruporepositorio.AgregarGrupo(grupoadd);
             }
@@ -141,6 +143,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 grupoadd.NombreGrupo = grupo.NombreGrupo;
                 grupoadd.Capacidad = grupo.Capacidad;
                 grupoadd.Id_Grupo = grupo.Id_Grupo;
+                grupoadd.Nro_Resolucion = grupo.Nro_Resolucion;
 
                 return gruporepositorio.ModificarGrupo(grupoadd);
             }
@@ -154,11 +157,11 @@ namespace CbaGob.Alumnos.Servicio.Servicios
           
         }
 
-        public bool EliminarGrupo(int id_grupo)
+        public bool EliminarGrupo(int id_grupo, string nro_resolucion)
         {
             try
             {
-                return gruporepositorio.EliminarGrupo(id_grupo);
+                return gruporepositorio.EliminarGrupo(id_grupo, nro_resolucion);
             }
             catch (Exception ex)
             {

@@ -63,8 +63,8 @@ namespace CbaGob.Alumnos.Web.Controllers
             IPersona persona = new Persona();
             persona.Nro_Documento = model.Nro_Documento;
             persona.Cuil = model.Cuil;
-            persona.Nov_Apellido = model.Nov_Apellido;
-            persona.Nov_Nombre = model.Nov_Nombre;
+            persona.Nov_Apellido = model.Apellido;
+            persona.Nov_Nombre = model.Nombre;
             persona.Id_Estado_Civil = model.EstadoCivil.Selected.ToString();
             persona.Id_Sexo = model.Sexo.Selected.ToString();
             persona.Id_Tipo_Documento = model.TipoDocumento.Selected.ToString();

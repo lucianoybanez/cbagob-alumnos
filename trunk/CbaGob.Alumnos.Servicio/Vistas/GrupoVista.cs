@@ -53,6 +53,8 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public string Nombre_Institucion { get; set; }
         public string Nombre_Curso { get; set; }
         public IBuscador BuscadorEstablecimientos { get; set; }
+        [Required(ErrorMessage = "*")]
+        public string Nro_Resolucion { get; set; }
 
         public IList<IDocentes> ListaDocentesNoGrupo { get; set; }
         public IList<IDocentes> ListaDocentesInGrupo { get; set; }

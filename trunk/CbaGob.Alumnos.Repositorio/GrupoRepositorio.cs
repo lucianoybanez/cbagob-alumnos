@@ -52,7 +52,9 @@ namespace CbaGob.Alumnos.Repositorio
                                  Localidad = d.T_ESTABLECIMINETOS.LOCALIDAD,
                                  Barrio = d.T_ESTABLECIMINETOS.BARRIO,
                                  Calle = d.T_ESTABLECIMINETOS.CALLE,
-                                 Nro = d.T_ESTABLECIMINETOS.NRO ?? 0
+                                 Nro = d.T_ESTABLECIMINETOS.NRO ?? 0,
+                                 Nro_Resolucion = d.NRO_RESOLUCION
+
 
                              });
 
@@ -120,7 +122,8 @@ namespace CbaGob.Alumnos.Repositorio
                                            USR_ALTA = grupo.UsuarioAlta,
                                            USR_MODIF = grupo.UsuarioModificacion,
                                            ESTADO = grupo.Estado,
-                                           N_GRUPO = grupo.NombreGrupo
+                                           N_GRUPO = grupo.NombreGrupo,
+                                           NRO_RESOLUCION = grupo.Nro_Resolucion
                                        };
 
                 mDB.AddToT_GRUPOS(t_grupo);
@@ -149,6 +152,7 @@ namespace CbaGob.Alumnos.Repositorio
                 t_grupo.N_GRUPO = grupo.NombreGrupo;
                 t_grupo.FEC_MODIF = grupo.FechaModificacion;
                 t_grupo.USR_MODIF = grupo.UsuarioModificacion;
+                t_grupo.NRO_RESOLUCION = grupo.Nro_Resolucion;
 
                 mDB.SaveChanges();
                 return true;
@@ -160,7 +164,7 @@ namespace CbaGob.Alumnos.Repositorio
             }
         }
 
-        public bool EliminarGrupo(int id_grupo)
+        public bool EliminarGrupo(int id_grupo, string nro_resolucion)
         {
             try
             {
@@ -172,6 +176,7 @@ namespace CbaGob.Alumnos.Repositorio
                 t_grupo.ESTADO = comun.Estado;
                 t_grupo.FEC_MODIF = comun.FechaModificacion;
                 t_grupo.USR_MODIF = comun.UsuarioModificacion;
+                t_grupo.NRO_RESOLUCION = nro_resolucion;
 
                 mDB.SaveChanges();
 

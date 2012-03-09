@@ -77,7 +77,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             model = gruposervicio.GetGrupo(id_grupo);
 
-           
+            model.Nro_Resolucion = "";
 
             return View(model);
         }
@@ -90,9 +90,9 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             model = gruposervicio.GetGrupo(id_grupo);
 
-            model.ListaAlumnos = alumnosservicios.GetTodosAlumnosSinGrupo(model.Id_Condicion_Curso);
+            model.ListaAlumnos = alumnosservicios.GetTodosAlumnosSinGrupo(model.Id_Condicion_Curso).ListaAlumno;
 
-            model.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, model.Id_Condicion_Curso);
+            model.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, model.Id_Condicion_Curso).ListaAlumno;
 
             IDocentesServicio docentesservicio = new DocentesServicio();
 
@@ -113,9 +113,9 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             bool mret = alumnosservicios.AsiganraGrupo(id_grupo, id_alumno, id_condicon_curso);
 
-            model.ListaAlumnos = alumnosservicios.GetTodosAlumnosSinGrupo(model.Id_Condicion_Curso);
+            model.ListaAlumnos = alumnosservicios.GetTodosAlumnosSinGrupo(model.Id_Condicion_Curso).ListaAlumno;
 
-            model.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, model.Id_Condicion_Curso);
+            model.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, model.Id_Condicion_Curso).ListaAlumno;
 
             IDocentesServicio docentesservicio = new DocentesServicio();
 
@@ -136,9 +136,9 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             bool mret = alumnosservicios.DesasignaraGrupo(id_grupo, id_alumno, id_condicon_curso);
 
-            model.ListaAlumnos = alumnosservicios.GetTodosAlumnosSinGrupo(model.Id_Condicion_Curso);
+            model.ListaAlumnos = alumnosservicios.GetTodosAlumnosSinGrupo(model.Id_Condicion_Curso).ListaAlumno;
 
-            model.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, model.Id_Condicion_Curso);
+            model.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, model.Id_Condicion_Curso).ListaAlumno;
 
             IDocentesServicio docentesservicio = new DocentesServicio();
 
@@ -161,9 +161,9 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             bool mret = docentesservicio.AsignarDocentes(id_docente, id_grupo, model.Id_Condicion_Curso);
 
-            model.ListaAlumnos = alumnosservicios.GetTodosAlumnosSinGrupo(model.Id_Condicion_Curso);
+            model.ListaAlumnos = alumnosservicios.GetTodosAlumnosSinGrupo(model.Id_Condicion_Curso).ListaAlumno;
 
-            model.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, model.Id_Condicion_Curso);
+            model.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, model.Id_Condicion_Curso).ListaAlumno;
 
             
 
@@ -186,9 +186,9 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             bool mret = docentesservicio.DesasignarDocentes(id_docente, id_grupo, model.Id_Condicion_Curso);
 
-            model.ListaAlumnos = alumnosservicios.GetTodosAlumnosSinGrupo(model.Id_Condicion_Curso);
+            model.ListaAlumnos = alumnosservicios.GetTodosAlumnosSinGrupo(model.Id_Condicion_Curso).ListaAlumno;
 
-            model.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, model.Id_Condicion_Curso);
+            model.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, model.Id_Condicion_Curso).ListaAlumno;
 
 
             model.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo).ListaDocentes;
@@ -212,7 +212,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         [HttpPost]
         public ActionResult Eliminar_Grupo(GrupoVista model)
         {
-            bool mRet = gruposervicio.EliminarGrupo(model.Id_Grupo);
+            bool mRet = gruposervicio.EliminarGrupo(model.Id_Grupo, model.Nro_Resolucion);
 
             return RedirectToAction("VerCondicionCurso", "CondicionesCurso", new { idCondicionCurso = model.Id_Condicion_Curso, IdInstitucion = model.Id_Institucion });
         }

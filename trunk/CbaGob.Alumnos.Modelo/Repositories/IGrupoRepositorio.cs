@@ -13,6 +13,6 @@ namespace CbaGob.Alumnos.Modelo.Repositories
         IList<IGrupo> GetAllGrupoByCurso(int id_condicioncurso);
         bool AgregarGrupo(IGrupo grupo);
         bool ModificarGrupo(IGrupo grupo);
-        bool EliminarGrupo(int id_grupo);
+        bool EliminarGrupo(int id_grupo, string nro_resolucion);
     }
 }

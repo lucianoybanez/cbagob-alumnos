@@ -102,6 +102,15 @@
                                 @Html.ValidationMessageFor(m => m.Telefono, "*")
                             </td>
                         </tr>
+                        <tr>
+                            <td align="left">
+                                Nro Resolucion:
+                            </td>
+                            <td align="left" valign="middle">
+                                @Html.TextBoxFor(c => c.Nro_Resolucion, new { style = "width:150px;", MaxLength = "50" })
+                                @Html.ValidationMessageFor(m => m.Nro_Resolucion, "*")
+                            </td>
+                        </tr>
                     </table>
     
                     @Html.HiddenFor(d => d.Id_Establecimiento)

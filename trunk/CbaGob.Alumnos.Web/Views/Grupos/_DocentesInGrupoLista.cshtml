@@ -2,7 +2,7 @@
 @if (Model.ListaDocentesInGrupo != null && Model.ListaDocentesInGrupo.Count > 0)
 { 
     <div id="grilla" style="text-align: center;">
-        <table class="TablaPersonal" align="center" width="690px" cellpadding="0" cellspacing="0">
+        <table class="TablaPersonal" align="center" width="665px" cellpadding="0" cellspacing="0">
             <thead>
                 <tr>
                     <th height="30" width="180px">
@@ -15,11 +15,7 @@
                     </th>
                     <th height="30">
                         <div align="center">
-                            Planta</div>
-                    </th>
-                    <th height="30">
-                        <div align="center">
-                            Reproca</div>
+                            Planta/Reproca</div>
                     </th>
                     <th height="30">
                     </th>
@@ -30,19 +26,16 @@
                 {
                     <tr>
                         <td height="30">
-                            @item.Cuit
+                            @item.Cuit_Cuil
                         </td>
                         <td height="30">
-                            @item.Razon_Social
+                            @item.RazonSoial
                         </td>
                         <td height="30">
-                            @item.Planta
+                            @(item.Reproca == "S" ? "Reproca" : "Planta")
                         </td>
                         <td height="30">
-                            @item.Reproca
-                        </td>
-                        <td height="30">
-                            @Html.ActionLink("Sacar del Grupo", "DesasignarDocente", "Grupos", new { id_grupo = Model.Id_Grupo, id_docente = @item.Id_Docente}, new { @class = "btnIngresar" })
+                            @Html.ActionLink("Sacar del Grupo", "DesasignarDocente", "Grupos", new { id_grupo = Model.Id_Grupo, id_docente = @item.Id_Docente }, new { @class = "btnIngresar" })
                         </td>
                     </tr>
                 }
@@ -53,7 +46,7 @@
 else
 {
     <div id="tab" style="text-align: center;">
-        <table align="center" width="690px" id="mytable">
+        <table align="center" width="665px" id="mytable">
             <thead>
                 <tr>
                     <th height="30">

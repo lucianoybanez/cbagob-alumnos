@@ -8,32 +8,20 @@
     @Content.Stylesheet("css/instituciones.css", Url)
 }
 @section Scripts{
-    @Content.Script("CbaGob.Alumnos.Alumnos.js",Url)
+    @Content.Script("CbaGob.Alumnos.Alumnos.js", Url)
 }
-
 <div class="box">
-  <h2>Listado de Alumnos</h2>
+    <h2>
+        Listado de Alumnos</h2>
     <table>
         <tr>
             <td class="style1" style="font-weight: bold">
                 <div id="titulo">
-                    
                 </div>
-
-@*<div id="titulo">
-    <div id="ttxt">
-        Alumnos</div>
-     <div id="iconobuscar">
-        @Html.ActionLink("Buscar", "", "",  new { @class = "btngral" })
-    </div>
-    <div id="iconomodificar">
-       @Html.ActionLink("Nuevo", "Agregar", "Alumnos", null, new { Class = "btngral" })
-    </div>
-</div>*@
-<div id="DivDocentes">
-    @Html.Partial("_AlumnosLista", Model.ListaAlumno)
-</div>
-</td>
+                <div id="DivDocentes">
+                    @Html.Partial("_AlumnosLista", Model.ListaAlumno)
+                </div>
+            </td>
         </tr>
     </table>
 </div>

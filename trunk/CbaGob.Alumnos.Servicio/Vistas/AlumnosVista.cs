@@ -24,19 +24,31 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public int Id_Alumno { get; set; }
 
         [Required(ErrorMessage = "*")]
-        [Range(1, 99999999999999999, ErrorMessage = "*")]
-        public int Id_Persona { get; set; }
-        public string Nov_Apellido { get; set; }
-        public string Nov_Nombre { get; set; }
-        public string Cuil { get; set; }
-        public DateTime Fecha_Nacimiento { get; set; }
-        public IComboBox Sexo { get; set; }
+        public string Nombre { get; set; }
+        [Required(ErrorMessage = "*")]
+        public string Apellido { get; set; }
+        [Required(ErrorMessage = "*")]
         public string Nro_Documento { get; set; }
+        public DateTime Fecha_Nacimiento { get; set; }
+        [Required(ErrorMessage = "*")]
+        public string Cuil { get; set; }
+        public int Id_Tipo_Dni { get; set; }
+        public int Id_Tipo_Estado_Civil { get; set; }
+        public int Id_Tipo_Sexo { get; set; }
+        public string TipoSexo { get; set; }
+        public string TipoEstadoCivil { get; set; }
+        public string Tipo_Dni { get; set; }
+        [Required(ErrorMessage = "*")]
+        public string Nro_Resolucion { get; set; }
+        public IComboBox Sexo { get; set; }
         public IComboBox TipoDocumento { get; set; }
         public IComboBox EstadoCivil { get; set; }
-        public string Estado { get; set; }
         public IList<IAlumnos> ListaAlumno { get; set; }
         public IList<IPersona> ListaPersona { get; set; }
         public IPersona persona { get; set; }
+         [Required(ErrorMessage = "*")]
+        public string Nro_Telefono { get; set; }
+         [Required(ErrorMessage = "*")]
+        public string Nro_Celular { get; set; }
     }
 }

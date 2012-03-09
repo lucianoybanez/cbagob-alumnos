@@ -79,9 +79,9 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         public ActionResult BuscarAlumno(string term)
         {
-            var alumnos = AlumnosServicios.GetTodos()
-                          .Where(c => c.Nov_Nombre.ToLower().Contains(term.ToLower()))
-                          .Take(10).Select(c => new {label = c.Nov_Nombre});
+            var alumnos = AlumnosServicios.GetTodos().ListaAlumno
+                          .Where(c => c.Nombre.ToLower().Contains(term.ToLower()))
+                          .Take(10).Select(c => new { label = c.Nombre });
             return Json(alumnos, JsonRequestBehavior.AllowGet);
 
         }

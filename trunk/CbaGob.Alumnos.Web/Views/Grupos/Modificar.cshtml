@@ -72,6 +72,15 @@
                                                 @Html.ValidationMessageFor(c => c.Id_Establecimiento, "*")
                                             </td>
                                         </tr>
+                                         <tr>
+                                            <td align="left">
+                                                Nro Resolucion:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Nro_Resolucion, new { style = "width:150px;", MaxLength = "50" })
+                                                @Html.ValidationMessageFor(c => c.Nro_Resolucion, "*")
+                                            </td>
+                                        </tr>
                                     </table>
                                 </fieldset>
                             </td>

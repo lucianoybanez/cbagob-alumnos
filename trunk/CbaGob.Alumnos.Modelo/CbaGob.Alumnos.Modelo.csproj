@@ -101,8 +101,11 @@
     <Compile Include="Entities\Interfaces\ISuperviciones.cs" />
     <Compile Include="Entities\Interfaces\ISupervisores.cs" />
     <Compile Include="Entities\Interfaces\ITelefono.cs" />
+    <Compile Include="Entities\Interfaces\ITipo_Dni.cs" />
     <Compile Include="Entities\Interfaces\ITipo_Docentes.cs" />
+    <Compile Include="Entities\Interfaces\ITipo_EstadoCivil.cs" />
     <Compile Include="Entities\Interfaces\ITipo_Movimiento.cs" />
+    <Compile Include="Entities\Interfaces\ITipo_Sexo.cs" />
     <Compile Include="Entities\Interfaces\IUsuario.cs" />
     <Compile Include="Entities\Presentismo.cs" />
     <Compile Include="Entities\Modalidad.cs" />
@@ -117,8 +120,11 @@
     <Compile Include="Entities\Rol.cs" />
     <Compile Include="Entities\Superviciones.cs" />
     <Compile Include="Entities\Supervisores.cs" />
+    <Compile Include="Entities\Tipo_Dni.cs" />
     <Compile Include="Entities\Tipo_Docentes.cs" />
+    <Compile Include="Entities\Tipo_EstadoCivil.cs" />
     <Compile Include="Entities\Tipo_Movimiento.cs" />
+    <Compile Include="Entities\Tipo_Sexo.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IAlumnosRepositorio.cs">
@@ -174,7 +180,10 @@
     </Compile>
     <Compile Include="Repositories\ISupervicionesRepositorio.cs" />
     <Compile Include="Repositories\ISupervisoresRepositorio.cs" />
+    <Compile Include="Repositories\ITipo_DniRepositorio.cs" />
     <Compile Include="Repositories\ITipo_DocentesRepositorio.cs" />
+    <Compile Include="Repositories\ITipo_EstadoCivilRepositorio.cs" />
+    <Compile Include="Repositories\ITipo_SexoRepositorio.cs" />
     <Compile Include="Repositories\IUsuarioRepositorio.cs">
       <SubType>Code</SubType>
     </Compile>
