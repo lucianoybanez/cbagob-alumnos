@@ -486,9 +486,6 @@
     <Content Include="Views\Grupos\_AlumnosEnGrupoLista.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Inscripciones\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Shared\_Paginacion.cshtml" />
   </ItemGroup>
   <ItemGroup>

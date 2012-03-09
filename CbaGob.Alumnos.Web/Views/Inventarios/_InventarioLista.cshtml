@@ -5,16 +5,16 @@
         <table id="grilla" align="center" width="722px" cellpadding="0" cellspacing="0">
             <thead>
                 <tr>
-                    <th height="30" width="200">
+                    <th height="30" width="250" align="left">
                         <div align="center">
                             Item</div>
                     </th>
-                    <th height="30" width="150">
+                    <th height="30">
                         <div align="center">
                             Cantidad Equipos</div>
                     </th>
-                    <th height="30" align="center">
-                        <div align="right" style="margin-right: 2px;">
+                    <th height="30" align="center"width="50">
+                        <div align="center" style="margin-right: 2px;">
                             Accion</div>
                     </th>
                 </tr>
@@ -23,13 +23,13 @@
                 @foreach (var item in Model.ListaInventario)
                 {
                     <tr>
-                        <td align="center" height="28">
+                        <td align="left" height="28">
                             @item.NombreItem
                         </td>
                         <td align="center" width="50">
                             @item.CantidadEquipos
                         </td>
-                        <td align="right" style="margin-right: 2px;">
+                        <td align="center" style="margin-right: 2px;">
                             @Html.ActionLink("Ver", "Ver", "Inventarios", new { id_estado = item.Id_EstadoEquipo }, new { @class = "btnIngresar" })
                         </td>
                     </tr>

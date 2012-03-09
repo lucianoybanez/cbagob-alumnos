@@ -22,7 +22,7 @@
                             Fecha Fin</div>
                     </th>
                     <th height="30" align="center">
-                        <div align="right" style="margin-right: 2px;">
+                        <div align="center" style="margin-right: 2px;">
                             Accion</div>
                     </th>
                 </tr>
@@ -31,7 +31,7 @@
                 @foreach (var item in Model.ListaPrestamo)
                 {
                     <tr>
-                        <td align="center" height="28">
+                        <td align="left" height="28">
                             @item.NombreEquipo
                         </td>
                         <td align="center" width="50">
@@ -43,7 +43,7 @@
                         <td align="center" width="50">
                             @item.Fec_Fin.ToShortDateString()
                         </td>
-                        <td align="right" style="margin-right: 2px;">
+                        <td align="center" style="margin-right: 2px;">
                             @Html.ActionLink("Modificar", "Modificar", "Prestamos", new { id_prestamo = item.Id_Prestamo }, new { @class = "btnIngresar" })
                             @Html.ActionLink("Eliminar", "Eliminar", "Prestamos", new { id_prestamo = item.Id_Prestamo }, new { @class = "btnIngresar" })
                         </td>
@@ -79,7 +79,7 @@
 }
 else
 {
-    <table id="grilla" align="center" width="722px" cellpadding="0" cellspacing="0">
+    <table id="btnfin" align="center" width="722px" cellpadding="0" cellspacing="0">
         <tr>
             <td width="722px">
                 @Html.Partial("_SinDatos", "Prestamos")
