@@ -51,6 +51,8 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             model.AreasTipoCursos.Enabled = false;
 
+            model.NRORESOLUCION = "";
+
             return View("Eliminar", model);
         }
 

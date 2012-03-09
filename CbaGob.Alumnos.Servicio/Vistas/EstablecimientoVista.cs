@@ -15,7 +15,7 @@ namespace CbaGob.Alumnos.Servicio.Vistas
     {
         public EstablecimientoVista()
         {
-            
+
         }
 
         public int Id_Establecimiento { get; set; }
@@ -39,7 +39,8 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public string Resposable { get; set; }
         public string DomicilioCompleto { get; set; }
         public string NombreInstitucion { get; set; }
+        [Required(ErrorMessage = "*")]
         public string Nro_Resolucion { get; set; }
-       
+
     }
 }

@@ -31,8 +31,10 @@ namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
         string Hr_Mes { get; set; }
 
         string Nombre_Curso { get; set; }
-        string Nombre_Institucion { get; set;}
-        
+        string Nombre_Institucion { get; set; }
+
+        string Nro_Resolucion { get; set; }
+
 
 
 

@@ -18,99 +18,107 @@ namespace CbaGob.Alumnos.Repositorio
             mDb = new CursosDB();
         }
 
+        IQueryable<IAlumnos> QAlumnos()
+        {
+            var a = (from c in mDb.T_ALUMNOS
+                     where c.ESTADO == "A"
+                     select
+                         new Alumno
+                             {
+                                 Cuil = c.CUIL,
+                                 Apellido = c.APELLIDO,
+                                 Nombre = c.NOMBRE,
+                                 Estado = c.ESTADO,
+                                 Estado_Civil = c.T_TIPOS_ESTADO_CIVIL.N_TIPO_ESTADO_CIVIL,
+                                 Fecha_Nacimiento = c.FEC_NACIMIENTO ?? System.DateTime.Now,
+                                 Id_Alumno = c.ID_ALUMNO,
+                                 Id_Tipo_Dni = c.ID_TIPO_DNI ?? 0,
+                                 Id_Tipo_Estado_Civil = c.ID_TIPO_ESTADO_CIVIL ?? 0,
+                                 Id_Tipo_Sexo = c.ID_TIPO_SEXO ?? 0,
+                                 Nro_Documento = c.NRO_DOCUMENTO,
+                                 FechaAlta = c.FEC_ALTA,
+                                 FechaModificacion = c.FEC_MODIF,
+                                 Sexo = c.T_TIPOS_SEXO.N_TIPO_SEXO,
+                                 Tipo_Dni = c.T_TIPOS_DNI.N_TIPO_DNI,
+                                 UsuarioAlta = c.USR_ALTA,
+                                 UsuarioModificacion = c.USR_MODIF,
+                                 Nro_Resolucion = c.NRO_RESOLUCION,
+                                 Nro_Telefono = c.NRO_TELEFONO,
+                                 Nro_Celular = c.NRO_CELULAR
+
+                             });
+
+            return a;
+        }
+
         public IList<IAlumnos> GetTodos()
         {
+            try
+            {
+                return QAlumnos().ToList();
+            }
+            catch (Exception)
+            {
 
-            var ListaAlumno =
-                (from c in mDb.T_ALUMNOS
-                 join e in mDb.T_PERSONAS on c.ID_PERSONA equals e.ID_PERSONA
-                 where c.ESTADO == "A"
-                 select
-                     new Alumno
-                         {
-                             Cuil = e.CUIL,
-                             Fecha_Nacimiento = e.FECHA_NACIMIENTO ?? System.DateTime.Now,
-                             Id_Alumno = c.ID_ALUMNO,
-                             Id_Persona = c.ID_PERSONA ?? 0,
-                             Id_Estado_Civil = e.ID_ESTADO_CIVIL,
-                             Id_Sexo = e.ID_SEXO,
-                             Id_Tipo_Documento = e.ID_TIPO_DOCUMENTO,
-                             Nov_Nombre = e.NOV_NOMBRE,
-                             Nov_Apellido = e.NOV_APELLIDO,
-                             Nro_Documento = e.NRO_DOCUMENTO
-                         }).ToList().Cast<IAlumnos>().ToList();
-            return ListaAlumno;
-
+                throw;
+            }
         }
 
         public IList<IAlumnos> GetTodosByNombreApellido(string nombre, string apellido)
         {
-            var ListaAlumno =
-                (from c in mDb.T_ALUMNOS
-                 join e in mDb.T_PERSONAS on c.ID_PERSONA equals e.ID_PERSONA
-                 where c.ESTADO == "A" && e.NOV_NOMBRE.ToLower().Contains(nombre.ToLower()) || e.NOV_APELLIDO.ToLower().Contains(apellido.ToLower())
-                 select
-                     new Alumno
-                         {
-                             Cuil = e.CUIL,
-                             Fecha_Nacimiento = e.FECHA_NACIMIENTO ?? System.DateTime.Now,
-                             Id_Alumno = c.ID_ALUMNO,
-                             Id_Persona = c.ID_PERSONA ?? 0,
-                             Id_Estado_Civil = e.ID_ESTADO_CIVIL,
-                             Id_Sexo = e.ID_SEXO,
-                             Id_Tipo_Documento = e.ID_TIPO_DOCUMENTO,
-                             Nov_Nombre = e.NOV_NOMBRE,
-                             Nov_Apellido = e.NOV_APELLIDO,
-                             Nro_Documento = e.NRO_DOCUMENTO
-                         }).ToList().Cast<IAlumnos>().ToList();
-            return ListaAlumno;
+            try
+            {
+                return QAlumnos().Where(c => c.Nombre.StartsWith(nombre) || c.Apellido.StartsWith(apellido)).ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IList<IAlumnos> GetTodosByDni(string dni)
         {
-            var ListaAlumno =
-                (from c in mDb.T_ALUMNOS
-                 join e in mDb.T_PERSONAS on c.ID_PERSONA equals e.ID_PERSONA
-                 where c.ESTADO == "A" && e.NRO_DOCUMENTO == dni
-                 select
-                     new Alumno
-                         {
-                             Cuil = e.CUIL,
-                             Fecha_Nacimiento = e.FECHA_NACIMIENTO ?? System.DateTime.Now,
-                             Id_Alumno = c.ID_ALUMNO,
-                             Id_Persona = c.ID_PERSONA ?? 0,
-                             Id_Estado_Civil = e.ID_ESTADO_CIVIL,
-                             Id_Sexo = e.ID_SEXO,
-                             Id_Tipo_Documento = e.ID_TIPO_DOCUMENTO,
-                             Nov_Nombre = e.NOV_NOMBRE,
-                             Nov_Apellido = e.NOV_APELLIDO,
-                             Nro_Documento = e.NRO_DOCUMENTO
-                         }).ToList().Cast<IAlumnos>().ToList();
-            return ListaAlumno;
+            try
+            {
+                return QAlumnos().Where(c => c.Nro_Documento == dni).ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IList<IAlumnos> GetTodosByCondicionCurso(int id_condicion_curso)
         {
             try
             {
+
                 var ListaAlumno =
                     (from c in mDb.T_ALUMNOS
-                     join e in mDb.T_PERSONAS on c.ID_PERSONA equals e.ID_PERSONA
                      join cu in mDb.T_INSCRIPCIONES on c.ID_ALUMNO equals cu.ID_ALUMNO
                      where c.ESTADO == "A" && cu.ID_CONDICION_CURSO == id_condicion_curso
                      select
                          new Alumno
                              {
-                                 Cuil = e.CUIL,
-                                 Fecha_Nacimiento = e.FECHA_NACIMIENTO ?? System.DateTime.Now,
+                                 Cuil = c.CUIL,
+                                 Apellido = c.APELLIDO,
+                                 Nombre = c.NOMBRE,
+                                 Estado = c.ESTADO,
+                                 Estado_Civil = c.T_TIPOS_ESTADO_CIVIL.N_TIPO_ESTADO_CIVIL,
+                                 Fecha_Nacimiento = c.FEC_NACIMIENTO ?? System.DateTime.Now,
                                  Id_Alumno = c.ID_ALUMNO,
-                                 Id_Persona = c.ID_PERSONA ?? 0,
-                                 Id_Estado_Civil = e.ID_ESTADO_CIVIL,
-                                 Id_Sexo = e.ID_SEXO,
-                                 Id_Tipo_Documento = e.ID_TIPO_DOCUMENTO,
-                                 Nov_Nombre = e.NOV_NOMBRE,
-                                 Nov_Apellido = e.NOV_NOMBRE,
-                                 Nro_Documento = e.NRO_DOCUMENTO
+                                 Id_Tipo_Dni = c.ID_TIPO_DNI ?? 0,
+                                 Id_Tipo_Estado_Civil = c.ID_TIPO_ESTADO_CIVIL ?? 0,
+                                 Id_Tipo_Sexo = c.ID_TIPO_SEXO ?? 0,
+                                 Nro_Documento = c.NRO_DOCUMENTO,
+                                 FechaAlta = c.FEC_ALTA,
+                                 FechaModificacion = c.FEC_MODIF,
+                                 Sexo = c.T_TIPOS_SEXO.N_TIPO_SEXO,
+                                 Tipo_Dni = c.T_TIPOS_DNI.N_TIPO_DNI,
+                                 UsuarioAlta = c.USR_ALTA,
+                                 UsuarioModificacion = c.USR_MODIF
                              }).ToList().Cast<IAlumnos>().ToList();
                 return ListaAlumno;
             }
@@ -127,7 +135,6 @@ namespace CbaGob.Alumnos.Repositorio
             {
                 var ListaAlumno =
                     (from c in mDb.T_ALUMNOS
-                     join e in mDb.T_PERSONAS on c.ID_PERSONA equals e.ID_PERSONA
                      join cu in mDb.T_INSCRIPCIONES on c.ID_ALUMNO equals cu.ID_ALUMNO
                      where
                          c.ESTADO == "A" && cu.ID_CONDICION_CURSO == id_condicion_curso &&
@@ -136,16 +143,24 @@ namespace CbaGob.Alumnos.Repositorio
                      select
                          new Alumno
                              {
-                                 Cuil = e.CUIL,
-                                 Fecha_Nacimiento = e.FECHA_NACIMIENTO ?? System.DateTime.Now,
+                                 Cuil = c.CUIL,
+                                 Apellido = c.APELLIDO,
+                                 Nombre = c.NOMBRE,
+                                 Estado = c.ESTADO,
+                                 Estado_Civil = c.T_TIPOS_ESTADO_CIVIL.N_TIPO_ESTADO_CIVIL,
+                                 Fecha_Nacimiento = c.FEC_NACIMIENTO ?? System.DateTime.Now,
                                  Id_Alumno = c.ID_ALUMNO,
-                                 Id_Persona = c.ID_PERSONA ?? 0,
-                                 Id_Estado_Civil = e.ID_ESTADO_CIVIL,
-                                 Id_Sexo = e.ID_SEXO,
-                                 Id_Tipo_Documento = e.ID_TIPO_DOCUMENTO,
-                                 Nov_Nombre = e.NOV_NOMBRE,
-                                 Nov_Apellido = e.NOV_NOMBRE,
-                                 Nro_Documento = e.NRO_DOCUMENTO
+                                 Id_Tipo_Dni = c.ID_TIPO_DNI ?? 0,
+                                 Id_Tipo_Estado_Civil = c.ID_TIPO_ESTADO_CIVIL ?? 0,
+                                 Id_Tipo_Sexo = c.ID_TIPO_SEXO ?? 0,
+                                 Nro_Documento = c.NRO_DOCUMENTO,
+                                 FechaAlta = c.FEC_ALTA,
+                                 FechaModificacion = c.FEC_MODIF,
+                                 Sexo = c.T_TIPOS_SEXO.N_TIPO_SEXO,
+                                 Tipo_Dni = c.T_TIPOS_DNI.N_TIPO_DNI,
+                                 UsuarioAlta = c.USR_ALTA,
+                                 UsuarioModificacion = c.USR_MODIF,
+                                 Nro_Resolucion = c.NRO_RESOLUCION
                              }).ToList().Cast<IAlumnos>().ToList();
                 return ListaAlumno;
             }
@@ -162,22 +177,29 @@ namespace CbaGob.Alumnos.Repositorio
             {
                 var ListaAlumno =
                     (from c in mDb.T_ALUMNOS
-                     join e in mDb.T_PERSONAS on c.ID_PERSONA equals e.ID_PERSONA
                      join alcu in mDb.T_ALUMONOS_GRUPO on c.ID_ALUMNO equals alcu.ID_ALUMNO
                      where c.ESTADO == "A" && alcu.ID_GRUPO == id_grupo && alcu.ID_CONDICION_CURSO == id_condicion_curso && alcu.ESTADO == "A"
                      select
                          new Alumno
                          {
-                             Cuil = e.CUIL,
-                             Fecha_Nacimiento = e.FECHA_NACIMIENTO ?? System.DateTime.Now,
+                             Cuil = c.CUIL,
+                             Apellido = c.APELLIDO,
+                             Nombre = c.NOMBRE,
+                             Estado = c.ESTADO,
+                             Estado_Civil = c.T_TIPOS_ESTADO_CIVIL.N_TIPO_ESTADO_CIVIL,
+                             Fecha_Nacimiento = c.FEC_NACIMIENTO ?? System.DateTime.Now,
                              Id_Alumno = c.ID_ALUMNO,
-                             Id_Persona = c.ID_PERSONA ?? 0,
-                             Id_Estado_Civil = e.ID_ESTADO_CIVIL,
-                             Id_Sexo = e.ID_SEXO,
-                             Id_Tipo_Documento = e.ID_TIPO_DOCUMENTO,
-                             Nov_Nombre = e.NOV_NOMBRE,
-                             Nov_Apellido = e.NOV_NOMBRE,
-                             Nro_Documento = e.NRO_DOCUMENTO
+                             Id_Tipo_Dni = c.ID_TIPO_DNI ?? 0,
+                             Id_Tipo_Estado_Civil = c.ID_TIPO_ESTADO_CIVIL ?? 0,
+                             Id_Tipo_Sexo = c.ID_TIPO_SEXO ?? 0,
+                             Nro_Documento = c.NRO_DOCUMENTO,
+                             FechaAlta = c.FEC_ALTA,
+                             FechaModificacion = c.FEC_MODIF,
+                             Sexo = c.T_TIPOS_SEXO.N_TIPO_SEXO,
+                             Tipo_Dni = c.T_TIPOS_DNI.N_TIPO_DNI,
+                             UsuarioAlta = c.USR_ALTA,
+                             UsuarioModificacion = c.USR_MODIF,
+                             Nro_Resolucion = c.NRO_RESOLUCION
                          }).ToList().Cast<IAlumnos>().ToList();
                 return ListaAlumno;
             }
@@ -192,25 +214,7 @@ namespace CbaGob.Alumnos.Repositorio
         {
             try
             {
-                var alumno =
-                    (from c in mDb.T_ALUMNOS
-                     join e in mDb.T_PERSONAS on c.ID_PERSONA equals e.ID_PERSONA
-                     where c.ESTADO == "A" && c.ID_ALUMNO == id_alumno
-                     select
-                         new Alumno
-                             {
-                                 Cuil = e.CUIL,
-                                 Fecha_Nacimiento = e.FECHA_NACIMIENTO ?? System.DateTime.Now,
-                                 Id_Alumno = c.ID_ALUMNO,
-                                 Id_Persona = c.ID_PERSONA ?? 0,
-                                 Id_Estado_Civil = e.ID_ESTADO_CIVIL,
-                                 Id_Sexo = e.ID_SEXO,
-                                 Id_Tipo_Documento = e.ID_TIPO_DOCUMENTO,
-                                 Nov_Nombre = e.NOV_NOMBRE,
-                                 Nov_Apellido = e.NOV_NOMBRE,
-                                 Nro_Documento = e.NRO_DOCUMENTO
-                             }).SingleOrDefault();
-                return alumno;
+                return QAlumnos().Where(c => c.Id_Alumno == id_alumno).SingleOrDefault();
             }
             catch (Exception)
             {
@@ -223,14 +227,27 @@ namespace CbaGob.Alumnos.Repositorio
         {
             try
             {
+                base.AgregarDatosAlta(alumno);
+                
+                
                 T_ALUMNOS T_Alumnos = new T_ALUMNOS()
                                           {
-                                              ESTADO = "A",
-                                              FEC_ALTA = DateTime.Now,
-                                              USR_ALTA = "Test",
-                                              FEC_MODIF = DateTime.Now,
-                                              USR_MODIF = "Test",
-                                              ID_PERSONA = alumno.Id_Persona
+                                              ESTADO = alumno.Estado,
+                                              FEC_ALTA = alumno.FechaAlta,
+                                              USR_ALTA = alumno.UsuarioAlta,
+                                              FEC_MODIF = alumno.FechaModificacion,
+                                              USR_MODIF = alumno.UsuarioModificacion,
+                                              CUIL = alumno.Cuil,
+                                              FEC_NACIMIENTO = alumno.Fecha_Nacimiento,
+                                              NOMBRE = alumno.Nombre,
+                                              APELLIDO = alumno.Apellido,
+                                              NRO_DOCUMENTO = alumno.Nro_Documento,
+                                              ID_TIPO_DNI = alumno.Id_Tipo_Dni,
+                                              ID_TIPO_ESTADO_CIVIL = alumno.Id_Tipo_Estado_Civil,
+                                              ID_TIPO_SEXO = alumno.Id_Tipo_Sexo,
+                                              NRO_RESOLUCION = alumno.Nro_Resolucion,
+                                              NRO_TELEFONO = alumno.Nro_Telefono,
+                                              NRO_CELULAR = alumno.Nro_Celular
                                           };
 
 
@@ -249,10 +266,21 @@ namespace CbaGob.Alumnos.Repositorio
         {
             try
             {
+                base.AgregarDatosAlta(alumno);
                 var alu = mDb.T_ALUMNOS.FirstOrDefault(c => c.ID_ALUMNO == alumno.Id_Alumno);
-                alu.ID_PERSONA = alumno.Id_Persona;
-                alu.FEC_MODIF = System.DateTime.Now;
-                alu.USR_MODIF = "Test";
+                alu.FEC_MODIF = alumno.FechaModificacion;
+                alu.USR_MODIF = alumno.Estado;
+                alu.CUIL = alumno.Cuil;
+                alu.FEC_NACIMIENTO = alumno.Fecha_Nacimiento;
+                alu.NOMBRE = alumno.Nombre;
+                alu.APELLIDO = alumno.Apellido;
+                alu.NRO_DOCUMENTO = alumno.Nro_Documento;
+                alu.ID_TIPO_DNI = alumno.Id_Tipo_Dni;
+                alu.ID_TIPO_ESTADO_CIVIL = alumno.Id_Tipo_Estado_Civil;
+                alu.ID_TIPO_SEXO = alumno.Id_Tipo_Sexo;
+                alu.NRO_RESOLUCION = alumno.Nro_Resolucion;
+                alu.NRO_TELEFONO = alumno.Nro_Telefono;
+                alu.NRO_CELULAR = alumno.Nro_Celular;
                 mDb.SaveChanges();
                 return true;
             }
@@ -263,14 +291,18 @@ namespace CbaGob.Alumnos.Repositorio
             }
         }
 
-        public bool Eliminar(int id_alumno)
+        public bool Eliminar(int id_alumno, string nro_resolucion)
         {
             try
             {
+                IComunDatos datos = new ComunDatos();
+                base.AgregarDatosEliminacion(datos);
+
                 var alu = mDb.T_ALUMNOS.FirstOrDefault(c => c.ID_ALUMNO == id_alumno);
-                alu.ESTADO = "I";
-                alu.FEC_MODIF = System.DateTime.Now;
-                alu.USR_MODIF = "Test";
+                alu.ESTADO = datos.Estado;
+                alu.FEC_MODIF = datos.FechaModificacion;
+                alu.USR_MODIF = datos.UsuarioModificacion;
+                alu.NRO_RESOLUCION = nro_resolucion;
                 mDb.SaveChanges();
                 return true;
             }

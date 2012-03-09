@@ -2,7 +2,7 @@
 @if (Model != null && Model.Count > 0)
 { 
     <div id="grilla" style="text-align: center;">
-        <table align="center" width="722px"  cellpadding="0" cellspacing="0">
+        <table align="center" width="722px" cellpadding="0" cellspacing="0">
             <thead>
                 <tr>
                     <th height="30" width="180px">
@@ -22,8 +22,8 @@
                             Fecha Nacimiento</div>
                     </th>
                     <th height="30">
-                        <div  align="right" style="margin-right: 2px;">
-                        Accion
+                        <div align="right" style="margin-right: 2px;">
+                            Accion
                         </div>
                     </th>
                 </tr>
@@ -32,11 +32,11 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td align="center"  height="30">
-                            @item.Nov_Nombre
+                        <td align="center" height="30">
+                            @item.Nombre
                         </td>
                         <td align="center" height="30">
-                            @item.Nov_Apellido
+                            @item.Apellido
                         </td>
                         <td align="center" height="30">
                             @item.Nro_Documento
@@ -44,41 +44,27 @@
                         <td align="center" height="30">
                             @item.Fecha_Nacimiento.ToShortDateString()
                         </td>
-                        <td  align="right" style="margin-right: 2px;">
+                        <td align="right" style="margin-right: 2px;">
                             @Html.ActionLink("Modificar", "Modificar", "Alumnos", new { id_alumno = item.Id_Alumno }, new { @class = "btnIngresar" })
                             @Html.ActionLink("Eliminar", "Eliminar", "Alumnos", new { id_alumno = item.Id_Alumno }, new { @class = "btnIngresar" })
                         </td>
                     </tr>
                 }<tr>
-                        <td align="left" colspan="7">
-                            &nbsp;
-                        </td>
-                        
-                    </tr>
-                    <tr>
-                        <td align="left" valign="middle" colspan="4" height="20">
-                            <div id="resumenPag" style="height:30px; padding:10px 5px 0 2px;">
-                             @* <div align="center">
-                                <ul id="pagination-clean">
-                                  <li class="previous-off">Ant</li>
-                                  <li class="active">1</li>
-                                  <li><a href="?page=2">2</a></li>
-                                  <li><a href="?page=3">3</a></li>
-                                  <li><a href="?page=4">4</a></li>
-                                  <li><a href="?page=5">5</a></li>
-                                  <li><a href="?page=6">6</a></li>
-                                  <li><a href="?page=7">7</a></li>
-                                  <li class="next"><a href="?page=2">Sig</a></li>
-                                </ul>
-                              </div>*@
-                         </div>
-                        </td> 
-                        <td align="right" valign="bottom" colspan="3" height="20">
-                         <div id="resumenPag" style="height:30px; padding:15px 5px 0 2px;">
+                    <td align="left" colspan="7">
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" valign="middle" colspan="4" height="20">
+                        <div id="resumenPag" style="height: 30px; padding: 10px 5px 0 2px;">
+                        </div>
+                    </td>
+                    <td align="right" valign="bottom" colspan="3" height="20">
+                        <div id="resumenPag" style="height: 30px; padding: 15px 5px 0 2px;">
                             @Html.ActionLink("Agregar Alumno", "Agregar", "Alumnos", new { @class = "btnIngresar" })
-                         </div>
-                        </td> 
-                    </tr>
+                        </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -98,4 +84,3 @@ else
         </table>
     </div>
 }
-

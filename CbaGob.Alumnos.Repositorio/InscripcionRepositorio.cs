@@ -24,7 +24,6 @@ namespace CbaGob.Alumnos.Repositorio
         {
             var a = (from c in mDb.T_INSCRIPCIONES
                      join alumnos in mDb.T_ALUMNOS on c.ID_ALUMNO equals alumnos.ID_ALUMNO
-                     join personas in mDb.T_PERSONAS on alumnos.ID_PERSONA equals personas.ID_PERSONA
                      where c.ESTADO == "A"
                      select
                          new Inscripcion
@@ -39,8 +38,8 @@ namespace CbaGob.Alumnos.Repositorio
                                  Descripcion = c.DESCRIPCION,
                                  Id_Condicion_Curso = c.ID_CONDICION_CURSO,
                                  IdInscripcion = c.ID_INSCRIPCION,
-                                 ApellidoAlumno = personas.NOV_APELLIDO,
-                                 NombreAlumno = personas.NOV_NOMBRE,
+                                 ApellidoAlumno = alumnos.NOMBRE,
+                                 NombreAlumno = alumnos.APELLIDO,
                                  Estado = c.ESTADO,
                                  IdCurso = c.T_CONDICIONES_CURSO.ID_CURSO,
                                  IdEstadoCurso = c.T_CONDICIONES_CURSO.ID_ESTADO_CURSO,
@@ -53,14 +52,14 @@ namespace CbaGob.Alumnos.Repositorio
                                  NombreNivel = c.T_CONDICIONES_CURSO.T_NIVELES.N_NIVEL,
                                  NombrePrograma = c.T_CONDICIONES_CURSO.T_PROGRAMAS.N_PROGRAMA,
                                  idPrograma = c.T_CONDICIONES_CURSO.ID_PROGRAMA,
-                                 Dni = personas.NRO_DOCUMENTO
+                                 Dni = alumnos.NRO_DOCUMENTO
                              });
             return a;
         }
 
         public IList<IInscripcion> GetAllInscripcion(int skip, int take)
         {
-            return QInscripcion().OrderBy(c=> c.NombreInstitucion).Skip(skip).Take(take).ToList();
+            return QInscripcion().OrderBy(c => c.NombreInstitucion).Skip(skip).Take(take).ToList();
         }
 
         public int GetAllInscripcion()
@@ -85,8 +84,7 @@ namespace CbaGob.Alumnos.Repositorio
         {
             var inscripciones = (from c in mDb.T_INSCRIPCIONES
                                  join alu in mDb.T_ALUMNOS on c.ID_ALUMNO equals alu.ID_ALUMNO
-                                 join per in mDb.T_PERSONAS on alu.ID_PERSONA equals per.ID_PERSONA
-                                // where c.ESTADO == "A" && c.ID_GRUPO == idGrupo
+                                 // where c.ESTADO == "A" && c.ID_GRUPO == idGrupo
                                  select
                                      new Inscripcion
                                      {
@@ -94,25 +92,25 @@ namespace CbaGob.Alumnos.Repositorio
                                          FechaAlta = c.FEC_ALTA,
                                          FechaModificacion = c.FEC_MODIF,
                                          Id_Alumno = c.ID_ALUMNO,
-                                    //     Nombre_Grupo = c.T_GRUPOS.N_GRUPO,
-                                      //   Nombre_Curso = c.T_GRUPOS.T_CONDICIONES_CURSO.T_CURSOS.N_CURSO,
+                                         //     Nombre_Grupo = c.T_GRUPOS.N_GRUPO,
+                                         //   Nombre_Curso = c.T_GRUPOS.T_CONDICIONES_CURSO.T_CURSOS.N_CURSO,
                                          UsuarioAlta = c.USR_ALTA,
                                          UsuarioModificacion = c.USR_MODIF,
                                          Descripcion = c.DESCRIPCION,
-                                    //     Id_Grupo = c.ID_GRUPO,
+                                         //     Id_Grupo = c.ID_GRUPO,
                                          IdInscripcion = c.ID_INSCRIPCION,
-                                    //     Nov_Apellido = per.NOV_APELLIDO,
-                                         NombreAlumno = per.NOV_NOMBRE
+                                         //     Nov_Apellido = per.NOV_APELLIDO,
+                                         NombreAlumno = alu.NOMBRE
                                      }).ToList().Cast<IInscripcion>().ToList();
             return inscripciones;
         }
 
         public int GetInscripcionIdByAlumnoGrupo(int idGrupo, int idAlumno)
         {
-          //  var inscripciones = mDb.T_INSCRIPCIONES.Where(c => c.ID_ALUMNO == idAlumno && c.ID_GRUPO == idGrupo).FirstOrDefault();
-          //  if (inscripciones != null)
+            //  var inscripciones = mDb.T_INSCRIPCIONES.Where(c => c.ID_ALUMNO == idAlumno && c.ID_GRUPO == idGrupo).FirstOrDefault();
+            //  if (inscripciones != null)
             {
-               // return inscripciones.ID_INSCRIPCION;
+                // return inscripciones.ID_INSCRIPCION;
             }
             return 0;
         }
@@ -135,7 +133,7 @@ namespace CbaGob.Alumnos.Repositorio
             apellido = apellido == "" ? null : apellido;
             nombre = nombre == "" ? null : nombre;
 
-            if(!string.IsNullOrEmpty(dni))
+            if (!string.IsNullOrEmpty(dni))
             {
                 return QInscripcion().Where(c => c.Dni == dni).ToList();
             }
@@ -143,7 +141,7 @@ namespace CbaGob.Alumnos.Repositorio
             {
                 return QInscripcion().Where(c => (c.NombreAlumno.ToLower() == nombre.ToLower() || nombre == null) && (c.ApellidoAlumno.ToLower() == apellido.ToLower() || apellido == null)).ToList();
             }
-            if(!string.IsNullOrEmpty(institucion))
+            if (!string.IsNullOrEmpty(institucion))
             {
                 return QInscripcion().Where(c => c.NombreInstitucion.ToLower() == institucion.ToLower()).ToList();
             }
@@ -306,6 +304,6 @@ namespace CbaGob.Alumnos.Repositorio
 
         #endregion
 
-      
+
     }
 }

@@ -48,5 +48,7 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
 
         IBuscador BuscadorEstablecimientos { get; set; }
 
+        string Nro_Resolucion { get; set; } 
+
     }
 }

@@ -5,10 +5,22 @@ using System.Text;
 
 namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
 {
-    public interface IAlumnos : IComunDatos, IPersona
+    public interface IAlumnos : IComunDatos
     {
         int Id_Alumno { get; set; }
-        int Id_Persona { get; set; }
-        string Estado { get; set; }
+        string Nombre { get; set; }
+        string Apellido { get; set; }
+        string Nro_Documento { get; set; }
+        System.DateTime Fecha_Nacimiento { get; set; }
+        string Cuil { get; set; }
+        int Id_Tipo_Dni { get; set; }
+        int Id_Tipo_Estado_Civil { get; set; }
+        int Id_Tipo_Sexo { get; set; }
+        string Sexo { get; set; }
+        string Estado_Civil { get; set; }
+        string Tipo_Dni { get; set; }
+        string Nro_Resolucion { get; set; }
+        string Nro_Telefono { get; set; }
+        string Nro_Celular { get; set; }
     }
 }

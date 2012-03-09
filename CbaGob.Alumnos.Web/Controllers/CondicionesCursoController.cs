@@ -46,7 +46,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             model.ListaGrupos = gruposervicio.GetAllGrupoByCurso(idCondicionCurso).ListaGrupos;
 
-            model.ListaAlumno = alumnoservicio.GetTodosByCondicionCurso(idCondicionCurso);
+            model.ListaAlumno = alumnoservicio.GetTodosByCondicionCurso(idCondicionCurso).ListaAlumno;
 
             model.IdCondicionCurso = idCondicionCurso;
 
