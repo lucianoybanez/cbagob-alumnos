@@ -14,6 +14,7 @@ namespace CbaGob.Alumnos.Modelo.Repositories
         IList<IInscripcion> GetAllInscripcionByGrupo(int idGrupo);
         int GetInscripcionIdByAlumnoGrupo(int idGrupo, int idAlumno);
         IInscripcion GetInscripcion(int id_inscripcion);
+        IInscripcion GetInscripcion(int id_condicionCurso, int idAlumno);
         bool AgregarInscripcion(IInscripcion inscripcion);
         bool ModificarInscripcion(IInscripcion inscripcion);
         bool EliminarInscripcion(int id_inscripcion);

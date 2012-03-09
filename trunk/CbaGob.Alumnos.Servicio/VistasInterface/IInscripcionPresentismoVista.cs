@@ -5,6 +5,7 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         int IdPresentismo { get; set; }
         int IdInscripcion { get; set; }
         int ClasesAsistidas { get; set; }
-        decimal PorcentajePresentismo { get; set; }
+        decimal PorcentajePresentismo { get; }
+        int TotalClasesCurso { get; set; }
     }
 }

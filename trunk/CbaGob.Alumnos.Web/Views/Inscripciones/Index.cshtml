@@ -20,13 +20,7 @@
                 <div id="titulo">
                     @Html.ValidationSummary()
                 </div>             
-                <div id="">
-                    <div class="validation-summary-errors">
-                    <ul>
-                        <li>Se produjo un error al guardar</li>
-                        <li>Verifiqueque el Exsamen no este cargado</li>
-                    </ul>
-                    </div>
+                <div id="">                   
                     <div style="padding-top:2px; padding-right:2px;">  
                     @Html.Partial("_ListaInscripciones", Model.ListaInscripciones)
                     </div>

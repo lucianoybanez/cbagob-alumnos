@@ -73,10 +73,6 @@ namespace CbaGob.Alumnos.Web.Controllers
             {
                 result = InscripcionServicio.AgregarInscripcion(vista);
             }
-            else if (vista.Accion == "Modificar")
-            {
-                result = InscripcionServicio.ModificarInscripcion(vista);
-            }
             if (!result)
             {
                 base.AddError(InscripcionServicio.GetErrors());
@@ -112,7 +108,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             {
                 base.AddError(InscripcionServicio.GetErrors());
             }
-            return RedirectToAction("Ver", "Inscripciones", new { idInscripcion = vista.IdInscripcion });
+            return Ver(vista.IdInscripcion);
         }
 
         #endregion
