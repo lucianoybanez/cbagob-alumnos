@@ -74,6 +74,7 @@ A:hover
     line-height: 30px;
     height: 30px;
     border-top: #555 1px dotted;
+    width:100%;
 }
 #menu UL
 {
@@ -245,7 +246,7 @@ a.btnIngresar
     background: #3e83c9;
     padding: 2px 2px;
     border: 1px outset #CCC;
-    color: #000;
+    color: #fff;
     font-size: 12px;
     font-family: arial, sans-serif;
     font-weight: bold;
@@ -253,6 +254,7 @@ a.btnIngresar
 a.btnIngresar:hover
 {
     background: #bcd4ec;
+    color:#000;
 }
 a.btnIngresar:active
 {
@@ -264,7 +266,7 @@ input.btnIngresar
     background: #3e83c9;
     padding: 2px 2px;
     border: 1px outset #CCC;
-    color: #000;
+    color: #fff;
     font-size: 12px;
     font-family: arial, sans-serif;
     font-weight: bold;
@@ -272,6 +274,7 @@ input.btnIngresar
 input.btnIngresar:hover
 {
     background: #bcd4ec;
+    color:#000;
 }
 th
 {
@@ -307,15 +310,42 @@ legend
 /* Para Logout*/
 
 #LogOutImage
-{width:3%; height:85%;}
+{
+    border:0px;
+    width:28px;
+    padding-top: 2px;
+    padding-left:10px;
+    vertical-align:-40%;
+}
 
 #LogOut
-{
-   
+{ 
     color: #004990;
     font-size: 14px;
     font-weight: 100;
-
-    padding-top: 0px;
-    font-weight: 600;  
+    padding-top: -10px;
+    font-weight: 600; 
+    min-width: 145px; 
+}
+#out{
+    float:right;
+    position:absolute;
+    left:819px;
+    top:128px;
+    height: 30px;
+    margin: 2px 0px 0px  0px; 
+    min-width: 242px;
+    padding-right: 10px;
+}
+table #btnfin{
+    padding-bottom: 0px; 
+    padding-left: 2px; 
+    padding-right: 5px; 
+    height: 20px; 
+    padding-top: 15px;
+    width:722px;
+}
+#pager
+{
+ padding:8px 5px 5px 5px;   
 }

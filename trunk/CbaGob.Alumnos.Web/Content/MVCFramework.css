@@ -15,6 +15,7 @@
 
 .validation-summary-errors {
     font-weight: bold;
+    padding:10px 5px 10px 25px;
     color: #ff0000;
     float: left;
     text-align: left;

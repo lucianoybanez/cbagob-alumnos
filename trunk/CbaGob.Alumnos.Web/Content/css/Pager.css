@@ -17,18 +17,21 @@
     text-decoration: none;
     margin:   10px  0 10px 0;
     padding: 5px;
-    color: #333333;
+    color: #fff;
 	display:inline;
+	background: #3e83c9;
 }
 
 #pager ul.pages li:hover
 {
     border: 1px solid #666666;
+    background: #bcd4ec;
+    color: #000;
 }
 
 #pager ul.pages li.pgEmpty {
 border:1px solid #eee;
-color:#eee;
+color: #fff;
 }
 
 #pager ul.pages li.pgCurrent

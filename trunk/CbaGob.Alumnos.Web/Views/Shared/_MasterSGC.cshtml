@@ -28,11 +28,11 @@
                 <li @{if (ViewBag.Title.Contains("Ayuda"))
                              {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Ayuda", "Index", "Ayuda", null, null)</li>
             </ul>
-            <div align="right">@Html.Action("GetLoguedUser","Account")
+           </div> 
+            <div id="out" align="right">@Html.Action("GetLoguedUser","Account")
             </div>
-            
            
-        </div>
+        
         <div id="content">
             <div class="right">
                 @RenderBody()
