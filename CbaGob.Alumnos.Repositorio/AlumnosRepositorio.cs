@@ -68,7 +68,7 @@ namespace CbaGob.Alumnos.Repositorio
         {
             try
             {
-                return QAlumnos().Where(c => c.Nombre.StartsWith(nombre) || c.Apellido.StartsWith(apellido)).ToList();
+                return QAlumnos().Where(c => c.Nombre.ToLower().StartsWith(nombre.ToLower()) || c.Apellido.ToLower().StartsWith(apellido.ToLower())).ToList();
             }
             catch (Exception)
             {

@@ -93,9 +93,9 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             if (!string.IsNullOrEmpty(dni))
             {
-                return PartialView("_BuscadorAlumnoLista", alumnosservicios.GetTodosByDni(dni));
+                return PartialView("_BuscadorAlumnoLista", alumnosservicios.GetTodosByDni(dni).ListaAlumno);
             }
-            return PartialView("_BuscadorAlumnoLista", alumnosservicios.GetTodosByNombreApellido(nombre, apellido));
+            return PartialView("_BuscadorAlumnoLista", alumnosservicios.GetTodosByNombreApellido(nombre, apellido).ListaAlumno);
         }
 
 

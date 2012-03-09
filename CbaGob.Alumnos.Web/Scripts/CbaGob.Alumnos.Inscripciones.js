@@ -9,7 +9,6 @@ $(function () {
 
     cbaAlumnosInscripciones.initInscripciones();
     cbaAlumnosInscripciones.initCertificado();
-    cbaAlumnosInscripciones.hideEliminarButton();
 
 
 });
@@ -33,6 +32,7 @@ cbaAlumnosInscripciones = function () {
             $("fieldset input").attr('readonly', 'readonly');
             $("#BuscarInstitucion").hide();
             $("#BuscarAlumno").hide();
+            hideEliminarButton();
         }
 
         $("#AbrirPresentismo").click(function () {
@@ -65,7 +65,7 @@ cbaAlumnosInscripciones = function () {
     function hideEliminarButton() {
         $(".toHide").hide();
     }
-    
+
     return {
         initInscripciones: initInscripciones,
         initCertificado: initCertificado,

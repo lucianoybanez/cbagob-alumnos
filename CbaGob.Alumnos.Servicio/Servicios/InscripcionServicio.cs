@@ -18,20 +18,23 @@ namespace CbaGob.Alumnos.Servicio.Servicios
     {
         private IInscripcionRepositorio Inscripcionrepositorio;
 
+        private ICondicionCursoRepositorio CondicionCursoRepositorio;
+
         private IAutenticacionServicio Aut;
 
-        public InscripcionServicio(IInscripcionRepositorio inscripcionrepositorio, IAutenticacionServicio aut)
+        public InscripcionServicio(IInscripcionRepositorio inscripcionrepositorio, IAutenticacionServicio aut, ICondicionCursoRepositorio condicionCurso)
         {
             Inscripcionrepositorio = inscripcionrepositorio;
             Aut = aut;
+            CondicionCursoRepositorio = condicionCurso;
         }
 
         public IInscripcionesVista GetAllInscripcion()
         {
             IInscripcionesVista inscripcionesvista = new InscripcionesVista();
-            var pager = new Pager(Inscripcionrepositorio.GetAllInscripcion(), 1, "FormIndexInscripciones", Aut.GetUrl("IndexPager", "Inscripciones"));
+            var pager = new Pager(Inscripcionrepositorio.GetAllInscripcion(),3, "FormIndexInscripciones", Aut.GetUrl("IndexPager", "Inscripciones"));
             inscripcionesvista.pager = pager;
-            inscripcionesvista.ListaInscripciones = Inscripcionrepositorio.GetAllInscripcion(pager.Skip,pager.PageSize);
+            inscripcionesvista.ListaInscripciones = Inscripcionrepositorio.GetAllInscripcion(pager.Skip, pager.PageSize);
             return inscripcionesvista;
         }
 
@@ -68,7 +71,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
             var inscripcion = Inscripcionrepositorio.GetInscripcion(id_inscripcion);
 
-            if (inscripcion!=null)
+            if (inscripcion != null)
             {
                 IInscripcionVista vista = new InscripcionVista()
                 {
@@ -101,15 +104,23 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                     inscripcion.Id_Alumno = vista.IdAlumno;
                     inscripcion.Fecha = vista.Fecha;
                     inscripcion.Descripcion = vista.Descripcion;
-                    bool result = Inscripcionrepositorio.AgregarInscripcion(inscripcion);
-                    if (result)
+
+                    bool result = false;
+                    var inscripcionModelo = Inscripcionrepositorio.GetInscripcion(inscripcion.Id_Condicion_Curso,inscripcion.Id_Alumno);
+                    if (inscripcionModelo!=null)
                     {
-                        return true;
+                        inscripcion.IdInscripcion = inscripcionModelo.IdInscripcion;
+                        result = Inscripcionrepositorio.ModificarInscripcion(inscripcion);
                     }
                     else
                     {
+                        result = Inscripcionrepositorio.AgregarInscripcion(inscripcion);
+                    }
+                    if (!result)
+                    {
                         base.AddError("Ocurrio un Error al agregar la Inscripcion. Verifique q no fue Inscripto anteriormente.");
                     }
+                    return result;
                 }
                 else
                 {
@@ -147,47 +158,62 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         public bool GuardarPresentismo(InscripcionPresentismoVista vista)
         {
-            IPresentismo presentismo = new Presentismo()
-                                           {
-                                               ClasesAsistidas = vista.ClasesAsistidas,
-                                               IdInscripcion = vista.IdInscripcion,
-                                               IdPresentismo = vista.IdInscripcion
-                                           };
-            bool result = false;
+            var inscripcion = Inscripcionrepositorio.GetInscripcion(vista.IdInscripcion);
+            var condicion = CondicionCursoRepositorio.GetCondicion(inscripcion.Id_Condicion_Curso);
+            int maxClases = condicion.CantidadClases;
 
-            bool alta = Inscripcionrepositorio.GuardarPresentismo(presentismo);
-
-            if (!alta)
+            if (vista.ClasesAsistidas <= maxClases)
             {
-                result = Inscripcionrepositorio.ModificarPresentismo(presentismo);
+                IPresentismo presentismo = new Presentismo()
+                                          {
+                                              ClasesAsistidas = vista.ClasesAsistidas,
+                                              IdInscripcion = vista.IdInscripcion,
+                                          };
+                bool result = false;
+
+                var dataPresentismo = Inscripcionrepositorio.GetPresentismo(vista.IdInscripcion);
+                if (dataPresentismo!=null)
+                {
+                    presentismo.IdPresentismo = dataPresentismo.IdPresentismo;
+                    result = Inscripcionrepositorio.ModificarPresentismo(presentismo);
+                }
+                else
+                {
+                    result = Inscripcionrepositorio.GuardarPresentismo(presentismo);
+                }
+                if (!result)
+                {
+                    base.AddError("Ocurrio un Error al guardar el Presentismo.");
+                }
+                return result;
             }
             else
             {
-                result = true;
+                base.AddError("La Cantidad de clases asistidas tiene q estar entre 0 y " + maxClases +".");
+                return false;
             }
 
-            if (!result)
-            {
-                base.AddError("Ocurrio un Error al guardar el Presentismo.");
-            }
-            return result;
+
         }
 
         public IInscripcionPresentismoVista GetPresentismo(int idInscripcion)
         {
-            var a = Inscripcionrepositorio.GetPresentismo(idInscripcion);
-            if (a!=null)
+            var presentismo = Inscripcionrepositorio.GetPresentismo(idInscripcion);
+            var inscripcion = Inscripcionrepositorio.GetInscripcion(idInscripcion);
+            var condicion = CondicionCursoRepositorio.GetCondicion(inscripcion.Id_Condicion_Curso);
+            int maxClases = condicion.CantidadClases;
+            if (presentismo != null)
             {
                 IInscripcionPresentismoVista vista = new InscripcionPresentismoVista()
                 {
-                    ClasesAsistidas = a.ClasesAsistidas,
-                    IdPresentismo = a.IdPresentismo,
-                    IdInscripcion = a.IdInscripcion,
-                    PorcentajePresentismo = a.PorcentajePresentismo
+                    ClasesAsistidas = presentismo.ClasesAsistidas,
+                    IdPresentismo = presentismo.IdPresentismo,
+                    IdInscripcion = presentismo.IdInscripcion,
+                    TotalClasesCurso = maxClases
                 };
                 return vista;
             }
-           
+
             return new InscripcionPresentismoVista();
         }
 

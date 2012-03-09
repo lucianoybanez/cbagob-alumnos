@@ -26,10 +26,10 @@
             {
                 <tr>
                     <td align="left" height="30">
-                        @item.Nov_Nombre
+                        @item.Nombre
                     </td>
                     <td align="left" height="30">
-                        @item.Nov_Apellido
+                        @item.Apellido
                     </td>
                     <td align="left" height="30">
                         @item.Nro_Documento
@@ -38,7 +38,7 @@
                         @item.Fecha_Nacimiento.ToShortDateString()
                     </td>
                     <td>                        
-                        <a href="JavaScript:cbaAlumnosBuscadorAlumno.SeleccionarAlumno('@(item.Nov_Apellido + ", " + item.Nov_Nombre )','@item.Id_Alumno')" class = "btnIngresar">Seleccionar</a>
+                        <a href="JavaScript:cbaAlumnosBuscadorAlumno.SeleccionarAlumno('@(item.Apellido + ", " + item.Nombre )','@item.Id_Alumno')" class = "btnIngresar">Seleccionar</a>
                     </td>
                 </tr>
             }

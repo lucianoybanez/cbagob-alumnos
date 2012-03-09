@@ -1,7 +1,4 @@
-﻿
-
-
-$(function () {
+﻿$(function () {
     cbaAlumnosBuscadorAlumno.Init();
 });
 
@@ -12,6 +9,7 @@ cbaAlumnosBuscadorAlumno = function () {
 
     function Init() {
         SetDialog();
+        SetBehaivour();
     }
 
     function SetDialog() {
@@ -26,6 +24,29 @@ cbaAlumnosBuscadorAlumno = function () {
                     $(this).dialog("close");
                 }
             }
+        });
+    }
+
+    function SetBehaivour() {
+
+        $('#dni').val("");
+        $('#dni').attr('disabled', true);
+
+        $('#radioNombre').click(function () {
+            $('#dni').val("");
+            $('#dni').attr('disabled', true);
+            $('#apellido').attr('disabled', false);
+            $('#nombre').attr('disabled', false);
+          
+        });
+
+        $('#radioDni').click(function () {
+            $('#nombre').val("");
+            $('#nombre').attr('disabled', true);
+            $('#apellido').val("");
+            $('#apellido').attr('disabled', true);
+            $('#dni').attr('disabled', false);
+            
         });
     }
 
