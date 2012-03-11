@@ -7,5 +7,7 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         int ClasesAsistidas { get; set; }
         decimal PorcentajePresentismo { get; }
         int TotalClasesCurso { get; set; }
+        decimal PresentismoNecesario { get; set; }
+        string CumplioPresentismo { get; set; }
     }
 }

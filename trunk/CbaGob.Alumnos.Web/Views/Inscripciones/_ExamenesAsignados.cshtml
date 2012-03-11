@@ -27,8 +27,8 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td height="30">
-                            @(String.Format("{0:MM/dd/yyyy}", item.FechaExamen))
+                        <td height="30">                           
+                             @item.FechaExamen.ToFecha()
                         </td>
                         <td>
                          Examen Nº @item.NroExamen

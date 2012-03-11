@@ -52,9 +52,6 @@ namespace CbaGob.Alumnos.Web.Controllers
         public ActionResult Ver(int idInscripcion)
         {
             var vista = InscripcionServicio.GetInscripcion(idInscripcion);
-            var listaExamnes = ExamenServicio.GetExamenes(idInscripcion);
-            vista.examens = listaExamnes;
-            vista.Presentismo = InscripcionServicio.GetPresentismo(idInscripcion);
             vista.Accion = "Ver";
             return View("Agregar", vista);
         }
@@ -97,7 +94,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         public ActionResult Presentismo()
         {
-            return View(InscripcionServicio.GetAllInscripcion());
+            return View();
         }
 
 
@@ -127,7 +124,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         public ActionResult Examenes()
         {
-            return View(InscripcionServicio.GetAllInscripcion());
+            return View();
         }
 
         #endregion

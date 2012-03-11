@@ -55,7 +55,7 @@ namespace CbaGob.Alumnos.Test.Repositories
         [Test]
         public void GetCondicionCursoVarious()
         {
-            var a = repo.BuscarCondiciones("", "int", "");
+            var a = repo.BuscarCondiciones("", "int", "",2012,"");
             Debug.WriteLine(a.Count);
 
 
@@ -66,7 +66,7 @@ namespace CbaGob.Alumnos.Test.Repositories
         [Test]
         public void GetInscripcionesFilter()
         {
-            var a = InscripcionRepositorio.GetAllInscripcionBy("", "salas", "", "");
+            var a = InscripcionRepositorio.GetAllInscripcionBy("lucas", "maldonado", "", "");
             Debug.WriteLine(a.Count);
             Assert.IsTrue(a.Count>0);
 

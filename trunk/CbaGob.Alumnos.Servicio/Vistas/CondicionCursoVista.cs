@@ -33,7 +33,7 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public int CantidadExamenes { get; set; }
         [Range(1, 999)]
         public int CantidadClases { get; set; }
-        [Range(1, 9999)]
+        [Range(1, 100)] // Debe ser porcentaje
         public int Presentismo { get; set; }
         [Range(1, 9999)]
         public int CargaHoraria { get; set; }
@@ -49,7 +49,9 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public string NombreModalidad { get; set; }
         public IList<IGrupo> ListaGrupos { get; set; }
         public IList<IAlumnos> ListaAlumno { get; set; }
+        [Required]
         public DateTime Fecha_Inicio { get; set; }
+        [Required]
         public DateTime Fecha_Fin { get; set; }
         [Required(ErrorMessage = "*")]
         public string Nro_Resolucion { get; set; }

@@ -22,5 +22,6 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
         IInscripcionPresentismoVista GetPresentismo(int idInscripcion);
 
         IInscripcionesVista GetAllInscripcionBy(string nombre, string apellido, string dni, string institucion);
+        IInscripcionExamenVista GetExamenes(int idInscripcion);
     }
 }

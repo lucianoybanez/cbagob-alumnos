@@ -22,17 +22,20 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         private IAutenticacionServicio Aut;
 
-        public InscripcionServicio(IInscripcionRepositorio inscripcionrepositorio, IAutenticacionServicio aut, ICondicionCursoRepositorio condicionCurso)
+        private IExamenServicio ExamenServicio;
+
+        public InscripcionServicio(IInscripcionRepositorio inscripcionrepositorio, IAutenticacionServicio aut, ICondicionCursoRepositorio condicionCurso, IExamenServicio examenServicio)
         {
             Inscripcionrepositorio = inscripcionrepositorio;
             Aut = aut;
             CondicionCursoRepositorio = condicionCurso;
+            ExamenServicio = examenServicio;
         }
 
         public IInscripcionesVista GetAllInscripcion()
         {
             IInscripcionesVista inscripcionesvista = new InscripcionesVista();
-            var pager = new Pager(Inscripcionrepositorio.GetAllInscripcion(),3, "FormIndexInscripciones", Aut.GetUrl("IndexPager", "Inscripciones"));
+            var pager = new Pager(Inscripcionrepositorio.GetAllInscripcion(), 3, "FormIndexInscripciones", Aut.GetUrl("IndexPager", "Inscripciones"));
             inscripcionesvista.pager = pager;
             inscripcionesvista.ListaInscripciones = Inscripcionrepositorio.GetAllInscripcion(pager.Skip, pager.PageSize);
             return inscripcionesvista;
@@ -68,29 +71,36 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         public IInscripcionVista GetInscripcion(int id_inscripcion)
         {
-
-            var inscripcion = Inscripcionrepositorio.GetInscripcion(id_inscripcion);
-
-            if (inscripcion != null)
+            IInscripcionVista vista = new InscripcionVista();
+            
+            if (id_inscripcion != 0)
             {
-                IInscripcionVista vista = new InscripcionVista()
+                var inscripcion = Inscripcionrepositorio.GetInscripcion(id_inscripcion);
+                if (inscripcion!=null)
                 {
-                    Descripcion = inscripcion.Descripcion,
-                    Fecha = inscripcion.Fecha,
-                    IdAlumno = inscripcion.Id_Alumno,
-                    IdCondicionCurso = inscripcion.Id_Condicion_Curso,
-                    IdInscripcion = inscripcion.IdInscripcion,
-                    NombreAlumno = inscripcion.NombreAlumno,
-                    NombreCurso = inscripcion.NombreCurso,
-                    NombreEstadoCurso = inscripcion.NombreEstadoCurso,
-                    NombreInstitucion = inscripcion.NombreInstitucion,
-                    NombreModalidad = inscripcion.NombreModalidad,
-                    NombreNivel = inscripcion.NombreNivel,
-                    NombrePrograma = inscripcion.NombrePrograma
-                };
-                return vista;
+                    var condicion = CondicionCursoRepositorio.GetCondicion(inscripcion.Id_Condicion_Curso);
+                    vista = new InscripcionVista()
+                    {
+                        Descripcion = inscripcion.Descripcion,
+                        Fecha = inscripcion.Fecha,
+                        IdAlumno = inscripcion.Id_Alumno,
+                        IdCondicionCurso = inscripcion.Id_Condicion_Curso,
+                        IdInscripcion = inscripcion.IdInscripcion,
+                        NombreAlumno = inscripcion.ApellidoAlumno + ", " + inscripcion.NombreAlumno,
+                        NombreCurso = inscripcion.NombreCurso,
+                        NombreEstadoCurso = inscripcion.NombreEstadoCurso,
+                        NombreInstitucion = inscripcion.NombreInstitucion,
+                        NombreModalidad = inscripcion.NombreModalidad,
+                        NombreNivel = inscripcion.NombreNivel,
+                        NombrePrograma = inscripcion.NombrePrograma,
+                        FechaFin = inscripcion.FechaFin,
+                        FechaInicio = inscripcion.FechaIncio,
+                        Presentismo = GetPresentismo(id_inscripcion, condicion),
+                        examens = GetExamenes(id_inscripcion, condicion)
+                    };
+                }
             }
-            return new InscripcionVista();
+            return vista;
         }
 
         public bool AgregarInscripcion(IInscripcionVista vista)
@@ -106,8 +116,8 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                     inscripcion.Descripcion = vista.Descripcion;
 
                     bool result = false;
-                    var inscripcionModelo = Inscripcionrepositorio.GetInscripcion(inscripcion.Id_Condicion_Curso,inscripcion.Id_Alumno);
-                    if (inscripcionModelo!=null)
+                    var inscripcionModelo = Inscripcionrepositorio.GetInscripcion(inscripcion.Id_Condicion_Curso, inscripcion.Id_Alumno);
+                    if (inscripcionModelo != null)
                     {
                         inscripcion.IdInscripcion = inscripcionModelo.IdInscripcion;
                         result = Inscripcionrepositorio.ModificarInscripcion(inscripcion);
@@ -172,7 +182,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 bool result = false;
 
                 var dataPresentismo = Inscripcionrepositorio.GetPresentismo(vista.IdInscripcion);
-                if (dataPresentismo!=null)
+                if (dataPresentismo != null)
                 {
                     presentismo.IdPresentismo = dataPresentismo.IdPresentismo;
                     result = Inscripcionrepositorio.ModificarPresentismo(presentismo);
@@ -189,7 +199,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
             else
             {
-                base.AddError("La Cantidad de clases asistidas tiene q estar entre 0 y " + maxClases +".");
+                base.AddError("La Cantidad de clases asistidas tiene q estar entre 0 y " + maxClases + ".");
                 return false;
             }
 
@@ -202,19 +212,53 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             var inscripcion = Inscripcionrepositorio.GetInscripcion(idInscripcion);
             var condicion = CondicionCursoRepositorio.GetCondicion(inscripcion.Id_Condicion_Curso);
             int maxClases = condicion.CantidadClases;
+
+            IInscripcionPresentismoVista vista = new InscripcionPresentismoVista();
+            vista.CumplioPresentismo = "Debe cargar la cantidad de clases q asistio.";
             if (presentismo != null)
             {
-                IInscripcionPresentismoVista vista = new InscripcionPresentismoVista()
+                vista.ClasesAsistidas = presentismo.ClasesAsistidas;
+                vista.IdPresentismo = presentismo.IdPresentismo;
+                vista.IdInscripcion = presentismo.IdInscripcion;
+                vista.TotalClasesCurso = maxClases;
+                vista.PresentismoNecesario = condicion.Presentismo;
+                if (vista.PorcentajePresentismo >= vista.PresentismoNecesario)
                 {
-                    ClasesAsistidas = presentismo.ClasesAsistidas,
-                    IdPresentismo = presentismo.IdPresentismo,
-                    IdInscripcion = presentismo.IdInscripcion,
-                    TotalClasesCurso = maxClases
-                };
-                return vista;
+                    vista.CumplioPresentismo = "Si Cumplio.";
+                }
+                else
+                {
+                    vista.CumplioPresentismo = "No Cumplio.";
+                }
             }
 
-            return new InscripcionPresentismoVista();
+            return vista;
+        }
+
+        private IInscripcionPresentismoVista GetPresentismo(int idInscripcion, ICondicionCurso condicion)
+        {
+            var presentismo = Inscripcionrepositorio.GetPresentismo(idInscripcion);
+            int maxClases = condicion.CantidadClases;
+            IInscripcionPresentismoVista vista = new InscripcionPresentismoVista();
+            vista.CumplioPresentismo = "Debe cargar la cantidad de clases q asistio.";
+            if (presentismo != null)
+            {
+                vista.ClasesAsistidas = presentismo.ClasesAsistidas;
+                vista.IdPresentismo = presentismo.IdPresentismo;
+                vista.IdInscripcion = presentismo.IdInscripcion;
+                vista.TotalClasesCurso = maxClases;
+                vista.PresentismoNecesario = condicion.Presentismo;
+                if (vista.PorcentajePresentismo >= vista.PresentismoNecesario)
+                {
+                    vista.CumplioPresentismo = "Si Cumplio.";
+                }
+                else
+                {
+                    vista.CumplioPresentismo = "No Cumplio.";
+                }
+            }
+
+            return vista;
         }
 
         public IInscripcionesVista GetAllInscripcionBy(string nombre, string apellido, string dni, string institucion)
@@ -222,6 +266,47 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             IInscripcionesVista vista = new InscripcionesVista();
             vista.ListaInscripciones = Inscripcionrepositorio.GetAllInscripcionBy(nombre, apellido, dni, institucion);
 
+            return vista;
+        }
+
+        public IInscripcionExamenVista GetExamenes(int idInscripcion)
+        {
+            return null;
+        }
+
+        private IInscripcionExamenVista GetExamenes(int idInscripcion, ICondicionCurso condicion)
+        {
+            IInscripcionExamenVista vista = new InscripcionExamenVista();
+            vista.Examenes = ExamenServicio.GetExamenes(idInscripcion);
+            vista.PromedioRequerdio = condicion.PromedioRequerido;
+            decimal total = 0;
+            int totalExamnesRendidos = 0;
+            int cantidadExamenesNecesarios = condicion.CantidadExamenes;
+            vista.ExamenesRequeridos = condicion.CantidadExamenes;
+            foreach (var exa in vista.Examenes)
+            {
+                totalExamnesRendidos +=1;
+                total += exa.Nota;
+            }
+            try
+            {
+                vista.PromedioAlumno = decimal.Divide(total, totalExamnesRendidos);
+            }
+            catch
+            {
+                vista.PromedioAlumno = 0;
+            }
+            vista.Aprobo = "Debe Cargar todos los examenes para saber si Aprobo";
+            if (totalExamnesRendidos == cantidadExamenesNecesarios)
+            {
+                if (vista.PromedioAlumno>=condicion.PromedioRequerido)
+                {
+                    vista.Aprobo = "SI Aprobo";
+                }else
+                {
+                    vista.Aprobo = "NO Aprobo";
+                }
+            }
             return vista;
         }
 

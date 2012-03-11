@@ -16,6 +16,6 @@ namespace CbaGob.Alumnos.Modelo.Repositories
         bool ModificarCondicion(ICondicionCurso condicion);
         bool EliminarCondicion(int IdCondicion, string nroresolucion);
         bool CambiarEstadoCurso(int IdCondicion, int NuevoEstado);
-        IList<ICondicionCurso> BuscarCondiciones(string institucion, string nivel, string curso);
+        IList<ICondicionCurso> BuscarCondiciones(string institucion, string nivel, string curso, int año,string programa);
     }
 }

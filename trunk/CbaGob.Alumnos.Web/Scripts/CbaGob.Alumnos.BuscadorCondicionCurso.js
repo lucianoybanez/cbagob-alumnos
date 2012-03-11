@@ -7,7 +7,7 @@ $(function () {
 cbaAlumnosBuscadorCondicionCurso = function () {
 
     var dialogName = 'CondicionCursoDialog';
-    
+
     var idCondicionCurso = null;
     var nombeInstitucion = null;
     var nombreCurso = null;
@@ -15,10 +15,56 @@ cbaAlumnosBuscadorCondicionCurso = function () {
     var nombreNivel = null;
     var nombreModalidad = null;
     var nombrePrograma = null;
+    var fechaInicio = null;
+    var fechaFin = null;
 
     function Init() {
         SetDialog();
+        SetBehaivour();
     }
+
+    function SetBehaivour() {
+
+        $('#curso').attr('disabled', true);
+        $('#programa').attr('disabled', true);
+
+        $('#radioInstitucion').click(function () {
+            clearCurso();
+            clearPrograma();
+            $('#institucion').attr('disabled', false);
+        });
+
+        $('#radioCurso').click(function () {
+            clearInstitucion();
+            clearPrograma();
+            $('#curso').attr('disabled', false);
+        });
+
+        $('#radioPrograma').click(function () {
+            clearInstitucion();
+            clearCurso();
+            $('#programa').attr('disabled', false);
+        });
+
+
+        function clearInstitucion() {
+            $('#institucion').val("");
+            $('#institucion').attr('disabled', true);
+        }
+
+        function clearPrograma() {
+            $('#programa').val("");
+            $('#programa').attr('disabled', true);
+        }
+
+        function clearCurso() {
+            $('#curso').val("");
+            $('#curso').attr('disabled', true);
+        }
+
+    }
+
+
 
     function SetDialog() {
         $("#" + dialogName).dialog({
@@ -35,7 +81,7 @@ cbaAlumnosBuscadorCondicionCurso = function () {
         });
     }
 
-    function AbrirBuscador(pIdCondicionCurso, pNombeInstitucion, pNombreCurso, pNombreEstadoCurso, pNombreNivel, pNombreModalidad, pNombrePrograma) {
+    function AbrirBuscador(pIdCondicionCurso, pNombeInstitucion, pNombreCurso, pNombreEstadoCurso, pNombreNivel, pNombreModalidad, pNombrePrograma, pFechaInicio, pFechaFin) {
         idCondicionCurso = pIdCondicionCurso;
         nombeInstitucion = pNombeInstitucion;
         nombreCurso = pNombreCurso;
@@ -43,10 +89,12 @@ cbaAlumnosBuscadorCondicionCurso = function () {
         nombreNivel = pNombreNivel;
         nombreModalidad = pNombreModalidad;
         nombrePrograma = pNombrePrograma;
+        fechaInicio = pFechaInicio;
+        fechaFin = pFechaFin;
         $("#" + dialogName).dialog('open');
     }
 
-    function Seleccionar(pIdCondicionCurso, pNombeInstitucion, pNombreCurso, pNombreEstadoCurso, pNombreNivel, pNombreModalidad, pNombrePrograma) {
+    function Seleccionar(pIdCondicionCurso, pNombeInstitucion, pNombreCurso, pNombreEstadoCurso, pNombreNivel, pNombreModalidad, pNombrePrograma, pFechaInicio, pFechaFin) {
         $("#" + idCondicionCurso).val(pIdCondicionCurso);
         $("#" + nombeInstitucion).val(pNombeInstitucion);
         $("#" + nombreCurso).val(pNombreCurso);
@@ -54,6 +102,8 @@ cbaAlumnosBuscadorCondicionCurso = function () {
         $("#" + nombreNivel).val(pNombreNivel);
         $("#" + nombreModalidad).val(pNombreModalidad);
         $("#" + nombrePrograma).val(pNombrePrograma);
+        $("#" + fechaInicio).val(pFechaInicio);
+        $("#" + fechaFin).val(pFechaFin);
         $("#" + dialogName).dialog('close');
     }
 

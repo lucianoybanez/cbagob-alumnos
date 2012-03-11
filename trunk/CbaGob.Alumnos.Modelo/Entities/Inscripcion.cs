@@ -19,6 +19,8 @@ namespace CbaGob.Alumnos.Modelo.Entities
         public DateTime Fecha { get; set; }
         public int IdInstitucion { get; set; }
         public string NombreInstitucion { get; set; }
+        public DateTime? FechaIncio { get; set; }
+        public DateTime? FechaFin { get; set; }
         public int IdEstadoCurso { get; set; }
         public string NombreEstadoCurso { get; set; }
         public int IdCurso { get; set; }
@@ -33,5 +35,6 @@ namespace CbaGob.Alumnos.Modelo.Entities
         public string Dni{get; set; }
         public int idPrograma { get; set; }
         public string NombrePrograma { get; set; }
+        public string NroResolucion { get; set; }
     }
 }

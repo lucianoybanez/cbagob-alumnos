@@ -25,5 +25,9 @@ namespace CbaGob.Alumnos.Servicio.Vistas
             }
         }
         public int TotalClasesCurso { get; set; }
+
+        public decimal PresentismoNecesario { get; set; }
+
+        public string CumplioPresentismo { get; set; }
     }
 }

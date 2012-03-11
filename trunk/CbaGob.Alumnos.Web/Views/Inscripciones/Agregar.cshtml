@@ -91,6 +91,7 @@
                                                 @Html.ValidationMessageFor(m => m.NombreEstadoCurso, "*")
                                             </td>
                                         </tr>
+                                        @*
                                         <tr>
                                             <td align="left">
                                                 <b>Nivel:</b>
@@ -100,6 +101,7 @@
                                                 @Html.ValidationMessageFor(m => m.NombreNivel, "*")
                                             </td>
                                         </tr>
+                                        *@
                                         <tr>
                                             <td align="left">
                                                 <b>Modalidad:</b>
@@ -116,6 +118,24 @@
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.NombrePrograma, new { @readonly = "readonly" })
                                                 @Html.ValidationMessageFor(m => m.NombrePrograma, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Fecha Inicio:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBox("FechaInicio", Model.FechaInicio.ToFecha(), new { @readonly = "readonly" })
+                                                @Html.ValidationMessageFor(m => m.FechaInicio, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Fecha Fin:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBox("FechaFin", Model.FechaFin.ToFecha(), new { @readonly = "readonly" })
+                                                @Html.ValidationMessageFor(m => m.FechaFin, "*")
                                             </td>
                                         </tr>
                                     </table>
@@ -148,11 +168,46 @@
                     <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
                         text-align: center;">
                         <legend style="color: #FF9900"><b>Datos Examenes</b></legend>
-                        @Html.Partial("_ExamenesAsignados", Model.examens)
-                        <div align="right" style="padding:0 5px 5px 0; ">
-                         @Html.ActionLink("Agregar Examen", "Agregar", "Examenes", new { IdInscripcion = @Model.IdInscripcion }, new { @class = "btnIngresar" })
+                        @Html.Partial("_ExamenesAsignados", Model.examens.Examenes)
+                        <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                            width: 700px;">
+                            <tr>
+                                <td align="right">
+                                    <b>Promedio del Alumno:</b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.TextBoxFor(c => c.examens.PromedioAlumno)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Promedio Requerdio:</b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.TextBoxFor(c => c.examens.PromedioRequerdio)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Total de Examenes Requeridos:</b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Model.examens.ExamenesRequeridos
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Aprobo:</b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Model.examens.Aprobo
+                                </td>
+                            </tr>
+                        </table>
+                        <div align="right" style="padding: 0 5px 5px 0;">
+                            @Html.ActionLink("Agregar Examen", "Agregar", "Examenes", new { IdInscripcion = @Model.IdInscripcion }, new { @class = "btnIngresar" })
                         </div>
-                       <br/>
+                        <br />
                     </fieldset>
                 </td>
             </tr> 
@@ -165,25 +220,49 @@
                             width: 700px;">
                             <tr>
                                 <td align="right">
-                                    <b>Clases Asistidas:</b>
+                                    <b>Clases Asistidas del Alumno:</b>
                                 </td>
                                 <td align="left" valign="middle">
-                                    @Html.TextBoxFor(c => c.Presentismo.ClasesAsistidas)                                 
+                                    @Html.TextBoxFor(c => c.Presentismo.ClasesAsistidas)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Cantidad de Clases del Curso:</b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.TextBoxFor(c => c.Presentismo.TotalClasesCurso)
                                 </td>
                             </tr>
                             <tr>
                                 <td align="left">
-                                    <b>Presentismo:</b>
+                                    <b>Presentismo del Alumno:</b>
                                 </td>
                                 <td align="left" valign="middle">
-                                     @Html.TextBoxFor(c => c.Presentismo.PorcentajePresentismo)                              
+                                    @Html.TextBoxFor(c => c.Presentismo.PorcentajePresentismo)%
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    <b>Presentismo Necesario del Curso:</b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.TextBoxFor(c => c.Presentismo.PresentismoNecesario)%
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    <b>Cumplio con el Presentismo:</b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Model.Presentismo.CumplioPresentismo
                                 </td>
                             </tr>
                         </table>
-                        <div align="right" style="padding:0 5px 5px 0;">
-                            <a class="btnIngresar" id="AbrirPresentismo" href="#" >Modificar Presentismo</a>   
+                        <div align="right" style="padding: 0 5px 5px 0;">
+                            <a class="btnIngresar" id="AbrirPresentismo" href="#">Modificar Presentismo</a>
                         </div>
-                        <br />                                                              
+                        <br />
                     </fieldset>
                 </td>
             </tr>
@@ -192,9 +271,7 @@
 </div>
 @Html.Partial("BuscadorAlumno")
 @Html.Partial("BuscadorCondicionCurso")
-@{if (Model.Presentismo!=null)
+@{if (Model.Presentismo != null)
   {
-      @Html.Partial("_AgregarPresentismo", Model.Presentismo)
+    @Html.Partial("_AgregarPresentismo", Model.Presentismo)
   } }
-
-
