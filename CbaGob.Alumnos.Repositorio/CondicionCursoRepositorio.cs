@@ -187,6 +187,8 @@ namespace CbaGob.Alumnos.Repositorio
             }
         }
 
+        #endregion
+
         public bool CambiarEstadoCurso(int IdCondicion, int NuevoEstado)
         {
             IComunDatos datos = new ComunDatos();
@@ -206,20 +208,28 @@ namespace CbaGob.Alumnos.Repositorio
             }
         }
 
-        public IList<ICondicionCurso> BuscarCondiciones(string institucion, string nivel, string curso)
+        public IList<ICondicionCurso> BuscarCondiciones(string institucion, string nivel, string curso, int año,string programa)
         {
             if (!string.IsNullOrEmpty(institucion))
             {
-                return GetCondicion().Where(c => (c.NombeInstitucion.ToLower().Contains(institucion.ToLower()))).ToList();
+                return GetCondicion().Where(c => (c.NombeInstitucion.ToLower().StartsWith(institucion.ToLower())) && (c.Fecha_Inicio.Year == año || año == 0)).ToList();
             }
-            else if (!string.IsNullOrEmpty(curso))
+            if (!string.IsNullOrEmpty(curso))
             {
-                return GetCondicion().Where(c => (c.NombreCurso.ToLower().Contains(curso.ToLower()) )).ToList();
+                return GetCondicion().Where(c => (c.NombreCurso.ToLower().StartsWith(curso.ToLower()) && (c.Fecha_Inicio.Year == año || año == 0))).ToList();
             }
-            return GetCondicion().Where(c => (c.NombreNivel.ToLower().Contains(nivel.ToLower()))).ToList();
-            
+            if (!string.IsNullOrEmpty(programa))
+            {
+                return GetCondicion().Where(c => (c.NombrePrograma.ToLower().StartsWith(programa.ToLower()) && (c.Fecha_Inicio.Year == año || año == 0))).ToList();
+            }
+            if (año!=0)
+            {
+                return GetCondicion().Where(c => (c.Fecha_Inicio.Year == año)).ToList();
+            }
+            //return GetCondicion().Where(c => (c.NombreNivel.ToLower().Contains(nivel.ToLower()))).ToList();
+            return null;
         }
 
-        #endregion
+      
     }
 }

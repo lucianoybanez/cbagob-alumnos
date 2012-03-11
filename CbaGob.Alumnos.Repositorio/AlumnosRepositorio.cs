@@ -66,15 +66,9 @@ namespace CbaGob.Alumnos.Repositorio
 
         public IList<IAlumnos> GetTodosByNombreApellido(string nombre, string apellido)
         {
-            try
-            {
-                return QAlumnos().Where(c => c.Nombre.ToLower().StartsWith(nombre.ToLower()) || c.Apellido.ToLower().StartsWith(apellido.ToLower())).ToList();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            nombre = nombre == "" ? null : nombre;
+            apellido = apellido == "" ? null : apellido;
+            return QAlumnos().Where(c => (c.Nombre.ToLower().StartsWith(nombre.ToLower()) || nombre == null) && (c.Apellido.ToLower().StartsWith(apellido.ToLower()) || apellido == null)).ToList();
         }
 
         public IList<IAlumnos> GetTodosByDni(string dni)
@@ -228,8 +222,8 @@ namespace CbaGob.Alumnos.Repositorio
             try
             {
                 base.AgregarDatosAlta(alumno);
-                
-                
+
+
                 T_ALUMNOS T_Alumnos = new T_ALUMNOS()
                                           {
                                               ESTADO = alumno.Estado,

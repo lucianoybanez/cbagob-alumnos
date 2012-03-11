@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Servicio.VistasInterface.Shared;
 
 namespace CbaGob.Alumnos.Servicio.VistasInterface
@@ -29,7 +27,10 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         int IdAlumno { get; set; }
         string NombreAlumno { get; set; }
 
-        IList<IExamen> examens { get; set; }
+        DateTime? FechaInicio { get; set; }
+        DateTime? FechaFin { get; set; }
+
+        IInscripcionExamenVista examens { get; set; }
 
         IInscripcionPresentismoVista Presentismo { get; set; }
     }

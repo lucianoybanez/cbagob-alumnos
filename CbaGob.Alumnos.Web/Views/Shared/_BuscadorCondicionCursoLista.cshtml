@@ -13,11 +13,17 @@
                 <th height="30">
                     Modalidad
                 </th>
-                <th height="30">
+                @*<th height="30">
                     Nivel
-                </th>
+                </th>*@
                 <th height="30">
                     Programa
+                </th>
+                <th height="30">
+                    Fecha Inicio
+                </th>
+                 <th height="30">
+                    Fecha Fin
                 </th>
                 <th height="30">
                     Accion
@@ -37,14 +43,20 @@
                     <td align="left" height="28">
                         @item.NombreModalidad
                     </td>
-                    <td align="left" height="28">
+                   @* <td align="left" height="28">
                         @item.NombreNivel
-                    </td>
+                    </td>*@
                     <td align="left" height="28">
                         @item.NombrePrograma
                     </td>
+                      <td align="left" height="28">
+                        @item.Fecha_Inicio.ToFecha()
+                    </td>
+                      <td align="left" height="28">
+                        @item.Fecha_Fin.ToFecha()
+                    </td>
                     <td align="right" style="margin-right: 2px;">
-                        <a href="JavaScript:cbaAlumnosBuscadorCondicionCurso.Seleccionar('@item.IdCondicionCurso','@item.NombeInstitucion','@item.NombreCurso','@item.NombreEstadoCurso','@item.NombreNivel','@item.NombreModalidad','@item.NombrePrograma')" class = "btnIngresar">Seleccionar</a>
+                        <a href="JavaScript:cbaAlumnosBuscadorCondicionCurso.Seleccionar('@item.IdCondicionCurso','@item.NombeInstitucion','@item.NombreCurso','@item.NombreEstadoCurso','@item.NombreNivel','@item.NombreModalidad','@item.NombrePrograma','@item.Fecha_Inicio.ToFecha()','@item.Fecha_Fin.ToFecha()')" class = "btnIngresar">Seleccionar</a>
                     </td>
                 </tr>
             }

@@ -87,9 +87,9 @@ namespace CbaGob.Alumnos.Web.Controllers
         }
 
 
-        public PartialViewResult BuscarCondicion(string institucion, string nivel, string curso)
+        public PartialViewResult BuscarCondicion(string institucion, string nivel, string curso, string programa,string ano)
         {
-            return PartialView("_BuscadorCondicionCursoLista", CondicionesCursoServicio.BuscarCondiciones(institucion, nivel, curso).CondicionesCursos);
+            return PartialView("_BuscadorCondicionCursoLista", CondicionesCursoServicio.BuscarCondiciones(institucion, nivel, curso,programa,ano).CondicionesCursos);
         }
 
     }

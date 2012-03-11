@@ -30,7 +30,10 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         [Required]
         public string NombreAlumno { get; set; }
 
-        public IList<IExamen> examens { get; set; }
+        public DateTime? FechaInicio { get; set; }
+        public DateTime? FechaFin { get; set; }
+
+        public IInscripcionExamenVista examens { get; set; }
         public IInscripcionPresentismoVista Presentismo { get; set; }
     }
 }

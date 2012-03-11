@@ -226,17 +226,23 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             return CondicionCursoRepositorio.CambiarEstadoCurso(IdCondicion, NuevoEstado);
         }
 
-        public ICondicionesCursoVista BuscarCondiciones(string institucion, string nivel, string curso)
+        public ICondicionesCursoVista BuscarCondiciones(string institucion, string nivel, string curso,string programa, string año)
         {
             var vista = new CondicionesCursoVista();
-            if (string.IsNullOrEmpty(institucion) && string.IsNullOrEmpty(nivel) && string.IsNullOrEmpty(curso))
+            int añoValor = 0;
+            try
             {
-                AddError("Usted debe agregar un filtro como minimo");
+                añoValor = int.Parse(año);
+                if (añoValor<1900||añoValor>3000)
+                {
+                    throw new Exception();
+                }
             }
-            else
+            catch 
             {
-                vista.CondicionesCursos = CondicionCursoRepositorio.BuscarCondiciones(institucion, nivel, curso);
             }
+            vista.CondicionesCursos = CondicionCursoRepositorio.BuscarCondiciones(institucion, nivel, curso,añoValor,programa);
+           
             return vista;
         }
 

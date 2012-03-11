@@ -113,11 +113,13 @@
     <Compile Include="VistasInterface\ICajaChicaVista.cs" />
     <Compile Include="VistasInterface\IEquiposVista.cs" />
     <Compile Include="VistasInterface\IEquipoVista.cs" />
+    <Compile Include="VistasInterface\IInscripcionExamenVista.cs" />
     <Compile Include="VistasInterface\IInscripcionPresentismoVista.cs" />
     <Compile Include="VistasInterface\IInventariosVista.cs" />
     <Compile Include="VistasInterface\IInventarioVista.cs" />
     <Compile Include="VistasInterface\IMovimientosVista.cs" />
     <Compile Include="VistasInterface\IMovimientoVista.cs" />
+    <Compile Include="Vistas\InscripcionExamenVista.cs" />
     <Compile Include="VistasInterface\IPrestamosVista.cs" />
     <Compile Include="VistasInterface\IPrestamoVista.cs" />
     <Compile Include="VistasInterface\ISupervicionesVista.cs" />

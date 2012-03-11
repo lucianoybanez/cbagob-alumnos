@@ -58,7 +58,7 @@ cbaAlumnosInscripciones = function () {
         });
 
         $("#BuscarInstitucion").click(function () {
-            cbaAlumnosBuscadorCondicionCurso.AbrirBuscador('IdCondicionCurso', 'NombreInstitucion', 'NombreCurso', 'NombreEstadoCurso', 'NombreNivel', 'NombreModalidad', 'NombrePrograma');
+            cbaAlumnosBuscadorCondicionCurso.AbrirBuscador('IdCondicionCurso', 'NombreInstitucion', 'NombreCurso', 'NombreEstadoCurso', 'NombreNivel', 'NombreModalidad', 'NombrePrograma','FechaInicio','FechaFin');
         });
     }
 

@@ -23,7 +23,6 @@ namespace CbaGob.Alumnos.Repositorio
         private IQueryable<IInscripcion> QInscripcion(string estado)
         {
             var a = (from c in mDb.T_INSCRIPCIONES
-                     join alumnos in mDb.T_ALUMNOS on c.ID_ALUMNO equals alumnos.ID_ALUMNO
                      where c.ESTADO == estado
                      select
                          new Inscripcion
@@ -38,28 +37,30 @@ namespace CbaGob.Alumnos.Repositorio
                                  Descripcion = c.DESCRIPCION,
                                  Id_Condicion_Curso = c.ID_CONDICION_CURSO,
                                  IdInscripcion = c.ID_INSCRIPCION,
-                                 ApellidoAlumno = alumnos.NOMBRE,
-                                 NombreAlumno = alumnos.APELLIDO,
+                                 ApellidoAlumno = c.T_ALUMNOS.APELLIDO,
+                                 NombreAlumno = c.T_ALUMNOS.NOMBRE,
                                  Estado = c.ESTADO,
                                  IdCurso = c.T_CONDICIONES_CURSO.ID_CURSO,
                                  IdEstadoCurso = c.T_CONDICIONES_CURSO.ID_ESTADO_CURSO,
                                  IdInstitucion = c.T_CONDICIONES_CURSO.ID_INSTITUCION,
                                  IdModalidad = c.T_CONDICIONES_CURSO.ID_MODALIDAD,
-                                 IdNivel = c.T_CONDICIONES_CURSO.ID_MODALIDAD,
+                                 IdNivel = c.T_CONDICIONES_CURSO.ID_NIVEL,
                                  NombreModalidad = c.T_CONDICIONES_CURSO.T_MODALIDADES.N_MODALIDAD,
                                  NombreEstadoCurso = c.T_CONDICIONES_CURSO.T_ESTADOS_CURSO.N_ESTADO_CURSO,
                                  NombreInstitucion = c.T_CONDICIONES_CURSO.T_INSTITUCIONES.N_INSTITUCION,
                                  NombreNivel = c.T_CONDICIONES_CURSO.T_NIVELES.N_NIVEL,
                                  NombrePrograma = c.T_CONDICIONES_CURSO.T_PROGRAMAS.N_PROGRAMA,
                                  idPrograma = c.T_CONDICIONES_CURSO.ID_PROGRAMA,
-                                 Dni = alumnos.NRO_DOCUMENTO
+                                 Dni = c.T_ALUMNOS.NRO_DOCUMENTO,
+                                 FechaFin = c.T_CONDICIONES_CURSO.FEC_FIN,
+                                 FechaIncio = c.T_CONDICIONES_CURSO.FEC_INICIO,
                              });
             return a;
         }
 
         public IList<IInscripcion> GetAllInscripcion(int skip, int take)
         {
-            return QInscripcion("A").OrderBy(c=> c.NombreInstitucion).Skip(skip).Take(take).ToList();
+            return QInscripcion("A").OrderBy(c => c.NombreInstitucion).Skip(skip).Take(take).ToList();
         }
 
         public int GetAllInscripcion()
@@ -69,15 +70,9 @@ namespace CbaGob.Alumnos.Repositorio
 
         public IList<IInscripcion> GetAllInscripcionByAlumno(int id_alumno)
         {
-            try
-            {
-                return QInscripcion("A").Where(c => c.Id_Alumno == id_alumno).ToList();
-            }
-            catch (Exception)
-            {
 
-                throw;
-            }
+            return QInscripcion("A").Where(c => c.Id_Alumno == id_alumno).ToList();
+
         }
 
         public IList<IInscripcion> GetAllInscripcionByGrupo(int idGrupo)
@@ -117,15 +112,9 @@ namespace CbaGob.Alumnos.Repositorio
 
         public IInscripcion GetInscripcion(int id_inscripcion)
         {
-            try
-            {
-                return QInscripcion("A").Where(c => c.IdInscripcion == id_inscripcion).FirstOrDefault();
-            }
-            catch (Exception)
-            {
 
-                throw;
-            }
+            return QInscripcion("A").Where(c => c.IdInscripcion == id_inscripcion).FirstOrDefault();
+
         }
 
         public IInscripcion GetInscripcion(int id_condicionCurso, int idAlumno)
@@ -145,16 +134,18 @@ namespace CbaGob.Alumnos.Repositorio
             }
             if (!string.IsNullOrEmpty(nombre) || !string.IsNullOrEmpty(apellido))
             {
-                return QInscripcion("A").Where(c => (c.NombreAlumno.ToLower() == nombre.ToLower() || nombre == null) && (c.ApellidoAlumno.ToLower() == apellido.ToLower() || apellido == null)).ToList();
+                return QInscripcion("A").Where(c => (c.NombreAlumno.ToLower().StartsWith(nombre.ToLower()) || nombre == null) && (c.ApellidoAlumno.ToLower().StartsWith(apellido.ToLower()) || apellido == null)).ToList();
             }
             if (!string.IsNullOrEmpty(institucion))
             {
-                return QInscripcion("A").Where(c => c.NombreInstitucion.ToLower() == institucion.ToLower()).ToList();
+                return QInscripcion("A").Where(c => c.NombreInstitucion.ToLower().StartsWith(institucion.ToLower())).ToList();
             }
             return null;
         }
 
         #endregion
+
+        #region 'CRUD Inscripciones'
 
         public bool AgregarInscripcion(IInscripcion inscripcion)
         {
@@ -230,6 +221,9 @@ namespace CbaGob.Alumnos.Repositorio
                 return false;
             }
         }
+
+
+        #endregion
 
         #region 'Presentismo'
 
