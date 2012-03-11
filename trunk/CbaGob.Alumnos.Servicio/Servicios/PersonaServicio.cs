@@ -19,7 +19,8 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         }
 
         public UsuarioVista BuscarUsuario(UsuarioVista vista)
-        {
+        {/*
+
             if (vista.SearchByDni)
             {
                 vista.Usuarios = PersonaRepositorio.GetPersonasDni(vista.Dni);
@@ -28,13 +29,16 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 vista.Usuarios = PersonaRepositorio.GetTodasByNombre(vista.Nombre);
             }
+          * */
             return vista;
         }
 
         public UsuarioVista GetIndex()
         {
             UsuarioVista UsuarioVista = new UsuarioVista();
+            /*
             UsuarioVista.SearchByDni = true;
+             * */
             return UsuarioVista;
         }
 

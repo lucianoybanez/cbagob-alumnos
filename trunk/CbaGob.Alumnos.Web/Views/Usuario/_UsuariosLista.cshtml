@@ -1,43 +1,43 @@
-﻿@model IList<IPersona>
-
-    Usuarios:
-    @if (Model != null && Model.Count()>0)
-{
-        <table id="UsuariosLista" border="0" cellpadding="0" cellspacing="0">
+﻿@model IList<IUsuario>
+@if (Model != null && Model.Count > 0)
+{ 
+    <table id="grilla" align="center" width="722px" cellpadding="0" cellspacing="0">
+        <thead>
             <tr>
-                <th>
-                    DNI
+                <th width="160">
+                    <div align="center">
+                        Nombre</div>
                 </th>
-                <th>
-                    APELLIDO
-                </th>
-                <th>
-                    NOMBRE
-                </th>
-                <th>
-                    EMAIL
-                </th>
+                <th width="150">
+                    <div align="center">
+                        Rol</div>
+                </th> 
+                  <th width="150">
+                    <div align="center">
+                        Accion</div>
+                </th>                 
             </tr>
+        </thead>
+        <tbody>
             @foreach (var item in Model)
-        {
+            {
                 <tr>
+                    <td height="30" align="left">
+                        @item.NombreUsuario
+                    </td>
+                    <td align="left">
+                        @item.Rol
+                    </td>                   
                     <td>
-                        @item.PersonaDni
+                        @Html.ActionLink("Eliminar", "Eliminar", "Usuario", new { idUsuario = item.IdUsuario }, new { @class = "btnIngresar" })&nbsp;&nbsp;&nbsp;&nbsp;
+                        @Html.ActionLink("Modifcar", "Modificar", "Usuario", new { idUsuario = item.IdUsuario }, new { @class = "btnIngresar" })
                     </td>
-                    <td>
-                        @item.PersonaApellido
-                    </td>
-                     <td>
-                        @item.PersonaNombre
-                    </td>
-                    <td>
-                        @item.PersonaEmail
-                    </td>
-                   
                 </tr>
-           
-    
-        }
-        </table>
+            }
+        </tbody>
+    </table>
 }
-
+else
+{
+    @Html.Partial("_SinDatos", "Usuarios")
+}

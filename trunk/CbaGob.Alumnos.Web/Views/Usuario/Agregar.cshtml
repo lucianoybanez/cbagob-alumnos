@@ -1,0 +1,72 @@
+﻿@model UsuarioVista
+@{
+    ViewBag.Title = "Agregar";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+<div class="box">
+    <h2>
+        Usuario</h2>
+    <table style="width: 700px;">
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                @Html.ValidationSummary(true)
+                </div>
+                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+                    text-align: center;">
+                    <legend style="color: #FF9900"><b>Datos Usuario</b></legend>
+                    @using (Html.BeginForm("GuardarUsuario", "Usuario", FormMethod.Post, new { id = "FormUsuario" }))
+                    { 
+                        @Html.HiddenFor(c => c.Accion)
+                        @Html.HiddenFor(c => c.idUsuario)
+                        @Html.ValidationSummary(true)
+
+                        <table>
+                            <tr>
+                                <td align="left">
+                                    Nombre (Loguin)
+                                </td>
+                                <td>
+                                    @Html.TextBoxFor(c => c.Nombre)
+                                    @Html.ValidationMessageFor(c => c.Nombre, "*")
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    Contraseña (Password)
+                                </td>
+                                <td align="left">
+                                    @Html.TextBoxFor(c => c.password)
+                                    @Html.ValidationMessageFor(c => c.password, "*")
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    Rol
+                                </td>
+                                <td>
+                                    @Html.EditorFor(c => c.Roles)
+                                </td>
+                            </tr>
+                        </table>
+                        <table id="myIntituciones" align="center" width="700px">
+                            <tr>
+                                <td align="right" valign="middle">
+                                    <a class="btnIngresar" href="javascript:history.back()">Cancelar</a>
+                                    @if (Model.Accion == "Eliminar")
+                                    {
+                                        <input type="submit" value="Eliminar" id="BTGuardar" class="btnIngresar" />
+                                    }
+                                    else
+                                    {
+                                        <input type="submit" value="Guargar" id="BTGuardar" class="btnIngresar" />
+                                    }
+                                </td>
+                            </tr>
+                        </table>
+                    }
+                </fieldset>
+            </td>
+        </tr>
+    </table>
+</div>

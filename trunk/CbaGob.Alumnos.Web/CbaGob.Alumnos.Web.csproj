@@ -103,6 +103,7 @@
     <Compile Include="Infrastucture\Authentication\IHttpContextService.cs" />
     <Compile Include="Infrastucture\LogAttribute.cs" />
     <Compile Include="Infrastucture\MyHelpers.cs" />
+    <Compile Include="Infrastucture\ViewAuthorizeAttribute.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -671,6 +672,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Inscripciones\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\AccesoDenegado.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Usuario\Agregar.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

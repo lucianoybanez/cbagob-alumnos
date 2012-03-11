@@ -26,5 +26,13 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             return View("Error");
         }
+
+
+        public ActionResult AccesoDenegado(string error)
+        {
+            ViewBag.Error = error;
+            return View("AccesoDenegado");
+        }
+
     }
 }

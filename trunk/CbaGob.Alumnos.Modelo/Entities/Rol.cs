@@ -14,4 +14,14 @@ namespace CbaGob.Alumnos.Modelo.Entities
         public string UsuarioModificacion { get; set; }
         public string Estado { get; set; }
     }
+
+
+    public enum RolTipo
+    {
+        Administrador = 1,
+        Nivel2 = 2,
+        Nivel3 = 3,
+        Nivel4 = 4
+    }
+
 }
