@@ -13,14 +13,11 @@ namespace CbaGob.Alumnos.Repositorio
         {
             IList<IUsuario> users = new List<IUsuario>();
 
-            Rol adminrol = new Rol() { RolId = 1, RolTipo = "Administrador" };
-            Rol Nivel2 = new Rol() { RolId = 2, RolTipo = "Nivel2" };
-
-            users.Add(new Usuario() { PersonaID = 1, PersonaUsuario = "administrador", PersonaPassword = "a123456", Rol = adminrol });
-            users.Add(new Usuario() { PersonaID = 2, PersonaUsuario = "luciano", PersonaPassword = "a123456", Rol = Nivel2 });
-            users.Add(new Usuario() { PersonaID = 3, PersonaUsuario = "dario", PersonaPassword = "a123456", Rol = Nivel2 });
-            users.Add(new Usuario() { PersonaID = 4, PersonaUsuario = "victor", PersonaPassword = "a123456", Rol = adminrol });
-            users.Add(new Usuario() { PersonaID = 4, PersonaUsuario = "a", PersonaPassword = "a", Rol = adminrol });
+            users.Add(new Usuario() { IdUsuario = 1, NombreUsuario = "administrador", Password = "a123456", Rol = RolTipo.Administrador.ToString() });
+            users.Add(new Usuario() { IdUsuario = 2, NombreUsuario = "luciano", Password = "a123456", Rol = RolTipo.Administrador.ToString() });
+            users.Add(new Usuario() { IdUsuario = 3, NombreUsuario = "dario", Password = "a123456", Rol = RolTipo.Administrador.ToString() });
+            users.Add(new Usuario() { IdUsuario = 4, NombreUsuario = "victor", Password = "a123456", Rol = RolTipo.Administrador.ToString() });
+            users.Add(new Usuario() { IdUsuario = 4, NombreUsuario = "a", Password = "a", Rol = RolTipo.Nivel2.ToString() });
             return users;
         }
 
@@ -28,10 +25,6 @@ namespace CbaGob.Alumnos.Repositorio
         public static IList<IPersona> GetPersonas()
         {
             IList<IPersona> lista = new List<IPersona>();
-            //lista.Add(new Persona() { CargoTipo = 1, CodigoPais = "AR", IdSexo = "M", NroDocumento = "DNI", Numero = 5, PersonaApellido = "Aranda", PersonaDni = 33333333,PersonaNacimiento = DateTime.Today,PersonaNombre = "Carlos"});
-            //lista.Add(new Persona() { CargoTipo = 1, CodigoPais = "AR", IdSexo = "M", NroDocumento = "DNI", Numero = 5, PersonaApellido = "Juarez", PersonaDni = 11111111, PersonaNacimiento = DateTime.Today, PersonaNombre = "Carlos" });
-            //lista.Add(new Persona() { CargoTipo = 1, CodigoPais = "AR", IdSexo = "M", NroDocumento = "DNI", Numero = 5, PersonaApellido = "Chavez", PersonaDni = 44444444, PersonaNacimiento = DateTime.Today, PersonaNombre = "Marcelo" });
-            //lista.Add(new Persona() { CargoTipo = 1, CodigoPais = "AR", IdSexo = "M", NroDocumento = "DNI", Numero = 5, PersonaApellido = "Trujillo", PersonaDni = 55555555, PersonaNacimiento = DateTime.Today, PersonaNombre = "Agustin" });
             return lista;
         } 
 

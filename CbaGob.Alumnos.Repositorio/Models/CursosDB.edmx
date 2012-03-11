@@ -48,6 +48,7 @@
           <EntitySet Name="T_TIPOS_ESTADO_CIVIL" EntityType="Model_Cursos.Store.T_TIPOS_ESTADO_CIVIL" store:Type="Tables" Schema="CURSOS" />
           <EntitySet Name="T_TIPOS_MOVIMIENTOS" EntityType="Model_Cursos.Store.T_TIPOS_MOVIMIENTOS" store:Type="Tables" Schema="CURSOS" />
           <EntitySet Name="T_TIPOS_SEXO" EntityType="Model_Cursos.Store.T_TIPOS_SEXO" store:Type="Tables" Schema="CURSOS" />
+          <EntitySet Name="T_USUARIO" EntityType="Model_Cursos.Store.T_USUARIO" store:Type="Tables" Schema="CURSOS" />
           <AssociationSet Name="T_ALUMNOS_T_TIPOS_DNI_FK1" Association="Model_Cursos.Store.T_ALUMNOS_T_TIPOS_DNI_FK1">
             <End Role="T_TIPOS_DNI" EntitySet="T_TIPOS_DNI" />
             <End Role="T_ALUMNOS" EntitySet="T_ALUMNOS" />
@@ -843,6 +844,20 @@
           <Property Name="USR_MODIF" Type="varchar2" MaxLength="64" />
           <Property Name="ESTADO" Type="varchar2" Nullable="false" MaxLength="1" />
         </EntityType>
+        <EntityType Name="T_USUARIO">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="number" Nullable="false" Precision="10" />
+          <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="PASSWORD" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="ROL" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="FEC_ALTA" Type="date" Nullable="false" />
+          <Property Name="FEC_MODIF" Type="date" Nullable="false" />
+          <Property Name="USR_ALTA" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="USR_MODIF" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="ESTADO" Type="varchar2" Nullable="false" MaxLength="1" />
+        </EntityType>
         <Association Name="T_ALUMNOS_T_TIPOS_DNI_FK1">
           <End Role="T_TIPOS_DNI" Type="Model_Cursos.Store.T_TIPOS_DNI" Multiplicity="0..1" />
           <End Role="T_ALUMNOS" Type="Model_Cursos.Store.T_ALUMNOS" Multiplicity="*" />
@@ -1610,6 +1625,7 @@
             <End Role="T_SUPERVISORES" EntitySet="T_SUPERVISORES" />
             <End Role="T_SUPERVICIONES" EntitySet="T_SUPERVICIONES" />
           </AssociationSet>
+          <EntitySet Name="T_USUARIO" EntityType="Model_Cursos.T_USUARIO" />
         </EntityContainer>
         <EntityType Name="T_ALUMNOS">
           <Key>
@@ -2855,6 +2871,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="T_USUARIO">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Type="Int32" Name="ID_USUARIO" Nullable="false" />
+          <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PASSWORD" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ROL" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FEC_ALTA" Nullable="false" />
+          <Property Type="DateTime" Name="FEC_MODIF" Nullable="false" />
+          <Property Type="String" Name="USR_ALTA" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="USR_MODIF" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3517,6 +3547,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="T_USUARIO">
+            <EntityTypeMapping TypeName="Model_Cursos.T_USUARIO">
+              <MappingFragment StoreEntitySet="T_USUARIO">
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="USR_MODIF" ColumnName="USR_MODIF" />
+                <ScalarProperty Name="USR_ALTA" ColumnName="USR_ALTA" />
+                <ScalarProperty Name="FEC_MODIF" ColumnName="FEC_MODIF" />
+                <ScalarProperty Name="FEC_ALTA" ColumnName="FEC_ALTA" />
+                <ScalarProperty Name="ROL" ColumnName="ROL" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -3877,6 +3922,7 @@
           <ConnectorPoint PointX="17.40625" PointY="32.511495768229153" />
           <ConnectorPoint PointX="18.5" PointY="32.511495768229153" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="Model_Cursos.T_USUARIO" Width="1.5" PointX="3.375" PointY="0.75" Height="2.7494921875000102" />
       </Diagram>
     </Diagrams>
   </Designer>

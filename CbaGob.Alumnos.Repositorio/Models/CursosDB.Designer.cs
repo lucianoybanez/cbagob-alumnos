@@ -785,6 +785,22 @@ namespace CbaGob.Alumnos.Repositorio.Models
             }
         }
         private ObjectSet<T_TIPOS_SEXO> _T_TIPOS_SEXO;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<T_USUARIO> T_USUARIO
+        {
+            get
+            {
+                if ((_T_USUARIO == null))
+                {
+                    _T_USUARIO = base.CreateObjectSet<T_USUARIO>("T_USUARIO");
+                }
+                return _T_USUARIO;
+            }
+        }
+        private ObjectSet<T_USUARIO> _T_USUARIO;
 
         #endregion
         #region AddTo Methods
@@ -1123,6 +1139,14 @@ namespace CbaGob.Alumnos.Repositorio.Models
         public void AddToT_TIPOS_SEXO(T_TIPOS_SEXO t_TIPOS_SEXO)
         {
             base.AddObject("T_TIPOS_SEXO", t_TIPOS_SEXO);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the T_USUARIO EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToT_USUARIO(T_USUARIO t_USUARIO)
+        {
+            base.AddObject("T_USUARIO", t_USUARIO);
         }
 
         #endregion
@@ -15538,6 +15562,269 @@ namespace CbaGob.Alumnos.Repositorio.Models
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model_Cursos", Name="T_USUARIO")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class T_USUARIO : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new T_USUARIO object.
+        /// </summary>
+        /// <param name="iD_USUARIO">Initial value of the ID_USUARIO property.</param>
+        /// <param name="nOMBRE">Initial value of the NOMBRE property.</param>
+        /// <param name="pASSWORD">Initial value of the PASSWORD property.</param>
+        /// <param name="rOL">Initial value of the ROL property.</param>
+        /// <param name="fEC_ALTA">Initial value of the FEC_ALTA property.</param>
+        /// <param name="fEC_MODIF">Initial value of the FEC_MODIF property.</param>
+        /// <param name="uSR_ALTA">Initial value of the USR_ALTA property.</param>
+        /// <param name="uSR_MODIF">Initial value of the USR_MODIF property.</param>
+        /// <param name="eSTADO">Initial value of the ESTADO property.</param>
+        public static T_USUARIO CreateT_USUARIO(global::System.Int32 iD_USUARIO, global::System.String nOMBRE, global::System.String pASSWORD, global::System.String rOL, global::System.DateTime fEC_ALTA, global::System.DateTime fEC_MODIF, global::System.String uSR_ALTA, global::System.String uSR_MODIF, global::System.String eSTADO)
+        {
+            T_USUARIO t_USUARIO = new T_USUARIO();
+            t_USUARIO.ID_USUARIO = iD_USUARIO;
+            t_USUARIO.NOMBRE = nOMBRE;
+            t_USUARIO.PASSWORD = pASSWORD;
+            t_USUARIO.ROL = rOL;
+            t_USUARIO.FEC_ALTA = fEC_ALTA;
+            t_USUARIO.FEC_MODIF = fEC_MODIF;
+            t_USUARIO.USR_ALTA = uSR_ALTA;
+            t_USUARIO.USR_MODIF = uSR_MODIF;
+            t_USUARIO.ESTADO = eSTADO;
+            return t_USUARIO;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_USUARIO
+        {
+            get
+            {
+                return _ID_USUARIO;
+            }
+            set
+            {
+                if (_ID_USUARIO != value)
+                {
+                    OnID_USUARIOChanging(value);
+                    ReportPropertyChanging("ID_USUARIO");
+                    _ID_USUARIO = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID_USUARIO");
+                    OnID_USUARIOChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID_USUARIO;
+        partial void OnID_USUARIOChanging(global::System.Int32 value);
+        partial void OnID_USUARIOChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String NOMBRE
+        {
+            get
+            {
+                return _NOMBRE;
+            }
+            set
+            {
+                OnNOMBREChanging(value);
+                ReportPropertyChanging("NOMBRE");
+                _NOMBRE = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("NOMBRE");
+                OnNOMBREChanged();
+            }
+        }
+        private global::System.String _NOMBRE;
+        partial void OnNOMBREChanging(global::System.String value);
+        partial void OnNOMBREChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String PASSWORD
+        {
+            get
+            {
+                return _PASSWORD;
+            }
+            set
+            {
+                OnPASSWORDChanging(value);
+                ReportPropertyChanging("PASSWORD");
+                _PASSWORD = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("PASSWORD");
+                OnPASSWORDChanged();
+            }
+        }
+        private global::System.String _PASSWORD;
+        partial void OnPASSWORDChanging(global::System.String value);
+        partial void OnPASSWORDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ROL
+        {
+            get
+            {
+                return _ROL;
+            }
+            set
+            {
+                OnROLChanging(value);
+                ReportPropertyChanging("ROL");
+                _ROL = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ROL");
+                OnROLChanged();
+            }
+        }
+        private global::System.String _ROL;
+        partial void OnROLChanging(global::System.String value);
+        partial void OnROLChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime FEC_ALTA
+        {
+            get
+            {
+                return _FEC_ALTA;
+            }
+            set
+            {
+                OnFEC_ALTAChanging(value);
+                ReportPropertyChanging("FEC_ALTA");
+                _FEC_ALTA = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FEC_ALTA");
+                OnFEC_ALTAChanged();
+            }
+        }
+        private global::System.DateTime _FEC_ALTA;
+        partial void OnFEC_ALTAChanging(global::System.DateTime value);
+        partial void OnFEC_ALTAChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime FEC_MODIF
+        {
+            get
+            {
+                return _FEC_MODIF;
+            }
+            set
+            {
+                OnFEC_MODIFChanging(value);
+                ReportPropertyChanging("FEC_MODIF");
+                _FEC_MODIF = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FEC_MODIF");
+                OnFEC_MODIFChanged();
+            }
+        }
+        private global::System.DateTime _FEC_MODIF;
+        partial void OnFEC_MODIFChanging(global::System.DateTime value);
+        partial void OnFEC_MODIFChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String USR_ALTA
+        {
+            get
+            {
+                return _USR_ALTA;
+            }
+            set
+            {
+                OnUSR_ALTAChanging(value);
+                ReportPropertyChanging("USR_ALTA");
+                _USR_ALTA = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("USR_ALTA");
+                OnUSR_ALTAChanged();
+            }
+        }
+        private global::System.String _USR_ALTA;
+        partial void OnUSR_ALTAChanging(global::System.String value);
+        partial void OnUSR_ALTAChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String USR_MODIF
+        {
+            get
+            {
+                return _USR_MODIF;
+            }
+            set
+            {
+                OnUSR_MODIFChanging(value);
+                ReportPropertyChanging("USR_MODIF");
+                _USR_MODIF = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("USR_MODIF");
+                OnUSR_MODIFChanged();
+            }
+        }
+        private global::System.String _USR_MODIF;
+        partial void OnUSR_MODIFChanging(global::System.String value);
+        partial void OnUSR_MODIFChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ESTADO
+        {
+            get
+            {
+                return _ESTADO;
+            }
+            set
+            {
+                OnESTADOChanging(value);
+                ReportPropertyChanging("ESTADO");
+                _ESTADO = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ESTADO");
+                OnESTADOChanged();
+            }
+        }
+        private global::System.String _ESTADO;
+        partial void OnESTADOChanging(global::System.String value);
+        partial void OnESTADOChanged();
+
+        #endregion
+    
     }
 
     #endregion

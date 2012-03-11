@@ -20,7 +20,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         public IHomeVista GetDefault()
         {
             IHomeVista myVista = new HomeVista();
-            myVista.FirstUser = _usuarioRepositorio.GetUserById(1).PersonaUsuario;
+            myVista.FirstUser = _usuarioRepositorio.GetUserById(1).NombreUsuario;
             return myVista;
         }
     }

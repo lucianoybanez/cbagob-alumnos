@@ -1,30 +1,45 @@
 ﻿@model UsuarioVista
+@{
+    ViewBag.Title = "Superviciones";
+    ViewBag.SubMenuSelected = "Supervisores";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
 @section Scripts{
-@*@Content.Script("xxxxx.js",Url)*@
-
 }
 @section Stylesheets{
-@*@Content.Stylesheet("xxxxxx.css", Url)*@
 }
 @{
     ViewBag.Title = "Index";
 }
-<h2>
-    Index Usuario</h2>
-@using(Ajax.BeginForm("Buscar",new AjaxOptions(){HttpMethod = "POST",InsertionMode = InsertionMode.Replace,UpdateTargetId = "UsuariosLista"}))
-{
-    <p> Dni:
-    @Html.RadioButtonFor(c => c.SearchByDni, "True", Model.SearchByDni ? new { Checked = "checked" } : null)
-    @Html.TextBoxFor(c=>c.Dni)
-    </p>
-    <p>
-    Nombre:
-    @Html.RadioButtonFor(c => c.SearchByDni, "False", Model.SearchByDni==false ? new { Checked = "checked" } : null)
-    @Html.TextBoxFor(c=> c.Nombre)
-    </p>
-    <input type="submit" value="Buscar"/>
-}
+<div class="box">
+    <h2>
+        Usuarios del sistema</h2>
+        
+    <table align="center" style="width:80%;" cellpadding="0" cellspacing="0">
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                    @Html.ValidationSummary()
+                </div>             
+                <div id="">                   
+                    <div style="padding-top:2px; padding-right:2px;">  
+                    @Html.Partial("_UsuariosLista", Model.Usuarios)
+                    </div>
+                    <div style="text-align: left;" >  
+                    @using (Html.BeginForm("IndexPager", "Inscripciones", FormMethod.Post, new { id = "FormIndexUsuario" }))
+                    {
+                        @Html.Partial("_Pager", Model.pager)
+                    }                    
+                    </div>
 
-<div id="UsuariosLista">
-
+                    <div id="btnfin" style="text-align: right;" >  
+                    @Html.ActionLink("Agregar Usuario", "Agregar", "Usuario", null, new { @class = "btnIngresar" })
+                    </div>
+                    
+                    <br />
+                </div>
+            </td>
+        </tr>
+    </table>
+   
 </div>
