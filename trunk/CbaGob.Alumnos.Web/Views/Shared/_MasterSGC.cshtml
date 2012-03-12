@@ -26,59 +26,60 @@
                 <li @{if (ViewBag.Title.Contains("Equipamientos"))
                       {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Equipamientos", "Index", "Equipamientos", null, null)</li>
                 <li @{if (ViewBag.Title.Contains("Ayuda"))
-                             {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Ayuda", "Index", "Ayuda", null, null)</li>
+                      {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Ayuda", "Index", "Ayuda", null, null)</li>
             </ul>
-           </div> 
-            <div id="out" align="right">@Html.Action("GetLoguedUser","Account")
-            </div>
-           
-        
+        </div>
+        <div id="out" align="right">@Html.Action("GetLoguedUser", "Account")
+        </div>
         <div id="content">
             <div class="right">
                 @RenderBody()
             </div>
-            <div class="left">
-                <h2>
-                    Categories :</h2>
-                <ul>
-                    @{ if (ViewBag.Title.Contains("Instituciones"))
-                       {
-                        <li>@Html.ActionLink("Gestion Instituciones", "Index", "Instituciones", null, new { @class = ViewBag.SubMenuSelected == "Instituciones" ? "selected" : "" })</li>                  
-                        <li>@Html.ActionLink("Gestion Docentes", "Index", "Docentes", null, new { @class = ViewBag.SubMenuSelected == "Docentes" ? "selected" : "" })</li>
-                        <li>@Html.ActionLink("Gestion Cursos", "Index", "Cursos", null, new { @class = ViewBag.SubMenuSelected == "Cursos" ? "selected" : "" })</li>                  
-                        <li>@Html.ActionLink("Gestion Alumnos", "Index", "Alumnos", null, new { @class = ViewBag.SubMenuSelected == "Alumnos" ? "selected" : "" })</li>
-                       }
+            @if (ViewBag.Title != "Index")
+            {
+                <div class="left">
+                    <h2>
+                        Categories :</h2>
+                    <ul>
+                        @{ if (ViewBag.Title.Contains("Instituciones"))
+                           {
+                            <li>@Html.ActionLink("Gestion Instituciones", "Index", "Instituciones", null, new { @class = ViewBag.SubMenuSelected == "Instituciones" ? "selected" : "" })</li>                  
+                            <li>@Html.ActionLink("Gestion Docentes", "Index", "Docentes", null, new { @class = ViewBag.SubMenuSelected == "Docentes" ? "selected" : "" })</li>
+                            <li>@Html.ActionLink("Gestion Cursos", "Index", "Cursos", null, new { @class = ViewBag.SubMenuSelected == "Cursos" ? "selected" : "" })</li>                  
+                            <li>@Html.ActionLink("Gestion Alumnos", "Index", "Alumnos", null, new { @class = ViewBag.SubMenuSelected == "Alumnos" ? "selected" : "" })</li>
+                           }
 
-                       if (ViewBag.Title.Contains("Inscripciones"))
-                       {
-                        <li>@Html.ActionLink("Gestion Inscripciones", "Index", "Inscripciones", null, new { @class = ViewBag.SubMenuSelected == "Inscripciones" ? "selected" : "" })</li> 
-                        <li>@Html.ActionLink("Gestion Examenes", "Examenes", "Inscripciones", null, new { @class = ViewBag.SubMenuSelected == "Examenes" ? "selected" : "" })</li>  
-                        <li>@Html.ActionLink("Gestion Presentismo", "Presentismo", "Inscripciones", null, new { @class = ViewBag.SubMenuSelected == "Presentismo" ? "selected" : "" })</li>  
-                        <li>@Html.ActionLink("Emitir Certificado", "Certificado", "Inscripciones", null, new { @class = ViewBag.SubMenuSelected == "Certificado" ? "selected" : "" })</li>
-                       }
+                           if (ViewBag.Title.Contains("Inscripciones"))
+                           {
+                            <li>@Html.ActionLink("Gestion Inscripciones", "Index", "Inscripciones", null, new { @class = ViewBag.SubMenuSelected == "Inscripciones" ? "selected" : "" })</li> 
+                            <li>@Html.ActionLink("Gestion Examenes", "Examenes", "Inscripciones", null, new { @class = ViewBag.SubMenuSelected == "Examenes" ? "selected" : "" })</li>  
+                            <li>@Html.ActionLink("Gestion Presentismo", "Presentismo", "Inscripciones", null, new { @class = ViewBag.SubMenuSelected == "Presentismo" ? "selected" : "" })</li>  
+                            <li>@Html.ActionLink("Emitir Certificado", "Certificado", "Inscripciones", null, new { @class = ViewBag.SubMenuSelected == "Certificado" ? "selected" : "" })</li>
+                           }
 
-                       if (ViewBag.Title.Contains("Superviciones"))
-                       {
-                        <li>@Html.ActionLink("Gestion Superviciones", "Index", "Superviciones", null, new { @class = ViewBag.SubMenuSelected == "Superviciones" ? "selected" : "" })</li> 
-                        <li>@Html.ActionLink("Gestion Supervisores", "Index", "Supervisores", null, new { @class = ViewBag.SubMenuSelected == "Supervisores" ? "selected" : "" })</li>
-                       }
+                           if (ViewBag.Title.Contains("Superviciones"))
+                           {
+                            <li>@Html.ActionLink("Gestion Superviciones", "Index", "Superviciones", null, new { @class = ViewBag.SubMenuSelected == "Superviciones" ? "selected" : "" })</li> 
+                            <li>@Html.ActionLink("Gestion Supervisores", "Index", "Supervisores", null, new { @class = ViewBag.SubMenuSelected == "Supervisores" ? "selected" : "" })</li>
+                           }
 
-                       if (ViewBag.Title.Contains("Equipamientos"))
-                       {
-                        <li>@Html.ActionLink("Gestion de Equipos", "Index", "Equipamientos", null, new { @class = ViewBag.SubMenuSelected == "Equipos" ? "selected" : "" })</li> 
-                        <li>@Html.ActionLink("Gestion de Prestamos", "Index", "Prestamos", null, new { @class = ViewBag.SubMenuSelected == "Prestamos" ? "selected" : "" })</li>
-                        <li>@Html.ActionLink("Gestion de Inventarios", "Index", "Inventarios", null, new { @class = ViewBag.SubMenuSelected == "Inventarios" ? "selected" : "" })</li>
-                       }
+                           if (ViewBag.Title.Contains("Equipamientos"))
+                           {
+                            <li>@Html.ActionLink("Gestion de Equipos", "Index", "Equipamientos", null, new { @class = ViewBag.SubMenuSelected == "Equipos" ? "selected" : "" })</li> 
+                            <li>@Html.ActionLink("Gestion de Prestamos", "Index", "Prestamos", null, new { @class = ViewBag.SubMenuSelected == "Prestamos" ? "selected" : "" })</li>
+                            <li>@Html.ActionLink("Gestion de Inventarios", "Index", "Inventarios", null, new { @class = ViewBag.SubMenuSelected == "Inventarios" ? "selected" : "" })</li>
+                           }
 
-                       if (ViewBag.Title.Contains("Facturaciones"))
-                       {
-                        <li>@Html.ActionLink("Gestion Factura", "Index", "Factura", null, new { @class = ViewBag.SubMenuSelected == "Facturacion" ? "selected" : "" })</li> 
-                        <li>@Html.ActionLink("Liquidacion Cursos", "LiquidarFactura", "Factura", null, new { @class = ViewBag.SubMenuSelected == "Liquidacion" ? "selected" : "" })</li> 
-                       }
+                           if (ViewBag.Title.Contains("Facturaciones"))
+                           {
+                            <li>@Html.ActionLink("Gestion Factura", "Index", "Factura", null, new { @class = ViewBag.SubMenuSelected == "Facturacion" ? "selected" : "" })</li> 
+                            <li>@Html.ActionLink("Liquidacion Cursos", "LiquidarFactura", "Factura", null, new { @class = ViewBag.SubMenuSelected == "Liquidacion" ? "selected" : "" })</li> 
+                           }
                        
-                    }
-                </ul>
-            </div>
+                        }
+                    </ul>
+                </div>
+            }
             <div style="clear: both;">
             </div>
         </div>
@@ -91,8 +92,8 @@
     @Content.Script("jquery.validate.min.js", Url)
     @Content.Script("jquery.validate.unobtrusive.min.js", Url)
     @Content.Script("jquery-ui-1.8.11.min.js", Url)
-    @Content.Script("jquery.maskedinput-1.3.min.js", Url)    
-    @Content.Script("CbaGob.Alumnos.Global.js", Url)   
+    @Content.Script("jquery.maskedinput-1.3.min.js", Url)
+    @Content.Script("CbaGob.Alumnos.Global.js", Url)
     @RenderSection("Scripts", false)
     @Content.Script("cbaGob.Alumnos.SetFront.js", Url)
     @Content.Script("jquery.pager.js", Url)

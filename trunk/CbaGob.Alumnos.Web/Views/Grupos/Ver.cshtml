@@ -42,7 +42,7 @@
                         <ul>
                             <li><a href="#tabs-1">Alumnos</a></li>
                             <li><a href="#tabs-2">Docentes</a></li>
-                            <li><a href="#tabs-2">Horarios</a></li>
+                            <li><a href="#tabs-3">Horarios</a></li>
                         </ul>
                         <div id="tabs-1">
                             <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
@@ -77,7 +77,7 @@
                             </fieldset>
                             <br />
                             <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
-                                <legend><b>Docentes Asignado al Grupo</b></legend>
+                                <legend><b>Docentes Asignado al Modulo</b></legend>
                                 <table>
                                     <tr>
                                         <td>@Html.Partial("_DocentesInGrupoLista", Model)
@@ -85,6 +85,28 @@
                                     </tr>
                                 </table>
                             </fieldset>
+                        </div>
+                        <div id="tabs-3">
+                            <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
+                                <legend><b>Horarios para el Modulo</b></legend>
+                                <table>
+                                    <tr>
+                                        <td>@Html.Partial("_HorarioParaelModulo", Model)
+                                        </td>
+                                    </tr>
+                                </table>
+                            </fieldset>
+                            <br />
+                            <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
+                                <legend><b>Horario Asignado al Modulo</b></legend>
+                                <table>
+                                    <tr>
+                                        <td>@Html.Partial("_HorarioAsiganadoModulo", Model)
+                                        </td>
+                                    </tr>
+                                </table>
+                            </fieldset>
+                            <br />
                         </div>
                     </div>
                     <br />

@@ -111,7 +111,7 @@ namespace CbaGob.Alumnos.Repositorio
                     ID_ESTADO_CURSO = condicion.IdEstadoCurso,
                     ID_INSTITUCION = condicion.IdInstitucion,
                     ID_MODALIDAD = condicion.IdModalidad,
-                    ID_NIVEL = condicion.IdNivel,
+                    ID_NIVEL =3,
                     ID_PROGRAMA = condicion.IdPrograma,
                     PRESENTISMO = condicion.Presentismo,
                     PRESUPUESTO = condicion.Presupuesto,
@@ -148,7 +148,7 @@ namespace CbaGob.Alumnos.Repositorio
                 a.ID_ESTADO_CURSO = condicion.IdEstadoCurso;
                 a.ID_INSTITUCION = condicion.IdInstitucion;
                 a.ID_MODALIDAD = condicion.IdModalidad;
-                a.ID_NIVEL = condicion.IdNivel;
+                a.ID_NIVEL = 3;
                 a.ID_PROGRAMA = condicion.IdPrograma;
                 a.PRESENTISMO = condicion.Presentismo;
                 a.PRESUPUESTO = condicion.Presupuesto;

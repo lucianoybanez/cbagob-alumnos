@@ -17,9 +17,7 @@ namespace CbaGob.Alumnos.Modelo.Entities
         public int Id_Condicion_Curso { get; set; }
         public int Id_Establecimiento { get; set; }
         public int Id_Docente { get; set; }
-        public int Id_Horario { get; set; }
         public int Id_Institucion { get; set; }
-
         public int Capacidad { get; set; }
         public string NombreGrupo { get; set; }
         public string NombreEstablecimiento { get; set; }

@@ -13,7 +13,6 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         int Id_Condicion_Curso { get; set; }
         int Id_Establecimiento { get; set; }
         int Id_Docente { get; set; }
-        int Id_Horario { get; set; }
         int Id_Institucion { get; set; }
         int Capacidad { get; set; }
         string NombreGrupo { get; set; }
@@ -48,7 +47,9 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
 
         IBuscador BuscadorEstablecimientos { get; set; }
 
-        string Nro_Resolucion { get; set; } 
+        string Nro_Resolucion { get; set; }
 
+        IHorariosVista HorariosParaGrupo { get; set; }
+        IHorariosVista HorariosAsignadoGrupo { get; set; }
     }
 }

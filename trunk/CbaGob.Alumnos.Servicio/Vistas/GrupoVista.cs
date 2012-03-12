@@ -15,6 +15,8 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public GrupoVista()
         {
             BuscadorEstablecimientos = new Buscador();
+            HorariosParaGrupo = new HorariosVista();
+            HorariosAsignadoGrupo = new HorariosVista();
         }
 
         public int Id_Grupo { get; set; }
@@ -22,7 +24,6 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         [Range(1, 9999999999999999999)]
         public int Id_Establecimiento { get; set; }
         public int Id_Docente { get; set; }
-        public int Id_Horario { get; set; }
         public int Id_Institucion { get; set; }
 
         [Required(ErrorMessage = "*")]
@@ -56,8 +57,13 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         [Required(ErrorMessage = "*")]
         public string Nro_Resolucion { get; set; }
 
+        public IHorariosVista HorariosParaGrupo { get; set; }
+        public IHorariosVista HorariosAsignadoGrupo { get; set; }
+
         public IList<IDocentes> ListaDocentesNoGrupo { get; set; }
         public IList<IDocentes> ListaDocentesInGrupo { get; set; }
+
+        
 
     }
 }

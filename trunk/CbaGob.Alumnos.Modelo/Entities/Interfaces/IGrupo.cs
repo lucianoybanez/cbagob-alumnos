@@ -6,7 +6,6 @@ namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
         int Id_Condicion_Curso { get; set; }
         int Id_Establecimiento { get; set; }
         int Id_Docente { get; set; }
-        int Id_Horario { get; set; }
         int Id_Institucion { get; set; }
 
         int Capacidad { get; set; }

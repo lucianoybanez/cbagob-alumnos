@@ -32,14 +32,8 @@ namespace CbaGob.Alumnos.Repositorio
                                  Id_Condicion_Curso = d.ID_CONDICION_CURSO,
                                  Id_Establecimiento = d.ID_ESTABLECIMIENTO,
                                  Id_Grupo = d.ID_GRUPO,
-                                 Id_Horario = d.ID_HORARIO,
                                  Capacidad = d.CAPACIDAD ?? 0,
                                  NombreEstablecimiento = d.T_ESTABLECIMINETOS.N_ESTABLECIMIENTO,
-                                 Hr_Inicio = d.T_HORARIOS.HR_INICIO,
-                                 Hr_Año = d.T_HORARIOS.HR_AÑO,
-                                 Hr_DiaSemana = d.T_HORARIOS.HR_DIASEMANA,
-                                 Hr_Fin = d.T_HORARIOS.HR_FIN,
-                                 Hr_Mes = d.T_HORARIOS.HR_MES,
                                  FechaAlta = d.FEC_ALTA,
                                  FechaModificacion = d.FEC_MODIF ?? System.DateTime.Now,
                                  UsuarioAlta = d.USR_ALTA,
@@ -116,7 +110,6 @@ namespace CbaGob.Alumnos.Repositorio
                                            CAPACIDAD = grupo.Capacidad,
                                            ID_CONDICION_CURSO = grupo.Id_Condicion_Curso,
                                            ID_ESTABLECIMIENTO = grupo.Id_Establecimiento,
-                                           ID_HORARIO = grupo.Id_Horario,
                                            FEC_ALTA = grupo.FechaAlta,
                                            FEC_MODIF = grupo.FechaModificacion,
                                            USR_ALTA = grupo.UsuarioAlta,
@@ -147,7 +140,6 @@ namespace CbaGob.Alumnos.Repositorio
 
                 t_grupo.ID_CONDICION_CURSO = grupo.Id_Condicion_Curso;
                 t_grupo.ID_ESTABLECIMIENTO = grupo.Id_Establecimiento;
-                t_grupo.ID_HORARIO = grupo.Id_Horario;
                 t_grupo.CAPACIDAD = grupo.Capacidad;
                 t_grupo.N_GRUPO = grupo.NombreGrupo;
                 t_grupo.FEC_MODIF = grupo.FechaModificacion;

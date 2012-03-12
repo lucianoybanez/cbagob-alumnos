@@ -36,7 +36,7 @@ namespace JLY.Hotel.Web.Controllers
                 if (_usuarioServicio.IsCuentaValida(model.UserName, model.Password))
                 {
                     _usuarioServicio.Login(model.UserName);
-                    return RedirectToAction("Index", "Instituciones");
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
