@@ -19,7 +19,7 @@
                             Fecha Alta</div>
                     </th>
                     <th height="30" width="200">
-                        <div align="right" style="margin-right: 2px;">
+                        <div style="margin-right: 2px; text-align:center;">
                         Accion</div>
                     </th>
                 </tr>
@@ -28,7 +28,7 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td align="center" height="28">
+                        <td align="left" height="28">
                             @item.Nombre_Institucion
                         </td>
                         <td align="center">
@@ -37,7 +37,7 @@
                          <td>
                            @item.FechaAlta.ToShortDateString()
                         </td>
-                        <td align="right" style="margin-right: 2px;">
+                        <td align="center" style="margin-right: 2px;">
                             @Html.ActionLink("Modificar", "Modificar", "Instituciones", new { INST_ID = item.Id_Institucion }, new { @class = "btnIngresar" })&nbsp;&nbsp;&nbsp;&nbsp;
                             @Html.ActionLink("Eliminar", "Eliminar", "Instituciones", new { INST_ID = item.Id_Institucion }, new { @class = "btnIngresar" })&nbsp;&nbsp;&nbsp;&nbsp;
                             @Html.ActionLink("Ver", "Ver", "Instituciones", new { INST_ID = item.Id_Institucion }, new { @class = "btnIngresar" })
