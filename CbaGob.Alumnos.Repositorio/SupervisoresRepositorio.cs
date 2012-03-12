@@ -28,15 +28,17 @@ namespace CbaGob.Alumnos.Repositorio
                          select
                              new Supervisores
                                  {
-                                     Id_Domicilio = c.ID_DOMICILIO,
-                                     Id_PersonaJuridica = c.ID_PERSONAJUR,
                                      Id_Supervisor = c.ID_SUPERVISOR,
-                                     RazonSocial = c.T_PERSONASJUR.RAZON_SOCIAL,
-                                     Cuit = c.T_PERSONASJUR.CUIT,
-                                     DatosCompletoPersonajur = c.T_PERSONASJUR.CUIT + "," + c.T_PERSONASJUR.RAZON_SOCIAL,
-                                     DomicilioCompleto =
-                                         c.T_DOMICILIO.PROVINCIA + "," + c.T_DOMICILIO.LOCALIDAD + "," +
-                                         c.T_DOMICILIO.BARRIO + "," + c.T_DOMICILIO.CALLE + "," + c.T_DOMICILIO.NRO
+                                     Razon_Social = c.RAZON_SOCIAL,
+                                     Cuil_Cuit = c.CUIL_CUIT,
+                                     DatosCompletoPersonajur = c.CUIL_CUIT + "," + c.RAZON_SOCIAL,
+                                     Provincia = c.PROVINCIA,
+                                     Localidad = c.LOCALIDAD,
+                                     Barrio = c.BARRIO,
+                                     Calle = c.CALLE,
+                                     Nro = c.NRO ?? 0,
+                                     Nro_Resolucion = c.NRO_RESOLUCION,
+
                                  });
 
                 return a;
@@ -67,7 +69,7 @@ namespace CbaGob.Alumnos.Repositorio
         {
             try
             {
-                var listaretorno = QSupervisores().Where(c => c.RazonSocial.StartsWith(razonsocial)).ToList();
+                var listaretorno = QSupervisores().Where(c => c.Razon_Social.StartsWith(razonsocial)).ToList();
                 return listaretorno;
             }
             catch (Exception)
@@ -98,13 +100,20 @@ namespace CbaGob.Alumnos.Repositorio
                 base.AgregarDatosAlta(supervisor);
                 T_SUPERVISORES t_supervisores = new T_SUPERVISORES()
                                                     {
-                                                        ID_DOMICILIO = supervisor.Id_Domicilio,
-                                                        ID_PERSONAJUR = supervisor.Id_PersonaJuridica,
                                                         ESTADO = supervisor.Estado,
                                                         USR_ALTA = supervisor.UsuarioAlta,
                                                         USR_MODIF = supervisor.UsuarioModificacion,
                                                         FEC_ALTA = supervisor.FechaAlta,
-                                                        FEC_MODIF = supervisor.FechaModificacion
+                                                        FEC_MODIF = supervisor.FechaModificacion,
+                                                        RAZON_SOCIAL = supervisor.Razon_Social,
+                                                        CUIL_CUIT = supervisor.Cuil_Cuit,
+                                                        PROVINCIA = supervisor.Provincia,
+                                                        LOCALIDAD = supervisor.Localidad,
+                                                        BARRIO = supervisor.Barrio,
+                                                        CALLE = supervisor.Calle,
+                                                        NRO = supervisor.Nro,
+                                                        NRO_RESOLUCION = supervisor.Nro_Resolucion
+
                                                     };
 
                 mDb.AddToT_SUPERVISORES(t_supervisores);
@@ -126,10 +135,17 @@ namespace CbaGob.Alumnos.Repositorio
 
                 var t_supervisor = mDb.T_SUPERVISORES.Where(c => c.ID_SUPERVISOR == supervisor.Id_Supervisor).FirstOrDefault();
 
-                t_supervisor.ID_DOMICILIO = supervisor.Id_Domicilio;
-                t_supervisor.ID_PERSONAJUR = supervisor.Id_PersonaJuridica;
+
                 t_supervisor.USR_MODIF = supervisor.UsuarioModificacion;
                 t_supervisor.FEC_MODIF = supervisor.FechaModificacion;
+                t_supervisor.RAZON_SOCIAL = supervisor.Razon_Social;
+                t_supervisor.CUIL_CUIT = supervisor.Cuil_Cuit;
+                t_supervisor.PROVINCIA = supervisor.Provincia;
+                t_supervisor.LOCALIDAD = supervisor.Localidad;
+                t_supervisor.BARRIO = supervisor.Barrio;
+                t_supervisor.CALLE = supervisor.Calle;
+                t_supervisor.NRO = supervisor.Nro;
+                t_supervisor.NRO_RESOLUCION = supervisor.Nro_Resolucion;
 
                 mDb.SaveChanges();
                 return true;
@@ -142,7 +158,7 @@ namespace CbaGob.Alumnos.Repositorio
             }
         }
 
-        public bool EliminarSupervisor(int idsupervisor)
+        public bool EliminarSupervisor(int idsupervisor, string nro_resolucion)
         {
             try
             {
@@ -154,6 +170,7 @@ namespace CbaGob.Alumnos.Repositorio
                 t_supervisor.ESTADO = supervisor.Estado;
                 t_supervisor.USR_MODIF = supervisor.UsuarioModificacion;
                 t_supervisor.FEC_MODIF = supervisor.FechaModificacion;
+                t_supervisor.NRO_RESOLUCION = nro_resolucion;
 
                 mDb.SaveChanges();
                 return true;

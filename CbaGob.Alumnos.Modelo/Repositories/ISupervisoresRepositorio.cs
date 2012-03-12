@@ -13,7 +13,7 @@ namespace CbaGob.Alumnos.Modelo.Repositories
         ISupervisores GetSupervisor(int idsupervisor);
         bool AgregarSupervisor(ISupervisores supervisor);
         bool ModificarSupervisor(ISupervisores supervisor);
-        bool EliminarSupervisor(int idsupervisor);
+        bool EliminarSupervisor(int idsupervisor, string nro_resolucion);
 
     }
 }

@@ -15,22 +15,22 @@ namespace CbaGob.Alumnos.Servicio.Vistas
 
         public SupervisorVista()
         {
-            BuscadorDomicilio = new Buscador();
-            BuscadorPersonaJur = new Buscador();
+
         }
 
         public int Id_Supervisor { get; set; }
-        [Required(ErrorMessage = "*")]
-        [Range(1, 99999999999999999, ErrorMessage = "*")]
-        public int Id_PersonaJuridica { get; set; }
-        [Required(ErrorMessage = "*")]
-        [Range(1, 99999999999999999, ErrorMessage = "*")]
-        public int Id_Domicilio { get; set; }
         public string DomicilioCompleto { get; set; }
         public string DatosCompletoPersonajur { get; set; }
-        public string RazonSocial { get; set; }
-        public string Cuit { get; set; }
-        public IBuscador BuscadorDomicilio { get; set; }
-        public IBuscador BuscadorPersonaJur { get; set; }
+        public string Provincia { get; set; }
+        public string Localidad { get; set; }
+        public string Barrio { get; set; }
+        public string Calle { get; set; }
+        public int Nro { get; set; }
+        [Required(ErrorMessage = "*")]
+        public string Cuil_Cuit { get; set; }
+        [Required(ErrorMessage = "*")]
+        public string Razon_Social { get; set; }
+        [Required(ErrorMessage = "*")]
+        public string Nro_Resolucion { get; set; }
     }
 }

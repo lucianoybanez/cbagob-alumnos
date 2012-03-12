@@ -12,6 +12,6 @@ namespace CbaGob.Alumnos.Modelo.Repositories
         ISuperviciones GetSupervicion(int idsupervision);
         bool AgregarSuperviciones(ISuperviciones supervicion);
         bool ModificarSuperviciones(ISuperviciones supervicion);
-        bool EliminarSuperviciones(int idsupervicion);
+        bool EliminarSuperviciones(int idsupervicion, string nro_resolucion);
     }
 }

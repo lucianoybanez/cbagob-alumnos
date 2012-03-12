@@ -38,7 +38,7 @@ namespace CbaGob.Alumnos.Repositorio
                                  Id_Supervisor = c.ID_SUPERVISOR,
                                  NombreCurso = c.T_GRUPOS.T_CONDICIONES_CURSO.T_CURSOS.N_CURSO,
                                  NombreInstitucion = c.T_GRUPOS.T_CONDICIONES_CURSO.T_INSTITUCIONES.N_INSTITUCION,
-                                 NombrePersonaJuridica = c.T_SUPERVISORES.T_PERSONASJUR.RAZON_SOCIAL,   
+                                 NombrePersonaJuridica = c.T_SUPERVISORES.RAZON_SOCIAL,
                                  NombreGrupo = c.T_GRUPOS.N_GRUPO,
                                  UsuarioAlta = c.USR_ALTA,
                                  UsuarioModificacion = c.USR_MODIF,
@@ -139,7 +139,7 @@ namespace CbaGob.Alumnos.Repositorio
             }
         }
 
-        public bool EliminarSuperviciones(int idsupervicion)
+        public bool EliminarSuperviciones(int idsupervicion, string nro_resolucion)
         {
             try
             {
@@ -151,6 +151,7 @@ namespace CbaGob.Alumnos.Repositorio
                 t_supervisiones.ESTADO = datos.Estado;
                 t_supervisiones.FEC_MODIF = datos.FechaModificacion;
                 t_supervisiones.USR_MODIF = datos.UsuarioModificacion;
+                t_supervisiones.NRO_RESOLUCION = nro_resolucion;
 
 
                 mDb.SaveChanges();

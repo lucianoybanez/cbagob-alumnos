@@ -47,7 +47,6 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_DOCENTES_T_TIPOS_DOCENT_FK1", "T_TIPOS_DOCENTE", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_TIPOS_DOCENTE), "T_DOCENTES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_DOCENTES), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_DOCENTES_GRUPO_T_GRUPOS_FK1", "T_GRUPOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_GRUPOS), "T_DOCENTES_GRUPO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_DOCENTES_GRUPO), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_DOCENTES_HORARIO_T_HORA_FK1", "T_HORARIOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_HORARIOS), "T_DOCENTES_HORARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_DOCENTES_HORARIO), true)]
-[assembly: EdmRelationshipAttribute("Model_Cursos", "T_SUPERVISORES_T_DOMICILI_FK1", "T_DOMICILIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_DOMICILIO), "T_SUPERVISORES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_SUPERVISORES), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_EQUIPOS_T_ESTADOS_EQUIP_FK1", "T_ESTADOS_EQUIPO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_ESTADOS_EQUIPO), "T_EQUIPOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_EQUIPOS), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_PRESTAMOS_T_EQUIPOS_FK1", "T_EQUIPOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_EQUIPOS), "T_PRESTAMOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_PRESTAMOS), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_ESTABLECIMINETOS_T_INST_FK1", "T_INSTITUCIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_INSTITUCIONES), "T_ESTABLECIMINETOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_ESTABLECIMINETOS), true)]
@@ -55,15 +54,14 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_EXAMENES_T_INSCRIPCIONE_FK1", "T_INSCRIPCIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_INSCRIPCIONES), "T_EXAMENES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_EXAMENES), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_GRUPOS_HORARIO_T_GRUPOS_FK1", "T_GRUPOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_GRUPOS), "T_GRUPOS_HORARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_GRUPOS_HORARIO), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_NOVEDADES_T_GRUPOS_FK1", "T_GRUPOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_GRUPOS), "T_NOVEDADES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_NOVEDADES), true)]
-[assembly: EdmRelationshipAttribute("Model_Cursos", "T_SUPERVICIONES_T_GRUPOS_FK1", "T_GRUPOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_GRUPOS), "T_SUPERVICIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_SUPERVICIONES), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_GRUPOS_HORARIO_T_HORARI_FK1", "T_HORARIOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_HORARIOS), "T_GRUPOS_HORARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_GRUPOS_HORARIO), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_PRESENTISMO_T_INSCRIPCI_FK1", "T_INSCRIPCIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_INSCRIPCIONES), "T_PRESENTISMO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_PRESENTISMO), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_PRESTAMOS_T_INSTITUCION_FK1", "T_INSTITUCIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_INSTITUCIONES), "T_PRESTAMOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_PRESTAMOS), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_MOVIMIENTOS_T_TIPOS_MOV_FK1", "T_TIPOS_MOVIMIENTOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_TIPOS_MOVIMIENTOS), "T_MOVIMIENTOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_MOVIMIENTOS), true)]
-[assembly: EdmRelationshipAttribute("Model_Cursos", "T_SUPERVISORES_T_PERSONAS_FK1", "T_PERSONASJUR", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_PERSONASJUR), "T_SUPERVISORES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_SUPERVISORES), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_PROGRAMAS_TEMARIO_T_PRO_FK1", "T_PROGRAMAS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_PROGRAMAS), "T_PROGRAMAS_TEMARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_PROGRAMAS_TEMARIO), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_PROGRAMAS_TEMARIO_T_TEM_FK1", "T_TEMARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_TEMARIO), "T_PROGRAMAS_TEMARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_PROGRAMAS_TEMARIO), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_USUARIO_T_ROL_FK1", "T_ROL", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_ROL), "T_USUARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_USUARIO), true)]
+[assembly: EdmRelationshipAttribute("Model_Cursos", "T_SUPERVICIONES_T_GRUPOS_FK1", "T_GRUPOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_GRUPOS), "T_SUPERVICIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_SUPERVICIONES), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_SUPERVICIONES_T_SUPERVI_FK1", "T_SUPERVISORES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_SUPERVISORES), "T_SUPERVICIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_SUPERVICIONES), true)]
 
 #endregion
@@ -695,38 +693,6 @@ namespace CbaGob.Alumnos.Repositorio.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<T_SUPERVICIONES> T_SUPERVICIONES
-        {
-            get
-            {
-                if ((_T_SUPERVICIONES == null))
-                {
-                    _T_SUPERVICIONES = base.CreateObjectSet<T_SUPERVICIONES>("T_SUPERVICIONES");
-                }
-                return _T_SUPERVICIONES;
-            }
-        }
-        private ObjectSet<T_SUPERVICIONES> _T_SUPERVICIONES;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<T_SUPERVISORES> T_SUPERVISORES
-        {
-            get
-            {
-                if ((_T_SUPERVISORES == null))
-                {
-                    _T_SUPERVISORES = base.CreateObjectSet<T_SUPERVISORES>("T_SUPERVISORES");
-                }
-                return _T_SUPERVISORES;
-            }
-        }
-        private ObjectSet<T_SUPERVISORES> _T_SUPERVISORES;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<T_TEMARIO> T_TEMARIO
         {
             get
@@ -835,6 +801,70 @@ namespace CbaGob.Alumnos.Repositorio.Models
             }
         }
         private ObjectSet<T_USUARIO> _T_USUARIO;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<BIN_lbDBeZKJSCWsspDw3zz0Qg___0> BIN_lbDBeZKJSCWsspDw3zz0Qg___0
+        {
+            get
+            {
+                if ((_BIN_lbDBeZKJSCWsspDw3zz0Qg___0 == null))
+                {
+                    _BIN_lbDBeZKJSCWsspDw3zz0Qg___0 = base.CreateObjectSet<BIN_lbDBeZKJSCWsspDw3zz0Qg___0>("BIN_lbDBeZKJSCWsspDw3zz0Qg___0");
+                }
+                return _BIN_lbDBeZKJSCWsspDw3zz0Qg___0;
+            }
+        }
+        private ObjectSet<BIN_lbDBeZKJSCWsspDw3zz0Qg___0> _BIN_lbDBeZKJSCWsspDw3zz0Qg___0;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<BIN_nPB0235pSYGQnQ6bNebcpw___0> BIN_nPB0235pSYGQnQ6bNebcpw___0
+        {
+            get
+            {
+                if ((_BIN_nPB0235pSYGQnQ6bNebcpw___0 == null))
+                {
+                    _BIN_nPB0235pSYGQnQ6bNebcpw___0 = base.CreateObjectSet<BIN_nPB0235pSYGQnQ6bNebcpw___0>("BIN_nPB0235pSYGQnQ6bNebcpw___0");
+                }
+                return _BIN_nPB0235pSYGQnQ6bNebcpw___0;
+            }
+        }
+        private ObjectSet<BIN_nPB0235pSYGQnQ6bNebcpw___0> _BIN_nPB0235pSYGQnQ6bNebcpw___0;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<T_SUPERVICIONES> T_SUPERVICIONES
+        {
+            get
+            {
+                if ((_T_SUPERVICIONES == null))
+                {
+                    _T_SUPERVICIONES = base.CreateObjectSet<T_SUPERVICIONES>("T_SUPERVICIONES");
+                }
+                return _T_SUPERVICIONES;
+            }
+        }
+        private ObjectSet<T_SUPERVICIONES> _T_SUPERVICIONES;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<T_SUPERVISORES> T_SUPERVISORES
+        {
+            get
+            {
+                if ((_T_SUPERVISORES == null))
+                {
+                    _T_SUPERVISORES = base.CreateObjectSet<T_SUPERVISORES>("T_SUPERVISORES");
+                }
+                return _T_SUPERVISORES;
+            }
+        }
+        private ObjectSet<T_SUPERVISORES> _T_SUPERVISORES;
 
         #endregion
         #region AddTo Methods
@@ -1128,22 +1158,6 @@ namespace CbaGob.Alumnos.Repositorio.Models
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the T_SUPERVICIONES EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToT_SUPERVICIONES(T_SUPERVICIONES t_SUPERVICIONES)
-        {
-            base.AddObject("T_SUPERVICIONES", t_SUPERVICIONES);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the T_SUPERVISORES EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToT_SUPERVISORES(T_SUPERVISORES t_SUPERVISORES)
-        {
-            base.AddObject("T_SUPERVISORES", t_SUPERVISORES);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the T_TEMARIO EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToT_TEMARIO(T_TEMARIO t_TEMARIO)
@@ -1198,6 +1212,38 @@ namespace CbaGob.Alumnos.Repositorio.Models
         {
             base.AddObject("T_USUARIO", t_USUARIO);
         }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the BIN_lbDBeZKJSCWsspDw3zz0Qg___0 EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToBIN_lbDBeZKJSCWsspDw3zz0Qg___0(BIN_lbDBeZKJSCWsspDw3zz0Qg___0 bIN_lbDBeZKJSCWsspDw3zz0Qg___0)
+        {
+            base.AddObject("BIN_lbDBeZKJSCWsspDw3zz0Qg___0", bIN_lbDBeZKJSCWsspDw3zz0Qg___0);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the BIN_nPB0235pSYGQnQ6bNebcpw___0 EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToBIN_nPB0235pSYGQnQ6bNebcpw___0(BIN_nPB0235pSYGQnQ6bNebcpw___0 bIN_nPB0235pSYGQnQ6bNebcpw___0)
+        {
+            base.AddObject("BIN_nPB0235pSYGQnQ6bNebcpw___0", bIN_nPB0235pSYGQnQ6bNebcpw___0);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the T_SUPERVICIONES EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToT_SUPERVICIONES(T_SUPERVICIONES t_SUPERVICIONES)
+        {
+            base.AddObject("T_SUPERVICIONES", t_SUPERVICIONES);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the T_SUPERVISORES EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToT_SUPERVISORES(T_SUPERVISORES t_SUPERVISORES)
+        {
+            base.AddObject("T_SUPERVISORES", t_SUPERVISORES);
+        }
 
         #endregion
     }
@@ -1206,6 +1252,582 @@ namespace CbaGob.Alumnos.Repositorio.Models
     #endregion
     
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model_Cursos", Name="BIN_lbDBeZKJSCWsspDw3zz0Qg___0")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class BIN_lbDBeZKJSCWsspDw3zz0Qg___0 : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new BIN_lbDBeZKJSCWsspDw3zz0Qg___0 object.
+        /// </summary>
+        /// <param name="iD_SUPERVISION">Initial value of the ID_SUPERVISION property.</param>
+        /// <param name="iD_SUPERVISOR">Initial value of the ID_SUPERVISOR property.</param>
+        /// <param name="oBSERVACIONES">Initial value of the OBSERVACIONES property.</param>
+        /// <param name="fEC_SUPERVISION">Initial value of the FEC_SUPERVISION property.</param>
+        /// <param name="hS_SUPERVISION">Initial value of the HS_SUPERVISION property.</param>
+        /// <param name="fEC_ALTA">Initial value of the FEC_ALTA property.</param>
+        /// <param name="uSR_ALTA">Initial value of the USR_ALTA property.</param>
+        /// <param name="fEC_MODIF">Initial value of the FEC_MODIF property.</param>
+        /// <param name="uSR_MODIF">Initial value of the USR_MODIF property.</param>
+        /// <param name="eSTADO">Initial value of the ESTADO property.</param>
+        /// <param name="iD_GRUPO">Initial value of the ID_GRUPO property.</param>
+        public static BIN_lbDBeZKJSCWsspDw3zz0Qg___0 CreateBIN_lbDBeZKJSCWsspDw3zz0Qg___0(global::System.Int32 iD_SUPERVISION, global::System.Int32 iD_SUPERVISOR, global::System.String oBSERVACIONES, global::System.DateTime fEC_SUPERVISION, global::System.DateTime hS_SUPERVISION, global::System.DateTime fEC_ALTA, global::System.String uSR_ALTA, global::System.DateTime fEC_MODIF, global::System.String uSR_MODIF, global::System.String eSTADO, global::System.Int32 iD_GRUPO)
+        {
+            BIN_lbDBeZKJSCWsspDw3zz0Qg___0 bIN_lbDBeZKJSCWsspDw3zz0Qg___0 = new BIN_lbDBeZKJSCWsspDw3zz0Qg___0();
+            bIN_lbDBeZKJSCWsspDw3zz0Qg___0.ID_SUPERVISION = iD_SUPERVISION;
+            bIN_lbDBeZKJSCWsspDw3zz0Qg___0.ID_SUPERVISOR = iD_SUPERVISOR;
+            bIN_lbDBeZKJSCWsspDw3zz0Qg___0.OBSERVACIONES = oBSERVACIONES;
+            bIN_lbDBeZKJSCWsspDw3zz0Qg___0.FEC_SUPERVISION = fEC_SUPERVISION;
+            bIN_lbDBeZKJSCWsspDw3zz0Qg___0.HS_SUPERVISION = hS_SUPERVISION;
+            bIN_lbDBeZKJSCWsspDw3zz0Qg___0.FEC_ALTA = fEC_ALTA;
+            bIN_lbDBeZKJSCWsspDw3zz0Qg___0.USR_ALTA = uSR_ALTA;
+            bIN_lbDBeZKJSCWsspDw3zz0Qg___0.FEC_MODIF = fEC_MODIF;
+            bIN_lbDBeZKJSCWsspDw3zz0Qg___0.USR_MODIF = uSR_MODIF;
+            bIN_lbDBeZKJSCWsspDw3zz0Qg___0.ESTADO = eSTADO;
+            bIN_lbDBeZKJSCWsspDw3zz0Qg___0.ID_GRUPO = iD_GRUPO;
+            return bIN_lbDBeZKJSCWsspDw3zz0Qg___0;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_SUPERVISION
+        {
+            get
+            {
+                return _ID_SUPERVISION;
+            }
+            set
+            {
+                if (_ID_SUPERVISION != value)
+                {
+                    OnID_SUPERVISIONChanging(value);
+                    ReportPropertyChanging("ID_SUPERVISION");
+                    _ID_SUPERVISION = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID_SUPERVISION");
+                    OnID_SUPERVISIONChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID_SUPERVISION;
+        partial void OnID_SUPERVISIONChanging(global::System.Int32 value);
+        partial void OnID_SUPERVISIONChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_SUPERVISOR
+        {
+            get
+            {
+                return _ID_SUPERVISOR;
+            }
+            set
+            {
+                OnID_SUPERVISORChanging(value);
+                ReportPropertyChanging("ID_SUPERVISOR");
+                _ID_SUPERVISOR = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ID_SUPERVISOR");
+                OnID_SUPERVISORChanged();
+            }
+        }
+        private global::System.Int32 _ID_SUPERVISOR;
+        partial void OnID_SUPERVISORChanging(global::System.Int32 value);
+        partial void OnID_SUPERVISORChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String OBSERVACIONES
+        {
+            get
+            {
+                return _OBSERVACIONES;
+            }
+            set
+            {
+                OnOBSERVACIONESChanging(value);
+                ReportPropertyChanging("OBSERVACIONES");
+                _OBSERVACIONES = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("OBSERVACIONES");
+                OnOBSERVACIONESChanged();
+            }
+        }
+        private global::System.String _OBSERVACIONES;
+        partial void OnOBSERVACIONESChanging(global::System.String value);
+        partial void OnOBSERVACIONESChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime FEC_SUPERVISION
+        {
+            get
+            {
+                return _FEC_SUPERVISION;
+            }
+            set
+            {
+                OnFEC_SUPERVISIONChanging(value);
+                ReportPropertyChanging("FEC_SUPERVISION");
+                _FEC_SUPERVISION = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FEC_SUPERVISION");
+                OnFEC_SUPERVISIONChanged();
+            }
+        }
+        private global::System.DateTime _FEC_SUPERVISION;
+        partial void OnFEC_SUPERVISIONChanging(global::System.DateTime value);
+        partial void OnFEC_SUPERVISIONChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime HS_SUPERVISION
+        {
+            get
+            {
+                return _HS_SUPERVISION;
+            }
+            set
+            {
+                OnHS_SUPERVISIONChanging(value);
+                ReportPropertyChanging("HS_SUPERVISION");
+                _HS_SUPERVISION = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HS_SUPERVISION");
+                OnHS_SUPERVISIONChanged();
+            }
+        }
+        private global::System.DateTime _HS_SUPERVISION;
+        partial void OnHS_SUPERVISIONChanging(global::System.DateTime value);
+        partial void OnHS_SUPERVISIONChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime FEC_ALTA
+        {
+            get
+            {
+                return _FEC_ALTA;
+            }
+            set
+            {
+                OnFEC_ALTAChanging(value);
+                ReportPropertyChanging("FEC_ALTA");
+                _FEC_ALTA = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FEC_ALTA");
+                OnFEC_ALTAChanged();
+            }
+        }
+        private global::System.DateTime _FEC_ALTA;
+        partial void OnFEC_ALTAChanging(global::System.DateTime value);
+        partial void OnFEC_ALTAChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String USR_ALTA
+        {
+            get
+            {
+                return _USR_ALTA;
+            }
+            set
+            {
+                OnUSR_ALTAChanging(value);
+                ReportPropertyChanging("USR_ALTA");
+                _USR_ALTA = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("USR_ALTA");
+                OnUSR_ALTAChanged();
+            }
+        }
+        private global::System.String _USR_ALTA;
+        partial void OnUSR_ALTAChanging(global::System.String value);
+        partial void OnUSR_ALTAChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime FEC_MODIF
+        {
+            get
+            {
+                return _FEC_MODIF;
+            }
+            set
+            {
+                OnFEC_MODIFChanging(value);
+                ReportPropertyChanging("FEC_MODIF");
+                _FEC_MODIF = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FEC_MODIF");
+                OnFEC_MODIFChanged();
+            }
+        }
+        private global::System.DateTime _FEC_MODIF;
+        partial void OnFEC_MODIFChanging(global::System.DateTime value);
+        partial void OnFEC_MODIFChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String USR_MODIF
+        {
+            get
+            {
+                return _USR_MODIF;
+            }
+            set
+            {
+                OnUSR_MODIFChanging(value);
+                ReportPropertyChanging("USR_MODIF");
+                _USR_MODIF = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("USR_MODIF");
+                OnUSR_MODIFChanged();
+            }
+        }
+        private global::System.String _USR_MODIF;
+        partial void OnUSR_MODIFChanging(global::System.String value);
+        partial void OnUSR_MODIFChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ESTADO
+        {
+            get
+            {
+                return _ESTADO;
+            }
+            set
+            {
+                OnESTADOChanging(value);
+                ReportPropertyChanging("ESTADO");
+                _ESTADO = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ESTADO");
+                OnESTADOChanged();
+            }
+        }
+        private global::System.String _ESTADO;
+        partial void OnESTADOChanging(global::System.String value);
+        partial void OnESTADOChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_GRUPO
+        {
+            get
+            {
+                return _ID_GRUPO;
+            }
+            set
+            {
+                OnID_GRUPOChanging(value);
+                ReportPropertyChanging("ID_GRUPO");
+                _ID_GRUPO = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ID_GRUPO");
+                OnID_GRUPOChanged();
+            }
+        }
+        private global::System.Int32 _ID_GRUPO;
+        partial void OnID_GRUPOChanging(global::System.Int32 value);
+        partial void OnID_GRUPOChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String NRO_RESOLUCION
+        {
+            get
+            {
+                return _NRO_RESOLUCION;
+            }
+            set
+            {
+                OnNRO_RESOLUCIONChanging(value);
+                ReportPropertyChanging("NRO_RESOLUCION");
+                _NRO_RESOLUCION = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("NRO_RESOLUCION");
+                OnNRO_RESOLUCIONChanged();
+            }
+        }
+        private global::System.String _NRO_RESOLUCION;
+        partial void OnNRO_RESOLUCIONChanging(global::System.String value);
+        partial void OnNRO_RESOLUCIONChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model_Cursos", Name="BIN_nPB0235pSYGQnQ6bNebcpw___0")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class BIN_nPB0235pSYGQnQ6bNebcpw___0 : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new BIN_nPB0235pSYGQnQ6bNebcpw___0 object.
+        /// </summary>
+        /// <param name="iD_SUPERVISOR">Initial value of the ID_SUPERVISOR property.</param>
+        /// <param name="iD_PERSONAJUR">Initial value of the ID_PERSONAJUR property.</param>
+        /// <param name="iD_DOMICILIO">Initial value of the ID_DOMICILIO property.</param>
+        /// <param name="fEC_ALTA">Initial value of the FEC_ALTA property.</param>
+        /// <param name="uSR_ALTA">Initial value of the USR_ALTA property.</param>
+        /// <param name="fEC_MODIF">Initial value of the FEC_MODIF property.</param>
+        /// <param name="uSR_MODIF">Initial value of the USR_MODIF property.</param>
+        /// <param name="eSTADO">Initial value of the ESTADO property.</param>
+        public static BIN_nPB0235pSYGQnQ6bNebcpw___0 CreateBIN_nPB0235pSYGQnQ6bNebcpw___0(global::System.Int32 iD_SUPERVISOR, global::System.Int32 iD_PERSONAJUR, global::System.Int32 iD_DOMICILIO, global::System.DateTime fEC_ALTA, global::System.String uSR_ALTA, global::System.DateTime fEC_MODIF, global::System.String uSR_MODIF, global::System.String eSTADO)
+        {
+            BIN_nPB0235pSYGQnQ6bNebcpw___0 bIN_nPB0235pSYGQnQ6bNebcpw___0 = new BIN_nPB0235pSYGQnQ6bNebcpw___0();
+            bIN_nPB0235pSYGQnQ6bNebcpw___0.ID_SUPERVISOR = iD_SUPERVISOR;
+            bIN_nPB0235pSYGQnQ6bNebcpw___0.ID_PERSONAJUR = iD_PERSONAJUR;
+            bIN_nPB0235pSYGQnQ6bNebcpw___0.ID_DOMICILIO = iD_DOMICILIO;
+            bIN_nPB0235pSYGQnQ6bNebcpw___0.FEC_ALTA = fEC_ALTA;
+            bIN_nPB0235pSYGQnQ6bNebcpw___0.USR_ALTA = uSR_ALTA;
+            bIN_nPB0235pSYGQnQ6bNebcpw___0.FEC_MODIF = fEC_MODIF;
+            bIN_nPB0235pSYGQnQ6bNebcpw___0.USR_MODIF = uSR_MODIF;
+            bIN_nPB0235pSYGQnQ6bNebcpw___0.ESTADO = eSTADO;
+            return bIN_nPB0235pSYGQnQ6bNebcpw___0;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_SUPERVISOR
+        {
+            get
+            {
+                return _ID_SUPERVISOR;
+            }
+            set
+            {
+                if (_ID_SUPERVISOR != value)
+                {
+                    OnID_SUPERVISORChanging(value);
+                    ReportPropertyChanging("ID_SUPERVISOR");
+                    _ID_SUPERVISOR = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID_SUPERVISOR");
+                    OnID_SUPERVISORChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID_SUPERVISOR;
+        partial void OnID_SUPERVISORChanging(global::System.Int32 value);
+        partial void OnID_SUPERVISORChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_PERSONAJUR
+        {
+            get
+            {
+                return _ID_PERSONAJUR;
+            }
+            set
+            {
+                OnID_PERSONAJURChanging(value);
+                ReportPropertyChanging("ID_PERSONAJUR");
+                _ID_PERSONAJUR = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ID_PERSONAJUR");
+                OnID_PERSONAJURChanged();
+            }
+        }
+        private global::System.Int32 _ID_PERSONAJUR;
+        partial void OnID_PERSONAJURChanging(global::System.Int32 value);
+        partial void OnID_PERSONAJURChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_DOMICILIO
+        {
+            get
+            {
+                return _ID_DOMICILIO;
+            }
+            set
+            {
+                OnID_DOMICILIOChanging(value);
+                ReportPropertyChanging("ID_DOMICILIO");
+                _ID_DOMICILIO = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ID_DOMICILIO");
+                OnID_DOMICILIOChanged();
+            }
+        }
+        private global::System.Int32 _ID_DOMICILIO;
+        partial void OnID_DOMICILIOChanging(global::System.Int32 value);
+        partial void OnID_DOMICILIOChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime FEC_ALTA
+        {
+            get
+            {
+                return _FEC_ALTA;
+            }
+            set
+            {
+                OnFEC_ALTAChanging(value);
+                ReportPropertyChanging("FEC_ALTA");
+                _FEC_ALTA = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FEC_ALTA");
+                OnFEC_ALTAChanged();
+            }
+        }
+        private global::System.DateTime _FEC_ALTA;
+        partial void OnFEC_ALTAChanging(global::System.DateTime value);
+        partial void OnFEC_ALTAChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String USR_ALTA
+        {
+            get
+            {
+                return _USR_ALTA;
+            }
+            set
+            {
+                OnUSR_ALTAChanging(value);
+                ReportPropertyChanging("USR_ALTA");
+                _USR_ALTA = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("USR_ALTA");
+                OnUSR_ALTAChanged();
+            }
+        }
+        private global::System.String _USR_ALTA;
+        partial void OnUSR_ALTAChanging(global::System.String value);
+        partial void OnUSR_ALTAChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime FEC_MODIF
+        {
+            get
+            {
+                return _FEC_MODIF;
+            }
+            set
+            {
+                OnFEC_MODIFChanging(value);
+                ReportPropertyChanging("FEC_MODIF");
+                _FEC_MODIF = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FEC_MODIF");
+                OnFEC_MODIFChanged();
+            }
+        }
+        private global::System.DateTime _FEC_MODIF;
+        partial void OnFEC_MODIFChanging(global::System.DateTime value);
+        partial void OnFEC_MODIFChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String USR_MODIF
+        {
+            get
+            {
+                return _USR_MODIF;
+            }
+            set
+            {
+                OnUSR_MODIFChanging(value);
+                ReportPropertyChanging("USR_MODIF");
+                _USR_MODIF = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("USR_MODIF");
+                OnUSR_MODIFChanged();
+            }
+        }
+        private global::System.String _USR_MODIF;
+        partial void OnUSR_MODIFChanging(global::System.String value);
+        partial void OnUSR_MODIFChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ESTADO
+        {
+            get
+            {
+                return _ESTADO;
+            }
+            set
+            {
+                OnESTADOChanging(value);
+                ReportPropertyChanging("ESTADO");
+                _ESTADO = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ESTADO");
+                OnESTADOChanged();
+            }
+        }
+        private global::System.String _ESTADO;
+        partial void OnESTADOChanging(global::System.String value);
+        partial void OnESTADOChanged();
+
+        #endregion
+    
+    }
     
     /// <summary>
     /// No Metadata Documentation available.
@@ -6392,31 +7014,6 @@ namespace CbaGob.Alumnos.Repositorio.Models
 
         #endregion
     
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_SUPERVISORES_T_DOMICILI_FK1", "T_SUPERVISORES")]
-        public EntityCollection<T_SUPERVISORES> T_SUPERVISORES
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<T_SUPERVISORES>("Model_Cursos.T_SUPERVISORES_T_DOMICILI_FK1", "T_SUPERVISORES");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<T_SUPERVISORES>("Model_Cursos.T_SUPERVISORES_T_DOMICILI_FK1", "T_SUPERVISORES", value);
-                }
-            }
-        }
-
-        #endregion
     }
     
     /// <summary>
@@ -12405,31 +13002,6 @@ namespace CbaGob.Alumnos.Repositorio.Models
 
         #endregion
     
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_SUPERVISORES_T_PERSONAS_FK1", "T_SUPERVISORES")]
-        public EntityCollection<T_SUPERVISORES> T_SUPERVISORES
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<T_SUPERVISORES>("Model_Cursos.T_SUPERVISORES_T_PERSONAS_FK1", "T_SUPERVISORES");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<T_SUPERVISORES>("Model_Cursos.T_SUPERVISORES_T_PERSONAS_FK1", "T_SUPERVISORES", value);
-                }
-            }
-        }
-
-        #endregion
     }
     
     /// <summary>
@@ -13958,7 +14530,7 @@ namespace CbaGob.Alumnos.Repositorio.Models
         /// <param name="uSR_MODIF">Initial value of the USR_MODIF property.</param>
         /// <param name="eSTADO">Initial value of the ESTADO property.</param>
         /// <param name="iD_GRUPO">Initial value of the ID_GRUPO property.</param>
-        public static T_SUPERVICIONES CreateT_SUPERVICIONES(global::System.Int32 iD_SUPERVISION, global::System.Int32 iD_SUPERVISOR, global::System.String oBSERVACIONES, global::System.DateTime fEC_SUPERVISION, global::System.DateTime hS_SUPERVISION, global::System.DateTime fEC_ALTA, global::System.String uSR_ALTA, global::System.DateTime fEC_MODIF, global::System.String uSR_MODIF, global::System.String eSTADO, global::System.Int32 iD_GRUPO)
+        public static T_SUPERVICIONES CreateT_SUPERVICIONES(global::System.Int32 iD_SUPERVISION, global::System.Int32 iD_SUPERVISOR, global::System.String oBSERVACIONES, global::System.DateTime fEC_SUPERVISION, global::System.String hS_SUPERVISION, global::System.DateTime fEC_ALTA, global::System.String uSR_ALTA, global::System.DateTime fEC_MODIF, global::System.String uSR_MODIF, global::System.String eSTADO, global::System.Int32 iD_GRUPO)
         {
             T_SUPERVICIONES t_SUPERVICIONES = new T_SUPERVICIONES();
             t_SUPERVICIONES.ID_SUPERVISION = iD_SUPERVISION;
@@ -14082,7 +14654,7 @@ namespace CbaGob.Alumnos.Repositorio.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.DateTime HS_SUPERVISION
+        public global::System.String HS_SUPERVISION
         {
             get
             {
@@ -14092,13 +14664,13 @@ namespace CbaGob.Alumnos.Repositorio.Models
             {
                 OnHS_SUPERVISIONChanging(value);
                 ReportPropertyChanging("HS_SUPERVISION");
-                _HS_SUPERVISION = StructuralObject.SetValidValue(value);
+                _HS_SUPERVISION = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("HS_SUPERVISION");
                 OnHS_SUPERVISIONChanged();
             }
         }
-        private global::System.DateTime _HS_SUPERVISION;
-        partial void OnHS_SUPERVISIONChanging(global::System.DateTime value);
+        private global::System.String _HS_SUPERVISION;
+        partial void OnHS_SUPERVISIONChanging(global::System.String value);
         partial void OnHS_SUPERVISIONChanged();
     
         /// <summary>
@@ -14366,19 +14938,15 @@ namespace CbaGob.Alumnos.Repositorio.Models
         /// Create a new T_SUPERVISORES object.
         /// </summary>
         /// <param name="iD_SUPERVISOR">Initial value of the ID_SUPERVISOR property.</param>
-        /// <param name="iD_PERSONAJUR">Initial value of the ID_PERSONAJUR property.</param>
-        /// <param name="iD_DOMICILIO">Initial value of the ID_DOMICILIO property.</param>
         /// <param name="fEC_ALTA">Initial value of the FEC_ALTA property.</param>
         /// <param name="uSR_ALTA">Initial value of the USR_ALTA property.</param>
         /// <param name="fEC_MODIF">Initial value of the FEC_MODIF property.</param>
         /// <param name="uSR_MODIF">Initial value of the USR_MODIF property.</param>
         /// <param name="eSTADO">Initial value of the ESTADO property.</param>
-        public static T_SUPERVISORES CreateT_SUPERVISORES(global::System.Int32 iD_SUPERVISOR, global::System.Int32 iD_PERSONAJUR, global::System.Int32 iD_DOMICILIO, global::System.DateTime fEC_ALTA, global::System.String uSR_ALTA, global::System.DateTime fEC_MODIF, global::System.String uSR_MODIF, global::System.String eSTADO)
+        public static T_SUPERVISORES CreateT_SUPERVISORES(global::System.Int32 iD_SUPERVISOR, global::System.DateTime fEC_ALTA, global::System.String uSR_ALTA, global::System.DateTime fEC_MODIF, global::System.String uSR_MODIF, global::System.String eSTADO)
         {
             T_SUPERVISORES t_SUPERVISORES = new T_SUPERVISORES();
             t_SUPERVISORES.ID_SUPERVISOR = iD_SUPERVISOR;
-            t_SUPERVISORES.ID_PERSONAJUR = iD_PERSONAJUR;
-            t_SUPERVISORES.ID_DOMICILIO = iD_DOMICILIO;
             t_SUPERVISORES.FEC_ALTA = fEC_ALTA;
             t_SUPERVISORES.USR_ALTA = uSR_ALTA;
             t_SUPERVISORES.FEC_MODIF = fEC_MODIF;
@@ -14416,54 +14984,6 @@ namespace CbaGob.Alumnos.Repositorio.Models
         private global::System.Int32 _ID_SUPERVISOR;
         partial void OnID_SUPERVISORChanging(global::System.Int32 value);
         partial void OnID_SUPERVISORChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 ID_PERSONAJUR
-        {
-            get
-            {
-                return _ID_PERSONAJUR;
-            }
-            set
-            {
-                OnID_PERSONAJURChanging(value);
-                ReportPropertyChanging("ID_PERSONAJUR");
-                _ID_PERSONAJUR = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ID_PERSONAJUR");
-                OnID_PERSONAJURChanged();
-            }
-        }
-        private global::System.Int32 _ID_PERSONAJUR;
-        partial void OnID_PERSONAJURChanging(global::System.Int32 value);
-        partial void OnID_PERSONAJURChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 ID_DOMICILIO
-        {
-            get
-            {
-                return _ID_DOMICILIO;
-            }
-            set
-            {
-                OnID_DOMICILIOChanging(value);
-                ReportPropertyChanging("ID_DOMICILIO");
-                _ID_DOMICILIO = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ID_DOMICILIO");
-                OnID_DOMICILIOChanged();
-            }
-        }
-        private global::System.Int32 _ID_DOMICILIO;
-        partial void OnID_DOMICILIOChanging(global::System.Int32 value);
-        partial void OnID_DOMICILIOChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -14584,86 +15104,202 @@ namespace CbaGob.Alumnos.Repositorio.Models
         private global::System.String _ESTADO;
         partial void OnESTADOChanging(global::System.String value);
         partial void OnESTADOChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String PROVINCIA
+        {
+            get
+            {
+                return _PROVINCIA;
+            }
+            set
+            {
+                OnPROVINCIAChanging(value);
+                ReportPropertyChanging("PROVINCIA");
+                _PROVINCIA = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("PROVINCIA");
+                OnPROVINCIAChanged();
+            }
+        }
+        private global::System.String _PROVINCIA;
+        partial void OnPROVINCIAChanging(global::System.String value);
+        partial void OnPROVINCIAChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String LOCALIDAD
+        {
+            get
+            {
+                return _LOCALIDAD;
+            }
+            set
+            {
+                OnLOCALIDADChanging(value);
+                ReportPropertyChanging("LOCALIDAD");
+                _LOCALIDAD = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("LOCALIDAD");
+                OnLOCALIDADChanged();
+            }
+        }
+        private global::System.String _LOCALIDAD;
+        partial void OnLOCALIDADChanging(global::System.String value);
+        partial void OnLOCALIDADChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String BARRIO
+        {
+            get
+            {
+                return _BARRIO;
+            }
+            set
+            {
+                OnBARRIOChanging(value);
+                ReportPropertyChanging("BARRIO");
+                _BARRIO = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("BARRIO");
+                OnBARRIOChanged();
+            }
+        }
+        private global::System.String _BARRIO;
+        partial void OnBARRIOChanging(global::System.String value);
+        partial void OnBARRIOChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CALLE
+        {
+            get
+            {
+                return _CALLE;
+            }
+            set
+            {
+                OnCALLEChanging(value);
+                ReportPropertyChanging("CALLE");
+                _CALLE = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("CALLE");
+                OnCALLEChanged();
+            }
+        }
+        private global::System.String _CALLE;
+        partial void OnCALLEChanging(global::System.String value);
+        partial void OnCALLEChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> NRO
+        {
+            get
+            {
+                return _NRO;
+            }
+            set
+            {
+                OnNROChanging(value);
+                ReportPropertyChanging("NRO");
+                _NRO = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("NRO");
+                OnNROChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _NRO;
+        partial void OnNROChanging(Nullable<global::System.Int32> value);
+        partial void OnNROChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CUIL_CUIT
+        {
+            get
+            {
+                return _CUIL_CUIT;
+            }
+            set
+            {
+                OnCUIL_CUITChanging(value);
+                ReportPropertyChanging("CUIL_CUIT");
+                _CUIL_CUIT = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("CUIL_CUIT");
+                OnCUIL_CUITChanged();
+            }
+        }
+        private global::System.String _CUIL_CUIT;
+        partial void OnCUIL_CUITChanging(global::System.String value);
+        partial void OnCUIL_CUITChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String RAZON_SOCIAL
+        {
+            get
+            {
+                return _RAZON_SOCIAL;
+            }
+            set
+            {
+                OnRAZON_SOCIALChanging(value);
+                ReportPropertyChanging("RAZON_SOCIAL");
+                _RAZON_SOCIAL = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("RAZON_SOCIAL");
+                OnRAZON_SOCIALChanged();
+            }
+        }
+        private global::System.String _RAZON_SOCIAL;
+        partial void OnRAZON_SOCIALChanging(global::System.String value);
+        partial void OnRAZON_SOCIALChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String NRO_RESOLUCION
+        {
+            get
+            {
+                return _NRO_RESOLUCION;
+            }
+            set
+            {
+                OnNRO_RESOLUCIONChanging(value);
+                ReportPropertyChanging("NRO_RESOLUCION");
+                _NRO_RESOLUCION = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("NRO_RESOLUCION");
+                OnNRO_RESOLUCIONChanged();
+            }
+        }
+        private global::System.String _NRO_RESOLUCION;
+        partial void OnNRO_RESOLUCIONChanging(global::System.String value);
+        partial void OnNRO_RESOLUCIONChanged();
 
         #endregion
     
         #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_SUPERVISORES_T_DOMICILI_FK1", "T_DOMICILIO")]
-        public T_DOMICILIO T_DOMICILIO
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_DOMICILIO>("Model_Cursos.T_SUPERVISORES_T_DOMICILI_FK1", "T_DOMICILIO").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_DOMICILIO>("Model_Cursos.T_SUPERVISORES_T_DOMICILI_FK1", "T_DOMICILIO").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<T_DOMICILIO> T_DOMICILIOReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_DOMICILIO>("Model_Cursos.T_SUPERVISORES_T_DOMICILI_FK1", "T_DOMICILIO");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<T_DOMICILIO>("Model_Cursos.T_SUPERVISORES_T_DOMICILI_FK1", "T_DOMICILIO", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_SUPERVISORES_T_PERSONAS_FK1", "T_PERSONASJUR")]
-        public T_PERSONASJUR T_PERSONASJUR
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_PERSONASJUR>("Model_Cursos.T_SUPERVISORES_T_PERSONAS_FK1", "T_PERSONASJUR").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_PERSONASJUR>("Model_Cursos.T_SUPERVISORES_T_PERSONAS_FK1", "T_PERSONASJUR").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<T_PERSONASJUR> T_PERSONASJURReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_PERSONASJUR>("Model_Cursos.T_SUPERVISORES_T_PERSONAS_FK1", "T_PERSONASJUR");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<T_PERSONASJUR>("Model_Cursos.T_SUPERVISORES_T_PERSONAS_FK1", "T_PERSONASJUR", value);
-                }
-            }
-        }
     
         /// <summary>
         /// No Metadata Documentation available.

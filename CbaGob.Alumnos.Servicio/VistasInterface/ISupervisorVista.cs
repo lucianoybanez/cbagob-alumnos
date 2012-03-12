@@ -9,13 +9,15 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
     public interface ISupervisorVista
     {
         int Id_Supervisor { get; set; }
-        int Id_PersonaJuridica { get; set; }
-        int Id_Domicilio { get; set; }
         string DomicilioCompleto { get; set; }
         string DatosCompletoPersonajur { get; set; }
-        string RazonSocial { get; set; }
-        string Cuit { get; set; }
-        IBuscador BuscadorDomicilio { get; set; }
-        IBuscador BuscadorPersonaJur { get; set; }
+        string Provincia { get; set; }
+        string Localidad { get; set; }
+        string Barrio { get; set; }
+        string Calle { get; set; }
+        int Nro { get; set; }
+        string Cuil_Cuit { get; set; }
+        string Razon_Social { get; set; }
+        string Nro_Resolucion { get; set; }
     }
 }

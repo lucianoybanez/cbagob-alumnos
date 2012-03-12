@@ -32,11 +32,6 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             ISupervisorVista model = new SupervisorVista();
 
-            model.BuscadorDomicilio.Tipo = "Domicilios";
-            model.BuscadorDomicilio.Name = "BuDomicilio";
-            model.BuscadorPersonaJur.Tipo = "PersonasJuridica";
-            model.BuscadorPersonaJur.Name = "BuPersonaJuridica";
-
             return View(model);
         }
 
@@ -52,13 +47,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             ISupervisorVista model = supervisoresservicio.GetSupervisor(id_supervisor);
 
-            model.BuscadorDomicilio.Tipo = "Domicilios";
-            model.BuscadorDomicilio.Name = "BuDomicilio";
-            model.BuscadorDomicilio.Valor = model.DomicilioCompleto;
 
-            model.BuscadorPersonaJur.Tipo = "PersonasJuridica";
-            model.BuscadorPersonaJur.Name = "BuPersonaJuridica";
-            model.BuscadorPersonaJur.Valor = model.DatosCompletoPersonajur;
 
             return View(model);
         }
@@ -75,14 +64,16 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             ISupervisorVista model = supervisoresservicio.GetSupervisor(id_supervisor);
 
+            model.Nro_Resolucion = "";
+
             return View(model);
         }
 
-        
+
         [HttpPost]
         public ActionResult Eliminar_Supervisor(SupervisorVista model)
         {
-            bool mret = supervisoresservicio.EliminarSupervisor(model.Id_Supervisor);
+            bool mret = supervisoresservicio.EliminarSupervisor(model.Id_Supervisor, model.Nro_Resolucion);
 
             return View("Index", supervisoresservicio.GetSupervisores());
         }

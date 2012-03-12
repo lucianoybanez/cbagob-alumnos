@@ -13,10 +13,10 @@ using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.Servicios
 {
-    public class SupervicionesServicio :BaseServicio, ISupervicionesServicio
+    public class SupervicionesServicio : BaseServicio, ISupervicionesServicio
     {
         private ISupervicionesRepositorio supervicionesrepositorio;
-       
+
 
         public SupervicionesServicio()
         {
@@ -45,7 +45,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 ISupervicionVista supervicionvista = new SupervicionVista();
                 IInstitucionServicio institucionservicio = new InstitucionServicio();
-  
+
                 ISuperviciones superviciones = supervicionesrepositorio.GetSupervicion(idsupervision);
 
                 supervicionvista.Fec_Supervision = superviciones.Fec_Supervision;
@@ -59,7 +59,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 supervicionvista.Id_Supervisor = superviciones.Id_Supervisor;
                 supervicionvista.Observaciones = superviciones.Observaciones;
                 //supervicionvista.Institucions.ListaInstituciones = institucionservicio.GetTodas();
-                
+
 
                 return supervicionvista;
             }
@@ -111,12 +111,12 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
         }
 
-        public bool EliminarSuperviciones(int idsupervicion)
+        public bool EliminarSuperviciones(int idsupervicion, string nro_resolucion)
         {
             try
             {
 
-                return supervicionesrepositorio.EliminarSuperviciones(idsupervicion);
+                return supervicionesrepositorio.EliminarSuperviciones(idsupervicion, nro_resolucion);
             }
             catch (Exception ex)
             {

@@ -28,7 +28,7 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public int Id_Supervisor { get; set; }
         public string Observaciones { get; set; }
         public DateTime Fec_Supervision { get; set; }
-        public DateTime Hs_Supervision { get; set; }
+        public string Hs_Supervision { get; set; }
         public string NombreInstitucion { get; set; }
         public string NombreCurso { get; set; }
         public string NombreGrupo { get; set; }
@@ -43,5 +43,7 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public int hora { get; set; }
         [Range(1, 999999999999999999)]
         public int minuto { get; set; }
+
+        public string Nro_resolucion { get; set; }
     }
 }

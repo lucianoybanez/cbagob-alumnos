@@ -84,7 +84,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         public ActionResult Agregar_Supervicion(SupervicionVista model)
         {
-            model.Hs_Supervision = model.Fec_Supervision.AddHours(Convert.ToDouble(model.hora)).AddMinutes(Convert.ToDouble(model.minuto));
+            model.Hs_Supervision = model.hora.ToString() + ":" + model.minuto.ToString();
 
             bool mreturn = supervicionesservicio.AgregarSuperviciones(model);
 
@@ -107,7 +107,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         public ActionResult Modificar_Supervicion(SupervicionVista model)
         {
-            model.Hs_Supervision = model.Fec_Supervision.AddHours(Convert.ToDouble(model.hora)).AddMinutes(Convert.ToDouble(model.minuto));
+            model.Hs_Supervision = model.hora.ToString() + ":" + model.minuto.ToString();
 
             bool mreturn = supervicionesservicio.ModificarSuperviciones(model);
 
@@ -131,7 +131,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         public ActionResult Eliminar_Supervicion(SupervicionVista model)
         {
 
-            bool mreturn = supervicionesservicio.EliminarSuperviciones(model.Id_Supervision);
+            bool mreturn = supervicionesservicio.EliminarSuperviciones(model.Id_Supervision, model.Nro_resolucion);
 
             return View("Index", supervicionesservicio.GetSuperviciones());
         }

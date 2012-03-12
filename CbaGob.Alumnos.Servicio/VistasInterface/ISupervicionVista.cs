@@ -13,7 +13,7 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         int Id_Supervisor { get; set; }
         String Observaciones { get; set; }
         System.DateTime Fec_Supervision { get; set; }
-        System.DateTime Hs_Supervision { get; set; }
+        string Hs_Supervision { get; set; }
         string NombreInstitucion { get; set; }
         string NombreCurso { get; set; }
         string NombreGrupo { get; set; }
@@ -26,5 +26,6 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         IBuscador supervisor { get; set; }
         int hora { get; set; }
         int minuto { get; set; }
+        string Nro_resolucion { get; set; }
     }
 }
