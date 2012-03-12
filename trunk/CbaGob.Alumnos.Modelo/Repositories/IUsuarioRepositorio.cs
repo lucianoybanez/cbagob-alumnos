@@ -13,5 +13,6 @@ namespace CbaGob.Alumnos.Modelo.Repositories
         bool AgregarUsuario(IUsuario usuario);
         bool ModificarUsuario(IUsuario usuario);
         bool EliminarUsuario(int usuario);
+        IList<IRol> GetTodosRoles();
     }
 }
