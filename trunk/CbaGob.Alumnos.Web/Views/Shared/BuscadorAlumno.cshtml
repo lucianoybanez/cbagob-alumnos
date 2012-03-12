@@ -4,7 +4,7 @@
 <div id="AlumnosDialog" title="Buscar Alumnos">
     @using (Ajax.BeginForm("BuscarAlumno", "Alumnos", new AjaxOptions() { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "searchResults" }))
     {
-        <table border="0" cellpadding="0" cellspacing="0">
+        @*<table border="0" cellpadding="0" cellspacing="0">
             <tr>
                 <td colspan="2">
                     <input type="radio" name="radio" checked="checked" id="radioNombre" />
@@ -26,8 +26,31 @@
                     <input type="submit" value="Buscar" />
                 </td>
             </tr>
+        </table>*@
+        <table width="308" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td height="30" align="right">
+                    <input type="radio" name="radio" checked="checked" id="radioNombre" />
+                    Nombre:&nbsp;                </td>
+                 <td height="30" align="right"><input type="text" name="nombre" id="nombre" /></td>
+  </tr>
+            <tr>
+              <td width="156" height="30" align="right">&nbsp;Apellido:              </td>
+                 <td width="152" height="30" align="right"><input type="text" name="apellido" id="apellido" /></td>
+            </tr>
+            <tr>
+                <td width="156" height="30" align="right">
+        <input type="radio" name="radio" id="radioDni" />
+                    DNI:                </td>
+                <td width="152" height="30" align="right">
+                    <input type="text" name="dni" id="dni" />                </td>
+            </tr>
+            <tr>
+                <td height="30" colspan="2" align="right">
+                    <input type="submit" value="Buscar" />                </td>
+            </tr>
         </table>
     }
-    <table id="searchResults">
+    <table id="searchResults" width="100%">
     </table>
 </div>
