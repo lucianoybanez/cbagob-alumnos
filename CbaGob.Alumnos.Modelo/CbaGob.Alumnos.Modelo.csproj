@@ -59,6 +59,7 @@
     <Compile Include="Entities\Estado_Equipo.cs" />
     <Compile Include="Entities\Factura.cs" />
     <Compile Include="Entities\Grupo.cs" />
+    <Compile Include="Entities\Horario.cs" />
     <Compile Include="Entities\Inscripcion.cs" />
     <Compile Include="Entities\Examen.cs" />
     <Compile Include="Entities\Interfaces\IAlumnos.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Entities\Interfaces\IExamen.cs" />
     <Compile Include="Entities\Interfaces\IFactura.cs" />
     <Compile Include="Entities\Interfaces\IGrupo.cs" />
+    <Compile Include="Entities\Interfaces\IHorario.cs" />
     <Compile Include="Entities\Interfaces\IInscripcion.cs" />
     <Compile Include="Entities\Interfaces\IInstitucion.cs" />
     <Compile Include="Entities\Interfaces\ILocalidades.cs" />
@@ -157,6 +159,7 @@
     <Compile Include="Repositories\IExamenRepositorio.cs" />
     <Compile Include="Repositories\IFacturaRepositorio.cs" />
     <Compile Include="Repositories\IGrupoRepositorio.cs" />
+    <Compile Include="Repositories\IHorarioRepositorio.cs" />
     <Compile Include="Repositories\IInscripcionRepositorio.cs" />
     <Compile Include="Repositories\IInstitucionRepositorio.cs">
       <SubType>Code</SubType>

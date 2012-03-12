@@ -47,6 +47,7 @@
     <Compile Include="ServiciosInterface\IAreasTipoCursoServicio.cs" />
     <Compile Include="ServiciosInterface\ICajaChicaServicio.cs" />
     <Compile Include="ServiciosInterface\IEquipoServicio.cs" />
+    <Compile Include="ServiciosInterface\IHorarioServicio.cs" />
     <Compile Include="ServiciosInterface\IInventarioServicio.cs" />
     <Compile Include="ServiciosInterface\IMovimientoServicio.cs" />
     <Compile Include="ServiciosInterface\IPrestamoServicio.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Servicios\DocentesServicio.cs" />
     <Compile Include="Servicios\DomiciliosServicios.cs" />
     <Compile Include="Servicios\GrupoServicio.cs" />
+    <Compile Include="Servicios\HorarioServicio.cs" />
     <Compile Include="Servicios\InscripcionServicio.cs" />
     <Compile Include="Servicios\InstitucionServicio.cs" />
     <Compile Include="Servicios\InventarioServicio.cs" />
@@ -113,12 +115,14 @@
     <Compile Include="VistasInterface\ICajaChicaVista.cs" />
     <Compile Include="VistasInterface\IEquiposVista.cs" />
     <Compile Include="VistasInterface\IEquipoVista.cs" />
+    <Compile Include="VistasInterface\IHorariosVista.cs" />
     <Compile Include="VistasInterface\IInscripcionExamenVista.cs" />
     <Compile Include="VistasInterface\IInscripcionPresentismoVista.cs" />
     <Compile Include="VistasInterface\IInventariosVista.cs" />
     <Compile Include="VistasInterface\IInventarioVista.cs" />
     <Compile Include="VistasInterface\IMovimientosVista.cs" />
     <Compile Include="VistasInterface\IMovimientoVista.cs" />
+    <Compile Include="Vistas\HorariosVista.cs" />
     <Compile Include="Vistas\InscripcionExamenVista.cs" />
     <Compile Include="VistasInterface\IPrestamosVista.cs" />
     <Compile Include="VistasInterface\IPrestamoVista.cs" />

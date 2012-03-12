@@ -18,12 +18,14 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         private IGrupoRepositorio gruporepositorio;
         private IDocentesRepositorio docentesrepositorio;
         private IDomiciliosRepositorio domiciliosrepositorio;
+        private IHorarioRepositorio horariorepositorio;
 
         public GrupoServicio()
         {
             gruporepositorio = new GrupoRepositorio();
             docentesrepositorio = new DocentesRepositorio();
             domiciliosrepositorio = new DomiciliosRepositorio();
+            horariorepositorio = new HorarioRepositorio();
         }
 
         public IList<IErrores> GetErrors()
@@ -51,7 +53,6 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 grupovista.Id_Docente = grupo.Id_Docente;
                 grupovista.Id_Establecimiento = grupo.Id_Establecimiento;
                 grupovista.Id_Grupo = grupo.Id_Grupo;
-                grupovista.Id_Horario = grupo.Id_Horario;
                 grupovista.Capacidad = grupo.Capacidad;
                 grupovista.NombreEstablecimiento = grupo.NombreEstablecimiento;
                 grupovista.Hr_Inicio = grupo.Hr_Inicio;
@@ -65,7 +66,10 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 grupovista.Nombre_Institucion = grupo.Nombre_Institucion;
                 grupovista.Nombre_Curso = grupo.Nombre_Curso;
                 grupovista.Id_Institucion = grupo.Id_Institucion;
-                grupovista.Nro_Resolucion = grupo.Nro_Resolucion; 
+                grupovista.Nro_Resolucion = grupo.Nro_Resolucion;
+
+                grupovista.HorariosAsignadoGrupo.ListaHorario = horariorepositorio.GetHorariosByGrupo(grupo.Id_Grupo);
+                grupovista.HorariosParaGrupo.ListaHorario = horariorepositorio.GetHorariosForGrupo(grupo.Id_Grupo);
 
                 return grupovista;
 
@@ -114,7 +118,6 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 grupoadd.Id_Condicion_Curso = grupo.Id_Condicion_Curso;
                 grupoadd.Id_Docente = grupo.Id_Docente;
                 grupoadd.Id_Establecimiento = grupo.Id_Establecimiento;
-                grupoadd.Id_Horario = grupo.Id_Horario;
                 grupoadd.NombreGrupo = grupo.NombreGrupo;
                 grupoadd.Capacidad = grupo.Capacidad;
                 grupoadd.Nro_Resolucion = grupo.Nro_Resolucion;
@@ -126,7 +129,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 base.AddError("Surgio Un Error Vuelva a Intentarlo");
                 return false;
             }
-           
+
 
         }
 
@@ -139,7 +142,6 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 grupoadd.Id_Condicion_Curso = grupo.Id_Condicion_Curso;
                 grupoadd.Id_Docente = grupo.Id_Docente;
                 grupoadd.Id_Establecimiento = grupo.Id_Establecimiento;
-                grupoadd.Id_Horario = grupo.Id_Horario;
                 grupoadd.NombreGrupo = grupo.NombreGrupo;
                 grupoadd.Capacidad = grupo.Capacidad;
                 grupoadd.Id_Grupo = grupo.Id_Grupo;
@@ -152,9 +154,9 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 base.AddError("Surgio Un Error Vuelva a Intentarlo");
                 return false;
             }
-            
-            
-          
+
+
+
         }
 
         public bool EliminarGrupo(int id_grupo, string nro_resolucion)

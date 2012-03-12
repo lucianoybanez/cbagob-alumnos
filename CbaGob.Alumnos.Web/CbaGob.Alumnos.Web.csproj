@@ -132,6 +132,7 @@
     <Content Include="Content\images\49_.png" />
     <Content Include="Content\images\Bg_encabezado.jpg" />
     <Content Include="Content\images\Bg_pie.jpg" />
+    <Content Include="Content\images\Logo Agencia.jpg" />
     <Content Include="Content\images\Logout_button.png" />
     <Content Include="Content\images\seleccionar.jpg" />
     <Content Include="Content\MVCFramework.css" />
@@ -678,6 +679,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Usuario\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Grupos\_HorarioParaelModulo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Grupos\_HorarioAsiganadoModulo.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
