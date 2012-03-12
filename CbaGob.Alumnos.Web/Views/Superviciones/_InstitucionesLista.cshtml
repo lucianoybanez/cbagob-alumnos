@@ -18,7 +18,7 @@
                             Fecha Alta</div>
                     </th>
                     <th height="30" width="200">
-                        <div align="right" style="margin-right: 2px;">
+                        <div align="center" style="margin-right: 2px;">
                             Accion</div>
                     </th>
                 </tr>
@@ -36,7 +36,7 @@
                         <td>
                             @item.FechaAlta.ToShortDateString()
                         </td>
-                        <td align="right" style="margin-right: 2px;">
+                        <td align="center" style="margin-right: 2px;">
                             @Html.ActionLink("Ver Cursos", "VerCursos", "Superviciones", new { IdInstitucion = item.Id_Institucion }, new { @class = "btnIngresar" })
                         </td>
                     </tr>

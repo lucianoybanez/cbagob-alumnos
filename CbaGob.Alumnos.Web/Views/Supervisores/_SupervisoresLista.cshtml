@@ -13,8 +13,8 @@
                         <div align="center">
                             Cuil</div>
                     </th>
-                    <th height="30" align="center">
-                        <div align="right" style="margin-right: 2px;">
+                    <th height="30">
+                        <div align="center" style="margin-right: 2px;">
                             Accion</div>
                     </th>
                 </tr>
@@ -29,7 +29,7 @@
                         <td align="center" width="50">
                             @item.Cuit
                         </td>
-                        <td align="right" style="margin-right: 2px;">
+                        <td align="center" style="margin-right: 2px;">
                             @Html.ActionLink("Modificar", "Modificar", "Supervisores", new { id_supervisor = item.Id_Supervisor }, new { @class = "btnIngresar" })
                             @Html.ActionLink("Eliminar", "Eliminar", "Supervisores", new { id_supervisor = item.Id_Supervisor }, new { @class = "btnIngresar" })
                         </td>
