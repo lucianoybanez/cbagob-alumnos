@@ -18,7 +18,7 @@
                             Fecha de Supervicion</div>
                     </th>
                     <th height="30" align="center">
-                        <div align="right" style="margin-right: 2px;">
+                        <div style="margin-right: 2px;">
                             Accion</div>
                     </th>
                 </tr>
@@ -36,7 +36,7 @@
                         <td align="center" width="50">
                             @item.Fec_Supervision.ToShortDateString()
                         </td>
-                        <td align="right" style="margin-right: 2px;">
+                        <td align="center" style="margin-right: 2px;">
                             @Html.ActionLink("Modificar", "Modificar", "Superviciones", new { id_supervisor = item.Id_Supervision }, new { @class = "btnIngresar" })
                             @Html.ActionLink("Eliminar", "Eliminar", "Superviciones", new { id_supervisor = item.Id_Supervision }, new { @class = "btnIngresar" })
                         </td>
