@@ -7,20 +7,27 @@ using System.Web.Routing;
 using System.Web.Security;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Web.Models;
+using StructureMap;
 
 
 namespace JLY.Hotel.Web.Controllers
 {
     public class AccountController : BaseController
     {
-        
+
         private IUsuarioServicio _usuarioServicio;
 
-  
-        public AccountController(IUsuarioServicio _usuarioServicio )
+        public AccountController()
+            : this(ObjectFactory.GetInstance<IUsuarioServicio>())
+        {
+        }
+
+        public AccountController(IUsuarioServicio _usuarioServicio)
         {
             this._usuarioServicio = _usuarioServicio;
         }
+
+       
 
         public ActionResult LogOn()
         {
@@ -60,9 +67,9 @@ namespace JLY.Hotel.Web.Controllers
             }
             catch (Exception)
             {
-               
+
             }
-           
+
 
             return RedirectToAction("Index", "Home");
         }
@@ -89,10 +96,10 @@ namespace JLY.Hotel.Web.Controllers
             catch (Exception)
             {
 
-                return PartialView("_LogOnPartial",string.Empty);
+                return PartialView("_LogOnPartial", string.Empty);
             }
-            
-            
+
+
         }
 
         [HttpPost]
