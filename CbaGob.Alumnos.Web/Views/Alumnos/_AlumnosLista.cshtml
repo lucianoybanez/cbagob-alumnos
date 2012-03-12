@@ -22,7 +22,7 @@
                             Fecha Nacimiento</div>
                     </th>
                     <th height="30">
-                        <div align="right" style="margin-right: 2px;">
+                        <div align="center" style="margin-right: 2px;">
                             Accion
                         </div>
                     </th>
@@ -44,7 +44,7 @@
                         <td align="center" height="30">
                             @item.Fecha_Nacimiento.ToShortDateString()
                         </td>
-                        <td align="right" style="margin-right: 2px;">
+                        <td align="center" style="margin-right: 2px;">
                             @Html.ActionLink("Modificar", "Modificar", "Alumnos", new { id_alumno = item.Id_Alumno }, new { @class = "btnIngresar" })
                             @Html.ActionLink("Eliminar", "Eliminar", "Alumnos", new { id_alumno = item.Id_Alumno }, new { @class = "btnIngresar" })
                         </td>
