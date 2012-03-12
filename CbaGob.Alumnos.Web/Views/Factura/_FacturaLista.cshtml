@@ -51,8 +51,8 @@
                 @if (ViewBag.SubMenuSelected != "Liquidacion")
                 {
                     <tr>
-                        <td align="right" valign="middle" colspan="4" height="20">
-                            @Html.ActionLink("Agregar Factura", "Seleccion", "Factura", null, new { @class = "btnIngresar" })
+                        <td align="right" valign="middle" colspan="4" height="35px">
+                            @Html.ActionLink("Agregar Factura", "Seleccion", "Factura", null, new { @class = "btnIngresar" })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </td>
                     </tr>
                 }
@@ -71,7 +71,7 @@ else
         @if (ViewBag.SubMenuSelected != "Liquidacion")
         {
             <tr>
-                <td align="right" width="722px">
+                <td align="right" width="722px" height="35px">
                     @Html.ActionLink("Agregar Factura", "Seleccion", "Factura", null, new { @class = "btnIngresar" })
                 </td>
             </tr>
