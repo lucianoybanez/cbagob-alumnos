@@ -257,7 +257,7 @@ cbaAlumnosGlobal = function () {
                 $(table).empty();
                 $(table).append(trHeader);
                 for (var i = 0; i < data.length; i++) {
-                    var trFileds = "<tr><td>" + data[i].Cuit + "</td><td>" + data[i].RazonSocial + '</td><td><img style="cursor: pointer" onclick="cbaAlumnosGlobal.Seleccion(' + "'" + id + "'" + ',' + "'" + Tipo + "'" + ',' + "'" + data[i].Cuit + "-" + data[i].RazonSocial + "'," + data[i].Id_Supervisor + ');"  src="../../../Content/images/seleccionar.jpg"  width="25" height="25"  /></td></tr>';
+                    var trFileds = "<tr><td>" + data[i].Cuil_Cuit + "</td><td>" + data[i].Razon_Social + '</td><td><img style="cursor: pointer" onclick="cbaAlumnosGlobal.Seleccion(' + "'" + id + "'" + ',' + "'" + Tipo + "'" + ',' + "'" + data[i].Cuil_Cuit + "-" + data[i].Razon_Social + "'," + data[i].Id_Supervisor + ');"  src="../../../Content/images/seleccionar.jpg"  width="25" height="25"  /></td></tr>';
                     $(table).append(trFileds);
                 }
                 break;

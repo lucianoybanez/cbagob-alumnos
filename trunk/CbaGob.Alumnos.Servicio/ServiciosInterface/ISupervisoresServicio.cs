@@ -13,6 +13,6 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
         ISupervisorVista GetSupervisor(int idsupervisor);
         bool AgregarSupervisor(ISupervisorVista supervisor);
         bool ModificarSupervisor(ISupervisorVista supervisor);
-        bool EliminarSupervisor(int idsupervisor);
+        bool EliminarSupervisor(int idsupervisor, string nro_resolucion);
     }
 }

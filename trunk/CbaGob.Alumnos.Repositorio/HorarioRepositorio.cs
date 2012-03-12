@@ -64,7 +64,7 @@ namespace CbaGob.Alumnos.Repositorio
                                                Año = c.HR_AÑO,
                                                Dia_Semana = c.HR_DIASEMANA,
                                                Hora_Fin = c.HR_FIN,
-                                               Hora_Inicio = c.HR_FIN,
+                                               Hora_Inicio = c.HR_INICIO,
                                                Mes = c.HR_MES,
                                                Id_Horario = c.ID_HORARIO
                                            }).ToList().Cast<IHorario>().ToList();
@@ -96,7 +96,7 @@ namespace CbaGob.Alumnos.Repositorio
                                            Año = c.HR_AÑO,
                                            Dia_Semana = c.HR_DIASEMANA,
                                            Hora_Fin = c.HR_FIN,
-                                           Hora_Inicio = c.HR_FIN,
+                                           Hora_Inicio = c.HR_INICIO,
                                            Mes = c.HR_MES,
                                            Id_Horario = c.ID_HORARIO
                                        }).ToList().Cast<IHorario>().ToList();

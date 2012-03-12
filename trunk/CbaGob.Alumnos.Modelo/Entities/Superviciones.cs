@@ -18,7 +18,7 @@ namespace CbaGob.Alumnos.Modelo.Entities
         public int Id_Supervisor { get; set; }
         public string Observaciones { get; set; }
         public DateTime Fec_Supervision { get; set; }
-        public DateTime Hs_Supervision { get; set; }
+        public string Hs_Supervision { get; set; }
         public string NombreInstitucion { get; set; }
         public string NombreCurso { get; set; }
         public string NombreGrupo { get; set; }

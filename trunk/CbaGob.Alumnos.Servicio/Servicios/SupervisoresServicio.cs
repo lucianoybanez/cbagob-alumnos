@@ -61,11 +61,17 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 ISupervisorVista supervisorvista = new SupervisorVista();
                 ISupervisores supervisores = supervisoresrepositorio.GetSupervisor(idsupervisor);
 
-                supervisorvista.Id_Domicilio = supervisores.Id_Domicilio;
-                supervisorvista.Id_PersonaJuridica = supervisores.Id_PersonaJuridica;
                 supervisorvista.Id_Supervisor = supervisores.Id_Supervisor;
                 supervisorvista.DatosCompletoPersonajur = supervisores.DatosCompletoPersonajur;
                 supervisorvista.DomicilioCompleto = supervisores.DomicilioCompleto;
+                supervisorvista.Provincia = supervisores.Provincia;
+                supervisorvista.Localidad = supervisores.Localidad;
+                supervisorvista.Calle = supervisores.Calle;
+                supervisorvista.Nro = supervisores.Nro;
+                supervisorvista.Nro_Resolucion = supervisores.Nro_Resolucion;
+                supervisorvista.Razon_Social = supervisores.Razon_Social;
+                supervisorvista.Barrio = supervisores.Barrio;
+                supervisorvista.Cuil_Cuit = supervisores.Cuil_Cuit;
 
                 return supervisorvista;
             }
@@ -82,8 +88,15 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 ISupervisores supervisores = new Supervisores();
 
-                supervisores.Id_Domicilio = supervisor.Id_Domicilio;
-                supervisores.Id_PersonaJuridica = supervisor.Id_PersonaJuridica;
+                supervisores.Provincia = supervisor.Provincia;
+                supervisores.Localidad = supervisor.Localidad;
+                supervisores.Barrio = supervisor.Barrio;
+                supervisores.Calle = supervisor.Calle;
+                supervisores.Nro = supervisor.Nro;
+                supervisores.Nro_Resolucion = supervisor.Nro_Resolucion;
+                supervisores.Razon_Social = supervisor.Razon_Social;
+                supervisores.Cuil_Cuit = supervisor.Cuil_Cuit;
+
 
                 return supervisoresrepositorio.AgregarSupervisor(supervisores);
             }
@@ -100,8 +113,14 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 ISupervisores supervisores = new Supervisores();
 
-                supervisores.Id_Domicilio = supervisor.Id_Domicilio;
-                supervisores.Id_PersonaJuridica = supervisor.Id_PersonaJuridica;
+                supervisores.Provincia = supervisor.Provincia;
+                supervisores.Localidad = supervisor.Localidad;
+                supervisores.Barrio = supervisor.Barrio;
+                supervisores.Calle = supervisor.Calle;
+                supervisores.Nro = supervisor.Nro;
+                supervisores.Nro_Resolucion = supervisor.Nro_Resolucion;
+                supervisores.Razon_Social = supervisor.Razon_Social;
+                supervisores.Cuil_Cuit = supervisor.Cuil_Cuit;
                 supervisores.Id_Supervisor = supervisor.Id_Supervisor;
 
 
@@ -114,11 +133,11 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
         }
 
-        public bool EliminarSupervisor(int idsupervisor)
+        public bool EliminarSupervisor(int idsupervisor, string nro_resolucion)
         {
             try
             {
-                return supervisoresrepositorio.EliminarSupervisor(idsupervisor);
+                return supervisoresrepositorio.EliminarSupervisor(idsupervisor, nro_resolucion);
             }
             catch (Exception ex)
             {
