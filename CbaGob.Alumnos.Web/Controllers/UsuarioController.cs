@@ -13,7 +13,7 @@ using JLY.Hotel.Web.Controllers;
 
 namespace CbaGob.Alumnos.Web.Controllers
 {
-    [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Administrador })]
+    [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor })]
     public class UsuarioController : BaseController
     {
         private IUsuarioServicio UsuarioServicio;
@@ -58,6 +58,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Agregar", vista);
         }
 
+        [HttpPost]
         public ActionResult GuardarUsuario(UsuarioVista vista)
         {
             bool result = false;

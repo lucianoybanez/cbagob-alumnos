@@ -71,12 +71,17 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         public IComboBox GetRoles()
         {
+            var roles = UsuarioRepositorio.GetTodosRoles();
             IComboBox combo = new ComboBox();
             var lista = new List<IComboItem>();
-            lista.Add(new ComboItem() { description = RolTipo.Administrador.ToString(), id = (int)RolTipo.Administrador });
-            lista.Add(new ComboItem() { description = RolTipo.Nivel2.ToString(), id = (int)RolTipo.Nivel2 });
-            lista.Add(new ComboItem() { description = RolTipo.Nivel3.ToString(), id = (int)RolTipo.Nivel3 });
-            lista.Add(new ComboItem() { description = RolTipo.Nivel4.ToString(), id = (int)RolTipo.Nivel4 });
+            foreach (var role in roles)
+            {
+                lista.Add(new ComboItem()
+                              {
+                                  id = role.RolId,
+                                  description = role.Descripcion
+                              });
+            }
             combo.Combo = lista;
             return combo;
         }
@@ -97,12 +102,6 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 vista.pager = pager;
 
             }
-            foreach (var usuario in vista.Usuarios)
-            {
-                usuario.Rol = ((RolTipo) (int.Parse(usuario.Rol))).ToString();
-            }
-
-  
 
             return vista;
         }
@@ -113,7 +112,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             mUsuario.IdUsuario = usuario.idUsuario;
             mUsuario.NombreUsuario = usuario.Nombre;
             mUsuario.Password = usuario.password;
-            mUsuario.Rol = usuario.Roles.Selected;
+            mUsuario.IdRol = int.Parse(usuario.Roles.Selected);
 
             bool result = false;
 
@@ -122,6 +121,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 var getUsuario = UsuarioRepositorio.GetUsersByName(mUsuario.NombreUsuario,false);
                 if (getUsuario!=null)
                 {
+                    mUsuario.IdUsuario = getUsuario.IdUsuario;
                     usuario.Accion = "Modificar";
                 }
                 else

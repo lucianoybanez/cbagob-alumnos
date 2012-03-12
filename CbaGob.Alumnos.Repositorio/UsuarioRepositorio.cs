@@ -26,9 +26,10 @@ namespace CbaGob.Alumnos.Repositorio
                      select new Usuario()
                                 {
                                     IdUsuario = u.ID_USUARIO,
-                                    Rol = u.ROL,
+                                    Rol = u.T_ROL.DESCRIPCION,
                                     NombreUsuario = u.NOMBRE,
-                                    Password = u.PASSWORD
+                                    Password = u.PASSWORD,
+                                    IdRol = u.T_ROL.ID_ROL
                                 });
             return a;
         }
@@ -76,7 +77,7 @@ namespace CbaGob.Alumnos.Repositorio
                 mUsuario.USR_ALTA = usuario.UsuarioAlta;
                 mUsuario.USR_MODIF = usuario.UsuarioModificacion;
                 mUsuario.ESTADO = usuario.Estado;
-                mUsuario.ROL = usuario.Rol;
+                mUsuario.ID_ROL = usuario.IdRol;
                 mDb.AddToT_USUARIO(mUsuario);
                 mDb.SaveChanges();
                 return true;
@@ -98,7 +99,7 @@ namespace CbaGob.Alumnos.Repositorio
                 mUsuario.FEC_MODIF = usuario.FechaModificacion;
                 mUsuario.USR_MODIF = usuario.UsuarioModificacion;
                 mUsuario.ESTADO = usuario.Estado;
-                mUsuario.ROL = usuario.Rol;
+                mUsuario.ID_ROL = usuario.IdRol;
                 mDb.SaveChanges();
                 return true;
             }
@@ -127,6 +128,23 @@ namespace CbaGob.Alumnos.Repositorio
 
                 return false;
             }
+        }
+
+        public IList<IRol> GetTodosRoles()
+        {
+            var result = (from rol in mDb.T_ROL
+                          orderby rol.ID_ROL
+                          select new Rol
+                                     {
+                                         Descripcion = rol.DESCRIPCION,
+                                         RolId = rol.ID_ROL,
+                                         Estado = rol.ESTADO,
+                                         FechaAlta = rol.FEC_ALTA,
+                                         FechaModificacion = rol.FEC_MODIF,
+                                         UsuarioAlta = rol.USR_ALTA,
+                                         UsuarioModificacion = rol.USR_MODIF
+                                     }).ToList().Cast<IRol>().ToList();
+            return result;
         }
     }
 }

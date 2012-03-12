@@ -23,29 +23,14 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_ALUMNOS_T_TIPOS_SEXO_FK1", "T_TIPOS_SEXO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CbaGob.Alumnos.Repositorio.Models.T_TIPOS_SEXO), "T_ALUMNOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_ALUMNOS), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_ALUMONOS_GRUPO_T_ALUMNO_FK1", "T_ALUMNOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_ALUMNOS), "T_ALUMONOS_GRUPO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_ALUMONOS_GRUPO), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_INSCRIPCIONES_T_ALUMNOS_FK1", "T_ALUMNOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_ALUMNOS), "T_INSCRIPCIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_INSCRIPCIONES), true)]
+[assembly: EdmRelationshipAttribute("Model_Cursos", "T_ALUMONOS_GRUPO_T_CONDIC_FK1", "T_CONDICIONES_CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_CONDICIONES_CURSO), "T_ALUMONOS_GRUPO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_ALUMONOS_GRUPO), true)]
+[assembly: EdmRelationshipAttribute("Model_Cursos", "T_ALUMONOS_GRUPO_T_GRUPOS_FK1", "T_GRUPOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_GRUPOS), "T_ALUMONOS_GRUPO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_ALUMONOS_GRUPO), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_CURSOS_T_AREAS_TIPOS_CU_FK1", "T_AREAS_TIPOS_CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_AREAS_TIPOS_CURSO), "T_CURSOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_CURSOS), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_CAJA_CHICA_T_ESTADOS_CA_FK1", "T_ESTADOS_CAJA_CHICA", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_ESTADOS_CAJA_CHICA), "T_CAJA_CHICA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_CAJA_CHICA), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_CAJA_CHICA_T_INSTITUCIO_FK1", "T_INSTITUCIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_INSTITUCIONES), "T_CAJA_CHICA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_CAJA_CHICA), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_MOVIMIENTOS_T_CAJA_CHIC_FK1", "T_CAJA_CHICA", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_CAJA_CHICA), "T_MOVIMIENTOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_MOVIMIENTOS), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_DOCENTES_T_CARGOS_FK1", "T_CARGOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_CARGOS), "T_DOCENTES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_DOCENTES), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_CERTIFICACIONES_T_INSCR_FK1", "T_INSCRIPCIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_INSCRIPCIONES), "T_CERTIFICACIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_CERTIFICACIONES), true)]
-[assembly: EdmRelationshipAttribute("Model_Cursos", "T_DETALLES_FACTURA_T_FACT_FK1", "T_FACTURAS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_FACTURAS), "T_DETALLES_FACTURA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_DETALLES_FACTURA), true)]
-[assembly: EdmRelationshipAttribute("Model_Cursos", "T_DOCENTES_GRUPO_T_DOCENT_FK1", "T_DOCENTES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_DOCENTES), "T_DOCENTES_GRUPO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_DOCENTES_GRUPO), true)]
-[assembly: EdmRelationshipAttribute("Model_Cursos", "T_DOCENTES_HORARIO_T_DOCE_FK1", "T_DOCENTES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_DOCENTES), "T_DOCENTES_HORARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_DOCENTES_HORARIO), true)]
-[assembly: EdmRelationshipAttribute("Model_Cursos", "T_DOCENTES_T_TIPOS_DOCENT_FK1", "T_TIPOS_DOCENTE", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_TIPOS_DOCENTE), "T_DOCENTES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_DOCENTES), true)]
-[assembly: EdmRelationshipAttribute("Model_Cursos", "T_SUPERVISORES_T_DOMICILI_FK1", "T_DOMICILIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_DOMICILIO), "T_SUPERVISORES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_SUPERVISORES), true)]
-[assembly: EdmRelationshipAttribute("Model_Cursos", "T_EQUIPOS_T_ESTADOS_EQUIP_FK1", "T_ESTADOS_EQUIPO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_ESTADOS_EQUIPO), "T_EQUIPOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_EQUIPOS), true)]
-[assembly: EdmRelationshipAttribute("Model_Cursos", "T_PRESTAMOS_T_EQUIPOS_FK1", "T_EQUIPOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_EQUIPOS), "T_PRESTAMOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_PRESTAMOS), true)]
-[assembly: EdmRelationshipAttribute("Model_Cursos", "T_ESTABLECIMINETOS_T_INST_FK1", "T_INSTITUCIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_INSTITUCIONES), "T_ESTABLECIMINETOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_ESTABLECIMINETOS), true)]
-[assembly: EdmRelationshipAttribute("Model_Cursos", "T_EXAMENES_T_INSCRIPCIONE_FK1", "T_INSCRIPCIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_INSCRIPCIONES), "T_EXAMENES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_EXAMENES), true)]
-[assembly: EdmRelationshipAttribute("Model_Cursos", "T_PRESENTISMO_T_INSCRIPCI_FK1", "T_INSCRIPCIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_INSCRIPCIONES), "T_PRESENTISMO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_PRESENTISMO), true)]
-[assembly: EdmRelationshipAttribute("Model_Cursos", "T_PRESTAMOS_T_INSTITUCION_FK1", "T_INSTITUCIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_INSTITUCIONES), "T_PRESTAMOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_PRESTAMOS), true)]
-[assembly: EdmRelationshipAttribute("Model_Cursos", "T_MOVIMIENTOS_T_TIPOS_MOV_FK1", "T_TIPOS_MOVIMIENTOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_TIPOS_MOVIMIENTOS), "T_MOVIMIENTOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_MOVIMIENTOS), true)]
-[assembly: EdmRelationshipAttribute("Model_Cursos", "T_SUPERVISORES_T_PERSONAS_FK1", "T_PERSONASJUR", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_PERSONASJUR), "T_SUPERVISORES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_SUPERVISORES), true)]
-[assembly: EdmRelationshipAttribute("Model_Cursos", "T_PROGRAMAS_TEMARIO_T_PRO_FK1", "T_PROGRAMAS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_PROGRAMAS), "T_PROGRAMAS_TEMARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_PROGRAMAS_TEMARIO), true)]
-[assembly: EdmRelationshipAttribute("Model_Cursos", "T_PROGRAMAS_TEMARIO_T_TEM_FK1", "T_TEMARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_TEMARIO), "T_PROGRAMAS_TEMARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_PROGRAMAS_TEMARIO), true)]
-[assembly: EdmRelationshipAttribute("Model_Cursos", "T_SUPERVICIONES_T_SUPERVI_FK1", "T_SUPERVISORES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_SUPERVISORES), "T_SUPERVICIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_SUPERVICIONES), true)]
-[assembly: EdmRelationshipAttribute("Model_Cursos", "T_ALUMONOS_GRUPO_T_CONDIC_FK1", "T_CONDICIONES_CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_CONDICIONES_CURSO), "T_ALUMONOS_GRUPO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_ALUMONOS_GRUPO), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_CONDICIONES_CURSO_T_CUR_FK1", "T_CURSOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_CURSOS), "T_CONDICIONES_CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_CONDICIONES_CURSO), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_CONDICIONES_CURSO_T_EST_FK1", "T_ESTADOS_CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_ESTADOS_CURSO), "T_CONDICIONES_CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_CONDICIONES_CURSO), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_CONDICIONES_CURSO_T_INS_FK1", "T_INSTITUCIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_INSTITUCIONES), "T_CONDICIONES_CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_CONDICIONES_CURSO), true)]
@@ -54,16 +39,32 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_CONDICIONES_CURSO_T_PRO_FK1", "T_PROGRAMAS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_PROGRAMAS), "T_CONDICIONES_CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_CONDICIONES_CURSO), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_DOCENTES_GRUPO_T_CONDIC_FK1", "T_CONDICIONES_CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_CONDICIONES_CURSO), "T_DOCENTES_GRUPO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_DOCENTES_GRUPO), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_FACTURAS_T_CONDICIONES__FK1", "T_CONDICIONES_CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_CONDICIONES_CURSO), "T_FACTURAS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_FACTURAS), true)]
-[assembly: EdmRelationshipAttribute("Model_Cursos", "T_INSCRIPCIONES_T_CONDICI_FK1", "T_CONDICIONES_CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_CONDICIONES_CURSO), "T_INSCRIPCIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_INSCRIPCIONES), true)]
-[assembly: EdmRelationshipAttribute("Model_Cursos", "T_ALUMONOS_GRUPO_T_GRUPOS_FK1", "T_GRUPOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_GRUPOS), "T_ALUMONOS_GRUPO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_ALUMONOS_GRUPO), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_GRUPOS_T_CONDICIONES_CU_FK2", "T_CONDICIONES_CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_CONDICIONES_CURSO), "T_GRUPOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_GRUPOS), true)]
+[assembly: EdmRelationshipAttribute("Model_Cursos", "T_INSCRIPCIONES_T_CONDICI_FK1", "T_CONDICIONES_CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_CONDICIONES_CURSO), "T_INSCRIPCIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_INSCRIPCIONES), true)]
+[assembly: EdmRelationshipAttribute("Model_Cursos", "T_DETALLES_FACTURA_T_FACT_FK1", "T_FACTURAS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_FACTURAS), "T_DETALLES_FACTURA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_DETALLES_FACTURA), true)]
+[assembly: EdmRelationshipAttribute("Model_Cursos", "T_DOCENTES_GRUPO_T_DOCENT_FK1", "T_DOCENTES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_DOCENTES), "T_DOCENTES_GRUPO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_DOCENTES_GRUPO), true)]
+[assembly: EdmRelationshipAttribute("Model_Cursos", "T_DOCENTES_HORARIO_T_DOCE_FK1", "T_DOCENTES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_DOCENTES), "T_DOCENTES_HORARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_DOCENTES_HORARIO), true)]
+[assembly: EdmRelationshipAttribute("Model_Cursos", "T_DOCENTES_T_TIPOS_DOCENT_FK1", "T_TIPOS_DOCENTE", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_TIPOS_DOCENTE), "T_DOCENTES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_DOCENTES), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_DOCENTES_GRUPO_T_GRUPOS_FK1", "T_GRUPOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_GRUPOS), "T_DOCENTES_GRUPO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_DOCENTES_GRUPO), true)]
+[assembly: EdmRelationshipAttribute("Model_Cursos", "T_DOCENTES_HORARIO_T_HORA_FK1", "T_HORARIOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_HORARIOS), "T_DOCENTES_HORARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_DOCENTES_HORARIO), true)]
+[assembly: EdmRelationshipAttribute("Model_Cursos", "T_SUPERVISORES_T_DOMICILI_FK1", "T_DOMICILIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_DOMICILIO), "T_SUPERVISORES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_SUPERVISORES), true)]
+[assembly: EdmRelationshipAttribute("Model_Cursos", "T_EQUIPOS_T_ESTADOS_EQUIP_FK1", "T_ESTADOS_EQUIPO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_ESTADOS_EQUIPO), "T_EQUIPOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_EQUIPOS), true)]
+[assembly: EdmRelationshipAttribute("Model_Cursos", "T_PRESTAMOS_T_EQUIPOS_FK1", "T_EQUIPOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_EQUIPOS), "T_PRESTAMOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_PRESTAMOS), true)]
+[assembly: EdmRelationshipAttribute("Model_Cursos", "T_ESTABLECIMINETOS_T_INST_FK1", "T_INSTITUCIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_INSTITUCIONES), "T_ESTABLECIMINETOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_ESTABLECIMINETOS), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_GRUPOS_T_CONDICIONES_CU_FK1", "T_ESTABLECIMINETOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_ESTABLECIMINETOS), "T_GRUPOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_GRUPOS), true)]
+[assembly: EdmRelationshipAttribute("Model_Cursos", "T_EXAMENES_T_INSCRIPCIONE_FK1", "T_INSCRIPCIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_INSCRIPCIONES), "T_EXAMENES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_EXAMENES), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_GRUPOS_HORARIO_T_GRUPOS_FK1", "T_GRUPOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_GRUPOS), "T_GRUPOS_HORARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_GRUPOS_HORARIO), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_NOVEDADES_T_GRUPOS_FK1", "T_GRUPOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_GRUPOS), "T_NOVEDADES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_NOVEDADES), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_SUPERVICIONES_T_GRUPOS_FK1", "T_GRUPOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_GRUPOS), "T_SUPERVICIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_SUPERVICIONES), true)]
-[assembly: EdmRelationshipAttribute("Model_Cursos", "T_DOCENTES_HORARIO_T_HORA_FK1", "T_HORARIOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_HORARIOS), "T_DOCENTES_HORARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_DOCENTES_HORARIO), true)]
 [assembly: EdmRelationshipAttribute("Model_Cursos", "T_GRUPOS_HORARIO_T_HORARI_FK1", "T_HORARIOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_HORARIOS), "T_GRUPOS_HORARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_GRUPOS_HORARIO), true)]
+[assembly: EdmRelationshipAttribute("Model_Cursos", "T_PRESENTISMO_T_INSCRIPCI_FK1", "T_INSCRIPCIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_INSCRIPCIONES), "T_PRESENTISMO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_PRESENTISMO), true)]
+[assembly: EdmRelationshipAttribute("Model_Cursos", "T_PRESTAMOS_T_INSTITUCION_FK1", "T_INSTITUCIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_INSTITUCIONES), "T_PRESTAMOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_PRESTAMOS), true)]
+[assembly: EdmRelationshipAttribute("Model_Cursos", "T_MOVIMIENTOS_T_TIPOS_MOV_FK1", "T_TIPOS_MOVIMIENTOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_TIPOS_MOVIMIENTOS), "T_MOVIMIENTOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_MOVIMIENTOS), true)]
+[assembly: EdmRelationshipAttribute("Model_Cursos", "T_SUPERVISORES_T_PERSONAS_FK1", "T_PERSONASJUR", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_PERSONASJUR), "T_SUPERVISORES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_SUPERVISORES), true)]
+[assembly: EdmRelationshipAttribute("Model_Cursos", "T_PROGRAMAS_TEMARIO_T_PRO_FK1", "T_PROGRAMAS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_PROGRAMAS), "T_PROGRAMAS_TEMARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_PROGRAMAS_TEMARIO), true)]
+[assembly: EdmRelationshipAttribute("Model_Cursos", "T_PROGRAMAS_TEMARIO_T_TEM_FK1", "T_TEMARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_TEMARIO), "T_PROGRAMAS_TEMARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_PROGRAMAS_TEMARIO), true)]
+[assembly: EdmRelationshipAttribute("Model_Cursos", "T_USUARIO_T_ROL_FK1", "T_ROL", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_ROL), "T_USUARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_USUARIO), true)]
+[assembly: EdmRelationshipAttribute("Model_Cursos", "T_SUPERVICIONES_T_SUPERVI_FK1", "T_SUPERVISORES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CbaGob.Alumnos.Repositorio.Models.T_SUPERVISORES), "T_SUPERVICIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CbaGob.Alumnos.Repositorio.Models.T_SUPERVICIONES), true)]
 
 #endregion
 
@@ -210,6 +211,22 @@ namespace CbaGob.Alumnos.Repositorio.Models
             }
         }
         private ObjectSet<T_CERTIFICACIONES> _T_CERTIFICACIONES;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<T_CONDICIONES_CURSO> T_CONDICIONES_CURSO
+        {
+            get
+            {
+                if ((_T_CONDICIONES_CURSO == null))
+                {
+                    _T_CONDICIONES_CURSO = base.CreateObjectSet<T_CONDICIONES_CURSO>("T_CONDICIONES_CURSO");
+                }
+                return _T_CONDICIONES_CURSO;
+            }
+        }
+        private ObjectSet<T_CONDICIONES_CURSO> _T_CONDICIONES_CURSO;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -422,6 +439,54 @@ namespace CbaGob.Alumnos.Repositorio.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<T_GRUPOS> T_GRUPOS
+        {
+            get
+            {
+                if ((_T_GRUPOS == null))
+                {
+                    _T_GRUPOS = base.CreateObjectSet<T_GRUPOS>("T_GRUPOS");
+                }
+                return _T_GRUPOS;
+            }
+        }
+        private ObjectSet<T_GRUPOS> _T_GRUPOS;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<T_GRUPOS_HORARIO> T_GRUPOS_HORARIO
+        {
+            get
+            {
+                if ((_T_GRUPOS_HORARIO == null))
+                {
+                    _T_GRUPOS_HORARIO = base.CreateObjectSet<T_GRUPOS_HORARIO>("T_GRUPOS_HORARIO");
+                }
+                return _T_GRUPOS_HORARIO;
+            }
+        }
+        private ObjectSet<T_GRUPOS_HORARIO> _T_GRUPOS_HORARIO;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<T_HORARIOS> T_HORARIOS
+        {
+            get
+            {
+                if ((_T_HORARIOS == null))
+                {
+                    _T_HORARIOS = base.CreateObjectSet<T_HORARIOS>("T_HORARIOS");
+                }
+                return _T_HORARIOS;
+            }
+        }
+        private ObjectSet<T_HORARIOS> _T_HORARIOS;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<T_INSCRIPCIONES> T_INSCRIPCIONES
         {
             get
@@ -614,6 +679,22 @@ namespace CbaGob.Alumnos.Repositorio.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<T_ROL> T_ROL
+        {
+            get
+            {
+                if ((_T_ROL == null))
+                {
+                    _T_ROL = base.CreateObjectSet<T_ROL>("T_ROL");
+                }
+                return _T_ROL;
+            }
+        }
+        private ObjectSet<T_ROL> _T_ROL;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<T_SUPERVICIONES> T_SUPERVICIONES
         {
             get
@@ -754,70 +835,6 @@ namespace CbaGob.Alumnos.Repositorio.Models
             }
         }
         private ObjectSet<T_USUARIO> _T_USUARIO;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<T_CONDICIONES_CURSO> T_CONDICIONES_CURSO
-        {
-            get
-            {
-                if ((_T_CONDICIONES_CURSO == null))
-                {
-                    _T_CONDICIONES_CURSO = base.CreateObjectSet<T_CONDICIONES_CURSO>("T_CONDICIONES_CURSO");
-                }
-                return _T_CONDICIONES_CURSO;
-            }
-        }
-        private ObjectSet<T_CONDICIONES_CURSO> _T_CONDICIONES_CURSO;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<T_GRUPOS> T_GRUPOS
-        {
-            get
-            {
-                if ((_T_GRUPOS == null))
-                {
-                    _T_GRUPOS = base.CreateObjectSet<T_GRUPOS>("T_GRUPOS");
-                }
-                return _T_GRUPOS;
-            }
-        }
-        private ObjectSet<T_GRUPOS> _T_GRUPOS;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<T_GRUPOS_HORARIO> T_GRUPOS_HORARIO
-        {
-            get
-            {
-                if ((_T_GRUPOS_HORARIO == null))
-                {
-                    _T_GRUPOS_HORARIO = base.CreateObjectSet<T_GRUPOS_HORARIO>("T_GRUPOS_HORARIO");
-                }
-                return _T_GRUPOS_HORARIO;
-            }
-        }
-        private ObjectSet<T_GRUPOS_HORARIO> _T_GRUPOS_HORARIO;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<T_HORARIOS> T_HORARIOS
-        {
-            get
-            {
-                if ((_T_HORARIOS == null))
-                {
-                    _T_HORARIOS = base.CreateObjectSet<T_HORARIOS>("T_HORARIOS");
-                }
-                return _T_HORARIOS;
-            }
-        }
-        private ObjectSet<T_HORARIOS> _T_HORARIOS;
 
         #endregion
         #region AddTo Methods
@@ -868,6 +885,14 @@ namespace CbaGob.Alumnos.Repositorio.Models
         public void AddToT_CERTIFICACIONES(T_CERTIFICACIONES t_CERTIFICACIONES)
         {
             base.AddObject("T_CERTIFICACIONES", t_CERTIFICACIONES);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the T_CONDICIONES_CURSO EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToT_CONDICIONES_CURSO(T_CONDICIONES_CURSO t_CONDICIONES_CURSO)
+        {
+            base.AddObject("T_CONDICIONES_CURSO", t_CONDICIONES_CURSO);
         }
     
         /// <summary>
@@ -975,6 +1000,30 @@ namespace CbaGob.Alumnos.Repositorio.Models
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the T_GRUPOS EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToT_GRUPOS(T_GRUPOS t_GRUPOS)
+        {
+            base.AddObject("T_GRUPOS", t_GRUPOS);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the T_GRUPOS_HORARIO EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToT_GRUPOS_HORARIO(T_GRUPOS_HORARIO t_GRUPOS_HORARIO)
+        {
+            base.AddObject("T_GRUPOS_HORARIO", t_GRUPOS_HORARIO);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the T_HORARIOS EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToT_HORARIOS(T_HORARIOS t_HORARIOS)
+        {
+            base.AddObject("T_HORARIOS", t_HORARIOS);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the T_INSCRIPCIONES EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToT_INSCRIPCIONES(T_INSCRIPCIONES t_INSCRIPCIONES)
@@ -1071,6 +1120,14 @@ namespace CbaGob.Alumnos.Repositorio.Models
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the T_ROL EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToT_ROL(T_ROL t_ROL)
+        {
+            base.AddObject("T_ROL", t_ROL);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the T_SUPERVICIONES EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToT_SUPERVICIONES(T_SUPERVICIONES t_SUPERVICIONES)
@@ -1140,38 +1197,6 @@ namespace CbaGob.Alumnos.Repositorio.Models
         public void AddToT_USUARIO(T_USUARIO t_USUARIO)
         {
             base.AddObject("T_USUARIO", t_USUARIO);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the T_CONDICIONES_CURSO EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToT_CONDICIONES_CURSO(T_CONDICIONES_CURSO t_CONDICIONES_CURSO)
-        {
-            base.AddObject("T_CONDICIONES_CURSO", t_CONDICIONES_CURSO);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the T_GRUPOS EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToT_GRUPOS(T_GRUPOS t_GRUPOS)
-        {
-            base.AddObject("T_GRUPOS", t_GRUPOS);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the T_GRUPOS_HORARIO EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToT_GRUPOS_HORARIO(T_GRUPOS_HORARIO t_GRUPOS_HORARIO)
-        {
-            base.AddObject("T_GRUPOS_HORARIO", t_GRUPOS_HORARIO);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the T_HORARIOS EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToT_HORARIOS(T_HORARIOS t_HORARIOS)
-        {
-            base.AddObject("T_HORARIOS", t_HORARIOS);
         }
 
         #endregion
@@ -4153,28 +4178,6 @@ namespace CbaGob.Alumnos.Repositorio.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_INSCRIPCIONES_T_CONDICI_FK1", "T_INSCRIPCIONES")]
-        public EntityCollection<T_INSCRIPCIONES> T_INSCRIPCIONES
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<T_INSCRIPCIONES>("Model_Cursos.T_INSCRIPCIONES_T_CONDICI_FK1", "T_INSCRIPCIONES");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<T_INSCRIPCIONES>("Model_Cursos.T_INSCRIPCIONES_T_CONDICI_FK1", "T_INSCRIPCIONES", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_GRUPOS_T_CONDICIONES_CU_FK2", "T_GRUPOS")]
         public EntityCollection<T_GRUPOS> T_GRUPOS
         {
@@ -4187,6 +4190,28 @@ namespace CbaGob.Alumnos.Repositorio.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<T_GRUPOS>("Model_Cursos.T_GRUPOS_T_CONDICIONES_CU_FK2", "T_GRUPOS", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_INSCRIPCIONES_T_CONDICI_FK1", "T_INSCRIPCIONES")]
+        public EntityCollection<T_INSCRIPCIONES> T_INSCRIPCIONES
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<T_INSCRIPCIONES>("Model_Cursos.T_INSCRIPCIONES_T_CONDICI_FK1", "T_INSCRIPCIONES");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<T_INSCRIPCIONES>("Model_Cursos.T_INSCRIPCIONES_T_CONDICI_FK1", "T_INSCRIPCIONES", value);
                 }
             }
         }
@@ -5767,44 +5792,6 @@ namespace CbaGob.Alumnos.Repositorio.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_DOCENTES_GRUPO_T_DOCENT_FK1", "T_DOCENTES")]
-        public T_DOCENTES T_DOCENTES
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_DOCENTES>("Model_Cursos.T_DOCENTES_GRUPO_T_DOCENT_FK1", "T_DOCENTES").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_DOCENTES>("Model_Cursos.T_DOCENTES_GRUPO_T_DOCENT_FK1", "T_DOCENTES").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<T_DOCENTES> T_DOCENTESReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_DOCENTES>("Model_Cursos.T_DOCENTES_GRUPO_T_DOCENT_FK1", "T_DOCENTES");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<T_DOCENTES>("Model_Cursos.T_DOCENTES_GRUPO_T_DOCENT_FK1", "T_DOCENTES", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_DOCENTES_GRUPO_T_CONDIC_FK1", "T_CONDICIONES_CURSO")]
         public T_CONDICIONES_CURSO T_CONDICIONES_CURSO
         {
@@ -5833,6 +5820,44 @@ namespace CbaGob.Alumnos.Repositorio.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<T_CONDICIONES_CURSO>("Model_Cursos.T_DOCENTES_GRUPO_T_CONDIC_FK1", "T_CONDICIONES_CURSO", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_DOCENTES_GRUPO_T_DOCENT_FK1", "T_DOCENTES")]
+        public T_DOCENTES T_DOCENTES
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_DOCENTES>("Model_Cursos.T_DOCENTES_GRUPO_T_DOCENT_FK1", "T_DOCENTES").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_DOCENTES>("Model_Cursos.T_DOCENTES_GRUPO_T_DOCENT_FK1", "T_DOCENTES").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<T_DOCENTES> T_DOCENTESReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_DOCENTES>("Model_Cursos.T_DOCENTES_GRUPO_T_DOCENT_FK1", "T_DOCENTES");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<T_DOCENTES>("Model_Cursos.T_DOCENTES_GRUPO_T_DOCENT_FK1", "T_DOCENTES", value);
                 }
             }
         }
@@ -8591,28 +8616,6 @@ namespace CbaGob.Alumnos.Repositorio.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_DETALLES_FACTURA_T_FACT_FK1", "T_DETALLES_FACTURA")]
-        public EntityCollection<T_DETALLES_FACTURA> T_DETALLES_FACTURA
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<T_DETALLES_FACTURA>("Model_Cursos.T_DETALLES_FACTURA_T_FACT_FK1", "T_DETALLES_FACTURA");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<T_DETALLES_FACTURA>("Model_Cursos.T_DETALLES_FACTURA_T_FACT_FK1", "T_DETALLES_FACTURA", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_FACTURAS_T_CONDICIONES__FK1", "T_CONDICIONES_CURSO")]
         public T_CONDICIONES_CURSO T_CONDICIONES_CURSO
         {
@@ -8641,6 +8644,28 @@ namespace CbaGob.Alumnos.Repositorio.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<T_CONDICIONES_CURSO>("Model_Cursos.T_FACTURAS_T_CONDICIONES__FK1", "T_CONDICIONES_CURSO", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_DETALLES_FACTURA_T_FACT_FK1", "T_DETALLES_FACTURA")]
+        public EntityCollection<T_DETALLES_FACTURA> T_DETALLES_FACTURA
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<T_DETALLES_FACTURA>("Model_Cursos.T_DETALLES_FACTURA_T_FACT_FK1", "T_DETALLES_FACTURA");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<T_DETALLES_FACTURA>("Model_Cursos.T_DETALLES_FACTURA_T_FACT_FK1", "T_DETALLES_FACTURA", value);
                 }
             }
         }
@@ -10179,6 +10204,44 @@ namespace CbaGob.Alumnos.Repositorio.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_INSCRIPCIONES_T_CONDICI_FK1", "T_CONDICIONES_CURSO")]
+        public T_CONDICIONES_CURSO T_CONDICIONES_CURSO
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_CONDICIONES_CURSO>("Model_Cursos.T_INSCRIPCIONES_T_CONDICI_FK1", "T_CONDICIONES_CURSO").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_CONDICIONES_CURSO>("Model_Cursos.T_INSCRIPCIONES_T_CONDICI_FK1", "T_CONDICIONES_CURSO").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<T_CONDICIONES_CURSO> T_CONDICIONES_CURSOReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_CONDICIONES_CURSO>("Model_Cursos.T_INSCRIPCIONES_T_CONDICI_FK1", "T_CONDICIONES_CURSO");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<T_CONDICIONES_CURSO>("Model_Cursos.T_INSCRIPCIONES_T_CONDICI_FK1", "T_CONDICIONES_CURSO", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_EXAMENES_T_INSCRIPCIONE_FK1", "T_EXAMENES")]
         public EntityCollection<T_EXAMENES> T_EXAMENES
         {
@@ -10213,44 +10276,6 @@ namespace CbaGob.Alumnos.Repositorio.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<T_PRESENTISMO>("Model_Cursos.T_PRESENTISMO_T_INSCRIPCI_FK1", "T_PRESENTISMO", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_INSCRIPCIONES_T_CONDICI_FK1", "T_CONDICIONES_CURSO")]
-        public T_CONDICIONES_CURSO T_CONDICIONES_CURSO
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_CONDICIONES_CURSO>("Model_Cursos.T_INSCRIPCIONES_T_CONDICI_FK1", "T_CONDICIONES_CURSO").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_CONDICIONES_CURSO>("Model_Cursos.T_INSCRIPCIONES_T_CONDICI_FK1", "T_CONDICIONES_CURSO").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<T_CONDICIONES_CURSO> T_CONDICIONES_CURSOReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_CONDICIONES_CURSO>("Model_Cursos.T_INSCRIPCIONES_T_CONDICI_FK1", "T_CONDICIONES_CURSO");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<T_CONDICIONES_CURSO>("Model_Cursos.T_INSCRIPCIONES_T_CONDICI_FK1", "T_CONDICIONES_CURSO", value);
                 }
             }
         }
@@ -10713,6 +10738,28 @@ namespace CbaGob.Alumnos.Repositorio.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_CONDICIONES_CURSO_T_INS_FK1", "T_CONDICIONES_CURSO")]
+        public EntityCollection<T_CONDICIONES_CURSO> T_CONDICIONES_CURSO
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<T_CONDICIONES_CURSO>("Model_Cursos.T_CONDICIONES_CURSO_T_INS_FK1", "T_CONDICIONES_CURSO");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<T_CONDICIONES_CURSO>("Model_Cursos.T_CONDICIONES_CURSO_T_INS_FK1", "T_CONDICIONES_CURSO", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_ESTABLECIMINETOS_T_INST_FK1", "T_ESTABLECIMINETOS")]
         public EntityCollection<T_ESTABLECIMINETOS> T_ESTABLECIMINETOS
         {
@@ -10747,28 +10794,6 @@ namespace CbaGob.Alumnos.Repositorio.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<T_PRESTAMOS>("Model_Cursos.T_PRESTAMOS_T_INSTITUCION_FK1", "T_PRESTAMOS", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_CONDICIONES_CURSO_T_INS_FK1", "T_CONDICIONES_CURSO")]
-        public EntityCollection<T_CONDICIONES_CURSO> T_CONDICIONES_CURSO
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<T_CONDICIONES_CURSO>("Model_Cursos.T_CONDICIONES_CURSO_T_INS_FK1", "T_CONDICIONES_CURSO");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<T_CONDICIONES_CURSO>("Model_Cursos.T_CONDICIONES_CURSO_T_INS_FK1", "T_CONDICIONES_CURSO", value);
                 }
             }
         }
@@ -13318,28 +13343,6 @@ namespace CbaGob.Alumnos.Repositorio.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_PROGRAMAS_TEMARIO_T_PRO_FK1", "T_PROGRAMAS_TEMARIO")]
-        public EntityCollection<T_PROGRAMAS_TEMARIO> T_PROGRAMAS_TEMARIO
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<T_PROGRAMAS_TEMARIO>("Model_Cursos.T_PROGRAMAS_TEMARIO_T_PRO_FK1", "T_PROGRAMAS_TEMARIO");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<T_PROGRAMAS_TEMARIO>("Model_Cursos.T_PROGRAMAS_TEMARIO_T_PRO_FK1", "T_PROGRAMAS_TEMARIO", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_CONDICIONES_CURSO_T_PRO_FK1", "T_CONDICIONES_CURSO")]
         public EntityCollection<T_CONDICIONES_CURSO> T_CONDICIONES_CURSO
         {
@@ -13352,6 +13355,28 @@ namespace CbaGob.Alumnos.Repositorio.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<T_CONDICIONES_CURSO>("Model_Cursos.T_CONDICIONES_CURSO_T_PRO_FK1", "T_CONDICIONES_CURSO", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_PROGRAMAS_TEMARIO_T_PRO_FK1", "T_PROGRAMAS_TEMARIO")]
+        public EntityCollection<T_PROGRAMAS_TEMARIO> T_PROGRAMAS_TEMARIO
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<T_PROGRAMAS_TEMARIO>("Model_Cursos.T_PROGRAMAS_TEMARIO_T_PRO_FK1", "T_PROGRAMAS_TEMARIO");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<T_PROGRAMAS_TEMARIO>("Model_Cursos.T_PROGRAMAS_TEMARIO_T_PRO_FK1", "T_PROGRAMAS_TEMARIO", value);
                 }
             }
         }
@@ -13666,6 +13691,242 @@ namespace CbaGob.Alumnos.Repositorio.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<T_TEMARIO>("Model_Cursos.T_PROGRAMAS_TEMARIO_T_TEM_FK1", "T_TEMARIO", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model_Cursos", Name="T_ROL")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class T_ROL : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new T_ROL object.
+        /// </summary>
+        /// <param name="iD_ROL">Initial value of the ID_ROL property.</param>
+        /// <param name="dESCRIPCION">Initial value of the DESCRIPCION property.</param>
+        /// <param name="fEC_ALTA">Initial value of the FEC_ALTA property.</param>
+        /// <param name="fEC_MODIF">Initial value of the FEC_MODIF property.</param>
+        /// <param name="uSR_MODIF">Initial value of the USR_MODIF property.</param>
+        /// <param name="uSR_ALTA">Initial value of the USR_ALTA property.</param>
+        /// <param name="eSTADO">Initial value of the ESTADO property.</param>
+        public static T_ROL CreateT_ROL(global::System.Int32 iD_ROL, global::System.String dESCRIPCION, global::System.DateTime fEC_ALTA, global::System.DateTime fEC_MODIF, global::System.String uSR_MODIF, global::System.String uSR_ALTA, global::System.String eSTADO)
+        {
+            T_ROL t_ROL = new T_ROL();
+            t_ROL.ID_ROL = iD_ROL;
+            t_ROL.DESCRIPCION = dESCRIPCION;
+            t_ROL.FEC_ALTA = fEC_ALTA;
+            t_ROL.FEC_MODIF = fEC_MODIF;
+            t_ROL.USR_MODIF = uSR_MODIF;
+            t_ROL.USR_ALTA = uSR_ALTA;
+            t_ROL.ESTADO = eSTADO;
+            return t_ROL;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_ROL
+        {
+            get
+            {
+                return _ID_ROL;
+            }
+            set
+            {
+                if (_ID_ROL != value)
+                {
+                    OnID_ROLChanging(value);
+                    ReportPropertyChanging("ID_ROL");
+                    _ID_ROL = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID_ROL");
+                    OnID_ROLChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID_ROL;
+        partial void OnID_ROLChanging(global::System.Int32 value);
+        partial void OnID_ROLChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DESCRIPCION
+        {
+            get
+            {
+                return _DESCRIPCION;
+            }
+            set
+            {
+                OnDESCRIPCIONChanging(value);
+                ReportPropertyChanging("DESCRIPCION");
+                _DESCRIPCION = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DESCRIPCION");
+                OnDESCRIPCIONChanged();
+            }
+        }
+        private global::System.String _DESCRIPCION;
+        partial void OnDESCRIPCIONChanging(global::System.String value);
+        partial void OnDESCRIPCIONChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime FEC_ALTA
+        {
+            get
+            {
+                return _FEC_ALTA;
+            }
+            set
+            {
+                OnFEC_ALTAChanging(value);
+                ReportPropertyChanging("FEC_ALTA");
+                _FEC_ALTA = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FEC_ALTA");
+                OnFEC_ALTAChanged();
+            }
+        }
+        private global::System.DateTime _FEC_ALTA;
+        partial void OnFEC_ALTAChanging(global::System.DateTime value);
+        partial void OnFEC_ALTAChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime FEC_MODIF
+        {
+            get
+            {
+                return _FEC_MODIF;
+            }
+            set
+            {
+                OnFEC_MODIFChanging(value);
+                ReportPropertyChanging("FEC_MODIF");
+                _FEC_MODIF = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FEC_MODIF");
+                OnFEC_MODIFChanged();
+            }
+        }
+        private global::System.DateTime _FEC_MODIF;
+        partial void OnFEC_MODIFChanging(global::System.DateTime value);
+        partial void OnFEC_MODIFChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String USR_MODIF
+        {
+            get
+            {
+                return _USR_MODIF;
+            }
+            set
+            {
+                OnUSR_MODIFChanging(value);
+                ReportPropertyChanging("USR_MODIF");
+                _USR_MODIF = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("USR_MODIF");
+                OnUSR_MODIFChanged();
+            }
+        }
+        private global::System.String _USR_MODIF;
+        partial void OnUSR_MODIFChanging(global::System.String value);
+        partial void OnUSR_MODIFChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String USR_ALTA
+        {
+            get
+            {
+                return _USR_ALTA;
+            }
+            set
+            {
+                OnUSR_ALTAChanging(value);
+                ReportPropertyChanging("USR_ALTA");
+                _USR_ALTA = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("USR_ALTA");
+                OnUSR_ALTAChanged();
+            }
+        }
+        private global::System.String _USR_ALTA;
+        partial void OnUSR_ALTAChanging(global::System.String value);
+        partial void OnUSR_ALTAChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ESTADO
+        {
+            get
+            {
+                return _ESTADO;
+            }
+            set
+            {
+                OnESTADOChanging(value);
+                ReportPropertyChanging("ESTADO");
+                _ESTADO = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ESTADO");
+                OnESTADOChanged();
+            }
+        }
+        private global::System.String _ESTADO;
+        partial void OnESTADOChanging(global::System.String value);
+        partial void OnESTADOChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_USUARIO_T_ROL_FK1", "T_USUARIO")]
+        public EntityCollection<T_USUARIO> T_USUARIO
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<T_USUARIO>("Model_Cursos.T_USUARIO_T_ROL_FK1", "T_USUARIO");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<T_USUARIO>("Model_Cursos.T_USUARIO_T_ROL_FK1", "T_USUARIO", value);
                 }
             }
         }
@@ -14018,44 +14279,6 @@ namespace CbaGob.Alumnos.Repositorio.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_SUPERVICIONES_T_SUPERVI_FK1", "T_SUPERVISORES")]
-        public T_SUPERVISORES T_SUPERVISORES
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_SUPERVISORES>("Model_Cursos.T_SUPERVICIONES_T_SUPERVI_FK1", "T_SUPERVISORES").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_SUPERVISORES>("Model_Cursos.T_SUPERVICIONES_T_SUPERVI_FK1", "T_SUPERVISORES").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<T_SUPERVISORES> T_SUPERVISORESReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_SUPERVISORES>("Model_Cursos.T_SUPERVICIONES_T_SUPERVI_FK1", "T_SUPERVISORES");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<T_SUPERVISORES>("Model_Cursos.T_SUPERVICIONES_T_SUPERVI_FK1", "T_SUPERVISORES", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_SUPERVICIONES_T_GRUPOS_FK1", "T_GRUPOS")]
         public T_GRUPOS T_GRUPOS
         {
@@ -14084,6 +14307,44 @@ namespace CbaGob.Alumnos.Repositorio.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<T_GRUPOS>("Model_Cursos.T_SUPERVICIONES_T_GRUPOS_FK1", "T_GRUPOS", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_SUPERVICIONES_T_SUPERVI_FK1", "T_SUPERVISORES")]
+        public T_SUPERVISORES T_SUPERVISORES
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_SUPERVISORES>("Model_Cursos.T_SUPERVICIONES_T_SUPERVI_FK1", "T_SUPERVISORES").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_SUPERVISORES>("Model_Cursos.T_SUPERVICIONES_T_SUPERVI_FK1", "T_SUPERVISORES").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<T_SUPERVISORES> T_SUPERVISORESReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_SUPERVISORES>("Model_Cursos.T_SUPERVICIONES_T_SUPERVI_FK1", "T_SUPERVISORES");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<T_SUPERVISORES>("Model_Cursos.T_SUPERVICIONES_T_SUPERVI_FK1", "T_SUPERVISORES", value);
                 }
             }
         }
@@ -15879,24 +16140,24 @@ namespace CbaGob.Alumnos.Repositorio.Models
         /// <param name="iD_USUARIO">Initial value of the ID_USUARIO property.</param>
         /// <param name="nOMBRE">Initial value of the NOMBRE property.</param>
         /// <param name="pASSWORD">Initial value of the PASSWORD property.</param>
-        /// <param name="rOL">Initial value of the ROL property.</param>
         /// <param name="fEC_ALTA">Initial value of the FEC_ALTA property.</param>
         /// <param name="fEC_MODIF">Initial value of the FEC_MODIF property.</param>
         /// <param name="uSR_ALTA">Initial value of the USR_ALTA property.</param>
         /// <param name="uSR_MODIF">Initial value of the USR_MODIF property.</param>
         /// <param name="eSTADO">Initial value of the ESTADO property.</param>
-        public static T_USUARIO CreateT_USUARIO(global::System.Int32 iD_USUARIO, global::System.String nOMBRE, global::System.String pASSWORD, global::System.String rOL, global::System.DateTime fEC_ALTA, global::System.DateTime fEC_MODIF, global::System.String uSR_ALTA, global::System.String uSR_MODIF, global::System.String eSTADO)
+        /// <param name="iD_ROL">Initial value of the ID_ROL property.</param>
+        public static T_USUARIO CreateT_USUARIO(global::System.Int32 iD_USUARIO, global::System.String nOMBRE, global::System.String pASSWORD, global::System.DateTime fEC_ALTA, global::System.DateTime fEC_MODIF, global::System.String uSR_ALTA, global::System.String uSR_MODIF, global::System.String eSTADO, global::System.Int32 iD_ROL)
         {
             T_USUARIO t_USUARIO = new T_USUARIO();
             t_USUARIO.ID_USUARIO = iD_USUARIO;
             t_USUARIO.NOMBRE = nOMBRE;
             t_USUARIO.PASSWORD = pASSWORD;
-            t_USUARIO.ROL = rOL;
             t_USUARIO.FEC_ALTA = fEC_ALTA;
             t_USUARIO.FEC_MODIF = fEC_MODIF;
             t_USUARIO.USR_ALTA = uSR_ALTA;
             t_USUARIO.USR_MODIF = uSR_MODIF;
             t_USUARIO.ESTADO = eSTADO;
+            t_USUARIO.ID_ROL = iD_ROL;
             return t_USUARIO;
         }
 
@@ -15977,30 +16238,6 @@ namespace CbaGob.Alumnos.Repositorio.Models
         private global::System.String _PASSWORD;
         partial void OnPASSWORDChanging(global::System.String value);
         partial void OnPASSWORDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String ROL
-        {
-            get
-            {
-                return _ROL;
-            }
-            set
-            {
-                OnROLChanging(value);
-                ReportPropertyChanging("ROL");
-                _ROL = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("ROL");
-                OnROLChanged();
-            }
-        }
-        private global::System.String _ROL;
-        partial void OnROLChanging(global::System.String value);
-        partial void OnROLChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -16121,9 +16358,74 @@ namespace CbaGob.Alumnos.Repositorio.Models
         private global::System.String _ESTADO;
         partial void OnESTADOChanging(global::System.String value);
         partial void OnESTADOChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_ROL
+        {
+            get
+            {
+                return _ID_ROL;
+            }
+            set
+            {
+                OnID_ROLChanging(value);
+                ReportPropertyChanging("ID_ROL");
+                _ID_ROL = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ID_ROL");
+                OnID_ROLChanged();
+            }
+        }
+        private global::System.Int32 _ID_ROL;
+        partial void OnID_ROLChanging(global::System.Int32 value);
+        partial void OnID_ROLChanged();
 
         #endregion
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model_Cursos", "T_USUARIO_T_ROL_FK1", "T_ROL")]
+        public T_ROL T_ROL
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_ROL>("Model_Cursos.T_USUARIO_T_ROL_FK1", "T_ROL").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_ROL>("Model_Cursos.T_USUARIO_T_ROL_FK1", "T_ROL").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<T_ROL> T_ROLReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_ROL>("Model_Cursos.T_USUARIO_T_ROL_FK1", "T_ROL");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<T_ROL>("Model_Cursos.T_USUARIO_T_ROL_FK1", "T_ROL", value);
+                }
+            }
+        }
+
+        #endregion
     }
 
     #endregion

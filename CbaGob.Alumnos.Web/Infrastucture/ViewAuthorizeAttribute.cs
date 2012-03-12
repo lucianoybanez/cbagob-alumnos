@@ -1,4 +1,5 @@
-﻿using CbaGob.Alumnos.Modelo.Entities;
+﻿using CbaGob.Alumnos.Infra;
+using CbaGob.Alumnos.Modelo.Entities;
 using CbaGob.Alumnos.Servicio.Servicios;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using StructureMap;
@@ -39,7 +40,7 @@ namespace System.Web.Mvc
             {
                 foreach (var item in Rol)
                 {
-                    if ((int)item == int.Parse(usuario.Rol))
+                    if (item.ToString() == usuario.Rol)
                     {
                         AccesRol = true;
                         break;
@@ -55,6 +56,18 @@ namespace System.Web.Mvc
             return true;
         }
     }
+
+    public enum RolTipo
+    {
+        [StringValue("Supervisor")]
+        Supervisor,
+        [StringValue("Responsable IFP")]
+        ResponsableIFP,
+        [StringValue("Capacitador")]
+        Capacitador
+
+    }
+
 
    
 
