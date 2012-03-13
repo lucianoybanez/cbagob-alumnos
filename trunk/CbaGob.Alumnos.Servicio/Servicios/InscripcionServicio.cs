@@ -24,12 +24,15 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         private IExamenServicio ExamenServicio;
 
-        public InscripcionServicio(IInscripcionRepositorio inscripcionrepositorio, IAutenticacionServicio aut, ICondicionCursoRepositorio condicionCurso, IExamenServicio examenServicio)
+        private IAlumnosRepositorio AlumnosRepositorio;
+
+        public InscripcionServicio(IInscripcionRepositorio inscripcionrepositorio, IAutenticacionServicio aut, ICondicionCursoRepositorio condicionCurso, IExamenServicio examenServicio, IAlumnosRepositorio alumnosRepositorio)
         {
             Inscripcionrepositorio = inscripcionrepositorio;
             Aut = aut;
             CondicionCursoRepositorio = condicionCurso;
             ExamenServicio = examenServicio;
+            AlumnosRepositorio = alumnosRepositorio;
         }
 
         public IInscripcionesVista GetAllInscripcion()
@@ -72,11 +75,11 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         public IInscripcionVista GetInscripcion(int id_inscripcion)
         {
             IInscripcionVista vista = new InscripcionVista();
-            
+
             if (id_inscripcion != 0)
             {
                 var inscripcion = Inscripcionrepositorio.GetInscripcion(id_inscripcion);
-                if (inscripcion!=null)
+                if (inscripcion != null)
                 {
                     var condicion = CondicionCursoRepositorio.GetCondicion(inscripcion.Id_Condicion_Curso);
                     vista = new InscripcionVista()
@@ -274,6 +277,24 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             return null;
         }
 
+        public ICertificadoVista GetCertificado(int idInscripcion)
+        {
+            var inscripcion = Inscripcionrepositorio.GetInscripcion(idInscripcion);
+            var condicion = CondicionCursoRepositorio.GetCondicion(inscripcion.Id_Condicion_Curso);
+            var alumno = AlumnosRepositorio.GetUno(inscripcion.Id_Alumno);
+            ICertificadoVista vista = new CertificadoVista();
+            StringBuilder texto = new StringBuilder();
+            texto.Append("Por cuanto: '" + inscripcion.ApellidoAlumno + ", "+inscripcion.NombreAlumno + "' documento Nº " + alumno.Nro_Documento);
+            texto.Append(", ha aprobado el curso de capacitación en la especialidad de '" + inscripcion.NombreCurso + "'");
+            texto.Append(", dictado en la institucion: '" + inscripcion.NombreInstitucion + "'");
+            texto.Append(", perteneciente a la Agencia de promocion y formación de empleo");
+            texto.Append(", con la duracion de " + condicion.CargaHoraria + " horas reloj");
+            texto.Append(", aprobado por la resolucion Nº " + condicion.Nro_Resolucion + ".");
+            vista.Texto = texto.ToString();
+            vista.Fecha = DateTime.Today;
+            return vista;
+        }
+
         private IInscripcionExamenVista GetExamenes(int idInscripcion, ICondicionCurso condicion)
         {
             IInscripcionExamenVista vista = new InscripcionExamenVista();
@@ -285,7 +306,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             vista.ExamenesRequeridos = condicion.CantidadExamenes;
             foreach (var exa in vista.Examenes)
             {
-                totalExamnesRendidos +=1;
+                totalExamnesRendidos += 1;
                 total += exa.Nota;
             }
             try
@@ -296,15 +317,16 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 vista.PromedioAlumno = 0;
             }
-            vista.Aprobo = "Debe Cargar todos los examenes para saber si Aprobo";
+            vista.Aprobo = "Debe cargar todos los examenes para verificar su nota final.";
             if (totalExamnesRendidos == cantidadExamenesNecesarios)
             {
-                if (vista.PromedioAlumno>=condicion.PromedioRequerido)
+                if (vista.PromedioAlumno >= condicion.PromedioRequerido)
                 {
-                    vista.Aprobo = "SI Aprobo";
-                }else
+                    vista.Aprobo = "Si Aprobo.";
+                }
+                else
                 {
-                    vista.Aprobo = "NO Aprobo";
+                    vista.Aprobo = "No Aprobo.";
                 }
             }
             return vista;

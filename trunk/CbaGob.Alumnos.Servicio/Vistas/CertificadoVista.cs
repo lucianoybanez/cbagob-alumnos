@@ -17,5 +17,6 @@ namespace CbaGob.Alumnos.Servicio.Vistas
 
         public string ImagenSistemaPath { get; set; }
         public string ImagenEscudoPath { get; set; }
+        public string dni { get; set; }
     }
 }

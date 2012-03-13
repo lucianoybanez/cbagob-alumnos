@@ -120,6 +120,12 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View(vista);
         }
 
+        public ActionResult EmitirCertificado(int idInscripcion)
+        {
+            ICertificadoVista vista = InscripcionServicio.GetCertificado(idInscripcion);
+            return View("Certificado", vista);
+        }
+
         [HttpPost]
         public ActionResult CertificadoPDF(CertificadoVista vista)
         {
