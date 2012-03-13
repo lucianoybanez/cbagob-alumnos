@@ -34,6 +34,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -110,9 +111,11 @@
     <Compile Include="Servicios\SupervisoresServicio.cs" />
     <Compile Include="Servicios\UsuarioServicio.cs" />
     <Compile Include="Servicios\HomeServicio.cs" />
+    <Compile Include="Vistas\CertificadoVista.cs" />
     <Compile Include="VistasInterface\IAreasTipoCursoVista.cs" />
     <Compile Include="VistasInterface\ICajaChicasVista.cs" />
     <Compile Include="VistasInterface\ICajaChicaVista.cs" />
+    <Compile Include="VistasInterface\ICertificadoVista.cs" />
     <Compile Include="VistasInterface\IEquiposVista.cs" />
     <Compile Include="VistasInterface\IEquipoVista.cs" />
     <Compile Include="VistasInterface\IHorariosVista.cs" />
