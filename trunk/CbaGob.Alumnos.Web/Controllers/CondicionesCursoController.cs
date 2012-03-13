@@ -65,7 +65,12 @@ namespace CbaGob.Alumnos.Web.Controllers
                 base.AddError(CondicionesCursoServicio.GetErrors());
                 return View("Agregar", vista);
             }
-            return View("Agregar", vista);
+
+            ICondicionCursoVista model = CondicionesCursoServicio.GetForAlta(vista.IdInstitucion);
+
+            model.IdInstitucion = vista.IdInstitucion;
+
+            return View("Agregar", model);
         }
 
         public ActionResult EliminarCondicionCurso(int idCondicionCurso, int IdInstitucion)
