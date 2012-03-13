@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>..\References\ItextSharp\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -133,6 +136,7 @@
     <Content Include="Content\images\49_.png" />
     <Content Include="Content\images\Bg_encabezado.jpg" />
     <Content Include="Content\images\Bg_pie.jpg" />
+    <Content Include="Content\images\EscudoCordoba.png" />
     <Content Include="Content\images\Logo Agencia.jpg" />
     <Content Include="Content\images\Logout_button.png" />
     <Content Include="Content\images\seleccionar.jpg" />
@@ -686,6 +690,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Grupos\_HorarioAsiganadoModulo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inscripciones\CertificadoPDF.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

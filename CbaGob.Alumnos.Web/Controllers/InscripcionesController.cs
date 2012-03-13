@@ -116,9 +116,19 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         public ActionResult Certificado()
         {
-
-            return View();
+            CertificadoVista vista = new CertificadoVista();
+            return View(vista);
         }
+
+        [HttpPost]
+        public ActionResult CertificadoPDF(CertificadoVista vista)
+        {
+            string appPath = HttpContext.Request.ApplicationPath;
+            string physicalPath = HttpContext.Request.MapPath(appPath) + "Content\\images\\";
+            vista.ImagenEscudoPath = physicalPath + "EscudoCordoba.png";
+            return ViewPdf(vista);
+        }
+
 
         #endregion
 
