@@ -9,7 +9,7 @@
 }
 <div class="box">
     <h2>
-        Agregar Supervicion</h2>
+        Agregar Supervición</h2>
     <table align="center" style="width: 700px;">
         <tr>
             <td class="style1" style="font-weight: bold">
@@ -19,7 +19,7 @@
                 { 
                     <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
                         text-align: center;">
-                        <legend>Datos de la Supervicion:</legend>
+                        <legend>Datos de la Supervición:</legend>
                         <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
                             width: 700px;">
                             <tr>
@@ -28,7 +28,7 @@
                                         width: 700px;">
                                         <tr>
                                             <td align="left">
-                                                <b>Nombre Institucion:</b>
+                                                <b>Nombre Institución:</b>
                                             </td>
                                             <td align="left">
                                                 @Html.TextBoxFor(c => c.Grupo.Nombre_Institucion, new { disabled = "disabled", style = "width:200px;", MaxLength = "50" })
@@ -44,7 +44,7 @@
                                         </tr>
                                         <tr>
                                             <td align="left">
-                                                <b>Nombre Grupo:</b>
+                                                <b>Nombre Módulo:</b>
                                             </td>
                                             <td align="left">
                                                 @Html.TextBoxFor(c => c.Grupo.NombreGrupo, new { disabled = "disabled", style = "width:200px;", MaxLength = "50" })
@@ -62,7 +62,7 @@
                                         </tr>
                                         <tr>
                                             <td align="left">
-                                                <b>Fecha de Supervicion:</b>
+                                                <b>Fecha de Supervición:</b>
                                             </td>
                                             <td align="left">
                                                 @*@Html.TextBoxFor(c => c.Fec_Supervision, new { Id = "fecSup", style = "width:90px;", MaxLength = "50" })*@
@@ -71,7 +71,7 @@
                                         </tr>
                                         <tr>
                                             <td align="left">
-                                                <b>Hora de Supervicion:</b>
+                                                <b>Hora de Supervición:</b>
                                             </td>
                                             <td align="left">
                                                 <select id="selectedhora">
@@ -95,7 +95,7 @@
                                         </tr>
                                         <tr>
                                             <td align="left">
-                                                <b>Observacion:</b>
+                                                <b>Observación:</b>
                                             </td>
                                             <td align="left">
                                                 @Html.TextAreaFor(c => c.Observaciones, new { style = "width:300px;height:50px;", MaxLength = "3999" })

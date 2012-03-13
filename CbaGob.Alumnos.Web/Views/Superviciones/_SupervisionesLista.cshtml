@@ -7,7 +7,7 @@
                 <tr>
                     <th height="30" width="280">
                         <div align="center">
-                            Nombre de la Institucion</div>
+                            Nombre de la Institución</div>
                     </th>
                     <th height="30" width="100">
                         <div align="center">
@@ -15,11 +15,11 @@
                     </th>
                     <th height="30" width="100">
                         <div align="center">
-                            Fecha de Supervicion</div>
+                            Fecha de Supervición</div>
                     </th>
-                    <th height="30" align="center">
+                    <th height="30" align="right">
                         <div style="margin-right: 2px;">
-                            Accion</div>
+                            Acción</div>
                     </th>
                 </tr>
             </thead>
@@ -36,7 +36,7 @@
                         <td align="center" width="50">
                             @item.Fec_Supervision.ToShortDateString()
                         </td>
-                        <td align="center" style="margin-right: 2px;">
+                        <td align="right" style="margin-right: 2px;">
                             @Html.ActionLink("Modificar", "Modificar", "Superviciones", new { id_supervisor = item.Id_Supervision }, new { @class = "btnIngresar" })
                             @Html.ActionLink("Eliminar", "Eliminar", "Superviciones", new { id_supervisor = item.Id_Supervision }, new { @class = "btnIngresar" })
                         </td>
@@ -62,7 +62,7 @@
                     </td>
                     <td align="right" valign="bottom" colspan="2" height="20">
                         <div style="height: 20px; padding: 15px 5px 0 2px;">
-                            @Html.ActionLink("Agregar Supervicion", "Agregar", "Superviciones", new { @class = "btnIngresar" })
+                            @Html.ActionLink("Agregar Supervición", "Agregar", "Superviciones", new { @class = "btnIngresar" })
                         </div>
                     </td>
                 </tr>
