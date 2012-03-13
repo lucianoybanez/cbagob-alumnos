@@ -240,14 +240,14 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             var presentismo = Inscripcionrepositorio.GetPresentismo(idInscripcion);
             int maxClases = condicion.CantidadClases;
             IInscripcionPresentismoVista vista = new InscripcionPresentismoVista();
+            vista.TotalClasesCurso = maxClases;
+            vista.PresentismoNecesario = condicion.Presentismo;
             vista.CumplioPresentismo = "Debe cargar la cantidad de clases q asistio.";
             if (presentismo != null)
             {
                 vista.ClasesAsistidas = presentismo.ClasesAsistidas;
                 vista.IdPresentismo = presentismo.IdPresentismo;
                 vista.IdInscripcion = presentismo.IdInscripcion;
-                vista.TotalClasesCurso = maxClases;
-                vista.PresentismoNecesario = condicion.Presentismo;
                 if (vista.PorcentajePresentismo >= vista.PresentismoNecesario)
                 {
                     vista.CumplioPresentismo = "Si Cumplio.";
