@@ -25,7 +25,7 @@
                             font-size: 12px; width: 700px;">
                             <tr>
                                 <td align="left">
-                                    <b>Nombre de la Institucion:</b>
+                                    <b>Nombre de la Institución:</b>
                                 </td>
                                 <td align="left" valign="middle">
                                     @Html.TextBoxFor(c => c.NombeInstitucion, new { style = "width:200px;", MaxLength = "50", disabled = "disabled" })
@@ -101,7 +101,7 @@
                                     <b>Fecha Inicio:</b>
                                 </td>
                                 <td>
-                                    @Html.TextBoxFor(c => c.Fecha_Inicio, new { style = "width:100px;", MaxLength = "3", disabled = "disabled" })
+                                    @Html.TextBoxFor(c => c.Fecha_Inicio, new { style = "width:72px;", MaxLength = "3", disabled = "disabled" })
                                 </td>
                             </tr>
                             <tr>
@@ -109,7 +109,7 @@
                                     <b>Fecha Fin:</b>
                                 </td>
                                 <td>
-                                    @Html.TextBoxFor(c => c.Fecha_Fin, new { style = "width:100px;", MaxLength = "3", disabled = "disabled" })
+                                    @Html.TextBoxFor(c => c.Fecha_Fin, new { style = "width:72px;", MaxLength = "3", disabled = "disabled" })
                                 </td>
                             </tr>
                             <tr>
@@ -141,14 +141,14 @@
                                     <b>Nro Resolucion:</b>
                                 </td>
                                 <td align="left" valign="middle">
-                                    @Html.TextBoxFor(c => c.Nro_Resolucion, new { style = "width:100px;", MaxLength = "4", disabled = "disabled" })
+                                    @Html.TextBoxFor(c => c.Nro_Resolucion, new { style = "width:250px;", MaxLength = "64", disabled = "disabled" })
                                 </td>
                             </tr>
                         </table>
                     </fieldset>
                     
                     <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
-                        <legend style="color: #FF9900"><b>Modulos del Curso</b></legend>
+                        <legend style="color: #FF9900"><b>Módulos del Curso</b></legend>
                         <table>
                             <tr>
                                 <td>@Html.Partial("_GrupoLista", Model)

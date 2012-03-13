@@ -9,7 +9,7 @@
 }
 <div class="box">
     <h2>
-        Agregar Modulo</h2>
+        Agregar Módulo</h2>
     <table align="center" style="width: 700px;">
         <tr>
             <td class="style1" style="font-weight: bold">
@@ -25,7 +25,7 @@
                             <td>
                                 <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
                                     text-align: center;">
-                                    <legend>Datos del Modulo</legend>
+                                    <legend>Datos del Módulo</legend>
                                     <table align="left" id="mytable" style="font-family: Arial, Helvetica, sans-serif;
                                         font-size: 12px; width: 700px;">
                                         <tr>
@@ -33,7 +33,7 @@
                                                 Nombre Instituciones:
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Nombre_Institucion, new { style = "width:350px;", MaxLength = "50", disabled = "disabled" })
+                                                @Html.TextBoxFor(c => c.Nombre_Institucion, new { style = "width:350px;", MaxLength = "150", disabled = "disabled" })
                                             </td>
                                         </tr>
                                         <tr>
@@ -41,24 +41,24 @@
                                                 Nombre del Curso:
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Nombre_Curso, new { style = "width:350px;", MaxLength = "50", disabled = "disabled" })
+                                                @Html.TextBoxFor(c => c.Nombre_Curso, new { style = "width:350px;", MaxLength = "150", disabled = "disabled" })
                                             </td>
                                         </tr>
                                         <tr>
                                             <td align="left">
-                                                Nombre del Modulo:
+                                                Nombre del Módulo:
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.NombreGrupo, new { style = "width:350px;", MaxLength = "50" })
+                                                @Html.TextBoxFor(c => c.NombreGrupo, new { style = "width:350px;", MaxLength = "64" })
                                                 @Html.ValidationMessageFor(c => c.NombreGrupo,"*")
                                             </td>
                                         </tr>
                                         <tr>
                                             <td align="left">
-                                                Capacidad del Modulo:
+                                                Capacidad del Módulo:
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Capacidad, new { style = "width:150px;", MaxLength = "50" })
+                                                @Html.TextBoxFor(c => c.Capacidad, new { style = "width:150px;", MaxLength = "4" })
                                                 @Html.ValidationMessageFor(c => c.Capacidad, "*")
                                             </td>
                                         </tr>
@@ -73,10 +73,10 @@
                                         </tr>
                                          <tr>
                                             <td align="left">
-                                                Nro Resolucion:
+                                                Nro Resolución:
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Nro_Resolucion, new { style = "width:150px;", MaxLength = "50" })
+                                                @Html.TextBoxFor(c => c.Nro_Resolucion, new { style = "width:250px;", MaxLength = "64" })
                                                 @Html.ValidationMessageFor(c => c.Nro_Resolucion, "*")
                                             </td>
                                         </tr>
@@ -88,7 +88,7 @@
                     <table id="myIntituciones" align="center" width="700px">
                         <tr>
                             <td align="right" vlign="middle">
-                                <input type="submit" value="Guargar" class="btnIngresar" />
+                                <input type="submit" value="Guardar" class="btnIngresar" />
                                 @Html.ActionLink("Cancelar", "VerCondicionCurso", "CondicionesCurso", new { idCondicionCurso = Model.Id_Condicion_Curso, IdInstitucion = Model.Id_Institucion }, new { Class = "btnIngresar" })
                             </td>
                         </tr>

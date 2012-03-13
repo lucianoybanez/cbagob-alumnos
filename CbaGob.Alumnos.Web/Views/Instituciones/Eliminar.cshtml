@@ -21,16 +21,15 @@
                         font-size: 12px; width: 700px;">
                         <tr>
                             <td>
-                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
-                                    text-align: center;">
+                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
                                     <legend style="color: #FF9900"><b>Datos Institucion</b></legend>
                                     <table align="left" class="mybusqueda">
                                         <tr>
                                             <td align="left">
-                                                <b>Nombre de la Institucion:</b>
+                                                <b>Nombre de la Institución:</b>
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(Model => Model.Nombre_Institucion, new { disabled = "disabled", style = "width:125px;", MaxLength = "20" })
+                                                @Html.TextBoxFor(Model => Model.Nombre_Institucion, new { disabled = "disabled", style = "width:400px;", MaxLength = "20" })
                                             </td>
                                         </tr>
                                         <tr>
@@ -88,11 +87,11 @@
                                         </tr>
                                         <tr>
                                             <td align="left">
-                                                <b>Nro Resolucion:</b>
+                                                <b>Nro Resolución:</b>
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Nro_Resolucion, new { style = "width:250px;", MaxLength = "50" })
-                                                @Html.ValidationMessageFor(m => m.Nro_Resolucion)
+                                                @Html.TextBoxFor(c => c.Nro_Resolucion, new { style = "width:250px;", MaxLength = "64" })
+                                                @Html.ValidationMessageFor(m => m.Nro_Resolucion, "*")
                                             </td>
                                         </tr>
                                         <tr>

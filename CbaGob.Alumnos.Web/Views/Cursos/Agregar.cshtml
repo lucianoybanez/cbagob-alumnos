@@ -33,7 +33,7 @@
                                                 <b>Nombre del Curso:</b>
                                             </td>
                                             <td align="left">
-                                                @Html.TextBoxFor(c => c.N_CURSO, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.N_CURSO, new { style = "width:250px;", MaxLength = "64", Class = "asd" })
                                                 @Html.ValidationMessageFor(m => m.N_CURSO, "*")
                                             </td>
                                         </tr>
@@ -48,10 +48,10 @@
                                         </tr>
                                         <tr>
                                             <td align="left">
-                                                <b>Nro Resolucion:</b>
+                                                <b>Nro Resolución:</b>
                                             </td>
                                             <td align="left">
-                                                @Html.TextBoxFor(c => c.NRORESOLUCION, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.NRORESOLUCION, new { style = "width:250px;", MaxLength = "64", Class = "asd" })
                                                 @Html.ValidationMessageFor(m => m.NRORESOLUCION, "*")
                                             </td>
                                         </tr>
@@ -65,7 +65,7 @@
                     <table id="btnfin" align="center" width="690px">
                         <tr>
                             <td align="right" valign="middle">
-                                <input type="submit" value="Guargar" class="btnIngresar" />&nbsp;&nbsp;
+                                <input type="submit" value="Guardar" class="btnIngresar" />&nbsp;&nbsp;
                                 @Html.ActionLink("Cancelar", "Index", "Cursos", null, new { Class = "btnIngresar" })
                             </td>
                         </tr>

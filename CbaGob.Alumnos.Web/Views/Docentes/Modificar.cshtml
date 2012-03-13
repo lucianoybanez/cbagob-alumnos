@@ -31,7 +31,7 @@
                                                 <b>Razon Social:</b>
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.RazonSoial, new { style = "width:200px;", MaxLength = "64", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.RazonSoial, new { style = "width:400px;", MaxLength = "150", Class = "asd" })
                                                 @Html.ValidationMessageFor(c => c.RazonSoial, "*")
                                             </td>
                                         </tr>
@@ -40,7 +40,7 @@
                                                 <b>Cuil/Cuit:</b>
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Cuit_Cuil, new { style = "width:150px;", MaxLength = "64", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.Cuit_Cuil, new { style = "width:150px;", MaxLength = "45", Class = "asd" })
                                                 @Html.ValidationMessageFor(c => c.Cuit_Cuil, "*")
                                             </td>
                                         </tr>
@@ -49,7 +49,7 @@
                                                 <b>Dni:</b>
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Dni, new { style = "width:150px;", MaxLength = "64", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.Dni, new { style = "width:150px;", MaxLength = "45", Class = "asd" })
                                                 @Html.ValidationMessageFor(c => c.Dni, "*")
                                             </td>
                                         </tr>
@@ -58,7 +58,7 @@
                                                 <b>Resolucion Reproca:</b>
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Resolucion_Reproca, new { style = "width:200px;", MaxLength = "64", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.Resolucion_Reproca, new { style = "width:250px;", MaxLength = "150", Class = "asd" })
                                                 @Html.ValidationMessageFor(c => c.Resolucion_Reproca, "*")
                                             </td>
                                         </tr>
@@ -68,7 +68,7 @@
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.N_Modalidad, new { style = "width:200px;", MaxLength = "64", Class = "asd" })
-                                                @Html.ValidationMessageFor(m => m.N_Modalidad)
+                                                @Html.ValidationMessageFor(m => m.N_Modalidad, "*")
                                             </td>
                                         </tr>
                                         <tr>
@@ -77,7 +77,7 @@
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.EditorFor(c => c.cargos)
-                                                @Html.ValidationMessageFor(m => m.Id_Cargo)
+                                                @Html.ValidationMessageFor(m => m.Id_Cargo, "*")
                                             </td>
                                         </tr>
                                         <tr>
@@ -87,7 +87,7 @@
                                             <td align="left" valign="middle">
                                                 @Html.RadioButtonFor(model => model.Reproca, "S", true) Reproca
                                                 @Html.RadioButtonFor(model => model.Reproca, "N", false) Planta
-                                                @Html.ValidationMessageFor(m => m.Reproca)
+                                                @Html.ValidationMessageFor(m => m.Reproca, "*")
                                             </td>
                                         </tr>
                                         <tr>
@@ -96,7 +96,7 @@
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.EditorFor(c => c.TiposDocentes)
-                                                @Html.ValidationMessageFor(m => m.TiposDocentes)
+                                                @Html.ValidationMessageFor(m => m.TiposDocentes, "*")
                                             </td>
                                         </tr>
                                         <tr>
@@ -104,7 +104,7 @@
                                                 <b>Provincia:</b>
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Provincia, new { style = "width:250px;", MaxLength = "64", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.Provincia, new { style = "width:250px;", MaxLength = "50", Class = "asd" })
                                             </td>
                                         </tr>
                                         <tr>
@@ -112,7 +112,7 @@
                                                 <b>Localidad:</b>
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Localidad, new { style = "width:250px;", MaxLength = "64", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.Localidad, new { style = "width:250px;", MaxLength = "50", Class = "asd" })
                                             </td>
                                         </tr>
                                         <tr>
@@ -120,7 +120,7 @@
                                                 <b>Barrio:</b>
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Barrio, new { style = "width:250px;", MaxLength = "64", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.Barrio, new { style = "width:250px;", MaxLength = "50", Class = "asd" })
                                             </td>
                                         </tr>
                                         <tr>
@@ -128,7 +128,7 @@
                                                 <b>Calle:</b>
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Calle, new { style = "width:250px;", MaxLength = "64", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.Calle, new { style = "width:250px;", MaxLength = "150", Class = "asd" })
                                             </td>
                                         </tr>
                                         <tr>
@@ -136,16 +136,16 @@
                                                 <b>Nro:</b>
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Nro, new { style = "width:150px;", MaxLength = "64", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.Nro, new { style = "width:150px;", MaxLength = "4", Class = "asd" })
                                             </td>
                                         </tr>
                                         <tr>
                                             <td width="200px" align="left" valign="middle">
-                                                <b>Nro Resolucion:</b>
+                                                <b>Nro Resolución:</b>
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Nro_Resolucion, new { style = "width:150px;", MaxLength = "64", Class = "asd" })
-                                                @Html.ValidationMessageFor(m => m.Nro_Resolucion)
+                                                @Html.TextBoxFor(c => c.Nro_Resolucion, new { style = "width:250px;", MaxLength = "64", Class = "asd" })
+                                                @Html.ValidationMessageFor(m => m.Nro_Resolucion, "*")
                                             </td>
                                         </tr>
                                     </table>
@@ -160,7 +160,7 @@
                     <table id="btnfin" align="center" width="700px">
                         <tr>
                             <td align="right" valign="middle">
-                                <input type="submit" value="Guargar" class="btnIngresar" />&nbsp;&nbsp;
+                                <input type="submit" value="Guardar" class="btnIngresar" />&nbsp;&nbsp;
                                 @Html.ActionLink("Cancelar", "Index", "Docentes", null, new { Class = "btnIngresar" })
                             </td>
                         </tr>

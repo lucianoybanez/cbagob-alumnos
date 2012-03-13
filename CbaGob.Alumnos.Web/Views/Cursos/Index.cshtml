@@ -4,32 +4,20 @@
     ViewBag.SubMenuSelected = "Cursos";
     Layout = "~/Views/Shared/_MasterSGC.cshtml";
 }
-
 @section Stylesheets {
     @Content.Stylesheet("css/instituciones.css", Url)
 }
 @section Scripts{
-    @Content.Script("CbaGob.Alumnos.Cursos.js",Url)
+    @Content.Script("CbaGob.Alumnos.Cursos.js", Url)
 }
-
 <div class="box">
-  <h2>Listado de Cursos</h2>
+    <h2>
+        Listado de Cursos</h2>
     <table>
         <tr>
             <td class="style1" style="font-weight: bold">
                 <div id="titulo">
-                    
                 </div>
-               @* <div id="titulo">
-                    <div id="ttxt">
-                        Establecimientos</div>
-                     <div id="iconobuscar">
-                        @Html.ActionLink("Buscar", "", "",  new { @class = "btngral" })
-                    </div>
-                    <div id="iconomodificar">
-                       @Html.ActionLink("Nuevo", "Agregar", "Establecimientos", null, new { Class = "btngral" })
-                    </div>
-                </div>*@
                 <div id="DivInstituciones">
                     @Html.Partial("_CursosLista", Model.ListaCursos)
                 </div>

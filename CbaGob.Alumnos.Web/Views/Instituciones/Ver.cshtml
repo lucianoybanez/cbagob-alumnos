@@ -20,19 +20,19 @@
                     <tr>
                         <td>
                             <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
-                                <legend style="color: #FF9900"><b>Datos de la Institucion</b></legend>
+                                <legend style="color: #FF9900"><b>Datos de la Institución</b></legend>
                                 <table align="left" class="mybusqueda">
                                     <tr>
                                         <td align="left">
                                             <b>Nombre de la Institucion:</b>
                                         </td>
                                         <td align="left" valign="middle">
-                                            @Html.TextBoxFor(c => c.Nombre_Institucion, new { disabled = "disabled", style = "width:125px;", MaxLength = "20" })
+                                            @Html.TextBoxFor(c => c.Nombre_Institucion, new { disabled = "disabled", style = "width:400px;", MaxLength = "20" })
                                         </td>
                                     </tr>
                                     <tr>
                                         <td align="left">
-                                            <b>Es Propia de la Institucion:</b>
+                                            <b>Es Propia de la Institución:</b>
                                         </td>
                                         <td align="left" valign="middle">
                                             @Html.CheckBoxFor(c => c.espropia, new { disabled = "disabled" })
@@ -80,7 +80,7 @@
                                     </tr>
                                     <tr>
                                         <td align="left">
-                                            <b>Nro Resolucion:</b>
+                                            <b>Nro Resolución:</b>
                                         </td>
                                         <td align="left" valign="middle">
                                             @Html.TextBoxFor(c => c.Nro_Resolucion, new { disabled = "disabled", style = "width:250px;", MaxLength = "50" })
@@ -101,7 +101,7 @@
                     <tr>
                         <td>
                             <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
-                                <legend style="color: #FF9900"><b>Cursos de la Institucion</b></legend>
+                                <legend style="color: #FF9900"><b>Cursos de la Institución</b></legend>
                                 <table>
                                     <tr>
                                         <td>
@@ -115,7 +115,7 @@
                     <tr>
                         <td>
                             <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
-                                <legend style="color: #FF9900"><b>Sede de la Institucion</b></legend>
+                                <legend style="color: #FF9900"><b>Sede de la Institución</b></legend>
                                 <table>
                                     <tr>
                                         <td>@Html.Partial("_EstablecimientoLista", Model)
