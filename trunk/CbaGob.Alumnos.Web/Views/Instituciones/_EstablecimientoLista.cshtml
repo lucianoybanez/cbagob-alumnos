@@ -15,7 +15,7 @@
                     </th>
                     <th height="30">
                         <div align="center">
-                            Locaidad</div>
+                            Localidad</div>
                     </th>
                     <th height="30">
                         <div align="center">
@@ -30,8 +30,8 @@
                             Nro</div>
                     </th>
                     <th height="30">
-                        <div align="center" style="margin-right: 2px;">
-                            Accion</div>
+                        <div align="right" style="margin-right: 2px;">
+                            Acción</div>
                     </th>
                 </tr>
             </thead>
@@ -57,7 +57,7 @@
                         <td align="center">
                             @item.Nro
                         </td>
-                        <td align="center" style="margin-right: 2px;">
+                        <td align="right" style="margin-right: 2px;">
                             @Html.ActionLink("Modificar", "Modificar", "Establecimientos", new { id_establecimiento = item.Id_Establecimiento }, new { @class = "btnIngresar" })
                             @Html.ActionLink("Eliminar", "Eliminar", "Establecimientos", new { id_establecimiento = item.Id_Establecimiento }, new { @class = "btnIngresar" })
                         </td>
@@ -82,7 +82,7 @@ else
     <table id="grilla" width="690px" cellpadding="0" cellspacing="0" align="left">
         <tr>
             <td width="722px">
-                @Html.Partial("_SinDatos", "No Existen Sedes para esta Institucion")
+                @Html.Partial("_SinDatos", "No Existen Sedes para esta Institución")
             </td>
         </tr>
         <tr>

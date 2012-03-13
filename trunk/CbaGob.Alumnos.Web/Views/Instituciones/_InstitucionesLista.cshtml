@@ -7,10 +7,10 @@
             <thead>
                 <tr>
                     <th height="30" width="280">
-                        <div align="center">
-                            Nombre de la Institucion</div>
+                        <div align="left">
+                            Nombre de la Institución</div>
                     </th>
-                    <th height="30" width="50">
+                    <th height="30" width="80">
                         <div align="center">
                             Es Propia</div>
                     </th>
@@ -19,8 +19,8 @@
                             Fecha Alta</div>
                     </th>
                     <th height="30" width="200">
-                        <div style="margin-right: 2px; text-align:center;">
-                        Accion</div>
+                        <div style="margin-right: 2px; text-align:right;">
+                        Acción</div>
                     </th>
                 </tr>
             </thead>
@@ -37,7 +37,7 @@
                          <td>
                            @item.FechaAlta.ToShortDateString()
                         </td>
-                        <td align="center" style="margin-right: 2px;">
+                        <td align="right" style="margin-right: 2px;">
                             @Html.ActionLink("Modificar", "Modificar", "Instituciones", new { INST_ID = item.Id_Institucion }, new { @class = "btnIngresar" })&nbsp;&nbsp;&nbsp;&nbsp;
                             @Html.ActionLink("Eliminar", "Eliminar", "Instituciones", new { INST_ID = item.Id_Institucion }, new { @class = "btnIngresar" })&nbsp;&nbsp;&nbsp;&nbsp;
                             @Html.ActionLink("Ver", "Ver", "Instituciones", new { INST_ID = item.Id_Institucion }, new { @class = "btnIngresar" })
@@ -65,7 +65,7 @@
                         </td> 
                         <td align="right" valign="bottom" colspan="2" height="20">
                          <div style="height:20px; padding:15px 5px 0 2px;">
-                            @Html.ActionLink("Agregar Institucion", "Agregar", "Instituciones", new { @class = "btnIngresar" })
+                            @Html.ActionLink("Agregar Institución", "Agregar", "Instituciones", new { @class = "btnIngresar" })
                          </div>
                         </td> 
                     </tr>

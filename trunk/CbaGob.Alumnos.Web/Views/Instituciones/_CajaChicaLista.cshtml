@@ -14,8 +14,8 @@
                             Estado</div>
                     </th>
                     <th height="30">
-                        <div align="center" style="margin-right: 2px;">
-                            Accion</div>
+                        <div align="right" style="margin-right: 2px;">
+                            Acción</div>
                     </th>
                 </tr>
             </thead>
@@ -29,9 +29,8 @@
                         <td align="center">
                             @item.NombreEstadoCaja
                         </td>
-                        <td align="center" style="margin-right: 2px;">
+                        <td align="right" style="margin-right: 2px;">
                             @Html.ActionLink("Modificar", "Modificar", "CajaChica", new { id_institucion = Model.Id_Institucion, Id_Caja_Chica = item.Id_Caja_Chica }, new { @class = "btnIngresar" })
-                          @*  @Html.ActionLink("Eliminar", "Eliminar", "CajaChica", new { id_institucion = Model.Id_Institucion, Id_Caja_Chica = item.Id_Caja_Chica }, new { @class = "btnIngresar" })*@
                             @Html.ActionLink("Ver Movimiento", "Ver", "CajaChica", new { id_institucion = Model.Id_Institucion, Id_Caja_Chica = item.Id_Caja_Chica }, new { @class = "btnIngresar" })
                         </td>
                     </tr>
@@ -69,7 +68,7 @@ else
     <table id="grilla" width="690px" cellpadding="0" cellspacing="0" align="left">
         <tr>
             <td width="722px">
-                @Html.Partial("_SinDatos", "No Existen Caja Chica para esta Institucion")
+                @Html.Partial("_SinDatos", "No Existen Caja Chica para esta Institución")
             </td>
         </tr>
         <tr>

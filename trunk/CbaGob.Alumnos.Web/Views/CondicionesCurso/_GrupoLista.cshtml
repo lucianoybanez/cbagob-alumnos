@@ -20,7 +20,7 @@
                     </th>
                     <th height="30" colspan="4">
                         <div align="right" style="margin-right:2px;" colspan="7">
-                            Accion</div>
+                            Acción</div>
                     </th>
                 </tr>
             </thead>
@@ -47,7 +47,7 @@
                 <tr>
                     <td align="right" valign="bottom" colspan="4" >
                         <div id="resumenPag" style="height: 30px; padding: 15px 5px 0 2px;">
-                            @Html.ActionLink("Agregar Modulo", "Agregar", "Grupos", new { id_condicionCurso = Model.IdCondicionCurso }, new { @class = "btnIngresar" })
+                            @Html.ActionLink("Agregar Módulo", "Agregar", "Grupos", new { id_condicionCurso = Model.IdCondicionCurso }, new { @class = "btnIngresar" })
                         </div>
                     </td>
                 </tr>
@@ -59,6 +59,6 @@ else
 {
     @Html.Partial("_SinDatos", "Grupos")
     <div style="padding: 15px 5px 0 2px;" align="right">
-        @Html.ActionLink("Agregar Modulo", "Agregar", "Grupos", new { id_condicionCurso = Model.IdCondicionCurso }, new { Class = "btnIngresar" })
+        @Html.ActionLink("Agregar Módulo", "Agregar", "Grupos", new { id_condicionCurso = Model.IdCondicionCurso }, new { Class = "btnIngresar" })
     </div>
 }

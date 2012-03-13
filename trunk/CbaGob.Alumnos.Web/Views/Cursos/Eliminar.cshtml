@@ -31,7 +31,7 @@
                                                 <b>Nombre del Curso:</b>
                                             </td>
                                             <td align="left">
-                                                @Html.TextBoxFor(c => c.N_CURSO, new { disabled = "disabled", style = "width:200px;", MaxLength = "50", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.N_CURSO, new { disabled = "disabled", style = "width:250px;", MaxLength = "64", Class = "asd" })
                                                 @Html.ValidationMessageFor(m => m.N_CURSO, "*")
                                             </td>
                                         </tr>
@@ -45,10 +45,10 @@
                                         </tr>
                                         <tr>
                                             <td align="left">
-                                                <b>Nro Resolucion:</b>
+                                                <b>Nro Resolución:</b>
                                             </td>
                                             <td align="left">
-                                                @Html.TextBoxFor(c => c.NRORESOLUCION, new { style = "width:200px;", MaxLength = "50", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.NRORESOLUCION, new { style = "width:250px;", MaxLength = "64", Class = "asd" })
                                                 @Html.ValidationMessageFor(m => m.NRORESOLUCION, "*")
                                             </td>
                                         </tr>
