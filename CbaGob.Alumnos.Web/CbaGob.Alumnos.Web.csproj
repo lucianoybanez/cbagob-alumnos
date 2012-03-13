@@ -76,6 +76,7 @@
     <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AlumnosController.cs" />
+    <Compile Include="Controllers\AyudaController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BuscadorController.cs" />
     <Compile Include="Controllers\CajaChicaController.cs" />
@@ -131,6 +132,8 @@
     <Content Include="Content\css\menu.css" />
     <Content Include="Content\css\Pager.css" />
     <Content Include="Content\css\textos.css" />
+    <Content Include="Content\flash\dario.swf" />
+    <Content Include="Content\flash\Test.swf" />
     <Content Include="Content\images\120_.png" />
     <Content Include="Content\images\47_.png" />
     <Content Include="Content\images\49_.png" />
@@ -693,6 +696,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Inscripciones\CertificadoPDF.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Ayuda\Index.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
