@@ -12,5 +12,6 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         DateTime Fecha { get; set; }
         string ImagenSistemaPath { get; set; }
         string ImagenEscudoPath { get; set; }
+        string dni { get; set; }
     }
 }

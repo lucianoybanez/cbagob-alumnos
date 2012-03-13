@@ -14,9 +14,7 @@
         Agregar Inscripcion</h2>
     <table align="center" style="width: 700px;">
         <tr>
-            <td class="style1" style="font-weight: bold">
-                <div id="titulo">
-                </div>
+            <td>
                 @using (Html.BeginForm("Guardar", "Inscripciones", FormMethod.Post, new { Id = "FormularioInscripciones" }))
                 { 
                     @Html.HiddenFor(c => c.Accion)
@@ -25,73 +23,70 @@
                     @Html.HiddenFor(c => c.IdCondicionCurso)  
                     <input type="hidden" id="urlEliminar" value="@Url.Action("GuardarEliminacion")"/>
                     <input type="hidden" id="urlPresentismo" value="@Url.Action("GuardarPresentismo")"/>
-                    <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
-                        width: 700px;">
-                        <tr>
-                            <td>
-                                @Html.ValidationSummary(true)
-                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
-                                    text-align: center;">
-                                    <legend style="color: #FF9900"><b>Datos Inscripcion</b></legend>
-                                    <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
-                                        width: 700px;">
-                                        <tr>
-                                            <td align="left">
-                                                <b>Descripcion:</b>
-                                            </td>
-                                            <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Descripcion)
-                                                @Html.ValidationMessageFor(m => m.Descripcion, "*")
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td align="left">
-                                                <b>Fecha:</b>
-                                            </td>
-                                            <td align="left" valign="middle">
-                                                @Html.EditorFor(c => c.Fecha)
-                                                @Html.ValidationMessageFor(m => m.Fecha, "*")
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td align="left">
-                                                <b>Alumno:</b>
-                                            </td>
-                                            <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.NombreAlumno, new { @readonly = "readonly" })
-                                                <a href="#" id="BuscarAlumno">Buscar</a>
-                                                @Html.ValidationMessageFor(m => m.NombreAlumno, "*")
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td align="left">
-                                                <b>Institucion:</b>
-                                            </td>
-                                            <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.NombreInstitucion, new { @readonly = "readonly" })
-                                                <a href="#" id="BuscarInstitucion">Buscar Institucion</a>
-                                                @Html.ValidationMessageFor(m => m.NombreInstitucion, "*")
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td align="left">
-                                                <b>Curso:</b>
-                                            </td>
-                                            <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.NombreCurso, new { @readonly = "readonly" })
-                                                @Html.ValidationMessageFor(m => m.NombreCurso, "*")
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td align="left">
-                                                <b>Estado de Curso:</b>
-                                            </td>
-                                            <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.NombreEstadoCurso, new { @readonly = "readonly" })
-                                                @Html.ValidationMessageFor(m => m.NombreEstadoCurso, "*")
-                                            </td>
-                                        </tr>
-                                        @*
+                  
+                    @Html.ValidationSummary(true)
+                    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+                        text-align: center;">
+                        <legend style="color: #FF9900"><b>Datos Inscripcion</b></legend>
+                        <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                            width: 700px;">
+                            <tr>
+                                <td width="200px" align="left">
+                                    <b>Descripcion:</b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.TextBoxFor(c => c.Descripcion)
+                                    @Html.ValidationMessageFor(m => m.Descripcion, "*")
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    <b>Fecha:</b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.EditorFor(c => c.Fecha)
+                                    @Html.ValidationMessageFor(m => m.Fecha, "*")
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    <b>Alumno:</b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.TextBoxFor(c => c.NombreAlumno, new { @readonly = "readonly" })
+                                    <a href="#" id="BuscarAlumno">Buscar</a>
+                                    @Html.ValidationMessageFor(m => m.NombreAlumno, "*")
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    <b>Institucion:</b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.TextBoxFor(c => c.NombreInstitucion, new { @readonly = "readonly" })
+                                    <a href="#" id="BuscarInstitucion">Buscar Institucion</a>
+                                    @Html.ValidationMessageFor(m => m.NombreInstitucion, "*")
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    <b>Curso:</b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.TextBoxFor(c => c.NombreCurso, new { @readonly = "readonly" })
+                                    @Html.ValidationMessageFor(m => m.NombreCurso, "*")
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    <b>Estado de Curso:</b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.TextBoxFor(c => c.NombreEstadoCurso, new { @readonly = "readonly" })
+                                    @Html.ValidationMessageFor(m => m.NombreEstadoCurso, "*")
+                                </td>
+                            </tr>
+                            @*
                                         <tr>
                                             <td align="left">
                                                 <b>Nivel:</b>
@@ -102,62 +97,64 @@
                                             </td>
                                         </tr>
                                         *@
-                                        <tr>
-                                            <td align="left">
-                                                <b>Modalidad:</b>
-                                            </td>
-                                            <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.NombreModalidad, new { @readonly = "readonly" })
-                                                @Html.ValidationMessageFor(m => m.NombreModalidad, "*")
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td align="left">
-                                                <b>Programa:</b>
-                                            </td>
-                                            <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.NombrePrograma, new { @readonly = "readonly" })
-                                                @Html.ValidationMessageFor(m => m.NombrePrograma, "*")
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td align="left">
-                                                <b>Fecha Inicio:</b>
-                                            </td>
-                                            <td align="left" valign="middle">
-                                                @Html.TextBox("FechaInicio", Model.FechaInicio.ToFecha(), new { @readonly = "readonly" })
-                                                @Html.ValidationMessageFor(m => m.FechaInicio, "*")
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td align="left">
-                                                <b>Fecha Fin:</b>
-                                            </td>
-                                            <td align="left" valign="middle">
-                                                @Html.TextBox("FechaFin", Model.FechaFin.ToFecha(), new { @readonly = "readonly" })
-                                                @Html.ValidationMessageFor(m => m.FechaFin, "*")
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </fieldset>
-                            </td>
-                        </tr>
-                    </table>
-                    <table id="btnfin" align="center" width="700px">
-                        <tr>
-                            <td align="right" valign="middle">
-                                @if (Model.Accion == "Eliminar")
-                                {
-                                    <input type="submit" value="Eliminar" class="btnIngresar" />
-                                }
-                                else if (Model.Accion == "Agregar")
-                                {
-                                    <input type="submit" value="Guardar" class="btnIngresar" />
-                                }
-                                @Html.ActionLink("Cancelar", "Index", "Inscripciones", null, new { Class = "btnIngresar" })
-                            </td>
-                        </tr>
-                    </table>
+                            <tr>
+                                <td align="left">
+                                    <b>Modalidad:</b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.TextBoxFor(c => c.NombreModalidad, new { @readonly = "readonly" })
+                                    @Html.ValidationMessageFor(m => m.NombreModalidad, "*")
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    <b>Programa:</b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.TextBoxFor(c => c.NombrePrograma, new { @readonly = "readonly" })
+                                    @Html.ValidationMessageFor(m => m.NombrePrograma, "*")
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    <b>Fecha Inicio:</b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.TextBox("FechaInicio", Model.FechaInicio.ToFecha(), new { @readonly = "readonly" })
+                                    @Html.ValidationMessageFor(m => m.FechaInicio, "*")
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    <b>Fecha Fin:</b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.TextBox("FechaFin", Model.FechaFin.ToFecha(), new { @readonly = "readonly" })
+                                    @Html.ValidationMessageFor(m => m.FechaFin, "*")
+                                </td>
+                            </tr>
+                        </table>
+                        <table align="center" width="700px">
+                            <tr>
+                                <td align="right">
+                                    @if (Model.Accion == "Eliminar")
+                                    {
+                                        <input type="submit" value="Eliminar" class="btnIngresar" />
+                                    }
+                                    else if (Model.Accion == "Agregar")
+                                    {
+                                        <input type="submit" value="Guardar" class="btnIngresar" />
+                                    }
+                                    @Html.ActionLink("Cancelar", "Index", "Inscripciones", null, new { Class = "btnIngresar" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                    
                 }
             </td>
         </tr>
@@ -172,7 +169,7 @@
                         <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
                             width: 700px;">
                             <tr>
-                                <td align="right">
+                                <td width="200px" align="left">
                                     <b>Promedio del Alumno:</b>
                                 </td>
                                 <td align="left" valign="middle">
@@ -180,7 +177,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="right">
+                                <td align="left">
                                     <b>Promedio Requerdio:</b>
                                 </td>
                                 <td align="left" valign="middle">
@@ -188,7 +185,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="right">
+                                <td align="left">
                                     <b>Total de Examenes Requeridos:</b>
                                 </td>
                                 <td align="left" valign="middle">
@@ -196,7 +193,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="right">
+                                <td align="left">
                                     <b>Aprobo:</b>
                                 </td>
                                 <td align="left" valign="middle">
@@ -204,10 +201,17 @@
                                 </td>
                             </tr>
                         </table>
-                        <div align="right" style="padding: 0 5px 5px 0;">
-                            @Html.ActionLink("Agregar Examen", "Agregar", "Examenes", new { IdInscripcion = @Model.IdInscripcion }, new { @class = "btnIngresar" })
-                        </div>
-                        <br />
+                        <table align="center" width="700px">
+                            <tr>
+                                <td align="right">
+                                    @Html.ActionLink("Agregar Examen", "Agregar", "Examenes", new { IdInscripcion = @Model.IdInscripcion }, new { @class = "btnIngresar" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                            </tr>
+                        </table>
                     </fieldset>
                 </td>
             </tr> 
@@ -219,7 +223,7 @@
                         <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
                             width: 700px;">
                             <tr>
-                                <td align="right">
+                                <td width="200px" align="left">
                                     <b>Clases Asistidas del Alumno:</b>
                                 </td>
                                 <td align="left" valign="middle">
@@ -227,7 +231,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="right">
+                                <td align="left">
                                     <b>Cantidad de Clases del Curso:</b>
                                 </td>
                                 <td align="left" valign="middle">
@@ -235,7 +239,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="right">
+                                <td align="left">
                                     <b>Presentismo del Alumno:</b>
                                 </td>
                                 <td align="left" valign="middle">
@@ -243,7 +247,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="right">
+                                <td align="left">
                                     <b>Presentismo Necesario del Curso:</b>
                                 </td>
                                 <td align="left" valign="middle">
@@ -251,7 +255,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="right">
+                                <td align="left">
                                     <b>Cumplio con el Presentismo:</b>
                                 </td>
                                 <td align="left" valign="middle">
@@ -259,13 +263,42 @@
                                 </td>
                             </tr>
                         </table>
-                        <div align="right" style="padding: 0 5px 5px 0;">
-                            <a class="btnIngresar" id="AbrirPresentismo" href="#">Modificar Presentismo</a>
-                        </div>
-                        <br />
+                        <table align="center" width="700px">
+                            <tr>
+                                <td align="right">
+                                    <a class="btnIngresar" id="AbrirPresentismo" href="#">Modificar Presentismo</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                            </tr>
+                        </table>
                     </fieldset>
                 </td>
             </tr>
+                               if (Model.Presentismo.CumplioPresentismo.Contains("Si") && Model.examens.Aprobo.Contains("Si"))
+                               {
+            <tr>
+                <td>
+                    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+                        text-align: center;">
+                        <legend style="color: #FF9900"><b>Certificado</b></legend>
+                        <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                            width: 700px;">
+                            <tr>
+                                <td align="right">
+                                    @Html.ActionLink("Emitir Certificado", "EmitirCertificado", "Inscripciones", new { idInscripcion = Model.IdInscripcion}, new { @class="btnIngresar" })
+                                </td>                                
+                            </tr>
+                            <tr>
+                            <td></td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </td>
+            </tr>
+                               }
         }
     </table>
 </div>
