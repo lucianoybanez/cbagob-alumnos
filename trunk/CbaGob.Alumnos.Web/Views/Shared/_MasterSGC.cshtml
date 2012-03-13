@@ -75,6 +75,11 @@
                             <li>@Html.ActionLink("Gestion Factura", "Index", "Factura", null, new { @class = ViewBag.SubMenuSelected == "Facturacion" ? "selected" : "" })</li> 
                             <li>@Html.ActionLink("Liquidacion Cursos", "LiquidarFactura", "Factura", null, new { @class = ViewBag.SubMenuSelected == "Liquidacion" ? "selected" : "" })</li> 
                            }
+
+                           if (ViewBag.Title.Contains("Ayuda"))
+                           {
+                            <li>@Html.ActionLink("Gestion Institucion", "Index", "Ayuda", null, new { @class = ViewBag.SubMenuSelected == "Instituciones" ? "selected" : "" })</li> 
+                           }
                        
                         }
                     </ul>
