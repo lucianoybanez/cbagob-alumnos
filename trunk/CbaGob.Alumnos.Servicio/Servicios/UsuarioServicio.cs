@@ -4,12 +4,14 @@ using System.Linq;
 using CbaGob.Alumnos.Modelo.Entities;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Modelo.Repositories;
+using CbaGob.Alumnos.Repositorio;
 using CbaGob.Alumnos.Servicio.Comun;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
 using CbaGob.Alumnos.Servicio.Vistas.Shared;
 using CbaGob.Alumnos.Servicio.VistasInterface;
 using CbaGob.Alumnos.Servicio.VistasInterface.Shared;
+using StructureMap;
 
 namespace CbaGob.Alumnos.Servicio.Servicios
 {
@@ -67,8 +69,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
             return vista;
         }
-
-
+        
         public IComboBox GetRoles()
         {
             var roles = UsuarioRepositorio.GetTodosRoles();
@@ -85,8 +86,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             combo.Combo = lista;
             return combo;
         }
-
-
+        
         public IUsuarioVista GetAllUsuarios(IPager pager)
         {
             IUsuarioVista vista = new UsuarioVista();
@@ -176,5 +176,39 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             return ret;
         }
 
+      
     }
+
+
+    public class LoggedUserHelper : ILoggedUserHelper
+    {
+
+        private IAutenticacionServicio AutenticacionServicio;
+
+        public LoggedUserHelper(IAutenticacionServicio autenticacionServicio)
+        {
+            AutenticacionServicio = autenticacionServicio;
+        }
+
+        public string GetLoggedUsuario()
+        {
+            try
+            {
+                string userData = AutenticacionServicio.GetUserData();
+                string[] pieces = userData.Split('|');
+                ICookieData a = new CookieData()
+                {
+                    Usuario = pieces[0],
+                    Rol = pieces[1]
+                };
+                return a.Usuario;
+            }
+            catch (Exception)
+            {
+
+                return "Usuario no logueado";
+            }
+        }
+    }
+
 }

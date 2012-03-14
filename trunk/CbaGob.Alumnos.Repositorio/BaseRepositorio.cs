@@ -6,13 +6,20 @@ using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 
 namespace CbaGob.Alumnos.Repositorio
 {
-    public class BaseRepositorio
+    public class BaseRepositorio : IBaseRepositorio
     {
+        public ILoggedUserHelper LoggedUserHelper;
+
+        public BaseRepositorio(ILoggedUserHelper LoggedUserHelper)
+        {
+            this.LoggedUserHelper = LoggedUserHelper;
+        }
+
 
         public void AgregarDatosAlta(IComunDatos dato)
         {
             dato.FechaAlta = System.DateTime.Now;
-            dato.UsuarioAlta = "Usuario Alta";
+            dato.UsuarioAlta = LoggedUserHelper.GetLoggedUsuario();
             AgregarDatosModificacion(dato);
         }
 
@@ -21,15 +28,22 @@ namespace CbaGob.Alumnos.Repositorio
         {
             dato.Estado = "A";
             dato.FechaModificacion = System.DateTime.Now;
-            dato.UsuarioModificacion = "Usuario Modificacion";
+            dato.UsuarioModificacion = LoggedUserHelper.GetLoggedUsuario();
         }
 
         public void AgregarDatosEliminacion(IComunDatos dato)
         {
             dato.FechaModificacion = System.DateTime.Now;
-            dato.UsuarioModificacion = "Usuario Eliminacion";
+            dato.UsuarioModificacion = LoggedUserHelper.GetLoggedUsuario();
             dato.Estado = "I";
         }
 
+    }
+
+    public interface IBaseRepositorio
+    {
+        void AgregarDatosAlta(IComunDatos dato);
+        void AgregarDatosModificacion(IComunDatos dato);
+        void AgregarDatosEliminacion(IComunDatos dato);
     }
 }

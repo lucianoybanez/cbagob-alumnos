@@ -18,9 +18,9 @@ namespace CbaGob.Alumnos.Web.Controllers
         private IMovimientoServicio moviminetoservicio;
 
 
-        public MovimientoController()
+        public MovimientoController(IMovimientoServicio moviminetoservicio)
         {
-            moviminetoservicio = new MovimientoServicio();
+            this.moviminetoservicio = moviminetoservicio;
         }
 
         public ActionResult Index()

@@ -20,16 +20,11 @@ namespace CbaGob.Alumnos.Web.Controllers
         // GET: /Docentes/
 
         private IDocentesServicio docentesservicio;
-        private IPersonaJuridicaServicio personajuridicaservicio;
-        private IDomiciliosServicios domiciliosservicios;
-        private ICargosServicio cargosservicio;
 
-        public DocentesController()
+
+        public DocentesController(IDocentesServicio docentesservicio)
         {
-            docentesservicio = new DocentesServicio();
-            personajuridicaservicio = new PersonaJuridicaServicio();
-            domiciliosservicios = new DomiciliosServicios();
-            cargosservicio = new CargosServicio();
+            this.docentesservicio = docentesservicio;
         }
 
         public ActionResult Index()

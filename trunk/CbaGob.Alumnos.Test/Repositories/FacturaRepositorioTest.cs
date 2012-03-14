@@ -18,7 +18,7 @@ namespace CbaGob.Alumnos.Test.Repositories
         [SetUp]
         public void Setup()
         {
-            FacturaRepositorio = new FacturaRepositorio();
+            //FacturaRepositorio = new FacturaRepositorio();
         }
 
         [Test]

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using CbaGob.Alumnos.Modelo.Entities;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
+using CbaGob.Alumnos.Modelo.Repositories;
 using CbaGob.Alumnos.Repositorio;
 using CbaGob.Alumnos.Servicio.Comun;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
@@ -14,14 +15,14 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 {
     public class EstablecimientoServicio : BaseServicio, IEstablecimientoServicio
     {
-        private EstablecimientoRepositorio establecimientorepositorio;
+        private IEstablecimientoRepositorio establecimientorepositorio;
 
-        private DomiciliosRepositorio domiciliosrepositorio;
+        private IDomiciliosRepositorio domiciliosrepositorio;
 
-        public EstablecimientoServicio()
+        public EstablecimientoServicio(IEstablecimientoRepositorio establecimientorepositorio, IDomiciliosRepositorio domiciliosrepositorio)
         {
-            establecimientorepositorio = new EstablecimientoRepositorio();
-            domiciliosrepositorio = new DomiciliosRepositorio();
+            this.establecimientorepositorio = establecimientorepositorio;
+            this.domiciliosrepositorio = domiciliosrepositorio;
         }
 
 

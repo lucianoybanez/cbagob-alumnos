@@ -18,9 +18,9 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         private ISupervicionesRepositorio supervicionesrepositorio;
 
 
-        public SupervicionesServicio()
+        public SupervicionesServicio(ISupervicionesRepositorio supervicionesrepositorio)
         {
-            supervicionesrepositorio = new SupervicionesRepositorio();
+            this.supervicionesrepositorio = supervicionesrepositorio;
         }
 
         public ISupervicionesVista GetSuperviciones()
@@ -44,8 +44,6 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             try
             {
                 ISupervicionVista supervicionvista = new SupervicionVista();
-                IInstitucionServicio institucionservicio = new InstitucionServicio();
-
                 ISuperviciones superviciones = supervicionesrepositorio.GetSupervicion(idsupervision);
 
                 supervicionvista.Fec_Supervision = superviciones.Fec_Supervision;

@@ -16,16 +16,13 @@ namespace CbaGob.Alumnos.Servicio.Servicios
     public class GrupoServicio : BaseServicio, IGrupoServicio
     {
         private IGrupoRepositorio gruporepositorio;
-        private IDocentesRepositorio docentesrepositorio;
-        private IDomiciliosRepositorio domiciliosrepositorio;
+  
         private IHorarioRepositorio horariorepositorio;
 
-        public GrupoServicio()
+        public GrupoServicio(IGrupoRepositorio gruporepositorio, IHorarioRepositorio horariorepositorio)
         {
-            gruporepositorio = new GrupoRepositorio();
-            docentesrepositorio = new DocentesRepositorio();
-            domiciliosrepositorio = new DomiciliosRepositorio();
-            horariorepositorio = new HorarioRepositorio();
+            this.gruporepositorio = gruporepositorio;
+            this.horariorepositorio = horariorepositorio;
         }
 
         public IList<IErrores> GetErrors()

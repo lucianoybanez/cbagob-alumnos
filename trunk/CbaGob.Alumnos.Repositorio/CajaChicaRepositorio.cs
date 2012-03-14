@@ -14,7 +14,7 @@ namespace CbaGob.Alumnos.Repositorio
 
         private CursosDB mDb;
 
-        public CajaChicaRepositorio()
+        public CajaChicaRepositorio(ILoggedUserHelper helper):base(helper)
         {
             mDb = new CursosDB();
         }

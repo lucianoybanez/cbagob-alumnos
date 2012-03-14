@@ -14,7 +14,7 @@ namespace CbaGob.Alumnos.Repositorio
 
         private CursosDB mDB;
 
-        public EstablecimientoRepositorio()
+        public EstablecimientoRepositorio(ILoggedUserHelper helper):base(helper)
         {
             mDB = new CursosDB();
             mDB.ContextOptions.LazyLoadingEnabled = false;

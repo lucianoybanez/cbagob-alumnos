@@ -21,11 +21,11 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         private ITipo_DocentesRepositorio tipodocentesrepositorio;
 
 
-        public DocentesServicio()
+        public DocentesServicio(IDocentesRepositorio docentesrepositorio, ICargosRepositorio cargorepositorio, ITipo_DocentesRepositorio tipodocentesrepositorio)
         {
-            docentesrepositorio = new DocentesRepositorio();
-            cargorepositorio = new CargosRepositorio();
-            tipodocentesrepositorio = new Tipo_DocentesRepositorio();
+            this.docentesrepositorio = docentesrepositorio;
+            this.cargorepositorio = cargorepositorio;
+            this.tipodocentesrepositorio = tipodocentesrepositorio;
         }
 
         public IDocentesVista GetTodos()

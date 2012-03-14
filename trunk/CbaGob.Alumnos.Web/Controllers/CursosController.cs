@@ -17,9 +17,10 @@ namespace CbaGob.Alumnos.Web.Controllers
     {
         private ICursosServicios mCursosServicios;
 
-        public CursosController()
+
+        public CursosController(ICursosServicios mCursosServicios)
         {
-            mCursosServicios = new CursosServicios();
+            this.mCursosServicios = mCursosServicios;
         }
 
         public ActionResult Index()

@@ -17,9 +17,9 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         private ISupervisoresServicio supervisoresservicio;
 
-        public SupervisoresController()
+        public SupervisoresController(ISupervisoresServicio supervisoresservicio)
         {
-            supervisoresservicio = new SupervisoresServicio();
+            this.supervisoresservicio = supervisoresservicio;
         }
 
         public ActionResult Index()

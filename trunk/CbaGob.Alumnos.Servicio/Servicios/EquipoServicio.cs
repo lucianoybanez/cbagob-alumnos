@@ -17,12 +17,13 @@ namespace CbaGob.Alumnos.Servicio.Servicios
     public class EquipoServicio :BaseServicio, IEquipoServicio
     {
         private IEquipoRepositorio equiporepositorio;
-        private IEstado_EquipoRepositorio estado_equiporepositorio; 
+        private IEstado_EquipoRepositorio estado_equiporepositorio;
 
-        public EquipoServicio()
+
+        public EquipoServicio(IEquipoRepositorio equiporepositorio, IEstado_EquipoRepositorio estadoEquiporepositorio)
         {
-            equiporepositorio = new EquipoRepositorio();
-            estado_equiporepositorio = new Estado_EquipoRepositorio();
+            this.equiporepositorio = equiporepositorio;
+            estado_equiporepositorio = estadoEquiporepositorio;
         }
 
         public IEquiposVista GetEquipos()

@@ -14,7 +14,7 @@ namespace CbaGob.Alumnos.Repositorio
 
         private CursosDB mDb;
 
-        public MovimientoRepositorio()
+        public MovimientoRepositorio(ILoggedUserHelper helper):base(helper)
         {
             mDb = new CursosDB();
         }

@@ -14,18 +14,16 @@ namespace CbaGob.Alumnos.Web.Controllers
     public class EstablecimientosController : BaseController
     {
         private IEstablecimientoServicio establecimientoservicio;
-        private IDomiciliosServicios domiciliosservicios;
         private IInstitucionServicio institucionservicio;
 
         //
         // GET: /Establecimientos/
 
-        public EstablecimientosController()
-        {
-            establecimientoservicio = new EstablecimientoServicio();
-            domiciliosservicios = new DomiciliosServicios();
-            institucionservicio = new InstitucionServicio();
 
+        public EstablecimientosController(IEstablecimientoServicio establecimientoservicio, IInstitucionServicio institucionservicio)
+        {
+            this.establecimientoservicio = establecimientoservicio;
+            this.institucionservicio = institucionservicio;
         }
 
         public ActionResult Index()
