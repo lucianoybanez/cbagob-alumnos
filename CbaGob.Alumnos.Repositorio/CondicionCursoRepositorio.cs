@@ -56,7 +56,7 @@ namespace CbaGob.Alumnos.Repositorio
                                     Fecha_Fin = p.FEC_FIN ?? System.DateTime.Now,
                                     Fecha_Inicio = p.FEC_INICIO ?? System.DateTime.Now,
                                     Nro_Resolucion = p.NRO_RESOLUCION
-                                    
+
                                 });
             return a;
         }
@@ -111,7 +111,7 @@ namespace CbaGob.Alumnos.Repositorio
                     ID_ESTADO_CURSO = condicion.IdEstadoCurso,
                     ID_INSTITUCION = condicion.IdInstitucion,
                     ID_MODALIDAD = condicion.IdModalidad,
-                    ID_NIVEL =3,
+                    ID_NIVEL = 3,
                     ID_PROGRAMA = condicion.IdPrograma,
                     PRESENTISMO = condicion.Presentismo,
                     PRESUPUESTO = condicion.Presupuesto,
@@ -122,7 +122,7 @@ namespace CbaGob.Alumnos.Repositorio
                     FEC_FIN = condicion.Fecha_Fin,
                     FEC_INICIO = condicion.Fecha_Inicio,
                     NRO_RESOLUCION = condicion.Nro_Resolucion
-                    
+
                 };
                 mDB.AddToT_CONDICIONES_CURSO(condicionesCurso);
                 mDB.SaveChanges();
@@ -208,7 +208,7 @@ namespace CbaGob.Alumnos.Repositorio
             }
         }
 
-        public IList<ICondicionCurso> BuscarCondiciones(string institucion, string nivel, string curso, int año,string programa)
+        public IList<ICondicionCurso> BuscarCondiciones(string institucion, string nivel, string curso, int año, string programa)
         {
             if (!string.IsNullOrEmpty(institucion))
             {
@@ -222,7 +222,7 @@ namespace CbaGob.Alumnos.Repositorio
             {
                 return GetCondicion().Where(c => (c.NombrePrograma.ToLower().StartsWith(programa.ToLower()) && (c.Fecha_Inicio.Year == año || año == 0))).ToList();
             }
-            if (año!=0)
+            if (año != 0)
             {
                 return GetCondicion().Where(c => (c.Fecha_Inicio.Year == año)).ToList();
             }
@@ -230,6 +230,15 @@ namespace CbaGob.Alumnos.Repositorio
             return null;
         }
 
-      
+        public IList<ICondicionCurso> BuscarCondiciones(int idInstitucion, string curso, int año, string programa)
+        {
+            if (idInstitucion != 0)
+            {
+                return GetCondicion().Where(c => (c.IdInstitucion == idInstitucion) && (c.Fecha_Inicio.Year == año || año == 0) && (c.NombreCurso.ToLower().StartsWith(curso.ToLower()) || curso == null)).ToList();
+            }
+
+            //return GetCondicion().Where(c => (c.NombreNivel.ToLower().Contains(nivel.ToLower()))).ToList();
+            return null;
+        }
     }
 }

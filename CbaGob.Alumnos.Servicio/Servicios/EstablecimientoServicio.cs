@@ -166,6 +166,23 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
         }
 
+        public IEstablecimientosVista BusquedaEstablecimiento(int idinstitucion, string nombreestablecimiento)
+        {
+            try
+            {
+                IEstablecimientosVista establecimientosvista = new EstablecimientosVista();
+
+                establecimientosvista.ListaEstablecimiento = establecimientorepositorio.BusquedaEstablecimiento(idinstitucion, nombreestablecimiento);
+
+                return establecimientosvista;
+            }
+            catch (Exception ex)
+            {
+                AddError("Ocurrio un error Por Favor Intentelo de Nuevo");
+                return null;
+            }
+        }
+
         public IList<IErrores> GetErrors()
         {
             return base.Errors;

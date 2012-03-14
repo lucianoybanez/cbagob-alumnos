@@ -36,5 +36,7 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         string DatosCompletosDomicilio { get; set; }
         IComboBox TiposDocentes { get; set; }
         string Resolucion_Reproca { get; set; }
+        string RazonSocialBusqueda { get; set; }
+        string CuilCuitBusqueda { get; set; }
     }
 }

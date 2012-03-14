@@ -13,15 +13,33 @@
 <div class="box">
     <h2>
         Listado de Equipos</h2>
-    <table>
-        <tr>
-            <td class="style1" style="font-weight: bold">
-                <div id="titulo">
-                </div>
-                <div id="DivSuperviciones">
-                    @Html.Partial("_EquiposLista", Model)
-                </div>
-            </td>
-        </tr>
-    </table>
+    @using (Html.BeginForm("BuscarEquipos", "Equipamientos", FormMethod.Post, new { Id = "FormularioEquipaminetos" }))
+    { 
+        <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+            margin-left: 5px; margin-top: 5px;">
+            <legend style="color: #FF9900"><b>Buscar</b></legend>
+            <table>
+                <tr>
+                    <td height="35px">
+                        <b>Nombre Equipo:&nbsp;</b>
+                    </td>
+                    <td>@Html.TextBoxFor(c => c.NombreEquipoBusqueda, new { style = "width:200px;", MaxLength = "64" })
+                        <input type="submit" value="Buscar" class="btnIngresar" />
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <br />
+        <table>
+            <tr>
+                <td class="style1" style="font-weight: bold">
+                    <div id="titulo">
+                    </div>
+                    <div id="DivSuperviciones">
+                        @Html.Partial("_EquiposLista", Model)
+                    </div>
+                </td>
+            </tr>
+        </table>
+    }
 </div>

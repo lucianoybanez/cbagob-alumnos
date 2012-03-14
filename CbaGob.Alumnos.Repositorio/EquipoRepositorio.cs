@@ -123,7 +123,7 @@ namespace CbaGob.Alumnos.Repositorio
                 t_supervisiones.USR_MODIF = equipo.UsuarioModificacion;
                 t_supervisiones.N_EQUIPOS = equipo.N_Equipos;
                 t_supervisiones.ID_ESTADO_EQUIPO = equipo.Id_Estado_Equipo;
-                
+
                 mDb.SaveChanges();
                 return true;
 
@@ -181,6 +181,18 @@ namespace CbaGob.Alumnos.Repositorio
             catch (Exception ex)
             {
 
+                throw;
+            }
+        }
+
+        public IList<IEquipo> BusquedaEquipo(string nombreequipo)
+        {
+            try
+            {
+                return QEquipo().Where(c => c.N_Equipos == nombreequipo || nombreequipo == null).ToList();
+            }
+            catch (Exception ex)
+            {
                 throw;
             }
         }

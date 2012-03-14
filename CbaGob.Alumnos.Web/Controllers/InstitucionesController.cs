@@ -166,5 +166,42 @@ namespace CbaGob.Alumnos.Web.Controllers
         }
 
 
+        public ActionResult BuscarCurso(Int32 Id_Institucion, string cursobusqueda, string añobuscqueda)
+        {
+
+            IInstitucionVista model = InstitucionServicio.GetUnaVista(Id_Institucion);
+
+            model.ListaEstablecimiento = Establecimientoservicio.GetAllEstableciminetoByInstitucion(model.Id_Institucion).ListaEstablecimiento;
+
+            model.CondicionesCursos = CondicionesCursoServicio.BuscarCondiciones(Id_Institucion, cursobusqueda, añobuscqueda, "").CondicionesCursos;
+
+            model.CajaChica = Cajachicaservice.GetCajaChicasByInstitucion(Id_Institucion);
+
+            model.cursobusqueda = cursobusqueda;
+
+            model.añobuscqueda = añobuscqueda;
+
+            return View("Ver", model);
+        }
+
+        public ActionResult BuscarSede(Int32 Id_Institucion, string cursobusqueda, string añobuscqueda, string nombresede)
+        {
+
+            IInstitucionVista model = InstitucionServicio.GetUnaVista(Id_Institucion);
+
+            model.ListaEstablecimiento = Establecimientoservicio.BusquedaEstablecimiento(Id_Institucion, nombresede).ListaEstablecimiento;
+
+            model.CondicionesCursos = CondicionesCursoServicio.BuscarCondiciones(Id_Institucion, cursobusqueda, añobuscqueda, "").CondicionesCursos;
+
+            model.CajaChica = Cajachicaservice.GetCajaChicasByInstitucion(Id_Institucion);
+
+            model.cursobusqueda = cursobusqueda;
+
+            model.añobuscqueda = añobuscqueda;
+
+            return View("Ver", model);
+        }
+
+
     }
 }

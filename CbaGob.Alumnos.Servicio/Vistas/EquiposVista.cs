@@ -11,5 +11,6 @@ namespace CbaGob.Alumnos.Servicio.Vistas
     {
         public IList<IEquipo> ListaEquipos { get; set; }
         public int Id_Equipo { get; set; }
+        public string NombreEquipoBusqueda { get; set; }
     }
 }

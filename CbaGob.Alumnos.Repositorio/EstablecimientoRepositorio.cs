@@ -195,6 +195,23 @@ namespace CbaGob.Alumnos.Repositorio
                 throw;
             }
         }
+
+        public IList<IEstablecimiento> BusquedaEstablecimiento(int idinstitucion, string nombreestablecimiento)
+        {
+            try
+            {
+                return
+                    QEstablecimiento().Where(
+                        (c => c.Id_Institucion == idinstitucion && (c.NombreEstablecimiento.ToLower().StartsWith(nombreestablecimiento.ToLower()) || nombreestablecimiento == null))).ToList();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         #endregion
     }
 }

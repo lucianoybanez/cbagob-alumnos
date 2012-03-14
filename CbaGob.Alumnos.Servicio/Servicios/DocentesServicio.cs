@@ -138,7 +138,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 addDocente.Nro_Resolucion = docente.Nro_Resolucion;
                 addDocente.Reproca = docente.Reproca;
                 addDocente.N_Modalidad = docente.N_Modalidad;
-                addDocente.Id_Cargo =  Convert.ToInt32(docente.cargos.Selected);
+                addDocente.Id_Cargo = Convert.ToInt32(docente.cargos.Selected);
                 addDocente.Id_Docente = docente.Id_Docente;
                 addDocente.id_tipo_docente = Convert.ToInt32(docente.TiposDocentes.Selected);
                 addDocente.Resolucion_Reproca = docente.Resolucion_Reproca;
@@ -255,6 +255,23 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 base.AddError("Surgio Un Error Vuelva a Intentarlo");
                 return false;
+            }
+        }
+
+        public IDocentesVista BuscarDocente(string razonsocial, string cuit_cuil)
+        {
+            try
+            {
+                IDocentesVista vista = new DocentesVista();
+
+                vista.ListaDocentes = docentesrepositorio.BuscarDocente(razonsocial, cuit_cuil);
+
+                return vista;
+            }
+            catch (Exception)
+            {
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return null;
             }
         }
 

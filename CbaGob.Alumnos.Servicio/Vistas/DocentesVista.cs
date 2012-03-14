@@ -57,5 +57,7 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public IComboBox TiposDocentes { get; set; }
         [Required(ErrorMessage = "*")]
         public string Resolucion_Reproca { get; set; }
+        public string RazonSocialBusqueda { get; set; }
+        public string CuilCuitBusqueda { get; set; }
     }
 }

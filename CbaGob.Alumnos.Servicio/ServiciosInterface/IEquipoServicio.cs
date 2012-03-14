@@ -16,5 +16,6 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
         bool AgregarEquipo(IEquipoVista equipo);
         bool ModificarEquipo(IEquipoVista equipo);
         bool EliminarEquipo(int id_equipo);
+        IEquiposVista BusquedaEquipo(string nombreequipo);
     }
 }

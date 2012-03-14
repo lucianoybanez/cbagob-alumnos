@@ -13,5 +13,6 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         string N_Equipos { get; set; }
         string NombreEstadoEquipo { get; set; }
         IComboBox EstadoEquipo { get; set; }
+        string NombreEquipoBusqueda { get; set; }
     }
 }

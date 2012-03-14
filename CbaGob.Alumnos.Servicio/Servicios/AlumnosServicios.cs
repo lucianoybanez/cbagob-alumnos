@@ -22,6 +22,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         private ITipo_SexoRepositorio tipo_sexorepositorio;
 
 
+
         public AlumnosServicios(IAlumnosRepositorio alumnosrepositorio, ITipo_DniRepositorio tipoDnirepositorio, ITipo_EstadoCivilRepositorio tipoEstadocivilrepositorio, ITipo_SexoRepositorio tipoSexorepositorio)
         {
             this.alumnosrepositorio = alumnosrepositorio;
@@ -195,8 +196,8 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
             catch (Exception ex)
             {
-
-                throw;
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return null;
             }
         }
 
@@ -295,12 +296,29 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
         }
 
+        public IAlumnosVista BuscarAlumnos(string nombre, string apellido, string dni, string cuil)
+        {
+            try
+            {
+                IAlumnosVista vista = new AlumnosVista();
+
+                vista.ListaAlumno = alumnosrepositorio.BuscarAlumnos(nombre, apellido, dni, cuil);
+
+                return vista;
+            }
+            catch (Exception ex)
+            {
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return null;
+            }
+        }
+
         public IList<IErrores> GetErrors()
         {
             return base.Errors;
         }
 
-        private void CargarTipoDni(IAlumnosVista vista , IList<ITipo_Dni> lista)
+        private void CargarTipoDni(IAlumnosVista vista, IList<ITipo_Dni> lista)
         {
             foreach (var est in lista)
             {

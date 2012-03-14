@@ -32,5 +32,10 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         IPersona persona { get; set; }
         string Nro_Telefono { get; set; }
         string Nro_Celular { get; set; }
+
+        string NombreBusqueda { get; set; }
+        string ApellidoBusqueda { get; set; }
+        string DniBusqueda { get; set; }
+        string CuilBusqueda { get; set; }
     }
 }

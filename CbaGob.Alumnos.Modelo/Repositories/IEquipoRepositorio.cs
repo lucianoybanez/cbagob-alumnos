@@ -15,5 +15,6 @@ namespace CbaGob.Alumnos.Modelo.Repositories
         bool ModificarEquipo(IEquipo equipo);
         bool EliminarEquipo(int id_equipo);
         bool CambiarEstadoEquipo(int id_equipo, int id_estado_equipo);
+        IList<IEquipo> BusquedaEquipo(string nombreequipo);
     }
 }

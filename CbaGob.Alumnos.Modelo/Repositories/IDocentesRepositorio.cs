@@ -18,5 +18,6 @@ namespace CbaGob.Alumnos.Modelo.Repositories
         bool Eliminar(int id_docente, string nroresolucion);
         bool AsignarDocentes(int id_docente, int id_grupo, int id_condicion_curso);
         bool DesasignarDocentes(int id_docente, int id_grupo, int id_condicion_curso);
+        IList<IDocentes> BuscarDocente(string razonsocial, string cuit_cuil);
     }
 }

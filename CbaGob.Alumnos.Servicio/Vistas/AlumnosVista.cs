@@ -50,5 +50,10 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public string Nro_Telefono { get; set; }
          [Required(ErrorMessage = "*")]
         public string Nro_Celular { get; set; }
+
+        public string NombreBusqueda { get; set; }
+        public string ApellidoBusqueda { get; set; }
+        public string DniBusqueda { get; set; }
+        public string CuilBusqueda { get; set; }
     }
 }

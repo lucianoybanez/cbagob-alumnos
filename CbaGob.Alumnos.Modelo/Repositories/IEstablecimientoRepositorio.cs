@@ -14,5 +14,6 @@ namespace CbaGob.Alumnos.Modelo.Repositories
         bool AgregarEstablecimiento(IEstablecimiento establecimiento);
         bool ModificarEstablecimiento(IEstablecimiento establecimiento);
         bool EliminarEstablecimiento(int id_establecimiento, string nroresolucion);
+        IList<IEstablecimiento> BusquedaEstablecimiento(int idinstitucion, string nombreestablecimiento);
     }
 }
