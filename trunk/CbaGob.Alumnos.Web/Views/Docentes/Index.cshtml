@@ -36,17 +36,23 @@
                 </tr>
             </table>
         </fieldset>
-        <br />
-        <table>
-            <tr>
-                <td class="style1" style="font-weight: bold">
-                    <div id="titulo">
-                    </div>
-                    <div id="DivDocentes">
-                        @Html.Partial("_DocentesLista", Model.ListaDocentes)
-                    </div>
-                </td>
-            </tr>
-        </table>
     }
+    <br />
+    <table>
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                <div id="DivDocentes">
+                    @Html.Partial("_DocentesLista", Model.ListaDocentes)
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div style="text-align: left;">
+        @using (Html.BeginForm("IndexPager", "Docentes", FormMethod.Post, new { id = "FormIndexDocentes" }))
+        {
+            @Html.Partial("_Pager", Model.Pager)
+        }
+    </div>
 </div>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mime;
 using System.Text;
 using CbaGob.Alumnos.Modelo.Entities;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
@@ -9,6 +10,7 @@ using CbaGob.Alumnos.Repositorio;
 using CbaGob.Alumnos.Servicio.Comun;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
+using CbaGob.Alumnos.Servicio.Vistas.Shared;
 using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.Servicios
@@ -17,10 +19,12 @@ namespace CbaGob.Alumnos.Servicio.Servicios
     {
         private IInstitucionRepositorio mInstitucionRepositorio;
 
+        private IAutenticacionServicio Aut;
 
-        public InstitucionServicio(IInstitucionRepositorio mInstitucionRepositorio)
+        public InstitucionServicio(IInstitucionRepositorio mInstitucionRepositorio, IAutenticacionServicio aut)
         {
             this.mInstitucionRepositorio = mInstitucionRepositorio;
+            Aut = aut;
         }
 
         public IList<IInstitucion> GetTodas()
@@ -34,10 +38,24 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
             InstitucionVista mInstitucionVista = new InstitucionVista();
 
-            mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones();
+            var pager = new Pager(mInstitucionRepositorio.GetCountInstituciones(), Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexInstituciones", Aut.GetUrl("IndexPager", "Instituciones"));
+            mInstitucionVista.pager = pager;
+
+            mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones(pager.Skip, pager.PageSize);
 
             return mInstitucionVista;
 
+        }
+
+        public InstitucionVista GetIndex(IPager page)
+        {
+            InstitucionVista mInstitucionVista = new InstitucionVista();
+
+            mInstitucionVista.pager = page;
+
+            mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones(page.Skip, page.PageSize);
+
+            return mInstitucionVista;
         }
 
         public IInstitucion GetUna(int IdInstitucion)
@@ -118,6 +136,8 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                     mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones();
                 }
 
+                var pager = new Pager(mInstitucionVista.ListaInstituciones.Count, Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexInstituciones", Aut.GetUrl("IndexPager", "Instituciones"));
+                mInstitucionVista.pager = pager;
 
                 return mInstitucionVista;
             }

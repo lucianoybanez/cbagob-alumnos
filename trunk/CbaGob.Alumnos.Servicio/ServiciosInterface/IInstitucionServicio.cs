@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Servicio.Vistas;
+using CbaGob.Alumnos.Servicio.Vistas.Shared;
 using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.ServiciosInterface
@@ -12,6 +13,7 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
     {
         IList<IInstitucion> GetTodas();
         InstitucionVista GetIndex();
+        InstitucionVista GetIndex(IPager page );
         IInstitucion GetUna(Int32 IdInstitucion);
         IInstitucionVista GetUnaVista(Int32 IdInstitucion);
         bool AgregarInstitucion(IInstitucion pInstitucion);

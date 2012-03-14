@@ -9,9 +9,11 @@ namespace CbaGob.Alumnos.Modelo.Repositories
     public interface IDocentesRepositorio
     {
         IList<IDocentes> GetTodos();
+        IList<IDocentes> GetTodos(int skip, int take);
         IList<IDocentes> GetTodosByRazonSocial(string razonsocial);
         IList<IDocentes> GetDocentesNotInGrupo(int id_grupo);
         IList<IDocentes> GetDocentesInGrupo(int id_grupo);
+        int GetCountDocentes();
         IDocentes GetUno(int id_docente);
         bool Agregar(IDocentes docente);
         bool Modificar(IDocentes docente);

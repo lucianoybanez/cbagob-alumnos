@@ -19,13 +19,15 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         private IDocentesRepositorio docentesrepositorio;
         private ICargosRepositorio cargorepositorio;
         private ITipo_DocentesRepositorio tipodocentesrepositorio;
+        private IAutenticacionServicio Aut;
 
 
-        public DocentesServicio(IDocentesRepositorio docentesrepositorio, ICargosRepositorio cargorepositorio, ITipo_DocentesRepositorio tipodocentesrepositorio)
+        public DocentesServicio(IDocentesRepositorio docentesrepositorio, ICargosRepositorio cargorepositorio, ITipo_DocentesRepositorio tipodocentesrepositorio, IAutenticacionServicio aut)
         {
             this.docentesrepositorio = docentesrepositorio;
             this.cargorepositorio = cargorepositorio;
             this.tipodocentesrepositorio = tipodocentesrepositorio;
+            Aut = aut;
         }
 
         public IDocentesVista GetTodos()
@@ -34,7 +36,11 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 IDocentesVista vista = new DocentesVista();
 
-                vista.ListaDocentes = docentesrepositorio.GetTodos();
+                var pager = new Pager(docentesrepositorio.GetCountDocentes(), Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexDocentes", Aut.GetUrl("IndexPager", "Docentes"));
+
+                vista.Pager = pager;
+
+                vista.ListaDocentes = docentesrepositorio.GetTodos(pager.Skip, pager.PageSize);
 
                 return vista;
             }
@@ -51,7 +57,34 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 IDocentesVista vista = new DocentesVista();
 
-                vista.ListaDocentes = docentesrepositorio.GetTodos();
+                var pager = new Pager(docentesrepositorio.GetCountDocentes(), Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexDocentes", Aut.GetUrl("IndexPager", "Docentes"));
+
+                vista.Pager = pager;
+
+                vista.ListaDocentes = docentesrepositorio.GetTodos(pager.Skip, pager.PageSize);
+
+                CaragrCargos(vista, cargorepositorio.GetTodosCargos());
+
+                CaragrTipoDocente(vista, tipodocentesrepositorio.GetTiposDocentes());
+
+                return vista;
+            }
+            catch (Exception)
+            {
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return null;
+            }
+        }
+
+        public IDocentesVista GetIndex(IPager page)
+        {
+            try
+            {
+                IDocentesVista vista = new DocentesVista();
+
+                vista.Pager = page;
+
+                vista.ListaDocentes = docentesrepositorio.GetTodos(page.Skip, page.PageSize);
 
                 CaragrCargos(vista, cargorepositorio.GetTodosCargos());
 
