@@ -162,6 +162,20 @@ namespace CbaGob.Alumnos.Repositorio
             }
         }
 
+        public IList<IInstitucion> BuscarInstitucion(string nombreinstitucion)
+        {
+            try
+            {
+                return
+                    QInstitucion().Where(c => c.Nombre_Institucion.ToLower().StartsWith(nombreinstitucion.ToLower())).
+                        ToList();
+            }
+            catch (Exception ex)
+            {
+                
+                throw;
+            }
+        }
 
         #endregion
     }

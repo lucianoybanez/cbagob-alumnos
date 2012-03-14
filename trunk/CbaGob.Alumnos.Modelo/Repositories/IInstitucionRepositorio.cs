@@ -13,5 +13,6 @@ namespace CbaGob.Alumnos.Modelo.Repositories
         bool AgregarInstitucion(IInstitucion pInstitucion);
         bool ModificarInstitucion(IInstitucion pInstitucion);
         bool EliminarInstitucion(Int32 IdInstitucion, string nro_resolucion);
+        IList<IInstitucion> BuscarInstitucion(string nombreinstitucion);
     } 
 }

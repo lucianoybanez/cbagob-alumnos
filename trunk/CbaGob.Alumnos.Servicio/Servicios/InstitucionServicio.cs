@@ -104,6 +104,30 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             return result;
         }
 
+        public InstitucionVista BuscarInstitucion(string nombreinstitucion)
+        {
+            try
+            {
+                InstitucionVista mInstitucionVista = new InstitucionVista();
+
+
+                if (nombreinstitucion != null)
+                { mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.BuscarInstitucion(nombreinstitucion); }
+                else
+                {
+                    mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones();
+                }
+
+
+                return mInstitucionVista;
+            }
+            catch (Exception ex)
+            {
+                base.AddError("Error: No se pudo eliminar la Institucion.");
+                return null;
+            }
+        }
+
         public IList<IErrores> GetErrors()
         {
             return base.Errors;

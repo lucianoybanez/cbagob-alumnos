@@ -167,6 +167,12 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         }
 
+        [HttpPost]
+        public ActionResult BuscarInstitucion(InstitucionVista model)
+        {
+            return View("Index", InstitucionServicio.BuscarInstitucion(model.Nombre_InstitucionBusqueda));
+        }
+
 
     }
 }
