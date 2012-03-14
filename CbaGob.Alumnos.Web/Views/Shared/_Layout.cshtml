@@ -1,67 +1,36 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>@ViewBag.Title</title> 
-    @Content.Stylesheet("css/menu.css", Url)
+    <title>@ViewBag.Title</title>
+    @Content.Stylesheet("css/Master.css", Url)
     @Content.Stylesheet("MVCFramework.css", Url)
-    @Content.Stylesheet("css/institucionesViejo.css", Url)  
-    @Content.Stylesheet("start/jquery-ui-1.8.17.custom.css", Url)    
-    @RenderSection("Stylesheets", false)     
+    @Content.Stylesheet("redmond/jquery-ui-1.8.18.custom.css", Url)
+    @Content.Stylesheet("css/Pager.css", Url)
+    @RenderSection("Stylesheets", false)
 </head>
 <body>
-    <div id="todo">
-        <div id="cabecera">
-            <a href="#">
-                <div id="linklogo" style="width: 300px; height: 100px;">
-                </div>
-            </a>
+    <input type="hidden" name="CurrentDate" id="CurrentDate" value="@System.DateTime.Today" />
+    <div id="wrap">
+        <div id="header">
         </div>
-        <div id="contenido">
-            <div id="nav">
-                <ul id="menu">
-                   @* <li><a href="">Inicio</a></li>
-                    <li><a href="">Establecimiento Educativo</a></li>*@
-                </ul>
-            </div>
-            <div id="usu">
-                <div id="icono_usu" style="width: 30px; height: 25px; float: left;">                    
-                    @Html.Image("47_.png",new {width="25", height="25", alt=""})
-                    </div>
-                <div id="nomusu" style="width: 200px; height: 25px; float: left; padding: 10px 5px 5px 5px;">
-                    <strong>Usuario: ADMINISTRADOR</strong></div>
-                <div id="iconoinicio" style="width: 30px; height: 25px; float: left;">
-                 @Html.Image("120_.png", new { width = "25", height = "25", alt = "" })</div>
-                <div id="iconoclose" style="width: 30px; height: 25px; float: left;">
-                 @Html.Image("49_.png", new { width = "25", height = "25", alt = "" })
-               </div>
-            </div>
-            <div id="submenu" style="float: left; position: absolute; left: 69px; top: 135px;">
-                <ul>             
-                    <li>@Html.ActionLink("Instituciones", "Index", "Instituciones", null, new { @class = ViewBag.Title.Contains("Instituciones") ? "activo" : "" })</li>
-                    <li>@Html.ActionLink("Establecimientos", "Index", "Establecimientos", null, new { @class = ViewBag.Title.Contains("Establecimientos") ? "activo" : "" })</li>
-                    <li>@Html.ActionLink("Cursos", "Index", "Cursos", null, new { @class = ViewBag.Title.Contains("Cursos") ? "activo" : "" })</li>
-                    <li>@Html.ActionLink("Docentes", "Index", "Docentes", null, new { @class = ViewBag.Title.Contains("Docentes") ? "activo" : "" })</li>
-                    <li>@Html.ActionLink("Alumnos", "Index", "Alumnos", null, new { @class = ViewBag.Title.Contains("Alumnos") ? "activo" : "" })</li>
-                    <li>@Html.ActionLink("Grupos", "Index", "Grupos", null, new { @class = ViewBag.Title.Contains("Grupos") ? "activo" : "" })</li>
-                    <li>@Html.ActionLink("Facturas", "Index", "Factura", null, new { @class = ViewBag.Title.Contains("Facturas") ? "activo" : "" })</li>
-                </ul>
-            </div>
-            <br />
-            <br />
-            @RenderBody()
+        <div id="menu">
+            
         </div>
-       @* <div id="pie">
-            <div id="Copy">
-                Copyright © - Terminos de Uso - Gobierno de Córdoba - Contáctenos
+        <div id="out" align="right">@Html.Action("GetLoguedUser", "Account")
+        </div>
+        <div id="content">
+            <div class="center">
+                @RenderBody()
+                <div align="center" > <a href="javaScript:history.back();">Volver Atras</a></div>
+               
+            </div>          
+            <div style="clear: both;">
             </div>
-        </div>*@
+        </div>
+        <div id="footer">
+            Copyright - Terminos de Uso - Gobierno de Córdoba - Contáctenos
+        </div>
     </div>
-    @Content.Script("jquery-1.5.1.min.js", Url)    
-    @Content.Script("jquery.unobtrusive-ajax.min.js", Url)
-    @Content.Script("jquery.validate.min.js", Url)   
-    @Content.Script("jquery.validate.unobtrusive.min.js", Url)    
-    @Content.Script("jquery-ui-1.8.11.min.js", Url)
-    @Content.Script("CbaGob.Alumnos.Global.js", Url)    
-    @RenderSection("Scripts", false)
+   
 </body>
 </html>
