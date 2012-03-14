@@ -15,7 +15,7 @@
                            Nro Resolución</div>
                     </th>
                     <th height="30" width="200">
-                        <div align="right" style="margin-right: 2px;">
+                        <div align="center" style="margin-right: 2px;">
                         Acción</div>
                     </th>
                 </tr>
@@ -30,7 +30,7 @@
                         <td align="center">
                             @item.NRORESOLUCION
                         </td>
-                        <td align="right" style="margin-right: 2px;">
+                        <td align="center" style="margin-right: 2px;">
                             @Html.ActionLink("Modificar", "Modificar", "Cursos", new { id_curso = item.ID_CURSO }, new { @class = "btnIngresar" })
                             @Html.ActionLink("Eliminar", "Eliminar", "Cursos", new { id_curso = item.ID_CURSO }, new { @class = "btnIngresar" })
                         </td>
