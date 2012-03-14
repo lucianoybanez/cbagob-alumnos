@@ -13,9 +13,9 @@ namespace CbaGob.Alumnos.Servicio.Servicios
     {
         private IPersonaRepositorio PersonaRepositorio;
 
-        public PersonaServicio()
+        public PersonaServicio(IPersonaRepositorio personaRepositorio)
         {
-            PersonaRepositorio = new PersonaRepositorio();
+            PersonaRepositorio = personaRepositorio;
         }
 
         public UsuarioVista BuscarUsuario(UsuarioVista vista)

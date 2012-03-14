@@ -18,9 +18,9 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         private IInstitucionRepositorio mInstitucionRepositorio;
 
 
-        public InstitucionServicio()
+        public InstitucionServicio(IInstitucionRepositorio mInstitucionRepositorio)
         {
-            mInstitucionRepositorio = new InstitucionRepositorio();
+            this.mInstitucionRepositorio = mInstitucionRepositorio;
         }
 
         public IList<IInstitucion> GetTodas()

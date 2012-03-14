@@ -1,6 +1,7 @@
 ﻿using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Modelo.Repositories;
 using CbaGob.Alumnos.Repositorio;
+using CbaGob.Alumnos.Servicio.Servicios;
 using NUnit.Framework;
 
 namespace CbaGob.Alumnos.Test.Repositories
@@ -15,7 +16,7 @@ namespace CbaGob.Alumnos.Test.Repositories
         public void Setup()
         {
           
-            _usuarioRepositorio = new UsuarioRepositorio();
+           
         }
 
         [Test]

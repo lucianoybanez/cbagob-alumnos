@@ -20,14 +20,13 @@ namespace CbaGob.Alumnos.Web.Controllers
         private IGrupoServicio gruposservicio;
 
 
-        public SupervicionesController(ICondicionesCursoServicio pcondicionescursoservicio)
+        public SupervicionesController(ISupervicionesServicio supervicionesservicio, IInstitucionServicio institucionservicio, ICondicionesCursoServicio condicionescursoservicio, IGrupoServicio gruposservicio)
         {
-            supervicionesservicio = new SupervicionesServicio();
-            institucionservicio = new InstitucionServicio();
-            condicionescursoservicio = pcondicionescursoservicio;
-            gruposservicio = new GrupoServicio();
+            this.supervicionesservicio = supervicionesservicio;
+            this.institucionservicio = institucionservicio;
+            this.condicionescursoservicio = condicionescursoservicio;
+            this.gruposservicio = gruposservicio;
         }
-
 
         public ActionResult Index()
         {

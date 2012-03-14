@@ -287,7 +287,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             texto.Append("Por cuanto: '" + inscripcion.ApellidoAlumno + ", "+inscripcion.NombreAlumno + "' documento Nº " + alumno.Nro_Documento);
             texto.Append(", ha aprobado el curso de capacitación en la especialidad de '" + inscripcion.NombreCurso + "'");
             texto.Append(", dictado en la institucion: '" + inscripcion.NombreInstitucion + "'");
-            texto.Append(", perteneciente a la Agencia de promocion y formación de empleo");
+            texto.Append(", perteneciente a la Agencia de Promocion y Formación de empleo");
             texto.Append(", con la duracion de " + condicion.CargaHoraria + " horas reloj");
             texto.Append(", aprobado por la resolucion Nº " + condicion.Nro_Resolucion + ".");
             vista.Texto = texto.ToString();

@@ -18,9 +18,9 @@ namespace CbaGob.Alumnos.Servicio.Servicios
     {
         private IMovimientoRepositorio movimientorepositorio;
 
-        public MovimientoServicio()
+        public MovimientoServicio(IMovimientoRepositorio movimientorepositorio)
         {
-            movimientorepositorio = new MovimientoRepositorio();
+            this.movimientorepositorio = movimientorepositorio;
         }
 
         public IMovimientosVista GetMovimientosByCajaChica(int id_caja_chica)

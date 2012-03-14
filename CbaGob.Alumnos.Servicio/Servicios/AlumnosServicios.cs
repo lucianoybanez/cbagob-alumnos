@@ -20,14 +20,14 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         private ITipo_DniRepositorio tipo_dnirepositorio;
         private ITipo_EstadoCivilRepositorio tipo_estadocivilrepositorio;
         private ITipo_SexoRepositorio tipo_sexorepositorio;
-            
 
-        public AlumnosServicios()
+
+        public AlumnosServicios(IAlumnosRepositorio alumnosrepositorio, ITipo_DniRepositorio tipoDnirepositorio, ITipo_EstadoCivilRepositorio tipoEstadocivilrepositorio, ITipo_SexoRepositorio tipoSexorepositorio)
         {
-            alumnosrepositorio = new AlumnosRepositorio();
-            tipo_dnirepositorio = new Tipo_DniRepositorio();
-            tipo_estadocivilrepositorio = new Tipo_EstadoCivilRepositorio();
-            tipo_sexorepositorio = new Tipo_SexoRepositorio();
+            this.alumnosrepositorio = alumnosrepositorio;
+            tipo_dnirepositorio = tipoDnirepositorio;
+            tipo_estadocivilrepositorio = tipoEstadocivilrepositorio;
+            tipo_sexorepositorio = tipoSexorepositorio;
         }
 
         public IAlumnosVista GetTodos()

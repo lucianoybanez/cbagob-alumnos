@@ -15,9 +15,9 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         private IHorarioRepositorio horariorepositorio;
 
 
-        public HorarioServicio()
+        public HorarioServicio(IHorarioRepositorio Horariorepositorio)
         {
-            horariorepositorio = new HorarioRepositorio();
+            horariorepositorio = Horariorepositorio;
         }
 
         public IHorariosVista GetHorarios()

@@ -18,10 +18,10 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         private IPrestamoRepositorio prestamorepositorio;
         private IEquipoRepositorio equiporepositorio;
 
-        public PrestamoServicio()
+        public PrestamoServicio(IPrestamoRepositorio prestamorepositorio, IEquipoRepositorio equiporepositorio)
         {
-            prestamorepositorio = new PrestamoRepositorio();
-            equiporepositorio = new EquipoRepositorio();
+            this.prestamorepositorio = prestamorepositorio;
+            this.equiporepositorio = equiporepositorio;
         }
 
         public IPrestamosVista GetPrestamos()

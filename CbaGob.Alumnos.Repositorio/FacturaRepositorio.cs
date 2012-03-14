@@ -14,7 +14,7 @@ namespace CbaGob.Alumnos.Repositorio
     {
         private CursosDB mDB;
 
-        public FacturaRepositorio()
+        public FacturaRepositorio(ILoggedUserHelper helper):base(helper)
         {
             mDB = new CursosDB();
         }

@@ -13,8 +13,21 @@ namespace CbaGob.Alumnos.Web.Controllers
 {
     public class BuscadorController : Controller
     {
-        //
-        // GET: /Buscador/
+        private IPersonaServicio personaservicio;
+        private IEquipoServicio equiposervicio;
+        private ISupervisoresServicio supervisoresservicio;
+        private IInstitucionServicio institucionservicio;
+        private IEstablecimientoServicio establecimientoservicio;
+
+
+        public BuscadorController(IPersonaServicio personaservicio, IEquipoServicio equiposervicio, ISupervisoresServicio supervisoresservicio, IInstitucionServicio institucionservicio, IEstablecimientoServicio establecimientoservicio)
+        {
+            this.personaservicio = personaservicio;
+            this.equiposervicio = equiposervicio;
+            this.supervisoresservicio = supervisoresservicio;
+            this.institucionservicio = institucionservicio;
+            this.establecimientoservicio = establecimientoservicio;
+        }
 
         public ActionResult Index()
         {
@@ -22,11 +35,9 @@ namespace CbaGob.Alumnos.Web.Controllers
         }
 
 
-
         [HttpPost]
         public ActionResult Personas(string busqueda, string IdRelacionado)
         {
-            IPersonaServicio personaservicio = new PersonaServicio();
             IList<IPersona> lista = personaservicio.GetTodas();
 
             return Json(lista.ToArray());
@@ -35,7 +46,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         [HttpPost]
         public ActionResult Equipos(string busqueda, string IdRelacionado)
         {
-            IEquipoServicio equiposervicio = new EquipoServicio();
+            
             IList<IEquipo> lista = equiposervicio.GetEquipos().ListaEquipos.Where(c => c.N_Equipos.StartsWith(busqueda) && c.Id_Estado_Equipo != 2).ToList();
 
             return Json(lista.ToArray());
@@ -53,7 +64,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         [HttpPost]
         public ActionResult Supervisores(string busqueda, string IdRelacionado)
         {
-            ISupervisoresServicio supervisoresservicio = new SupervisoresServicio();
+            
             IList<ISupervisores> lista = supervisoresservicio.GetSupervisoresByRazonSocial(busqueda).ListaSupervisores;
 
             return Json(lista.ToArray());
@@ -74,7 +85,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         [HttpPost]
         public ActionResult Instituciones(string busqueda, string IdRelacionado)
         {
-            IInstitucionServicio institucionservicio = new InstitucionServicio();
+            
             IList<IInstitucion> lista = institucionservicio.GetTodas();
 
             lista = lista.Where(c => (c.Nombre_Institucion.ToLower().Contains(busqueda.ToLower()))).ToList();
@@ -86,7 +97,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         [HttpPost]
         public ActionResult Estableciminetos(string busqueda, string IdRelacionado)
         {
-            IEstablecimientoServicio establecimientoservicio = new EstablecimientoServicio();
+           
             IList<IEstablecimiento> lista = establecimientoservicio.GetAllEstableciminetoByInstitucion(Convert.ToInt32(IdRelacionado)).ListaEstablecimiento;
 
             lista = lista.Where(c => (c.NombreEstablecimiento.ToLower().Contains(busqueda.ToLower()))).ToList();

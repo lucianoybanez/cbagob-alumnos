@@ -20,11 +20,11 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         private IInstitucionRepositorio institucionrepositorio;
         private IMovimientoRepositorio movimientorepositorio;
 
-        public CajaChicaServicio()
+        public CajaChicaServicio(ICajaChicaRepositorio cajachicarepositorio, IInstitucionRepositorio institucionrepositorio, IMovimientoRepositorio movimientorepositorio)
         {
-            cajachicarepositorio = new CajaChicaRepositorio();
-            institucionrepositorio = new InstitucionRepositorio();
-            movimientorepositorio = new MovimientoRepositorio();
+            this.cajachicarepositorio = cajachicarepositorio;
+            this.institucionrepositorio = institucionrepositorio;
+            this.movimientorepositorio = movimientorepositorio;
         }
 
         public ICajaChicasVista GetCajaChicas()

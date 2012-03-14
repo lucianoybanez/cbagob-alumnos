@@ -19,11 +19,12 @@ namespace CbaGob.Alumnos.Web.Controllers
         private IInstitucionServicio institucionservicio;
         private ICondicionesCursoServicio condicionescursoservicio;
 
-        public FacturaController(IFacturaServicio facturaServicio, ICondicionesCursoServicio pcondicionescursoservicio)
+
+        public FacturaController(IFacturaServicio facturaServicio, IInstitucionServicio institucionservicio, ICondicionesCursoServicio condicionescursoservicio)
         {
             FacturaServicio = facturaServicio;
-            institucionservicio = new InstitucionServicio();
-            condicionescursoservicio = pcondicionescursoservicio;
+            this.institucionservicio = institucionservicio;
+            this.condicionescursoservicio = condicionescursoservicio;
         }
 
         public ActionResult Index()

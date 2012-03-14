@@ -18,10 +18,10 @@ namespace CbaGob.Alumnos.Web.Controllers
         private IMovimientoServicio movimientoservicio;
 
 
-        public CajaChicaController()
+        public CajaChicaController(ICajaChicaServicio cajachicaservicio, IMovimientoServicio movimientoservicio)
         {
-            cajachicaservicio = new CajaChicaServicio();
-            movimientoservicio = new MovimientoServicio();
+            this.cajachicaservicio = cajachicaservicio;
+            this.movimientoservicio = movimientoservicio;
         }
 
         public ActionResult Index()

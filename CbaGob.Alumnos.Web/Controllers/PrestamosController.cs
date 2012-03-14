@@ -17,9 +17,10 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         private IPrestamoServicio prestamoservicio;
 
-        public PrestamosController()
+
+        public PrestamosController(IPrestamoServicio prestamoservicio)
         {
-            prestamoservicio = new PrestamoServicio();
+            this.prestamoservicio = prestamoservicio;
         }
 
         public ActionResult Index()

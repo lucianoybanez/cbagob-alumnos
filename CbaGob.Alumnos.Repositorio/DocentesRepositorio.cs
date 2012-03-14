@@ -13,7 +13,7 @@ namespace CbaGob.Alumnos.Repositorio
     {
         public CursosDB mDb;
 
-        public DocentesRepositorio()
+        public DocentesRepositorio(ILoggedUserHelper helper):base(helper)
         {
             mDb = new CursosDB();
         }

@@ -17,9 +17,16 @@ namespace CbaGob.Alumnos.Web.Controllers
     {
         private ICondicionesCursoServicio CondicionesCursoServicio;
 
-        public CondicionesCursoController(ICondicionesCursoServicio condicionesCursoServicio)
+        private IGrupoServicio gruposervicio;
+
+        private IAlumnosServicios alumnoservicio;
+
+
+        public CondicionesCursoController(ICondicionesCursoServicio condicionesCursoServicio, IGrupoServicio gruposervicio, IAlumnosServicios alumnoservicio)
         {
             CondicionesCursoServicio = condicionesCursoServicio;
+            this.gruposervicio = gruposervicio;
+            this.alumnoservicio = alumnoservicio;
         }
 
         public ActionResult AgregarCondicionCurso(int idInstitucion)
@@ -38,10 +45,6 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         public ActionResult VerCondicionCurso(int idCondicionCurso)
         {
-            IGrupoServicio gruposervicio = new GrupoServicio();
-
-            IAlumnosServicios alumnoservicio = new AlumnosServicios();
-
             ICondicionCursoVista model = CondicionesCursoServicio.GetForModificacion(idCondicionCurso);
 
             model.ListaGrupos = gruposervicio.GetAllGrupoByCurso(idCondicionCurso).ListaGrupos;

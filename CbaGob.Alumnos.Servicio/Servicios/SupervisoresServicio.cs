@@ -17,9 +17,9 @@ namespace CbaGob.Alumnos.Servicio.Servicios
     {
         private ISupervisoresRepositorio supervisoresrepositorio;
 
-        public SupervisoresServicio()
+        public SupervisoresServicio(ISupervisoresRepositorio Supervisoresrepositorio)
         {
-            supervisoresrepositorio = new SupervisoresRepositorio();
+            supervisoresrepositorio = Supervisoresrepositorio;
         }
 
         public ISupervisoresVista GetSupervisores()

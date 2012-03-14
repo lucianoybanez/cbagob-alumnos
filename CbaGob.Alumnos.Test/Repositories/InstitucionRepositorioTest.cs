@@ -17,8 +17,7 @@ namespace CbaGob.Alumnos.Test.Repositories
         [SetUp]
         public void Setup()
         {
-            _institucionRepositorio = new InstitucionRepositorio();
-            AlumnosRepositorio = new AlumnosRepositorio();
+           
         }
 
         [Test]

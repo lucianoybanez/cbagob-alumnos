@@ -16,17 +16,17 @@ namespace CbaGob.Alumnos.Web.Controllers
     public class InstitucionesController : BaseController
     {
         private IInstitucionServicio InstitucionServicio;
-        private IDomiciliosServicios Domiciliosdervicios;
         private ICondicionesCursoServicio CondicionesCursoServicio;
-        private ICajaChicaServicio cajachicaservice;
+        private ICajaChicaServicio Cajachicaservice;
+        private IEstablecimientoServicio Establecimientoservicio;
 
 
-        public InstitucionesController(IInstitucionServicio institucionServicio, IDomiciliosServicios domiciliosdervicios, ICondicionesCursoServicio condicionesCursoServicio)
+        public InstitucionesController(IInstitucionServicio institucionServicio, ICondicionesCursoServicio condicionesCursoServicio, ICajaChicaServicio cajachicaservice, IEstablecimientoServicio establecimientoservicio)
         {
             InstitucionServicio = institucionServicio;
-            Domiciliosdervicios = domiciliosdervicios;
             CondicionesCursoServicio = condicionesCursoServicio;
-            cajachicaservice = new CajaChicaServicio();
+            Cajachicaservice = cajachicaservice;
+            Establecimientoservicio = establecimientoservicio;
         }
 
         public ActionResult Index()
@@ -36,19 +36,15 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         public ActionResult Modificar(Int32 INST_ID)
         {
-
-            IInstitucionServicio mInstitucionServicio = new InstitucionServicio();
-
-            IInstitucionVista model = mInstitucionServicio.GetUnaVista(INST_ID);
+            IInstitucionVista model = InstitucionServicio.GetUnaVista(INST_ID);
 
             return View("Modificar", model);
         }
 
         public ActionResult Eliminar(Int32 INST_ID)
         {
-            IInstitucionServicio mInstitucionServicio = new InstitucionServicio();
 
-            IInstitucionVista model = mInstitucionServicio.GetUnaVista(INST_ID);
+            IInstitucionVista model = InstitucionServicio.GetUnaVista(INST_ID);
 
             model.Nro_Resolucion = "";
 
@@ -60,13 +56,11 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             IInstitucionVista model = InstitucionServicio.GetUnaVista(INST_ID);
 
-            IEstablecimientoServicio establecimientoservicio = new EstablecimientoServicio();
-
-            model.ListaEstablecimiento = establecimientoservicio.GetAllEstableciminetoByInstitucion(model.Id_Institucion).ListaEstablecimiento;
+            model.ListaEstablecimiento = Establecimientoservicio.GetAllEstableciminetoByInstitucion(model.Id_Institucion).ListaEstablecimiento;
 
             model.CondicionesCursos = CondicionesCursoServicio.GetByInstitucionId(INST_ID).CondicionesCursos;
 
-            model.CajaChica = cajachicaservice.GetCajaChicasByInstitucion(INST_ID);
+            model.CajaChica = Cajachicaservice.GetCajaChicasByInstitucion(INST_ID);
 
             return View("Ver", model);
         }
@@ -96,9 +90,9 @@ namespace CbaGob.Alumnos.Web.Controllers
             mInstitucion.Nro_Resolucion = model.Nro_Resolucion;
 
 
-            IInstitucionServicio mInstitucionServicio = new InstitucionServicio();
 
-            bool mReturn = mInstitucionServicio.AgregarInstitucion(mInstitucion);
+
+            bool mReturn = InstitucionServicio.AgregarInstitucion(mInstitucion);
             if (mReturn)
             {
                 return View("Index", InstitucionServicio.GetIndex());
@@ -110,8 +104,6 @@ namespace CbaGob.Alumnos.Web.Controllers
         [HttpPost]
         public ActionResult Modificar_Institucion(InstitucionVista model)
         {
-
-            IInstitucionServicio mInstitucionServicio = new InstitucionServicio();
 
             IInstitucion mInstitucion = new Institucion();
 
@@ -131,7 +123,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             mInstitucion.Nro_Resolucion = model.Nro_Resolucion;
 
 
-            bool ret = mInstitucionServicio.ModificarInstitucion(mInstitucion);
+            bool ret = InstitucionServicio.ModificarInstitucion(mInstitucion);
             if (ret)
             {
                 return View("Index", InstitucionServicio.GetIndex());
@@ -145,9 +137,9 @@ namespace CbaGob.Alumnos.Web.Controllers
         public ActionResult Eliminar_Institucion(InstitucionVista model)
         {
 
-            IInstitucionServicio mInstitucionServicio = new InstitucionServicio();
 
-            bool mReturn = mInstitucionServicio.EliminarInstitucion(model.Id_Institucion, model.Nro_Resolucion);
+
+            bool mReturn = InstitucionServicio.EliminarInstitucion(model.Id_Institucion, model.Nro_Resolucion);
             if (mReturn)
             {
                 return View("Index", InstitucionServicio.GetIndex());

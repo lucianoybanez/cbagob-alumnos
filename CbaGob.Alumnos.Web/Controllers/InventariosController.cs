@@ -16,11 +16,11 @@ namespace CbaGob.Alumnos.Web.Controllers
         // GET: /Inventarios/
         private IInventarioServicio inventarioservicio;
 
-        public InventariosController()
-        {
-            inventarioservicio = new InventarioServicio();
-        }
 
+        public InventariosController(IInventarioServicio inventarioservicio)
+        {
+            this.inventarioservicio = inventarioservicio;
+        }
 
         public ActionResult Index()
         {

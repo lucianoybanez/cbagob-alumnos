@@ -15,11 +15,11 @@ namespace CbaGob.Alumnos.Servicio.Servicios
     {
         private IEquipoRepositorio  equiporepositorio;
         private IEstado_EquipoRepositorio estado_equiporepositorio;
- 
-        public InventarioServicio()
+
+        public InventarioServicio(IEquipoRepositorio Equiporepositorio, IEstado_EquipoRepositorio Estado_equiporepositorio)
         {
-            equiporepositorio = new EquipoRepositorio();
-            estado_equiporepositorio = new Estado_EquipoRepositorio();
+            equiporepositorio = Equiporepositorio;
+            estado_equiporepositorio = Estado_equiporepositorio;
         }
 
 

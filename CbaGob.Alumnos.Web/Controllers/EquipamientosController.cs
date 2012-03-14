@@ -17,11 +17,11 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         private IEquipoServicio equiposervicio;
 
-        public EquipamientosController()
-        {
-            equiposervicio = new EquipoServicio();
-        }
 
+        public EquipamientosController(IEquipoServicio equiposervicio)
+        {
+            this.equiposervicio = equiposervicio;
+        }
 
         public ActionResult Index()
         {

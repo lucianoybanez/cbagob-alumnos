@@ -20,10 +20,11 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         private ICursosRepositorio mCursosRepositorio;
         private IAreasTipoCursoServicio areacursoservicio;
 
-        public CursosServicios()
+
+        public CursosServicios(ICursosRepositorio mCursosRepositorio, IAreasTipoCursoServicio areacursoservicio)
         {
-            mCursosRepositorio = new CursosRepositorio();
-            areacursoservicio = new AreasTipoCursoServicio();
+            this.mCursosRepositorio = mCursosRepositorio;
+            this.areacursoservicio = areacursoservicio;
         }
 
         public IList<ICursos> GetTodosbyInstitucion(int IdInstitucion)

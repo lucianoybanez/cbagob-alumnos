@@ -21,8 +21,8 @@ namespace CbaGob.Alumnos.Test.Repositories
         [SetUp]
         public void Setup()
         {
-            repo = new CondicionCursoRepositorio();
-            InscripcionRepositorio = new InscripcionRepositorio();
+            //repo = new CondicionCursoRepositorio();
+            //InscripcionRepositorio = new InscripcionRepositorio();
 
         }
 

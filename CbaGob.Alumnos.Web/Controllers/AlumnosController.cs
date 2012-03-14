@@ -22,10 +22,10 @@ namespace CbaGob.Alumnos.Web.Controllers
         private IPersonaServicio personaservicio;
 
 
-        public AlumnosController()
+        public AlumnosController(IAlumnosServicios alumnosservicios, IPersonaServicio personaservicio)
         {
-            alumnosservicios = new AlumnosServicios();
-            personaservicio = new PersonaServicio();
+            this.alumnosservicios = alumnosservicios;
+            this.personaservicio = personaservicio;
         }
 
         public ActionResult Index()

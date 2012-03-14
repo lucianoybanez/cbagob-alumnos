@@ -13,7 +13,7 @@ namespace CbaGob.Alumnos.Repositorio
     {
         private CursosDB mDB;
 
-        public AreaTipoCursoRepositorio()
+        public AreaTipoCursoRepositorio(ILoggedUserHelper helper):base(helper)
         {
             mDB = new CursosDB();
             mDB.ContextOptions.LazyLoadingEnabled = false;

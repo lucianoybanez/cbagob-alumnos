@@ -16,9 +16,9 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         private IAreaTipoCursoRepositorio areatipocursorepositorio;
 
 
-        public AreasTipoCursoServicio()
+        public AreasTipoCursoServicio(IAreaTipoCursoRepositorio Areatipocursorepositorio)
         {
-            areatipocursorepositorio = new AreaTipoCursoRepositorio();
+            areatipocursorepositorio = Areatipocursorepositorio;
         }
 
 

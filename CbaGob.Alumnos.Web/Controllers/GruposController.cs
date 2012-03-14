@@ -15,12 +15,17 @@ namespace CbaGob.Alumnos.Web.Controllers
         private IGrupoServicio gruposervicio;
         private ICondicionesCursoServicio CondicionesCursoServicio;
         private IHorarioServicio horarioservicio;
+        private IAlumnosServicios alumnosservicios;
+        private IDocentesServicio docentesservicio;
 
-        public GruposController(ICondicionesCursoServicio condicionesCursoServicio)
+
+        public GruposController(IGrupoServicio gruposervicio, ICondicionesCursoServicio condicionesCursoServicio, IHorarioServicio horarioservicio, IAlumnosServicios alumnosservicios, IDocentesServicio docentesservicio)
         {
-            gruposervicio = new GrupoServicio();
+            this.gruposervicio = gruposervicio;
             CondicionesCursoServicio = condicionesCursoServicio;
-            horarioservicio = new HorarioServicio();
+            this.horarioservicio = horarioservicio;
+            this.alumnosservicios = alumnosservicios;
+            this.docentesservicio = docentesservicio;
         }
 
         public ActionResult Index()
@@ -88,15 +93,13 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             IGrupoVista model = new GrupoVista();
 
-            IAlumnosServicios alumnosservicios = new AlumnosServicios();
+           
 
             model = gruposervicio.GetGrupo(id_grupo);
 
             model.ListaAlumnos = alumnosservicios.GetTodosAlumnosSinGrupo(model.Id_Condicion_Curso).ListaAlumno;
 
             model.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, model.Id_Condicion_Curso).ListaAlumno;
-
-            IDocentesServicio docentesservicio = new DocentesServicio();
 
             model.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo).ListaDocentes;
 
@@ -109,8 +112,6 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             IGrupoVista model = new GrupoVista();
 
-            IAlumnosServicios alumnosservicios = new AlumnosServicios();
-
             model = gruposervicio.GetGrupo(id_grupo);
 
             bool mret = alumnosservicios.AsiganraGrupo(id_grupo, id_alumno, id_condicon_curso);
@@ -119,7 +120,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             model.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, model.Id_Condicion_Curso).ListaAlumno;
 
-            IDocentesServicio docentesservicio = new DocentesServicio();
+            
 
             model.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo).ListaDocentes;
 
@@ -132,7 +133,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             IGrupoVista model = new GrupoVista();
 
-            IAlumnosServicios alumnosservicios = new AlumnosServicios();
+           
 
             model = gruposervicio.GetGrupo(id_grupo);
 
@@ -142,7 +143,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             model.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, model.Id_Condicion_Curso).ListaAlumno;
 
-            IDocentesServicio docentesservicio = new DocentesServicio();
+            
 
             model.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo).ListaDocentes;
 
@@ -155,9 +156,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             IGrupoVista model = new GrupoVista();
 
-            IAlumnosServicios alumnosservicios = new AlumnosServicios();
-
-            IDocentesServicio docentesservicio = new DocentesServicio();
+          
 
             model = gruposervicio.GetGrupo(id_grupo);
 
@@ -180,9 +179,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             IGrupoVista model = new GrupoVista();
 
-            IAlumnosServicios alumnosservicios = new AlumnosServicios();
-
-            IDocentesServicio docentesservicio = new DocentesServicio();
+          
 
             model = gruposervicio.GetGrupo(id_grupo);
 
@@ -205,10 +202,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             IGrupoVista model = new GrupoVista();
 
-            IAlumnosServicios alumnosservicios = new AlumnosServicios();
-
-            IDocentesServicio docentesservicio = new DocentesServicio();
-
+           
             horarioservicio.AgregarHorarioAGrupo(id_grupo, id_horario);
 
             model = gruposervicio.GetGrupo(id_grupo);
@@ -230,9 +224,6 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             IGrupoVista model = new GrupoVista();
 
-            IAlumnosServicios alumnosservicios = new AlumnosServicios();
-
-            IDocentesServicio docentesservicio = new DocentesServicio();
 
             horarioservicio.SacarHorarioAGrupo(id_grupo, id_horario);
 
