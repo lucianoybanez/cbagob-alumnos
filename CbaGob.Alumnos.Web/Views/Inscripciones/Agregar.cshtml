@@ -133,6 +133,15 @@
                                     @Html.ValidationMessageFor(m => m.FechaFin, "*")
                                 </td>
                             </tr>
+                            <tr>
+                                <td align="left">
+                                    <b>Nro Resolucion:</b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.TextBoxFor(c => c.NumeroResolucion, new { @readonly = "readonly" })
+                                    @Html.ValidationMessageFor(m => m.NumeroResolucion, "*")
+                                </td>
+                            </tr>
                         </table>
                         <table align="center" width="700px">
                             <tr>
@@ -288,11 +297,12 @@
                             width: 700px;">
                             <tr>
                                 <td align="right">
-                                    @Html.ActionLink("Emitir Certificado", "EmitirCertificado", "Inscripciones", new { idInscripcion = Model.IdInscripcion}, new { @class="btnIngresar" })
-                                </td>                                
+                                    @Html.ActionLink("Emitir Certificado", "EmitirCertificado", "Inscripciones", new { idInscripcion = Model.IdInscripcion }, new { @class = "btnIngresar" })
+                                </td>
                             </tr>
                             <tr>
-                            <td></td>
+                                <td>
+                                </td>
                             </tr>
                         </table>
                     </fieldset>

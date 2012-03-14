@@ -30,6 +30,8 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         [Required]
         public string NombreAlumno { get; set; }
 
+        public string NumeroResolucion { get; set; }
+
         public DateTime? FechaInicio { get; set; }
         public DateTime? FechaFin { get; set; }
 
