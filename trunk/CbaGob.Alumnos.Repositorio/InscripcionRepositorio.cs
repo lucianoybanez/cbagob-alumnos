@@ -54,6 +54,7 @@ namespace CbaGob.Alumnos.Repositorio
                                  Dni = c.T_ALUMNOS.NRO_DOCUMENTO,
                                  FechaFin = c.T_CONDICIONES_CURSO.FEC_FIN,
                                  FechaIncio = c.T_CONDICIONES_CURSO.FEC_INICIO,
+                                 NroResolucion = c.T_CONDICIONES_CURSO.NRO_RESOLUCION
                              });
             return a;
         }

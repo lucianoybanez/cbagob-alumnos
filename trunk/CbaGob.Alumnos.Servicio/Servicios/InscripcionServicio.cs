@@ -98,6 +98,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                         NombrePrograma = inscripcion.NombrePrograma,
                         FechaFin = inscripcion.FechaFin,
                         FechaInicio = inscripcion.FechaIncio,
+                        NumeroResolucion = inscripcion.NroResolucion,
                         Presentismo = GetPresentismo(id_inscripcion, condicion),
                         examens = GetExamenes(id_inscripcion, condicion)
                     };

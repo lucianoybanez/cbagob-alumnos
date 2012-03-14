@@ -26,6 +26,7 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
 
         int IdAlumno { get; set; }
         string NombreAlumno { get; set; }
+        string NumeroResolucion { get; set; }
 
         DateTime? FechaInicio { get; set; }
         DateTime? FechaFin { get; set; }
