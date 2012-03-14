@@ -18,7 +18,7 @@
                             Monto</div>
                     </th>
                     <th height="30">
-                        <div align="right" style="margin-right: 2px;">
+                        <div align="center" style="margin-right: 2px;">
                             Accion</div>
                     </th>
                 </tr>
@@ -36,7 +36,7 @@
                         <td align="center">
                             @item.Monto
                         </td>
-                        <td align="right" style="margin-right: 2px;">
+                        <td align="center" style="margin-right: 2px;">
                             @Html.ActionLink("Modificar", "Modificar", "Movimiento", new { id_institucion = Model.Id_Institucion, Id_Movimineto = item.Id_Movimiento }, new { @class = "btnIngresar" })
                             @Html.ActionLink("Eliminar", "Eliminar", "Movimiento", new { id_institucion = Model.Id_Institucion, Id_Movimineto = item.Id_Movimiento }, new { @class = "btnIngresar" })
                         </td>
@@ -79,7 +79,7 @@ else
             </td>
         </tr>
         <tr>
-            <td align="right" width="722px">
+            <td align="right" width="722px" height="35px">
                 @Html.ActionLink("Agregar Movimiento", "Agregar", "Movimiento", new { id_institucion = Model.Id_Institucion, Id_Caja_Chica = Model.Id_Caja_Chica }, new { @class = "btnIngresar" })
             </td>
     </table>
