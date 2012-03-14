@@ -358,5 +358,24 @@ namespace CbaGob.Alumnos.Repositorio
             return true;
 
         }
+
+        public IList<IAlumnos> BuscarAlumnos(string nombre, string apellido, string dni, string cuil)
+        {
+            try
+            {
+                nombre = nombre == "" ? null : nombre;
+                apellido = apellido == "" ? null : apellido;
+                dni = dni == "" ? null : dni;
+                cuil = cuil == "" ? null : cuil;
+
+                return QAlumnos().Where(c => (c.Nombre.ToLower().StartsWith(nombre.ToLower()) || nombre == null) && (c.Apellido.ToLower().StartsWith(apellido.ToLower()) || apellido == null) && (c.Cuil.ToLower().StartsWith(cuil.ToLower()) || cuil == null) && (c.Nro_Documento.ToLower().StartsWith(dni.ToLower()) || dni == null)).ToList();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

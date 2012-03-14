@@ -20,5 +20,6 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
         bool Eliminar(int id_docente, string nroresolucion);
         bool AsignarDocentes(int id_docente, int id_grupo, int id_condicion_curso);
         bool DesasignarDocentes(int id_docente, int id_grupo, int id_condicion_curso);
+        IDocentesVista BuscarDocente(string razonsocial, string cuit_cuil);
     }
 }

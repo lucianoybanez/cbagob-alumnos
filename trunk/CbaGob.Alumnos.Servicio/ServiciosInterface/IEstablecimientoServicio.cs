@@ -7,7 +7,7 @@ using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.ServiciosInterface
 {
-    public interface IEstablecimientoServicio: IBaseServicio
+    public interface IEstablecimientoServicio : IBaseServicio
     {
         IEstablecimientosVista GetAllEstablecimiento();
         IEstablecimientosVista GetAllEstableciminetoByInstitucion(int id_institucion);
@@ -15,5 +15,6 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
         bool AgregarEstablecimiento(IEstablecimientoVista establecimiento);
         bool ModificarEstablecimiento(IEstablecimientoVista establecimiento);
         bool EliminarEstablecimiento(int id_establecimiento, string nroresolucion);
+        IEstablecimientosVista BusquedaEstablecimiento(int idinstitucion, string nombreestablecimiento);
     }
 }

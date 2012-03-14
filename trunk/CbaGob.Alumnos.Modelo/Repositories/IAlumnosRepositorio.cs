@@ -17,8 +17,9 @@ namespace CbaGob.Alumnos.Modelo.Repositories
         IAlumnos GetUno(int id_alumno);
         bool Agregar(IAlumnos alumno);
         bool Modificar(IAlumnos alumno);
-        bool Eliminar(int id_alumno , string nro_resolucion);
+        bool Eliminar(int id_alumno, string nro_resolucion);
         bool AsiganraGrupo(int id_grupo, int id_alumno, int id_condicion_curso);
         bool DesasignaraGrupo(int id_grupo, int id_alumno, int id_condicion_curso);
+        IList<IAlumnos> BuscarAlumnos(string nombre, string apellido, string dni, string cuil);
     }
 }

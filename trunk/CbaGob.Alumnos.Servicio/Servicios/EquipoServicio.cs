@@ -157,6 +157,23 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
         }
 
+        public IEquiposVista BusquedaEquipo(string nombreequipo)
+        {
+            try
+            {
+                IEquiposVista equipovista = new EquiposVista();
+                equipovista.ListaEquipos = equiporepositorio.BusquedaEquipo(nombreequipo);
+
+                return equipovista;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         private static void ConvertEstadoEquipo(IEquipoVista vista, IList<IEstado_Equipo> estadoequipo)
         {
             foreach (var est in estadoequipo)

@@ -92,5 +92,11 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Index", docentesservicio.GetIndex());
         }
 
+        [HttpPost]
+        public ActionResult BuscarDocente(DocentesVista model)
+        {
+            return View("Index", docentesservicio.BuscarDocente(model.RazonSocialBusqueda, model.CuilCuitBusqueda));
+        }
+
     }
 }

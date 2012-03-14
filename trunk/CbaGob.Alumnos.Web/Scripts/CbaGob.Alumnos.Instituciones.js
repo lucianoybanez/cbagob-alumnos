@@ -27,6 +27,8 @@ $(document).ready(function () {
         $('#dialog').dialog("open");
     });
 
+    $("#selectedaño").bind("change", function () { $("#añobuscqueda").val($("#selectedaño").val()); });
+
 
 });
 

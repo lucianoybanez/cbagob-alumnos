@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using CbaGob.Alumnos.Servicio.VistasInterface;
 
@@ -13,5 +14,6 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
         bool EliminarCondicionCurso(int IdCondicionCurso, string nroresolucion);
         bool CambiarEstadoCurso(int IdCondicion, int NuevoEstado);
         ICondicionesCursoVista BuscarCondiciones(string institucion, string nivel, string curso, string programa, string año);
+        ICondicionesCursoVista BuscarCondiciones(int idInstitucion, string curso, string año, string programa);
     }
 }

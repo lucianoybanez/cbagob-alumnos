@@ -150,7 +150,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
         }
 
-        public  ICondicionCursoVista GetForAlta(int IdInstitucion)
+        public ICondicionCursoVista GetForAlta(int IdInstitucion)
         {
             var result = InstitucionRepositorio.GetInstitucion(IdInstitucion);
             var niveles = NivelRepositorio.GetNiveles();
@@ -165,7 +165,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             ConvertNiveles(vista, niveles);
             ConvertProgramas(vista, programas);
             ConvertCursos(vista, cursos);
-            ConvertEstadoCurso(vista,estadoCurso);
+            ConvertEstadoCurso(vista, estadoCurso);
 
             vista.Accion = "Alta";
 
@@ -196,13 +196,13 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                                                      Nro_Resolucion = condicion.Nro_Resolucion
                                                  };
 
-            if(condicion.Accion=="Alta")
+            if (condicion.Accion == "Alta")
             {
-                ret =  CondicionCursoRepositorio.AgregarCondicion(condicionCurso);
+                ret = CondicionCursoRepositorio.AgregarCondicion(condicionCurso);
             }
-            else if(condicion.Accion=="Modificacion")
+            else if (condicion.Accion == "Modificacion")
             {
-                ret =  CondicionCursoRepositorio.ModificarCondicion(condicionCurso);
+                ret = CondicionCursoRepositorio.ModificarCondicion(condicionCurso);
             }
             if (!ret)
             {
@@ -226,24 +226,53 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             return CondicionCursoRepositorio.CambiarEstadoCurso(IdCondicion, NuevoEstado);
         }
 
-        public ICondicionesCursoVista BuscarCondiciones(string institucion, string nivel, string curso,string programa, string año)
+        public ICondicionesCursoVista BuscarCondiciones(string institucion, string nivel, string curso, string programa, string año)
         {
             var vista = new CondicionesCursoVista();
             int añoValor = 0;
             try
             {
                 añoValor = int.Parse(año);
-                if (añoValor<1900||añoValor>3000)
+                if (añoValor < 1900 || añoValor > 3000)
                 {
                     throw new Exception();
                 }
             }
-            catch 
+            catch
             {
             }
-            vista.CondicionesCursos = CondicionCursoRepositorio.BuscarCondiciones(institucion, nivel, curso,añoValor,programa);
-           
+            vista.CondicionesCursos = CondicionCursoRepositorio.BuscarCondiciones(institucion, nivel, curso, añoValor, programa);
+
             return vista;
+        }
+
+        public ICondicionesCursoVista BuscarCondiciones(int idInstitucion, string curso, string año, string programa)
+        {
+            try
+            {
+                var vista = new CondicionesCursoVista();
+                int añoValor = 0;
+                try
+                {
+                    añoValor = int.Parse(año);
+                    if (añoValor < 1900 || añoValor > 3000)
+                    {
+                        throw new Exception();
+                    }
+                }
+                catch
+                {
+                }
+
+                vista.CondicionesCursos = CondicionCursoRepositorio.BuscarCondiciones(idInstitucion, curso, añoValor, programa);
+
+                return vista;
+            }
+            catch (Exception)
+            {
+                AddError("Ocurrio un error al Guardar la asignacion de un curso a una institucion.");
+                return null;
+            }
         }
 
         public IList<IErrores> GetErrors()

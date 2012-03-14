@@ -49,5 +49,8 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public IList<ICondicionCurso> CondicionesCursos { get; set; }
         public ICajaChicasVista CajaChica { get; set; }
         public string Nombre_InstitucionBusqueda { get; set; }
+        public string cursobusqueda { get; set; }
+        public string añobuscqueda { get; set; }
+        public string NombreSede { get; set; }
     }
 }

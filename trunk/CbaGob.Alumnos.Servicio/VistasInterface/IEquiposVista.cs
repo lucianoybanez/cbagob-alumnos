@@ -10,5 +10,6 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
     {
         IList<IEquipo> ListaEquipos { get; set; }
         int Id_Equipo { get; set; }
+        string NombreEquipoBusqueda { get; set; }
     }
 }

@@ -1,7 +1,43 @@
 ﻿@model InstitucionVista
+@using (Html.BeginForm("BuscarCurso", "Instituciones", FormMethod.Get))
+{
+    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;
+        margin-left: 5px; margin-top: 5px;">
+        <legend style="color: #FF9900"><b>Buscar</b></legend>
+        <table>
+            <tr>
+                <td height="35px">
+                    <b>Nombre Curso:&nbsp;</b>
+                </td>
+                <td>
+                    @Html.TextBoxFor(c => c.cursobusqueda, new { style = "width:250px;", MaxLength = "150", Class = "asd" })
+                    @Html.HiddenFor(c => c.Id_Institucion)
+                    @Html.HiddenFor(c => c.añobuscqueda, new { Id = "añobuscqueda" })
+                </td>
+            </tr>
+            <tr>
+                <td height="35px">
+                    <b>Año:&nbsp;</b>
+                </td>
+                <td>
+                    <select id="selectedaño">
+                     <option 0>Todos</option>
+                        @for (int i = 1; i < 10; i++)
+                        {
+                            <option @(i + 2011)>@(i + 2011)</option>
+                        }
+                    </select>
+                    <input type="submit" value="Buscar" class="btnIngresar" />
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+   
+}
+<br />
 @if (Model.CondicionesCursos != null && Model.CondicionesCursos.Count > 0)
 { 
-    <div id="tab" style="text-align: center;">
+    <div id="tab">
         <table class="TablaPersonal" align="center" width="690px" cellpadding="0" cellspacing="0">
             <thead>
                 <tr>
@@ -19,7 +55,7 @@
                         </div>
                     </th>
                     <th height="30">
-                        <div align="center" style="margin-right: 2px;">
+                        <div align="right" style="margin-right: 2px;">
                             Acción
                         </div>
                     </th>
@@ -38,7 +74,7 @@
                         <td align="center" height="28">
                             @item.NombrePrograma
                         </td>
-                        <td align="center" style="margin-right: 2px;">
+                        <td align="right" style="margin-right: 2px;">
                             @Html.ActionLink("Modificar", "ModificarCondicionCurso", "CondicionesCurso", new { idCondicionCurso = item.IdCondicionCurso }, new { @class = "btnIngresar" })
                             @Html.ActionLink("Eliminar", "EliminarCondicionCurso", "CondicionesCurso", new { idCondicionCurso = item.IdCondicionCurso, IdInstitucion = item.IdInstitucion }, new { @class = "btnIngresar" })
                             @Html.ActionLink("Ver", "VerCondicionCurso", "CondicionesCurso", new { idCondicionCurso = item.IdCondicionCurso, IdInstitucion = item.IdInstitucion }, new { @class = "btnIngresar" })

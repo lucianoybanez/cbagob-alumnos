@@ -335,5 +335,48 @@ namespace CbaGob.Alumnos.Repositorio
                 throw;
             }
         }
+
+        public IList<IDocentes> BuscarDocente(string razonsocial, string cuit_cuil)
+        {
+            try
+            {
+
+                razonsocial = razonsocial == "" ? null : razonsocial;
+                cuit_cuil = cuit_cuil == "" ? null : cuit_cuil;
+
+                IList<IDocentes> ListaReturn = null;
+
+                if (!string.IsNullOrEmpty(razonsocial))
+                {
+                    ListaReturn = QDocentes().Where(
+                        c =>
+                        c.RazonSoial.ToLower().StartsWith(razonsocial)).
+                        ToList();
+                    if (!string.IsNullOrEmpty(cuit_cuil))
+                    {
+                        ListaReturn = ListaReturn.Where(c => c.Cuit_Cuil.ToLower().StartsWith(cuit_cuil.ToLower())).ToList();
+                    }
+
+                }
+                else
+                {
+                    if (!string.IsNullOrEmpty(cuit_cuil))
+                    {
+                        ListaReturn = QDocentes().Where(c => c.Cuit_Cuil.ToLower().StartsWith(cuit_cuil.ToLower())).ToList();
+                    }
+                    else
+                    {
+                        ListaReturn = QDocentes().ToList();
+                    }
+                }
+
+                return ListaReturn;
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

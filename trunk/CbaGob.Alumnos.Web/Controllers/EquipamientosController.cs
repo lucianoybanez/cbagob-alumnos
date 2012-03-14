@@ -77,10 +77,16 @@ namespace CbaGob.Alumnos.Web.Controllers
         [HttpPost]
         public ActionResult Eliminar_Equipo(EquipoVista model)
         {
-           
+
             bool mret = equiposervicio.EliminarEquipo(model.Id_Equipo);
 
             return View("Index", equiposervicio.GetEquipos());
+        }
+
+        [HttpPost]
+        public ActionResult BuscarEquipos(EquiposVista model)
+        {
+            return View("Index", equiposervicio.BusquedaEquipo(model.NombreEquipoBusqueda));
         }
     }
 }
