@@ -13,7 +13,8 @@ namespace CbaGob.Alumnos.Repositorio
     {
         public CursosDB mDb;
 
-        public DocentesRepositorio(ILoggedUserHelper helper):base(helper)
+        public DocentesRepositorio(ILoggedUserHelper helper)
+            : base(helper)
         {
             mDb = new CursosDB();
         }
@@ -65,9 +66,37 @@ namespace CbaGob.Alumnos.Repositorio
             }
         }
 
+        public IList<IDocentes> GetTodos(int skip, int take)
+        {
+            try
+            {
+
+                return QDocentes().OrderBy(c => c.RazonSoial).Skip(skip).Take(take).ToList();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
         public IList<IDocentes> GetTodosByRazonSocial(string razonsocial)
         {
             return QDocentes().Where(c => c.RazonSoial.StartsWith(razonsocial)).ToList();
+        }
+
+        public int GetCountDocentes()
+        {
+            try
+            {
+                return QDocentes().Count();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
 
         public IDocentes GetUno(int id_docente)

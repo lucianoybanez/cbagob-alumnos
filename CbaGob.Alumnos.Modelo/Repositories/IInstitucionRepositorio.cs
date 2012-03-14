@@ -9,6 +9,8 @@ namespace CbaGob.Alumnos.Modelo.Repositories
     public interface IInstitucionRepositorio
     {
         IList<IInstitucion> GetInstituciones();
+        IList<IInstitucion> GetInstituciones(int skip, int take);
+        int GetCountInstituciones();
         IInstitucion GetInstitucion(Int32 IdInstitucion);
         bool AgregarInstitucion(IInstitucion pInstitucion);
         bool ModificarInstitucion(IInstitucion pInstitucion);

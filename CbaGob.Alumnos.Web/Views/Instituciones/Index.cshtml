@@ -13,7 +13,6 @@
 <div class="box">
     <h2>
         Listado de Instituciones</h2>
-    
     @using (Html.BeginForm("BuscarInstitucion", "Instituciones", FormMethod.Post, new { Id = "FormularioInstituciones" }))
     { 
         <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
@@ -30,17 +29,23 @@
                 </tr>
             </table>
         </fieldset>
-        <br />
-        <table>
-            <tr>
-                <td class="style1" style="font-weight: bold">
-                    <div id="titulo">
-                    </div>
-                    <div id="DivInstituciones">
-                        @Html.Partial("_InstitucionesLista", Model.ListaInstituciones)
-                    </div>
-                </td>
-            </tr>
-        </table>
     }
+    <br />
+    <table>
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                <div id="DivInstituciones">
+                    @Html.Partial("_InstitucionesLista", Model.ListaInstituciones)
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div style="text-align: left;">
+        @using (Html.BeginForm("IndexPager", "Instituciones", FormMethod.Post, new { id = "FormIndexInstituciones" }))
+        {
+            @Html.Partial("_Pager", Model.pager)
+        }
+    </div>
 </div>

@@ -59,5 +59,6 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public string Resolucion_Reproca { get; set; }
         public string RazonSocialBusqueda { get; set; }
         public string CuilCuitBusqueda { get; set; }
+        public IPager Pager { get; set; }
     }
 }

@@ -54,8 +54,19 @@ namespace CbaGob.Alumnos.Repositorio
         public IList<IInstitucion> GetInstituciones()
         {
 
-            return QInstitucion().ToList(); ;
+            return QInstitucion().ToList(); 
 
+        }
+
+        public IList<IInstitucion> GetInstituciones(int skip, int take)
+        {
+            return QInstitucion().OrderBy(c => c.Nombre_Institucion).Skip(skip).Take(take).ToList();
+        }
+
+
+        public int GetCountInstituciones()
+        {
+            return QInstitucion().Count(); 
         }
 
         public IInstitucion GetInstitucion(int IdInstitucion)

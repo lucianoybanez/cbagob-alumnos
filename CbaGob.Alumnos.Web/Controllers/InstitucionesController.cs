@@ -8,6 +8,7 @@ using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Servicio.Servicios;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
+using CbaGob.Alumnos.Servicio.Vistas.Shared;
 using CbaGob.Alumnos.Servicio.VistasInterface;
 using JLY.Hotel.Web.Controllers;
 
@@ -165,7 +166,6 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Index", InstitucionServicio.BuscarInstitucion(model.Nombre_InstitucionBusqueda));
         }
 
-
         public ActionResult BuscarCurso(Int32 Id_Institucion, string cursobusqueda, string añobuscqueda)
         {
 
@@ -200,6 +200,11 @@ namespace CbaGob.Alumnos.Web.Controllers
             model.añobuscqueda = añobuscqueda;
 
             return View("Ver", model);
+        }
+
+        public ActionResult IndexPager(Pager pager)
+        {
+            return View("Index", InstitucionServicio.GetIndex(pager));
         }
 
 
