@@ -12,7 +12,7 @@ using JLY.Hotel.Web.Controllers;
 
 namespace CbaGob.Alumnos.Web.Controllers
 {
-    
+
     public class InscripcionesController : BaseController
     {
         private IInscripcionServicio InscripcionServicio;
@@ -138,6 +138,31 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         #endregion
 
+        #region 'Reportes'
+
+        public ActionResult Reportes(InscripcionVista vista)
+        {
+            return View(vista);
+        }
+
+        public ActionResult GenerarReporte(string Reporte, InscripcionVista vista)
+        {
+            var reporteVista = InscripcionServicio.GetReporteEgresados(vista.IdCondicionCurso);
+            var errores = InscripcionServicio.GetErrors();
+            if (errores.Count>0)
+            {
+                base.AddError(errores);
+                return View("Reportes", vista);
+            }
+            if (Reporte.ToLower().Contains("egresado"))
+            {
+                return ViewPdf("EgresadosPDF", reporteVista);
+            }
+            return null;
+        }
+
+        #endregion
+
         #region 'Examenes'
 
         public ActionResult Examenes()
@@ -149,7 +174,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         public PartialViewResult GetListaInscriptos(string nombre, string apellido, string dni, string institucion)
         {
-            return PartialView("_ListaInscripciones",InscripcionServicio.GetAllInscripcionBy(nombre, apellido, dni, institucion).ListaInscripciones);
+            return PartialView("_ListaInscripciones", InscripcionServicio.GetAllInscripcionBy(nombre, apellido, dni, institucion).ListaInscripciones);
         }
     }
 }

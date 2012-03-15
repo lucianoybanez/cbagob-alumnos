@@ -1,0 +1,130 @@
+﻿@model  InscripcionVista
+@{
+    ViewBag.Title = "Inscripciones";
+    ViewBag.SubMenuSelected = "Reportes";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Inscripciones.js", Url)
+    @Content.Script("CbaGob.Alumnos.BuscadorAlumno.js", Url)
+    @Content.Script("CbaGob.Alumnos.BuscadorCondicionCurso.js", Url)
+}
+<div class="box">
+    <h2>
+       Generacion de Reportes</h2>
+    <table align="center" style="width: 700px;">
+        <tr>
+            <td>
+                @using (Html.BeginForm("GenerarReporte", "Inscripciones", FormMethod.Post, new { Id = "FormularioReportes" }))
+                { 
+                    @Html.HiddenFor(c => c.IdCondicionCurso)  
+                    @Html.ValidationSummary(true)
+                    <input type="hidden" name="Reporte" id="Reporte" value="Nominda de Asistencia" />
+                    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+                        text-align: center;">
+                        <legend style="color: #FF9900"><b>Datos para el Reporte</b></legend>
+                        <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                            width: 700px;">    
+                            <tr>
+                                <td align="left">
+                                    Tipo de Reporte
+                                </td>
+                                <td align="left" valign="middle">
+                                   <input type="radio" class="reporteTipo" name="reporteTipo" checked="checked" value="Asistencia" />Nomina de Asistencia<br/>
+                                   <input type="radio" class="reporteTipo" name="reporteTipo"  value="Participantes" />Nomina de Participantes<br/>
+                                   <input type="radio" class="reporteTipo" name="reporteTipo"  value="Egresados" />Nomina de Egresados
+                                </td>
+                            </tr>               
+                            <tr>
+                                <td align="left">
+                                    <b>Institucion:</b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.TextBoxFor(c => c.NombreInstitucion, new { @readonly = "readonly" })
+                                    <a href="#" id="BuscarInstitucion">Buscar Institucion</a>
+                                    @Html.ValidationMessageFor(m => m.NombreInstitucion, "*")
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    <b>Curso:</b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.TextBoxFor(c => c.NombreCurso, new { @readonly = "readonly" })
+                                    @Html.ValidationMessageFor(m => m.NombreCurso, "*")
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    <b>Estado de Curso:</b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.TextBoxFor(c => c.NombreEstadoCurso, new { @readonly = "readonly" })
+                                    @Html.ValidationMessageFor(m => m.NombreEstadoCurso, "*")
+                                </td>
+                            </tr>                          
+                            <tr>
+                                <td align="left">
+                                    <b>Modalidad:</b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.TextBoxFor(c => c.NombreModalidad, new { @readonly = "readonly" })
+                                    @Html.ValidationMessageFor(m => m.NombreModalidad, "*")
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    <b>Programa:</b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.TextBoxFor(c => c.NombrePrograma, new { @readonly = "readonly" })
+                                    @Html.ValidationMessageFor(m => m.NombrePrograma, "*")
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    <b>Fecha Inicio:</b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.TextBox("FechaInicio", Model.FechaInicio.ToFecha(), new { @readonly = "readonly" })
+                                    @Html.ValidationMessageFor(m => m.FechaInicio, "*")
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    <b>Fecha Fin:</b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.TextBox("FechaFin", Model.FechaFin.ToFecha(), new { @readonly = "readonly" })
+                                    @Html.ValidationMessageFor(m => m.FechaFin, "*")
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    <b>Nro Resolucion:</b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.TextBoxFor(c => c.NumeroResolucion, new { @readonly = "readonly" })
+                                    @Html.ValidationMessageFor(m => m.NumeroResolucion, "*")
+                                </td>
+                            </tr>
+                        </table>
+                        <table align="center" width="700px">
+                            <tr>
+                                <td align="right">
+                                <input type="submit" value="Generar Reporte" class="btnIngresar" />                                   
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                    
+                }
+            </td>
+        </tr>       
+    </table>
+</div>
+@Html.Partial("BuscadorCondicionCurso")

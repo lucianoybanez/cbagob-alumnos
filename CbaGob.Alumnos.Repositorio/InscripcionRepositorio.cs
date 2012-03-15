@@ -144,6 +144,32 @@ namespace CbaGob.Alumnos.Repositorio
             return null;
         }
 
+        public IList<IInscripcionReporte> GetAllInscripcionBy(int CondicionCurso)
+        {
+            var a = (from p in mDb.T_INSCRIPCIONES
+                     where p.ID_CONDICION_CURSO == CondicionCurso
+                     select new InscripcionReporte
+                                {
+                                    CUIL = p.T_ALUMNOS.CUIL,
+                                    FechaNacimiento = p.T_ALUMNOS.FEC_NACIMIENTO,
+                                    Telefono = p.T_ALUMNOS.NRO_TELEFONO,
+                                    Sexo = p.T_ALUMNOS.ID_TIPO_SEXO ?? 1,
+                                    NombreAlumno = p.T_ALUMNOS.APELLIDO + ", " + p.T_ALUMNOS.NOMBRE,
+                                    ClasesAsistidas =
+                                        p.T_PRESENTISMO.Where(c => c.ID_INSCRIPCION == p.ID_INSCRIPCION).Select(
+                                            c => c.CLASES_ASISTIDAS).FirstOrDefault(),
+                                    EstadoAsistencia =
+                                        p.ESTADO=="A",
+                                    Notas =
+                                        p.T_EXAMENES.Where(c => c.ID_INSCRIPCION == p.ID_INSCRIPCION).Sum(c => c.NOTA) == null ? 0 : p.T_EXAMENES.Where(c => c.ID_INSCRIPCION == p.ID_INSCRIPCION).Sum(c => c.NOTA),
+
+
+                                }).ToList().Cast<IInscripcionReporte>().ToList();
+            return a;
+        }
+
+     
+
         #endregion
 
         #region 'CRUD Inscripciones'

@@ -97,6 +97,41 @@ namespace JLY.Hotel.Web.Controllers
                 return File(buf, "application/pdf", "Certificado" + numberRandom + ".pdf");
                 //return new BinaryContentResult(buf, "application/pdf");
             }
+
+            protected ActionResult ViewPdf(string view, object model)
+            {
+                // Create the iTextSharp document.
+                Document doc = new Document();
+                // Set the document to write to memory.
+                MemoryStream memStream = new MemoryStream();
+                PdfWriter writer = PdfWriter.GetInstance(doc, memStream);
+                writer.CloseStream = false;
+                doc.Open();
+
+                // Render the view xml to a string, then parse that string into an XML dom.
+                string xmltext = this.RenderActionResultToString(View(view,model));
+                XmlDocument xmldoc = new XmlDocument();
+                xmldoc.InnerXml = xmltext.Trim();
+
+
+                // Parse the XML into the iTextSharp document.
+                ITextHandler textHandler = new ITextHandler(doc);
+                textHandler.Parse(xmldoc);
+
+                // Close and get the resulted binary data.
+                doc.Close();
+                byte[] buf = new byte[memStream.Position];
+                memStream.Position = 0;
+                memStream.Read(buf, 0, buf.Length);
+
+
+                // Send the binary data to the browser.
+                string numberRandom = Guid.NewGuid().ToString();
+                return File(buf, "application/pdf", "Certificado" + numberRandom + ".pdf");
+                //return new BinaryContentResult(buf, "application/pdf");
+            }
+
+
         }
 
         public class BinaryContentResult : ActionResult
