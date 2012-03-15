@@ -74,6 +74,7 @@ namespace JLY.Hotel.Web.Controllers
                 PdfWriter writer = PdfWriter.GetInstance(doc, memStream);
                 writer.CloseStream = false;
                 doc.Open();
+              
 
                 // Render the view xml to a string, then parse that string into an XML dom.
                 string xmltext = this.RenderActionResultToString(this.View(model));
@@ -107,6 +108,7 @@ namespace JLY.Hotel.Web.Controllers
                 PdfWriter writer = PdfWriter.GetInstance(doc, memStream);
                 writer.CloseStream = false;
                 doc.Open();
+                doc.SetPageSize(iTextSharp.text.PageSize.A4.Rotate());
 
                 // Render the view xml to a string, then parse that string into an XML dom.
                 string xmltext = this.RenderActionResultToString(View(view,model));
