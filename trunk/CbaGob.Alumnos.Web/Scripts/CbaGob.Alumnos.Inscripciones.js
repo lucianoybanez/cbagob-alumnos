@@ -9,6 +9,7 @@ $(function () {
 
     cbaAlumnosInscripciones.initInscripciones();
     cbaAlumnosInscripciones.initCertificado();
+    cbaAlumnosInscripciones.initReportes();
 
 
 });
@@ -67,6 +68,12 @@ cbaAlumnosInscripciones = function () {
 
     }
 
+    function initReportes() {
+        $('.reporteTipo').click(function() {
+            $("#Reporte").val($(this).val());
+        });
+    }
+
     function hideEliminarButton() {
         $(".toHide").hide();
     }
@@ -74,7 +81,8 @@ cbaAlumnosInscripciones = function () {
     return {
         initInscripciones: initInscripciones,
         initCertificado: initCertificado,
-        hideEliminarButton: hideEliminarButton
+        hideEliminarButton: hideEliminarButton,
+        initReportes: initReportes
 
     };
 } ();

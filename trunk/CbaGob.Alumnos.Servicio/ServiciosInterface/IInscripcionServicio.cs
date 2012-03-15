@@ -24,5 +24,8 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
         IInscripcionesVista GetAllInscripcionBy(string nombre, string apellido, string dni, string institucion);
         IInscripcionExamenVista GetExamenes(int idInscripcion);
         ICertificadoVista GetCertificado(int idInscripcion);
+        IReporteVista GetReporteEgresados(int idCondicionCurso);
+        IReporteVista GetReportePaticipantes(int idCondicionCurso);
+        IReporteVista GetReporteAsistencia(int idCondicionCurso);
     }
 }

@@ -88,11 +88,13 @@
     <Compile Include="Entities\Interfaces\IGrupo.cs" />
     <Compile Include="Entities\Interfaces\IHorario.cs" />
     <Compile Include="Entities\Interfaces\IInscripcion.cs" />
+    <Compile Include="Entities\Interfaces\IInscripcionReporte.cs" />
     <Compile Include="Entities\Interfaces\IInstitucion.cs" />
     <Compile Include="Entities\Interfaces\ILocalidades.cs" />
     <Compile Include="Entities\Interfaces\IModalidad.cs" />
     <Compile Include="Entities\Interfaces\IMovimiento.cs" />
     <Compile Include="Entities\Interfaces\INivel.cs" />
+    <Compile Include="Entities\InscripcionReporte.cs" />
     <Compile Include="Entities\Interfaces\IPersona.cs" />
     <Compile Include="Entities\Interfaces\IPersonaJuridica.cs" />
     <Compile Include="Entities\Interfaces\IPresentismo.cs" />

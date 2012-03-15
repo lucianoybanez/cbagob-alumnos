@@ -26,13 +26,16 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         private IAlumnosRepositorio AlumnosRepositorio;
 
-        public InscripcionServicio(IInscripcionRepositorio inscripcionrepositorio, IAutenticacionServicio aut, ICondicionCursoRepositorio condicionCurso, IExamenServicio examenServicio, IAlumnosRepositorio alumnosRepositorio)
+        private IInstitucionRepositorio InstitucionRepositorio;
+
+        public InscripcionServicio(IInscripcionRepositorio inscripcionrepositorio, IAutenticacionServicio aut, ICondicionCursoRepositorio condicionCurso, IExamenServicio examenServicio, IAlumnosRepositorio alumnosRepositorio, IInstitucionRepositorio institucionRepositorio)
         {
             Inscripcionrepositorio = inscripcionrepositorio;
             Aut = aut;
             CondicionCursoRepositorio = condicionCurso;
             ExamenServicio = examenServicio;
             AlumnosRepositorio = alumnosRepositorio;
+            InstitucionRepositorio = institucionRepositorio;
         }
 
         public IInscripcionesVista GetAllInscripcion()
@@ -285,7 +288,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             var alumno = AlumnosRepositorio.GetUno(inscripcion.Id_Alumno);
             ICertificadoVista vista = new CertificadoVista();
             StringBuilder texto = new StringBuilder();
-            texto.Append("Por cuanto: '" + inscripcion.ApellidoAlumno + ", "+inscripcion.NombreAlumno + "' documento Nº " + alumno.Nro_Documento);
+            texto.Append("Por cuanto: '" + inscripcion.ApellidoAlumno + ", " + inscripcion.NombreAlumno + "' documento Nº " + alumno.Nro_Documento);
             texto.Append(", ha aprobado el curso de capacitación en la especialidad de '" + inscripcion.NombreCurso + "'");
             texto.Append(", dictado en la institucion: '" + inscripcion.NombreInstitucion + "'");
             texto.Append(", perteneciente a la Agencia de Promocion y Formación de empleo");
@@ -294,6 +297,115 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             vista.Texto = texto.ToString();
             vista.Fecha = DateTime.Today;
             return vista;
+        }
+
+        public IReporteVista GetReporteEgresados(int idCondicionCurso)
+        {
+            IReporteVista vista = new ReporteVista();
+
+            var Condicion = CondicionCursoRepositorio.GetCondicion(idCondicionCurso);
+            if (Condicion != null)
+            {
+                var institucion = InstitucionRepositorio.GetInstitucion(Condicion.IdInstitucion);
+                if (institucion!=null)
+                {
+                    var repoModel = Inscripcionrepositorio.GetAllInscripcionBy(idCondicionCurso);
+                    int totalVarones = 0;
+                    int totalMujeres = 0;
+                    decimal asistencia = 0;
+                    decimal notaFinal = 0;
+                    bool aprobo = false;
+
+                    vista.Expediente = institucion.Nro_Expediente;
+                    vista.Fecha = DateTime.Today;
+                    vista.NombreCurso = Condicion.NombreCurso;
+                    vista.NombreInstitucion = Condicion.NombeInstitucion;
+                    vista.Resolucion = Condicion.Nro_Resolucion;
+
+                    foreach (var item in repoModel)
+                    {
+
+                        // Contador varones y mujeres
+                        if (item.Sexo == 1)
+                        {
+                            totalVarones += 1;
+                        }
+                        else
+                        {
+                            totalMujeres += 1;
+                        }
+
+                        //Asistencia
+                        try
+                        {
+                            decimal valor1 = decimal.Divide(item.ClasesAsistidas, Condicion.CantidadClases);
+                            decimal valor = valor1 * 100;
+                            asistencia = decimal.Round(valor);
+                        }
+                        catch (Exception)
+                        {
+
+                            asistencia = 0;
+                        }
+
+                        // Promedio Alumno
+                        try
+                        {
+                            notaFinal = decimal.Divide(item.Notas, Condicion.CantidadExamenes);
+                        }
+                        catch
+                        {
+                            notaFinal = 0;
+                        }
+
+                        //Aprobo el alumno
+
+                        if (asistencia >= Condicion.Presentismo && notaFinal >= Condicion.PromedioRequerido)
+                        {
+                            aprobo = true;
+                        }
+
+
+
+                        vista.Alumnos.Add(new ReporteAlumno()
+                        {
+                            Telefono = item.Telefono,
+                            Baja = item.EstadoAsistencia,
+                            Asistencia = asistencia,
+                            Cuil = item.CUIL,
+                            Nombre = item.NombreAlumno,
+                            FechaNacimiento = item.FechaNacimiento,
+                            NotaFinal = notaFinal,
+                            Aprobo = aprobo,
+                        });
+
+                    }
+                    vista.Varones = totalVarones;
+                    vista.Mujeres = totalMujeres;
+                    vista.TotalHyM = totalMujeres + totalVarones;
+                    
+                }
+                else
+                {
+                    AddError("No se encuentra la Institucion, verifique que no fue eliminada.");
+                }
+               
+            }
+            else
+            {
+                AddError("El Curso asignado a la institucion no existe, verifique que no fe eliminado.");
+            }
+            return vista;
+        }
+
+        public IReporteVista GetReportePaticipantes(int idCondicionCurso)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IReporteVista GetReporteAsistencia(int idCondicionCurso)
+        {
+            throw new NotImplementedException();
         }
 
         private IInscripcionExamenVista GetExamenes(int idInscripcion, ICondicionCurso condicion)
