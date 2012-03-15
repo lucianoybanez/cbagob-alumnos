@@ -80,6 +80,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BuscadorController.cs" />
     <Compile Include="Controllers\CajaChicaController.cs" />
+    <Compile Include="Controllers\CargosController.cs" />
     <Compile Include="Controllers\CondicionesCursoController.cs" />
     <Compile Include="Controllers\CursosController.cs" />
     <Compile Include="Controllers\DocentesController.cs" />
@@ -239,6 +240,7 @@
     <Content Include="Scripts\CbaGob.Alumnos.BuscadorAlumno.js" />
     <Content Include="Scripts\CbaGob.Alumnos.BuscadorCondicionCurso.js" />
     <Content Include="Scripts\CbaGob.Alumnos.CajaChica.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Cargos.js" />
     <Content Include="Scripts\CbaGob.Alumnos.CondicionesCurso.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Cursos.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Docentes.js" />
@@ -708,6 +710,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Inscripciones\GenerarReporte.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cargos\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cargos\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cargos\Modificar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cargos\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cargos\_CargosLista.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

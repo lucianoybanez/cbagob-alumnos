@@ -14,6 +14,7 @@ namespace CbaGob.Alumnos.Modelo.Entities
         public string UsuarioModificacion { get; set; }
         public int Id_Cargo { get; set; }
         public string N_Cargo { get; set; }
+        public string Nro_Resolucion { get; set; }
         public string Estado { get; set; }
     }
 }

@@ -114,8 +114,12 @@
     <Compile Include="Servicios\SupervisoresServicio.cs" />
     <Compile Include="Servicios\UsuarioServicio.cs" />
     <Compile Include="Servicios\HomeServicio.cs" />
+    <Compile Include="VistasInterface\ICargosVista.cs" />
+    <Compile Include="VistasInterface\ICargoVista.cs" />
     <Compile Include="VistasInterface\IReporteAlumno.cs" />
     <Compile Include="VistasInterface\IReporteVista.cs" />
+    <Compile Include="Vistas\CargosVista.cs" />
+    <Compile Include="Vistas\CargoVista.cs" />
     <Compile Include="Vistas\ReporteAlumno.cs" />
     <Compile Include="Vistas\ReporteVista.cs" />
     <Compile Include="Vistas\CertificadoVista.cs" />

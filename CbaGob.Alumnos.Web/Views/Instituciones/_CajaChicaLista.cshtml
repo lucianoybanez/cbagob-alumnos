@@ -14,7 +14,7 @@
                             Estado</div>
                     </th>
                     <th height="30">
-                        <div align="center" style="margin-right: 2px;">
+                        <div align="right" style="margin-right: 2px;">
                             Acción</div>
                     </th>
                 </tr>
@@ -29,7 +29,7 @@
                         <td align="center">
                             @item.NombreEstadoCaja
                         </td>
-                        <td align="center" style="margin-right: 2px;" width="200px">
+                        <td align="right" style="margin-right: 2px;" width="200px">
                             @Html.ActionLink("Modificar", "Modificar", "CajaChica", new { id_institucion = Model.Id_Institucion, Id_Caja_Chica = item.Id_Caja_Chica }, new { @class = "btnIngresar" })
                             @Html.ActionLink("Ver Movimiento", "Ver", "CajaChica", new { id_institucion = Model.Id_Institucion, Id_Caja_Chica = item.Id_Caja_Chica }, new { @class = "btnIngresar" })
                         </td>
