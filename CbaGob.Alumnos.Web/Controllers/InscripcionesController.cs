@@ -154,8 +154,15 @@ namespace CbaGob.Alumnos.Web.Controllers
                 base.AddError(errores);
                 return View("Reportes", vista);
             }
+
+            string appPath = HttpContext.Request.ApplicationPath;
+            string physicalPath = HttpContext.Request.MapPath(appPath) + "Content\\images\\";
+            reporteVista.PathGobiernoImagen1 = physicalPath + "provincia-de-cordoba.jpg";
+            reporteVista.PathGobiernoImagen2 = physicalPath + "cordoba-entre-todo.jpg";
+
             if (Reporte.ToLower().Contains("egresado"))
             {
+                reporteVista.NombreReporte = "NOMINA DE EGRESADOS";
                 return ViewPdf("EgresadosPDF", reporteVista);
             }
             return null;

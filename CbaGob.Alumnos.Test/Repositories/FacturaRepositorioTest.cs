@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using CbaGob.Alumnos.Modelo.Entities;
@@ -39,6 +40,14 @@ namespace CbaGob.Alumnos.Test.Repositories
                                    };
             int result = FacturaRepositorio.AgregarFactura(factura);
             Assert.IsTrue(result!=0);
+        }
+
+        [Test]
+        public void mmodign()
+        {
+            decimal a = (5%10);
+           Debug.WriteLine(a);
+            Assert.IsTrue(a!=0);
         }
 
     }

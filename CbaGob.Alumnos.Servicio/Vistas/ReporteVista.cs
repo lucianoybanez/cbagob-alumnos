@@ -12,6 +12,7 @@ namespace CbaGob.Alumnos.Servicio.Vistas
             Alumnos = new List<IReporteAlumno>();
         }
 
+        public string NombreReporte { get; set; }
         public string NombreInstitucion { get; set; }
         public string NombreCurso { get; set; }
         public string Expediente { get; set; }
@@ -22,5 +23,7 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public int TotalHyM { get; set; }
         public DateTime Fecha { get; set; }
         public IList<IReporteAlumno> Alumnos { get; set; }
+        public string PathGobiernoImagen1 { get; set; }
+        public string PathGobiernoImagen2 { get; set; }
     }
 }

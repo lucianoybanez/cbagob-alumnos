@@ -12,19 +12,23 @@
         @Model.Accion Examen</h2>
     <table  style="width: 700px;">
         <tr>
-            <td class="style1" style="font-weight: bold">
-                <div id="titulo">
-                </div>
+            <td >
+                @Html.ValidationSummary(true)
                 <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
                     text-align: center;">
                     <legend style="color: #FF9900"><b>Datos Examen</b></legend>
+                  
+                      
+                    
+                  
+                   
                     @using (Html.BeginForm("GuardarExamen", "Examenes", FormMethod.Post, new { id = "FormExamenes" }))
                     { 
                         @Html.HiddenFor(c => c.Accion)
                         @Html.HiddenFor(c => c.IdExamen)
                         @Html.HiddenFor(c => c.idInscripcion)
                         <input type="hidden" id="urlEliminar" value="@Url.Action("EliminarExamen")"/>
-                        @Html.ValidationSummary(true)
+                      
 
                         <table>
                             <tr>

@@ -370,7 +370,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                         vista.Alumnos.Add(new ReporteAlumno()
                         {
                             Telefono = item.Telefono,
-                            Baja = item.EstadoAsistencia,
+                            Estado = item.Estado,
                             Asistencia = asistencia,
                             Cuil = item.CUIL,
                             Nombre = item.NombreAlumno,
@@ -380,6 +380,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                         });
 
                     }
+                    vista.Alumnos = vista.Alumnos.OrderBy(c => c.Nombre).ToList();
                     vista.Varones = totalVarones;
                     vista.Mujeres = totalMujeres;
                     vista.TotalHyM = totalMujeres + totalVarones;

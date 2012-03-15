@@ -7,6 +7,7 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
 {
     public interface IReporteVista
     {
+        string NombreReporte { get; set; }
         string NombreInstitucion { get; set; }
         string NombreCurso { get; set; }
         string Expediente { get; set; }
@@ -17,7 +18,9 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         int TotalHyM { get; set; }
         DateTime Fecha { get; set; }
         IList<IReporteAlumno> Alumnos { get; set; }
-        
+        string PathGobiernoImagen1 { get; set; }
+        string PathGobiernoImagen2 { get; set; }
+
 
     }
 }

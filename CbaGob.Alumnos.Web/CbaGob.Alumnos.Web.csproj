@@ -143,9 +143,11 @@
     <Content Include="Content\images\49_.png" />
     <Content Include="Content\images\Bg_encabezado.jpg" />
     <Content Include="Content\images\Bg_pie.jpg" />
+    <Content Include="Content\images\cordoba-entre-todo.jpg" />
     <Content Include="Content\images\EscudoCordoba.png" />
     <Content Include="Content\images\Logo Agencia.jpg" />
     <Content Include="Content\images\Logout_button.png" />
+    <Content Include="Content\images\provincia-de-cordoba.jpg" />
     <Content Include="Content\images\seleccionar.jpg" />
     <Content Include="Content\MVCFramework.css" />
     <Content Include="Content\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -713,9 +715,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Inscripciones\EgresadosPDF.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Inscripciones\GenerarReporte.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Cargos\Index.cshtml" />
