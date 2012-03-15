@@ -1,38 +1,37 @@
-﻿@model CajaChicasVista
-@if (Model.ListaCajaChica != null && Model.ListaCajaChica.Count > 0)
+﻿@model CargosVista
+@if (Model.ListaCargo != null && Model.ListaCargo.Count > 0)
 { 
-    <div id="tab" style="text-align: center;">
-        <table class="TablaPersonal" align="center" width="722px" cellpadding="0" cellspacing="0">
+    <div style="text-align: center;">
+        <table id="grilla" align="center" width="722px" cellpadding="0" cellspacing="0">
             <thead>
                 <tr>
-                    <th height="30">
-                        <div align="center">
-                            Monto</div>
+                    <th height="30" width="280">
+                        <div align="left">
+                            Nombre del Cargo</div>
                     </th>
-                    <th height="30">
+                    <th height="30" width="80">
                         <div align="center">
-                            Estado</div>
+                            Nro Resolucion</div>
                     </th>
-                    <th height="30">
-                        <div align="right" style="margin-right: 2px;">
-                            Accion</div>
+                    <th height="30" width="200">
+                        <div style="margin-right: 2px; text-align:right;">
+                            Acción</div>
                     </th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model.ListaCajaChica)
+                @foreach (var item in Model.ListaCargo)
                 {
                     <tr>
                         <td align="left" height="28">
-                            @item.Monto
+                            @item.N_Cargo
                         </td>
-                        <td align="left">
-                            @item.NombreEstadoCaja
+                        <td>
+                            @item.Nro_Resolucion
                         </td>
                         <td align="right" style="margin-right: 2px;">
-                            @Html.ActionLink("Modificar", "Modificar", "Establecimientos", new { Id_Caja_Chica = item.Id_Caja_Chica }, new { @class = "btnIngresar" })
-                            @Html.ActionLink("Eliminar", "Eliminar", "Establecimientos", new { Id_Caja_Chica = item.Id_Caja_Chica }, new { @class = "btnIngresar" })
-                            @Html.ActionLink("Realizar Movimiento", "Eliminar", "Establecimientos", new { Id_Caja_Chica = item.Id_Caja_Chica }, new { @class = "btnIngresar" })
+                            @Html.ActionLink("Modificar", "Modificar", "Cargos", new { idcargo = item.Id_Cargo }, new { @class = "btnIngresar" })&nbsp;&nbsp;&nbsp;&nbsp;
+                            @Html.ActionLink("Eliminar", "Eliminar", "Cargos", new { idcargo = item.Id_Cargo }, new { @class = "btnIngresar" })&nbsp;&nbsp;&nbsp;&nbsp;
                         </td>
                     </tr>
                 }
@@ -56,7 +55,7 @@
                     </td>
                     <td align="right" valign="bottom" colspan="2" height="20">
                         <div style="height: 20px; padding: 15px 5px 0 2px;">
-                            @Html.ActionLink("Agregar Caja", "Agregar", "Establecimientos", new { @class = "btnIngresar" })
+                            @Html.ActionLink("Agregar Cargo", "Agregar", "Cargos", new { @class = "btnIngresar" })
                         </div>
                     </td>
                 </tr>
@@ -66,15 +65,20 @@
 }
 else
 {
+    
     <table id="grilla" align="center" width="722px" cellpadding="0" cellspacing="0">
         <tr>
             <td width="722px">
-                @Html.Partial("_SinDatos", "Caja Chica")
+                @Html.Partial("_SinDatos", "Cargos")
             </td>
         </tr>
         <tr>
-            <td align="right" width="722px">
-                @Html.ActionLink("Agregar Caja", "Seleccion", "Factura", null, new { @class = "btnIngresar" })
+            <td>
+                <div align="right" style="height: 20px; padding: 15px 5px 0 2px;">
+                    @Html.ActionLink("Agregar Cargo", "Agregar", "Cargos", new { @class = "btnIngresar" })
+                </div>
             </td>
+        </tr>
     </table>
 }
+<br />

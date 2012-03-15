@@ -9,5 +9,11 @@ namespace CbaGob.Alumnos.Modelo.Repositories
     public interface ICargosRepositorio
     {
         IList<ICargos> GetTodosCargos();
+        ICargos GetCargo(int idcargo);
+        int GetCargosCount();
+        IList<ICargos> GetTodosCargos(int skip, int take);
+        bool AgregarCargo(ICargos cargo);
+        bool ModificarCargo(ICargos cargo);
+        bool EliminarCargo(int id_cargo, string nro_resolucion);
     }
 }

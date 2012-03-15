@@ -6,8 +6,6 @@
     <edmx:StorageModels>
     <Schema Namespace="Model_Cursos.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="10.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="Model_CursosStoreContainer">
-          <EntitySet Name="BIN$lbDBeZKJSCWsspDw3zz0Qg==$0" EntityType="Model_Cursos.Store.BIN$lbDBeZKJSCWsspDw3zz0Qg==$0" store:Type="Tables" Schema="CURSOS" />
-          <EntitySet Name="BIN$nPB0235pSYGQnQ6bNebcpw==$0" EntityType="Model_Cursos.Store.BIN$nPB0235pSYGQnQ6bNebcpw==$0" store:Type="Tables" Schema="CURSOS" />
           <EntitySet Name="T_ALUMNOS" EntityType="Model_Cursos.Store.T_ALUMNOS" store:Type="Tables" Schema="CURSOS" />
           <EntitySet Name="T_ALUMONOS_GRUPO" EntityType="Model_Cursos.Store.T_ALUMONOS_GRUPO" store:Type="Tables" Schema="CURSOS" />
           <EntitySet Name="T_AREAS_TIPOS_CURSO" EntityType="Model_Cursos.Store.T_AREAS_TIPOS_CURSO" store:Type="Tables" Schema="CURSOS" />
@@ -234,36 +232,6 @@
             <End Role="T_USUARIO" EntitySet="T_USUARIO" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="BIN$lbDBeZKJSCWsspDw3zz0Qg==$0">
-          <Key>
-            <PropertyRef Name="ID_SUPERVISION" />
-          </Key>
-          <Property Name="ID_SUPERVISION" Type="number" Nullable="false" Precision="10" />
-          <Property Name="ID_SUPERVISOR" Type="number" Nullable="false" Precision="10" />
-          <Property Name="OBSERVACIONES" Type="varchar2" Nullable="false" />
-          <Property Name="FEC_SUPERVISION" Type="date" Nullable="false" />
-          <Property Name="HS_SUPERVISION" Type="date" Nullable="false" />
-          <Property Name="FEC_ALTA" Type="date" Nullable="false" />
-          <Property Name="USR_ALTA" Type="varchar2" Nullable="false" MaxLength="64" />
-          <Property Name="FEC_MODIF" Type="date" Nullable="false" />
-          <Property Name="USR_MODIF" Type="varchar2" Nullable="false" MaxLength="64" />
-          <Property Name="ESTADO" Type="varchar2" Nullable="false" MaxLength="1" />
-          <Property Name="ID_GRUPO" Type="number" Nullable="false" Precision="10" />
-          <Property Name="NRO_RESOLUCION" Type="varchar2" MaxLength="64" />
-        </EntityType>
-        <EntityType Name="BIN$nPB0235pSYGQnQ6bNebcpw==$0">
-          <Key>
-            <PropertyRef Name="ID_SUPERVISOR" />
-          </Key>
-          <Property Name="ID_SUPERVISOR" Type="number" Nullable="false" Precision="10" />
-          <Property Name="ID_PERSONAJUR" Type="number" Nullable="false" Precision="10" />
-          <Property Name="ID_DOMICILIO" Type="number" Nullable="false" Precision="10" />
-          <Property Name="FEC_ALTA" Type="date" Nullable="false" />
-          <Property Name="USR_ALTA" Type="varchar2" Nullable="false" MaxLength="64" />
-          <Property Name="FEC_MODIF" Type="date" Nullable="false" />
-          <Property Name="USR_MODIF" Type="varchar2" Nullable="false" MaxLength="64" />
-          <Property Name="ESTADO" Type="varchar2" Nullable="false" MaxLength="1" />
-        </EntityType>
         <EntityType Name="T_ALUMNOS">
           <Key>
             <PropertyRef Name="ID_ALUMNO" />
@@ -337,6 +305,7 @@
           <Property Name="FEC_MODIF" Type="date" Nullable="false" />
           <Property Name="USR_MODIF" Type="varchar2" Nullable="false" MaxLength="64" />
           <Property Name="ESTADO" Type="varchar2" Nullable="false" MaxLength="1" />
+          <Property Name="NRO_RESOLUCION" Type="varchar2" MaxLength="64" />
         </EntityType>
         <EntityType Name="T_CERTIFICACIONES">
           <Key>
@@ -1682,8 +1651,6 @@
             <End Role="T_ROL" EntitySet="T_ROL" />
             <End Role="T_USUARIO" EntitySet="T_USUARIO" />
           </AssociationSet>
-          <EntitySet Name="BIN_lbDBeZKJSCWsspDw3zz0Qg___0" EntityType="Model_Cursos.BIN_lbDBeZKJSCWsspDw3zz0Qg___0" />
-          <EntitySet Name="BIN_nPB0235pSYGQnQ6bNebcpw___0" EntityType="Model_Cursos.BIN_nPB0235pSYGQnQ6bNebcpw___0" />
           <EntitySet Name="T_SUPERVICIONES" EntityType="Model_Cursos.T_SUPERVICIONES" />
           <EntitySet Name="T_SUPERVISORES" EntityType="Model_Cursos.T_SUPERVISORES" />
           <AssociationSet Name="T_SUPERVICIONES_T_GRUPOS_FK1" Association="Model_Cursos.T_SUPERVICIONES_T_GRUPOS_FK1">
@@ -1781,6 +1748,7 @@
           <Property Type="String" Name="USR_MODIF" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="T_DOCENTES" Relationship="Model_Cursos.T_DOCENTES_T_CARGOS_FK1" FromRole="T_CARGOS" ToRole="T_DOCENTES" />
+          <Property Type="String" Name="NRO_RESOLUCION" MaxLength="64" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="T_CERTIFICACIONES">
           <Key>
@@ -2920,36 +2888,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="BIN_lbDBeZKJSCWsspDw3zz0Qg___0">
-          <Key>
-            <PropertyRef Name="ID_SUPERVISION" />
-          </Key>
-          <Property Type="Int32" Name="ID_SUPERVISION" Nullable="false" />
-          <Property Type="Int32" Name="ID_SUPERVISOR" Nullable="false" />
-          <Property Type="String" Name="OBSERVACIONES" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="FEC_SUPERVISION" Nullable="false" />
-          <Property Type="DateTime" Name="HS_SUPERVISION" Nullable="false" />
-          <Property Type="DateTime" Name="FEC_ALTA" Nullable="false" />
-          <Property Type="String" Name="USR_ALTA" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="FEC_MODIF" Nullable="false" />
-          <Property Type="String" Name="USR_MODIF" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="ID_GRUPO" Nullable="false" />
-          <Property Type="String" Name="NRO_RESOLUCION" MaxLength="64" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="BIN_nPB0235pSYGQnQ6bNebcpw___0">
-          <Key>
-            <PropertyRef Name="ID_SUPERVISOR" />
-          </Key>
-          <Property Type="Int32" Name="ID_SUPERVISOR" Nullable="false" />
-          <Property Type="Int32" Name="ID_PERSONAJUR" Nullable="false" />
-          <Property Type="Int32" Name="ID_DOMICILIO" Nullable="false" />
-          <Property Type="DateTime" Name="FEC_ALTA" Nullable="false" />
-          <Property Type="String" Name="USR_ALTA" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="FEC_MODIF" Nullable="false" />
-          <Property Type="String" Name="USR_MODIF" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="T_SUPERVICIONES">
           <Key>
             <PropertyRef Name="ID_SUPERVISION" />
@@ -3088,6 +3026,7 @@
           <EntitySetMapping Name="T_CARGOS">
             <EntityTypeMapping TypeName="Model_Cursos.T_CARGOS">
               <MappingFragment StoreEntitySet="T_CARGOS">
+                <ScalarProperty Name="NRO_RESOLUCION" ColumnName="NRO_RESOLUCION" />
                 <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
                 <ScalarProperty Name="USR_MODIF" ColumnName="USR_MODIF" />
                 <ScalarProperty Name="FEC_MODIF" ColumnName="FEC_MODIF" />
@@ -3684,38 +3623,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="BIN_lbDBeZKJSCWsspDw3zz0Qg___0">
-            <EntityTypeMapping TypeName="Model_Cursos.BIN_lbDBeZKJSCWsspDw3zz0Qg___0">
-              <MappingFragment StoreEntitySet="BIN$lbDBeZKJSCWsspDw3zz0Qg==$0">
-                <ScalarProperty Name="NRO_RESOLUCION" ColumnName="NRO_RESOLUCION" />
-                <ScalarProperty Name="ID_GRUPO" ColumnName="ID_GRUPO" />
-                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
-                <ScalarProperty Name="USR_MODIF" ColumnName="USR_MODIF" />
-                <ScalarProperty Name="FEC_MODIF" ColumnName="FEC_MODIF" />
-                <ScalarProperty Name="USR_ALTA" ColumnName="USR_ALTA" />
-                <ScalarProperty Name="FEC_ALTA" ColumnName="FEC_ALTA" />
-                <ScalarProperty Name="HS_SUPERVISION" ColumnName="HS_SUPERVISION" />
-                <ScalarProperty Name="FEC_SUPERVISION" ColumnName="FEC_SUPERVISION" />
-                <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
-                <ScalarProperty Name="ID_SUPERVISOR" ColumnName="ID_SUPERVISOR" />
-                <ScalarProperty Name="ID_SUPERVISION" ColumnName="ID_SUPERVISION" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BIN_nPB0235pSYGQnQ6bNebcpw___0">
-            <EntityTypeMapping TypeName="Model_Cursos.BIN_nPB0235pSYGQnQ6bNebcpw___0">
-              <MappingFragment StoreEntitySet="BIN$nPB0235pSYGQnQ6bNebcpw==$0">
-                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
-                <ScalarProperty Name="USR_MODIF" ColumnName="USR_MODIF" />
-                <ScalarProperty Name="FEC_MODIF" ColumnName="FEC_MODIF" />
-                <ScalarProperty Name="USR_ALTA" ColumnName="USR_ALTA" />
-                <ScalarProperty Name="FEC_ALTA" ColumnName="FEC_ALTA" />
-                <ScalarProperty Name="ID_DOMICILIO" ColumnName="ID_DOMICILIO" />
-                <ScalarProperty Name="ID_PERSONAJUR" ColumnName="ID_PERSONAJUR" />
-                <ScalarProperty Name="ID_SUPERVISOR" ColumnName="ID_SUPERVISOR" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="T_SUPERVICIONES">
             <EntityTypeMapping TypeName="Model_Cursos.T_SUPERVICIONES">
               <MappingFragment StoreEntitySet="T_SUPERVICIONES">
@@ -4095,8 +4002,6 @@
           <ConnectorPoint PointX="2.25" PointY="2.4035953776041765" />
           <ConnectorPoint PointX="3" PointY="2.4035953776041765" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Model_Cursos.BIN_lbDBeZKJSCWsspDw3zz0Qg___0" Width="1.5" PointX="5.375" PointY="0.75" Height="3.3263964843749818" />
-        <EntityTypeShape EntityType="Model_Cursos.BIN_nPB0235pSYGQnQ6bNebcpw___0" Width="1.5" PointX="7.375" PointY="0.75" Height="2.5571907552083246" />
         <EntityTypeShape EntityType="Model_Cursos.T_SUPERVICIONES" Width="1.5" PointX="18.5" PointY="31" Height="3.7109993489583246" />
         <EntityTypeShape EntityType="Model_Cursos.T_SUPERVISORES" Width="1.5" PointX="16.25" PointY="25.875" Height="3.9033007812499818" />
         <AssociationConnector Association="Model_Cursos.T_SUPERVICIONES_T_GRUPOS_FK1" >

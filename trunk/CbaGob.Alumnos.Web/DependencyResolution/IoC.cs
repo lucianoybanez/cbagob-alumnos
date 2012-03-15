@@ -94,6 +94,7 @@ namespace CbaGob.Alumnos.Web
             x.For<ICargosServicio>().Use<CargosServicio>();
             x.For<IEstablecimientoServicio>().Use<EstablecimientoServicio>();
             x.For<IDocentesServicio>().Use<DocentesServicio>();
+
         }
     }
 }
