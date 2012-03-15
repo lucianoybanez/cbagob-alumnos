@@ -76,6 +76,7 @@
     <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AlumnosController.cs" />
+    <Compile Include="Controllers\AreaTipoCursoController.cs" />
     <Compile Include="Controllers\AyudaController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BuscadorController.cs" />
@@ -93,9 +94,11 @@
     <Compile Include="Controllers\InscripcionesController.cs" />
     <Compile Include="Controllers\InstitucionesController.cs" />
     <Compile Include="Controllers\InventariosController.cs" />
+    <Compile Include="Controllers\ModalidadController.cs" />
     <Compile Include="Controllers\MovimientoController.cs" />
     <Compile Include="Controllers\PersonasController.cs" />
     <Compile Include="Controllers\PrestamosController.cs" />
+    <Compile Include="Controllers\ProgramasController.cs" />
     <Compile Include="Controllers\SupervicionesController.cs" />
     <Compile Include="Controllers\SupervisoresController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -236,6 +239,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\CbaGob.Alumnos.Alumnos.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.AreaTipoCurso.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Buscador.js" />
     <Content Include="Scripts\CbaGob.Alumnos.BuscadorAlumno.js" />
     <Content Include="Scripts\CbaGob.Alumnos.BuscadorCondicionCurso.js" />
@@ -252,8 +256,10 @@
     <Content Include="Scripts\CbaGob.Alumnos.Examenes.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Inscripciones.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Instituciones.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Modalidad.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Movimientos.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Prestamo.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Programas.js" />
     <Content Include="Scripts\cbaGob.Alumnos.SetFront.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Superviciones.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Supervisores.js" />
@@ -725,6 +731,51 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Cargos\_CargosLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Programas\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Programas\_ProgramasLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Programas\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Programas\Modificar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Programas\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AreaTipoCurso\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AreaTipoCurso\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AreaTipoCurso\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AreaTipoCurso\Modificar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AreaTipoCurso\_AreaTipoCursoLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Modalidad\_ModalidadLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Modalidad\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Modalidad\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Modalidad\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Modalidad\Modificar.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

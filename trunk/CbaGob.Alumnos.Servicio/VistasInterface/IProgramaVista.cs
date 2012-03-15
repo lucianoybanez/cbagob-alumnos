@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
+namespace CbaGob.Alumnos.Servicio.VistasInterface
 {
-    public interface IPrograma : IComunDatos
+    public interface IProgramaVista
     {
         int IdPrograma { get; set; }
         string NombrePrograma { get; set; }

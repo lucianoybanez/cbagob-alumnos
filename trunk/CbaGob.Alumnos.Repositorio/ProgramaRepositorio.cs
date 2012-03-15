@@ -8,47 +8,169 @@ using CbaGob.Alumnos.Repositorio.Models;
 
 namespace CbaGob.Alumnos.Repositorio
 {
-    public class ProgramaRepositorio : IProgramaRepositorio
+    public class ProgramaRepositorio : BaseRepositorio, IProgramaRepositorio
     {
 
         private CursosDB mDb;
 
-        public ProgramaRepositorio()
+        public ProgramaRepositorio(ILoggedUserHelper helper)
+            : base(helper)
         {
             mDb = new CursosDB();
         }
 
 
-        public IList<IPrograma> GetProgramas()
+        private IQueryable<IPrograma> QPrograma()
         {
-            var a = (from p in mDb.T_PROGRAMAS
-                     select new Programa()
-                                {
-                                    IdPrograma = p.ID_PROGRAMA,
-                                    Estado = p.ESTADO,
-                                    FechaAlta = p.FEC_ALTA,
-                                    FechaModificacion = p.FEC_MODIF,
-                                    NombrePrograma = p.N_PROGRAMA,
-                                    UsuarioAlta = p.USR_ALTA,
-                                    UsuarioModificacion = p.USR_MODIF,
-                                    Descripcion = p.DESCRIPCION
-                                }).ToList().Cast<IPrograma>().ToList();
+            var a = (from c in mDb.T_PROGRAMAS
+                     where c.ESTADO == "A"
+                     select
+                         new Programa
+                             {
+                                 Descripcion = c.DESCRIPCION,
+                                 IdPrograma = c.ID_PROGRAMA,
+                                 NombrePrograma = c.N_PROGRAMA,
+                                 Nro_resolucion = c.NRO_RESOLUCION
+                             }
+                    );
+
             return a;
         }
 
-        public int AgregarPrograma(IPrograma programa)
+
+
+        public IList<IPrograma> GetProgramas()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return QPrograma().ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
-        public int ModificarPrograma(IPrograma programa)
+        public IPrograma GetPrograma(int idprograma)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return QPrograma().Where(c => c.IdPrograma == idprograma).SingleOrDefault();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
-        public int EliminarPrograma(int idPrograma)
+        public int GetCountPrograma()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return QPrograma().Count();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
+
+        public IList<IPrograma> GetProgramas(int skip, int take)
+        {
+            try
+            {
+                return QPrograma().OrderBy(c => c.NombrePrograma).Skip(skip).Take(take).ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public bool AgregarPrograma(IPrograma programa)
+        {
+            try
+            {
+                base.AgregarDatosAlta(programa);
+
+                T_PROGRAMAS t_programa = new T_PROGRAMAS
+                                             {
+                                                 ESTADO = programa.Estado,
+                                                 N_PROGRAMA = programa.NombrePrograma,
+                                                 NRO_RESOLUCION = programa.Nro_resolucion,
+                                                 USR_ALTA = programa.UsuarioAlta,
+                                                 FEC_ALTA = programa.FechaAlta,
+                                                 USR_MODIF = programa.UsuarioModificacion,
+                                                 FEC_MODIF = programa.FechaModificacion,
+                                             };
+
+                mDb.AddToT_PROGRAMAS(t_programa);
+                mDb.SaveChanges();
+                return true;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public bool ModificarPrograma(IPrograma programa)
+        {
+            try
+            {
+                base.AgregarDatosModificacion(programa);
+
+
+                var updatecargo = mDb.T_PROGRAMAS.FirstOrDefault(c => c.ID_PROGRAMA == programa.IdPrograma);
+
+                updatecargo.FEC_MODIF = programa.FechaModificacion;
+                updatecargo.USR_MODIF = programa.UsuarioModificacion;
+                updatecargo.N_PROGRAMA = programa.NombrePrograma;
+
+
+                mDb.SaveChanges();
+                return true;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public bool EliminarPrograma(int idPrograma, string nro_resolucion)
+        {
+            try
+            {
+                IComunDatos programa = new ComunDatos();
+
+                base.AgregarDatosEliminacion(programa);
+
+
+                var updatecargo = mDb.T_PROGRAMAS.FirstOrDefault(c => c.ID_PROGRAMA == idPrograma);
+
+                updatecargo.ESTADO = programa.Estado;
+                updatecargo.FEC_MODIF = programa.FechaModificacion;
+                updatecargo.USR_MODIF = programa.UsuarioModificacion;
+                updatecargo.NRO_RESOLUCION = nro_resolucion;
+
+                mDb.SaveChanges();
+                return true;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 }

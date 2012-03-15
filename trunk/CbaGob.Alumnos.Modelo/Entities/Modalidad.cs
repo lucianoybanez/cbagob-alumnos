@@ -12,5 +12,6 @@ namespace CbaGob.Alumnos.Modelo.Entities
         public string Estado { get; set; }
         public int IdModalidad { get; set; }
         public string NombreModalidad { get; set; }
+        public string Nro_Resolucion { get; set; }
     }
 }

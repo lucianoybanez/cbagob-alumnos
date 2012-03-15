@@ -8,8 +8,12 @@ namespace CbaGob.Alumnos.Modelo.Repositories
     public interface IProgramaRepositorio
     {
         IList<IPrograma> GetProgramas();
-        int AgregarPrograma(IPrograma programa);
-        int ModificarPrograma(IPrograma programa);
-        int EliminarPrograma(int idPrograma);
+        IPrograma GetPrograma(int idprograma);
+        int GetCountPrograma();
+        IList<IPrograma> GetProgramas(int skip, int take);
+        bool AgregarPrograma(IPrograma programa);
+        bool ModificarPrograma(IPrograma programa);
+        bool EliminarPrograma(int idPrograma, string nro_resolucion);
+
     }
 }

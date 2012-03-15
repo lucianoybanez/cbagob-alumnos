@@ -15,5 +15,6 @@ namespace CbaGob.Alumnos.Modelo.Entities
         public string Estado { get; set; }
         public int Id_Area_Tipo_Curso { get; set; }
         public string Nombre_AreaTipoCurso { get; set; }
+        public string Nro_Resolucion { get; set; }
     }
 }

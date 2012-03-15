@@ -1,5 +1,5 @@
-﻿@model CargosVista
-@if (Model.ListaCargo != null && Model.ListaCargo.Count > 0)
+﻿@model ModalidadesVista
+@if (Model.ListaModalidad != null && Model.ListaModalidad.Count > 0)
 { 
     <div style="text-align: center;">
         <table id="grilla" align="center" width="722px" cellpadding="0" cellspacing="0">
@@ -7,7 +7,7 @@
                 <tr>
                     <th height="30" width="280">
                         <div align="left">
-                            Nombre del Cargo</div>
+                            Nombre de la Modalidad</div>
                     </th>
                     <th height="30" width="80">
                         <div align="center">
@@ -20,18 +20,18 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model.ListaCargo)
+                @foreach (var item in Model.ListaModalidad)
                 {
                     <tr>
                         <td align="left" height="28">
-                            @item.N_Cargo
+                            @item.NombreModalidad
                         </td>
                         <td>
                             @item.Nro_Resolucion
                         </td>
                         <td align="right" style="margin-right: 2px;">
-                            @Html.ActionLink("Modificar", "Modificar", "Cargos", new { idcargo = item.Id_Cargo }, new { @class = "btnIngresar" })&nbsp;&nbsp;&nbsp;&nbsp;
-                            @Html.ActionLink("Eliminar", "Eliminar", "Cargos", new { idcargo = item.Id_Cargo }, new { @class = "btnIngresar" })&nbsp;&nbsp;&nbsp;&nbsp;
+                            @Html.ActionLink("Modificar", "Modificar", "Modalidad", new { idmodalidad = item.IdModalidad }, new { @class = "btnIngresar" })&nbsp;&nbsp;&nbsp;&nbsp;
+                            @Html.ActionLink("Eliminar", "Eliminar", "Modalidad", new { idmodalidad = item.IdModalidad }, new { @class = "btnIngresar" })&nbsp;&nbsp;&nbsp;&nbsp;
                         </td>
                     </tr>
                 }
@@ -42,7 +42,7 @@
                     </td>
                     <td align="right" valign="bottom" colspan="2" height="20">
                         <div style="height: 20px; padding: 15px 5px 0 2px;">
-                            @Html.ActionLink("Agregar Cargo", "Agregar", "Cargos", new { @class = "btnIngresar" })
+                            @Html.ActionLink("Agregar Modalidad", "Agregar", "Modalidad", new { @class = "btnIngresar" })
                         </div>
                     </td>
                 </tr>
@@ -56,13 +56,13 @@ else
     <table id="grilla" align="center" width="722px" cellpadding="0" cellspacing="0">
         <tr>
             <td width="722px">
-                @Html.Partial("_SinDatos", "Cargos")
+                @Html.Partial("_SinDatos", "Modalidad")
             </td>
         </tr>
         <tr>
             <td>
                 <div align="right" style="height: 20px; padding: 15px 5px 0 2px;">
-                    @Html.ActionLink("Agregar Cargo", "Agregar", "Cargos", new { @class = "btnIngresar" })
+                    @Html.ActionLink("Agregar Modalidad", "Agregar", "Modalidad", new { @class = "btnIngresar" })
                 </div>
             </td>
         </tr>
