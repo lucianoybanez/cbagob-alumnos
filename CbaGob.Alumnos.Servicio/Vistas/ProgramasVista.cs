@@ -8,9 +8,9 @@ using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.Vistas
 {
-    public class AreasTipoCursoVista : IAreasTipoCursoVista
+    public class ProgramasVista : IProgramasVista
     {
-        public IList<IAreaTipoCurso> ListaAreaTipoCurso { get; set; }
+        public IList<IPrograma> ListaPrograma { get; set; }
         public IPager Pager { get; set; }
     }
 }

@@ -7,9 +7,9 @@ using CbaGob.Alumnos.Servicio.Vistas.Shared;
 
 namespace CbaGob.Alumnos.Servicio.VistasInterface
 {
-    public interface IAreasTipoCursoVista
+    public interface IModalidadesVista
     {
-        IList<IAreaTipoCurso> ListaAreaTipoCurso { get; set; }
-        IPager Pager { get; set; }
+        IList<IModalidad> ListaModalidad { get; set; }
+        IPager Pager { get; set; } 
     }
 }

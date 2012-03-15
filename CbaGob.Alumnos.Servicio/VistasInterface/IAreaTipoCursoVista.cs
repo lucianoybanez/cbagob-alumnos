@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
+namespace CbaGob.Alumnos.Servicio.VistasInterface
 {
-    public interface IAreaTipoCurso : IComunDatos
+    public interface IAreaTipoCursoVista
     {
         int Id_Area_Tipo_Curso { get; set; }
         string Nombre_AreaTipoCurso { get; set; }

@@ -21,7 +21,7 @@ namespace CbaGob.Alumnos.Web
                                                         });
                                              ServicesView(x);
                                              Repositories(x);
-                                            
+
                                          });
             return ObjectFactory.Container;
         }
@@ -45,7 +45,7 @@ namespace CbaGob.Alumnos.Web
             x.For<IInscripcionRepositorio>().Use<InscripcionRepositorio>();
             x.For<IAlumnosRepositorio>().Use<AlumnosRepositorio>();
             x.For<IEstablecimientoRepositorio>().Use<EstablecimientoRepositorio>();
-           
+
             x.For<IHorarioRepositorio>().Use<HorarioRepositorio>();
             x.For<IEquipoRepositorio>().Use<EquipoRepositorio>();
             x.For<IEstado_EquipoRepositorio>().Use<Estado_EquipoRepositorio>();
@@ -62,6 +62,9 @@ namespace CbaGob.Alumnos.Web
             x.For<ITipo_EstadoCivilRepositorio>().Use<Tipo_EstadoCivilRepositorio>();
             x.For<ITipo_SexoRepositorio>().Use<Tipo_SexoRepositorio>();
             x.For<IDomiciliosRepositorio>().Use<DomiciliosRepositorio>();
+            x.For<IProgramaRepositorio>().Use<ProgramaRepositorio>();
+            x.For<IModalidadRepositorio>().Use<ModalidadRepositorio>();
+            
         }
 
         private static void ServicesView(IInitializationExpression x)
@@ -94,6 +97,10 @@ namespace CbaGob.Alumnos.Web
             x.For<ICargosServicio>().Use<CargosServicio>();
             x.For<IEstablecimientoServicio>().Use<EstablecimientoServicio>();
             x.For<IDocentesServicio>().Use<DocentesServicio>();
+            x.For<IProgramaServicio>().Use<ProgramaServicio>();
+            x.For<IModalidadServicio>().Use<ModalidadServicio>();
+            
+
 
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,9 +8,9 @@ using CbaGob.Alumnos.Servicio.Vistas.Shared;
 
 namespace CbaGob.Alumnos.Servicio.VistasInterface
 {
-    public interface IAreasTipoCursoVista
+    public interface IProgramasVista
     {
-        IList<IAreaTipoCurso> ListaAreaTipoCurso { get; set; }
-        IPager Pager { get; set; }
+        IList<IPrograma> ListaPrograma { get; set; }
+        IPager Pager { get; set; } 
     }
 }

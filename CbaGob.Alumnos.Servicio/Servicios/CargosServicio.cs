@@ -41,8 +41,8 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
             catch (Exception)
             {
-
-                throw;
+                base.AddError("Sucedio un Error comprueb los datos");
+                return null;
             }
 
         }
@@ -61,8 +61,8 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
             catch (Exception)
             {
-
-                throw;
+                base.AddError("Sucedio un Error comprueb los datos");
+                return null;
             }
         }
 
@@ -83,8 +83,8 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
             catch (Exception)
             {
-
-                throw;
+                base.AddError("Sucedio un Error comprueb los datos");
+                return null;
             }
         }
 
@@ -106,8 +106,8 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
             catch (Exception)
             {
-
-                throw;
+                base.AddError("Sucedio un Error comprueb los datos");
+                return false;
             }
         }
 
@@ -126,8 +126,8 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
             catch (Exception)
             {
-
-                throw;
+                base.AddError("Sucedio un Error comprueb los datos");
+                return false;
             }
         }
 
@@ -141,8 +141,8 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
             catch (Exception)
             {
-
-                throw;
+                base.AddError("Sucedio un Error comprueb los datos");
+                return false;
             }
         }
 

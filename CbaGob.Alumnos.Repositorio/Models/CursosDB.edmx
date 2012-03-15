@@ -279,6 +279,7 @@
           <Property Name="USR_ALTA" Type="varchar2" Nullable="false" MaxLength="64" />
           <Property Name="USR_MODIF" Type="varchar2" Nullable="false" MaxLength="64" />
           <Property Name="ESTADO" Type="varchar2" Nullable="false" MaxLength="1" />
+          <Property Name="NRO_RESOLUCION" Type="varchar2" MaxLength="64" />
         </EntityType>
         <EntityType Name="T_CAJA_CHICA">
           <Key>
@@ -633,6 +634,7 @@
           <Property Name="FEC_MODIF" Type="date" Nullable="false" />
           <Property Name="USR_MODIF" Type="varchar2" Nullable="false" MaxLength="64" />
           <Property Name="ESTADO" Type="varchar2" Nullable="false" MaxLength="1" />
+          <Property Name="NRO_RESOLUCION" Type="varchar2" MaxLength="64" />
         </EntityType>
         <EntityType Name="T_MOVIMIENTOS">
           <Key>
@@ -742,6 +744,7 @@
           <Property Name="FEC_MODIF" Type="date" Nullable="false" />
           <Property Name="USR_MODIF" Type="varchar2" Nullable="false" MaxLength="64" />
           <Property Name="ESTADO" Type="varchar2" Nullable="false" MaxLength="1" />
+          <Property Name="NRO_RESOLUCION" Type="varchar2" MaxLength="64" />
         </EntityType>
         <EntityType Name="T_PROGRAMAS_TEMARIO">
           <Key>
@@ -1718,6 +1721,7 @@
           <Property Type="String" Name="USR_MODIF" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="T_CURSOS" Relationship="Model_Cursos.T_CURSOS_T_AREAS_TIPOS_CU_FK1" FromRole="T_AREAS_TIPOS_CURSO" ToRole="T_CURSOS" />
+          <Property Type="String" Name="NRO_RESOLUCION" MaxLength="64" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="T_CAJA_CHICA">
           <Key>
@@ -2131,6 +2135,7 @@
           <Property Type="String" Name="USR_MODIF" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="T_CONDICIONES_CURSO" Relationship="Model_Cursos.T_CONDICIONES_CURSO_T_MOD_FK1" FromRole="T_MODALIDADES" ToRole="T_CONDICIONES_CURSO" />
+          <Property Type="String" Name="NRO_RESOLUCION" MaxLength="64" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="T_MOVIMIENTOS">
           <Key>
@@ -2249,6 +2254,7 @@
           <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="T_CONDICIONES_CURSO" Relationship="Model_Cursos.T_CONDICIONES_CURSO_T_PRO_FK1" FromRole="T_PROGRAMAS" ToRole="T_CONDICIONES_CURSO" />
           <NavigationProperty Name="T_PROGRAMAS_TEMARIO" Relationship="Model_Cursos.T_PROGRAMAS_TEMARIO_T_PRO_FK1" FromRole="T_PROGRAMAS" ToRole="T_PROGRAMAS_TEMARIO" />
+          <Property Type="String" Name="NRO_RESOLUCION" MaxLength="64" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="T_PROGRAMAS_TEMARIO">
           <Key>
@@ -2998,6 +3004,7 @@
           <EntitySetMapping Name="T_AREAS_TIPOS_CURSO">
             <EntityTypeMapping TypeName="Model_Cursos.T_AREAS_TIPOS_CURSO">
               <MappingFragment StoreEntitySet="T_AREAS_TIPOS_CURSO">
+                <ScalarProperty Name="NRO_RESOLUCION" ColumnName="NRO_RESOLUCION" />
                 <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
                 <ScalarProperty Name="USR_MODIF" ColumnName="USR_MODIF" />
                 <ScalarProperty Name="USR_ALTA" ColumnName="USR_ALTA" />
@@ -3375,6 +3382,7 @@
           <EntitySetMapping Name="T_MODALIDADES">
             <EntityTypeMapping TypeName="Model_Cursos.T_MODALIDADES">
               <MappingFragment StoreEntitySet="T_MODALIDADES">
+                <ScalarProperty Name="NRO_RESOLUCION" ColumnName="NRO_RESOLUCION" />
                 <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
                 <ScalarProperty Name="USR_MODIF" ColumnName="USR_MODIF" />
                 <ScalarProperty Name="FEC_MODIF" ColumnName="FEC_MODIF" />
@@ -3491,6 +3499,7 @@
           <EntitySetMapping Name="T_PROGRAMAS">
             <EntityTypeMapping TypeName="Model_Cursos.T_PROGRAMAS">
               <MappingFragment StoreEntitySet="T_PROGRAMAS">
+                <ScalarProperty Name="NRO_RESOLUCION" ColumnName="NRO_RESOLUCION" />
                 <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
                 <ScalarProperty Name="USR_MODIF" ColumnName="USR_MODIF" />
                 <ScalarProperty Name="FEC_MODIF" ColumnName="FEC_MODIF" />

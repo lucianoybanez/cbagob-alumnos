@@ -8,8 +8,12 @@ namespace CbaGob.Alumnos.Modelo.Repositories
     public interface IModalidadRepositorio
     {
         IList<IModalidad> GetModalidades();
-        int AgregarModalidad(IModalidad modalidad);
-        int ModificarModalidad(IModalidad modalidad);
-        int EliminarModalidad(int idModalidad);
+        IList<IModalidad> GetModalidades(int skip, int take);
+        int GetCountModalidad();
+        IModalidad GetModalidad(int id_modalidad);
+        bool AgregarModalidad(IModalidad modalidad);
+        bool ModificarModalidad(IModalidad modalidad);
+        bool EliminarModalidad(int idModalidad, string nro_resolucion);
+
     }
 }

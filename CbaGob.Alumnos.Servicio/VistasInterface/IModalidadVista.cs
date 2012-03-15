@@ -1,14 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
+namespace CbaGob.Alumnos.Servicio.VistasInterface
 {
-    public interface IModalidad : IComunDatos
+    public interface IModalidadVista
     {
         int IdModalidad { get; set; }
         string NombreModalidad { get; set; }
         string Nro_Resolucion { get; set; }
-
     }
 }
