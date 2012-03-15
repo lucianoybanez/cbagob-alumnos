@@ -11,7 +11,7 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         decimal NotaFinal { get; set; }
         DateTime? FechaNacimiento { get; set; }
         string CondicionLaboral { get; set; }
-        bool Baja { get; set; }
+        bool Estado { get; set; }
         string PlanSocial { get; set; }
         bool Aprobo { get; set; }
 

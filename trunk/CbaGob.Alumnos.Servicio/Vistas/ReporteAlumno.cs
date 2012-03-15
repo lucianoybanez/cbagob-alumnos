@@ -12,7 +12,7 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public decimal NotaFinal { get; set; }
         public DateTime? FechaNacimiento { get; set; }
         public string CondicionLaboral { get; set; }
-        public bool Baja { get; set; }
+        public bool Estado { get; set; }
         public string PlanSocial { get; set; }
         public bool Aprobo { get; set; }
     }

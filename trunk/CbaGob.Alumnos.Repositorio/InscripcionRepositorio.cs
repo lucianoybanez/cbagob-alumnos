@@ -158,7 +158,7 @@ namespace CbaGob.Alumnos.Repositorio
                                     ClasesAsistidas =
                                         p.T_PRESENTISMO.Where(c => c.ID_INSCRIPCION == p.ID_INSCRIPCION).Select(
                                             c => c.CLASES_ASISTIDAS).FirstOrDefault(),
-                                    EstadoAsistencia =
+                                    Estado =
                                         p.ESTADO=="A",
                                     Notas =
                                         p.T_EXAMENES.Where(c => c.ID_INSCRIPCION == p.ID_INSCRIPCION).Sum(c => c.NOTA) == null ? 0 : p.T_EXAMENES.Where(c => c.ID_INSCRIPCION == p.ID_INSCRIPCION).Sum(c => c.NOTA),
