@@ -93,7 +93,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             IGrupoVista model = new GrupoVista();
 
-           
+
 
             model = gruposervicio.GetGrupo(id_grupo);
 
@@ -120,7 +120,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             model.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, model.Id_Condicion_Curso).ListaAlumno;
 
-            
+
 
             model.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo).ListaDocentes;
 
@@ -129,11 +129,11 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Ver", model);
         }
 
-        public ActionResult DesasignarAlumno(int id_grupo , int id_alumno, int id_condicon_curso)
+        public ActionResult DesasignarAlumno(int id_grupo, int id_alumno, int id_condicon_curso)
         {
             IGrupoVista model = new GrupoVista();
 
-           
+
 
             model = gruposervicio.GetGrupo(id_grupo);
 
@@ -143,7 +143,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             model.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, model.Id_Condicion_Curso).ListaAlumno;
 
-            
+
 
             model.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo).ListaDocentes;
 
@@ -156,7 +156,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             IGrupoVista model = new GrupoVista();
 
-          
+
 
             model = gruposervicio.GetGrupo(id_grupo);
 
@@ -166,7 +166,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             model.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, model.Id_Condicion_Curso).ListaAlumno;
 
-            
+
 
             model.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo).ListaDocentes;
 
@@ -179,7 +179,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             IGrupoVista model = new GrupoVista();
 
-          
+
 
             model = gruposervicio.GetGrupo(id_grupo);
 
@@ -197,21 +197,17 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Ver", model);
         }
 
-
         public ActionResult AgregarHorario(int id_grupo, int id_horario)
         {
             IGrupoVista model = new GrupoVista();
 
-           
             horarioservicio.AgregarHorarioAGrupo(id_grupo, id_horario);
 
             model = gruposervicio.GetGrupo(id_grupo);
 
-
             model.ListaAlumnos = alumnosservicios.GetTodosAlumnosSinGrupo(model.Id_Condicion_Curso).ListaAlumno;
 
             model.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, model.Id_Condicion_Curso).ListaAlumno;
-
 
             model.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo).ListaDocentes;
 
@@ -241,7 +237,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             return View("Ver", model);
         }
-        
+
         [HttpPost]
         public ActionResult Agregar_Grupo(GrupoVista model)
         {
