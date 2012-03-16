@@ -62,6 +62,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View(model);
         }
 
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor })]
         [HttpPost]
         public ActionResult Agregar_Alumno(AlumnosVista model)
         {
@@ -98,7 +99,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             return PartialView("_BuscadorAlumnoLista", alumnosservicios.GetTodosByNombreApellido(nombre, apellido).ListaAlumno);
         }
 
-
+        
         [HttpPost]
         public ActionResult Agregar_Persona(AlumnosVista model)
         {
@@ -111,7 +112,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         [HttpPost]
         public ActionResult BuscarAlumnos(AlumnosVista model)
         {
-            return View("Index", alumnosservicios.BuscarAlumnos(model.NombreBusqueda, model.ApellidoBusqueda, model.DniBusqueda,model.CuilBusqueda));
+            return View("Index", alumnosservicios.BuscarAlumnos(model.NombreBusqueda, model.ApellidoBusqueda, model.DniBusqueda, model.CuilBusqueda));
         }
 
     }

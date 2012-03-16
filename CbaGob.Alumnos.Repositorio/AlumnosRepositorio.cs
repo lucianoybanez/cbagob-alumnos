@@ -13,8 +13,6 @@ namespace CbaGob.Alumnos.Repositorio
     {
         public CursosDB mDb;
 
-
-
         public AlumnosRepositorio(ILoggedUserHelper helper): base(helper)
         {
             
@@ -135,8 +133,8 @@ namespace CbaGob.Alumnos.Repositorio
                      join cu in mDb.T_INSCRIPCIONES on c.ID_ALUMNO equals cu.ID_ALUMNO
                      where
                          c.ESTADO == "A" && cu.ID_CONDICION_CURSO == id_condicion_curso &&
-                         !(from d in mDb.T_ALUMONOS_GRUPO where d.ESTADO == "A" select d.ID_CONDICION_CURSO).Contains(
-                             cu.ID_CONDICION_CURSO)
+                         !(from d in mDb.T_ALUMONOS_GRUPO where d.ESTADO == "A" select d.ID_ALUMNO).Contains(
+                             cu.ID_ALUMNO)
                      select
                          new Alumno
                              {
