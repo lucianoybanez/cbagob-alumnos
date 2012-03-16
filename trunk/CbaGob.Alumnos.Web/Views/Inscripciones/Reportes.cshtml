@@ -19,7 +19,7 @@
                 { 
                     @Html.HiddenFor(c => c.IdCondicionCurso)  
                     @Html.ValidationSummary(true)
-                    <input type="hidden" name="Reporte" id="Reporte" value="Nominda de Asistencia" />
+                    @Html.HiddenFor(c=> c.Accion)
                     <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
                         text-align: center;">
                         <legend style="color: #FF9900"><b>Datos para el Reporte</b></legend>
@@ -30,9 +30,9 @@
                                     Tipo de Reporte
                                 </td>
                                 <td align="left" valign="middle">
-                                   <input type="radio" class="reporteTipo" name="reporteTipo" checked="checked" value="Asistencia" />Nomina de Asistencia<br/>
-                                   <input type="radio" class="reporteTipo" name="reporteTipo"  value="Participantes" />Nomina de Participantes<br/>
-                                   <input type="radio" class="reporteTipo" name="reporteTipo"  value="Egresados" />Nomina de Egresados
+                                   <input type="radio" class="reporteTipo" name="reporteTipo"  @(Model.Accion == "asistencia" ? "checked='checked'" : "") value="asistencia" />Nomina de Asistencia<br/>
+                                   <input type="radio" class="reporteTipo" name="reporteTipo" @(Model.Accion == "participante" ? "checked='checked'" : "") value="participante" />Nomina de Participantes<br/>
+                                   <input type="radio" class="reporteTipo" name="reporteTipo"  @(Model.Accion == "egresado" ? "checked='checked'" : "") value="egresado" />Nomina de Egresados
                                 </td>
                             </tr>               
                             <tr>
