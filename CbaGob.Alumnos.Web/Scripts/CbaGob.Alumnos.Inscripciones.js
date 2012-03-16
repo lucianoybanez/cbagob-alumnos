@@ -59,7 +59,7 @@ cbaAlumnosInscripciones = function () {
         });
 
         $("#BuscarInstitucion").click(function () {
-            cbaAlumnosBuscadorCondicionCurso.AbrirBuscador('IdCondicionCurso', 'NombreInstitucion', 'NombreCurso', 'NombreEstadoCurso', 'NombreNivel', 'NombreModalidad', 'NombrePrograma', 'FechaInicio', 'FechaFin');
+            cbaAlumnosBuscadorCondicionCurso.AbrirBuscador('IdCondicionCurso', 'NombreInstitucion', 'NombreCurso', 'NombreEstadoCurso', 'NombreNivel', 'NombreModalidad', 'NombrePrograma', 'FechaInicio', 'FechaFin', 'NumeroResolucion');
         });
 
         $("#Emitir").click(function () {
@@ -70,7 +70,7 @@ cbaAlumnosInscripciones = function () {
 
     function initReportes() {
         $('.reporteTipo').click(function() {
-            $("#Reporte").val($(this).val());
+            $("#Accion").val($(this).val());
         });
     }
 

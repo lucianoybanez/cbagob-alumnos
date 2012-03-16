@@ -52,7 +52,7 @@
          Nombre del Curso: <b>@Model.NombreCurso</b> 
       </cell>
       <cell  borderwidth="0" right="true"  >
-        Egresados:  Varones: <b>@Html.Encode(Model.Varones + "   ")</b>   Mujeres: <b>@Html.Encode(Model.Mujeres + "   ")</b>  Total: <b>@Html.Encode(Model.TotalHyM)</b> 
+        Alumnos:  Varones: <b>@Html.Encode(Model.Varones + "   ")</b>   Mujeres: <b>@Html.Encode(Model.Mujeres + "   ")</b>  Total: <b>@Html.Encode(Model.TotalHyM)</b> 
       </cell>        
     </row>
   </table>
@@ -62,7 +62,7 @@
  
 
   
-  <table columns="7" width="100%" align="Center" cellpadding="1" cellspacing="1" widths="3;40;10;17;10;9;13" borderwidth="0" left="true" right="true" top="true" bottom="true" red="0" green="0" blue="0">
+  <table columns="6" width="100%" align="Center" cellpadding="1" cellspacing="1" widths="3;40;10;17;16;16" borderwidth="0" left="true" right="true" top="true" bottom="true" red="0" green="0" blue="0">
     <row>
       <cell  borderwidth="1" left="true" right="true" top="true" bottom="true" horizontalalign="Justify" verticalalign="Default" >
         <paragraph  font="unknown" align="Justify">Nº</paragraph>
@@ -77,21 +77,18 @@
         <paragraph  font="unknown" align="Justify">CUIL</paragraph>
       </cell>
        <cell  borderwidth="1" left="true" right="true" top="true" bottom="true" horizontalalign="Justify" verticalalign="Default" >
-        <paragraph  font="unknown" align="Justify">% Asistencia</paragraph>
+        <paragraph  font="unknown" align="Justify">% Presentismo</paragraph>
       </cell>
        <cell  borderwidth="1" left="true" right="true" top="true" bottom="true" horizontalalign="Justify" verticalalign="Default" >
-        <paragraph  font="unknown" align="Justify">Promedio</paragraph>
-      </cell>
-       <cell  borderwidth="1" left="true" right="true" top="true" bottom="true" horizontalalign="Justify" verticalalign="Default" >
-        <paragraph  font="unknown" align="Justify">Evaluacion Final</paragraph>
-      </cell>
+        <paragraph  font="unknown" align="Justify">Baja</paragraph>
+      </cell>     
        </row>
       @{ int i = 0;
          if (Model.Alumnos != null)
          {
-             if (Model.Alumnos.Where(c => c.Estado && c.Aprobo).Count() > 0)
+             if (Model.Alumnos.Count() > 0)
              {
-                 foreach (var al in Model.Alumnos.Where(c => c.Estado && c.Aprobo))
+                 foreach (var al in Model.Alumnos)
                  {
                      i += 1;
                        <row>
@@ -111,12 +108,9 @@
         <paragraph  font="unknown"  align="Justify">@al.Asistencia</paragraph>
       </cell>
        <cell  borderwidth="1" left="true" right="true" top="true" bottom="true" horizontalalign="Justify" verticalalign="Default" >
-        <paragraph  font="unknown"  align="Justify">@al.NotaFinal</paragraph>
+        <paragraph  font="unknown"  align="Justify">@(al.Estado ? "":"X")</paragraph>
       </cell>
-       <cell  borderwidth="1" left="true" right="true" top="true" bottom="true" horizontalalign="Justify" verticalalign="Default" >
-        <paragraph  font="unknown"  align="Justify">Aprobo</paragraph>
-      </cell> 
-                </row>      
+         </row>      
                      
                  }
              }

@@ -142,11 +142,16 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         public ActionResult Reportes(InscripcionVista vista)
         {
+            if (string.IsNullOrEmpty(vista.Accion))
+            {
+                vista.Accion = "asistencia";
+            }
             return View(vista);
         }
 
-        public ActionResult GenerarReporte(string Reporte, InscripcionVista vista)
+        public ActionResult GenerarReporte(InscripcionVista vista)
         {
+
             var reporteVista = InscripcionServicio.GetReporteEgresados(vista.IdCondicionCurso);
             var errores = InscripcionServicio.GetErrors();
             if (errores.Count>0)
@@ -160,12 +165,23 @@ namespace CbaGob.Alumnos.Web.Controllers
             reporteVista.PathGobiernoImagen1 = physicalPath + "provincia-de-cordoba.jpg";
             reporteVista.PathGobiernoImagen2 = physicalPath + "cordoba-entre-todo.jpg";
 
-            if (Reporte.ToLower().Contains("egresado"))
+            if (vista.Accion.ToLower() == "egresado")
             {
-                reporteVista.NombreReporte = "NOMINA DE EGRESADOS";
+                reporteVista.NombreReporte = "NÓMINA DE EGRESADOS";
                 return ViewPdf("EgresadosPDF", reporteVista);
             }
-            return null;
+            else if (vista.Accion.ToLower() == "participante")
+            {
+                reporteVista.NombreReporte = "NÓMINA DE PARTICIPANTES";
+                return ViewPdf("ParticipantesPDF", reporteVista);
+            }
+            else if (vista.Accion.ToLower() == "asistencia")
+            {
+                reporteVista.NombreReporte = "NÓMINA DE ASISTENCIA FINAL";
+                return ViewPdf("AsistenciaPDF", reporteVista);
+            }
+            ModelState.AddModelError(string.Empty,"Ocurrio un error al procesar el reporte");
+            return View("Reportes", vista);
         }
 
         #endregion
