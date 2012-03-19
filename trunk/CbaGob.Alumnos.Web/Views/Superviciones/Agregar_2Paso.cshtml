@@ -17,8 +17,7 @@
                 </div>
                 @using (Html.BeginForm("Agregar_Supervicion", "Superviciones", FormMethod.Post, new { Id = "FormularioSuperviciones" }))
                 { 
-                    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
-                        text-align: center;">
+                    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
                         <legend>Datos de la Supervición:</legend>
                         <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
                             width: 700px;">
@@ -99,6 +98,15 @@
                                             </td>
                                             <td align="left">
                                                 @Html.TextAreaFor(c => c.Observaciones, new { style = "width:300px;height:50px;", MaxLength = "3999" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Nro Resolución:</b>
+                                            </td>
+                                            <td align="left">
+                                                @Html.TextBoxFor(c => c.Nro_resolucion, new { style = "width:150px;", MaxLength = "64", Class = "asd" })
+                                                @Html.ValidationMessageFor(m => m.Nro_resolucion, "*")
                                             </td>
                                         </tr>
                                     </table>

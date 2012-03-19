@@ -14,53 +14,137 @@ namespace CbaGob.Alumnos.Repositorio
     {
         private CursosDB mDB;
 
-        public FacturaRepositorio(ILoggedUserHelper helper):base(helper)
+        public FacturaRepositorio(ILoggedUserHelper helper)
+            : base(helper)
         {
             mDB = new CursosDB();
         }
 
-        public IList<IFactura> GetFacturas()
+        private IQueryable<IFactura> QFactura()
         {
-            var a = (from p in mDB.T_FACTURAS
-                     where p.ESTADO == "A"
+            var a = (from c in mDB.T_FACTURAS
+                     where c.ESTADO == "A"
                      select new Factura()
-                     {
-                         Concepto = p.CONCEPTO,
-                         Estado = p.ESTADO,
-                         FechaAlta = p.FEC_ALTA,
-                         FechaModificacion = p.FEC_MODIF,
-                         IdFactura = p.ID_FACTURA,
-                         MontoTotal = p.MONTO_TOTAL,
-                         NroFactura = p.NRO_FACTURA,
-                         UsuarioAlta = p.USR_ALTA,
-                         UsuarioModificacion = p.USR_MODIF,
-                         IdCondicionCurso = p.T_CONDICIONES_CURSO.ID_CONDICION_CURSO,
-                         NombreCurso = p.T_CONDICIONES_CURSO.T_CURSOS.N_CURSO,
-                         NombreInstitucion = p.T_CONDICIONES_CURSO.T_INSTITUCIONES.N_INSTITUCION
-                     }).ToList().Cast<IFactura>().ToList();
+                                {
+                                    Concepto = c.CONCEPTO,
+                                    Estado = c.ESTADO,
+                                    FechaAlta = c.FEC_ALTA,
+                                    FechaModificacion = c.FEC_MODIF,
+                                    IdFactura = c.ID_FACTURA,
+                                    MontoTotal = c.MONTO_TOTAL,
+                                    NroFactura = c.NRO_FACTURA,
+                                    UsuarioAlta = c.USR_ALTA,
+                                    UsuarioModificacion = c.USR_MODIF,
+                                    IdCondicionCurso = c.T_CONDICIONES_CURSO.ID_CONDICION_CURSO,
+                                    NombreCurso = c.T_CONDICIONES_CURSO.T_CURSOS.N_CURSO,
+                                    NombreInstitucion = c.T_CONDICIONES_CURSO.T_INSTITUCIONES.N_INSTITUCION
+                                });
+
             return a;
         }
 
+
+        public IList<IFactura> GetFacturas()
+        {
+            try
+            {
+                return QFactura().ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public IList<IFactura> GetFacturas(int skip, int take)
+        {
+            try
+            {
+                return QFactura().OrderBy(c => c.NombreInstitucion).Skip(skip).Take(take).ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public int GetCountFacturas()
+        {
+            try
+            {
+                return QFactura().Count();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private IQueryable<IFactura> QFacturaLiquidacion()
+        {
+            var a = (from c in mDB.T_FACTURAS
+                     where c.ESTADO == "A" && c.LIQUIDADA == "N"
+                     select new Factura()
+                                {
+                                    Concepto = c.CONCEPTO,
+                                    Estado = c.ESTADO,
+                                    FechaAlta = c.FEC_ALTA,
+                                    FechaModificacion = c.FEC_MODIF,
+                                    IdFactura = c.ID_FACTURA,
+                                    MontoTotal = c.MONTO_TOTAL,
+                                    NroFactura = c.NRO_FACTURA,
+                                    UsuarioAlta = c.USR_ALTA,
+                                    UsuarioModificacion = c.USR_MODIF,
+                                    IdCondicionCurso = c.T_CONDICIONES_CURSO.ID_CONDICION_CURSO,
+                                    NombreCurso = c.T_CONDICIONES_CURSO.T_CURSOS.N_CURSO,
+                                    NombreInstitucion = c.T_CONDICIONES_CURSO.T_INSTITUCIONES.N_INSTITUCION
+                                });
+
+            return a;
+        }
+
+
         public IList<IFactura> GetFacturasbyLiquidacion()
         {
-            var a = (from p in mDB.T_FACTURAS
-                     where p.ESTADO == "A" && p.LIQUIDADA == "N"
-                     select new Factura()
-                     {
-                         Concepto = p.CONCEPTO,
-                         Estado = p.ESTADO,
-                         FechaAlta = p.FEC_ALTA,
-                         FechaModificacion = p.FEC_MODIF,
-                         IdFactura = p.ID_FACTURA,
-                         MontoTotal = p.MONTO_TOTAL,
-                         NroFactura = p.NRO_FACTURA,
-                         UsuarioAlta = p.USR_ALTA,
-                         UsuarioModificacion = p.USR_MODIF,
-                         IdCondicionCurso = p.T_CONDICIONES_CURSO.ID_CONDICION_CURSO,
-                         NombreCurso = p.T_CONDICIONES_CURSO.T_CURSOS.N_CURSO,
-                         NombreInstitucion = p.T_CONDICIONES_CURSO.T_INSTITUCIONES.N_INSTITUCION
-                     }).ToList().Cast<IFactura>().ToList();
-            return a;
+            try
+            {
+                return QFacturaLiquidacion().ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+        }
+
+        public IList<IFactura> GetFacturasbyLiquidacion(int skip, int take)
+        {
+            try
+            {
+                return QFacturaLiquidacion().OrderBy(c => c.NombreInstitucion).Skip(skip).Take(take).ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public int GetCountFacturasbyLiquidacion()
+        {
+            try
+            {
+                return QFacturaLiquidacion().Count();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IFactura GetFacturabyId(int idFactura)

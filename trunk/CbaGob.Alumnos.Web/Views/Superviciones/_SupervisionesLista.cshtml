@@ -6,7 +6,7 @@
             <thead>
                 <tr>
                     <th height="30" width="280">
-                        <div align="center">
+                        <div align="left">
                             Nombre de la Institución</div>
                     </th>
                     <th height="30" width="100">
@@ -18,7 +18,7 @@
                             Fecha de Supervición</div>
                     </th>
                     <th height="30">
-                        <div  align="center" style="margin-right: 2px;">
+                        <div  align="right" style="margin-right: 2px;">
                             Acción</div>
                     </th>
                 </tr>
@@ -27,7 +27,7 @@
                 @foreach (var item in Model.ListaSuperviciones)
                 {
                     <tr>
-                        <td align="center" height="28">
+                        <td align="left" height="28">
                             @item.NombreInstitucion
                         </td>
                         <td align="center" width="50">
@@ -36,7 +36,7 @@
                         <td align="center" width="50">
                             @item.Fec_Supervision.ToShortDateString()
                         </td>
-                        <td align="center" style="margin-right: 2px;">
+                        <td align="right" style="margin-right: 2px;">
                             @Html.ActionLink("Modificar", "Modificar", "Superviciones", new { id_supervisor = item.Id_Supervision }, new { @class = "btnIngresar" })
                             @Html.ActionLink("Eliminar", "Eliminar", "Superviciones", new { id_supervisor = item.Id_Supervision }, new { @class = "btnIngresar" })
                         </td>

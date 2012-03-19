@@ -582,6 +582,7 @@
           <Property Name="ESTADO" Type="varchar2" Nullable="false" MaxLength="1" />
           <Property Name="ID_CONDICION_CURSO" Type="number" Nullable="false" Precision="10" />
           <Property Name="LIQUIDADA" Type="varchar2" MaxLength="1" />
+          <Property Name="NRO_RESOLUCION" Type="varchar2" MaxLength="64" />
         </EntityType>
         <EntityType Name="T_GRUPOS">
           <Key>
@@ -2106,6 +2107,7 @@
           <Property Type="String" Name="LIQUIDADA" MaxLength="1" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="T_CONDICIONES_CURSO" Relationship="Model_Cursos.T_FACTURAS_T_CONDICIONES__FK1" FromRole="T_FACTURAS" ToRole="T_CONDICIONES_CURSO" />
           <NavigationProperty Name="T_DETALLES_FACTURA" Relationship="Model_Cursos.T_DETALLES_FACTURA_T_FACT_FK1" FromRole="T_FACTURAS" ToRole="T_DETALLES_FACTURA" />
+          <Property Type="String" Name="NRO_RESOLUCION" MaxLength="64" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="T_GRUPOS">
           <Key>
@@ -3448,6 +3450,7 @@
           <EntitySetMapping Name="T_FACTURAS">
             <EntityTypeMapping TypeName="Model_Cursos.T_FACTURAS">
               <MappingFragment StoreEntitySet="T_FACTURAS">
+                <ScalarProperty Name="NRO_RESOLUCION" ColumnName="NRO_RESOLUCION" />
                 <ScalarProperty Name="LIQUIDADA" ColumnName="LIQUIDADA" />
                 <ScalarProperty Name="ID_CONDICION_CURSO" ColumnName="ID_CONDICION_CURSO" />
                 <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />

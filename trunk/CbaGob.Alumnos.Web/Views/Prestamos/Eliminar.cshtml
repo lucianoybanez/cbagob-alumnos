@@ -17,8 +17,7 @@
                 </div>
                 @using (Html.BeginForm("Eliminar_Prestamo", "Prestamos", FormMethod.Post, new { Id = "FormularioPrestamos" }))
                 { 
-                    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
-                        text-align: center;">
+                    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
                         <legend>Datos del Prestamo:</legend>
                         <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
                             width: 700px;">
@@ -36,7 +35,7 @@
                                         </tr>
                                         <tr>
                                             <td align="left">
-                                                <b>Nombre Institucion:</b>
+                                                <b>Nombre Institución:</b>
                                             </td>
                                             <td align="left">
                                                 @Html.TextBoxFor(c => c.NombreInstitucion, new { disabled = "disabled", style = "width:150px;", MaxLength = "50" })
@@ -47,7 +46,7 @@
                                                 <b>Fecha Inicio:</b>
                                             </td>
                                             <td align="left">
-                                                @Html.TextBoxFor(c => c.Fec_Inicio, new {disabled = "disabled", Id = "fecini", style = "width:90px;", MaxLength = "50" })
+                                                @Html.TextBoxFor(c => c.Fec_Inicio, new {disabled = "disabled", Id = "fecini", style = "width:73px;", MaxLength = "50" })
                                             </td>
                                         </tr>
                                         <tr>
@@ -55,12 +54,12 @@
                                                 <b>Fecha Fin:</b>
                                             </td>
                                             <td align="left">
-                                                @Html.TextBoxFor(c => c.Fec_Fin, new {disabled = "disabled", Id = "fecfin", style = "width:90px;", MaxLength = "50" })
+                                                @Html.TextBoxFor(c => c.Fec_Fin, new {disabled = "disabled", Id = "fecfin", style = "width:73px;", MaxLength = "50" })
                                             </td>
                                         </tr>
                                         <tr>
                                             <td align="left">
-                                                <b>Observacion:</b>
+                                                <b>Observación:</b>
                                             </td>
                                             <td align="left">
                                                 @Html.TextAreaFor(c => c.Observaciones, new {disabled = "disabled", Id = "fecSup", style = "width:350px;height:50px;", MaxLength = "50" })

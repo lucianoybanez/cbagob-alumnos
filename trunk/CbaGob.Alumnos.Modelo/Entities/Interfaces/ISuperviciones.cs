@@ -17,5 +17,6 @@ namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
         string NombreCurso { get; set; }
         string NombreGrupo { get; set; }
         string NombrePersonaJuridica { get; set; }
+        string Nroresolucion { get; set; }
     }
 }

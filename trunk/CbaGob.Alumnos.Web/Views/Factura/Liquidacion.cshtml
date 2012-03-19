@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_MasterSGC.cshtml";
 }
 @section Scripts{
-    @Content.Script("CbaGob.Alumnos.Factura.js",Url)
+    @Content.Script("CbaGob.Alumnos.Factura.js", Url)
 }
 @section Stylesheets {
     @Content.Stylesheet("css/instituciones.css", Url)
@@ -19,9 +19,15 @@
                 <div id="titulo">
                 </div>
                 <div id="DivSuperviciones">
-                     @Html.Partial("_FacturaLista", Model)
+                    @Html.Partial("_FacturaLista", Model)
                 </div>
             </td>
         </tr>
     </table>
+    <div style="text-align: left;">
+        @using (Html.BeginForm("IndexPagerLiquidacion", "Factura", FormMethod.Post, new { id = "FormIndexFacturasLiquidacion" }))
+        {
+            @Html.Partial("_Pager", Model.Pager)
+        }
+    </div>
 </div>

@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
+using CbaGob.Alumnos.Servicio.Vistas.Shared;
 using CbaGob.Alumnos.Servicio.VistasInterface.Shared;
 
 namespace CbaGob.Alumnos.Servicio.VistasInterface
@@ -23,5 +24,6 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         int Id_Condicion_Curso { get; set; }
         string NombreCurso { get; set; }
         string NombreInstitucion { get; set; }
+        IPager Pager { get; set; }
     }
 }

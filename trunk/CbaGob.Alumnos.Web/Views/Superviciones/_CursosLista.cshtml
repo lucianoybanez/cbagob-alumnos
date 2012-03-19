@@ -15,16 +15,12 @@
                     </th>
                     <th height="30">
                         <div align="left">
-                            Nivel</div>
-                    </th>
-                    <th height="30">
-                        <div align="left">
                             Programa
                         </div>
                     </th>
                     <th height="30">
-                        <div align="center" style="margin-right: 2px;">
-                            Accion
+                        <div align="right" style="margin-right: 2px;">
+                            Acción
                         </div>
                     </th>
                 </tr>
@@ -34,19 +30,37 @@
                 {
                     <tr>
                         <td align="left" height="28">
-                            @item.NombreCurso
+                            @if (item.NombreCurso.Length < 30)
+                            {
+                                @item.NombreCurso
+                            }
+                            else
+                            {
+                                @(item.NombreCurso.ToString().Substring(1, 29) + " ...")
+                            }
                         </td>
                         <td align="left" height="28">
-                            @item.NombreModalidad
+                            @if (item.NombreModalidad.Length < 30)
+                            {
+                                @item.NombreModalidad
+                            }
+                            else
+                            {
+                                @(item.NombreModalidad.ToString().Substring(1, 29) + " ...")
+                            }
                         </td>
                         <td align="left" height="28">
-                            @item.NombreNivel
+                            @if (item.NombrePrograma.Length < 30)
+                            {
+                                @item.NombrePrograma
+                            }
+                            else
+                            {
+                                @(item.NombrePrograma.ToString().Substring(1, 29) + " ...")
+                            }
                         </td>
-                        <td align="left" height="28">
-                            @item.NombrePrograma
-                        </td>
-                        <td align="center" style="margin-right: 2px;">
-                            @Html.ActionLink("Ver Grupos", "VerGrupos", "Superviciones", new { idCondicionCurso = item.IdCondicionCurso, IdInstitucion = item.IdInstitucion }, new { @class = "btnIngresar" })
+                        <td align="right" style="margin-right: 2px;">
+                            @Html.ActionLink("Ver Módulos", "VerGrupos", "Superviciones", new { idCondicionCurso = item.IdCondicionCurso, IdInstitucion = item.IdInstitucion }, new { @class = "btnIngresar" })
                         </td>
                     </tr>
                 }
@@ -56,5 +70,5 @@
 }
 else
 {
-    @Html.Partial("_SinDatos", "Seleccione una Institucion")
+    @Html.Partial("_SinDatos", "Seleccione una Institución")
 }

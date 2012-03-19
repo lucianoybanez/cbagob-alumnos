@@ -17,8 +17,7 @@
                 </div>
                 @using (Html.BeginForm("Eliminar_Supervicion", "Superviciones", FormMethod.Post, new { Id = "FormularioSuperviciones" }))
                 { 
-                    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
-                        text-align: center;">
+                    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
                         <legend>Datos de la Supervición:</legend>
                         <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
                             width: 700px;">
@@ -63,7 +62,8 @@
                                                 <b>Fecha de Supervición:</b>
                                             </td>
                                             <td align="left">
-                                                @Html.TextBoxFor(c => c.Fec_Supervision, new {disabled = "disabled", Id = "fecSup", style = "width:90px;", MaxLength = "50" })
+                                                @*@Html.TextBoxFor(c => c.Fec_Supervision, new {disabled = "disabled", Id = "fecSup", style = "width:90px;", MaxLength = "50" })*@
+                                                @Html.TextBoxFor(c => c.Fec_Supervision, new { style = "width:72px;", MaxLength = "3", disabled = "disabled" })
                                             </td>
                                         </tr>
                                         <tr>
@@ -93,7 +93,16 @@
                                                 <b>Observación:</b>
                                             </td>
                                             <td align="left">
-                                                @Html.TextAreaFor(c => c.Observaciones, new {disabled = "disabled", style = "width:300px;height:50px;", MaxLength = "3999" })
+                                                @Html.TextAreaFor(c => c.Observaciones, new { disabled = "disabled", style = "width:300px;height:50px;", MaxLength = "3999" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Nro Resolución:</b>
+                                            </td>
+                                            <td align="left">
+                                                @Html.TextBoxFor(c => c.Nro_resolucion, new { style = "width:150px;", MaxLength = "64", Class = "asd" })
+                                                @Html.ValidationMessageFor(m => m.Nro_resolucion, "*")
                                             </td>
                                         </tr>
                                     </table>
@@ -109,7 +118,7 @@
                     <table id="btnfin" align="center" width="700px">
                         <tr>
                             <td align="right" valign="middle">
-                                  <input id="Eliminar" type="button" value="Eliminar" class="btnIngresar" />&nbsp;&nbsp;
+                                <input id="Eliminar" type="button" value="Eliminar" class="btnIngresar" />&nbsp;&nbsp;
                                 @Html.ActionLink("Cancelar", "Index", "Superviciones", null, new { Class = "btnIngresar" })
                             </td>
                         </tr>

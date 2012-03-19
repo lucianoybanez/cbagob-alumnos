@@ -6,12 +6,12 @@
             <thead>
                 <tr>
                     <th height="30" width="200">
-                        <div align="center">
+                        <div align="left">
                             Nombre del Equipo</div>
                     </th>
                     <th height="30" width="150">
                         <div align="center">
-                            Nombre de la Institucion</div>
+                            Nombre de la Institución</div>
                     </th>
                     <th height="30" width="100">
                         <div align="center">
@@ -22,8 +22,8 @@
                             Fecha Fin</div>
                     </th>
                     <th height="30" align="center">
-                        <div align="center" style="margin-right: 2px;">
-                            Accion</div>
+                        <div align="right" style="margin-right: 2px;">
+                            Acción</div>
                     </th>
                 </tr>
             </thead>
@@ -32,10 +32,24 @@
                 {
                     <tr>
                         <td align="left" height="28">
-                            @item.NombreEquipo
+                            @if (item.NombreEquipo.Length < 30)
+                            {
+                                @item.NombreEquipo
+                            }
+                            else
+                            {
+                                @(item.NombreEquipo.ToString().Substring(1, 29) + " ...")
+                            }
                         </td>
                         <td align="center" width="50">
-                            @item.NombreInstitucion
+                            @if (item.NombreInstitucion.Length < 30)
+                             {
+                                @item.NombreInstitucion
+                             }
+                             else
+                             {
+                                @(item.NombreInstitucion.ToString().Substring(1, 29) + " ...")
+                             }
                         </td>
                         <td align="center" width="50">
                             @item.Fec_Inicio.ToShortDateString()
@@ -43,7 +57,7 @@
                         <td align="center" width="50">
                             @item.Fec_Fin.ToShortDateString()
                         </td>
-                        <td align="center" style="margin-right: 2px;">
+                        <td align="right" style="margin-right: 2px;">
                             @Html.ActionLink("Modificar", "Modificar", "Prestamos", new { id_prestamo = item.Id_Prestamo }, new { @class = "btnIngresar" })
                             @Html.ActionLink("Eliminar", "Eliminar", "Prestamos", new { id_prestamo = item.Id_Prestamo }, new { @class = "btnIngresar" })
                         </td>
@@ -53,7 +67,7 @@
                     <td align="left" valign="middle" colspan="4" height="20">
                         <div id="resumenPag" style="height: 20px; padding: 10px 5px 0 2px;">
                             <div align="center">
-                              @*  <ul id="pagination-clean">
+                                @*  <ul id="pagination-clean">
                                     <li class="previous-off">Ant</li>
                                     <li class="active">1</li>
                                     <li><a href="?page=2">2</a></li>

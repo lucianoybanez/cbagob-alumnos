@@ -21,24 +21,60 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         private IInstitucionRepositorio InstitucionRepositorio;
 
-        public FacturaServicio(IFacturaRepositorio facturaRepositorio, ICondicionCursoRepositorio condicionCursoRepositorio, IInstitucionRepositorio institucionRepositorio)
+        private IAutenticacionServicio Aut;
+
+        public FacturaServicio(IFacturaRepositorio facturaRepositorio, ICondicionCursoRepositorio condicionCursoRepositorio, IInstitucionRepositorio institucionRepositorio, IAutenticacionServicio aut)
         {
             FacturaRepositorio = facturaRepositorio;
             CondicionCursoRepositorio = condicionCursoRepositorio;
             InstitucionRepositorio = institucionRepositorio;
+            Aut = aut;
         }
 
         public IFacturasVista GetFacturas()
         {
             IFacturasVista vista = new FacturasVista();
-            vista.Facturas = FacturaRepositorio.GetFacturas();
+
+            var pager = new Pager(FacturaRepositorio.GetCountFacturas(), Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexFacturas", Aut.GetUrl("IndexPager", "Factura"));
+
+            vista.Pager = pager;
+
+            vista.Facturas = FacturaRepositorio.GetFacturas(pager.Skip, pager.PageSize);
+            return vista;
+        }
+
+        public IFacturasVista GetFacturas(IPager Pager)
+        {
+            IFacturasVista vista = new FacturasVista();
+
+            vista.Pager = Pager;
+
+            vista.Facturas = FacturaRepositorio.GetFacturas(Pager.Skip, Pager.PageSize);
+
             return vista;
         }
 
         public IFacturasVista GetFacturasbyLiquidacion()
         {
             IFacturasVista vista = new FacturasVista();
-            vista.Facturas = FacturaRepositorio.GetFacturasbyLiquidacion();
+
+            var pager = new Pager(FacturaRepositorio.GetCountFacturasbyLiquidacion(), Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexFacturasLiquidacion", Aut.GetUrl("IndexPagerLiquidacion", "Factura"));
+
+            vista.Pager = pager;
+
+            vista.Facturas = FacturaRepositorio.GetFacturasbyLiquidacion(pager.Skip, pager.PageSize);
+
+            return vista;
+        }
+
+        public IFacturasVista GetFacturasbyLiquidacion(IPager Pager)
+        {
+            IFacturasVista vista = new FacturasVista();
+
+            vista.Pager = Pager;
+
+            vista.Facturas = FacturaRepositorio.GetFacturasbyLiquidacion(Pager.Skip, Pager.PageSize);
+
             return vista;
         }
 

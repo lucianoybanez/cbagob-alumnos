@@ -6,7 +6,7 @@
             <thead>
                 <tr>
                     <th height="30">
-                        <div align="center">
+                        <div align="left">
                             Numero de Factura</div>
                     </th>
                     <th height="30">
@@ -18,8 +18,8 @@
                             Monto Total</div>
                     </th>
                     <th height="30">
-                        <div align="center">
-                            Accion</div>
+                        <div align="right" style="margin-right: 2px;">
+                            Acción</div>
                     </th>
                 </tr>
             </thead>
@@ -28,15 +28,29 @@
                 {
                     <tr>
                         <td align="left" height="30">
-                            @item.NroFactura
+                            @if (item.NroFactura.Length < 30)
+                            {
+                                @item.NroFactura
+                            }
+                            else
+                            {
+                                @(item.NroFactura.ToString().Substring(1, 29) + " ...")
+                            }
                         </td>
                         <td>
-                            @item.Concepto
+                            @if (item.Concepto.Length < 30)
+                             {
+                                @item.Concepto
+                             }
+                             else
+                             {
+                                @(item.Concepto.ToString().Substring(1, 29) + " ...")
+                             }
                         </td>
                         <td>
                             @item.MontoTotal
                         </td>
-                        <td>
+                        <td align="right" style="margin-right: 2px;">
                             @if (ViewBag.SubMenuSelected != "Liquidacion")
                             {
                                 @Html.ActionLink("Eliminar", "Eliminar", "Factura", new { Idfactura = item.IdFactura }, new { @class = "btnIngresar" })

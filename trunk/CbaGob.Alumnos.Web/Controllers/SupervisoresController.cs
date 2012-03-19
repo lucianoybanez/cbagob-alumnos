@@ -6,11 +6,13 @@ using System.Web.Mvc;
 using CbaGob.Alumnos.Servicio.Servicios;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
+using CbaGob.Alumnos.Servicio.Vistas.Shared;
 using CbaGob.Alumnos.Servicio.VistasInterface;
+using JLY.Hotel.Web.Controllers;
 
 namespace CbaGob.Alumnos.Web.Controllers
 {
-    public class SupervisoresController : Controller
+    public class SupervisoresController : BaseController
     {
         //
         // GET: /Supervisores/
@@ -76,6 +78,11 @@ namespace CbaGob.Alumnos.Web.Controllers
             bool mret = supervisoresservicio.EliminarSupervisor(model.Id_Supervisor, model.Nro_Resolucion);
 
             return View("Index", supervisoresservicio.GetSupervisores());
+        }
+
+        public ActionResult IndexPager(Pager pager)
+        {
+            return View("Index", supervisoresservicio.GetSupervisores(pager));
         }
 
     }

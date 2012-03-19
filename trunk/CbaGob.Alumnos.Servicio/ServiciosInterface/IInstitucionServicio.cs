@@ -12,6 +12,7 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
     public interface IInstitucionServicio : IBaseServicio
     {
         IList<IInstitucion> GetTodas();
+        InstitucionVista GetInstituciones();
         InstitucionVista GetIndex();
         InstitucionVista GetIndex(IPager page );
         IInstitucion GetUna(Int32 IdInstitucion);

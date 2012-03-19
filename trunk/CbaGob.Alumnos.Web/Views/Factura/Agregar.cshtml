@@ -24,14 +24,13 @@
                         font-size: 12px; width: 722px;">
                         <tr>
                             <td>
-                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 710px;
-                                    text-align: center;">
+                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 710px;">
                                     <legend>Datos de la Factura</legend>
                                     <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
                                         width: 710px;">
                                         <tr>
                                             <td align="left" valign="middle">
-                                                <b>Nombre Institucion:</b>
+                                                <b>Nombre Institución:</b>
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.Curso.NombeInstitucion, new { disabled = "disabled", style = "width:350px;", MaxLength = "50" })
@@ -39,7 +38,7 @@
                                         </tr>
                                         <tr>
                                             <td align="left" valign="middle">
-                                                <b>Curso Asignado a la Institucion:</b>
+                                                <b>Curso Asignado a la Institución:</b>
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.Curso.NombreCurso, new { disabled = "disabled", style = "width:350px;", MaxLength = "50" })
@@ -65,7 +64,7 @@
                                         </tr>
                                         <tr>
                                             <td align="left" valign="middle">
-                                                <b>Descripcion:</b>
+                                                <b>Descripción:</b>
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextAreaFor(c => c.Descripcion, new { style = "width:350px;height:45px", MaxLength = "50" })

@@ -42,7 +42,8 @@ namespace CbaGob.Alumnos.Repositorio
                                  NombreGrupo = c.T_GRUPOS.N_GRUPO,
                                  UsuarioAlta = c.USR_ALTA,
                                  UsuarioModificacion = c.USR_MODIF,
-                                 Observaciones = c.OBSERVACIONES
+                                 Observaciones = c.OBSERVACIONES,
+                                 Nroresolucion = c.NRO_RESOLUCION
                              });
 
                 return a;
@@ -60,6 +61,32 @@ namespace CbaGob.Alumnos.Repositorio
             try
             {
                 return QSuperviciones().ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public IList<ISuperviciones> GetSuperviciones(int skip, int take)
+        {
+            try
+            {
+                return QSuperviciones().OrderBy(c => c.NombreInstitucion).Skip(skip).Take(take).ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public int GetCountSuperviciones()
+        {
+            try
+            {
+                return QSuperviciones().Count();
             }
             catch (Exception)
             {
@@ -97,7 +124,8 @@ namespace CbaGob.Alumnos.Repositorio
                                                         OBSERVACIONES = supervicion.Observaciones,
                                                         FEC_MODIF = supervicion.FechaModificacion,
                                                         USR_MODIF = supervicion.UsuarioModificacion,
-                                                        USR_ALTA = supervicion.UsuarioAlta
+                                                        USR_ALTA = supervicion.UsuarioAlta,
+                                                        NRO_RESOLUCION = supervicion.Nroresolucion
                                                     };
 
 
@@ -126,7 +154,8 @@ namespace CbaGob.Alumnos.Repositorio
                 t_supervisiones.USR_MODIF = supervicion.UsuarioModificacion;
                 t_supervisiones.HS_SUPERVISION = supervicion.Hs_Supervision;
                 t_supervisiones.OBSERVACIONES = supervicion.Observaciones;
-
+                t_supervisiones.NRO_RESOLUCION = supervicion.Nroresolucion;
+ 
 
                 mDb.SaveChanges();
                 return true;
