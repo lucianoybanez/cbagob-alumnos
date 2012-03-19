@@ -6,8 +6,8 @@
             <thead>
                 <tr>
                     <th height="30" width="280">
-                        <div align="center">
-                            Nombre de la Institucion</div>
+                        <div align="left">
+                            Nombre de la Institución</div>
                     </th>
                     <th height="30" width="50">
                         <div align="center">
@@ -18,8 +18,8 @@
                             Fecha Alta</div>
                     </th>
                     <th height="30" width="200">
-                        <div align="center">
-                            Accion</div>
+                        <div align="right" style="margin-right: 2px;">
+                            Acción</div>
                     </th>
                 </tr>
             </thead>
@@ -28,7 +28,14 @@
                 {
                     <tr>
                         <td align="left" height="28">
-                            @item.Nombre_Institucion
+                            @if (item.Nombre_Institucion.Length < 30)
+                            {
+                                @item.Nombre_Institucion
+                            }
+                            else
+                            {
+                                @(item.Nombre_Institucion.ToString().Substring(1, 29) + " ...")
+                            }
                         </td>
                         <td>
                             @item.espropia
@@ -36,7 +43,7 @@
                         <td>
                             @item.FechaAlta.ToShortDateString()
                         </td>
-                        <td>
+                        <td align="right" style="margin-right: 2px;">
                             @Html.ActionLink("Ver Cursos", "VerCursos", "Factura", new { IdInstitucion = item.Id_Institucion }, new { @class = "btnIngresar" })
                         </td>
                     </tr>
@@ -44,6 +51,7 @@
             </tbody>
         </table>
     </div>
+   
 }
 else
 {

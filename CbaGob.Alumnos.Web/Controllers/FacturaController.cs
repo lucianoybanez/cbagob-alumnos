@@ -53,7 +53,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Agregar", FacturaServicio.CambiarCondicion(factura));
         }
 
-        
+
         public ActionResult Eliminar(int Idfactura)
         {
             IFacturaVista model = new FacturaVista();
@@ -88,7 +88,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             IFacturaVista model = FacturaServicio.GetIndex();
 
-            model.Instituciones = institucionservicio.GetIndex();
+            model.Instituciones = institucionservicio.GetInstituciones();
 
             return View(model);
         }
@@ -99,7 +99,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             model.Cursos = condicionescursoservicio.GetByInstitucionId(IdInstitucion);
 
-            model.Instituciones = institucionservicio.GetIndex();
+            model.Instituciones = institucionservicio.GetInstituciones();
 
             return View("Seleccion", model);
         }
@@ -129,6 +129,17 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Liquidacion", FacturaServicio.GetFacturasbyLiquidacion());
         }
 
+
+        public ActionResult IndexPager(Pager pager)
+        {
+            return View("Index", FacturaServicio.GetFacturas(pager));
+        }
+
+
+        public ActionResult IndexPagerLiquidacion(Pager pager)
+        {
+            return View("Liquidacion", FacturaServicio.GetFacturasbyLiquidacion(pager));
+        }
 
     }
 }

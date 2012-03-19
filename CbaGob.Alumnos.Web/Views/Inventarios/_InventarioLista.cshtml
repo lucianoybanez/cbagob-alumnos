@@ -6,16 +6,16 @@
             <thead>
                 <tr>
                     <th height="30" width="250" align="left">
-                        <div align="center">
+                        <div align="left">
                             Item</div>
                     </th>
                     <th height="30">
                         <div align="center">
                             Cantidad Equipos</div>
                     </th>
-                    <th height="30" align="center"width="50">
-                        <div align="center" style="margin-right: 2px;">
-                            Accion</div>
+                    <th height="30" align="center" width="50">
+                        <div align="right" style="margin-right: 2px;">
+                            Acción</div>
                     </th>
                 </tr>
             </thead>
@@ -24,12 +24,19 @@
                 {
                     <tr>
                         <td align="left" height="28">
-                            @item.NombreItem
+                            @if (item.NombreItem.Length < 30)
+                            {
+                                @item.NombreItem
+                            }
+                            else
+                            {
+                                @(item.NombreItem.ToString().Substring(1, 29) + " ...")
+                            }
                         </td>
                         <td align="center" width="50">
                             @item.CantidadEquipos
                         </td>
-                        <td align="center" style="margin-right: 2px;">
+                        <td align="right" style="margin-right: 2px;">
                             @Html.ActionLink("Ver", "Ver", "Inventarios", new { id_estado = item.Id_EstadoEquipo }, new { @class = "btnIngresar" })
                         </td>
                     </tr>

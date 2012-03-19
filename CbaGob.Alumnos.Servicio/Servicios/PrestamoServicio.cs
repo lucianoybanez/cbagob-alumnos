@@ -9,6 +9,7 @@ using CbaGob.Alumnos.Repositorio;
 using CbaGob.Alumnos.Servicio.Comun;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
+using CbaGob.Alumnos.Servicio.Vistas.Shared;
 using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.Servicios
@@ -17,11 +18,13 @@ namespace CbaGob.Alumnos.Servicio.Servicios
     {
         private IPrestamoRepositorio prestamorepositorio;
         private IEquipoRepositorio equiporepositorio;
+        private IAutenticacionServicio Aut;
 
-        public PrestamoServicio(IPrestamoRepositorio prestamorepositorio, IEquipoRepositorio equiporepositorio)
+        public PrestamoServicio(IPrestamoRepositorio prestamorepositorio, IEquipoRepositorio equiporepositorio, IAutenticacionServicio aut)
         {
             this.prestamorepositorio = prestamorepositorio;
             this.equiporepositorio = equiporepositorio;
+            Aut = aut;
         }
 
         public IPrestamosVista GetPrestamos()
@@ -30,7 +33,30 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 IPrestamosVista prestamosvista = new PrestamosVista();
 
-                prestamosvista.ListaPrestamo = prestamorepositorio.GetPrestamos();
+                var pager = new Pager(prestamorepositorio.GetCountPrestamos(), Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexPrestamos", Aut.GetUrl("IndexPager", "Prestamos"));
+
+                prestamosvista.Pager = pager;
+
+                prestamosvista.ListaPrestamo = prestamorepositorio.GetPrestamos(pager.Skip, pager.PageSize);
+
+                return prestamosvista;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public IPrestamosVista GetPrestamos(IPager Pager)
+        {
+            try
+            {
+                IPrestamosVista prestamosvista = new PrestamosVista();
+
+                prestamosvista.Pager = Pager;
+
+                prestamosvista.ListaPrestamo = prestamorepositorio.GetPrestamos(Pager.Skip, Pager.PageSize);
 
                 return prestamosvista;
             }

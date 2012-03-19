@@ -7,8 +7,8 @@
             <thead>
                 <tr>
                     <th height="30">
-                        <div align="center">
-                            Nombre del Grupo</div>
+                        <div align="left">
+                            Nombre del Módulo</div>
                     </th>
                     <th height="30">
                         <div align="center">
@@ -20,7 +20,7 @@
                     </th>
                     <th height="30" colspan="4">
                         <div align="right" style="margin-right: 2px;" colspan="7">
-                            Accion</div>
+                            Acción</div>
                     </th>
                 </tr>
             </thead>
@@ -28,17 +28,31 @@
                 @foreach (var item in Model.Grupos.ListaGrupos)
                 {
                     <tr>
-                        <td>
-                            @item.NombreGrupo
+                        <td align="left">
+                            @if (item.NombreGrupo.Length < 30)
+                            {
+                                @item.NombreGrupo
+                            }
+                            else
+                            {
+                                @(item.NombreGrupo.ToString().Substring(1, 29) + " ...")
+                            }
                         </td>
                         <td>
-                            @item.NombreEstablecimiento
+                            @if (item.NombreEstablecimiento.Length < 30)
+                            {
+                                @item.NombreEstablecimiento
+                            }
+                            else
+                            {
+                                @(item.NombreEstablecimiento.ToString().Substring(1, 29) + " ...")
+                            }
                         </td>
                         <td>
                             @item.FechaAlta.ToShortDateString()
                         </td>
                         <td height="30" align="right" style="margin-right: 2px;">
-                            @Html.ActionLink("Realizar Supervicion al Grupo", "RealizarSupervicionGrupo", "Superviciones", new { id_grupo = item.Id_Grupo }, new { @class = "btnIngresar" })
+                            @Html.ActionLink("Realizar Supervicion al Módulo", "RealizarSupervicionGrupo", "Superviciones", new { id_grupo = item.Id_Grupo }, new { @class = "btnIngresar" })
                         </td>
                     </tr>
                 }

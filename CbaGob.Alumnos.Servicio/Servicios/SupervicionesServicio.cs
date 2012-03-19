@@ -9,6 +9,7 @@ using CbaGob.Alumnos.Repositorio;
 using CbaGob.Alumnos.Servicio.Comun;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
+using CbaGob.Alumnos.Servicio.Vistas.Shared;
 using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.Servicios
@@ -17,10 +18,13 @@ namespace CbaGob.Alumnos.Servicio.Servicios
     {
         private ISupervicionesRepositorio supervicionesrepositorio;
 
+        private IAutenticacionServicio Aut;
 
-        public SupervicionesServicio(ISupervicionesRepositorio supervicionesrepositorio)
+
+        public SupervicionesServicio(ISupervicionesRepositorio supervicionesrepositorio, IAutenticacionServicio aut)
         {
             this.supervicionesrepositorio = supervicionesrepositorio;
+            Aut = aut;
         }
 
         public ISupervicionesVista GetSuperviciones()
@@ -28,7 +32,33 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             try
             {
                 ISupervicionesVista supervicionesvista = new SupervicionesVista();
-                supervicionesvista.ListaSuperviciones = supervicionesrepositorio.GetSuperviciones();
+
+                var pager = new Pager(supervicionesrepositorio.GetCountSuperviciones(), Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexSuperviciones", Aut.GetUrl("IndexPager", "Superviciones"));
+
+                supervicionesvista.Pager = pager;
+
+                supervicionesvista.ListaSuperviciones = supervicionesrepositorio.GetSuperviciones(pager.Skip,
+                                                                                                  pager.PageSize);
+
+                return supervicionesvista;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public ISupervicionesVista GetSuperviciones(IPager Pager)
+        {
+            try
+            {
+                ISupervicionesVista supervicionesvista = new SupervicionesVista();
+
+                supervicionesvista.Pager = Pager;
+
+                supervicionesvista.ListaSuperviciones = supervicionesrepositorio.GetSuperviciones(Pager.Skip,
+                                                                                                  Pager.PageSize);
 
                 return supervicionesvista;
             }
@@ -56,6 +86,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 supervicionvista.NombrePersonaJuridica = superviciones.NombrePersonaJuridica;
                 supervicionvista.Id_Supervisor = superviciones.Id_Supervisor;
                 supervicionvista.Observaciones = superviciones.Observaciones;
+                supervicionvista.Nro_resolucion = superviciones.Nroresolucion;
                 //supervicionvista.Institucions.ListaInstituciones = institucionservicio.GetTodas();
 
 
@@ -78,6 +109,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 superviciones.Observaciones = supervicionvista.Observaciones;
                 superviciones.Id_Grupo = supervicionvista.Id_Grupo;
                 superviciones.Id_Supervisor = supervicionvista.Id_Supervisor;
+                superviciones.Nroresolucion = supervicionvista.Nro_resolucion;
 
                 return supervicionesrepositorio.AgregarSuperviciones(superviciones);
             }
@@ -99,6 +131,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 superviciones.Id_Grupo = supervicionvista.Id_Grupo;
                 superviciones.Id_Supervisor = supervicionvista.Id_Supervisor;
                 superviciones.Id_Supervision = supervicionvista.Id_Supervision;
+                superviciones.Nroresolucion = supervicionvista.Nro_resolucion;
 
                 return supervicionesrepositorio.ModificarSuperviciones(superviciones);
             }

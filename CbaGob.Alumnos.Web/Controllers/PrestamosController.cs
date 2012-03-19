@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using CbaGob.Alumnos.Servicio.Servicios;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
+using CbaGob.Alumnos.Servicio.Vistas.Shared;
 using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Web.Controllers
@@ -83,6 +84,11 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             bool mret = prestamoservicio.EliminarPresatmo(model.Id_Prestamo);
             return View("Index", prestamoservicio.GetPrestamos());
+        }
+
+        public ActionResult IndexPager(Pager pager)
+        {
+            return View("Index", prestamoservicio.GetPrestamos(pager));
         }
     }
 }

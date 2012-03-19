@@ -33,6 +33,15 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         }
 
+        public InstitucionVista GetInstituciones()
+        {
+            InstitucionVista mInstitucionVista = new InstitucionVista();
+
+            mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones();
+
+            return mInstitucionVista;
+        }
+
         public InstitucionVista GetIndex()
         {
 

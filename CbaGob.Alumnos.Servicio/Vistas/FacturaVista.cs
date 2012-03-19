@@ -39,5 +39,6 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public int Id_Condicion_Curso { get; set; }
         public string NombreCurso { get; set; }
         public string NombreInstitucion { get; set; }
+        public IPager Pager { get; set; }
     }
 }

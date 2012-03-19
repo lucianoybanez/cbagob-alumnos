@@ -6,11 +6,13 @@ using System.Web.Mvc;
 using CbaGob.Alumnos.Servicio.Servicios;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
+using CbaGob.Alumnos.Servicio.Vistas.Shared;
 using CbaGob.Alumnos.Servicio.VistasInterface;
+using JLY.Hotel.Web.Controllers;
 
 namespace CbaGob.Alumnos.Web.Controllers
 {
-    public class SupervicionesController : Controller
+    public class SupervicionesController : BaseController
     {
         //
         // GET: /Superviciones/
@@ -38,7 +40,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             ISupervicionVista model = new SupervicionVista();
 
-            model.Institucions = institucionservicio.GetIndex();
+            model.Institucions = institucionservicio.GetInstituciones();
 
             return View(model);
         }
@@ -49,7 +51,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             model.Cursos = condicionescursoservicio.GetByInstitucionId(IdInstitucion);
 
-            model.Institucions = institucionservicio.GetIndex();
+            model.Institucions = institucionservicio.GetInstituciones();
 
             return View("Agregar", model);
         }
@@ -62,7 +64,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             model.Grupos = gruposservicio.GetAllGrupoByCurso(idCondicionCurso);
 
-            model.Institucions = institucionservicio.GetIndex();
+            model.Institucions = institucionservicio.GetInstituciones();
 
             return View("Agregar", model);
         }
@@ -122,7 +124,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             model.supervisor.Name = "BuSupervsores";
             model.supervisor.Tipo = "Supervisores";
             model.supervisor.Valor = model.NombrePersonaJuridica;
-
+            model.Nro_resolucion = "";
 
             return View(model);
         }
@@ -133,6 +135,11 @@ namespace CbaGob.Alumnos.Web.Controllers
             bool mreturn = supervicionesservicio.EliminarSuperviciones(model.Id_Supervision, model.Nro_resolucion);
 
             return View("Index", supervicionesservicio.GetSuperviciones());
+        }
+
+        public ActionResult IndexPager(Pager pager)
+        {
+            return View("Index", supervicionesservicio.GetSuperviciones(pager));
         }
 
     }

@@ -8,7 +8,11 @@ namespace CbaGob.Alumnos.Modelo.Repositories
     public interface IFacturaRepositorio
     {
         IList<IFactura> GetFacturas();
+        IList<IFactura> GetFacturas(int skip, int take);
+        int GetCountFacturas();
         IList<IFactura> GetFacturasbyLiquidacion();
+        IList<IFactura> GetFacturasbyLiquidacion(int skip, int take);
+        int GetCountFacturasbyLiquidacion();
         IFactura GetFacturabyId(int idFactura);
         int AgregarFactura(IFactura factura);
         bool ModificarFactura(IFactura factura);

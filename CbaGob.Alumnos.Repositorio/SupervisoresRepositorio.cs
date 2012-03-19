@@ -65,6 +65,33 @@ namespace CbaGob.Alumnos.Repositorio
             }
         }
 
+        public IList<ISupervisores> GetSupervisores(int skip, int take)
+        {
+            try
+            {
+                var listaretorno = QSupervisores().OrderBy( c => c.Razon_Social).Skip(skip).Take(take).ToList();
+                return listaretorno;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public int GetCountSupervisor()
+        {
+            try
+            {
+                return QSupervisores().Count();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public IList<ISupervisores> GetSupervisoresByRazonSocial(string razonsocial)
         {
             try

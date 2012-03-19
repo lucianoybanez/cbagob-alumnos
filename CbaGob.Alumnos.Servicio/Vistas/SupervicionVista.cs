@@ -43,7 +43,7 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public int hora { get; set; }
         [Range(1, 999999999999999999)]
         public int minuto { get; set; }
-
+        [Required(ErrorMessage = "*")]
         public string Nro_resolucion { get; set; }
     }
 }

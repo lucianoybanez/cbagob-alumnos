@@ -9,17 +9,20 @@ using CbaGob.Alumnos.Repositorio;
 using CbaGob.Alumnos.Servicio.Comun;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
+using CbaGob.Alumnos.Servicio.Vistas.Shared;
 using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.Servicios
 {
-    public class SupervisoresServicio :BaseServicio, ISupervisoresServicio
+    public class SupervisoresServicio : BaseServicio, ISupervisoresServicio
     {
         private ISupervisoresRepositorio supervisoresrepositorio;
+        private IAutenticacionServicio Aut;
 
-        public SupervisoresServicio(ISupervisoresRepositorio Supervisoresrepositorio)
+        public SupervisoresServicio(ISupervisoresRepositorio Supervisoresrepositorio, IAutenticacionServicio aut)
         {
             supervisoresrepositorio = Supervisoresrepositorio;
+            Aut = aut;
         }
 
         public ISupervisoresVista GetSupervisores()
@@ -27,7 +30,31 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             try
             {
                 ISupervisoresVista supervisoresvista = new SupervisoresVista();
-                supervisoresvista.ListaSupervisores = supervisoresrepositorio.GetSupervisores();
+
+                var pager = new Pager(supervisoresrepositorio.GetCountSupervisor(), Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexSupervisores", Aut.GetUrl("IndexPager", "Supervisores"));
+
+                supervisoresvista.Pager = pager;
+
+                supervisoresvista.ListaSupervisores = supervisoresrepositorio.GetSupervisores(pager.Skip, pager.PageSize);
+
+                return supervisoresvista;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public ISupervisoresVista GetSupervisores(IPager Pager)
+        {
+            try
+            {
+                ISupervisoresVista supervisoresvista = new SupervisoresVista();
+
+                supervisoresvista.Pager = Pager;
+
+                supervisoresvista.ListaSupervisores = supervisoresrepositorio.GetSupervisores(Pager.Skip, Pager.PageSize);
 
                 return supervisoresvista;
             }

@@ -58,6 +58,32 @@ namespace CbaGob.Alumnos.Repositorio
             }
         }
 
+        public IList<IPrestamo> GetPrestamos(int skip, int take)
+        {
+            try
+            {
+                return QPrestamo().OrderBy(c => c.NombreInstitucion).Skip(skip).Take(take).ToList();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        public int GetCountPrestamos()
+        {
+            try
+            {
+                return QPrestamo().Count();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
         public IList<IPrestamo> GetPrestamosByInstitucion(int id_institucion)
         {
             try

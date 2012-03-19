@@ -7,15 +7,11 @@
                 <tr>
                     <th height="30">
                         <div align="left">
-                            Curso</div>
+                            Nombre Curso</div>
                     </th>
                     <th height="30">
                         <div align="left">
                             Modalidad</div>
-                    </th>
-                    <th height="30">
-                        <div align="left">
-                            Nivel</div>
                     </th>
                     <th height="30">
                         <div align="left">
@@ -24,7 +20,7 @@
                     </th>
                     <th height="30">
                         <div align="right" style="margin-right: 2px;">
-                            Accion
+                            Acción
                         </div>
                     </th>
                 </tr>
@@ -34,16 +30,34 @@
                 {
                     <tr>
                         <td align="left" height="28">
-                            @item.NombreCurso
+                            @if (item.NombreCurso.Length < 30)
+                            {
+                                @item.NombreCurso
+                            }
+                            else
+                            {
+                                @(item.NombreCurso.ToString().Substring(1, 29) + " ...")
+                            }
                         </td>
                         <td align="left" height="28">
-                            @item.NombreModalidad
+                            @if (item.NombreModalidad.Length < 30)
+                            {
+                                @item.NombreModalidad
+                            }
+                            else
+                            {
+                                @(item.NombreModalidad.ToString().Substring(1, 29) + " ...")
+                            }
                         </td>
                         <td align="left" height="28">
-                            @item.NombreNivel
-                        </td>
-                        <td align="left" height="28">
-                            @item.NombrePrograma
+                            @if (item.NombrePrograma.Length < 30)
+                            {
+                                @item.NombrePrograma
+                            }
+                            else
+                            {
+                                @(item.NombrePrograma.ToString().Substring(1, 29) + " ...")
+                            }
                         </td>
                         <td align="right" style="margin-right: 2px;">
                             @Html.ActionLink("Agregar Factura al Curso", "Agregar", "Factura", new { idCondicionCurso = item.IdCondicionCurso, IdInstitucion = item.IdInstitucion }, new { @class = "btnIngresar" })
@@ -56,5 +70,5 @@
 }
 else
 {
-    @Html.Partial("_SinDatos", "Seleccione una Institucion")
+    @Html.Partial("_SinDatos", "Seleccione una Institución")
 }

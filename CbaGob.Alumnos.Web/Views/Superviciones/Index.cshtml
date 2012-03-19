@@ -24,4 +24,10 @@
             </td>
         </tr>
     </table>
+    <div style="text-align: left;">
+        @using (Html.BeginForm("IndexPager", "Superviciones", FormMethod.Post, new { id = "FormIndexSuperviciones" }))
+        {
+            @Html.Partial("_Pager", Model.Pager)
+        }
+    </div>
 </div>

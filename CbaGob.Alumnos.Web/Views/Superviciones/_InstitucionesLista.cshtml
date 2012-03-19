@@ -6,8 +6,8 @@
             <thead>
                 <tr>
                     <th height="30" width="280">
-                        <div align="center">
-                            Nombre de la Institucion</div>
+                        <div align="left">
+                            Nombre de la Institución</div>
                     </th>
                     <th height="30" width="50">
                         <div align="center">
@@ -19,7 +19,7 @@
                     </th>
                     <th height="30" width="200">
                         <div align="center" style="margin-right: 2px;">
-                            Accion</div>
+                            Acción</div>
                     </th>
                 </tr>
             </thead>
@@ -28,7 +28,14 @@
                 {
                     <tr>
                         <td align="left" height="28">
-                            @item.Nombre_Institucion
+                            @if (item.Nombre_Institucion.Length < 30)
+                            {
+                                @item.Nombre_Institucion
+                            }
+                            else
+                            {
+                                @(item.Nombre_Institucion.ToString().Substring(1, 29) + " ...")
+                            }
                         </td>
                         <td>
                             @item.espropia
@@ -47,5 +54,5 @@
 }
 else
 {
-    @Html.Partial("_SinDatos", "instituciones")
+    @Html.Partial("_SinDatos", "Instituciones")
 }
