@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
+using CbaGob.Alumnos.Servicio.Vistas.Shared;
 using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.ServiciosInterface
@@ -12,6 +13,7 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
         IAlumnosVista GetTodos();
         IAlumnosVista GetTodosByNombreApellido(string nombre, string apellido);
         IAlumnosVista GetTodosByDni(string dni);
+        IAlumnosVista GetIndex(IPager page);
         IAlumnosVista GetTodosByCondicionCurso(int id_condicion_curso);
         IAlumnosVista GetTodosAlumnosSinGrupo(int id_condicion_curso);
         IAlumnosVista GetTodosSinGrupo(int id_condicion_curso);
@@ -24,6 +26,7 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
         bool AsiganraGrupo(int id_grupo, int id_alumno, int id_condicion_curso);
         bool DesasignaraGrupo(int id_grupo, int id_alumno, int id_condicion_curso);
         IAlumnosVista BuscarAlumnos(string nombre, string apellido, string dni, string cuil);
+        IAlumnosVista BuscarAlumnos(string nombre, string apellido, string dni, string cuil, IPager pager);
     }
 
 }

@@ -8,6 +8,7 @@ using CbaGob.Alumnos.Modelo.Entities.Interfaces;
 using CbaGob.Alumnos.Servicio.Servicios;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
+using CbaGob.Alumnos.Servicio.Vistas.Shared;
 using CbaGob.Alumnos.Servicio.VistasInterface;
 using JLY.Hotel.Web.Controllers;
 
@@ -25,11 +26,9 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         public ActionResult Index()
         {
-            ICursosVista model = new CursosVista();
 
-            model.ListaCursos = mCursosServicios.GetTodos();
 
-            return View(model);
+            return View(mCursosServicios.GetTodos());
         }
 
         public ActionResult Agregar()
@@ -57,6 +56,15 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Eliminar", model);
         }
 
+        public ActionResult Consultar(Int32 id_curso)
+        {
+            ICursosVista model = mCursosServicios.GetUnaVista(id_curso);
+
+            model.AreasTipoCursos.Enabled = false;
+
+            return View(model);
+        }
+
         [HttpPost]
         public ActionResult Agregar_Cursos(CursosVista model)
         {
@@ -68,9 +76,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             bool mret = mCursosServicios.Agregar(mCursos);
 
-            model.ListaCursos = mCursosServicios.GetTodos();
-
-            return View("Index", model);
+            return View("Index", mCursosServicios.GetTodos());
         }
 
         [HttpPost]
@@ -85,9 +91,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             bool mret = mCursosServicios.Modificar(mCursos);
 
-            model.ListaCursos = mCursosServicios.GetTodos();
-
-            return View("Index", model);
+            return View("Index", mCursosServicios.GetTodos());
         }
 
         [HttpPost]
@@ -96,9 +100,12 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             bool mret = mCursosServicios.Eliminar(model.ID_CURSO, model.NRORESOLUCION);
 
-            model.ListaCursos = mCursosServicios.GetTodos();
+            return View("Index",  mCursosServicios.GetTodos());
+        }
 
-            return View("Index", model);
+        public ActionResult IndexPager(Pager pager)
+        {
+            return View("Index", mCursosServicios.GetTodos(pager));
         }
 
     }

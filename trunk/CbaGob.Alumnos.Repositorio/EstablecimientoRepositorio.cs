@@ -36,17 +36,18 @@ namespace CbaGob.Alumnos.Repositorio
                                  NombreEstablecimiento = c.N_ESTABLECIMIENTO,
                                  UsuarioAlta = c.USR_ALTA,
                                  UsuarioModificacion = c.USR_MODIF,
-                                 Provincia = c.PROVINCIA ?? "",
-                                 Localidad = c.LOCALIDAD ?? "",
-                                 Barrio = c.BARRIO ?? "",
-                                 Calle = c.CALLE ?? "",
+                                 Provincia = c.PROVINCIA ?? "-",
+                                 Localidad = c.LOCALIDAD ?? "-",
+                                 Barrio = c.BARRIO ?? "-",
+                                 Calle = c.CALLE ?? "-",
                                  Nro = c.NRO ?? 0,
                                  Depto = c.DEPTO ?? 0,
-                                 Telefono = c.TELEFONO ?? "",
-                                 Emial = c.EMAIL ?? "",
-                                 Resposable = c.RESPONSABLE ?? "",
-                                 Nro_Resolucion = c.NRO_RESOLUCION ?? "",
+                                 Telefono = c.TELEFONO ?? "-",
+                                 Emial = c.EMAIL ?? "-",
+                                 Resposable = c.RESPONSABLE ?? "-",
+                                 Nro_Resolucion = c.NRO_RESOLUCION ?? "-",
                                  NombreInstitucion = c.T_INSTITUCIONES.N_INSTITUCION,
+                                 TelefonoEstablecimiento = c.TELEFONO_ESTABLACIMIENTO,
                                  DomicilioCompleto =
                                      c.PROVINCIA ??
                                      "." + "," + c.LOCALIDAD ??
@@ -126,7 +127,8 @@ namespace CbaGob.Alumnos.Repositorio
                                                              NRO = establecimiento.Nro,
                                                              DEPTO = establecimiento.Depto,
                                                              CALLE = establecimiento.Calle,
-                                                             NRO_RESOLUCION = establecimiento.Nro_Resolucion
+                                                             NRO_RESOLUCION = establecimiento.Nro_Resolucion,
+                                                             TELEFONO_ESTABLACIMIENTO = establecimiento.TelefonoEstablecimiento
                                                          };
 
                 mDB.AddToT_ESTABLECIMINETOS(t_estableciento);
@@ -162,6 +164,7 @@ namespace CbaGob.Alumnos.Repositorio
                 modestablecimiento.DEPTO = establecimiento.Depto;
                 modestablecimiento.PROVINCIA = establecimiento.Provincia;
                 modestablecimiento.NRO_RESOLUCION = establecimiento.Nro_Resolucion;
+                modestablecimiento.TELEFONO_ESTABLACIMIENTO = establecimiento.TelefonoEstablecimiento;
 
                 mDB.SaveChanges();
                 return true;

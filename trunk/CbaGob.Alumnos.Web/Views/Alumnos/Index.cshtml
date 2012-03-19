@@ -47,16 +47,30 @@
             </table>
         </fieldset>
         <br />
-        <table>
-            <tr>
-                <td class="style1" style="font-weight: bold">
-                    <div id="titulo">
-                    </div>
-                    <div id="DivDocentes">
-                        @Html.Partial("_AlumnosLista", Model.ListaAlumno)
-                    </div>
-                </td>
-            </tr>
-        </table>
     }
+    <table>
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                <div id="DivDocentes">
+                    @Html.Partial("_AlumnosLista", Model.ListaAlumno)
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div style="text-align: left;">
+        @using (Html.BeginForm("IndexPager", "Alumnos", FormMethod.Post, new { id = "FormIndexAlumnos" }))
+        {
+            @Html.Partial("_Pager", Model.Pager)
+        }
+    </div>
+    <div style="text-align: left;">
+        @using (Html.BeginForm("IndexPagerBusqueda", "Alumnos", FormMethod.Post, new { id = "FormIndexAlumnosBusqueda" }))
+        {
+            @Html.HiddenFor(c => c.NombreBusqueda)
+            
+            @Html.Partial("_Pager", Model.Pager)
+        }
+    </div>
 </div>

@@ -19,10 +19,16 @@ namespace CbaGob.Alumnos.Servicio.Servicios
   
         private IHorarioRepositorio horariorepositorio;
 
-        public GrupoServicio(IGrupoRepositorio gruporepositorio, IHorarioRepositorio horariorepositorio)
+        private IAlumnosRepositorio alumnosservicios;
+
+        private IDocentesServicio docentesservicio;
+
+        public GrupoServicio(IGrupoRepositorio gruporepositorio, IHorarioRepositorio horariorepositorio, IAlumnosRepositorio palumnosservicios, IDocentesServicio pdocentesservicio)
         {
             this.gruporepositorio = gruporepositorio;
             this.horariorepositorio = horariorepositorio;
+            alumnosservicios = palumnosservicios;
+            docentesservicio = pdocentesservicio;
         }
 
         public IList<IErrores> GetErrors()
@@ -67,6 +73,15 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
                 grupovista.HorariosAsignadoGrupo.ListaHorario = horariorepositorio.GetHorariosByGrupo(grupo.Id_Grupo);
                 grupovista.HorariosParaGrupo.ListaHorario = horariorepositorio.GetHorariosForGrupo(grupo.Id_Grupo);
+
+
+                grupovista.ListaAlumnos = alumnosservicios.GetTodosAlumnosSinGrupo(grupo.Id_Condicion_Curso);
+
+                grupovista.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, grupo.Id_Condicion_Curso);
+
+                grupovista.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo).ListaDocentes;
+
+                grupovista.ListaDocentesInGrupo = docentesservicio.GetDocentesInGrupo(id_grupo).ListaDocentes;
 
                 return grupovista;
 

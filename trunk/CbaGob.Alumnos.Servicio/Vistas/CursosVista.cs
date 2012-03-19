@@ -27,5 +27,6 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public string NRORESOLUCION { get; set; }
         public IList<ICursos> ListaCursos { get; set; }
         public IComboBox AreasTipoCursos { get; set; }
+        public IPager Pager { get; set; }
     }
 }

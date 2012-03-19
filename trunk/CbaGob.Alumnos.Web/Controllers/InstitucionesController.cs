@@ -89,7 +89,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             mInstitucion.Depto = model.Depto;
             mInstitucion.Nro_Expediente = model.Nro_Expediente;
             mInstitucion.Nro_Resolucion = model.Nro_Resolucion;
-
+            mInstitucion.Telefono = model.Telefono;
 
 
 
@@ -122,6 +122,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             mInstitucion.Depto = model.Depto;
             mInstitucion.Nro_Expediente = model.Nro_Expediente;
             mInstitucion.Nro_Resolucion = model.Nro_Resolucion;
+            mInstitucion.Telefono = model.Telefono;
 
 
             bool ret = InstitucionServicio.ModificarInstitucion(mInstitucion);

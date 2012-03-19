@@ -65,7 +65,7 @@
                                         </tr>
                                         <tr>
                                             <td align="left">
-                                                Buscador Establecimiento:
+                                                Buscador Sede:
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.EditorFor(c => c.BuscadorEstablecimientos)
@@ -101,6 +101,7 @@
                     @Html.HiddenFor(d => d.Id_Condicion_Curso)
                     @Html.HiddenFor(d => d.Id_Institucion)
                     @Html.HiddenFor(d => d.Id_Grupo)
+                    @Html.HiddenFor(d => d.Id_Institucion, new { Id = "Id_Instituciontxt" })
     
                 }
             </td>

@@ -20,15 +20,21 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         private ITipo_DniRepositorio tipo_dnirepositorio;
         private ITipo_EstadoCivilRepositorio tipo_estadocivilrepositorio;
         private ITipo_SexoRepositorio tipo_sexorepositorio;
+        private IHorarioServicio horarioServicio;
+        private IGrupoServicio grupoServicio;
+        private IAutenticacionServicio Aut;
 
 
 
-        public AlumnosServicios(IAlumnosRepositorio alumnosrepositorio, ITipo_DniRepositorio tipoDnirepositorio, ITipo_EstadoCivilRepositorio tipoEstadocivilrepositorio, ITipo_SexoRepositorio tipoSexorepositorio)
+        public AlumnosServicios(IAlumnosRepositorio alumnosrepositorio, ITipo_DniRepositorio tipoDnirepositorio, ITipo_EstadoCivilRepositorio tipoEstadocivilrepositorio, ITipo_SexoRepositorio tipoSexorepositorio, IHorarioServicio phorarioServicio, IGrupoServicio pgrupoServicio, IAutenticacionServicio aut)
         {
             this.alumnosrepositorio = alumnosrepositorio;
             tipo_dnirepositorio = tipoDnirepositorio;
             tipo_estadocivilrepositorio = tipoEstadocivilrepositorio;
             tipo_sexorepositorio = tipoSexorepositorio;
+            horarioServicio = phorarioServicio;
+            grupoServicio = pgrupoServicio;
+            Aut = aut;
         }
 
         public IAlumnosVista GetTodos()
@@ -37,7 +43,11 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 IAlumnosVista vista = new AlumnosVista();
 
-                vista.ListaAlumno = alumnosrepositorio.GetTodos();
+                var pager = new Pager(alumnosrepositorio.GetCountAlumnos(), Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexAlumnos", Aut.GetUrl("IndexPager", "Alumnos"));
+
+                vista.ListaAlumno = alumnosrepositorio.GetTodos(pager.Skip, pager.PageSize);
+
+                vista.Pager = pager;
 
                 return vista;
             }
@@ -65,6 +75,25 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             vista.ListaAlumno = alumnosrepositorio.GetTodosByDni(dni);
 
             return vista;
+        }
+
+        public IAlumnosVista GetIndex(IPager page)
+        {
+            try
+            {
+                IAlumnosVista vista = new AlumnosVista();
+
+                vista.ListaAlumno = alumnosrepositorio.GetTodos(page.Skip, page.PageSize);
+
+                vista.Pager = page;
+
+                return vista;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
 
         public IAlumnosVista GetTodosByCondicionCurso(int id_condicion_curso)
@@ -154,6 +183,12 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 vista.Id_Tipo_Sexo = alumno.Id_Tipo_Sexo;
                 vista.Nro_Resolucion = alumno.Nro_Resolucion;
                 vista.Nro_Documento = alumno.Nro_Documento;
+                vista.Provincia = alumno.Provincia;
+                vista.Localidad = alumno.Localidad;
+                vista.Barrio = alumno.Barrio;
+                vista.Calle = alumno.Calle;
+                vista.Nro = alumno.Nro;
+                vista.Depto = alumno.Depto;
 
                 CargarTipoDni(vista, tipo_dnirepositorio.GetTiposDni());
 
@@ -218,6 +253,12 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 addalumno.Id_Tipo_Sexo = Convert.ToInt32(alumno.Sexo.Selected);
                 addalumno.Nro_Telefono = alumno.Nro_Telefono;
                 addalumno.Nro_Celular = alumno.Nro_Celular;
+                addalumno.Provincia = alumno.Provincia;
+                addalumno.Localidad = alumno.Localidad;
+                addalumno.Barrio = alumno.Barrio;
+                addalumno.Calle = alumno.Calle;
+                addalumno.Nro = alumno.Nro;
+                addalumno.Depto = alumno.Depto;
 
                 return alumnosrepositorio.Agregar(addalumno);
             }
@@ -246,7 +287,12 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 addalumno.Id_Tipo_Sexo = Convert.ToInt32(alumno.Sexo.Selected);
                 addalumno.Nro_Telefono = alumno.Nro_Telefono;
                 addalumno.Nro_Celular = alumno.Nro_Celular;
-
+                addalumno.Provincia = alumno.Provincia;
+                addalumno.Localidad = alumno.Localidad;
+                addalumno.Barrio = alumno.Barrio;
+                addalumno.Calle = alumno.Calle;
+                addalumno.Nro = alumno.Nro;
+                addalumno.Depto = alumno.Depto;
 
                 return alumnosrepositorio.Modificar(addalumno);
             }
@@ -274,7 +320,42 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         {
             try
             {
-                return alumnosrepositorio.AsiganraGrupo(id_grupo, id_alumno, id_condicion_curso);
+                IList<IHorario> ListaHorarios = horarioServicio.GetHorariosByGrupo(id_grupo).ListaHorario;
+                IList<IHorario> ListaHorarioAlumno = horarioServicio.GetHorarioByAlumno(id_alumno, 0).ListaHorario;
+
+                if (ListaHorarios.Count > 0)
+                {
+                    foreach (var horario in ListaHorarioAlumno)
+                    {
+                        int count = ListaHorarios.Where(c => c.Id_Horario == horario.Id_Horario).Count();
+
+                        if (count > 0)
+                        {
+                            base.AddError("El Alumno ya se encuentra asignado en este Horario para otro Modulo :" +
+                                          horario.Grupo + ", Curso :" + horario.Curso);
+                            return false;
+                        }
+                    }
+                    if (alumnosrepositorio.AsiganraGrupo(id_grupo, id_alumno, id_condicion_curso))
+                    {
+
+                        foreach (var horario in ListaHorarios)
+                        {
+                            horarioServicio.AgregarHorarioalAlumno(id_alumno, horario.Id_Horario, id_grupo);
+                        }
+
+                        return true;
+                    }
+
+                }
+                else
+                {
+                    base.AddError("Ingrese El Hoario del Grupo para asignar los Alumnos");
+                    return false;
+                }
+
+                return true;
+
             }
             catch (Exception ex)
             {
@@ -287,7 +368,19 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         {
             try
             {
-                return alumnosrepositorio.DesasignaraGrupo(id_grupo, id_alumno, id_condicion_curso);
+                IList<IHorario> ListaHorarios = horarioServicio.GetHorariosByGrupo(id_grupo).ListaHorario;
+
+                if (alumnosrepositorio.DesasignaraGrupo(id_grupo, id_alumno, id_condicion_curso))
+                {
+                    foreach (var horario in ListaHorarios)
+                    {
+                        horarioServicio.SacarHorarioalAlumno(id_alumno, horario.Id_Horario, id_grupo);
+                    }
+
+                    return true;
+                }
+
+                return true;
             }
             catch (Exception ex)
             {
@@ -302,7 +395,30 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 IAlumnosVista vista = new AlumnosVista();
 
-                vista.ListaAlumno = alumnosrepositorio.BuscarAlumnos(nombre, apellido, dni, cuil);
+                var pager = new Pager(alumnosrepositorio.BuscarAlumnos(nombre, apellido, dni, cuil).Count, Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexAlumnos", Aut.GetUrl("IndexPager", "Alumnos"));
+
+                vista.ListaAlumno = alumnosrepositorio.BuscarAlumnos(nombre, apellido, dni, cuil, pager.Skip, pager.PageSize);
+
+                vista.Pager = pager;
+
+                return vista;
+            }
+            catch (Exception ex)
+            {
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return null;
+            }
+        }
+
+        public IAlumnosVista BuscarAlumnos(string nombre, string apellido, string dni, string cuil, IPager pager)
+        {
+            try
+            {
+                IAlumnosVista vista = new AlumnosVista();
+
+                vista.ListaAlumno = alumnosrepositorio.BuscarAlumnos(nombre, apellido, dni, cuil, pager.Skip, pager.PageSize);
+
+                vista.Pager = pager;
 
                 return vista;
             }

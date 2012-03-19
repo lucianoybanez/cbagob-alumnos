@@ -36,10 +36,15 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public string Planta { get; set; }
         [Required(ErrorMessage = "*")]
         public string Reproca { get; set; }
+        [Required(ErrorMessage = "*")]
         public string Provincia { get; set; }
+        [Required(ErrorMessage = "*")]
         public string Localidad { get; set; }
+        [Required(ErrorMessage = "*")]
         public string Barrio { get; set; }
+        [Required(ErrorMessage = "*")]
         public string Calle { get; set; }
+        [Required(ErrorMessage = "*")]
         public int Nro { get; set; }
         [Required(ErrorMessage = "*")]
         public string Cuit_Cuil { get; set; }
@@ -60,5 +65,7 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public string RazonSocialBusqueda { get; set; }
         public string CuilCuitBusqueda { get; set; }
         public IPager Pager { get; set; }
+        public string Telefono { get; set; }
+        public DateTime FechaNacimiento { get; set; }
     }
 }

@@ -43,7 +43,8 @@ namespace CbaGob.Alumnos.Repositorio
                                     Nro = e.NRO ?? 0,
                                     Depto = e.DEPTO ?? 0,
                                     Nro_Expediente = e.NRO_EXPEDIENTE,
-                                    Nro_Resolucion = e.NRO_RESOLUCION
+                                    Nro_Resolucion = e.NRO_RESOLUCION,
+                                    Telefono = e.TELEFONO
 
                                 });
             return qIns;
@@ -102,7 +103,8 @@ namespace CbaGob.Alumnos.Repositorio
                                               CALLE = institucion.Calle,
                                               DEPTO = institucion.Depto,
                                               NRO_EXPEDIENTE = institucion.Nro_Expediente,
-                                              NRO_RESOLUCION = institucion.Nro_Resolucion
+                                              NRO_RESOLUCION = institucion.Nro_Resolucion,
+                                              TELEFONO = institucion.Telefono
                                           };
 
                 mDb.AddToT_INSTITUCIONES(obj);
@@ -136,6 +138,7 @@ namespace CbaGob.Alumnos.Repositorio
                 IN.DEPTO = institucion.Depto;
                 IN.NRO_EXPEDIENTE = institucion.Nro_Expediente;
                 IN.NRO_RESOLUCION = institucion.Nro_Resolucion;
+                IN.TELEFONO = institucion.Telefono;
                 mDb.SaveChanges();
 
                 return true;

@@ -7,7 +7,7 @@
             <thead>
                 <tr>
                     <th height="30">
-                        <div align="center">
+                        <div align="left">
                             Nombre</div>
                     </th>
                     <th height="30">
@@ -19,7 +19,7 @@
                             Fecha Alta</div>
                     </th>
                     <th height="30" colspan="4">
-                        <div align="right" style="margin-right:2px;" colspan="7">
+                        <div align="right" style="margin-right: 2px;" colspan="7">
                             Acción</div>
                     </th>
                 </tr>
@@ -28,16 +28,30 @@
                 @foreach (var item in Model.ListaGrupos)
                 {
                     <tr>
-                        <td>
-                            @item.NombreGrupo
+                        <td align="left">
+                            @if (item.NombreGrupo.Length < 30)
+                            {
+                                @item.NombreGrupo
+                            }
+                            else
+                            {
+                                @(item.NombreGrupo.ToString().Substring(1, 29) + " ...")
+                            }
                         </td>
                         <td>
-                            @item.NombreEstablecimiento
+                            @if (item.NombreEstablecimiento.Length < 30)
+                            {
+                                @item.NombreEstablecimiento
+                            }
+                            else
+                            {
+                                @(item.NombreEstablecimiento.ToString().Substring(1, 29) + " ...")
+                            }
                         </td>
                         <td>
                             @item.FechaAlta.ToShortDateString()
                         </td>
-                        <td height="30" align="right" style="margin-right:2px;">
+                        <td height="30" align="right" style="margin-right: 2px;">
                             @Html.ActionLink("Modificar", "Modificar", "Grupos", new { id_grupo = item.Id_Grupo }, new { @class = "btnIngresar" })
                             @Html.ActionLink("Eliminar", "Eliminar", "Grupos", new { id_grupo = item.Id_Grupo }, new { @class = "btnIngresar" })
                             @Html.ActionLink("Ver", "VerGrupo", "Grupos", new { id_grupo = item.Id_Grupo }, new { @class = "btnIngresar" })
@@ -45,7 +59,7 @@
                     </tr>
                 }
                 <tr>
-                    <td align="right" valign="bottom" colspan="4" >
+                    <td align="right" valign="bottom" colspan="4">
                         <div id="resumenPag" style="height: 30px; padding: 15px 5px 0 2px;">
                             @Html.ActionLink("Agregar Módulo", "Agregar", "Grupos", new { id_condicionCurso = Model.IdCondicionCurso }, new { @class = "btnIngresar" })
                         </div>

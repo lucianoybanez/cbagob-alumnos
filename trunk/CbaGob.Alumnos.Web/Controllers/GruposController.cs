@@ -7,10 +7,11 @@ using CbaGob.Alumnos.Servicio.Servicios;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
 using CbaGob.Alumnos.Servicio.VistasInterface;
+using JLY.Hotel.Web.Controllers;
 
 namespace CbaGob.Alumnos.Web.Controllers
 {
-    public class GruposController : Controller
+    public class GruposController : BaseController
     {
         private IGrupoServicio gruposervicio;
         private ICondicionesCursoServicio CondicionesCursoServicio;
@@ -93,17 +94,15 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             IGrupoVista model = new GrupoVista();
 
-
-
             model = gruposervicio.GetGrupo(id_grupo);
 
-            model.ListaAlumnos = alumnosservicios.GetTodosAlumnosSinGrupo(model.Id_Condicion_Curso).ListaAlumno;
+            //model.ListaAlumnos = alumnosservicios.GetTodosAlumnosSinGrupo(model.Id_Condicion_Curso).ListaAlumno;
 
-            model.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, model.Id_Condicion_Curso).ListaAlumno;
+            //model.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, model.Id_Condicion_Curso).ListaAlumno;
 
-            model.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo).ListaDocentes;
+            //model.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo).ListaDocentes;
 
-            model.ListaDocentesInGrupo = docentesservicio.GetDocentesInGrupo(id_grupo).ListaDocentes;
+            //model.ListaDocentesInGrupo = docentesservicio.GetDocentesInGrupo(id_grupo).ListaDocentes;
 
             return View("Ver", model);
         }
@@ -112,19 +111,14 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             IGrupoVista model = new GrupoVista();
 
-            model = gruposervicio.GetGrupo(id_grupo);
-
             bool mret = alumnosservicios.AsiganraGrupo(id_grupo, id_alumno, id_condicon_curso);
 
-            model.ListaAlumnos = alumnosservicios.GetTodosAlumnosSinGrupo(model.Id_Condicion_Curso).ListaAlumno;
+            if (mret == false)
+            {
+                base.AddError(alumnosservicios.GetErrors());
+            }
 
-            model.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, model.Id_Condicion_Curso).ListaAlumno;
-
-
-
-            model.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo).ListaDocentes;
-
-            model.ListaDocentesInGrupo = docentesservicio.GetDocentesInGrupo(id_grupo).ListaDocentes;
+            model = gruposervicio.GetGrupo(id_grupo);
 
             return View("Ver", model);
         }
@@ -133,66 +127,65 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             IGrupoVista model = new GrupoVista();
 
-
-
-            model = gruposervicio.GetGrupo(id_grupo);
-
             bool mret = alumnosservicios.DesasignaraGrupo(id_grupo, id_alumno, id_condicon_curso);
 
-            model.ListaAlumnos = alumnosservicios.GetTodosAlumnosSinGrupo(model.Id_Condicion_Curso).ListaAlumno;
-
-            model.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, model.Id_Condicion_Curso).ListaAlumno;
+            model = gruposervicio.GetGrupo(id_grupo);
 
 
+            //model.ListaAlumnos = alumnosservicios.GetTodosAlumnosSinGrupo(model.Id_Condicion_Curso).ListaAlumno;
 
-            model.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo).ListaDocentes;
+            //model.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, model.Id_Condicion_Curso).ListaAlumno;
 
-            model.ListaDocentesInGrupo = docentesservicio.GetDocentesInGrupo(id_grupo).ListaDocentes;
+
+
+            //model.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo).ListaDocentes;
+
+            //model.ListaDocentesInGrupo = docentesservicio.GetDocentesInGrupo(id_grupo).ListaDocentes;
 
             return View("Ver", model);
         }
 
-        public ActionResult AsignarDocente(int id_grupo, int id_docente)
+        public ActionResult AsignarDocente(int id_grupo, int id_docente, int id_condicon_curso)
         {
             IGrupoVista model = new GrupoVista();
 
+            bool mret = docentesservicio.AsignarDocentes(id_docente, id_grupo, id_condicon_curso);
 
+            if (mret == false)
+            {
+                base.AddError(docentesservicio.GetErrors());
+            }
 
             model = gruposervicio.GetGrupo(id_grupo);
 
-            bool mret = docentesservicio.AsignarDocentes(id_docente, id_grupo, model.Id_Condicion_Curso);
+            //model.ListaAlumnos = alumnosservicios.GetTodosAlumnosSinGrupo(model.Id_Condicion_Curso).ListaAlumno;
 
-            model.ListaAlumnos = alumnosservicios.GetTodosAlumnosSinGrupo(model.Id_Condicion_Curso).ListaAlumno;
+            //model.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, model.Id_Condicion_Curso).ListaAlumno;
 
-            model.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, model.Id_Condicion_Curso).ListaAlumno;
+            //model.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo).ListaDocentes;
 
-
-
-            model.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo).ListaDocentes;
-
-            model.ListaDocentesInGrupo = docentesservicio.GetDocentesInGrupo(id_grupo).ListaDocentes;
+            //model.ListaDocentesInGrupo = docentesservicio.GetDocentesInGrupo(id_grupo).ListaDocentes;
 
             return View("Ver", model);
         }
 
-        public ActionResult DesasignarDocente(int id_grupo, int id_docente)
+        public ActionResult DesasignarDocente(int id_grupo, int id_docente, int id_condicon_curso)
         {
             IGrupoVista model = new GrupoVista();
 
-
+            bool mret = docentesservicio.DesasignarDocentes(id_docente, id_grupo, id_condicon_curso);
 
             model = gruposervicio.GetGrupo(id_grupo);
 
-            bool mret = docentesservicio.DesasignarDocentes(id_docente, id_grupo, model.Id_Condicion_Curso);
 
-            model.ListaAlumnos = alumnosservicios.GetTodosAlumnosSinGrupo(model.Id_Condicion_Curso).ListaAlumno;
+            //model.ListaAlumnos = alumnosservicios.GetTodosAlumnosSinGrupo(model.Id_Condicion_Curso).ListaAlumno;
 
-            model.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, model.Id_Condicion_Curso).ListaAlumno;
+            //model.ListaAlumnosInGrupo = alumnosservicios.GetTodosAlumnosEnGrupo(id_grupo, model.Id_Condicion_Curso).ListaAlumno;
 
 
-            model.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo).ListaDocentes;
+            //model.ListaDocentesNoGrupo = docentesservicio.GetDocentesNotInGrupo(id_grupo).ListaDocentes;
 
-            model.ListaDocentesInGrupo = docentesservicio.GetDocentesInGrupo(id_grupo).ListaDocentes;
+            //model.ListaDocentesInGrupo = docentesservicio.GetDocentesInGrupo(id_grupo).ListaDocentes;
 
             return View("Ver", model);
         }

@@ -45,6 +45,15 @@
                                         </tr>
                                         <tr>
                                             <td align="left">
+                                                <b>Teléfono:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Telefono, new { style = "width:150px;", MaxLength = "30" })
+                                                @Html.ValidationMessageFor(m => m.Telefono, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
                                                 <b>Provincia:</b>
                                             </td>
                                             <td align="left" valign="middle">

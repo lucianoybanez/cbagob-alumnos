@@ -29,7 +29,7 @@
             <thead>
                 <tr>
                     <th height="30">
-                        <div align="center">
+                        <div align="left">
                             Nombre Sede</div>
                     </th>
                     <th height="30">
@@ -62,20 +62,55 @@
                 @foreach (var item in Model.ListaEstablecimiento)
                 {
                     <tr>
-                        <td align="center" height="28">
-                            @item.NombreEstablecimiento
+                        <td align="left" height="28">
+                            @if (item.NombreEstablecimiento.Length < 30)
+                            {
+                                @item.NombreEstablecimiento
+                            }
+                            else
+                            {
+                                @(item.NombreEstablecimiento.ToString().Substring(1, 29) + " ...")
+                            }
                         </td>
                         <td align="center">
-                            @item.Provincia
+                            @if (item.Provincia.Length < 30)
+                            {
+                                @item.Provincia
+                            }
+                            else
+                            {
+                                @(item.Provincia.ToString().Substring(1, 29) + " ...")
+                            }
                         </td>
                         <td align="center">
-                            @item.Localidad
+                            @if (item.Localidad.Length < 30)
+                            {
+                                @item.Localidad
+                            }
+                            else
+                            {
+                                @(item.Localidad.ToString().Substring(1, 29) + " ...")
+                            }
                         </td>
                         <td align="center">
-                            @item.Barrio
+                            @if (item.Barrio.Length < 30)
+                            {
+                                @item.Barrio
+                            }
+                            else
+                            {
+                                @(item.Barrio.ToString().Substring(1, 29) + " ...")
+                            }
                         </td>
                         <td align="center">
-                            @item.Calle
+                            @if (item.Calle.Length < 30)
+                              {
+                                @item.Calle
+                              }
+                              else
+                              {
+                                @(item.Calle.ToString().Substring(1, 29) + " ...")
+                              }
                         </td>
                         <td align="center">
                             @item.Nro
@@ -83,6 +118,7 @@
                         <td align="right" style="margin-right: 2px;">
                             @Html.ActionLink("Modificar", "Modificar", "Establecimientos", new { id_establecimiento = item.Id_Establecimiento }, new { @class = "btnIngresar" })
                             @Html.ActionLink("Eliminar", "Eliminar", "Establecimientos", new { id_establecimiento = item.Id_Establecimiento }, new { @class = "btnIngresar" })
+                            @Html.ActionLink("Consultar", "Consultar", "Establecimientos", new { id_establecimiento = item.Id_Establecimiento }, new { @class = "btnIngresar" })
                         </td>
                     </tr>
                 }

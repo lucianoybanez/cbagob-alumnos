@@ -65,6 +65,15 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View(model);
         }
 
+        public ActionResult Consultar(int id_establecimiento)
+        {
+            IEstablecimientoVista model;
+
+            model = establecimientoservicio.GetEstablecimiento(id_establecimiento);
+
+            return View(model);
+        }
+
         [HttpPost]
         public ActionResult Agregar_Establecimiento(EstablecimientoVista model)
         {

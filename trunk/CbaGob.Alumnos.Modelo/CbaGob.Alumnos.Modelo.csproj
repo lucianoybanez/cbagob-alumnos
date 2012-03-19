@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Alumno.cs" />
+    <Compile Include="Entities\Alumno_Horario.cs" />
     <Compile Include="Entities\AreaTipoCurso.cs" />
     <Compile Include="Entities\CajaChica.cs" />
     <Compile Include="Entities\Calles.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Entities\Inscripcion.cs" />
     <Compile Include="Entities\Examen.cs" />
     <Compile Include="Entities\Interfaces\IAlumnos.cs" />
+    <Compile Include="Entities\Interfaces\IAlumno_Horario.cs" />
     <Compile Include="Entities\Interfaces\IAreaTipoCurso.cs" />
     <Compile Include="Entities\Interfaces\IBarrios.cs" />
     <Compile Include="Entities\Institucion.cs" />

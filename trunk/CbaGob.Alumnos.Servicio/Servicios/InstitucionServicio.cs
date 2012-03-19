@@ -83,6 +83,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             model.Nro_Expediente = mInstitucion.Nro_Expediente;
             model.Nro_Resolucion = mInstitucion.Nro_Resolucion;
             model.Depto = mInstitucion.Depto;
+            model.Telefono = mInstitucion.Telefono;
 
             return model;
 
@@ -127,17 +128,29 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             try
             {
                 InstitucionVista mInstitucionVista = new InstitucionVista();
-
+                
 
                 if (nombreinstitucion != null)
-                { mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.BuscarInstitucion(nombreinstitucion); }
+                {
+                    
+                    mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.BuscarInstitucion(nombreinstitucion);
+
+                    var pager = new Pager(mInstitucionVista.ListaInstituciones.Count, Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexInstituciones", Aut.GetUrl("IndexPager", "Instituciones"));
+
+                    mInstitucionVista.pager = pager;
+                }
                 else
                 {
                     mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones();
+
+                    var pager = new Pager(mInstitucionVista.ListaInstituciones.Count, Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexInstituciones", Aut.GetUrl("IndexPager", "Instituciones"));
+
+                    mInstitucionVista.pager = pager;
                 }
 
-                var pager = new Pager(mInstitucionVista.ListaInstituciones.Count, Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexInstituciones", Aut.GetUrl("IndexPager", "Instituciones"));
-                mInstitucionVista.pager = pager;
+                
+                //var pager = new Pager(mInstitucionRepositorio.GetCountInstituciones(), Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexInstituciones", Aut.GetUrl("IndexPager", "Instituciones"));
+                
 
                 return mInstitucionVista;
             }

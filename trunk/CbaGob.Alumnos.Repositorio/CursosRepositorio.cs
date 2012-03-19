@@ -17,6 +17,22 @@ namespace CbaGob.Alumnos.Repositorio
             mDb = new CursosDB();
         }
 
+        private IQueryable<ICursos> QCursos()
+        {
+            var a = (from c in mDb.T_CURSOS
+                     where c.ESTADO == "A"
+                     select
+                         new Cursos
+                             {
+                                 ID_CURSO = c.ID_CURSO,
+                                 N_CURSO = c.N_CURSO,
+                                 ESTADO = c.ESTADO,
+                                 NRORESOLUCION = c.NRO_RESOLUCION,
+                                 Id_Area_Tipo_Curso = c.ID_AREA_TIPO_CURSO,
+                                 NombreAreaTipoCurso = c.T_AREAS_TIPOS_CURSO.N_AREA_TIPO_CURSO
+                             });
+            return a;
+        }
 
         public IList<ICursos> GetTodosbyInstitucion(int IdInstitucion)
         {
@@ -48,18 +64,33 @@ namespace CbaGob.Alumnos.Repositorio
         {
             try
             {
-                var ListaCursos = (from c in mDb.T_CURSOS
-                                   where c.ESTADO == "A"
-                                   select
-                                       new Cursos
-                                       {
-                                           ID_CURSO = c.ID_CURSO,
-                                           N_CURSO = c.N_CURSO,
-                                           ESTADO = c.ESTADO,
-                                           NRORESOLUCION = c.NRO_RESOLUCION,
-                                           Id_Area_Tipo_Curso = c.ID_AREA_TIPO_CURSO
-                                       }).ToList().Cast<ICursos>().ToList();
-                return ListaCursos;
+                return QCursos().ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public IList<ICursos> GetTodos(int skip, int take)
+        {
+            try
+            {
+                return QCursos().OrderBy(c => c.N_CURSO).Skip(skip).Take(take).ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public int GetCountCursos()
+        {
+            try
+            {
+                return QCursos().Count();
             }
             catch (Exception)
             {
@@ -72,19 +103,7 @@ namespace CbaGob.Alumnos.Repositorio
         {
             try
             {
-                var mCursos = (from c in mDb.T_CURSOS
-                               where c.ID_CURSO == IdCurso
-                               select
-                                   new Cursos
-                                   {
-                                       ID_CURSO = c.ID_CURSO,
-                                       N_CURSO = c.N_CURSO,
-                                       ESTADO = c.ESTADO,
-                                       NRORESOLUCION = c.NRO_RESOLUCION,
-                                       Id_Area_Tipo_Curso = c.ID_AREA_TIPO_CURSO
-
-                                   }).SingleOrDefault();
-                return mCursos;
+                return QCursos().Where(c => c.ID_CURSO == IdCurso).SingleOrDefault();
             }
             catch (Exception)
             {

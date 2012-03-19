@@ -40,5 +40,7 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         string RazonSocialBusqueda { get; set; }
         string CuilCuitBusqueda { get; set; }
         IPager Pager { get; set; }
+        string Telefono { get; set; }
+        System.DateTime FechaNacimiento { get; set; }
     }
 }

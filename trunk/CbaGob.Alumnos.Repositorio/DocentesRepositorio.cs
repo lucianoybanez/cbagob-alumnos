@@ -45,7 +45,10 @@ namespace CbaGob.Alumnos.Repositorio
                                     id_tipo_docente = c.ID_TIPO_DOCENTE,
                                     NombreTipoDocente = c.T_TIPOS_DOCENTE.N_TIPO_DOCENTE,
                                     Resolucion_Reproca = c.ROSOL_REPROCA,
-                                    Dni = c.DNI
+                                    Dni = c.DNI,
+                                    NombreCargo = c.T_CARGOS.N_CARGO,
+                                    FechaNacimiento = c.FEC_NACIMIENTO ?? System.DateTime.Now,
+                                    Telefono = c.TELEFONO
                                 });
 
             return a;
@@ -140,7 +143,9 @@ namespace CbaGob.Alumnos.Repositorio
                                                 ROSOL_REPROCA = docente.Resolucion_Reproca,
                                                 CUIT_CUIL = docente.Cuit_Cuil,
                                                 DNI = docente.Dni,
-                                                RAZON_SOCIAL = docente.RazonSoial
+                                                RAZON_SOCIAL = docente.RazonSoial,
+                                                FEC_NACIMIENTO = docente.FechaNacimiento,
+                                                TELEFONO = docente.Telefono
                                             };
 
 
@@ -182,6 +187,8 @@ namespace CbaGob.Alumnos.Repositorio
                 doc.CUIT_CUIL = docente.Cuit_Cuil;
                 doc.DNI = docente.Dni;
                 doc.RAZON_SOCIAL = docente.RazonSoial;
+                doc.FEC_NACIMIENTO = docente.FechaNacimiento;
+                doc.TELEFONO = docente.Telefono;
 
                 mDb.SaveChanges();
                 return true;

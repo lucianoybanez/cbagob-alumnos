@@ -9,6 +9,8 @@ namespace CbaGob.Alumnos.Modelo.Repositories
     public interface IAlumnosRepositorio
     {
         IList<IAlumnos> GetTodos();
+        IList<IAlumnos> GetTodos(int skip, int take);
+        int GetCountAlumnos();
         IList<IAlumnos> GetTodosByNombreApellido(string nombre, string apellido);
         IList<IAlumnos> GetTodosByDni(string dni);
         IList<IAlumnos> GetTodosByCondicionCurso(int id_condicion_curso);
@@ -21,5 +23,6 @@ namespace CbaGob.Alumnos.Modelo.Repositories
         bool AsiganraGrupo(int id_grupo, int id_alumno, int id_condicion_curso);
         bool DesasignaraGrupo(int id_grupo, int id_alumno, int id_condicion_curso);
         IList<IAlumnos> BuscarAlumnos(string nombre, string apellido, string dni, string cuil);
+        IList<IAlumnos> BuscarAlumnos(string nombre, string apellido, string dni, string cuil, int skip, int take);
     }
 }

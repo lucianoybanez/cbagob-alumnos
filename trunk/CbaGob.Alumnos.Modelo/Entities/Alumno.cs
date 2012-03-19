@@ -28,5 +28,11 @@ namespace CbaGob.Alumnos.Modelo.Entities
         public string Nro_Resolucion { get; set; }
         public string Nro_Telefono { get; set; }
         public string Nro_Celular { get; set; }
+        public string Provincia { get; set; }
+        public string Localidad { get; set; }
+        public string Barrio { get; set; }
+        public string Calle { get; set; }
+        public int Nro { get; set; }
+        public int Depto { get; set; }
     }
 }

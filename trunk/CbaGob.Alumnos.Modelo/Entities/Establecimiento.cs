@@ -28,5 +28,6 @@ namespace CbaGob.Alumnos.Modelo.Entities
         public string DomicilioCompleto { get; set; }
         public string NombreInstitucion { get; set; }
         public string Nro_Resolucion { get; set; }
+        public string TelefonoEstablecimiento { get; set; }
     }
 }

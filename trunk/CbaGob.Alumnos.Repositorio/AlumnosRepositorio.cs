@@ -13,9 +13,10 @@ namespace CbaGob.Alumnos.Repositorio
     {
         public CursosDB mDb;
 
-        public AlumnosRepositorio(ILoggedUserHelper helper): base(helper)
+        public AlumnosRepositorio(ILoggedUserHelper helper)
+            : base(helper)
         {
-            
+
             mDb = new CursosDB();
         }
 
@@ -45,7 +46,13 @@ namespace CbaGob.Alumnos.Repositorio
                                  UsuarioModificacion = c.USR_MODIF,
                                  Nro_Resolucion = c.NRO_RESOLUCION,
                                  Nro_Telefono = c.NRO_TELEFONO,
-                                 Nro_Celular = c.NRO_CELULAR
+                                 Nro_Celular = c.NRO_CELULAR,
+                                 Provincia = c.PROVINCIA,
+                                 Localidad = c.LOCALIDAD,
+                                 Barrio = c.BARRIO,
+                                 Calle = c.CALLE,
+                                 Nro = c.NRO ?? 0,
+                                 Depto = c.DEPTO ?? 0
 
                              });
 
@@ -57,6 +64,32 @@ namespace CbaGob.Alumnos.Repositorio
             try
             {
                 return QAlumnos().ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public IList<IAlumnos> GetTodos(int skip, int take)
+        {
+            try
+            {
+                return QAlumnos().OrderBy(c => c.Nombre).Skip(skip).Take(take).ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+
+            }
+        }
+
+        public int GetCountAlumnos()
+        {
+            try
+            {
+                return QAlumnos().ToList().Count();
             }
             catch (Exception)
             {
@@ -242,7 +275,14 @@ namespace CbaGob.Alumnos.Repositorio
                                               ID_TIPO_SEXO = alumno.Id_Tipo_Sexo,
                                               NRO_RESOLUCION = alumno.Nro_Resolucion,
                                               NRO_TELEFONO = alumno.Nro_Telefono,
-                                              NRO_CELULAR = alumno.Nro_Celular
+                                              NRO_CELULAR = alumno.Nro_Celular,
+                                              PROVINCIA =alumno.Provincia,
+                                              LOCALIDAD = alumno.Localidad,
+                                              BARRIO = alumno.Barrio,
+                                              CALLE = alumno.Calle,
+                                              NRO = alumno.Nro,
+                                              DEPTO = alumno.Depto
+
                                           };
 
 
@@ -276,6 +316,12 @@ namespace CbaGob.Alumnos.Repositorio
                 alu.NRO_RESOLUCION = alumno.Nro_Resolucion;
                 alu.NRO_TELEFONO = alumno.Nro_Telefono;
                 alu.NRO_CELULAR = alumno.Nro_Celular;
+                alu.PROVINCIA = alumno.Provincia;
+                alu.LOCALIDAD = alumno.Localidad;
+                alu.BARRIO = alumno.Barrio;
+                alu.CALLE = alumno.Calle;
+                alu.NRO = alumno.Nro;
+                alu.DEPTO = alumno.Depto;
                 mDb.SaveChanges();
                 return true;
             }
@@ -370,6 +416,33 @@ namespace CbaGob.Alumnos.Repositorio
 
             }
             catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public IList<IAlumnos> BuscarAlumnos(string nombre, string apellido, string dni, string cuil, int skip, int take)
+        {
+            try
+            {
+                nombre = nombre == "" ? null : nombre;
+                apellido = apellido == "" ? null : apellido;
+                dni = dni == "" ? null : dni;
+                cuil = cuil == "" ? null : cuil;
+
+                return
+                    QAlumnos().Where(
+                        c =>
+                        (c.Nombre.ToLower().StartsWith(nombre.ToLower()) || nombre == null) &&
+                        (c.Apellido.ToLower().StartsWith(apellido.ToLower()) || apellido == null) &&
+                        (c.Cuil.ToLower().StartsWith(cuil.ToLower()) || cuil == null) &&
+                        (c.Nro_Documento.ToLower().StartsWith(dni.ToLower()) || dni == null)).OrderBy(c => c.Nombre).
+                        Skip(skip).Take(take).
+                        ToList();
+
+            }
+            catch (Exception ex)
             {
 
                 throw;

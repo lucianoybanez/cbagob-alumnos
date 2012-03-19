@@ -19,19 +19,25 @@ namespace CbaGob.Alumnos.Servicio.Servicios
     {
         private ICursosRepositorio mCursosRepositorio;
         private IAreasTipoCursoServicio areacursoservicio;
+        private IAutenticacionServicio Aut;
 
 
-        public CursosServicios(ICursosRepositorio mCursosRepositorio, IAreasTipoCursoServicio areacursoservicio)
+        public CursosServicios(ICursosRepositorio mCursosRepositorio, IAreasTipoCursoServicio areacursoservicio, IAutenticacionServicio aut)
         {
             this.mCursosRepositorio = mCursosRepositorio;
             this.areacursoservicio = areacursoservicio;
+            Aut = aut;
         }
 
-        public IList<ICursos> GetTodosbyInstitucion(int IdInstitucion)
+        public ICursosVista GetTodosbyInstitucion(int IdInstitucion)
         {
             try
             {
-                return mCursosRepositorio.GetTodosbyInstitucion(IdInstitucion);
+                ICursosVista vista = new CursosVista();
+                
+                vista.ListaCursos = mCursosRepositorio.GetTodosbyInstitucion(IdInstitucion);
+
+                return vista;
             }
             catch (Exception)
             {
@@ -40,11 +46,19 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
         }
 
-        public IList<ICursos> GetTodos()
+        public ICursosVista GetTodos()
         {
             try
             {
-                return mCursosRepositorio.GetTodos();
+                ICursosVista vista = new CursosVista();
+
+                var pager = new Pager(mCursosRepositorio.GetCountCursos(), Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexCursos", Aut.GetUrl("IndexPager", "Cursos"));
+
+                vista.ListaCursos = mCursosRepositorio.GetTodos(pager.Skip, pager.PageSize);
+
+                vista.Pager = pager;
+
+                return vista;
             }
             catch (Exception)
             {
@@ -85,6 +99,25 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 mCursosVista.AreasTipoCursos.Selected = mCursos.Id_Area_Tipo_Curso.ToString();
 
                 return mCursosVista;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public ICursosVista GetTodos(IPager Pager)
+        {
+            try
+            {
+                ICursosVista vista = new CursosVista();
+
+                vista.ListaCursos = mCursosRepositorio.GetTodos(Pager.Skip, Pager.PageSize);
+
+                vista.Pager = Pager;
+
+                return vista;
             }
             catch (Exception)
             {
@@ -153,11 +186,11 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         {
             try
             {
-                
+
                 ICursosVista mCursosVista = new CursosVista();
 
                 CargarAreas(mCursosVista, areacursoservicio.GetAreasTipoCurso().ListaAreaTipoCurso);
-            
+
 
                 return mCursosVista;
             }

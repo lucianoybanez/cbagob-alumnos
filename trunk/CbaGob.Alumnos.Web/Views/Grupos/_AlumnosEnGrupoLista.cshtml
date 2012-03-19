@@ -6,7 +6,7 @@
             <thead>
                 <tr>
                     <th height="30" width="180px">
-                        <div align="center">
+                        <div align="left">
                             Nombre</div>
                     </th>
                     <th height="30" width="180px">
@@ -29,20 +29,41 @@
                 @foreach (var item in Model.ListaAlumnosInGrupo)
                 {
                     <tr>
-                        <td height="30">
-                            @item.Nombre
+                        <td align="left" height="30">
+                            @if (item.Nombre.Length < 30)
+                            {
+                                @item.Nombre
+                            }
+                            else
+                            {
+                                @(item.Nombre.ToString().Substring(1, 29) + " ...")
+                            }
                         </td>
                         <td height="30">
-                            @item.Apellido
+                            @if (item.Apellido.Length < 30)
+                            {
+                                @item.Apellido
+                            }
+                            else
+                            {
+                                @(item.Apellido.ToString().Substring(1, 29) + " ...")
+                            }
                         </td>
                         <td height="30">
-                            @item.Nro_Documento
+                            @if (item.Nro_Documento.Length < 30)
+                            {
+                                @item.Nro_Documento
+                            }
+                            else
+                            {
+                                @(item.Nro_Documento.ToString().Substring(1, 29) + " ...")
+                            }
                         </td>
                         <td height="30">
                             @item.Fecha_Nacimiento.ToShortDateString()
                         </td>
                         <td height="30">
-                            @Html.ActionLink("Sacar del Grupo", "DesasignarAlumno", "Grupos", new { id_grupo = Model.Id_Grupo, id_alumno = item.Id_Alumno, id_condicon_curso = Model.Id_Condicion_Curso }, new { @class = "btnIngresar" })
+                            @Html.ActionLink("Sacar del Módulo", "DesasignarAlumno", "Grupos", new { id_grupo = Model.Id_Grupo, id_alumno = item.Id_Alumno, id_condicon_curso = Model.Id_Condicion_Curso }, new { @class = "btnIngresar" })
                         </td>
                     </tr>
                 }

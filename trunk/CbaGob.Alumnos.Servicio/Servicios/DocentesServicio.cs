@@ -20,14 +20,16 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         private ICargosRepositorio cargorepositorio;
         private ITipo_DocentesRepositorio tipodocentesrepositorio;
         private IAutenticacionServicio Aut;
+        private IHorarioServicio horarioServicio;
 
 
-        public DocentesServicio(IDocentesRepositorio docentesrepositorio, ICargosRepositorio cargorepositorio, ITipo_DocentesRepositorio tipodocentesrepositorio, IAutenticacionServicio aut)
+        public DocentesServicio(IDocentesRepositorio docentesrepositorio, ICargosRepositorio cargorepositorio, ITipo_DocentesRepositorio tipodocentesrepositorio, IAutenticacionServicio aut, IHorarioServicio phorarioServicio)
         {
             this.docentesrepositorio = docentesrepositorio;
             this.cargorepositorio = cargorepositorio;
             this.tipodocentesrepositorio = tipodocentesrepositorio;
             Aut = aut;
+            horarioServicio = phorarioServicio;
         }
 
         public IDocentesVista GetTodos()
@@ -140,6 +142,9 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 vista.RazonSoial = docente.RazonSoial;
                 vista.Dni = docente.Dni;
                 vista.Resolucion_Reproca = docente.Resolucion_Reproca;
+                vista.FechaNacimiento = docente.FechaNacimiento;
+                vista.Telefono = docente.Telefono;
+
 
                 CaragrCargos(vista, cargorepositorio.GetTodosCargos());
 
@@ -176,6 +181,8 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 addDocente.id_tipo_docente = Convert.ToInt32(docente.TiposDocentes.Selected);
                 addDocente.Resolucion_Reproca = docente.Resolucion_Reproca;
                 addDocente.Dni = docente.Dni;
+                addDocente.FechaNacimiento = docente.FechaNacimiento;
+                addDocente.Telefono = docente.Telefono;
 
                 return docentesrepositorio.Agregar(addDocente);
             }
@@ -208,6 +215,8 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 addDocente.id_tipo_docente = Convert.ToInt32(docente.TiposDocentes.Selected);
                 addDocente.Resolucion_Reproca = docente.Resolucion_Reproca;
                 addDocente.Dni = docente.Dni;
+                addDocente.FechaNacimiento = docente.FechaNacimiento;
+                addDocente.Telefono = docente.Telefono;
 
                 return docentesrepositorio.Modificar(addDocente);
             }
@@ -269,7 +278,44 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         {
             try
             {
-                return docentesrepositorio.AsignarDocentes(id_docente, id_grupo, id_condicion_curso);
+                IList<IHorario> ListaHorarios = horarioServicio.GetHorariosByGrupo(id_grupo).ListaHorario;
+                IList<IHorario> ListaHorarioDocentes = horarioServicio.GetHorarioByDocente(id_docente, 0).ListaHorario;
+
+
+                if (horarioServicio.GetHorariosByGrupo(id_grupo).ListaHorario.Count > 0)
+                {
+
+                    foreach (var horario in ListaHorarioDocentes)
+                    {
+                        int count = ListaHorarios.Where(c => c.Id_Horario == horario.Id_Horario).Count();
+
+                        if (count > 0)
+                        {
+                            base.AddError("El Docente ya se encuentra asignado en este Horario para otro Modulo :" +
+                                          horario.Grupo + ", Curso :" + horario.Curso);
+                            return false;
+                        }
+                    }
+                    if (docentesrepositorio.AsignarDocentes(id_docente, id_grupo, id_condicion_curso))
+                    {
+
+                        foreach (var horario in ListaHorarios)
+                        {
+                            horarioServicio.AgregarHorarioalDocente(id_docente, horario.Id_Horario, id_grupo);
+                        }
+
+                        return true;
+                    }
+
+                }
+                else
+                {
+                    base.AddError("Ingrese El Hoario del Grupo para asignar los Docentes");
+                    return false;
+                }
+
+                return true;
+
             }
             catch (Exception ex)
             {
@@ -282,7 +328,21 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         {
             try
             {
-                return docentesrepositorio.DesasignarDocentes(id_docente, id_grupo, id_condicion_curso);
+                IList<IHorario> ListaHorarios = horarioServicio.GetHorariosByGrupo(id_grupo).ListaHorario;
+
+                if (docentesrepositorio.DesasignarDocentes(id_docente, id_grupo, id_condicion_curso))
+                {
+                    foreach (var horario in ListaHorarios)
+                    {
+                        horarioServicio.SacarHorarioalDocente(id_docente, horario.Id_Horario, id_grupo);
+                    }
+
+                    return true;
+                }
+
+                return true;
+                
+               
             }
             catch (Exception ex)
             {
@@ -297,7 +357,12 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 IDocentesVista vista = new DocentesVista();
 
+
                 vista.ListaDocentes = docentesrepositorio.BuscarDocente(razonsocial, cuit_cuil);
+
+                var pager = new Pager(vista.ListaDocentes.Count, Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexDocentes", Aut.GetUrl("IndexPager", "Docentes"));
+
+                vista.Pager = pager;
 
                 return vista;
             }
