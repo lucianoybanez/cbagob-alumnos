@@ -25,5 +25,6 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         string DomicilioCompleto { get; set; }
         string NombreInstitucion { get; set; }
         string Nro_Resolucion { get; set; }
+        string TelefonoEstablecimiento { get; set; }
     }
 }

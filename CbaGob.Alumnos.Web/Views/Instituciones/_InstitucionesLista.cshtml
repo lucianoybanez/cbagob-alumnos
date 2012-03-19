@@ -28,7 +28,14 @@
                 {
                     <tr>
                         <td align="left" height="28">
-                            @item.Nombre_Institucion
+                            @if (item.Nombre_Institucion.Length < 30)
+                            {
+                                @item.Nombre_Institucion
+                            }
+                            else
+                            {
+                                @(item.Nombre_Institucion.ToString().Substring(1, 29) + " ...")
+                            }
                         </td>
                         <td align="center">
                             @item.espropia

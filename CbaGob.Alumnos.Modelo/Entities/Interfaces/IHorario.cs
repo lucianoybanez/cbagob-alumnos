@@ -13,5 +13,7 @@ namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
         string Dia_Semana { get; set; }
         string Año { get; set; }
         string Mes { get; set; }
+        string Curso { get; set; }
+        string Grupo { get; set; }
     }
 }

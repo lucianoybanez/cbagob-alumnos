@@ -24,6 +24,9 @@ namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
         int id_tipo_docente { get; set; }
         string NombreTipoDocente { get; set; }
         string Resolucion_Reproca { get; set; }
+        string NombreCargo { get; set; }
+        string Telefono { get; set; }
+        System.DateTime FechaNacimiento { get; set; }
 
     }
 }

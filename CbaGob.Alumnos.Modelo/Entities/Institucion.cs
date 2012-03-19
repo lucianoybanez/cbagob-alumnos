@@ -24,5 +24,6 @@ namespace CbaGob.Alumnos.Modelo.Entities
         public int Depto { get; set; }
         public string Nro_Resolucion { get; set; }
         public string Nro_Expediente { get; set; }
+        public string Telefono { get; set; }
     }
 }

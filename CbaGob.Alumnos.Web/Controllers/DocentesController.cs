@@ -63,6 +63,19 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View(model);
         }
 
+        public ActionResult Consultar(Int32 id_docente)
+        {
+            IDocentesVista model = new DocentesVista();
+
+            model = docentesservicio.GetUno(id_docente);
+
+            model.TiposDocentes.Enabled = false;
+
+            model.cargos.Enabled = false;
+
+            return View(model);
+        }
+
         [HttpPost]
         public ActionResult Agregar_Docente(DocentesVista model)
         {

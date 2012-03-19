@@ -18,5 +18,6 @@ namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
         int Depto { get; set; }
         string Nro_Resolucion { get; set; }
         string Nro_Expediente { get; set; }
+        string Telefono { get; set; }
     }
 }

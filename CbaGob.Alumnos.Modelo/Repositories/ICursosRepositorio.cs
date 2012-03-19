@@ -10,6 +10,8 @@ namespace CbaGob.Alumnos.Modelo.Repositories
     {
         IList<ICursos> GetTodosbyInstitucion(int IdInstitucion);
         IList<ICursos> GetTodos();
+        IList<ICursos> GetTodos(int skip, int take);
+        int GetCountCursos();
         ICursos GetUno(int IdCurso);
         bool Agregar(ICursos pCursos);
         bool Modificar(ICursos pCursos);

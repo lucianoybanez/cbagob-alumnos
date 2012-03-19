@@ -89,6 +89,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 establecimientovista.Resposable = establecimiento.Resposable;
                 establecimientovista.Telefono = establecimiento.Telefono;
                 establecimientovista.Emial = establecimiento.Emial;
+                establecimientovista.TelefonoEstablecimiento = establecimiento.TelefonoEstablecimiento;
 
                 return establecimientovista;
 
@@ -116,6 +117,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 addestablecimiento.Resposable = establecimiento.Resposable;
                 addestablecimiento.Telefono = establecimiento.Telefono;
                 addestablecimiento.Emial = establecimiento.Emial;
+                addestablecimiento.TelefonoEstablecimiento = establecimiento.TelefonoEstablecimiento;
 
                 return establecimientorepositorio.AgregarEstablecimiento(addestablecimiento);
             }
@@ -143,6 +145,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 addestablecimiento.Resposable = establecimiento.Resposable;
                 addestablecimiento.Telefono = establecimiento.Telefono;
                 addestablecimiento.Emial = establecimiento.Emial;
+                addestablecimiento.TelefonoEstablecimiento = establecimiento.TelefonoEstablecimiento;
 
                 return establecimientorepositorio.ModificarEstablecimiento(addestablecimiento);
             }

@@ -97,6 +97,47 @@ namespace CbaGob.Alumnos.Repositorio
             }
         }
 
+        public IList<IGrupo> GetAllGrupoByAlumno(int id_alumno)
+        {
+            try
+            {
+                var a = (from c in mDB.T_GRUPOS
+                         join d in mDB.T_ALUMONOS_GRUPO on c.ID_GRUPO equals d.ID_GRUPO
+                         where c.ESTADO == "A" && d.ESTADO == "A" && d.ID_ALUMNO == id_alumno
+                         select new Grupo
+                                    {
+                                        Id_Condicion_Curso = c.ID_CONDICION_CURSO,
+                                        Id_Establecimiento = c.ID_ESTABLECIMIENTO,
+                                        Id_Grupo = c.ID_GRUPO,
+                                        Capacidad = c.CAPACIDAD ?? 0,
+                                        NombreEstablecimiento = c.T_ESTABLECIMINETOS.N_ESTABLECIMIENTO,
+                                        FechaAlta = c.FEC_ALTA,
+                                        FechaModificacion = c.FEC_MODIF ?? System.DateTime.Now,
+                                        UsuarioAlta = c.USR_ALTA,
+                                        UsuarioModificacion = c.USR_MODIF,
+                                        NombreGrupo = c.N_GRUPO,
+                                        Nombre_Curso = c.T_CONDICIONES_CURSO.T_CURSOS.N_CURSO,
+                                        Id_Institucion = c.T_CONDICIONES_CURSO.ID_INSTITUCION,
+                                        Nombre_Institucion = c.T_CONDICIONES_CURSO.T_INSTITUCIONES.N_INSTITUCION,
+                                        Provincia = c.T_ESTABLECIMINETOS.PROVINCIA,
+                                        Localidad = c.T_ESTABLECIMINETOS.LOCALIDAD,
+                                        Barrio = c.T_ESTABLECIMINETOS.BARRIO,
+                                        Calle = c.T_ESTABLECIMINETOS.CALLE,
+                                        Nro = c.T_ESTABLECIMINETOS.NRO ?? 0,
+                                        Nro_Resolucion = c.NRO_RESOLUCION
+                                    }).ToList().Cast<IGrupo>().ToList(); ;
+
+
+
+                return a;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         #endregion
 
         #region CRUD

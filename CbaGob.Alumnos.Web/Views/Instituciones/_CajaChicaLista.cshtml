@@ -6,7 +6,7 @@
             <thead>
                 <tr>
                     <th height="30">
-                        <div align="center">
+                        <div align="left">
                             Monto</div>
                     </th>
                     <th height="30">
@@ -23,11 +23,18 @@
                 @foreach (var item in Model.CajaChica.ListaCajaChica)
                 {
                     <tr>
-                        <td align="center" height="28">
+                        <td align="left" height="28">
                             @item.Monto
                         </td>
                         <td align="center">
-                            @item.NombreEstadoCaja
+                            @if (item.NombreEstadoCaja.Length < 30)
+                            {
+                                @item.NombreEstadoCaja
+                            }
+                            else
+                            {
+                                @(item.NombreEstadoCaja.ToString().Substring(1, 29) + " ...")
+                            }
                         </td>
                         <td align="right" style="margin-right: 2px;" width="200px">
                             @Html.ActionLink("Modificar", "Modificar", "CajaChica", new { id_institucion = Model.Id_Institucion, Id_Caja_Chica = item.Id_Caja_Chica }, new { @class = "btnIngresar" })

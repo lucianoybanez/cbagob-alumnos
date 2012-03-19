@@ -42,7 +42,7 @@
             <thead>
                 <tr>
                     <th height="30">
-                        <div align="center">
+                        <div align="left">
                             Curso</div>
                     </th>
                     <th height="30">
@@ -52,6 +52,16 @@
                     <th height="30">
                         <div align="center">
                             Programa
+                        </div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Fecha Inicio
+                        </div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Fecha Fin
                         </div>
                     </th>
                     <th height="30">
@@ -65,14 +75,41 @@
                 @foreach (var item in Model.CondicionesCursos)
                 {
                     <tr>
-                        <td align="center" height="28">
-                            @item.NombreCurso
+                        <td align="left" height="28">
+                            @if (item.NombreCurso.Length < 30)
+                            {
+                                @item.NombreCurso
+                            }
+                            else
+                            {
+                                @(item.NombreCurso.ToString().Substring(1, 29) + " ...")
+                            }
                         </td>
                         <td align="center" height="28">
-                            @item.NombreModalidad
+                            @if (item.NombreModalidad.Length < 30)
+                            {
+                                @item.NombreModalidad
+                            }
+                            else
+                            {
+                                @(item.NombreModalidad.ToString().Substring(1, 29) + " ...")
+                            }
                         </td>
                         <td align="center" height="28">
-                            @item.NombrePrograma
+                            @if (item.NombrePrograma.Length < 30)
+                            {
+                                @item.NombrePrograma
+                            }
+                            else
+                            {
+                                @(item.NombrePrograma.ToString().Substring(1, 29) + " ...")
+                            }
+                        </td>
+                        <td align="center" height="28">
+                            @item.Fecha_Inicio.ToShortDateString()
+                        </td>
+                        <td align="center" height="28">
+                            @item.Fecha_Fin.ToShortDateString()
                         </td>
                         <td align="right" style="margin-right: 2px;">
                             @Html.ActionLink("Modificar", "ModificarCondicionCurso", "CondicionesCurso", new { idCondicionCurso = item.IdCondicionCurso }, new { @class = "btnIngresar" })

@@ -8,7 +8,7 @@
 }
 <div class="box">
     <h2>
-        Eliminar Sede</h2>
+        Consultar Sede</h2>
     <table align="center" style="width: 622px;">
         <tr>
             <td class="style1" style="font-weight: bold">
@@ -115,7 +115,7 @@
                                 Nro Resolución:
                             </td>
                             <td align="left" valign="middle">
-                                @Html.TextBoxFor(c => c.Nro_Resolucion, new { style = "width:250px;", MaxLength = "64" })
+                                @Html.TextBoxFor(c => c.Nro_Resolucion, new { disabled = "disabled", style = "width:250px;", MaxLength = "64" })
                                 @Html.ValidationMessageFor(m => m.Nro_Resolucion, "*")
                             </td>
                         </tr>
@@ -127,7 +127,6 @@
                     <table id="myIntituciones" align="center" width="700px">
                         <tr>
                             <td align="right" vlign="middle">
-                                <input id="Eliminar" type="button" value="Eliminar" class="btnIngresar" />
                                 @Html.ActionLink("Cancelar", "Ver", "Instituciones", new { INST_ID = Model.Id_Institucion }, new { Class = "btnIngresar" })
                             </td>
                         </tr>

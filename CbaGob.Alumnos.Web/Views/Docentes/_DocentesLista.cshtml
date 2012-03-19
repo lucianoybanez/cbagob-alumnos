@@ -6,7 +6,7 @@
             <thead>
                 <tr>
                     <th height="30">
-                        <div align="center">
+                        <div align="left">
                             Cuit</div>
                     </th>
                     <th height="30">
@@ -15,7 +15,7 @@
                     </th>
                     <th height="30">
                         <div align="center">
-                            Modalidad</div>
+                            Cargo</div>
                     </th>
                     <th height="30">
                         <div align="right" style="margin-right: 2px;">
@@ -29,17 +29,27 @@
                 {
                     <tr>
                         <td align="left" height="28" width="180">
-                            @item.Cuit_Cuil
-                        </td>
-                        <td align="left">
-                            @item.RazonSoial
+                            @if (item.Cuit_Cuil.Length < 13)
+                            { @item.Cuit_Cuil}
+                            else
+                            {@(item.Cuit_Cuil.Substring(0, 13) + "...") }
                         </td>
                         <td align="center">
-                            @item.N_Modalidad
+                            @if (item.RazonSoial.Length < 30)
+                            {  @item.RazonSoial}
+                            else
+                            {@( @item.RazonSoial.Substring(0, 30) + "...") }
+                        </td>
+                        <td align="center">
+                            @if (item.NombreCargo.Length < 13)
+                            {  @item.NombreCargo}
+                            else
+                            {@(item.NombreCargo.Substring(0, 13) + "...") }
                         </td>
                         <td align="right" style="margin-right: 2px;">
                             @Html.ActionLink("Modificar", "Modificar", "Docentes", new { id_docente = item.Id_Docente }, new { @class = "btnIngresar" })
                             @Html.ActionLink("Eliminar", "Eliminar", "Docentes", new { id_docente = item.Id_Docente }, new { @class = "btnIngresar" })
+                            @Html.ActionLink("Consultar", "Consultar", "Docentes", new { id_docente = item.Id_Docente }, new { @class = "btnIngresar" })
                         </td>
                     </tr>
                 }

@@ -16,12 +16,14 @@
                 </div>
                 @using (Html.BeginForm("Eliminar_Grupo", "Grupos", FormMethod.Post, new { Id = "FormularioGrupos" }))
                 { 
+                    @Html.ValidationSummary(true)
+                    <br />
                     <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
                         <legend style="color: #FF9900"><b>Datos del Curso</b></legend>
                         <table>
                             <tr>
                                 <td>
-                                    <b>Nombre del Modulo:</b>
+                                    <b>Nombre del Módulo:</b>
                                 </td>
                                 <td>
                                     @Html.TextBoxFor(c => c.NombreGrupo, new { disabled = "disabled", style = "width:200px;", MaxLength = "50", Class = "asd" })
@@ -29,7 +31,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <b>Capacidad del Modulo:</b>
+                                    <b>Capacidad del Módulo:</b>
                                 </td>
                                 <td>
                                     @Html.TextBoxFor(c => c.Capacidad, new { disabled = "disabled", style = "width:50px;", MaxLength = "50", Class = "asd" })
@@ -40,13 +42,13 @@
                     <br />
                     <div id="tabs" style="width: 700px">
                         <ul>
+                            <li><a href="#tabs-3">Horarios</a></li>
                             <li><a href="#tabs-1">Alumnos</a></li>
                             <li><a href="#tabs-2">Docentes</a></li>
-                            <li><a href="#tabs-3">Horarios</a></li>
                         </ul>
                         <div id="tabs-1">
                             <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
-                                <legend style="color: #FF9900"><b>Alumnos inscriptos Sin Modulo</b></legend>
+                                <legend style="color: #FF9900"><b>Alumnos inscriptos Sin Módulo</b></legend>
                                 <table>
                                     <tr>
                                         <td>@Html.Partial("_AlumnosLista", Model)
@@ -56,7 +58,7 @@
                             </fieldset>
                             <br />
                             <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
-                                <legend style="color: #FF9900"><b>Alumnos inscriptos en el Moludo</b></legend>
+                                <legend style="color: #FF9900"><b>Alumnos inscriptos en el Módulo</b></legend>
                                 <table>
                                     <tr>
                                         <td>@Html.Partial("_AlumnosEnGrupoLista", Model)
@@ -77,7 +79,7 @@
                             </fieldset>
                             <br />
                             <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
-                                <legend><b>Docentes Asignado al Modulo</b></legend>
+                                <legend><b>Docentes Asignado al Módulo</b></legend>
                                 <table>
                                     <tr>
                                         <td>@Html.Partial("_DocentesInGrupoLista", Model)
@@ -88,7 +90,7 @@
                         </div>
                         <div id="tabs-3">
                             <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
-                                <legend><b>Horarios para el Modulo</b></legend>
+                                <legend><b>Horarios para el Módulo</b></legend>
                                 <table>
                                     <tr>
                                         <td>@Html.Partial("_HorarioParaelModulo", Model)
@@ -98,7 +100,7 @@
                             </fieldset>
                             <br />
                             <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
-                                <legend><b>Horario Asignado al Modulo</b></legend>
+                                <legend><b>Horario Asignado al Módulo</b></legend>
                                 <table>
                                     <tr>
                                         <td>@Html.Partial("_HorarioAsiganadoModulo", Model)

@@ -6,7 +6,7 @@
             <thead>
                 <tr>
                     <th height="30" width="180px">
-                        <div align="center">
+                        <div align="left">
                             Cuit</div>
                     </th>
                     <th height="30" width="180px">
@@ -25,17 +25,31 @@
                 @foreach (var item in Model.ListaDocentesNoGrupo)
                 {
                     <tr>
-                        <td height="30">
-                            @item.Cuit_Cuil
+                        <td align="left" height="30">
+                            @if (item.Cuit_Cuil.Length < 30)
+                            {
+                                @item.Cuit_Cuil
+                            }
+                            else
+                            {
+                                @(item.Cuit_Cuil.ToString().Substring(1, 29) + " ...")
+                            }
                         </td>
                         <td height="30">
-                            @item.RazonSoial
+                            @if (item.RazonSoial.Length < 30)
+                              {
+                                @item.RazonSoial
+                              }
+                              else
+                              {
+                                @(item.RazonSoial.ToString().Substring(1, 29) + " ...")
+                              }
                         </td>
                         <td height="30">
                             @(item.Reproca == "S" ? "Reproca" : "Planta")
                         </td>
                         <td height="30">
-                            @Html.ActionLink("Incluir al Grupo", "AsignarDocente", "Grupos", new { id_grupo = Model.Id_Grupo, id_docente = @item.Id_Docente }, new { @class = "btnIngresar" })
+                            @Html.ActionLink("Incluir al Módulo", "AsignarDocente", "Grupos", new { id_grupo = Model.Id_Grupo, id_docente = @item.Id_Docente, id_condicon_curso = Model.Id_Condicion_Curso }, new { @class = "btnIngresar" })
                         </td>
                     </tr>
                 }

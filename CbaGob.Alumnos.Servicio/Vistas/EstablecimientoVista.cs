@@ -24,11 +24,17 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public int Id_Institucion { get; set; }
         [Required(ErrorMessage = "*")]
         public string NombreEstablecimiento { get; set; }
+        [Required(ErrorMessage = "*")]
         public string Provincia { get; set; }
+        [Required(ErrorMessage = "*")]
         public string Localidad { get; set; }
+        [Required(ErrorMessage = "*")]
         public string Barrio { get; set; }
+        [Required(ErrorMessage = "*")]
         public string Calle { get; set; }
+        [Required(ErrorMessage = "*")]
         public int Nro { get; set; }
+        [Required(ErrorMessage = "*")]
         public int Depto { get; set; }
         [Required]
         [DataType(DataType.EmailAddress, ErrorMessage = "*")]
@@ -41,6 +47,6 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public string NombreInstitucion { get; set; }
         [Required(ErrorMessage = "*")]
         public string Nro_Resolucion { get; set; }
-
+        public string TelefonoEstablecimiento { get; set; }
     }
 }

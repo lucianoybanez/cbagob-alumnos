@@ -36,7 +36,7 @@
                                         </tr>
                                         <tr>
                                             <td align="left">
-                                                Nombre Establecimiento:
+                                                Nombre Sede:
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.NombreEstablecimiento, new { style = "width:350px;", MaxLength = "64" })
@@ -45,10 +45,19 @@
                                         </tr>
                                         <tr>
                                             <td align="left">
+                                                Teléfono Sede:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.TelefonoEstablecimiento, new { style = "width:150px;", MaxLength = "64" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
                                                 Provincia:
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.Provincia, new { style = "width:250px;", MaxLength = "50" })
+                                                @Html.ValidationMessageFor(m => m.Provincia, "*")
                                             </td>
                                         </tr>
                                         <tr>
@@ -57,6 +66,7 @@
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.Localidad, new { style = "width:250px;", MaxLength = "50" })
+                                                @Html.ValidationMessageFor(m => m.Localidad, "*")
                                             </td>
                                         </tr>
                                         <tr>
@@ -65,6 +75,7 @@
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.Barrio, new { style = "width:250px;", MaxLength = "50" })
+                                                @Html.ValidationMessageFor(m => m.Barrio, "*")
                                             </td>
                                         </tr>
                                         <tr>
@@ -73,6 +84,7 @@
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.Calle, new { style = "width:250px;", MaxLength = "150" })
+                                                @Html.ValidationMessageFor(m => m.Calle, "*")
                                             </td>
                                         </tr>
                                         <tr>
@@ -81,6 +93,7 @@
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.Nro, new { style = "width:150px;", MaxLength = "4" })
+                                                @Html.ValidationMessageFor(m => m.Nro, "*")
                                             </td>
                                         </tr>
                                         <tr>
@@ -94,7 +107,7 @@
                                         </tr>
                                         <tr>
                                             <td align="left">
-                                                Emial Representante:
+                                                Email Representante:
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.Emial, new { style = "width:250px;", MaxLength = "150", type = "email" })
@@ -103,7 +116,7 @@
                                         </tr>
                                         <tr>
                                             <td align="left">
-                                                Telefono Representante:
+                                                Teléfono Representante:
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.Telefono, new { style = "width:150px;", MaxLength = "64" })

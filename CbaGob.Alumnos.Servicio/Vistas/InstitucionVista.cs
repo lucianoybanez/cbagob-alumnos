@@ -53,5 +53,6 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public string añobuscqueda { get; set; }
         public string NombreSede { get; set; }
         public IPager pager { get; set; }
+        public string Telefono { get; set; }
     }
 }

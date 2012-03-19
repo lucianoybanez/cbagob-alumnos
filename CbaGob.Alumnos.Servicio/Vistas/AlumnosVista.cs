@@ -46,14 +46,27 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public IList<IAlumnos> ListaAlumno { get; set; }
         public IList<IPersona> ListaPersona { get; set; }
         public IPersona persona { get; set; }
-         [Required(ErrorMessage = "*")]
+        [Required(ErrorMessage = "*")]
         public string Nro_Telefono { get; set; }
-         [Required(ErrorMessage = "*")]
+        [Required(ErrorMessage = "*")]
         public string Nro_Celular { get; set; }
 
         public string NombreBusqueda { get; set; }
         public string ApellidoBusqueda { get; set; }
         public string DniBusqueda { get; set; }
         public string CuilBusqueda { get; set; }
+        public IPager Pager { get; set; }
+        [Required(ErrorMessage = "*")]
+        public string Provincia { get; set; }
+        [Required(ErrorMessage = "*")]
+        public string Localidad { get; set; }
+        [Required(ErrorMessage = "*")]
+        public string Barrio { get; set; }
+        [Required(ErrorMessage = "*")]
+        public string Calle { get; set; }
+        [Required(ErrorMessage = "*")]
+        public int Nro { get; set; }
+        [Required(ErrorMessage = "*")]
+        public int Depto { get; set; }
     }
 }

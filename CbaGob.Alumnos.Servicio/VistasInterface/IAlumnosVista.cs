@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
+using CbaGob.Alumnos.Servicio.Vistas.Shared;
 using CbaGob.Alumnos.Servicio.VistasInterface.Shared;
 
 namespace CbaGob.Alumnos.Servicio.VistasInterface
@@ -37,5 +38,13 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         string ApellidoBusqueda { get; set; }
         string DniBusqueda { get; set; }
         string CuilBusqueda { get; set; }
+
+        IPager Pager { get; set; }
+        string Provincia { get; set; }
+        string Localidad { get; set; }
+        string Barrio { get; set; }
+        string Calle { get; set; }
+        int Nro { get; set; }
+        int Depto { get; set; }
     }
 }

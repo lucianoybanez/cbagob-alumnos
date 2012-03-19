@@ -40,6 +40,15 @@
                                     </tr>
                                     <tr>
                                         <td align="left">
+                                            <b>Teléfono:</b>
+                                        </td>
+                                        <td align="left" valign="middle">
+                                            @Html.TextBoxFor(c => c.Telefono, new { style = "width:150px;", MaxLength = "30", disabled = "disabled" })
+                                            @Html.ValidationMessageFor(m => m.Telefono, "*")
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
                                             <b>Provincia:</b>
                                         </td>
                                         <td align="left" valign="middle">
@@ -115,7 +124,7 @@
                     <tr>
                         <td>
                             <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
-                                <legend style="color: #FF9900"><b>Sede de la Institución</b></legend>
+                                <legend style="color: #FF9900"><b>Sedes de la Institución</b></legend>
                                 <table>
                                     <tr>
                                         <td>@Html.Partial("_EstablecimientoLista", Model)
