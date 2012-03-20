@@ -52,7 +52,7 @@ namespace CbaGob.Alumnos.Repositorio
                                  Barrio = c.BARRIO,
                                  Calle = c.CALLE,
                                  Nro = c.NRO ?? 0,
-                                 Depto = c.DEPTO ?? 0
+                                 Depto = c.DEPTO ?? 0,
 
                              });
 

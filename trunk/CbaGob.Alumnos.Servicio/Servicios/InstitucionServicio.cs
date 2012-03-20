@@ -21,10 +21,13 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         private IAutenticacionServicio Aut;
 
-        public InstitucionServicio(IInstitucionRepositorio mInstitucionRepositorio, IAutenticacionServicio aut)
+        private IUsuarioServicio usuarioservice;
+
+        public InstitucionServicio(IInstitucionRepositorio mInstitucionRepositorio, IAutenticacionServicio aut, IUsuarioServicio pusuarioservice)
         {
             this.mInstitucionRepositorio = mInstitucionRepositorio;
             Aut = aut;
+            usuarioservice = pusuarioservice;
         }
 
         public IList<IInstitucion> GetTodas()
@@ -48,6 +51,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             InstitucionVista mInstitucionVista = new InstitucionVista();
 
             var pager = new Pager(mInstitucionRepositorio.GetCountInstituciones(), Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexInstituciones", Aut.GetUrl("IndexPager", "Instituciones"));
+
             mInstitucionVista.pager = pager;
 
             mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones(pager.Skip, pager.PageSize);

@@ -6,6 +6,8 @@
 @section Scripts{
     @Content.Script("CbaGob.Alumnos.Grupos.js", Url)
 }
+@{var result = Html.Action("IsAdminMode", "Home");
+  string rol = result.ToHtmlString();   }
 <div class="box">
     <h2>
         Modulo</h2>
@@ -47,16 +49,21 @@
                             <li><a href="#tabs-2">Docentes</a></li>
                         </ul>
                         <div id="tabs-1">
-                            <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
-                                <legend style="color: #FF9900"><b>Alumnos inscriptos Sin Módulo</b></legend>
-                                <table>
-                                    <tr>
-                                        <td>@Html.Partial("_AlumnosLista", Model)
-                                        </td>
-                                    </tr>
-                                </table>
-                            </fieldset>
-                            <br />
+                            @{
+                    if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                    {
+                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
+                                    <legend style="color: #FF9900"><b>Alumnos inscriptos Sin Módulo</b></legend>
+                                    <table>
+                                        <tr>
+                                            <td>@Html.Partial("_AlumnosLista", Model)
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                                <br />
+                    }
+                            }
                             <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
                                 <legend style="color: #FF9900"><b>Alumnos inscriptos en el Módulo</b></legend>
                                 <table>
@@ -68,16 +75,21 @@
                             </fieldset>
                         </div>
                         <div id="tabs-2">
-                            <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
-                                <legend><b>Docentes para el Modulo</b></legend>
-                                <table>
-                                    <tr>
-                                        <td>@Html.Partial("_DocentesNoGrupoLista", Model)
-                                        </td>
-                                    </tr>
-                                </table>
-                            </fieldset>
-                            <br />
+                            @{
+                    if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                    {
+                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
+                                    <legend><b>Docentes para el Modulo</b></legend>
+                                    <table>
+                                        <tr>
+                                            <td>@Html.Partial("_DocentesNoGrupoLista", Model)
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                                <br />
+                    }
+                            }
                             <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
                                 <legend><b>Docentes Asignado al Módulo</b></legend>
                                 <table>
@@ -89,16 +101,21 @@
                             </fieldset>
                         </div>
                         <div id="tabs-3">
-                            <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
-                                <legend><b>Horarios para el Módulo</b></legend>
-                                <table>
-                                    <tr>
-                                        <td>@Html.Partial("_HorarioParaelModulo", Model)
-                                        </td>
-                                    </tr>
-                                </table>
-                            </fieldset>
-                            <br />
+                            @{
+                    if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                    {
+                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
+                                    <legend><b>Horarios para el Módulo</b></legend>
+                                    <table>
+                                        <tr>
+                                            <td>@Html.Partial("_HorarioParaelModulo", Model)
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                                <br />
+                    }
+                            }
                             <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
                                 <legend><b>Horario Asignado al Módulo</b></legend>
                                 <table>

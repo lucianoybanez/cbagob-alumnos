@@ -31,7 +31,8 @@ namespace CbaGob.Alumnos.Repositorio
                                  Hora_Fin = c.HR_FIN,
                                  Hora_Inicio = c.HR_FIN,
                                  Mes = c.HR_MES,
-                                 Id_Horario = c.ID_HORARIO
+                                 Id_Horario = c.ID_HORARIO,
+                                 UsuarioAlta = c.USR_ALTA
                              });
             return a;
         }
@@ -67,7 +68,8 @@ namespace CbaGob.Alumnos.Repositorio
                                                Hora_Fin = c.HR_FIN,
                                                Hora_Inicio = c.HR_INICIO,
                                                Mes = c.HR_MES,
-                                               Id_Horario = c.ID_HORARIO
+                                               Id_Horario = c.ID_HORARIO,
+                                               UsuarioAlta = c.USR_ALTA
                                            }).ToList().Cast<IHorario>().ToList();
 
 
@@ -99,7 +101,8 @@ namespace CbaGob.Alumnos.Repositorio
                                            Hora_Fin = c.HR_FIN,
                                            Hora_Inicio = c.HR_INICIO,
                                            Mes = c.HR_MES,
-                                           Id_Horario = c.ID_HORARIO
+                                           Id_Horario = c.ID_HORARIO,
+                                           UsuarioAlta = c.USR_ALTA
                                        }).ToList().Cast<IHorario>().ToList();
 
 
@@ -131,7 +134,8 @@ namespace CbaGob.Alumnos.Repositorio
                                                Mes = c.HR_MES,
                                                Id_Horario = c.ID_HORARIO,
                                                Grupo = d.T_GRUPOS.N_GRUPO,
-                                               Curso = d.T_GRUPOS.T_CONDICIONES_CURSO.T_CURSOS.N_CURSO
+                                               Curso = d.T_GRUPOS.T_CONDICIONES_CURSO.T_CURSOS.N_CURSO,
+                                               UsuarioAlta = c.USR_ALTA
                                            }).ToList().Cast<IHorario>().ToList();
 
 
@@ -163,7 +167,8 @@ namespace CbaGob.Alumnos.Repositorio
                                            Mes = c.HR_MES,
                                            Id_Horario = c.ID_HORARIO,
                                            Grupo = d.T_GRUPOS.N_GRUPO,
-                                           Curso = d.T_GRUPOS.T_CONDICIONES_CURSO.T_CURSOS.N_CURSO
+                                           Curso = d.T_GRUPOS.T_CONDICIONES_CURSO.T_CURSOS.N_CURSO,
+                                           UsuarioAlta = c.USR_ALTA
                                        }).ToList().Cast<IHorario>().ToList();
 
 

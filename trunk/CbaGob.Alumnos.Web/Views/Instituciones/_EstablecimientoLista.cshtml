@@ -1,4 +1,6 @@
 ﻿@model InstitucionVista
+@{var result = Html.Action("IsAdminMode", "Home");
+  string rol = result.ToHtmlString();   }
 @using (Html.BeginForm("BuscarSede", "Instituciones", FormMethod.Get))
 {
     <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;
@@ -104,21 +106,26 @@
                         </td>
                         <td align="center">
                             @if (item.Calle.Length < 30)
-                              {
+                            {
                                 @item.Calle
-                              }
-                              else
-                              {
+                            }
+                            else
+                            {
                                 @(item.Calle.ToString().Substring(1, 29) + " ...")
-                              }
+                            }
                         </td>
                         <td align="center">
                             @item.Nro
                         </td>
                         <td align="right" style="margin-right: 2px;">
-                            @Html.ActionLink("Modificar", "Modificar", "Establecimientos", new { id_establecimiento = item.Id_Establecimiento }, new { @class = "btnIngresar" })
-                            @Html.ActionLink("Eliminar", "Eliminar", "Establecimientos", new { id_establecimiento = item.Id_Establecimiento }, new { @class = "btnIngresar" })
-                            @Html.ActionLink("Ver", "Consultar", "Establecimientos", new { id_establecimiento = item.Id_Establecimiento }, new { @class = "btnIngresar" })
+                            @{
+                            if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                            {
+                                @Html.ActionLink("Modificar", "Modificar", "Establecimientos", new { id_establecimiento = item.Id_Establecimiento }, new { @class = "btnIngresar" })
+                                @Html.ActionLink("Eliminar", "Eliminar", "Establecimientos", new { id_establecimiento = item.Id_Establecimiento }, new { @class = "btnIngresar" })
+                            }
+                                @Html.ActionLink("Ver", "Consultar", "Establecimientos", new { id_establecimiento = item.Id_Establecimiento }, new { @class = "btnIngresar" })
+                            }
                         </td>
                     </tr>
                 }
@@ -127,7 +134,12 @@
                     </td>
                     <td align="right" valign="bottom" colspan="3" height="20">
                         <div id="resumenPag" style="height: 30px; padding: 15px 5px 0 2px;">
-                            @Html.ActionLink("Agregar Sede", "Agregar", "Establecimientos", new { Id_institucion = Model.Id_Institucion }, new { @class = "btnIngresar" })
+                            @{
+                if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                {
+                                @Html.ActionLink("Agregar Sede", "Agregar", "Establecimientos", new { Id_institucion = Model.Id_Institucion }, new { @class = "btnIngresar" })
+                }
+                            }
                         </div>
                     </td>
                 </tr>
@@ -146,7 +158,12 @@ else
         </tr>
         <tr>
             <td style="height: 20px; padding: 15px 5px 0 2px; margin-right: 2px;" align="right">
-                @Html.ActionLink("Agregar Sede", "Agregar", "Establecimientos", new { Id_institucion = Model.Id_Institucion }, new { @class = "btnIngresar" })
+                @{
+    if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+    {
+                    @Html.ActionLink("Agregar Sede", "Agregar", "Establecimientos", new { Id_institucion = Model.Id_Institucion }, new { @class = "btnIngresar" })
+    }
+                }
             </td>
         </tr>
     </table>

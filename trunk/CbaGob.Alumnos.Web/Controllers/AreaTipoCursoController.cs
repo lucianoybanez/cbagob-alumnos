@@ -11,6 +11,7 @@ using JLY.Hotel.Web.Controllers;
 
 namespace CbaGob.Alumnos.Web.Controllers
 {
+    [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor})]
     public class AreaTipoCursoController : BaseController
     {
         private IAreasTipoCursoServicio areastipocursoservicio;

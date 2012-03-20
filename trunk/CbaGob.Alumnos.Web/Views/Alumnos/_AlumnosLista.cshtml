@@ -1,4 +1,8 @@
 ﻿@model IList<IAlumnos>
+
+@{var result = Html.Action("IsAdminMode", "Home");
+  string rol = result.ToHtmlString();   }
+
 @if (Model != null && Model.Count > 0)
 { 
     <div id="grilla" style="text-align: center;">
@@ -23,7 +27,7 @@
                     </th>
                     <th height="30">
                         <div align="right" style="margin-right: 2px;">
-                            Acción
+                            Acción 
                         </div>
                     </th>
                 </tr>
@@ -54,9 +58,14 @@
                             @item.Fecha_Nacimiento.ToShortDateString()
                         </td>
                         <td align="right" style="margin-right: 2px;">
-                            @Html.ActionLink("Modificar", "Modificar", "Alumnos", new { id_alumno = item.Id_Alumno }, new { @class = "btnIngresar" })
-                            @Html.ActionLink("Eliminar", "Eliminar", "Alumnos", new { id_alumno = item.Id_Alumno }, new { @class = "btnIngresar" })
-                            @Html.ActionLink("Ver", "Consultar", "Alumnos", new { id_alumno = item.Id_Alumno }, new { @class = "btnIngresar" })
+                            @{
+                            if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                            {
+                                @Html.ActionLink("Modificar", "Modificar", "Alumnos", new { id_alumno = item.Id_Alumno }, new { @class = "btnIngresar" })
+                                @Html.ActionLink("Eliminar", "Eliminar", "Alumnos", new { id_alumno = item.Id_Alumno }, new { @class = "btnIngresar" })
+                            }
+                                @Html.ActionLink("Ver", "Consultar", "Alumnos", new { id_alumno = item.Id_Alumno }, new { @class = "btnIngresar" })
+                            }
                         </td>
                     </tr>
                 }<tr>
@@ -71,7 +80,12 @@
                     </td>
                     <td align="right" valign="bottom" colspan="3" height="20">
                         <div id="resumenPag" style="height: 30px; padding: 15px 5px 0 2px;">
-                            @Html.ActionLink("Agregar Alumno", "Agregar", "Alumnos", new { @class = "btnIngresar" })
+                            @{
+                if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                {
+                                @Html.ActionLink("Agregar Alumno", "Agregar", "Alumnos", new { @class = "btnIngresar" })
+                }
+                            }
                         </div>
                     </td>
                 </tr>
@@ -81,7 +95,7 @@
 }
 else
 {
-    <div id="tab" style="text-align: center;">
+@* <div id="tab" style="text-align: center;">
         <table align="center" id="mytable">
             <thead>
                 <tr>
@@ -92,5 +106,24 @@ else
                 </tr>
             </thead>
         </table>
-    </div>
+    </div>*@
+    <table id="grilla" align="center" width="722px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="722px">
+                @Html.Partial("_SinDatos", "Alumnos")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div align="right" style="height: 20px; padding: 15px 5px 0 2px;">
+                    @{
+    if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+    {
+                        @Html.ActionLink("Agregar Alumno", "Agregar", "Alumnos", new { @class = "btnIngresar" })
+    }
+                    }
+                </div>
+            </td>
+        </tr>
+    </table>
 }

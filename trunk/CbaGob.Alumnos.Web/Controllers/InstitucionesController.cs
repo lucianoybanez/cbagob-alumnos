@@ -14,6 +14,7 @@ using JLY.Hotel.Web.Controllers;
 
 namespace CbaGob.Alumnos.Web.Controllers
 {
+    
     public class InstitucionesController : BaseController
     {
         private IInstitucionServicio InstitucionServicio;

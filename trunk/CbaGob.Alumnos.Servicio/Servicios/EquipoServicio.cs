@@ -14,16 +14,18 @@ using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Servicio.Servicios
 {
-    public class EquipoServicio :BaseServicio, IEquipoServicio
+    public class EquipoServicio : BaseServicio, IEquipoServicio
     {
         private IEquipoRepositorio equiporepositorio;
         private IEstado_EquipoRepositorio estado_equiporepositorio;
+        private IAutenticacionServicio Aut;
 
 
-        public EquipoServicio(IEquipoRepositorio equiporepositorio, IEstado_EquipoRepositorio estadoEquiporepositorio)
+        public EquipoServicio(IEquipoRepositorio equiporepositorio, IEstado_EquipoRepositorio estadoEquiporepositorio, IAutenticacionServicio aut)
         {
             this.equiporepositorio = equiporepositorio;
             estado_equiporepositorio = estadoEquiporepositorio;
+            Aut = aut;
         }
 
         public IEquiposVista GetEquipos()
@@ -31,7 +33,32 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             try
             {
                 IEquiposVista equipovista = new EquiposVista();
-                equipovista.ListaEquipos = equiporepositorio.GetEquipos();
+
+                var pager = new Pager(equiporepositorio.GetEquipos().Count(), Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexEquipos", Aut.GetUrl("IndexPager", "Equipamientos"));
+
+                equipovista.ListaEquipos = equiporepositorio.GetEquipos(pager.Skip, pager.PageSize);
+
+                equipovista.Pager = pager;
+
+                return equipovista;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public IEquiposVista GetEquipos(IPager Pager)
+        {
+            try
+            {
+                IEquiposVista equipovista = new EquiposVista();
+
+                equipovista.ListaEquipos = equiporepositorio.GetEquipos(Pager.Skip, Pager.PageSize);
+
+                equipovista.Pager = Pager;
 
                 return equipovista;
 
@@ -66,7 +93,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 IEquipoVista equipovista = new EquipoVista();
                 IEquipo equipo = equiporepositorio.GetEquipo(id_equipo);
-                
+
 
                 equipovista.Id_Equipo = equipo.Id_Equipo;
                 equipovista.Id_Estado_Equipo = equipo.Id_Estado_Equipo;
@@ -92,7 +119,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             try
             {
                 IEquipoVista equipovista = new EquipoVista();
-                
+
                 ConvertEstadoEquipo(equipovista, estado_equiporepositorio.GetEstadosEquipo());
 
                 return equipovista;
@@ -162,7 +189,32 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             try
             {
                 IEquiposVista equipovista = new EquiposVista();
-                equipovista.ListaEquipos = equiporepositorio.BusquedaEquipo(nombreequipo);
+
+                var pager = new Pager(equiporepositorio.BusquedaEquipo(nombreequipo).Count(), Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexEquipos", Aut.GetUrl("IndexPager", "Equipamientos"));
+
+                equipovista.ListaEquipos = equiporepositorio.BusquedaEquipo(nombreequipo, pager.Skip, pager.PageSize);
+
+                equipovista.Pager = pager;
+
+                return equipovista;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public IEquiposVista BusquedaEquipo(string nombreequipo, IPager Pager)
+        {
+            try
+            {
+                IEquiposVista equipovista = new EquiposVista();
+
+                equipovista.ListaEquipos = equiporepositorio.BusquedaEquipo(nombreequipo, Pager.Skip, Pager.PageSize);
+
+                equipovista.Pager = Pager;
 
                 return equipovista;
 

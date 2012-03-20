@@ -14,6 +14,7 @@ using CbaGob.Alumnos.Servicio.VistasInterface.Shared;
 
 namespace CbaGob.Alumnos.Web.Controllers
 {
+    [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
     public class PersonasController : Controller
     {
         //

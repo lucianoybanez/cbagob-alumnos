@@ -21,6 +21,11 @@
         $('#dialog').dialog("open");
     });
 
+    $('#Buscar').click('click', function () {
+        var f = $("#FormIndexEquipos");
+        $('#FormIndexEquipos').attr('action', '/Equipamientos/BuscarEquipos');
+        $("#FormIndexEquipos").submit()
+    });
 
 });
 

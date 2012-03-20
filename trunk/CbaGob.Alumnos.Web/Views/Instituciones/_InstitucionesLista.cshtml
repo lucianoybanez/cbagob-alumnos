@@ -1,4 +1,6 @@
 ﻿@model IList<IInstitucion>
+@{var result = Html.Action("IsAdminMode", "Home");
+  string rol = result.ToHtmlString();   }
 @if (Model != null && Model.Count > 0)
 { 
     <div style="text-align: center;">
@@ -44,9 +46,14 @@
                             @item.FechaAlta.ToShortDateString()
                         </td>
                         <td align="right" style="margin-right: 2px;">
-                            @Html.ActionLink("Modificar", "Modificar", "Instituciones", new { INST_ID = item.Id_Institucion }, new { @class = "btnIngresar" })&nbsp;&nbsp;&nbsp;&nbsp;
-                            @Html.ActionLink("Eliminar", "Eliminar", "Instituciones", new { INST_ID = item.Id_Institucion }, new { @class = "btnIngresar" })&nbsp;&nbsp;&nbsp;&nbsp;
-                            @Html.ActionLink("Ver", "Ver", "Instituciones", new { INST_ID = item.Id_Institucion }, new { @class = "btnIngresar" })
+                            @{
+                            if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                            {
+                                @Html.ActionLink("Modificar", "Modificar", "Instituciones", new { INST_ID = item.Id_Institucion }, new { @class = "btnIngresar" })
+                                @Html.ActionLink("Eliminar", "Eliminar", "Instituciones", new { INST_ID = item.Id_Institucion }, new { @class = "btnIngresar" })
+                            }
+                                @Html.ActionLink("Ver", "Ver", "Instituciones", new { INST_ID = item.Id_Institucion }, new { @class = "btnIngresar" })
+                            }
                         </td>
                     </tr>
                 }
@@ -70,7 +77,12 @@
                     </td>
                     <td align="right" valign="bottom" colspan="2" height="20">
                         <div style="height: 20px; padding: 15px 5px 0 2px;">
-                            @Html.ActionLink("Agregar Institución", "Agregar", "Instituciones", new { @class = "btnIngresar" })
+                            @{
+                if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                {
+                                @Html.ActionLink("Agregar Institución", "Agregar", "Instituciones", new { @class = "btnIngresar" })
+                }
+                            }
                         </div>
                     </td>
                 </tr>

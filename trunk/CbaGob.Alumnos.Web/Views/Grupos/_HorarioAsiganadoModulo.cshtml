@@ -1,4 +1,6 @@
 ﻿@model GrupoVista
+@{var result = Html.Action("IsAdminMode", "Home");
+  string rol = result.ToHtmlString();   }
 @if (Model.HorariosAsignadoGrupo.ListaHorario != null && Model.HorariosAsignadoGrupo.ListaHorario.Count > 0)
 { 
     <div id="grilla" style="text-align: center;">
@@ -21,7 +23,7 @@
                         <div align="center">
                             Año</div>
                     </th>
-                     <th height="30">
+                    <th height="30">
                         <div align="center">
                             Mes</div>
                     </th>
@@ -45,11 +47,16 @@
                         <td height="30">
                             @item.Año
                         </td>
-                         <td height="30">
+                        <td height="30">
                             @item.Mes
                         </td>
                         <td height="30">
-                            @Html.ActionLink("Sacar Horario", "SacarHorario", "Grupos", new { id_grupo = Model.Id_Grupo, id_horario = item.Id_Horario }, new { @class = "btnIngresar" })
+                            @{
+                    if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                    {
+                                @Html.ActionLink("Sacar Horario", "SacarHorario", "Grupos", new { id_grupo = Model.Id_Grupo, id_horario = item.Id_Horario }, new { @class = "btnIngresar" })
+                    }
+                            }
                         </td>
                     </tr>
                 }

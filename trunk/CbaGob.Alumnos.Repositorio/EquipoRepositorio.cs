@@ -13,7 +13,8 @@ namespace CbaGob.Alumnos.Repositorio
     {
         private CursosDB mDb;
 
-        public EquipoRepositorio(ILoggedUserHelper helper):base(helper)
+        public EquipoRepositorio(ILoggedUserHelper helper)
+            : base(helper)
         {
             mDb = new CursosDB();
         }
@@ -189,10 +190,50 @@ namespace CbaGob.Alumnos.Repositorio
         {
             try
             {
-                return QEquipo().Where(c => c.N_Equipos == nombreequipo || nombreequipo == null).ToList();
+                return QEquipo().Where(c => c.N_Equipos.ToLower().StartsWith(nombreequipo.ToLower()) || nombreequipo == null).ToList();
             }
             catch (Exception ex)
             {
+                throw;
+            }
+        }
+
+        public IList<IEquipo> BusquedaEquipo(string nombreequipo, int skip, int take)
+        {
+            try
+            {
+                return
+                    QEquipo().Where(c => c.N_Equipos.ToLower().StartsWith(nombreequipo.ToLower()) || nombreequipo == null).OrderBy(c => c.N_Equipos).
+                        Skip(skip).Take(take).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public IList<IEquipo> GetEquipos(int skip, int take)
+        {
+            try
+            {
+                return QEquipo().OrderBy(c => c.N_Equipos).Skip(skip).Take(take).ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public int CountEquipos()
+        {
+            try
+            {
+                return QEquipo().Count();
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
         }

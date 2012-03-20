@@ -13,7 +13,7 @@
 <div class="box">
     <h2>
         Listado de Alumnos</h2>
-    @using (Html.BeginForm("BuscarAlumnos", "Alumnos", FormMethod.Post, new { Id = "FormularioAlumnos" }))
+    @using (Html.BeginForm("IndexPager", "Alumnos", FormMethod.Post, new { Id = "FormIndexAlumnos" }))
     { 
         <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
             margin-left: 5px; margin-top: 5px;">
@@ -41,36 +41,37 @@
                         <b>Cuil:&nbsp;</b>
                     </td>
                     <td>@Html.TextBoxFor(c => c.CuilBusqueda, new { style = "width:150px;", MaxLength = "30" })
-                        <input type="submit" value="Buscar" class="btnIngresar" />
+                        <input type="button" id="Buscar" value="Buscar" class="btnIngresar" />
                     </td>
                 </tr>
             </table>
         </fieldset>
         <br />
+   
+        <table>
+            <tr>
+                <td class="style1" style="font-weight: bold">
+                    <div id="titulo">
+                    </div>
+                    <div id="DivDocentes">
+                        @Html.Partial("_AlumnosLista", Model.ListaAlumno)
+                    </div>
+                </td>
+            </tr>
+        </table>
+        @Html.Partial("_Pager", Model.Pager)
     }
-    <table>
-        <tr>
-            <td class="style1" style="font-weight: bold">
-                <div id="titulo">
-                </div>
-                <div id="DivDocentes">
-                    @Html.Partial("_AlumnosLista", Model.ListaAlumno)
-                </div>
-            </td>
-        </tr>
-    </table>
-    <div style="text-align: left;">
+    @* <div style="text-align: left;">
         @using (Html.BeginForm("IndexPager", "Alumnos", FormMethod.Post, new { id = "FormIndexAlumnos" }))
         {
-            @Html.Partial("_Pager", Model.Pager)
+           
         }
-    </div>
-    <div style="text-align: left;">
+    </div>*@ @* <div style="text-align: left;">
         @using (Html.BeginForm("IndexPagerBusqueda", "Alumnos", FormMethod.Post, new { id = "FormIndexAlumnosBusqueda" }))
         {
             @Html.HiddenFor(c => c.NombreBusqueda)
             
             @Html.Partial("_Pager", Model.Pager)
         }
-    </div>
+    </div>*@
 </div>

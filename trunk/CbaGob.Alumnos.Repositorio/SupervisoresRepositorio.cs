@@ -38,6 +38,7 @@ namespace CbaGob.Alumnos.Repositorio
                                      Calle = c.CALLE,
                                      Nro = c.NRO ?? 0,
                                      Nro_Resolucion = c.NRO_RESOLUCION,
+                                     UsuarioAlta = c.USR_ALTA
 
                                  });
 

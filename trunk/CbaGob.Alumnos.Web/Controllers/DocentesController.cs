@@ -14,6 +14,7 @@ using CbaGob.Alumnos.Servicio.VistasInterface.Shared;
 
 namespace CbaGob.Alumnos.Web.Controllers
 {
+    [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
     public class DocentesController : Controller
     {
         //
@@ -111,9 +112,14 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Index", docentesservicio.BuscarDocente(model.RazonSocialBusqueda, model.CuilCuitBusqueda));
         }
 
-        public ActionResult IndexPager(Pager pager)
+        public ActionResult IndexPager(Pager pager, string RazonSocialBusqueda, string CuilCuitBusqueda)
         {
-            return View("Index", docentesservicio.GetIndex(pager));
+            if (RazonSocialBusqueda == "" && CuilCuitBusqueda == "")
+            { return View("Index", docentesservicio.GetIndex(pager)); }
+            else
+            {
+                return View("Index", docentesservicio.BuscarDocente(pager, RazonSocialBusqueda, CuilCuitBusqueda));
+            }
         }
 
     }
