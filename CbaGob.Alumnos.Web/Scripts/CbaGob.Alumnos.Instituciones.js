@@ -27,6 +27,12 @@ $(document).ready(function () {
         $('#dialog').dialog("open");
     });
 
+    $('#Buscar').click('click', function () {
+        var f = $("#FormIndexInstituciones");
+        $('#FormIndexInstituciones').attr('action', '/Instituciones/BuscarInstitucion');
+        $("#FormIndexInstituciones").submit()
+    });
+
     $("#selectedaño").bind("change", function () { $("#añobuscqueda").val($("#selectedaño").val()); });
 
 

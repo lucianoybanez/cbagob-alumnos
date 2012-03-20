@@ -15,5 +15,6 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
         bool AgregarGrupo(IGrupoVista grupo);
         bool ModificarGrupo(IGrupoVista grupo);
         bool EliminarGrupo(int id_grupo, string nro_resolucion);
+        int CountAlumnosGrupo(int id_grupo);
     }
 }

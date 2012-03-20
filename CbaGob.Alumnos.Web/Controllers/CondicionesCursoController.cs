@@ -43,6 +43,23 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Agregar", CondicionesCursoServicio.GetForModificacion(idCondicionCurso));
         }
 
+        public ActionResult Eliminar(int idCondicionCurso)
+        {
+            ICondicionCursoVista vista = CondicionesCursoServicio.GetForModificacion(idCondicionCurso);
+
+            vista.Curso.Enabled = false;
+
+            vista.EstadoCurso.Enabled = false;
+
+            vista.Modalidad.Enabled = false;
+
+            vista.Nro_Resolucion = "";
+
+            vista.Programa.Enabled = false;
+
+            return View(vista);
+        }
+
         public ActionResult VerCondicionCurso(int idCondicionCurso)
         {
             ICondicionCursoVista model = CondicionesCursoServicio.GetForModificacion(idCondicionCurso);

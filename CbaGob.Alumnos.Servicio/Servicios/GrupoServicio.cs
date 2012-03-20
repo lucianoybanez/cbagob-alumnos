@@ -183,5 +183,18 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 return false;
             }
         }
+
+        public int CountAlumnosGrupo(int id_grupo)
+        {
+            try
+            {
+                return gruporepositorio.CountAlumnosGrupo(id_grupo);
+            }
+            catch (Exception ex)
+            {
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return 0;
+            }
+        }
     }
 }

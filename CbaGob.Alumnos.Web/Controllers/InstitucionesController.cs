@@ -203,9 +203,13 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Ver", model);
         }
 
-        public ActionResult IndexPager(Pager pager)
+        public ActionResult IndexPager(Pager pager, string Nombre_InstitucionBusqueda)
         {
-            return View("Index", InstitucionServicio.GetIndex(pager));
+            if (Nombre_InstitucionBusqueda == "")
+            { return View("Index", InstitucionServicio.GetIndex(pager)); }
+            else
+            { return View("Index", InstitucionServicio.BuscarInstitucion(pager, Nombre_InstitucionBusqueda)); }
+            
         }
 
 
