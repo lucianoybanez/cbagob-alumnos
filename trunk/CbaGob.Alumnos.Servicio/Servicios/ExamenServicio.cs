@@ -108,9 +108,21 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 IdExamen = vista.IdExamen
             };
             bool result = false;
+
+
             if (vista.Accion == "Agregar")
             {
-                result = ExamenRepositorio.AgregarExamen(examen);
+                IExamen examenModel = ExamenRepositorio.GetExamen(vista.idInscripcion, int.Parse(vista.NroExamen.Selected));
+                if (examenModel != null)
+                {
+                    examen.IdExamen = examenModel.IdExamen;
+                    vista.Accion = "Modificar";
+                }
+                else
+                {
+                    result = ExamenRepositorio.AgregarExamen(examen);
+                }
+              
             }
             if (vista.Accion == "Modificar")
             {

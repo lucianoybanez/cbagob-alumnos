@@ -17,10 +17,10 @@ namespace CbaGob.Alumnos.Repositorio
             mDB = new CursosDB();
         }
 
-        private IQueryable<IExamen> GetExamen()
+        private IQueryable<IExamen> GetExamen(string estado)
         {
             var result = (from p in mDB.T_EXAMENES
-                          where p.ESTADO == "A"
+                          where p.ESTADO == estado
                           select new Examen
                                      {
                                          Estado = p.ESTADO,
@@ -40,27 +40,12 @@ namespace CbaGob.Alumnos.Repositorio
 
         public IList<IExamen> GetExamenes()
         {
-            return GetExamen().ToList();
+            return GetExamen("A").ToList();
         }
 
         public IExamen GetExamen(int idExamen)
         {
-            var result = (from p in mDB.T_EXAMENES
-                          where p.ID_EXAMEN == idExamen && p.ESTADO == "A"
-                          select new Examen
-                                     {
-                                         Estado = p.ESTADO,
-                                         FechaAlta = p.FEC_ALTA,
-                                         FechaModificacion = p.FEC_MODIF,
-                                         FechaExamen = p.FEC_EXAMEN,
-                                         IdExamen = p.ID_EXAMEN,
-                                         IdInscripcion = p.ID_INSCRIPCION,
-                                         Nota = p.NOTA,
-                                         UsuarioAlta = p.USR_ALTA,
-                                         UsuarioModificacion = p.USR_MODIF,
-                                         NroExamen = p.NRO_EXAMEN
-                                     }).FirstOrDefault();
-            return result;
+            return GetExamen("A").Where(c => c.IdExamen == idExamen).FirstOrDefault();
         }
 
         public bool AgregarExamen(IExamen examen)
@@ -104,6 +89,7 @@ namespace CbaGob.Alumnos.Repositorio
                 ex.ID_INSCRIPCION = examen.IdInscripcion;
                 ex.NOTA = examen.Nota;
                 ex.NRO_EXAMEN = examen.NroExamen;
+                ex.ESTADO = examen.Estado;
                 mDB.SaveChanges();
                 return true;
             }
@@ -134,7 +120,12 @@ namespace CbaGob.Alumnos.Repositorio
 
         public IList<IExamen> GetExamenesByInscripcion(int idInscripcion)
         {
-            return GetExamen().Where(c => c.IdInscripcion == idInscripcion).ToList();
+            return GetExamen("A").Where(c => c.IdInscripcion == idInscripcion).ToList();
+        }
+
+        public IExamen GetExamen(int idInscipcion, int NroExamen)
+        {
+            return GetExamen("I").Where(c => c.IdInscripcion == idInscipcion && c.NroExamen == NroExamen).FirstOrDefault();
         }
     }
 }

@@ -13,5 +13,6 @@ namespace CbaGob.Alumnos.Modelo.Repositories
         bool ModificarExamen(IExamen examen);
         bool EliminarExamen(int idExamen);
         IList<IExamen> GetExamenesByInscripcion(int idInscripcion);
+        IExamen GetExamen(int idInscipcion, int NroExamen);
     }
 }
