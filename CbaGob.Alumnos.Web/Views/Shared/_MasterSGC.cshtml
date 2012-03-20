@@ -25,6 +25,14 @@
                       {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Facturaciones", "Index", "Factura", null, null)</li>
                 <li @{if (ViewBag.Title.Contains("Equipamientos"))
                       {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Equipamientos", "Index", "Equipamientos", null, null)</li>
+                      @{var result = Html.Action("IsAdminMode", "Home");
+                          if (result.ToHtmlString() == "true")
+                          {
+                              <li @{if (ViewBag.Title.Contains("Usuarios"))
+                                    {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Usuarios", "Index", "Usuario", null, null)</li>
+                          }
+                        
+                        }
                 <li @{if (ViewBag.Title.Contains("Ayuda"))
                       {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Ayuda", "Index", "Ayuda", null, null)</li>
             </ul>
@@ -76,11 +84,15 @@
                             <li>@Html.ActionLink("Gestion Factura", "Index", "Factura", null, new { @class = ViewBag.SubMenuSelected == "Facturacion" ? "selected" : "" })</li> 
                             <li>@Html.ActionLink("Liquidacion Cursos", "LiquidarFactura", "Factura", null, new { @class = ViewBag.SubMenuSelected == "Liquidacion" ? "selected" : "" })</li> 
                            }
-
-                           if (ViewBag.Title.Contains("Ayuda"))
+                            if (ViewBag.Title.Contains("Usuarios"))
                            {
-                            <li>@Html.ActionLink("Gestion Institucion", "Index", "Ayuda", null, new { @class = ViewBag.SubMenuSelected == "Instituciones" ? "selected" : "" })</li> 
+                            <li>@Html.ActionLink("Gestion Usuarios", "Index", "Usuario", null, new { @class = ViewBag.SubMenuSelected == "Usuarios" ? "selected" : "" })</li> 
                            }
+
+                            if (ViewBag.Title.Contains("Ayuda"))
+                            {
+                            <li>@Html.ActionLink("Gestion Institucion", "Index", "Ayuda", null, new { @class = ViewBag.SubMenuSelected == "Instituciones" ? "selected" : "" })</li> 
+                            }
                        
                         }
                     </ul>
