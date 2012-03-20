@@ -23,7 +23,7 @@ namespace CbaGob.Alumnos.Repositorio
         private IQueryable<IInscripcion> QInscripcion(string estado)
         {
             var a = (from c in mDb.T_INSCRIPCIONES
-                     where c.ESTADO == estado
+                     where c.ESTADO == estado && c.T_CONDICIONES_CURSO.ESTADO=="A"
                      select
                          new Inscripcion
                              {
