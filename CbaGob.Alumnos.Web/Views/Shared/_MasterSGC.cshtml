@@ -9,12 +9,16 @@
     @RenderSection("Stylesheets", false)
 </head>
 <body>
+ @{var result = Html.Action("IsAdminMode", "Home");
+     string rol = result.ToHtmlString();   }
     <input type="hidden" name="CurrentDate" id="CurrentDate" value="@System.DateTime.Today" />
     <div id="wrap">
         <div id="header">
         </div>
         <div id="menu">
             <ul>
+             <li @{if (ViewBag.Title.Contains("Inicio"))
+                      {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Inicio", "Index", "Home", null, null)</li>
                 <li @{if (ViewBag.Title.Contains("Instituciones"))
                       {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Instituciones", "Index", "Instituciones", null, null)</li>
                 <li @{if (ViewBag.Title.Contains("Superviciones"))
@@ -25,8 +29,8 @@
                       {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Facturaciones", "Index", "Factura", null, null)</li>
                 <li @{if (ViewBag.Title.Contains("Equipamientos"))
                       {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Equipamientos", "Index", "Equipamientos", null, null)</li>
-                      @{var result = Html.Action("IsAdminMode", "Home");
-                          if (result.ToHtmlString() == "true")
+                      @{
+                          if (rol == RolTipo.Supervisor.ToString())
                           {
                               <li @{if (ViewBag.Title.Contains("Usuarios"))
                                     {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Usuarios", "Index", "Usuario", null, null)</li>
@@ -43,7 +47,7 @@
             <div class="right">
                 @RenderBody()
             </div>
-            @if (ViewBag.Title != "Index")
+            @if (ViewBag.Title != "Inicio")
             {
                 <div class="left">
                     <h2>
