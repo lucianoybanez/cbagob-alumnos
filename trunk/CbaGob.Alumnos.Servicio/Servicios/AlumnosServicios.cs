@@ -323,6 +323,15 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 IList<IHorario> ListaHorarios = horarioServicio.GetHorariosByGrupo(id_grupo).ListaHorario;
                 IList<IHorario> ListaHorarioAlumno = horarioServicio.GetHorarioByAlumno(id_alumno, 0).ListaHorario;
 
+                int cantidadalumnos = grupoServicio.CountAlumnosGrupo(id_grupo);
+                IGrupoVista grupo = grupoServicio.GetGrupo(id_grupo);
+
+                if (grupo.Capacidad <= cantidadalumnos)
+                {
+                    base.AddError("Se Excede la Capacidad del Grupo");
+                    return false;
+                }
+
                 if (ListaHorarios.Count > 0)
                 {
                     foreach (var horario in ListaHorarioAlumno)

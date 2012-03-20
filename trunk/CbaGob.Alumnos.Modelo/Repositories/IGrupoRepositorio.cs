@@ -14,5 +14,6 @@ namespace CbaGob.Alumnos.Modelo.Repositories
         bool AgregarGrupo(IGrupo grupo);
         bool ModificarGrupo(IGrupo grupo);
         bool EliminarGrupo(int id_grupo, string nro_resolucion);
+        int CountAlumnosGrupo(int id_grupo);
     }
 }

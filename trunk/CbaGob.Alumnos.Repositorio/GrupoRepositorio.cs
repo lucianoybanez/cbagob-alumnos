@@ -13,7 +13,8 @@ namespace CbaGob.Alumnos.Repositorio
     {
         private CursosDB mDB;
 
-        public GrupoRepositorio(ILoggedUserHelper helper):base(helper)
+        public GrupoRepositorio(ILoggedUserHelper helper)
+            : base(helper)
         {
             mDB = new CursosDB();
             mDB.ContextOptions.LazyLoadingEnabled = false;
@@ -138,6 +139,7 @@ namespace CbaGob.Alumnos.Repositorio
             }
         }
 
+
         #endregion
 
         #region CRUD
@@ -214,6 +216,21 @@ namespace CbaGob.Alumnos.Repositorio
                 mDB.SaveChanges();
 
                 return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public int CountAlumnosGrupo(int id_grupo)
+        {
+            try
+            {
+                int ret = (from c in mDB.T_ALUMONOS_GRUPO where c.ESTADO == "A" && c.ID_GRUPO == id_grupo select c).Count();
+
+                return ret;
             }
             catch (Exception)
             {

@@ -142,17 +142,22 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 if (nombreinstitucion != null)
                 {
                     
-                    mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.BuscarInstitucion(nombreinstitucion);
+                    //mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.BuscarInstitucion(nombreinstitucion);
 
-                    var pager = new Pager(mInstitucionVista.ListaInstituciones.Count, Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexInstituciones", Aut.GetUrl("IndexPager", "Instituciones"));
+                    var pager = new Pager(mInstitucionRepositorio.BuscarInstitucion(nombreinstitucion).Count(), Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexInstituciones", Aut.GetUrl("IndexPager", "Instituciones"));
+
+                    mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.BuscarInstitucion(nombreinstitucion,
+                                                                                                     pager.Skip,
+                                                                                                     pager.PageSize);
 
                     mInstitucionVista.pager = pager;
                 }
                 else
                 {
-                    mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones();
+                   
+                    var pager = new Pager(mInstitucionRepositorio.GetInstituciones().Count(), Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexInstituciones", Aut.GetUrl("IndexPager", "Instituciones"));
 
-                    var pager = new Pager(mInstitucionVista.ListaInstituciones.Count, Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexInstituciones", Aut.GetUrl("IndexPager", "Instituciones"));
+                    mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones(pager.Skip, pager.PageSize);
 
                     mInstitucionVista.pager = pager;
                 }
@@ -167,6 +172,27 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 base.AddError("Error: No se pudo eliminar la Institucion.");
                 return null;
+            }
+        }
+
+        public InstitucionVista BuscarInstitucion(IPager page, string nombreinstitucion)
+        {
+            try
+            {
+                InstitucionVista mInstitucionVista = new InstitucionVista();
+
+                mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.BuscarInstitucion(nombreinstitucion,
+                                                                                                    page.Skip,
+                                                                                                    page.PageSize);
+
+                mInstitucionVista.pager = page;
+
+                return mInstitucionVista;
+            }
+            catch (Exception)
+            {
+                    
+                throw;
             }
         }
 
