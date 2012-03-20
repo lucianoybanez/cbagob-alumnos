@@ -85,26 +85,30 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 if (inscripcion != null)
                 {
                     var condicion = CondicionCursoRepositorio.GetCondicion(inscripcion.Id_Condicion_Curso);
-                    vista = new InscripcionVista()
+                    if (condicion!=null)
                     {
-                        Descripcion = inscripcion.Descripcion,
-                        Fecha = inscripcion.Fecha,
-                        IdAlumno = inscripcion.Id_Alumno,
-                        IdCondicionCurso = inscripcion.Id_Condicion_Curso,
-                        IdInscripcion = inscripcion.IdInscripcion,
-                        NombreAlumno = inscripcion.ApellidoAlumno + ", " + inscripcion.NombreAlumno,
-                        NombreCurso = inscripcion.NombreCurso,
-                        NombreEstadoCurso = inscripcion.NombreEstadoCurso,
-                        NombreInstitucion = inscripcion.NombreInstitucion,
-                        NombreModalidad = inscripcion.NombreModalidad,
-                        NombreNivel = inscripcion.NombreNivel,
-                        NombrePrograma = inscripcion.NombrePrograma,
-                        FechaFin = inscripcion.FechaFin,
-                        FechaInicio = inscripcion.FechaIncio,
-                        NumeroResolucion = inscripcion.NroResolucion,
-                        Presentismo = GetPresentismo(id_inscripcion, condicion),
-                        examens = GetExamenes(id_inscripcion, condicion)
-                    };
+                        vista = new InscripcionVista()
+                        {
+                            Descripcion = inscripcion.Descripcion,
+                            Fecha = inscripcion.Fecha,
+                            IdAlumno = inscripcion.Id_Alumno,
+                            IdCondicionCurso = inscripcion.Id_Condicion_Curso,
+                            IdInscripcion = inscripcion.IdInscripcion,
+                            NombreAlumno = inscripcion.ApellidoAlumno + ", " + inscripcion.NombreAlumno,
+                            NombreCurso = inscripcion.NombreCurso,
+                            NombreEstadoCurso = inscripcion.NombreEstadoCurso,
+                            NombreInstitucion = inscripcion.NombreInstitucion,
+                            NombreModalidad = inscripcion.NombreModalidad,
+                            NombreNivel = inscripcion.NombreNivel,
+                            NombrePrograma = inscripcion.NombrePrograma,
+                            FechaFin = inscripcion.FechaFin,
+                            FechaInicio = inscripcion.FechaIncio,
+                            NumeroResolucion = inscripcion.NroResolucion,
+                            Presentismo = GetPresentismo(id_inscripcion, condicion),
+                            examens = GetExamenes(id_inscripcion, condicion)
+                        };
+                    }
+                   
                 }
             }
             return vista;
