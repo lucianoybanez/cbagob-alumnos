@@ -46,11 +46,8 @@ namespace CbaGob.Alumnos.Web.Controllers
         public ContentResult IsAdminMode()
         {
             var user = UsuarioServicio.GetCookieData();
-            if (user.Rol == RolTipo.Supervisor.ToString())
-            {
-                return Content("true"); 
-            }
-            return Content("false"); 
+          
+            return Content(user.Rol); 
         }
 
 
