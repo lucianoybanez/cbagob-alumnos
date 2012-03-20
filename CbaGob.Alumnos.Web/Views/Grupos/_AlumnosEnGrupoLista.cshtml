@@ -1,4 +1,6 @@
 ﻿@model GrupoVista
+@{var result = Html.Action("IsAdminMode", "Home");
+  string rol = result.ToHtmlString();   }
 @if (Model.ListaAlumnosInGrupo != null && Model.ListaAlumnosInGrupo.Count > 0)
 { 
     <div id="grilla" style="text-align: center;">
@@ -63,7 +65,12 @@
                             @item.Fecha_Nacimiento.ToShortDateString()
                         </td>
                         <td height="30">
-                            @Html.ActionLink("Sacar del Módulo", "DesasignarAlumno", "Grupos", new { id_grupo = Model.Id_Grupo, id_alumno = item.Id_Alumno, id_condicon_curso = Model.Id_Condicion_Curso }, new { @class = "btnIngresar" })
+                            @{
+                            if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                            {
+                                @Html.ActionLink("Sacar del Módulo", "DesasignarAlumno", "Grupos", new { id_grupo = Model.Id_Grupo, id_alumno = item.Id_Alumno, id_condicon_curso = Model.Id_Condicion_Curso }, new { @class = "btnIngresar" })
+                            }
+                            }
                         </td>
                     </tr>
                 }

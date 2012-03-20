@@ -35,6 +35,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View(model);
         }
 
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         public ActionResult Agregar(int Id_institucion)
         {
 
@@ -47,6 +48,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View(model);
         }
 
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         public ActionResult Modificar(int id_establecimiento)
         {
             IEstablecimientoVista model;
@@ -55,7 +57,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             return View(model);
         }
-
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         public ActionResult Eliminar(int id_establecimiento)
         {
             IEstablecimientoVista model;
@@ -74,6 +76,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View(model);
         }
 
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         [HttpPost]
         public ActionResult Agregar_Establecimiento(EstablecimientoVista model)
         {
@@ -98,6 +101,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             }
         }
 
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         [HttpPost]
         public ActionResult Eliminar_Establecimiento(EstablecimientoVista model)
         {
@@ -112,6 +116,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             return RedirectToAction("Ver", "Instituciones", new { INST_ID = model.Id_Institucion });
         }
 
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         [HttpPost]
         public ActionResult Modificar_Establecimiento(EstablecimientoVista model)
         {

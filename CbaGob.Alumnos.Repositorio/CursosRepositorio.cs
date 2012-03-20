@@ -29,7 +29,8 @@ namespace CbaGob.Alumnos.Repositorio
                                  ESTADO = c.ESTADO,
                                  NRORESOLUCION = c.NRO_RESOLUCION,
                                  Id_Area_Tipo_Curso = c.ID_AREA_TIPO_CURSO,
-                                 NombreAreaTipoCurso = c.T_AREAS_TIPOS_CURSO.N_AREA_TIPO_CURSO
+                                 NombreAreaTipoCurso = c.T_AREAS_TIPOS_CURSO.N_AREA_TIPO_CURSO,
+                                 UsuarioAlta = c.USR_ALTA
                              });
             return a;
         }
@@ -48,7 +49,8 @@ namespace CbaGob.Alumnos.Repositorio
                                                N_CURSO = c.N_CURSO,
                                                ESTADO = c.ESTADO,
                                                NRORESOLUCION = c.NRO_RESOLUCION,
-                                               Id_Area_Tipo_Curso = c.ID_AREA_TIPO_CURSO
+                                               Id_Area_Tipo_Curso = c.ID_AREA_TIPO_CURSO,
+                                               UsuarioAlta = c.USR_ALTA
 
                                            }).ToList().Cast<ICursos>().ToList();
                 return ListaCursos;

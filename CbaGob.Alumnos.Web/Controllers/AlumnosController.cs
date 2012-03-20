@@ -14,6 +14,7 @@ using CbaGob.Alumnos.Servicio.VistasInterface.Shared;
 
 namespace CbaGob.Alumnos.Web.Controllers
 {
+
     public class AlumnosController : Controller
     {
         //
@@ -33,12 +34,14 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View(alumnosservicios.GetTodos());
         }
 
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         public ActionResult Agregar()
         {
 
             return View(alumnosservicios.GetIndex());
         }
 
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         public ActionResult Modificar(Int32 id_alumno)
         {
 
@@ -47,6 +50,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View(model);
         }
 
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         public ActionResult Eliminar(Int32 id_alumno)
         {
             IAlumnosVista model = alumnosservicios.GetUno(id_alumno);
@@ -75,7 +79,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View(model);
         }
 
-        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor })]
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         [HttpPost]
         public ActionResult Agregar_Alumno(AlumnosVista model)
         {
@@ -85,6 +89,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Index", alumnosservicios.GetTodos());
         }
 
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         [HttpPost]
         public ActionResult Modificar_Alumno(AlumnosVista model)
         {
@@ -93,6 +98,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Index", alumnosservicios.GetTodos());
         }
 
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         [HttpPost]
         public ActionResult Eliminar_Alumno(AlumnosVista model)
         {
@@ -103,7 +109,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         }
 
 
-        public PartialViewResult BuscarAlumno(string nombre, string apellido, string dni)
+        public ActionResult BuscarAlumno(string nombre, string apellido, string dni)
         {
             if (!string.IsNullOrEmpty(dni))
             {
@@ -111,7 +117,6 @@ namespace CbaGob.Alumnos.Web.Controllers
             }
             return PartialView("_BuscadorAlumnoLista", alumnosservicios.GetTodosByNombreApellido(nombre, apellido).ListaAlumno);
         }
-
 
         [HttpPost]
         public ActionResult Agregar_Persona(AlumnosVista model)
@@ -128,15 +133,18 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Index", alumnosservicios.BuscarAlumnos(model.NombreBusqueda, model.ApellidoBusqueda, model.DniBusqueda, model.CuilBusqueda));
         }
 
-        public ActionResult IndexPager(Pager pager)
+        public ActionResult IndexPager(Pager pager, string NombreBusqueda, string ApellidoBusqueda, string DniBusqueda)
         {
-            return View("Index", alumnosservicios.GetIndex(pager));
+            if (NombreBusqueda == "" && ApellidoBusqueda == "" && DniBusqueda == "")
+            { return View("Index", alumnosservicios.GetIndex(pager)); }
+            else
+            { return View("Index", alumnosservicios.BuscarAlumnos(NombreBusqueda, ApellidoBusqueda, DniBusqueda, "", pager)); }
+
+
+
         }
 
-        public ActionResult IndexPagerBusqueda(string NombreBusqueda, Pager pager)
-        {
-            return View("Index", alumnosservicios.BuscarAlumnos("", "", "", "", pager));
-        }
+
 
     }
 }

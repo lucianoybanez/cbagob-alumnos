@@ -26,4 +26,10 @@ $(document).ready(function () {
     $('#Eliminar').click('click', function () {
         $('#dialog').dialog("open");
     });
+
+    $('#Buscar').click('click', function () {
+        var f = $("#FormIndexAlumnos");
+        $('#FormIndexAlumnos').attr('action', '/Alumnos/BuscarAlumnos');
+        $("#FormIndexAlumnos").submit()
+    });
 });

@@ -13,6 +13,7 @@ using JLY.Hotel.Web.Controllers;
 
 namespace CbaGob.Alumnos.Web.Controllers
 {
+    [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
     public class FacturaController : BaseController
     {
         private IFacturaServicio FacturaServicio;

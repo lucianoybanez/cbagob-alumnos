@@ -59,6 +59,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View(model);
         }
 
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         public ActionResult Modificar(int id_grupo)
         {
             IGrupoVista model = new GrupoVista();
@@ -79,6 +80,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View(model);
         }
 
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         public ActionResult Eliminar(int id_grupo)
         {
             IGrupoVista model = new GrupoVista();
@@ -107,6 +109,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Ver", model);
         }
 
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         public ActionResult AsignarAlumno(int id_grupo, int id_alumno, int id_condicon_curso)
         {
             IGrupoVista model = new GrupoVista();
@@ -123,6 +126,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Ver", model);
         }
 
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         public ActionResult DesasignarAlumno(int id_grupo, int id_alumno, int id_condicon_curso)
         {
             IGrupoVista model = new GrupoVista();
@@ -145,6 +149,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Ver", model);
         }
 
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         public ActionResult AsignarDocente(int id_grupo, int id_docente, int id_condicon_curso)
         {
             IGrupoVista model = new GrupoVista();
@@ -169,6 +174,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Ver", model);
         }
 
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         public ActionResult DesasignarDocente(int id_grupo, int id_docente, int id_condicon_curso)
         {
             IGrupoVista model = new GrupoVista();
@@ -190,6 +196,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Ver", model);
         }
 
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         public ActionResult AgregarHorario(int id_grupo, int id_horario)
         {
             IGrupoVista model = new GrupoVista();
@@ -209,6 +216,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Ver", model);
         }
 
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         public ActionResult SacarHorario(int id_grupo, int id_horario)
         {
             IGrupoVista model = new GrupoVista();
@@ -231,6 +239,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Ver", model);
         }
 
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         [HttpPost]
         public ActionResult Agregar_Grupo(GrupoVista model)
         {
@@ -241,6 +250,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             return RedirectToAction("VerCondicionCurso", "CondicionesCurso", new { idCondicionCurso = model.Id_Condicion_Curso, IdInstitucion = model.Id_Institucion });
         }
 
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         [HttpPost]
         public ActionResult Eliminar_Grupo(GrupoVista model)
         {
@@ -249,6 +259,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             return RedirectToAction("VerCondicionCurso", "CondicionesCurso", new { idCondicionCurso = model.Id_Condicion_Curso, IdInstitucion = model.Id_Institucion });
         }
 
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         [HttpPost]
         public ActionResult Modificar_Grupo(GrupoVista model)
         {

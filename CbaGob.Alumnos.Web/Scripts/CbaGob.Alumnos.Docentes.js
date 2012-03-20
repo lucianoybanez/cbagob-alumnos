@@ -21,6 +21,12 @@
     $('#Eliminar').click('click', function () {
         $('#dialog').dialog("open");
     });
+
+    $('#Buscar').click('click', function () {
+        var f = $("#FormIndexDocentes");
+        $('#FormIndexDocentes').attr('action', '/Docentes/BuscarDocente');
+        $("#FormIndexDocentes").submit()
+    });
 });
 
 $(function () {

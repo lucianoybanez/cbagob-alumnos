@@ -6,6 +6,8 @@
 @section Scripts{
     @Content.Script("CbaGob.Alumnos.CondicionesCurso.js", Url)
 }
+@{var result = Html.Action("IsAdminMode", "Home");
+  string rol = result.ToHtmlString();   }
 <div class="box">
     <h2>
         Curso</h2>
@@ -44,8 +46,11 @@
                                     <b>Estado del Curso</b>
                                 </td>
                                 <td align="left" valign="middle">
-                                    @Html.EditorFor(c => c.EstadoCurso)<input type="submit" value="Cambiar Estado Curso"
-                                        class="btnIngresar" />
+                                    @Html.EditorFor(c => c.EstadoCurso)
+                                    @{
+                    if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                    {<input type="submit" value="Cambiar Estado Curso" class="btnIngresar" />}
+                                    }
                                 </td>
                             </tr>
                             <tr>

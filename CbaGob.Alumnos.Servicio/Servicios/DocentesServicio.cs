@@ -341,8 +341,8 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 }
 
                 return true;
-                
-               
+
+
             }
             catch (Exception ex)
             {
@@ -363,6 +363,25 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 var pager = new Pager(vista.ListaDocentes.Count, Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexDocentes", Aut.GetUrl("IndexPager", "Docentes"));
 
                 vista.Pager = pager;
+
+                return vista;
+            }
+            catch (Exception)
+            {
+                base.AddError("Surgio Un Error Vuelva a Intentarlo");
+                return null;
+            }
+        }
+
+        public IDocentesVista BuscarDocente(IPager page, string razonsocial, string cuit_cuil)
+        {
+            try
+            {
+                IDocentesVista vista = new DocentesVista();
+
+                vista.ListaDocentes = docentesrepositorio.BuscarDocente(page.Skip, page.PageSize, razonsocial, cuit_cuil);
+
+                vista.Pager = page;
 
                 return vista;
             }

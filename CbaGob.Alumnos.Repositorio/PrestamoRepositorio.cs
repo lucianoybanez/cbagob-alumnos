@@ -39,6 +39,7 @@ namespace CbaGob.Alumnos.Repositorio
                                  Observaciones = c.OBSERVACION,
                                  FechaAlta = c.FEC_ALTA,
                                  FechaModificacion = c.FEC_MODIF
+
                              });
 
 

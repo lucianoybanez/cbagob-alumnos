@@ -9,34 +9,51 @@
     @RenderSection("Stylesheets", false)
 </head>
 <body>
- @{var result = Html.Action("IsAdminMode", "Home");
-     string rol = result.ToHtmlString();   }
+    @{var result = Html.Action("IsAdminMode", "Home");
+      string rol = result.ToHtmlString();   }
     <input type="hidden" name="CurrentDate" id="CurrentDate" value="@System.DateTime.Today" />
     <div id="wrap">
         <div id="header">
         </div>
         <div id="menu">
             <ul>
-             <li @{if (ViewBag.Title.Contains("Inicio"))
+                <li @{if (ViewBag.Title.Contains("Inicio"))
                       {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Inicio", "Index", "Home", null, null)</li>
                 <li @{if (ViewBag.Title.Contains("Instituciones"))
                       {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Instituciones", "Index", "Instituciones", null, null)</li>
-                <li @{if (ViewBag.Title.Contains("Superviciones"))
-                      {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Superviciones", "Index", "Superviciones", null, null)</li>
-                <li @{if (ViewBag.Title.Contains("Inscripciones"))
-                      {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Inscripciones", "Index", "Inscripciones", null, null)</li>
-                <li @{if (ViewBag.Title.Contains("Facturaciones"))
-                      {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Facturaciones", "Index", "Factura", null, null)</li>
-                <li @{if (ViewBag.Title.Contains("Equipamientos"))
-                      {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Equipamientos", "Index", "Equipamientos", null, null)</li>
-                      @{
-                          if (rol == RolTipo.Supervisor.ToString())
-                          {
-                              <li @{if (ViewBag.Title.Contains("Usuarios"))
-                                    {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Usuarios", "Index", "Usuario", null, null)</li>
-                          }
+                @{
+                    if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                    {
+                    <li @{if (ViewBag.Title.Contains("Superviciones"))
+                          {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Superviciones", "Index", "Superviciones", null, null)</li>
+                    }
+                }
+                @{
+                    if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                    {
                         
-                        }
+                    <li @{if (ViewBag.Title.Contains("Inscripciones"))
+                          {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Inscripciones", "Index", "Inscripciones", null, null)</li>
+                    <li @{if (ViewBag.Title.Contains("Facturaciones"))
+                          {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Facturaciones", "Index", "Factura", null, null)</li>
+                           
+                    <li @{if (ViewBag.Title.Contains("Equipamientos"))
+                          {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Equipamientos", "Index", "Equipamientos", null, null)</li>
+                    }
+                    else
+                    {
+                    <li @{if (ViewBag.Title.Contains("Inscripciones"))
+                          {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Inscripciones", "Examenes", "Inscripciones", null, null)</li>
+                    }
+                }
+                @{
+                    if (rol == RolTipo.Supervisor.ToString())
+                    {
+                    <li @{if (ViewBag.Title.Contains("Usuarios"))
+                          {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Usuarios", "Index", "Usuario", null, null)</li>
+                    }
+                        
+                }
                 <li @{if (ViewBag.Title.Contains("Ayuda"))
                       {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Ayuda", "Index", "Ayuda", null, null)</li>
             </ul>
@@ -51,23 +68,34 @@
             {
                 <div class="left">
                     <h2>
-                        Categoria :</h2>
+                        Categorias :</h2>
                     <ul>
                         @{ if (ViewBag.Title.Contains("Instituciones"))
                            {
                             <li>@Html.ActionLink("Gestion Instituciones", "Index", "Instituciones", null, new { @class = ViewBag.SubMenuSelected == "Instituciones" ? "selected" : "" })</li>                  
+                           
+                               if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                               {
                             <li>@Html.ActionLink("Gestion Docentes", "Index", "Docentes", null, new { @class = ViewBag.SubMenuSelected == "Docentes" ? "selected" : "" })</li>
                             <li>@Html.ActionLink("Gestion Cursos", "Index", "Cursos", null, new { @class = ViewBag.SubMenuSelected == "Cursos" ? "selected" : "" })</li>                  
+                               }
                             <li>@Html.ActionLink("Gestion Alumnos", "Index", "Alumnos", null, new { @class = ViewBag.SubMenuSelected == "Alumnos" ? "selected" : "" })</li>
                            }
 
                            if (ViewBag.Title.Contains("Inscripciones"))
                            {
+                               if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                               {
                             <li>@Html.ActionLink("Gestion Inscripciones", "Index", "Inscripciones", null, new { @class = ViewBag.SubMenuSelected == "Inscripciones" ? "selected" : "" })</li> 
+                               }
                             <li>@Html.ActionLink("Gestion Examenes", "Examenes", "Inscripciones", null, new { @class = ViewBag.SubMenuSelected == "Examenes" ? "selected" : "" })</li>  
                             <li>@Html.ActionLink("Gestion Presentismo", "Presentismo", "Inscripciones", null, new { @class = ViewBag.SubMenuSelected == "Presentismo" ? "selected" : "" })</li>  
+                           
+                               if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                               {
                             <li>@Html.ActionLink("Emitir Certificado", "Certificado", "Inscripciones", null, new { @class = ViewBag.SubMenuSelected == "Certificado" ? "selected" : "" })</li>
                             <li>@Html.ActionLink("Reportes", "Reportes", "Inscripciones", null, new { @class = ViewBag.SubMenuSelected == "Reportes" ? "selected" : "" })</li>
+                               }
                            }
 
                            if (ViewBag.Title.Contains("Superviciones"))
@@ -88,15 +116,15 @@
                             <li>@Html.ActionLink("Gestion Factura", "Index", "Factura", null, new { @class = ViewBag.SubMenuSelected == "Facturacion" ? "selected" : "" })</li> 
                             <li>@Html.ActionLink("Liquidacion Cursos", "LiquidarFactura", "Factura", null, new { @class = ViewBag.SubMenuSelected == "Liquidacion" ? "selected" : "" })</li> 
                            }
-                            if (ViewBag.Title.Contains("Usuarios"))
+                           if (ViewBag.Title.Contains("Usuarios"))
                            {
                             <li>@Html.ActionLink("Gestion Usuarios", "Index", "Usuario", null, new { @class = ViewBag.SubMenuSelected == "Usuarios" ? "selected" : "" })</li> 
                            }
 
-                            if (ViewBag.Title.Contains("Ayuda"))
-                            {
+                           if (ViewBag.Title.Contains("Ayuda"))
+                           {
                             <li>@Html.ActionLink("Gestion Institucion", "Index", "Ayuda", null, new { @class = ViewBag.SubMenuSelected == "Instituciones" ? "selected" : "" })</li> 
-                            }
+                           }
                        
                         }
                     </ul>

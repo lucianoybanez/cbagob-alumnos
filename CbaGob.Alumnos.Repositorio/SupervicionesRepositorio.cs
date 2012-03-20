@@ -43,7 +43,7 @@ namespace CbaGob.Alumnos.Repositorio
                                  UsuarioAlta = c.USR_ALTA,
                                  UsuarioModificacion = c.USR_MODIF,
                                  Observaciones = c.OBSERVACIONES,
-                                 Nroresolucion = c.NRO_RESOLUCION
+                                 Nroresolucion = c.NRO_RESOLUCION,
                              });
 
                 return a;

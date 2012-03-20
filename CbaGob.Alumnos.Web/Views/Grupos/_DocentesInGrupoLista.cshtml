@@ -1,4 +1,6 @@
 ﻿@model GrupoVista
+@{var result = Html.Action("IsAdminMode", "Home");
+  string rol = result.ToHtmlString();   }
 @if (Model.ListaDocentesInGrupo != null && Model.ListaDocentesInGrupo.Count > 0)
 { 
     <div id="grilla" style="text-align: center;">
@@ -49,7 +51,12 @@
                             @(item.Reproca == "S" ? "Reproca" : "Planta")
                         </td>
                         <td height="30">
-                            @Html.ActionLink("Sacar del Módulo", "DesasignarDocente", "Grupos", new { id_grupo = Model.Id_Grupo, id_docente = @item.Id_Docente, id_condicon_curso = Model.Id_Condicion_Curso }, new { @class = "btnIngresar" })
+                            @{
+                            if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                            {
+                                @Html.ActionLink("Sacar del Módulo", "DesasignarDocente", "Grupos", new { id_grupo = Model.Id_Grupo, id_docente = @item.Id_Docente, id_condicon_curso = Model.Id_Condicion_Curso }, new { @class = "btnIngresar" })
+                            }
+                            }
                         </td>
                     </tr>
                 }

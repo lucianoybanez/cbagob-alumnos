@@ -6,10 +6,12 @@ using System.Web.Mvc;
 using CbaGob.Alumnos.Servicio.Servicios;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
+using CbaGob.Alumnos.Servicio.Vistas.Shared;
 using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Web.Controllers
 {
+    [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
     public class EquipamientosController : Controller
     {
         //
@@ -87,6 +89,17 @@ namespace CbaGob.Alumnos.Web.Controllers
         public ActionResult BuscarEquipos(EquiposVista model)
         {
             return View("Index", equiposervicio.BusquedaEquipo(model.NombreEquipoBusqueda));
+        }
+
+
+        public ActionResult IndexPager(Pager pager, string NombreEquipoBusqueda)
+        {
+            if (NombreEquipoBusqueda == "")
+            { return View("Index", equiposervicio.GetEquipos(pager)); }
+            else
+            {
+                return View("Index", equiposervicio.BusquedaEquipo(NombreEquipoBusqueda, pager));
+            }
         }
     }
 }

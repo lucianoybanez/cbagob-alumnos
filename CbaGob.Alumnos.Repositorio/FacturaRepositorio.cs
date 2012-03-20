@@ -199,7 +199,7 @@ namespace CbaGob.Alumnos.Repositorio
                     ESTADO = factura.Estado,
                     FEC_ALTA = factura.FechaAlta,
                     FEC_MODIF = factura.FechaModificacion,
-                    MONTO_TOTAL = 0,
+                    MONTO_TOTAL = factura.DetalleFactura.Monto,
                     NRO_FACTURA = factura.NroFactura,
                     USR_ALTA = factura.UsuarioAlta,
                     USR_MODIF = factura.UsuarioModificacion,

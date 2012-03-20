@@ -1,4 +1,6 @@
 ﻿@model InstitucionVista
+@{var result = Html.Action("IsAdminMode", "Home");
+  string rol = result.ToHtmlString();   }
 @using (Html.BeginForm("BuscarCurso", "Instituciones", FormMethod.Get))
 {
     <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;
@@ -112,9 +114,14 @@
                             @item.Fecha_Fin.ToShortDateString()
                         </td>
                         <td align="right" style="margin-right: 2px;">
-                            @Html.ActionLink("Modificar", "ModificarCondicionCurso", "CondicionesCurso", new { idCondicionCurso = item.IdCondicionCurso }, new { @class = "btnIngresar" })
-                            @Html.ActionLink("Eliminar", "Eliminar", "CondicionesCurso", new { idCondicionCurso = item.IdCondicionCurso, IdInstitucion = item.IdInstitucion }, new { @class = "btnIngresar" })
-                            @Html.ActionLink("Ver", "VerCondicionCurso", "CondicionesCurso", new { idCondicionCurso = item.IdCondicionCurso, IdInstitucion = item.IdInstitucion }, new { @class = "btnIngresar" })
+                            @{
+                            if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                            {
+                                @Html.ActionLink("Modificar", "ModificarCondicionCurso", "CondicionesCurso", new { idCondicionCurso = item.IdCondicionCurso }, new { @class = "btnIngresar" })
+                                @Html.ActionLink("Eliminar", "Eliminar", "CondicionesCurso", new { idCondicionCurso = item.IdCondicionCurso, IdInstitucion = item.IdInstitucion }, new { @class = "btnIngresar" })
+                            }
+                                @Html.ActionLink("Ver", "VerCondicionCurso", "CondicionesCurso", new { idCondicionCurso = item.IdCondicionCurso, IdInstitucion = item.IdInstitucion }, new { @class = "btnIngresar" })
+                            }
                         </td>
                     </tr>
                 }
@@ -123,7 +130,12 @@
                     </td>
                     <td align="right" valign="bottom" colspan="5" height="20">
                         <div style="height: 20px; padding: 15px 5px 0 2px;">
-                            @Html.ActionLink("Agregar Curso", "AgregarCondicionCurso", "CondicionesCurso", new { idInstitucion = Model.Id_Institucion }, new { @class = "btnIngresar" })
+                            @{
+                if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                {
+                                @Html.ActionLink("Agregar Curso", "AgregarCondicionCurso", "CondicionesCurso", new { idInstitucion = Model.Id_Institucion }, new { @class = "btnIngresar" })
+                }
+                            }
                         </div>
                     </td>
                 </tr>
@@ -145,7 +157,12 @@ else
         <tr>
             <td align="left" width="722px">
                 <div style="height: 20px; padding: 15px 5px 0 2px; margin-right: 2px;" align="right">
-                    @Html.ActionLink("Agregar Curso", "AgregarCondicionCurso", "CondicionesCurso", new { idInstitucion = Model.Id_Institucion }, new { @class = "btnIngresar" })
+                    @{
+    if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+    {
+                        @Html.ActionLink("Agregar Curso", "AgregarCondicionCurso", "CondicionesCurso", new { idInstitucion = Model.Id_Institucion }, new { @class = "btnIngresar" })
+    }
+                    }
                 </div>
             </td>
         </tr>

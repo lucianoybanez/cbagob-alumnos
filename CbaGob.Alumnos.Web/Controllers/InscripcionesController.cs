@@ -12,7 +12,6 @@ using JLY.Hotel.Web.Controllers;
 
 namespace CbaGob.Alumnos.Web.Controllers
 {
-
     public class InscripcionesController : BaseController
     {
         private IInscripcionServicio InscripcionServicio;
@@ -25,6 +24,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             ExamenServicio = examenServicio;
         }
 
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         #region 'Inscripciones'
 
         public ActionResult Index()
@@ -112,6 +112,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         #endregion
 
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         #region 'EmitirCertificado'
 
         public ActionResult Certificado()
@@ -138,6 +139,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         #endregion
 
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         #region 'Reportes'
 
         public ActionResult Reportes(InscripcionVista vista)
@@ -154,7 +156,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             var reporteVista = InscripcionServicio.GetReporteEgresados(vista.IdCondicionCurso);
             var errores = InscripcionServicio.GetErrors();
-            if (errores.Count>0)
+            if (errores.Count > 0)
             {
                 base.AddError(errores);
                 return View("Reportes", vista);
@@ -180,7 +182,7 @@ namespace CbaGob.Alumnos.Web.Controllers
                 reporteVista.NombreReporte = "NÓMINA DE ASISTENCIA FINAL";
                 return ViewPdf("AsistenciaPDF", reporteVista);
             }
-            ModelState.AddModelError(string.Empty,"Ocurrio un error al procesar el reporte");
+            ModelState.AddModelError(string.Empty, "Ocurrio un error al procesar el reporte");
             return View("Reportes", vista);
         }
 

@@ -13,7 +13,7 @@
 <div class="box">
     <h2>
         Listado de Equipos</h2>
-    @using (Html.BeginForm("BuscarEquipos", "Equipamientos", FormMethod.Post, new { Id = "FormularioEquipaminetos" }))
+    @using (Html.BeginForm("IndexPager", "Equipamientos", FormMethod.Post, new { Id = "FormIndexEquipos" }))
     { 
         <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
             margin-left: 5px; margin-top: 5px;">
@@ -24,7 +24,7 @@
                         <b>Nombre Equipo:&nbsp;</b>
                     </td>
                     <td>@Html.TextBoxFor(c => c.NombreEquipoBusqueda, new { style = "width:200px;", MaxLength = "64" })
-                        <input type="submit" value="Buscar" class="btnIngresar" />
+                        <input type="button" id="Buscar" value="Buscar" class="btnIngresar" />
                     </td>
                 </tr>
             </table>
@@ -41,5 +41,6 @@
                 </td>
             </tr>
         </table>
+        @Html.Partial("_Pager", Model.Pager)
     }
 </div>
