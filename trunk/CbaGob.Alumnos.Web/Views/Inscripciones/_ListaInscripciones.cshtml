@@ -35,7 +35,7 @@
             {
                 <tr>
                     <td height="30" align="left">
-                        @item.NombreInstitucion
+                        @item.NombreInstitucion.ToMaxLenght(20)
                     </td>
                     <td align="left">
                         @item.NombreCurso
@@ -47,7 +47,7 @@
                         @item.FechaIncio.ToFecha()
                     </td>
                     <td align="left">
-                        @Html.Raw(item.ApellidoAlumno + ", " + item.NombreAlumno)
+                        @Html.Raw((item.ApellidoAlumno + ", " + item.NombreAlumno).ToMaxLenght(20))
                     </td>
                     <td>
                         @Html.ActionLink("Eliminar", "Eliminar", "Inscripciones", new { idInscripcion = item.IdInscripcion }, new { @class = "btnIngresar toHide" })&nbsp;&nbsp;&nbsp;&nbsp;

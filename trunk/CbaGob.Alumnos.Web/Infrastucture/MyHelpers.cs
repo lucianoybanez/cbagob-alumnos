@@ -32,5 +32,14 @@ namespace CbaGob.Alumnos.Web.Infrastucture
         {
             return String.Format("{0:dd/MM/yyyy}", date);
         }
+
+        public static string ToMaxLenght(this string st,int maxLenght)
+        {
+            if (st.Length < maxLenght)
+            {
+                return st;
+            }
+            return st.Substring(0, maxLenght) + "...";
+        }
     }
 }

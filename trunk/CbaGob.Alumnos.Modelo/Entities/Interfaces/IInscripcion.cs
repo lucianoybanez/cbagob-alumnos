@@ -38,5 +38,6 @@ namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
         int idPrograma { get; set; }
         string NombrePrograma { get; set; }
         string NroResolucion { get; set; }
+        bool Aprobo { get; set; }
     }
 }

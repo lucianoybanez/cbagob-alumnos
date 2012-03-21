@@ -70,7 +70,7 @@ cbaAlumnosBuscadorCondicionCurso = function () {
     function SetDialog() {
         $("#" + dialogName).dialog({
             autoOpen: false,
-            width: 700,
+            width: 800,
             height: 600,
             modal: true,
             resizable: false,

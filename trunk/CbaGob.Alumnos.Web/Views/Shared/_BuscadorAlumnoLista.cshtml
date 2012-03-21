@@ -26,16 +26,16 @@
             {
                 <tr>
                     <td align="left"  width="100" height="30">
-                        @item.Nombre
+                        @item.Nombre.ToMaxLenght(18)
                     </td>
                     <td align="left" height="30">
-                        @item.Apellido
+                        @item.Apellido.ToMaxLenght(18)
                     </td>
                     <td align="left" height="30">
                         @item.Nro_Documento
                     </td>
                     <td align="left" height="30">
-                        @item.Fecha_Nacimiento.ToShortDateString()
+                        @item.Fecha_Nacimiento.ToFecha()
                     </td>
                     <td>                        
                         <a href="JavaScript:cbaAlumnosBuscadorAlumno.SeleccionarAlumno('@(item.Apellido + ", " + item.Nombre )','@item.Id_Alumno')" class = "btnIngresar">Seleccionar</a>

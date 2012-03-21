@@ -52,6 +52,29 @@ cbaAlumnosInscripciones = function () {
             }
         });
 
+     $('#dialogEliminar').dialog({
+            autoOpen: false,
+            width: 350,
+            modal: true,
+            resizable: false,
+            buttons: {
+                "Ok": function () {
+                    $("#FormularioInscripciones").submit();
+                    $(this).dialog("close");
+                },
+                "Cancel": function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+
+
+        $('#Eliminar').click('click', function () {
+            $('#dialogEliminar').dialog("open");
+        });        
+
+
+
     }
     function initCertificado() {
         $("#BuscarAlumno").click(function () {
@@ -69,7 +92,7 @@ cbaAlumnosInscripciones = function () {
     }
 
     function initReportes() {
-        $('.reporteTipo').click(function() {
+        $('.reporteTipo').click(function () {
             $("#Accion").val($(this).val());
         });
     }

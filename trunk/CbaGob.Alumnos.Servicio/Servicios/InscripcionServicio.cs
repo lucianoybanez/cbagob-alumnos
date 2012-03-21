@@ -41,7 +41,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         public IInscripcionesVista GetAllInscripcion()
         {
             IInscripcionesVista inscripcionesvista = new InscripcionesVista();
-            var pager = new Pager(Inscripcionrepositorio.GetAllInscripcion(), 3, "FormIndexInscripciones", Aut.GetUrl("IndexPager", "Inscripciones"));
+            var pager = new Pager(Inscripcionrepositorio.GetAllInscripcion(), "FormIndexInscripciones", Aut.GetUrl("IndexPager", "Inscripciones"));
             inscripcionesvista.pager = pager;
             inscripcionesvista.ListaInscripciones = Inscripcionrepositorio.GetAllInscripcion(pager.Skip, pager.PageSize);
             return inscripcionesvista;
@@ -85,7 +85,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 if (inscripcion != null)
                 {
                     var condicion = CondicionCursoRepositorio.GetCondicion(inscripcion.Id_Condicion_Curso);
-                    if (condicion!=null)
+                    if (condicion != null)
                     {
                         vista = new InscripcionVista()
                         {
@@ -104,11 +104,12 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                             FechaFin = inscripcion.FechaFin,
                             FechaInicio = inscripcion.FechaIncio,
                             NumeroResolucion = inscripcion.NroResolucion,
+                            Aprobo = inscripcion.Aprobo,
                             Presentismo = GetPresentismo(id_inscripcion, condicion),
                             examens = GetExamenes(id_inscripcion, condicion)
                         };
                     }
-                   
+
                 }
             }
             return vista;
@@ -157,11 +158,28 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
         }
 
-        public bool ModificarInscripcion(IInscripcionVista inscripcion)
+        public bool AprobarDesaprobarAlumno(IInscripcionVista vista)
         {
-
-            //return Inscripcionrepositorio.ModificarInscripcion(inscripcion);
-            return true;
+            if (vista.IdInscripcion != 0)
+            {
+                bool result = false;
+                var inscripcionModelo = Inscripcionrepositorio.GetInscripcion(vista.IdInscripcion);
+                if (inscripcionModelo != null)
+                {
+                    inscripcionModelo.Aprobo = !inscripcionModelo.Aprobo;
+                    result = Inscripcionrepositorio.ModificarInscripcion(inscripcionModelo);
+                }
+                if (!result)
+                {
+                    base.AddError("Ocurrio un Error al intentar Aprobar/Desaprobar un Alumno.");
+                }
+                return result;
+            }
+            else
+            {
+                base.AddError("Debe Seleccionar una Inscripción");
+            }
+            return false;
         }
 
         public bool EliminarInscripcion(int id_inscripcion)
@@ -303,7 +321,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             return vista;
         }
 
-        public IReporteVista GetReporteEgresados(int idCondicionCurso)
+        public IReporteVista GetReporteEgresados(int idCondicionCurso,bool onlyActive)
         {
             IReporteVista vista = new ReporteVista();
 
@@ -311,14 +329,14 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             if (Condicion != null)
             {
                 var institucion = InstitucionRepositorio.GetInstitucion(Condicion.IdInstitucion);
-                if (institucion!=null)
+                if (institucion != null)
                 {
-                    var repoModel = Inscripcionrepositorio.GetAllInscripcionBy(idCondicionCurso);
+                    var repoModel = Inscripcionrepositorio.GetAllInscripcionBy(idCondicionCurso,onlyActive);
                     int totalVarones = 0;
                     int totalMujeres = 0;
                     decimal asistencia = 0;
                     decimal notaFinal = 0;
-                    bool aprobo = false;
+                
 
                     vista.Expediente = institucion.Nro_Expediente;
                     vista.Fecha = DateTime.Today;
@@ -364,11 +382,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
                         //Aprobo el alumno
 
-                        if (asistencia >= Condicion.Presentismo && notaFinal >= Condicion.PromedioRequerido)
-                        {
-                            aprobo = true;
-                        }
-
+                      
 
 
                         vista.Alumnos.Add(new ReporteAlumno()
@@ -380,7 +394,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                             Nombre = item.NombreAlumno,
                             FechaNacimiento = item.FechaNacimiento,
                             NotaFinal = notaFinal,
-                            Aprobo = aprobo,
+                            Aprobo = item.Aprobo,
                         });
 
                     }
@@ -388,13 +402,13 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                     vista.Varones = totalVarones;
                     vista.Mujeres = totalMujeres;
                     vista.TotalHyM = totalMujeres + totalVarones;
-                    
+
                 }
                 else
                 {
                     AddError("No se encuentra la Institucion, verifique que no fue eliminada.");
                 }
-               
+
             }
             else
             {
@@ -403,15 +417,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             return vista;
         }
 
-        public IReporteVista GetReportePaticipantes(int idCondicionCurso)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IReporteVista GetReporteAsistencia(int idCondicionCurso)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         private IInscripcionExamenVista GetExamenes(int idInscripcion, ICondicionCurso condicion)
         {
@@ -438,14 +444,14 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             vista.Aprobo = "Debe cargar todos los examenes para verificar su nota final.";
             if (totalExamnesRendidos == cantidadExamenesNecesarios)
             {
-                if (vista.PromedioAlumno >= condicion.PromedioRequerido)
+                /*if (vista.PromedioAlumno >= condicion.PromedioRequerido)
                 {
                     vista.Aprobo = "Si Aprobo.";
                 }
                 else
                 {
                     vista.Aprobo = "No Aprobo.";
-                }
+                }*/
             }
             return vista;
         }

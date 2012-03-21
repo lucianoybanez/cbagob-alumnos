@@ -37,6 +37,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         public ActionResult Eliminar(int IdExamen)
         {
             var vista = ExamenServicio.GetExamenVista(IdExamen);
+            vista.NroExamen.Enabled = false;
             vista.Accion = "Eliminar";
             return View("Agregar", vista);
         }

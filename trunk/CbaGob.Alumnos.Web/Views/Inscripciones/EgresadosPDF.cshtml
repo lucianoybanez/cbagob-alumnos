@@ -89,9 +89,9 @@
       @{ int i = 0;
          if (Model.Alumnos != null)
          {
-             if (Model.Alumnos.Where(c => c.Estado && c.Aprobo).Count() > 0)
+             if (Model.Alumnos.Where(c => c.Aprobo).Count() > 0)
              {
-                 foreach (var al in Model.Alumnos.Where(c => c.Estado && c.Aprobo))
+                 foreach (var al in Model.Alumnos.Where(c => c.Aprobo))
                  {
                      i += 1;
                        <row>

@@ -24,9 +24,9 @@ namespace CbaGob.Alumnos.Web.Controllers
             ExamenServicio = examenServicio;
         }
 
-        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
+        
         #region 'Inscripciones'
-
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         public ActionResult Index()
         {
             return View(InscripcionServicio.GetAllInscripcion());
@@ -90,6 +90,17 @@ namespace CbaGob.Alumnos.Web.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult AprobarDesaprobar(InscripcionVista vista)
+        {
+            if (!InscripcionServicio.AprobarDesaprobarAlumno(vista))
+            {
+                base.AddError(InscripcionServicio.GetErrors());
+                return Ver(vista.IdInscripcion);
+            }
+            return RedirectToAction("Ver", new { idInscripcion = vista.IdInscripcion});
+        }
+
+
         #endregion
 
         #region 'Presentismo'
@@ -111,10 +122,9 @@ namespace CbaGob.Alumnos.Web.Controllers
         }
 
         #endregion
-
-        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
+        
         #region 'EmitirCertificado'
-
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         public ActionResult Certificado()
         {
             CertificadoVista vista = new CertificadoVista();
@@ -138,10 +148,9 @@ namespace CbaGob.Alumnos.Web.Controllers
 
 
         #endregion
-
-        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
+        
         #region 'Reportes'
-
+        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         public ActionResult Reportes(InscripcionVista vista)
         {
             if (string.IsNullOrEmpty(vista.Accion))
@@ -154,7 +163,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         public ActionResult GenerarReporte(InscripcionVista vista)
         {
 
-            var reporteVista = InscripcionServicio.GetReporteEgresados(vista.IdCondicionCurso);
+            var reporteVista = InscripcionServicio.GetReporteEgresados(vista.IdCondicionCurso, vista.Accion.ToLower() == "egresado");
             var errores = InscripcionServicio.GetErrors();
             if (errores.Count > 0)
             {
