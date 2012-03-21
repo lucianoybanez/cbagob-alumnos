@@ -140,7 +140,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         public ActionResult Eliminar_Institucion(InstitucionVista model)
         {
 
-
+            
 
             bool mReturn = InstitucionServicio.EliminarInstitucion(model.Id_Institucion, model.Nro_Resolucion);
             if (mReturn)

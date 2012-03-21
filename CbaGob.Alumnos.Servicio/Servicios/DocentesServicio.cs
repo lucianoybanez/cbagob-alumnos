@@ -21,15 +21,23 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         private ITipo_DocentesRepositorio tipodocentesrepositorio;
         private IAutenticacionServicio Aut;
         private IHorarioServicio horarioServicio;
+        private IUsuarioServicio usuarioservice;
+        private string rol;
+        private string nombreusuario;
 
 
-        public DocentesServicio(IDocentesRepositorio docentesrepositorio, ICargosRepositorio cargorepositorio, ITipo_DocentesRepositorio tipodocentesrepositorio, IAutenticacionServicio aut, IHorarioServicio phorarioServicio)
+
+        public DocentesServicio(IDocentesRepositorio docentesrepositorio, ICargosRepositorio cargorepositorio, ITipo_DocentesRepositorio tipodocentesrepositorio, IAutenticacionServicio aut, IHorarioServicio phorarioServicio, IUsuarioServicio pusuarioservice)
         {
             this.docentesrepositorio = docentesrepositorio;
             this.cargorepositorio = cargorepositorio;
             this.tipodocentesrepositorio = tipodocentesrepositorio;
             Aut = aut;
             horarioServicio = phorarioServicio;
+            usuarioservice = pusuarioservice;
+            var usuario = usuarioservice.GetCookieData();
+            rol = usuario.Rol;
+            nombreusuario = usuario.Usuario;
         }
 
         public IDocentesVista GetTodos()
@@ -38,11 +46,36 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 IDocentesVista vista = new DocentesVista();
 
-                var pager = new Pager(docentesrepositorio.GetCountDocentes(), Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexDocentes", Aut.GetUrl("IndexPager", "Docentes"));
+                int cantidadpaginas = 0;
+
+                if (rol == "Supervisor")
+                {
+                    cantidadpaginas = docentesrepositorio.GetTodos().Count();
+                }
+                else
+                {
+                    cantidadpaginas =
+                        docentesrepositorio.GetTodos().Where(c => c.UsuarioAlta == nombreusuario).Count();
+                }
+
+                var pager = new Pager(cantidadpaginas, Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexDocentes", Aut.GetUrl("IndexPager", "Docentes"));
 
                 vista.Pager = pager;
 
-                vista.ListaDocentes = docentesrepositorio.GetTodos(pager.Skip, pager.PageSize);
+                if (rol == "Supervisor")
+                {
+                    vista.ListaDocentes = docentesrepositorio.GetTodos(pager.Skip, pager.PageSize);
+                }
+                else
+                {
+                    vista.ListaDocentes =
+                        docentesrepositorio.GetTodos().Where(c => c.UsuarioAlta == nombreusuario).OrderBy(
+                            c => c.RazonSoial).Skip(pager.Skip).Take(pager.PageSize).ToList();
+
+
+                }
+
+
 
                 return vista;
             }
@@ -357,10 +390,35 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 IDocentesVista vista = new DocentesVista();
 
+                int cantidadpaginas = 0;
 
-                vista.ListaDocentes = docentesrepositorio.BuscarDocente(razonsocial, cuit_cuil);
+                if (rol == "Supervisor")
+                {
+                    cantidadpaginas = docentesrepositorio.BuscarDocente(razonsocial, cuit_cuil).Count();
+                }
+                else
+                {
+                    cantidadpaginas =
+                        docentesrepositorio.BuscarDocente(razonsocial, cuit_cuil).Where(
+                            c => c.UsuarioAlta == nombreusuario).Count();
+                }
 
-                var pager = new Pager(vista.ListaDocentes.Count, Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexDocentes", Aut.GetUrl("IndexPager", "Docentes"));
+
+                var pager = new Pager(cantidadpaginas, Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexDocentes", Aut.GetUrl("IndexPager", "Docentes"));
+
+
+                if (rol == "Supervisor")
+                {
+                    vista.ListaDocentes = docentesrepositorio.BuscarDocente(pager.Skip, pager.PageSize, razonsocial, cuit_cuil);
+                }
+                else
+                {
+                    vista.ListaDocentes =
+                        docentesrepositorio.BuscarDocente(razonsocial, cuit_cuil).Where(
+                            c => c.UsuarioAlta == nombreusuario).OrderBy(c => c.RazonSoial).Skip(pager.Skip).Take(
+                                pager.PageSize).ToList();
+                }
+
 
                 vista.Pager = pager;
 
@@ -379,7 +437,17 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 IDocentesVista vista = new DocentesVista();
 
-                vista.ListaDocentes = docentesrepositorio.BuscarDocente(page.Skip, page.PageSize, razonsocial, cuit_cuil);
+                if (rol == "Supervisor")
+                {
+                    vista.ListaDocentes = docentesrepositorio.BuscarDocente(page.Skip, page.PageSize, razonsocial, cuit_cuil);
+                }
+                else
+                {
+                    vista.ListaDocentes =
+                        docentesrepositorio.BuscarDocente(razonsocial, cuit_cuil).Where(
+                            c => c.UsuarioAlta == nombreusuario).OrderBy(c => c.RazonSoial).Skip(page.Skip).Take(
+                                page.PageSize).ToList();
+                }
 
                 vista.Pager = page;
 

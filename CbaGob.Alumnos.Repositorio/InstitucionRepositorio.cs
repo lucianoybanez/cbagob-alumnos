@@ -15,7 +15,8 @@ namespace CbaGob.Alumnos.Repositorio
         public CursosDB mDb;
 
 
-        public InstitucionRepositorio(ILoggedUserHelper helper):base(helper)
+        public InstitucionRepositorio(ILoggedUserHelper helper)
+            : base(helper)
         {
             mDb = new CursosDB();
         }
@@ -55,7 +56,7 @@ namespace CbaGob.Alumnos.Repositorio
         public IList<IInstitucion> GetInstituciones()
         {
 
-            return QInstitucion().ToList(); 
+            return QInstitucion().ToList();
 
         }
 
@@ -64,10 +65,9 @@ namespace CbaGob.Alumnos.Repositorio
             return QInstitucion().OrderBy(c => c.Nombre_Institucion).Skip(skip).Take(take).ToList();
         }
 
-
         public int GetCountInstituciones()
         {
-            return QInstitucion().Count(); 
+            return QInstitucion().Count();
         }
 
         public IInstitucion GetInstitucion(int IdInstitucion)
@@ -77,6 +77,47 @@ namespace CbaGob.Alumnos.Repositorio
 
             return mInstirucion;
 
+        }
+
+        public IList<IInstitucion> BuscarInstitucion(string nombreinstitucion)
+        {
+            try
+            {
+                nombreinstitucion = nombreinstitucion == "" ? null : nombreinstitucion;
+
+                return
+                    QInstitucion().Where(
+                        c =>
+                        (c.Nombre_Institucion.ToLower().StartsWith(nombreinstitucion.ToLower()) ||
+                         nombreinstitucion == null)).
+                        ToList();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        public IList<IInstitucion> BuscarInstitucion(string nombreinstitucion, int skip, int take)
+        {
+            try
+            {
+                  nombreinstitucion = nombreinstitucion == "" ? null : nombreinstitucion;
+
+                return
+                    QInstitucion().Where(
+                        c =>
+                        (c.Nombre_Institucion.ToLower().StartsWith(nombreinstitucion.ToLower()) ||
+                         nombreinstitucion == null)).
+                        OrderBy(c => c.Nombre_Institucion).Skip(skip).Take(take).ToList();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
 
         #region CRUD
@@ -98,7 +139,7 @@ namespace CbaGob.Alumnos.Repositorio
                                               FEC_ALTA = DateTime.Now,
                                               NRO = institucion.Nro,
                                               PROVINCIA = institucion.Provincia,
-                                              LOCALIDAD =  institucion.Localidad,
+                                              LOCALIDAD = institucion.Localidad,
                                               BARRIO = institucion.Barrio,
                                               CALLE = institucion.Calle,
                                               DEPTO = institucion.Depto,
@@ -176,36 +217,6 @@ namespace CbaGob.Alumnos.Repositorio
             }
         }
 
-        public IList<IInstitucion> BuscarInstitucion(string nombreinstitucion)
-        {
-            try
-            {
-                return
-                    QInstitucion().Where(c => c.Nombre_Institucion.ToLower().StartsWith(nombreinstitucion.ToLower())).
-                        ToList();
-            }
-            catch (Exception ex)
-            {
-                
-                throw;
-            }
-        }
-
-        public IList<IInstitucion> BuscarInstitucion(string nombreinstitucion, int skip, int take)
-        {
-            try
-            {
-                return
-                    QInstitucion().Where(c => c.Nombre_Institucion.ToLower().StartsWith(nombreinstitucion.ToLower())).
-                        OrderBy(c => c.Nombre_Institucion).Skip(skip).Take(take).ToList();
-
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
-        }
 
         #endregion
     }

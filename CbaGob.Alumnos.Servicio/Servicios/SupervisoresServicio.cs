@@ -18,11 +18,18 @@ namespace CbaGob.Alumnos.Servicio.Servicios
     {
         private ISupervisoresRepositorio supervisoresrepositorio;
         private IAutenticacionServicio Aut;
+        private IUsuarioServicio usuarioservice;
+        private string rol;
+        private string nombreusuario;
 
-        public SupervisoresServicio(ISupervisoresRepositorio Supervisoresrepositorio, IAutenticacionServicio aut)
+        public SupervisoresServicio(ISupervisoresRepositorio Supervisoresrepositorio, IAutenticacionServicio aut, IUsuarioServicio usuarioservice)
         {
             supervisoresrepositorio = Supervisoresrepositorio;
             Aut = aut;
+            this.usuarioservice = usuarioservice;
+            var usuario = usuarioservice.GetCookieData();
+            rol = usuario.Rol;
+            nombreusuario = usuario.Usuario;
         }
 
         public ISupervisoresVista GetSupervisores()
@@ -31,11 +38,33 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 ISupervisoresVista supervisoresvista = new SupervisoresVista();
 
-                var pager = new Pager(supervisoresrepositorio.GetCountSupervisor(), Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexSupervisores", Aut.GetUrl("IndexPager", "Supervisores"));
+                int cantidadpaginas = 0;
+                if (rol == "Supervisor")
+                {
+                    cantidadpaginas = supervisoresrepositorio.GetCountSupervisor();
+                }
+                else
+                {
+                    cantidadpaginas =
+                        supervisoresrepositorio.GetSupervisores().Where(c => c.UsuarioAlta == nombreusuario).Count();
+                }
+
+                var pager = new Pager(cantidadpaginas, Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexSupervisores", Aut.GetUrl("IndexPager", "Supervisores"));
 
                 supervisoresvista.Pager = pager;
 
-                supervisoresvista.ListaSupervisores = supervisoresrepositorio.GetSupervisores(pager.Skip, pager.PageSize);
+                if (rol == "Supervisor")
+                {
+                    supervisoresvista.ListaSupervisores = supervisoresrepositorio.GetSupervisores(pager.Skip, pager.PageSize);
+                }
+                else
+                {
+                    supervisoresvista.ListaSupervisores =
+                        supervisoresrepositorio.GetSupervisores().Where(c => c.UsuarioAlta == nombreusuario).OrderBy(
+                            c => c.Razon_Social).Skip(pager.Skip).Take(pager.PageSize).ToList();
+                }
+
+
 
                 return supervisoresvista;
             }
@@ -54,7 +83,17 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
                 supervisoresvista.Pager = Pager;
 
-                supervisoresvista.ListaSupervisores = supervisoresrepositorio.GetSupervisores(Pager.Skip, Pager.PageSize);
+                if (rol == "Supervisor")
+                {
+                    supervisoresvista.ListaSupervisores = supervisoresrepositorio.GetSupervisores(Pager.Skip, Pager.PageSize);
+                }
+                else
+                {
+                    supervisoresvista.ListaSupervisores =
+                        supervisoresrepositorio.GetSupervisores().Where(c => c.UsuarioAlta == nombreusuario).OrderBy(
+                            c => c.Razon_Social).Skip(Pager.Skip).Take(Pager.PageSize).ToList();
+                }
+
 
                 return supervisoresvista;
             }

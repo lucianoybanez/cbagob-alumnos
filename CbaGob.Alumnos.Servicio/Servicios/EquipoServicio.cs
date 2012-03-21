@@ -19,13 +19,21 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         private IEquipoRepositorio equiporepositorio;
         private IEstado_EquipoRepositorio estado_equiporepositorio;
         private IAutenticacionServicio Aut;
+        private IUsuarioServicio usuarioservice;
+        private string rol;
+        private string nombreusuario;
 
 
-        public EquipoServicio(IEquipoRepositorio equiporepositorio, IEstado_EquipoRepositorio estadoEquiporepositorio, IAutenticacionServicio aut)
+        public EquipoServicio(IEquipoRepositorio equiporepositorio, IEstado_EquipoRepositorio estadoEquiporepositorio, IAutenticacionServicio aut, IUsuarioServicio usuarioservice)
         {
             this.equiporepositorio = equiporepositorio;
             estado_equiporepositorio = estadoEquiporepositorio;
             Aut = aut;
+            this.usuarioservice = usuarioservice;
+            Aut = aut;
+            var usuario = usuarioservice.GetCookieData();
+            rol = usuario.Rol;
+            nombreusuario = usuario.Usuario;
         }
 
         public IEquiposVista GetEquipos()
@@ -34,9 +42,31 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 IEquiposVista equipovista = new EquiposVista();
 
-                var pager = new Pager(equiporepositorio.GetEquipos().Count(), Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexEquipos", Aut.GetUrl("IndexPager", "Equipamientos"));
+                int cantidadpaginas = 0;
 
-                equipovista.ListaEquipos = equiporepositorio.GetEquipos(pager.Skip, pager.PageSize);
+                if (rol == "Supervisor")
+                {
+                    cantidadpaginas = equiporepositorio.GetEquipos().Count();
+                }
+                else
+                {
+                    cantidadpaginas =
+                        equiporepositorio.GetEquipos().Where(c => c.UsuarioAlta == nombreusuario).Count();
+                }
+
+                var pager = new Pager(cantidadpaginas, Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexEquipos", Aut.GetUrl("IndexPager", "Equipamientos"));
+
+                if (rol == "Supervisor")
+                {
+                    equipovista.ListaEquipos = equiporepositorio.GetEquipos(pager.Skip, pager.PageSize);
+                }
+                else
+                {
+                    equipovista.ListaEquipos =
+                        equiporepositorio.GetEquipos().Where(c => c.UsuarioAlta == nombreusuario).OrderBy(
+                            c => c.N_Equipos).Skip(pager.Skip).Take(pager.PageSize).ToList();
+                }
+
 
                 equipovista.Pager = pager;
 
@@ -56,7 +86,16 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 IEquiposVista equipovista = new EquiposVista();
 
-                equipovista.ListaEquipos = equiporepositorio.GetEquipos(Pager.Skip, Pager.PageSize);
+                if (rol == "Supervisor")
+                {
+                    equipovista.ListaEquipos = equiporepositorio.GetEquipos(Pager.Skip, Pager.PageSize);
+                }
+                else
+                {
+                    equipovista.ListaEquipos =
+                        equiporepositorio.GetEquipos().Where(c => c.UsuarioAlta == nombreusuario).OrderBy(
+                            c => c.N_Equipos).Skip(Pager.Skip).Take(Pager.PageSize).ToList();
+                }
 
                 equipovista.Pager = Pager;
 
@@ -190,9 +229,30 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 IEquiposVista equipovista = new EquiposVista();
 
-                var pager = new Pager(equiporepositorio.BusquedaEquipo(nombreequipo).Count(), Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexEquipos", Aut.GetUrl("IndexPager", "Equipamientos"));
+                int cantidadpaginas = 0;
 
-                equipovista.ListaEquipos = equiporepositorio.BusquedaEquipo(nombreequipo, pager.Skip, pager.PageSize);
+                if (rol == "Supervisor")
+                {
+                    cantidadpaginas = equiporepositorio.BusquedaEquipo(nombreequipo).Count();
+                }
+                else
+                {
+                    cantidadpaginas =
+                        equiporepositorio.BusquedaEquipo(nombreequipo).Where(c => c.UsuarioAlta == nombreusuario).Count();
+                }
+
+                var pager = new Pager(cantidadpaginas, Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexEquipos", Aut.GetUrl("IndexPager", "Equipamientos"));
+
+                if (rol == "Supervisor")
+                {
+                    equipovista.ListaEquipos = equiporepositorio.BusquedaEquipo(nombreequipo, pager.Skip, pager.PageSize);
+                }
+                else
+                {
+                    equipovista.ListaEquipos =
+                        equiporepositorio.BusquedaEquipo(nombreequipo).Where(c => c.UsuarioAlta == nombreusuario).
+                            OrderBy(c => c.N_Equipos).Skip(pager.Skip).Take(pager.PageSize).ToList();
+                }
 
                 equipovista.Pager = pager;
 
@@ -212,7 +272,16 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 IEquiposVista equipovista = new EquiposVista();
 
-                equipovista.ListaEquipos = equiporepositorio.BusquedaEquipo(nombreequipo, Pager.Skip, Pager.PageSize);
+                if (rol == "Supervisor")
+                {
+                    equipovista.ListaEquipos = equiporepositorio.BusquedaEquipo(nombreequipo, Pager.Skip, Pager.PageSize);
+                }
+                else
+                {
+                    equipovista.ListaEquipos =
+                        equiporepositorio.BusquedaEquipo(nombreequipo).Where(c => c.UsuarioAlta == nombreusuario).
+                            OrderBy(c => c.N_Equipos).Skip(Pager.Skip).Take(Pager.PageSize).ToList();
+                }
 
                 equipovista.Pager = Pager;
 

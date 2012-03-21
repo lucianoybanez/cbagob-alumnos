@@ -17,18 +17,16 @@ namespace CbaGob.Alumnos.Servicio.Servicios
     public class InscripcionServicio : BaseServicio, IInscripcionServicio
     {
         private IInscripcionRepositorio Inscripcionrepositorio;
-
         private ICondicionCursoRepositorio CondicionCursoRepositorio;
-
         private IAutenticacionServicio Aut;
-
         private IExamenServicio ExamenServicio;
-
         private IAlumnosRepositorio AlumnosRepositorio;
-
         private IInstitucionRepositorio InstitucionRepositorio;
+        private IUsuarioServicio usuarioservice;
+        private string rol;
+        private string nombreusuario;
 
-        public InscripcionServicio(IInscripcionRepositorio inscripcionrepositorio, IAutenticacionServicio aut, ICondicionCursoRepositorio condicionCurso, IExamenServicio examenServicio, IAlumnosRepositorio alumnosRepositorio, IInstitucionRepositorio institucionRepositorio)
+        public InscripcionServicio(IInscripcionRepositorio inscripcionrepositorio, IAutenticacionServicio aut, ICondicionCursoRepositorio condicionCurso, IExamenServicio examenServicio, IAlumnosRepositorio alumnosRepositorio, IInstitucionRepositorio institucionRepositorio, IUsuarioServicio pusuarioservice)
         {
             Inscripcionrepositorio = inscripcionrepositorio;
             Aut = aut;
@@ -36,14 +34,42 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             ExamenServicio = examenServicio;
             AlumnosRepositorio = alumnosRepositorio;
             InstitucionRepositorio = institucionRepositorio;
+            usuarioservice = pusuarioservice;
+            var usuario = usuarioservice.GetCookieData();
+            rol = usuario.Rol;
+            nombreusuario = usuario.Usuario;
         }
 
         public IInscripcionesVista GetAllInscripcion()
         {
             IInscripcionesVista inscripcionesvista = new InscripcionesVista();
-            var pager = new Pager(Inscripcionrepositorio.GetAllInscripcion(), "FormIndexInscripciones", Aut.GetUrl("IndexPager", "Inscripciones"));
+
+            int cantidadpaginas = 0;
+            if (rol == "Supervisor")
+            {
+                cantidadpaginas = Inscripcionrepositorio.GetAllInscripcion();
+            }
+            else
+            {
+                cantidadpaginas =
+                    Inscripcionrepositorio.GetInscripciones().Count();
+            }
+
+            var pager = new Pager(cantidadpaginas, "FormIndexInscripciones", Aut.GetUrl("IndexPager", "Inscripciones"));
             inscripcionesvista.pager = pager;
-            inscripcionesvista.ListaInscripciones = Inscripcionrepositorio.GetAllInscripcion(pager.Skip, pager.PageSize);
+
+            if (rol == "Supervisor")
+            {
+                inscripcionesvista.ListaInscripciones = Inscripcionrepositorio.GetAllInscripcion(pager.Skip, pager.PageSize);
+            }
+            else
+            {
+                inscripcionesvista.ListaInscripciones =
+                    Inscripcionrepositorio.GetInscripciones().Where(c => c.UsuarioAlta == nombreusuario).OrderBy(
+                        c => c.NombreInstitucion).Skip(pager.Skip).Take(pager.PageSize).ToList();
+            }
+
+            
             return inscripcionesvista;
         }
 
@@ -51,7 +77,18 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         {
             IInscripcionesVista inscripcionesvista = new InscripcionesVista();
             inscripcionesvista.pager = pager;
-            inscripcionesvista.ListaInscripciones = Inscripcionrepositorio.GetAllInscripcion(pager.Skip, pager.PageSize);
+            
+            if (rol == "Supervisor")
+            {
+                inscripcionesvista.ListaInscripciones = Inscripcionrepositorio.GetAllInscripcion(pager.Skip, pager.PageSize);
+            }
+            else
+            {
+                inscripcionesvista.ListaInscripciones =
+                    Inscripcionrepositorio.GetInscripciones().Where(c => c.UsuarioAlta == nombreusuario).OrderBy(
+                        c => c.NombreInstitucion).Skip(pager.Skip).Take(pager.PageSize).ToList();
+            }
+
             return inscripcionesvista;
         }
 
@@ -293,7 +330,17 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         public IInscripcionesVista GetAllInscripcionBy(string nombre, string apellido, string dni, string institucion)
         {
             IInscripcionesVista vista = new InscripcionesVista();
-            vista.ListaInscripciones = Inscripcionrepositorio.GetAllInscripcionBy(nombre, apellido, dni, institucion);
+
+            if (rol == "Supervisor")
+            {
+                vista.ListaInscripciones = Inscripcionrepositorio.GetAllInscripcionBy(nombre, apellido, dni, institucion);
+            }
+            else
+            {
+                vista.ListaInscripciones =
+                    Inscripcionrepositorio.GetAllInscripcionBy(nombre, apellido, dni, institucion).Where(
+                        c => c.UsuarioAlta == nombreusuario).ToList();
+            }
 
             return vista;
         }
@@ -321,7 +368,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             return vista;
         }
 
-        public IReporteVista GetReporteEgresados(int idCondicionCurso,bool onlyActive)
+        public IReporteVista GetReporteEgresados(int idCondicionCurso, bool onlyActive)
         {
             IReporteVista vista = new ReporteVista();
 
@@ -331,12 +378,12 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 var institucion = InstitucionRepositorio.GetInstitucion(Condicion.IdInstitucion);
                 if (institucion != null)
                 {
-                    var repoModel = Inscripcionrepositorio.GetAllInscripcionBy(idCondicionCurso,onlyActive);
+                    var repoModel = Inscripcionrepositorio.GetAllInscripcionBy(idCondicionCurso, onlyActive);
                     int totalVarones = 0;
                     int totalMujeres = 0;
                     decimal asistencia = 0;
                     decimal notaFinal = 0;
-                
+
 
                     vista.Expediente = institucion.Nro_Expediente;
                     vista.Fecha = DateTime.Today;
@@ -382,7 +429,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
                         //Aprobo el alumno
 
-                      
+
 
 
                         vista.Alumnos.Add(new ReporteAlumno()
@@ -416,8 +463,6 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
             return vista;
         }
-
-        
 
         private IInscripcionExamenVista GetExamenes(int idInscripcion, ICondicionCurso condicion)
         {

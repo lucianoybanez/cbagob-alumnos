@@ -65,6 +65,11 @@ namespace CbaGob.Alumnos.Repositorio
             return QInscripcion("A").OrderBy(c => c.NombreInstitucion).Skip(skip).Take(take).ToList();
         }
 
+        public IList<IInscripcion> GetInscripciones()
+        {
+            return QInscripcion("A").OrderBy(c => c.NombreInstitucion).ToList();
+        }
+
         public int GetAllInscripcion()
         {
             return QInscripcion("A").Count();

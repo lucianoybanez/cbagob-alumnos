@@ -18,43 +18,87 @@ namespace CbaGob.Alumnos.Servicio.Servicios
     public class InstitucionServicio : BaseServicio, IInstitucionServicio
     {
         private IInstitucionRepositorio mInstitucionRepositorio;
-
         private IAutenticacionServicio Aut;
-
         private IUsuarioServicio usuarioservice;
+        private string rol;
+        private string nombreusuario;
+
 
         public InstitucionServicio(IInstitucionRepositorio mInstitucionRepositorio, IAutenticacionServicio aut, IUsuarioServicio pusuarioservice)
         {
             this.mInstitucionRepositorio = mInstitucionRepositorio;
             Aut = aut;
             usuarioservice = pusuarioservice;
+            var usuario = usuarioservice.GetCookieData();
+            rol = usuario.Rol;
+            nombreusuario = usuario.Usuario;
         }
 
         public IList<IInstitucion> GetTodas()
         {
-            return mInstitucionRepositorio.GetInstituciones();
 
+            IList<IInstitucion> listainstituciones;
+
+            if (rol == "Supervisor")
+            {
+                return mInstitucionRepositorio.GetInstituciones();
+            }
+            else
+            {
+                return mInstitucionRepositorio.GetInstituciones().Where(c => c.UsuarioAlta == nombreusuario).ToList();
+            }
         }
 
         public InstitucionVista GetInstituciones()
         {
             InstitucionVista mInstitucionVista = new InstitucionVista();
 
-            mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones();
+            if (rol == "Supervisor")
+            {
+                mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones();
+            }
+            else
+            {
+                mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones().Where(c => c.UsuarioAlta == nombreusuario).ToList();
+            }
+
+            //mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones();
 
             return mInstitucionVista;
         }
 
         public InstitucionVista GetIndex()
         {
-
             InstitucionVista mInstitucionVista = new InstitucionVista();
 
-            var pager = new Pager(mInstitucionRepositorio.GetCountInstituciones(), Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexInstituciones", Aut.GetUrl("IndexPager", "Instituciones"));
+            int cantidadpaginas = 0;
+
+            if (rol == "Supervisor")
+            {
+                cantidadpaginas = mInstitucionRepositorio.GetCountInstituciones();
+            }
+            else
+            {
+                cantidadpaginas =
+                    mInstitucionRepositorio.GetInstituciones().Where(c => c.UsuarioAlta == nombreusuario).Count();
+            }
+
+            var pager = new Pager(cantidadpaginas, Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexInstituciones", Aut.GetUrl("IndexPager", "Instituciones"));
 
             mInstitucionVista.pager = pager;
 
-            mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones(pager.Skip, pager.PageSize);
+            if (rol == "Supervisor")
+            {
+                mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones(pager.Skip, pager.PageSize);
+            }
+            else
+            {
+                mInstitucionVista.ListaInstituciones =
+                    mInstitucionRepositorio.GetInstituciones().Where(c => c.UsuarioAlta == nombreusuario).OrderBy(
+                        c => c.Nombre_Institucion).Skip(pager.Skip).Take(pager.PageSize).ToList();
+            }
+
+
 
             return mInstitucionVista;
 
@@ -64,9 +108,31 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         {
             InstitucionVista mInstitucionVista = new InstitucionVista();
 
+            int cantidadpaginas = 0;
+
+            if (rol == "Supervisor")
+            {
+                cantidadpaginas = mInstitucionRepositorio.GetCountInstituciones();
+            }
+            else
+            {
+                cantidadpaginas =
+                    mInstitucionRepositorio.GetInstituciones().Where(c => c.UsuarioAlta == nombreusuario).Count();
+            }
+
             mInstitucionVista.pager = page;
 
-            mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones(page.Skip, page.PageSize);
+            // mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones(page.Skip, page.PageSize);
+            if (rol == "Supervisor")
+            {
+                mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones(page.Skip, page.PageSize);
+            }
+            else
+            {
+                mInstitucionVista.ListaInstituciones =
+                    mInstitucionRepositorio.GetInstituciones().Where(c => c.UsuarioAlta == nombreusuario).OrderBy(
+                        c => c.Nombre_Institucion).Skip(page.Skip).Take(page.PageSize).ToList();
+            }
 
             return mInstitucionVista;
         }
@@ -141,34 +207,40 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             try
             {
                 InstitucionVista mInstitucionVista = new InstitucionVista();
-                
 
-                if (nombreinstitucion != null)
+                int cantidadpaginas = 0;
+
+                if (rol == "Supervisor")
                 {
-                    
-                    //mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.BuscarInstitucion(nombreinstitucion);
-
-                    var pager = new Pager(mInstitucionRepositorio.BuscarInstitucion(nombreinstitucion).Count(), Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexInstituciones", Aut.GetUrl("IndexPager", "Instituciones"));
-
-                    mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.BuscarInstitucion(nombreinstitucion,
-                                                                                                     pager.Skip,
-                                                                                                     pager.PageSize);
-
-                    mInstitucionVista.pager = pager;
+                    cantidadpaginas = mInstitucionRepositorio.BuscarInstitucion(nombreinstitucion).Count();
                 }
                 else
                 {
-                   
-                    var pager = new Pager(mInstitucionRepositorio.GetInstituciones().Count(), Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexInstituciones", Aut.GetUrl("IndexPager", "Instituciones"));
-
-                    mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones(pager.Skip, pager.PageSize);
-
-                    mInstitucionVista.pager = pager;
+                    cantidadpaginas = mInstitucionRepositorio.BuscarInstitucion(nombreinstitucion).Where(c => c.UsuarioAlta == nombreusuario).Count();
                 }
 
-                
-                //var pager = new Pager(mInstitucionRepositorio.GetCountInstituciones(), Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexInstituciones", Aut.GetUrl("IndexPager", "Instituciones"));
-                
+                var pager = new Pager(cantidadpaginas, Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexInstituciones", Aut.GetUrl("IndexPager", "Instituciones"));
+
+                //mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.BuscarInstitucion(nombreinstitucion,
+                //                                                                                 pager.Skip,
+                //                                                                                 pager.PageSize);
+
+                if (rol == "Supervisor")
+                {
+                    mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.BuscarInstitucion(nombreinstitucion,
+                                                                                               pager.Skip,
+                                                                                               pager.PageSize);
+                }
+                else
+                {
+                    mInstitucionVista.ListaInstituciones =
+                        mInstitucionRepositorio.BuscarInstitucion(nombreinstitucion).Where(
+                            c => c.UsuarioAlta == nombreusuario).OrderBy(c => c.Nombre_Institucion).Skip(pager.Skip).
+                            Take(pager.PageSize).ToList();
+                }
+
+
+                mInstitucionVista.pager = pager;
 
                 return mInstitucionVista;
             }
@@ -185,9 +257,23 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 InstitucionVista mInstitucionVista = new InstitucionVista();
 
-                mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.BuscarInstitucion(nombreinstitucion,
-                                                                                                    page.Skip,
-                                                                                                    page.PageSize);
+                //mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.BuscarInstitucion(nombreinstitucion,
+                //                                                                                    page.Skip,
+                //                                                                                    page.PageSize);
+
+                if (rol == "Supervisor")
+                {
+                    mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.BuscarInstitucion(nombreinstitucion,
+                                                                                               page.Skip,
+                                                                                               page.PageSize);
+                }
+                else
+                {
+                    mInstitucionVista.ListaInstituciones =
+                        mInstitucionRepositorio.BuscarInstitucion(nombreinstitucion).Where(
+                            c => c.UsuarioAlta == nombreusuario).OrderBy(c => c.Nombre_Institucion).Skip(page.Skip).
+                            Take(page.PageSize).ToList();
+                }
 
                 mInstitucionVista.pager = page;
 
@@ -195,7 +281,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
             catch (Exception)
             {
-                    
+
                 throw;
             }
         }
