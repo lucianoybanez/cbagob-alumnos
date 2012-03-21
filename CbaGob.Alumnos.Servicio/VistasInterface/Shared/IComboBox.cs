@@ -10,6 +10,7 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface.Shared
         IList<IComboItem> Combo { get; set; }
         string Selected { get; set; }
         bool Enabled { get; set; }
+        bool readOnly { get; set; }
     }
 
     public interface IComboItem

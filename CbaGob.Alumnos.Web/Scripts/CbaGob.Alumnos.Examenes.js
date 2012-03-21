@@ -3,10 +3,14 @@
 
 $(function () {
 
+    // Set Mask
+
+    $("#Nota").mask("9?9");
+
     var accion = $("#Accion").val();
     if (accion == "Eliminar") {
 
-        $("fieldset input").attr('readonly', 'readonly');
+        
         var urleliminar = $("#urlEliminar").val();
         $("#FormExamenes").attr('action', urleliminar);
         $("#BTGuardar").val("Eliminar");

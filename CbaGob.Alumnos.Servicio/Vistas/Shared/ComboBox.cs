@@ -13,10 +13,12 @@ namespace CbaGob.Alumnos.Servicio.Vistas.Shared
         {
             Combo = new List<IComboItem>();
             Enabled = true;
+            readOnly = false;
         }
         public IList<IComboItem> Combo { get; set; }
         public string Selected { get; set; }
         public bool Enabled { get; set; }
+        public bool readOnly { get; set; }
     }
 
     public class ComboItem : IComboItem

@@ -27,7 +27,7 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public IComboBox Nivel { get; set; }
         public IComboBox Modalidad { get; set; }
         public IComboBox Programa { get; set; }
-        [Range(0, 10)]
+        [Range(1, 10)]
         public decimal PromedioRequerido { get; set; }
         [Range(1, 999)]
         public int CantidadExamenes { get; set; }

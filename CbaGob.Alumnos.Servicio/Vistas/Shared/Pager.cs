@@ -49,7 +49,20 @@ namespace CbaGob.Alumnos.Servicio.Vistas.Shared
             {
                 if (pageSize==0)
                 {
-                    pageSize = 20;
+                   try
+                    {
+                        pageSize = Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount"));
+                        if (pageSize==0)
+                        {
+                            pageSize = 10;
+                        }
+                    }
+                    catch 
+                    {
+                        pageSize = 10;
+                    }
+
+                    
                 }
                 return pageSize;
             }

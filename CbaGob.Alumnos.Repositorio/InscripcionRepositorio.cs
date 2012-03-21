@@ -54,7 +54,8 @@ namespace CbaGob.Alumnos.Repositorio
                                  Dni = c.T_ALUMNOS.NRO_DOCUMENTO,
                                  FechaFin = c.T_CONDICIONES_CURSO.FEC_FIN,
                                  FechaIncio = c.T_CONDICIONES_CURSO.FEC_INICIO,
-                                 NroResolucion = c.T_CONDICIONES_CURSO.NRO_RESOLUCION
+                                 NroResolucion = c.T_CONDICIONES_CURSO.NRO_RESOLUCION,
+                                 Aprobo = c.APROBO=="T"
                              });
             return a;
         }
@@ -144,7 +145,7 @@ namespace CbaGob.Alumnos.Repositorio
             return null;
         }
 
-        public IList<IInscripcionReporte> GetAllInscripcionBy(int CondicionCurso)
+        public IList<IInscripcionReporte> GetAllInscripcionBy(int CondicionCurso, bool onlyActive)
         {
             var a = (from p in mDb.T_INSCRIPCIONES
                      where p.ID_CONDICION_CURSO == CondicionCurso
@@ -159,12 +160,21 @@ namespace CbaGob.Alumnos.Repositorio
                                         p.T_PRESENTISMO.Where(c => c.ID_INSCRIPCION == p.ID_INSCRIPCION).Select(
                                             c => c.CLASES_ASISTIDAS).FirstOrDefault(),
                                     Estado =
-                                        p.ESTADO=="A",
+                                        p.ESTADO == "A",
                                     Notas =
-                                        p.T_EXAMENES.Where(c => c.ID_INSCRIPCION == p.ID_INSCRIPCION).Sum(c => c.NOTA) == null ? 0 : p.T_EXAMENES.Where(c => c.ID_INSCRIPCION == p.ID_INSCRIPCION).Sum(c => c.NOTA),
-
+                                        p.T_EXAMENES.Where(c => c.ID_INSCRIPCION == p.ID_INSCRIPCION).Sum(c => c.NOTA) ==
+                                        null
+                                            ? 0
+                                            : p.T_EXAMENES.Where(c => c.ID_INSCRIPCION == p.ID_INSCRIPCION).Sum(
+                                                c => c.NOTA),
+                                    Aprobo = p.APROBO == "T"
 
                                 }).ToList().Cast<IInscripcionReporte>().ToList();
+            if (onlyActive)
+            {
+                return a.Where(c => c.Estado).ToList();
+            }
+
             return a;
         }
 
@@ -190,7 +200,8 @@ namespace CbaGob.Alumnos.Repositorio
                                                         FECHA = inscripcion.Fecha,
                                                         USR_ALTA = inscripcion.UsuarioAlta,
                                                         USR_MODIF = inscripcion.UsuarioModificacion,
-                                                        DESCRIPCION = inscripcion.Descripcion
+                                                        DESCRIPCION = inscripcion.Descripcion,
+                                                        APROBO = inscripcion.Aprobo ? "T" : "F"
                                                     };
                 mDb.AddToT_INSCRIPCIONES(t_inscripcion);
                 mDb.SaveChanges();
@@ -213,6 +224,7 @@ namespace CbaGob.Alumnos.Repositorio
                 t_inscripcion.ESTADO = inscripcion.Estado;
                 t_inscripcion.DESCRIPCION = inscripcion.Descripcion;
                 t_inscripcion.FECHA = inscripcion.Fecha;
+                t_inscripcion.APROBO = inscripcion.Aprobo ? "T" : "F";
                 mDb.SaveChanges();
                 return true;
             }

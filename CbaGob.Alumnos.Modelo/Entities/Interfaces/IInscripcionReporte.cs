@@ -12,5 +12,6 @@ namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
         int ClasesAsistidas { get; set; }
         decimal Notas { get; set; }
         int Sexo { get; set; }
+        bool Aprobo { get; set; }
     }
 }

@@ -11,37 +11,42 @@
 }
 <div class="box">
     <h2>
-       Generacion de Reportes</h2>
+        Generación de Reportes</h2>
     <table align="center" style="width: 700px;">
         <tr>
-            <td>
+            <td class="style1" style="font-weight: bold">
                 @using (Html.BeginForm("GenerarReporte", "Inscripciones", FormMethod.Post, new { Id = "FormularioReportes" }))
                 { 
                     @Html.HiddenFor(c => c.IdCondicionCurso)  
-                    @Html.ValidationSummary(true)
-                    @Html.HiddenFor(c=> c.Accion)
+                   
+                    @Html.HiddenFor(c => c.Accion)
+                   
                     <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
-                        text-align: center;">
+                        text-align: center;align:left;">
                         <legend style="color: #FF9900"><b>Datos para el Reporte</b></legend>
+                         @Html.ValidationSummary(true)
                         <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
-                            width: 700px;">    
+                            width: 700px;">
                             <tr>
                                 <td align="left">
                                     Tipo de Reporte
                                 </td>
                                 <td align="left" valign="middle">
-                                   <input type="radio" class="reporteTipo" name="reporteTipo"  @(Model.Accion == "asistencia" ? "checked='checked'" : "") value="asistencia" />Nomina de Asistencia<br/>
-                                   <input type="radio" class="reporteTipo" name="reporteTipo" @(Model.Accion == "participante" ? "checked='checked'" : "") value="participante" />Nomina de Participantes<br/>
-                                   <input type="radio" class="reporteTipo" name="reporteTipo"  @(Model.Accion == "egresado" ? "checked='checked'" : "") value="egresado" />Nomina de Egresados
+                                    <input type="radio" class="reporteTipo" name="reporteTipo"  @(Model.Accion == "asistencia" ? "checked='checked'" : "") value="asistencia" />Nomina
+                                    de Asistencia<br />
+                                    <input type="radio" class="reporteTipo" name="reporteTipo" @(Model.Accion == "participante" ? "checked='checked'" : "") value="participante" />Nomina
+                                    de Participantes<br />
+                                    <input type="radio" class="reporteTipo" name="reporteTipo"  @(Model.Accion == "egresado" ? "checked='checked'" : "") value="egresado" />Nomina
+                                    de Egresados
                                 </td>
-                            </tr>               
+                            </tr>
                             <tr>
                                 <td align="left">
                                     <b>Institucion:</b>
                                 </td>
                                 <td align="left" valign="middle">
                                     @Html.TextBoxFor(c => c.NombreInstitucion, new { @readonly = "readonly" })
-                                    <a href="#" id="BuscarInstitucion">Buscar Institucion</a>
+                                    <a href="#" id="BuscarInstitucion">Buscar Condición de Curso</a>
                                     @Html.ValidationMessageFor(m => m.NombreInstitucion, "*")
                                 </td>
                             </tr>
@@ -62,7 +67,7 @@
                                     @Html.TextBoxFor(c => c.NombreEstadoCurso, new { @readonly = "readonly" })
                                     @Html.ValidationMessageFor(m => m.NombreEstadoCurso, "*")
                                 </td>
-                            </tr>                          
+                            </tr>
                             <tr>
                                 <td align="left">
                                     <b>Modalidad:</b>
@@ -112,7 +117,7 @@
                         <table align="center" width="700px">
                             <tr>
                                 <td align="right">
-                                <input type="submit" value="Generar Reporte" class="btnIngresar" />                                   
+                                    <input type="submit" value="Generar Reporte" class="btnIngresar" />
                                 </td>
                             </tr>
                             <tr>
@@ -124,7 +129,7 @@
                     
                 }
             </td>
-        </tr>       
+        </tr>
     </table>
 </div>
 @Html.Partial("BuscadorCondicionCurso")
