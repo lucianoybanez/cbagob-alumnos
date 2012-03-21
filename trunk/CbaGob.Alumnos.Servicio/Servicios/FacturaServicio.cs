@@ -16,30 +16,59 @@ namespace CbaGob.Alumnos.Servicio.Servicios
     public class FacturaServicio : BaseServicio, IFacturaServicio
     {
         private IFacturaRepositorio FacturaRepositorio;
-
         private ICondicionCursoRepositorio CondicionCursoRepositorio;
-
         private IInstitucionRepositorio InstitucionRepositorio;
-
         private IAutenticacionServicio Aut;
+        private IUsuarioServicio usuarioservice;
+        private string rol;
+        private string nombreusuario;
 
-        public FacturaServicio(IFacturaRepositorio facturaRepositorio, ICondicionCursoRepositorio condicionCursoRepositorio, IInstitucionRepositorio institucionRepositorio, IAutenticacionServicio aut)
+        public FacturaServicio(IFacturaRepositorio facturaRepositorio, ICondicionCursoRepositorio condicionCursoRepositorio, IInstitucionRepositorio institucionRepositorio, IAutenticacionServicio aut, IUsuarioServicio usuarioservice)
         {
             FacturaRepositorio = facturaRepositorio;
             CondicionCursoRepositorio = condicionCursoRepositorio;
             InstitucionRepositorio = institucionRepositorio;
             Aut = aut;
+            this.usuarioservice = usuarioservice;
+            Aut = aut;
+            var usuario = usuarioservice.GetCookieData();
+            rol = usuario.Rol;
+            nombreusuario = usuario.Usuario;
         }
 
         public IFacturasVista GetFacturas()
         {
             IFacturasVista vista = new FacturasVista();
 
-            var pager = new Pager(FacturaRepositorio.GetCountFacturas(), Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexFacturas", Aut.GetUrl("IndexPager", "Factura"));
+            int cantidadpaginas = 0;
+
+            if (rol == "Supervisor")
+            {
+                cantidadpaginas = FacturaRepositorio.GetCountFacturas();
+            }
+            else
+            {
+                cantidadpaginas =
+                    FacturaRepositorio.GetFacturas().Where(c => c.UsuarioAlta == nombreusuario).Count();
+            }
+
+            var pager = new Pager(cantidadpaginas, Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexFacturas", Aut.GetUrl("IndexPager", "Factura"));
 
             vista.Pager = pager;
 
-            vista.Facturas = FacturaRepositorio.GetFacturas(pager.Skip, pager.PageSize);
+
+            if (rol == "Supervisor")
+            {
+                vista.Facturas = FacturaRepositorio.GetFacturas(pager.Skip, pager.PageSize);
+            }
+            else
+            {
+                vista.Facturas =
+                    FacturaRepositorio.GetFacturas().Where(c => c.UsuarioAlta == nombreusuario).OrderBy(
+                        c => c.NombreInstitucion).Skip(pager.Skip).Take(pager.PageSize).ToList();
+            }
+
+
             return vista;
         }
 
@@ -49,7 +78,16 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
             vista.Pager = Pager;
 
-            vista.Facturas = FacturaRepositorio.GetFacturas(Pager.Skip, Pager.PageSize);
+            if (rol == "Supervisor")
+            {
+                vista.Facturas = FacturaRepositorio.GetFacturas(Pager.Skip, Pager.PageSize);
+            }
+            else
+            {
+                vista.Facturas =
+                    FacturaRepositorio.GetFacturas().Where(c => c.UsuarioAlta == nombreusuario).OrderBy(
+                        c => c.NombreInstitucion).Skip(Pager.Skip).Take(Pager.PageSize).ToList();
+            }
 
             return vista;
         }
@@ -58,11 +96,31 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         {
             IFacturasVista vista = new FacturasVista();
 
-            var pager = new Pager(FacturaRepositorio.GetCountFacturasbyLiquidacion(), Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexFacturasLiquidacion", Aut.GetUrl("IndexPagerLiquidacion", "Factura"));
+            int cantidadpaginas = 0;
+            if (rol == "Supervisor")
+            {
+                cantidadpaginas = FacturaRepositorio.GetCountFacturasbyLiquidacion();
+            }
+            else
+            {
+                cantidadpaginas =
+                    FacturaRepositorio.GetFacturasbyLiquidacion().Where(c => c.UsuarioAlta == nombreusuario).Count();
+            }
+
+            var pager = new Pager(cantidadpaginas, Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexFacturasLiquidacion", Aut.GetUrl("IndexPagerLiquidacion", "Factura"));
 
             vista.Pager = pager;
 
-            vista.Facturas = FacturaRepositorio.GetFacturasbyLiquidacion(pager.Skip, pager.PageSize);
+            if (rol == "Supervisor")
+            {
+                vista.Facturas = FacturaRepositorio.GetFacturasbyLiquidacion(pager.Skip, pager.PageSize);
+            }
+            else
+            {
+                vista.Facturas =
+                    FacturaRepositorio.GetFacturasbyLiquidacion().Where(c => c.UsuarioAlta == nombreusuario).OrderBy(
+                        c => c.NombreInstitucion).Skip(pager.Skip).Take(pager.PageSize).ToList();
+            }
 
             return vista;
         }
@@ -73,7 +131,16 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
             vista.Pager = Pager;
 
-            vista.Facturas = FacturaRepositorio.GetFacturasbyLiquidacion(Pager.Skip, Pager.PageSize);
+            if (rol == "Supervisor")
+            {
+                vista.Facturas = FacturaRepositorio.GetFacturasbyLiquidacion(Pager.Skip, Pager.PageSize);
+            }
+            else
+            {
+                vista.Facturas =
+                    FacturaRepositorio.GetFacturasbyLiquidacion().Where(c => c.UsuarioAlta == nombreusuario).OrderBy(
+                        c => c.NombreInstitucion).Skip(Pager.Skip).Take(Pager.PageSize).ToList();
+            }
 
             return vista;
         }
@@ -221,8 +288,8 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 base.AddError("Surgio Un Error Vuelva a Intentarlo");
                 return false;
             }
-            
-           
+
+
         }
 
         public IList<IErrores> GetErrors()

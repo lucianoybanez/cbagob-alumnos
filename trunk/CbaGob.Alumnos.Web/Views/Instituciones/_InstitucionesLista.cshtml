@@ -102,7 +102,12 @@ else
         <tr>
             <td>
                 <div align="right" style="height: 20px; padding: 15px 5px 0 2px;">
-                    @Html.ActionLink("Agregar Institución", "Agregar", "Instituciones", new { @class = "btnIngresar" })
+                    @{
+    if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+    {
+                        @Html.ActionLink("Agregar Institución", "Agregar", "Instituciones", new { @class = "btnIngresar" })
+    }
+                    }
                 </div>
             </td>
         </tr>

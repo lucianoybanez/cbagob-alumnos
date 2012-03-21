@@ -28,10 +28,10 @@
                 {
                     <tr>
                         <td align="left" height="28">
-                            @item.NombreInstitucion
+                            @item.NombreInstitucion.ToMaxLenght(20)
                         </td>
                         <td align="center" width="50">
-                            @item.NombrePersonaJuridica
+                            @item.NombrePersonaJuridica.ToMaxLenght(30)
                         </td>
                         <td align="center" width="50">
                             @item.Fec_Supervision.ToShortDateString()

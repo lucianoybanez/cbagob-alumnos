@@ -64,7 +64,9 @@ namespace System.Web.Mvc
         [StringValue("Responsable IFP")]
         ResponsableIFP,
         [StringValue("Capacitador")]
-        Capacitador
+        Capacitador,
+        [StringValue ("as Capacitador")]
+        Dario
 
     }
 

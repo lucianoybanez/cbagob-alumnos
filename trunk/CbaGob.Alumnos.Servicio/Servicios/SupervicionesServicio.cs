@@ -17,14 +17,20 @@ namespace CbaGob.Alumnos.Servicio.Servicios
     public class SupervicionesServicio : BaseServicio, ISupervicionesServicio
     {
         private ISupervicionesRepositorio supervicionesrepositorio;
-
         private IAutenticacionServicio Aut;
+        private IUsuarioServicio usuarioservice;
+        private string rol;
+        private string nombreusuario;
 
 
-        public SupervicionesServicio(ISupervicionesRepositorio supervicionesrepositorio, IAutenticacionServicio aut)
+        public SupervicionesServicio(ISupervicionesRepositorio supervicionesrepositorio, IAutenticacionServicio aut, IUsuarioServicio usuarioservice)
         {
             this.supervicionesrepositorio = supervicionesrepositorio;
             Aut = aut;
+            this.usuarioservice = usuarioservice;
+            var usuario = usuarioservice.GetCookieData();
+            rol = usuario.Rol;
+            nombreusuario = usuario.Usuario;
         }
 
         public ISupervicionesVista GetSuperviciones()
@@ -33,12 +39,34 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             {
                 ISupervicionesVista supervicionesvista = new SupervicionesVista();
 
-                var pager = new Pager(supervicionesrepositorio.GetCountSuperviciones(), Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexSuperviciones", Aut.GetUrl("IndexPager", "Superviciones"));
+                int cantidadpaginas = 0;
+                if (rol == "Supervisor")
+                {
+                    cantidadpaginas = supervicionesrepositorio.GetCountSuperviciones();
+                }
+                else
+                {
+                    cantidadpaginas =
+                        supervicionesrepositorio.GetSuperviciones().Where(c => c.UsuarioAlta == nombreusuario).Count();
+                }
+
+                var pager = new Pager(cantidadpaginas, Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexSuperviciones", Aut.GetUrl("IndexPager", "Superviciones"));
 
                 supervicionesvista.Pager = pager;
 
-                supervicionesvista.ListaSuperviciones = supervicionesrepositorio.GetSuperviciones(pager.Skip,
-                                                                                                  pager.PageSize);
+                if (rol == "Supervisor")
+                {
+                    supervicionesvista.ListaSuperviciones = supervicionesrepositorio.GetSuperviciones(pager.Skip,
+                                                                                                 pager.PageSize);
+                }
+                else
+                {
+                    supervicionesvista.ListaSuperviciones =
+                        supervicionesrepositorio.GetSuperviciones().Where(c => c.UsuarioAlta == nombreusuario).OrderBy(
+                            c => c.Fec_Supervision).Skip(pager.Skip).Take(pager.PageSize).ToList();
+
+                }
+
 
                 return supervicionesvista;
             }
@@ -56,9 +84,18 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 ISupervicionesVista supervicionesvista = new SupervicionesVista();
 
                 supervicionesvista.Pager = Pager;
+                if (rol == "Supervisor")
+                {
+                    supervicionesvista.ListaSuperviciones = supervicionesrepositorio.GetSuperviciones(Pager.Skip,
+                                                                                                 Pager.PageSize);
+                }
+                else
+                {
+                    supervicionesvista.ListaSuperviciones =
+                        supervicionesrepositorio.GetSuperviciones().Where(c => c.UsuarioAlta == nombreusuario).OrderBy(
+                            c => c.Fec_Supervision).Skip(Pager.Skip).Take(Pager.PageSize).ToList();
 
-                supervicionesvista.ListaSuperviciones = supervicionesrepositorio.GetSuperviciones(Pager.Skip,
-                                                                                                  Pager.PageSize);
+                }
 
                 return supervicionesvista;
             }
