@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CbaGob.Alumnos.Servicio.Vistas.Shared;
@@ -8,8 +9,8 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
 {
     public interface IFacturaServicio : IBaseServicio
     {
-        IFacturasVista GetFacturas();
-        IFacturasVista GetFacturas(IPager Pager);
+        IFacturasVista GetFacturas(DateTime? Fecha, string NroFactura);
+        IFacturasVista GetFacturas(IPager Pager,DateTime? Fecha, string NroFactura);
         IFacturasVista GetFacturasbyLiquidacion();
         IFacturasVista GetFacturasbyLiquidacion(IPager Pager);
         IFacturaVista GetFactura(int IdFactura);

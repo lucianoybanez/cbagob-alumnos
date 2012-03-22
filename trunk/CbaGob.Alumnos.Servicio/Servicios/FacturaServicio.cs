@@ -36,7 +36,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             nombreusuario = usuario.Usuario;
         }
 
-        public IFacturasVista GetFacturas()
+        public IFacturasVista GetFacturas(DateTime? Fecha, string NroFactura)
         {
             IFacturasVista vista = new FacturasVista();
 
@@ -44,35 +44,34 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
             if (rol == "Supervisor")
             {
-                cantidadpaginas = FacturaRepositorio.GetCountFacturas();
+                cantidadpaginas = FacturaRepositorio.GetCountFacturas(string.Empty,Fecha,NroFactura);
             }
             else
             {
-                cantidadpaginas =
-                    FacturaRepositorio.GetFacturas().Where(c => c.UsuarioAlta == nombreusuario).Count();
+                cantidadpaginas = FacturaRepositorio.GetCountFacturas(nombreusuario, Fecha, NroFactura);
             }
 
-            var pager = new Pager(cantidadpaginas, Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormIndexFacturas", Aut.GetUrl("IndexPager", "Factura"));
+            var pager = new Pager(cantidadpaginas,  "FormIndexFacturas", Aut.GetUrl("IndexPager", "Factura"));
 
             vista.Pager = pager;
 
-
+            
             if (rol == "Supervisor")
             {
-                vista.Facturas = FacturaRepositorio.GetFacturas(pager.Skip, pager.PageSize);
+                vista.Facturas = FacturaRepositorio.GetFacturas(pager.Skip, pager.PageSize, string.Empty, Fecha,NroFactura);
             }
             else
             {
-                vista.Facturas =
-                    FacturaRepositorio.GetFacturas().Where(c => c.UsuarioAlta == nombreusuario).OrderBy(
-                        c => c.NombreInstitucion).Skip(pager.Skip).Take(pager.PageSize).ToList();
+                vista.Facturas = FacturaRepositorio.GetFacturas(pager.Skip, pager.PageSize, nombreusuario, Fecha,NroFactura);
             }
+
+            
 
 
             return vista;
         }
 
-        public IFacturasVista GetFacturas(IPager Pager)
+        public IFacturasVista GetFacturas(IPager Pager, DateTime? Fecha, string NroFactura)
         {
             IFacturasVista vista = new FacturasVista();
 
@@ -80,13 +79,11 @@ namespace CbaGob.Alumnos.Servicio.Servicios
 
             if (rol == "Supervisor")
             {
-                vista.Facturas = FacturaRepositorio.GetFacturas(Pager.Skip, Pager.PageSize);
+                vista.Facturas = FacturaRepositorio.GetFacturas(Pager.Skip, Pager.PageSize,string.Empty,Fecha,NroFactura);
             }
             else
             {
-                vista.Facturas =
-                    FacturaRepositorio.GetFacturas().Where(c => c.UsuarioAlta == nombreusuario).OrderBy(
-                        c => c.NombreInstitucion).Skip(Pager.Skip).Take(Pager.PageSize).ToList();
+                vista.Facturas = FacturaRepositorio.GetFacturas(Pager.Skip, Pager.PageSize, nombreusuario, Fecha, NroFactura);
             }
 
             return vista;

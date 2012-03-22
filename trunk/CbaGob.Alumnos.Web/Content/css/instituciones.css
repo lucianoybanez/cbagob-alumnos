@@ -104,9 +104,10 @@ th {
 	text-align: left;
 }
 
-td{
+#grilla  td{
     border-bottom:#ccc 1px solid;
 }
+
 #grilla tr:hover td {
 	background: #bcd4ec;
 }

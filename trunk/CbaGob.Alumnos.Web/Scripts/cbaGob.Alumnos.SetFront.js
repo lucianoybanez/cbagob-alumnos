@@ -9,8 +9,9 @@ cbaAlumnosSetFront = function () {
 
     function init() {
         setJqueyUi();
+        quitLastRowZebra();
     }
-    
+
     function setJqueyUi() {
 
         // tabs
@@ -36,6 +37,39 @@ cbaAlumnosSetFront = function () {
 
         $(":input[data-datepicker]").datepicker({ dateFormat: 'dd/mm/yy' });
         $(":input[data-datepicker]").mask("99/99/9999");
+    }
+
+    function quitLastRowZebra() {
+        $('table[id="grilla"] tr:last').each(function () {
+            var quit = false;
+            $(this).find("td").each(function () {
+                var result = $(this).attr('colspan');
+                if (result != "undefined ") {
+                    quit = true;
+                    return;
+                }
+
+            });
+
+            //border-bottom:#ccc 1px solid;
+            if (quit) {
+                $(this).find("td").each(function () {
+                    $(this).attr('style', 'border-bottom:#ccc 0px solid;');
+//                    $(this).hover(function () {
+//                        $(this).css({ 'background': '#fff' });
+//                    });
+                });
+                
+//                $(this)
+
+//                $(this).hover(function() {
+//                    $(this).css({ 'background': '#fff' });
+//                });
+
+
+            }
+
+        });
     }
 
     return {

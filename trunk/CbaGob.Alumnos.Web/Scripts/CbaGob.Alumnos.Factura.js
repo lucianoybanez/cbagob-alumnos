@@ -15,7 +15,7 @@ $(document).ready(function () {
         buttons: {
             "Ok": function () {
                 var f = $("#FormFactura");
-                $("#FormFactura").submit()
+                $("#FormFactura").submit();
                 $(this).dialog("close");
             },
             "Cancel": function () {
@@ -27,4 +27,12 @@ $(document).ready(function () {
     $('#Eliminar').click('click', function () {
         $('#dialog').dialog("open");
     });
+
+
+    $('#Buscar').click(function () {
+        var url = $("#UrlBuscar").val();
+        $('#FormIndexFacturas').attr('action', url);
+        $('#FormIndexFacturas').submit();
+    });
+
 });

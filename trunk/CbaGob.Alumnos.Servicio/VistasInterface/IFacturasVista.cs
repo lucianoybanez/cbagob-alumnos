@@ -13,5 +13,7 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         IList<IFactura> Facturas { get; set; }
         string SearchFacturas { get; set; }
         IPager Pager { get; set; }
+        string NroFactura { get; set; }
+        DateTime? Fecha { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CbaGob.Alumnos.Modelo.Entities.Interfaces;
@@ -8,8 +9,8 @@ namespace CbaGob.Alumnos.Modelo.Repositories
     public interface IFacturaRepositorio
     {
         IList<IFactura> GetFacturas();
-        IList<IFactura> GetFacturas(int skip, int take);
-        int GetCountFacturas();
+        IList<IFactura> GetFacturas(int skip, int take, string usuarioAlta, DateTime? Fecha, string nroFactura);
+        int GetCountFacturas(string usuarioAlta, DateTime? Fecha, string nroFactura);
         IList<IFactura> GetFacturasbyLiquidacion();
         IList<IFactura> GetFacturasbyLiquidacion(int skip, int take);
         int GetCountFacturasbyLiquidacion();
