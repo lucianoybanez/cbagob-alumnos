@@ -28,7 +28,6 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         private string nombreusuario;
 
 
-
         public AlumnosServicios(IAlumnosRepositorio alumnosrepositorio, ITipo_DniRepositorio tipoDnirepositorio, ITipo_EstadoCivilRepositorio tipoEstadocivilrepositorio, ITipo_SexoRepositorio tipoSexorepositorio, IHorarioServicio phorarioServicio, IGrupoServicio pgrupoServicio, IAutenticacionServicio aut, IUsuarioServicio pusuarioservice)
         {
             this.alumnosrepositorio = alumnosrepositorio;
@@ -59,7 +58,10 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 else
                 {
                     cantidadpaginas =
-                        alumnosrepositorio.GetTodos().Where(c => c.UsuarioAlta == nombreusuario).Count();
+                        alumnosrepositorio.GetTodos().Where(
+                            c =>
+                            c.UsuarioAlta == nombreusuario ||
+                            c.UsuarioAlta == usuarioservice.GetRepresentante(nombreusuario).Representante).Count();
                 }
 
 
@@ -73,7 +75,10 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 else
                 {
                     vista.ListaAlumno =
-                        alumnosrepositorio.GetTodos().Where(c => c.UsuarioAlta == nombreusuario).OrderBy(c => c.Nombre).
+                        alumnosrepositorio.GetTodos().Where(c => c.UsuarioAlta == nombreusuario ||
+                                                                 c.UsuarioAlta ==
+                                                                 usuarioservice.GetRepresentante(nombreusuario).
+                                                                     Representante).OrderBy(c => c.Nombre).
                             Skip(pager.Skip).Take(pager.PageSize).ToList();
                 }
 
@@ -92,7 +97,18 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         {
             IAlumnosVista vista = new AlumnosVista();
 
-            vista.ListaAlumno = alumnosrepositorio.GetTodosByNombreApellido(nombre, apellido);
+            if (rol == "Supervisor")
+            {
+                vista.ListaAlumno = alumnosrepositorio.GetTodosByNombreApellido(nombre, apellido);
+            }
+            else
+            {
+                vista.ListaAlumno =
+                    alumnosrepositorio.GetTodosByNombreApellido(nombre, apellido).Where(
+                        c =>
+                        c.UsuarioAlta == nombreusuario ||
+                        c.UsuarioAlta == usuarioservice.GetRepresentante(nombreusuario).Representante).ToList();
+            }
 
             return vista;
 
@@ -102,7 +118,19 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         {
             IAlumnosVista vista = new AlumnosVista();
 
-            vista.ListaAlumno = alumnosrepositorio.GetTodosByDni(dni);
+            if (rol == "Supervisor")
+            {
+                vista.ListaAlumno = alumnosrepositorio.GetTodosByDni(dni);
+            }
+            else
+            {
+                vista.ListaAlumno = alumnosrepositorio.GetTodosByDni(dni).Where(
+                    c =>
+                    c.UsuarioAlta == nombreusuario ||
+                    c.UsuarioAlta == usuarioservice.GetRepresentante(nombreusuario).Representante).ToList();
+            }
+
+
 
             return vista;
         }
@@ -444,7 +472,8 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 {
                     cantidadpaginas =
                         alumnosrepositorio.BuscarAlumnos(nombre, apellido, dni, cuil).Where(
-                            c => c.UsuarioAlta == nombreusuario).Count();
+                            c => c.UsuarioAlta == nombreusuario ||
+                                 c.UsuarioAlta == usuarioservice.GetRepresentante(nombreusuario).Representante).Count();
                 }
 
 
@@ -459,8 +488,10 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 {
                     vista.ListaAlumno =
                         alumnosrepositorio.BuscarAlumnos(nombre, apellido, dni, cuil).Where(
-                            c => c.UsuarioAlta == nombreusuario).OrderBy(c => c.Nombre).Skip(pager.Skip).Take(
-                                pager.PageSize).ToList();
+                            c => c.UsuarioAlta == nombreusuario ||
+                                 c.UsuarioAlta == usuarioservice.GetRepresentante(nombreusuario).Representante).OrderBy(
+                                     c => c.Nombre).Skip(pager.Skip).Take(
+                                         pager.PageSize).ToList();
                 }
 
                 vista.Pager = pager;
@@ -488,8 +519,10 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 {
                     vista.ListaAlumno =
                         alumnosrepositorio.BuscarAlumnos(nombre, apellido, dni, cuil).Where(
-                            c => c.UsuarioAlta == nombreusuario).OrderBy(c => c.Nombre).Skip(pager.Skip).Take(
-                                pager.PageSize).ToList();
+                            c => c.UsuarioAlta == nombreusuario ||
+                                 c.UsuarioAlta == usuarioservice.GetRepresentante(nombreusuario).Representante).OrderBy(
+                                     c => c.Nombre).Skip(pager.Skip).Take(
+                                         pager.PageSize).ToList();
                 }
 
                 vista.Pager = pager;

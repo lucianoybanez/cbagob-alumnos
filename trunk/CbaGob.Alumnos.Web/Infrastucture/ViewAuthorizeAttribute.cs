@@ -29,14 +29,14 @@ namespace System.Web.Mvc
             return true;
         }
 
-     
+
 
         private bool RolesAcces(HttpContextBase httpContext)
         {
             var usuario = UsuarioServicio.GetCookieData();
             bool AccesRol = false;
 
-            if (Rol!=null)
+            if (Rol != null)
             {
                 foreach (var item in Rol)
                 {
@@ -46,7 +46,7 @@ namespace System.Web.Mvc
                         break;
                     }
                 }
-                if (AccesRol==false)
+                if (AccesRol == false)
                 {
                     string m_error = usuario.Rol + " no tiene acceso a esta parte del sistema.";
                     httpContext.Response.Redirect("~/Home/AccesoDenegado?error=" + m_error);
@@ -65,12 +65,11 @@ namespace System.Web.Mvc
         ResponsableIFP,
         [StringValue("Capacitador")]
         Capacitador,
-        [StringValue ("as Capacitador")]
-        Dario
+
 
     }
 
 
-   
+
 
 }

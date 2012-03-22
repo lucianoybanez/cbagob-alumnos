@@ -13,12 +13,12 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
         bool IsCuentaValida(string username, string password);
         void Login(string nombre);
         ICookieData GetCookieData();
-
         IUsuarioVista GetUsuario(int idusuario);
         IUsuarioVista GetAllUsuarios(IPager pager);
         bool GuardarUsuario(IUsuarioVista usuario);
         bool EliminarUsuario(int idusuario);
         IUsuarioVista GetUsuario(string nombre);
         IComboBox GetRoles();
+        IUsuarioVista GetRepresentante(string nombre);
     }
 }

@@ -11,6 +11,7 @@ namespace CbaGob.Alumnos.Modelo.Entities
         public string Password { get; set; }
         public string Rol { get; set; }
         public int IdRol { get; set; }
+        public string UsuarioResponsable { get; set; }
         public DateTime FechaAlta { get; set; }
         public string UsuarioAlta { get; set; }
         public DateTime FechaModificacion { get; set; }

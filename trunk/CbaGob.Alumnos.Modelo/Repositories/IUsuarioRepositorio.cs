@@ -9,10 +9,12 @@ namespace CbaGob.Alumnos.Modelo.Repositories
         IUsuario GetUserByNamePassword(string name, string password);
         IUsuario GetUsersByName(string nombre, bool activo);
         IList<IUsuario> GetAllUsuarios(int skip, int take);
+        IList<IUsuario> GetUsuarios();
         int GetAllUsuarios();
         bool AgregarUsuario(IUsuario usuario);
         bool ModificarUsuario(IUsuario usuario);
         bool EliminarUsuario(int usuario);
         IList<IRol> GetTodosRoles();
+        IUsuario GetRepresentante(string nombre);
     }
 }

@@ -16,5 +16,6 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         IComboBox Roles { get; set; }
         IList<IUsuario> Usuarios { get; set; }
         IPager pager { get; set; }
+        string Representante { get; set; }
     }
 }

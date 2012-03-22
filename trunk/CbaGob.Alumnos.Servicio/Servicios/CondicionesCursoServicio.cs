@@ -8,27 +8,25 @@ using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
 using CbaGob.Alumnos.Servicio.Vistas.Shared;
 using CbaGob.Alumnos.Servicio.VistasInterface;
+using System.Linq;
 
 namespace CbaGob.Alumnos.Servicio.Servicios
 {
     public class CondicionesCursoServicio : BaseServicio, ICondicionesCursoServicio
     {
         private ICondicionCursoRepositorio CondicionCursoRepositorio;
-
         private ICursosRepositorio CursosRepositorio;
-
         private IModalidadRepositorio ModalidadRepositorio;
-
         private INivelRepositorio NivelRepositorio;
-
         private IProgramaRepositorio ProgramaRepositorio;
-
         private IInstitucionRepositorio InstitucionRepositorio;
-
         private IEstadoCursoRepositorio EstadoCursoRepositorio;
+        private IUsuarioServicio usuarioservice;
+        private string rol;
+        private string nombreusuario;
 
 
-        public CondicionesCursoServicio(ICondicionCursoRepositorio condicionCursoRepositorio, ICursosRepositorio cursosRepositorio, IModalidadRepositorio modalidadRepositorio, INivelRepositorio nivelRepositorio, IProgramaRepositorio programaRepositorio, IInstitucionRepositorio institucionRepositorio, IEstadoCursoRepositorio estadoCursoRepositorio)
+        public CondicionesCursoServicio(ICondicionCursoRepositorio condicionCursoRepositorio, ICursosRepositorio cursosRepositorio, IModalidadRepositorio modalidadRepositorio, INivelRepositorio nivelRepositorio, IProgramaRepositorio programaRepositorio, IInstitucionRepositorio institucionRepositorio, IEstadoCursoRepositorio estadoCursoRepositorio, IUsuarioServicio usuarioservice)
         {
             CondicionCursoRepositorio = condicionCursoRepositorio;
             CursosRepositorio = cursosRepositorio;
@@ -37,6 +35,10 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             ProgramaRepositorio = programaRepositorio;
             InstitucionRepositorio = institucionRepositorio;
             EstadoCursoRepositorio = estadoCursoRepositorio;
+            this.usuarioservice = usuarioservice;
+            var usuario = usuarioservice.GetCookieData();
+            rol = usuario.Rol;
+            nombreusuario = usuario.Usuario;
         }
 
         public ICondicionesCursoVista GetByInstitucionId(int IdInstitucion)
@@ -241,7 +243,24 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             catch
             {
             }
-            vista.CondicionesCursos = CondicionCursoRepositorio.BuscarCondiciones(institucion, nivel, curso, añoValor, programa);
+
+            if (rol == "Supervisor")
+            {
+                vista.CondicionesCursos = CondicionCursoRepositorio.BuscarCondiciones(institucion, nivel, curso,
+                                                                                      añoValor, programa);
+            }
+            else
+            {
+                vista.CondicionesCursos = CondicionCursoRepositorio.BuscarCondiciones(institucion, nivel, curso,
+                                                                                      añoValor, programa).Where(
+                                                                                          c =>
+                                                                                          c.UsuarioAlta == nombreusuario ||
+                                                                                          c.UsuarioAlta ==
+                                                                                          usuarioservice.
+                                                                                              GetRepresentante(
+                                                                                                  nombreusuario).
+                                                                                              Representante).ToList();
+            }
 
             return vista;
         }
@@ -264,7 +283,19 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 {
                 }
 
-                vista.CondicionesCursos = CondicionCursoRepositorio.BuscarCondiciones(idInstitucion, curso, añoValor, programa);
+                if (rol == "Supervisor")
+                {
+                    vista.CondicionesCursos = CondicionCursoRepositorio.BuscarCondiciones(idInstitucion, curso, añoValor, programa);
+                }
+                else
+                {
+                    vista.CondicionesCursos =
+                        CondicionCursoRepositorio.BuscarCondiciones(idInstitucion, curso, añoValor, programa).Where(
+                            c =>
+                            c.UsuarioAlta == nombreusuario ||
+                            c.UsuarioAlta == usuarioservice.GetRepresentante(nombreusuario).Representante).ToList();
+                }
+
 
                 return vista;
             }

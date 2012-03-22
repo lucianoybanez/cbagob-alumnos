@@ -10,5 +10,6 @@ namespace CbaGob.Alumnos.Modelo.Entities.Interfaces
         string Password { get; set; }
         string Rol { get; set; }
         int IdRol { get; set; }
+        string UsuarioResponsable { get; set; }
     }
 }

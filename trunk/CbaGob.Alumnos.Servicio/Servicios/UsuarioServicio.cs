@@ -18,26 +18,27 @@ namespace CbaGob.Alumnos.Servicio.Servicios
     public class UsuarioServicio : BaseServicio, IUsuarioServicio
     {
         private IUsuarioRepositorio UsuarioRepositorio;
-
         private IAutenticacionServicio AutenticacionServicio;
+        private string rol;
+        private string nombreusuario;
 
         public UsuarioServicio(IUsuarioRepositorio _usuarioRepositorio, IAutenticacionServicio _autenticacionServicio)
         {
             UsuarioRepositorio = _usuarioRepositorio;
             AutenticacionServicio = _autenticacionServicio;
+
         }
 
         public IList<IErrores> GetErrors()
         {
             return base.Errors;
         }
-       
 
         public void Login(string nombre)
         {
-            var usuario = UsuarioRepositorio.GetUsersByName(nombre,true);
+            var usuario = UsuarioRepositorio.GetUsersByName(nombre, true);
             string dataCookie = usuario.NombreUsuario + "|" + usuario.Rol;
-            AutenticacionServicio.SignIn(nombre,dataCookie);
+            AutenticacionServicio.SignIn(nombre, dataCookie);
         }
 
         public ICookieData GetCookieData()
@@ -56,10 +57,10 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         {
             IUsuarioVista vista = new UsuarioVista();
             vista.Roles = GetRoles();
-            if (idusuario!=0)
+            if (idusuario != 0)
             {
                 var usuario = UsuarioRepositorio.GetUserById(idusuario);
-                if (usuario!=null)
+                if (usuario != null)
                 {
                     vista.Nombre = usuario.NombreUsuario;
                     vista.password = usuario.Password;
@@ -69,11 +70,13 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
             return vista;
         }
-        
+
         public IComboBox GetRoles()
         {
             var roles = UsuarioRepositorio.GetTodosRoles();
             IComboBox combo = new ComboBox();
+            var usuario = GetCookieData();
+            rol = usuario.Rol;
             var lista = new List<IComboItem>();
             foreach (var role in roles)
             {
@@ -83,22 +86,88 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                                   description = role.Descripcion
                               });
             }
-            combo.Combo = lista;
+
+            if (rol == "Supervisor")
+            { combo.Combo = lista; }
+            else
+            {
+                combo.Combo = lista.Where(c => c.description == "Capacitador").ToList();
+            }
+
             return combo;
         }
-        
+
+        public IUsuarioVista GetRepresentante(string nombre)
+        {
+            IUsuarioVista vista = new UsuarioVista();
+            if (nombre != "")
+            {
+                var usuario = UsuarioRepositorio.GetRepresentante(nombre);
+                if (usuario != null)
+                {
+                    vista.Nombre = usuario.NombreUsuario;
+                    vista.password = usuario.Password;
+                    vista.idUsuario = usuario.IdUsuario;
+                    vista.Roles.Selected = usuario.Rol;
+                    vista.Representante = usuario.UsuarioResponsable;
+
+                }
+            }
+            return vista;
+        }
+
         public IUsuarioVista GetAllUsuarios(IPager pager)
         {
             IUsuarioVista vista = new UsuarioVista();
-            if (pager== null)
+
+            var usuario = GetCookieData();
+            rol = usuario.Rol;
+            nombreusuario = usuario.Usuario;
+
+            int cantidadpaginas = 0;
+
+            if (rol == "Supervisor")
             {
-                var mpager = new Pager(UsuarioRepositorio.GetAllUsuarios(), "FormIndexUsuario", AutenticacionServicio.GetUrl("IndexPager", "Usuario"));
-                vista.Usuarios = UsuarioRepositorio.GetAllUsuarios(mpager.Skip, mpager.PageSize);
+                cantidadpaginas = UsuarioRepositorio.GetAllUsuarios();
+            }
+            else
+            {
+                cantidadpaginas =
+                    UsuarioRepositorio.GetUsuarios().Where(c => c.UsuarioAlta == nombreusuario).Count();
+            }
+
+
+
+            if (pager == null)
+            {
+                var mpager = new Pager(cantidadpaginas, "FormIndexUsuario", AutenticacionServicio.GetUrl("IndexPager", "Usuario"));
+                if (rol == "Supervisor")
+                {
+                    vista.Usuarios = UsuarioRepositorio.GetAllUsuarios(mpager.Skip, mpager.PageSize);
+                }
+                else
+                {
+                    vista.Usuarios =
+                        UsuarioRepositorio.GetUsuarios().Where(c => c.UsuarioAlta == nombreusuario).OrderBy(
+                            c => c.NombreUsuario).Skip(mpager.Skip).Take(mpager.PageSize).ToList();
+
+                }
                 vista.pager = mpager;
             }
             else
             {
-                vista.Usuarios = UsuarioRepositorio.GetAllUsuarios(pager.Skip, pager.PageSize);
+
+                if (rol == "Supervisor")
+                {
+                    vista.Usuarios = UsuarioRepositorio.GetAllUsuarios(pager.Skip, pager.PageSize);
+                }
+                else
+                {
+                    vista.Usuarios =
+                         UsuarioRepositorio.GetUsuarios().Where(c => c.UsuarioAlta == nombreusuario).OrderBy(
+                             c => c.NombreUsuario).Skip(pager.Skip).Take(pager.PageSize).ToList();
+
+                }
                 vista.pager = pager;
 
             }
@@ -114,12 +183,23 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             mUsuario.Password = usuario.password;
             mUsuario.IdRol = int.Parse(usuario.Roles.Selected);
 
+            var usuarioget = GetCookieData();
+            rol = usuarioget.Rol;
+            nombreusuario = usuarioget.Usuario;
+
+            int cantidadpaginas = 0;
+
+            if (rol == "ResponsableIFP")
+            {
+                mUsuario.UsuarioResponsable = nombreusuario;
+            }
+
             bool result = false;
 
             if (usuario.Accion == "Alta")
             {
-                var getUsuario = UsuarioRepositorio.GetUsersByName(mUsuario.NombreUsuario,false);
-                if (getUsuario!=null)
+                var getUsuario = UsuarioRepositorio.GetUsersByName(mUsuario.NombreUsuario, false);
+                if (getUsuario != null)
                 {
                     mUsuario.IdUsuario = getUsuario.IdUsuario;
                     usuario.Accion = "Modificar";
@@ -154,7 +234,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
         {
             IUsuarioVista vista = new UsuarioVista();
             var usuario = UsuarioRepositorio.GetUsersByName(nombre, true);
-            if (usuario!=null)
+            if (usuario != null)
             {
                 vista.Usuarios.Add(usuario);
             }
@@ -176,7 +256,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             return ret;
         }
 
-      
+
     }
 
 

@@ -18,7 +18,6 @@ namespace CbaGob.Alumnos.Repositorio
             mDb = new CursosDB();
         }
 
-
         private IQueryable<IUsuario> QUsuario(string estado)
         {
             var a = (from u in mDb.T_USUARIO
@@ -29,11 +28,12 @@ namespace CbaGob.Alumnos.Repositorio
                                     Rol = u.T_ROL.DESCRIPCION,
                                     NombreUsuario = u.NOMBRE,
                                     Password = u.PASSWORD,
-                                    IdRol = u.T_ROL.ID_ROL
+                                    IdRol = u.T_ROL.ID_ROL,
+                                    UsuarioResponsable = u.USURIO_RESPONSABLE,
+                                    UsuarioAlta = u.USR_ALTA 
                                 });
             return a;
         }
-
 
         public IUsuario GetUserById(int id)
         {
@@ -59,6 +59,11 @@ namespace CbaGob.Alumnos.Repositorio
             return QUsuario("A").OrderBy(c=> c.NombreUsuario).Skip(skip).Take(take).ToList();
         }
 
+        public IList<IUsuario> GetUsuarios()
+        {
+            return QUsuario("A").ToList();
+        }
+
         public int GetAllUsuarios()
         {
             return QUsuario("A").Count();
@@ -78,6 +83,7 @@ namespace CbaGob.Alumnos.Repositorio
                 mUsuario.USR_MODIF = usuario.UsuarioModificacion;
                 mUsuario.ESTADO = usuario.Estado;
                 mUsuario.ID_ROL = usuario.IdRol;
+                mUsuario.USURIO_RESPONSABLE = usuario.UsuarioResponsable;
                 mDb.AddToT_USUARIO(mUsuario);
                 mDb.SaveChanges();
                 return true;
@@ -145,6 +151,11 @@ namespace CbaGob.Alumnos.Repositorio
                                          UsuarioModificacion = rol.USR_MODIF
                                      }).ToList().Cast<IRol>().ToList();
             return result;
+        }
+
+        public IUsuario GetRepresentante(string nombre)
+        {
+            return QUsuario("A").Where(c => c.NombreUsuario == nombre).FirstOrDefault();
         }
     }
 }
