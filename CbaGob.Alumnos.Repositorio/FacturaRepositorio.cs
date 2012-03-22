@@ -46,41 +46,43 @@ namespace CbaGob.Alumnos.Repositorio
 
         public IList<IFactura> GetFacturas()
         {
-            try
-            {
-                return QFactura().ToList();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            return QFactura().ToList();
         }
 
-        public IList<IFactura> GetFacturas(int skip, int take)
+        public IList<IFactura> GetFacturas(int skip, int take, string usuarioAlta, DateTime? Fecha, string nroFactura)
         {
-            try
+            var query = QFactura();
+            if (!string.IsNullOrEmpty(nroFactura))
             {
-                return QFactura().OrderBy(c => c.NombreInstitucion).Skip(skip).Take(take).ToList();
+                query = query.Where(c => c.NroFactura.ToLower().StartsWith(nroFactura.ToLower()));
             }
-            catch (Exception)
+            if (!string.IsNullOrEmpty(usuarioAlta))
             {
-
-                throw;
+                query = query.Where(c => c.UsuarioAlta == usuarioAlta);
             }
+            if (Fecha != null)
+            {
+                query = query.Where(c => c.FechaAlta == Fecha);
+            }
+            return query.OrderBy(c => c.NombreInstitucion).Skip(skip).Take(take).ToList();
         }
 
-        public int GetCountFacturas()
+        public int GetCountFacturas(string usuarioAlta, DateTime? Fecha, string nroFactura)
         {
-            try
+            var query = QFactura();
+            if (!string.IsNullOrEmpty(nroFactura))
             {
-                return QFactura().Count();
+                query = query.Where(c => c.NroFactura.ToLower().StartsWith(nroFactura.ToLower()));
             }
-            catch (Exception)
+            if (!string.IsNullOrEmpty(usuarioAlta))
             {
-
-                throw;
+                query = query.Where(c => c.UsuarioAlta == usuarioAlta);
             }
+            if (Fecha!=null)
+            {
+                query = query.Where(c => c.FechaAlta == Fecha);
+            }
+            return query.Count();
         }
 
         private IQueryable<IFactura> QFacturaLiquidacion()
@@ -109,42 +111,17 @@ namespace CbaGob.Alumnos.Repositorio
 
         public IList<IFactura> GetFacturasbyLiquidacion()
         {
-            try
-            {
-                return QFacturaLiquidacion().ToList();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            
+            return QFacturaLiquidacion().ToList();
         }
 
         public IList<IFactura> GetFacturasbyLiquidacion(int skip, int take)
         {
-            try
-            {
-                return QFacturaLiquidacion().OrderBy(c => c.NombreInstitucion).Skip(skip).Take(take).ToList();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            return QFacturaLiquidacion().OrderBy(c => c.NombreInstitucion).Skip(skip).Take(take).ToList();
         }
 
         public int GetCountFacturasbyLiquidacion()
         {
-            try
-            {
-                return QFacturaLiquidacion().Count();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            return QFacturaLiquidacion().Count();
         }
 
         public IFactura GetFacturabyId(int idFactura)
@@ -190,58 +167,44 @@ namespace CbaGob.Alumnos.Repositorio
 
         public int AgregarFactura(IFactura factura)
         {
-            try
-            {
-                base.AgregarDatosAlta(factura);
-                T_FACTURAS facturas = new T_FACTURAS()
-                {
-                    CONCEPTO = factura.Concepto,
-                    ESTADO = factura.Estado,
-                    FEC_ALTA = factura.FechaAlta,
-                    FEC_MODIF = factura.FechaModificacion,
-                    MONTO_TOTAL = factura.DetalleFactura.Monto,
-                    NRO_FACTURA = factura.NroFactura,
-                    USR_ALTA = factura.UsuarioAlta,
-                    USR_MODIF = factura.UsuarioModificacion,
-                    ID_CONDICION_CURSO = factura.IdCondicionCurso,
-                    LIQUIDADA = "N"
-                };
+            base.AgregarDatosAlta(factura);
+            T_FACTURAS facturas = new T_FACTURAS()
+                                      {
+                                          CONCEPTO = factura.Concepto,
+                                          ESTADO = factura.Estado,
+                                          FEC_ALTA = factura.FechaAlta,
+                                          FEC_MODIF = factura.FechaModificacion,
+                                          MONTO_TOTAL = factura.DetalleFactura.Monto,
+                                          NRO_FACTURA = factura.NroFactura,
+                                          USR_ALTA = factura.UsuarioAlta,
+                                          USR_MODIF = factura.UsuarioModificacion,
+                                          ID_CONDICION_CURSO = factura.IdCondicionCurso,
+                                          LIQUIDADA = "N"
+                                      };
 
-                mDB.AddToT_FACTURAS(facturas);
-                mDB.SaveChanges();
+            mDB.AddToT_FACTURAS(facturas);
+            mDB.SaveChanges();
 
-                T_DETALLES_FACTURA obj = new T_DETALLES_FACTURA()
-                                             {
-                                                 ESTADO = factura.Estado,
-                                                 FEC_ALTA = factura.FechaAlta,
-                                                 DESCRIPCION = factura.DetalleFactura.Descripcion,
-                                                 FEC_MODIF = factura.FechaModificacion,
-                                                 ITEM = factura.DetalleFactura.Item,
-                                                 USR_MODIF = factura.UsuarioModificacion,
-                                                 USR_ALTA = factura.UsuarioAlta,
-                                                 MONTO = factura.DetalleFactura.Monto,
-                                                 ID_FACTURA = mDB.T_FACTURAS.OrderByDescending(c => c.ID_FACTURA).First().ID_FACTURA
+            T_DETALLES_FACTURA obj = new T_DETALLES_FACTURA()
+                                         {
+                                             ESTADO = factura.Estado,
+                                             FEC_ALTA = factura.FechaAlta,
+                                             DESCRIPCION = factura.DetalleFactura.Descripcion,
+                                             FEC_MODIF = factura.FechaModificacion,
+                                             ITEM = factura.DetalleFactura.Item,
+                                             USR_MODIF = factura.UsuarioModificacion,
+                                             USR_ALTA = factura.UsuarioAlta,
+                                             MONTO = factura.DetalleFactura.Monto,
+                                             ID_FACTURA = mDB.T_FACTURAS.OrderByDescending(c => c.ID_FACTURA).First().ID_FACTURA
 
-                                             };
-                mDB.AddToT_DETALLES_FACTURA(obj);
-                mDB.SaveChanges();
+                                         };
+            mDB.AddToT_DETALLES_FACTURA(obj);
+            mDB.SaveChanges();
 
 
 
-                return mDB.T_FACTURAS.OrderByDescending(c => c.ID_FACTURA).First().ID_FACTURA;
-
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-
-            return 0;
-
-
-
-
-        }
+            return mDB.T_FACTURAS.OrderByDescending(c => c.ID_FACTURA).First().ID_FACTURA;
+       }
 
         public bool ModificarFactura(IFactura factura)
         {

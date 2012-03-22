@@ -28,9 +28,14 @@ namespace CbaGob.Alumnos.Web.Controllers
             this.condicionescursoservicio = condicionescursoservicio;
         }
 
+        public ActionResult Buscar(DateTime? Fecha, string NroFactura)
+        {
+            return View("Index", FacturaServicio.GetFacturas(Fecha, NroFactura));
+        }
+
         public ActionResult Index()
         {
-            return View("Index", FacturaServicio.GetFacturas());
+            return View("Index", FacturaServicio.GetFacturas(null, ""));
         }
 
         public ActionResult Agregar(int idCondicionCurso, int IdInstitucion)
@@ -131,9 +136,9 @@ namespace CbaGob.Alumnos.Web.Controllers
         }
 
 
-        public ActionResult IndexPager(Pager pager)
+        public ActionResult IndexPager(Pager pager,DateTime? Fecha,string NroFactura)
         {
-            return View("Index", FacturaServicio.GetFacturas(pager));
+            return View("Index", FacturaServicio.GetFacturas(pager, Fecha, NroFactura));
         }
 
 
