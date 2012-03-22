@@ -439,6 +439,7 @@
           <Property Name="ROSOL_REPROCA" Type="varchar2" MaxLength="64" />
           <Property Name="FEC_NACIMIENTO" Type="date" />
           <Property Name="TELEFONO" Type="varchar2" MaxLength="30" />
+          <Property Name="ID_USUARIO" Type="number" Precision="10" />
         </EntityType>
         <EntityType Name="T_DOCENTES_GRUPO">
           <Key>
@@ -937,6 +938,7 @@
           <Property Name="USR_MODIF" Type="varchar2" Nullable="false" MaxLength="20" />
           <Property Name="ESTADO" Type="varchar2" Nullable="false" MaxLength="1" />
           <Property Name="ID_ROL" Type="number" Nullable="false" Precision="10" />
+          <Property Name="USURIO_RESPONSABLE" Type="varchar2" MaxLength="64" />
         </EntityType>
         <Association Name="T_ALUMNOS_HORARIO_T_ALUMN_FK1">
           <End Role="T_ALUMNOS" Type="Model_Cursos.Store.T_ALUMNOS" Multiplicity="0..1" />
@@ -2000,6 +2002,7 @@
           <NavigationProperty Name="T_DOCENTES_GRUPO" Relationship="Model_Cursos.T_DOCENTES_GRUPO_T_DOCENT_FK1" FromRole="T_DOCENTES" ToRole="T_DOCENTES_GRUPO" />
           <NavigationProperty Name="T_DOCENTES_HORARIO" Relationship="Model_Cursos.T_DOCENTES_HORARIO_T_DOCE_FK1" FromRole="T_DOCENTES" ToRole="T_DOCENTES_HORARIO" />
           <NavigationProperty Name="T_TIPOS_DOCENTE" Relationship="Model_Cursos.T_DOCENTES_T_TIPOS_DOCENT_FK1" FromRole="T_DOCENTES" ToRole="T_TIPOS_DOCENTE" />
+          <Property Type="Int32" Name="ID_USUARIO" />
         </EntityType>
         <EntityType Name="T_DOCENTES_GRUPO">
           <Key>
@@ -2560,6 +2563,7 @@
           <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="ID_ROL" Nullable="false" />
           <NavigationProperty Name="T_ROL" Relationship="Model_Cursos.T_USUARIO_T_ROL_FK1" FromRole="T_USUARIO" ToRole="T_ROL" />
+          <Property Type="String" Name="USURIO_RESPONSABLE" MaxLength="64" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="T_ALUMNOS_HORARIO_T_ALUMN_FK1">
           <End Type="Model_Cursos.T_ALUMNOS" Role="T_ALUMNOS" Multiplicity="0..1" />
@@ -3332,6 +3336,7 @@
           <EntitySetMapping Name="T_DOCENTES">
             <EntityTypeMapping TypeName="Model_Cursos.T_DOCENTES">
               <MappingFragment StoreEntitySet="T_DOCENTES">
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
                 <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
                 <ScalarProperty Name="FEC_NACIMIENTO" ColumnName="FEC_NACIMIENTO" />
                 <ScalarProperty Name="ROSOL_REPROCA" ColumnName="ROSOL_REPROCA" />
@@ -3878,6 +3883,7 @@
           <EntitySetMapping Name="T_USUARIO">
             <EntityTypeMapping TypeName="Model_Cursos.T_USUARIO">
               <MappingFragment StoreEntitySet="T_USUARIO">
+                <ScalarProperty Name="USURIO_RESPONSABLE" ColumnName="USURIO_RESPONSABLE" />
                 <ScalarProperty Name="ID_ROL" ColumnName="ID_ROL" />
                 <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
                 <ScalarProperty Name="USR_MODIF" ColumnName="USR_MODIF" />

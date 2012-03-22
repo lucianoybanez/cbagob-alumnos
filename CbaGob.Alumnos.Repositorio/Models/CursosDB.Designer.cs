@@ -6047,6 +6047,30 @@ namespace CbaGob.Alumnos.Repositorio.Models
         private global::System.String _TELEFONO;
         partial void OnTELEFONOChanging(global::System.String value);
         partial void OnTELEFONOChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ID_USUARIO
+        {
+            get
+            {
+                return _ID_USUARIO;
+            }
+            set
+            {
+                OnID_USUARIOChanging(value);
+                ReportPropertyChanging("ID_USUARIO");
+                _ID_USUARIO = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ID_USUARIO");
+                OnID_USUARIOChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ID_USUARIO;
+        partial void OnID_USUARIOChanging(Nullable<global::System.Int32> value);
+        partial void OnID_USUARIOChanged();
 
         #endregion
     
@@ -17322,6 +17346,30 @@ namespace CbaGob.Alumnos.Repositorio.Models
         private global::System.Int32 _ID_ROL;
         partial void OnID_ROLChanging(global::System.Int32 value);
         partial void OnID_ROLChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String USURIO_RESPONSABLE
+        {
+            get
+            {
+                return _USURIO_RESPONSABLE;
+            }
+            set
+            {
+                OnUSURIO_RESPONSABLEChanging(value);
+                ReportPropertyChanging("USURIO_RESPONSABLE");
+                _USURIO_RESPONSABLE = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("USURIO_RESPONSABLE");
+                OnUSURIO_RESPONSABLEChanged();
+            }
+        }
+        private global::System.String _USURIO_RESPONSABLE;
+        partial void OnUSURIO_RESPONSABLEChanging(global::System.String value);
+        partial void OnUSURIO_RESPONSABLEChanged();
 
         #endregion
     

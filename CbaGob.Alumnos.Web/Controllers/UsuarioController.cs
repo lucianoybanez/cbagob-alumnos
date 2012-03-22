@@ -13,7 +13,7 @@ using JLY.Hotel.Web.Controllers;
 
 namespace CbaGob.Alumnos.Web.Controllers
 {
-    [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor })]
+    [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
     public class UsuarioController : BaseController
     {
         private IUsuarioServicio UsuarioServicio;
@@ -48,7 +48,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             var vista = UsuarioServicio.GetUsuario(idUsuario);
             vista.Accion = "Modificar";
-            return View("Agregar",vista);
+            return View("Agregar", vista);
         }
 
         public ActionResult Eliminar(int idUsuario)
