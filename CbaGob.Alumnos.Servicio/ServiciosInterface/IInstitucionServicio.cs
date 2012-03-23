@@ -22,6 +22,8 @@ namespace CbaGob.Alumnos.Servicio.ServiciosInterface
         bool EliminarInstitucion(Int32 IdInstitucion, string nro_resolucion);
         InstitucionVista BuscarInstitucion(string nombreinstitucion);
         InstitucionVista BuscarInstitucion(IPager page, string nombreinstitucion);
-        
+        InstitucionVista GetInstitucionesForSuperviciones();
+        InstitucionVista GetInstitucionesForSuperviciones(IPager pager);
+
     }
 }
