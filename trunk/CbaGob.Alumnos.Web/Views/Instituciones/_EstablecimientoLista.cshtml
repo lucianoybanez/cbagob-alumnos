@@ -75,44 +75,16 @@
                             }
                         </td>
                         <td align="center">
-                            @if (item.Provincia.Length < 30)
-                            {
-                                @item.Provincia
-                            }
-                            else
-                            {
-                                @(item.Provincia.ToString().Substring(1, 29) + " ...")
-                            }
+                            @item.Provincia.ToMaxLenght(15)
                         </td>
                         <td align="center">
-                            @if (item.Localidad.Length < 30)
-                            {
-                                @item.Localidad
-                            }
-                            else
-                            {
-                                @(item.Localidad.ToString().Substring(1, 29) + " ...")
-                            }
+                            @item.Provincia.ToMaxLenght(15)
                         </td>
                         <td align="center">
-                            @if (item.Barrio.Length < 30)
-                            {
-                                @item.Barrio
-                            }
-                            else
-                            {
-                                @(item.Barrio.ToString().Substring(1, 29) + " ...")
-                            }
+                            @item.Barrio.ToMaxLenght(15)
                         </td>
                         <td align="center">
-                            @if (item.Calle.Length < 30)
-                            {
-                                @item.Calle
-                            }
-                            else
-                            {
-                                @(item.Calle.ToString().Substring(1, 29) + " ...")
-                            }
+                            @item.Calle.ToMaxLenght(15)
                         </td>
                         <td align="center">
                             @item.Nro

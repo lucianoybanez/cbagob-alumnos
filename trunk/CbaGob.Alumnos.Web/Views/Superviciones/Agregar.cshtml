@@ -15,7 +15,7 @@
             <td class="style1" style="font-weight: bold">
                 <div id="titulo">
                 </div>
-                @using (Html.BeginForm("Agregar_Supervicion", "Superviciones", FormMethod.Post, new { Id = "FormularioSuperviciones" }))
+                @using (Html.BeginForm("IndexPagerSup", "Superviciones", FormMethod.Post, new { Id = "FormularioSuperviciones" }))
                 { 
                     <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
                         width: 700px;">
@@ -28,6 +28,7 @@
                                             <fieldset>
                                                 <legend>Seleccione la Institución:</legend>
                                                 @Html.Partial("_InstitucionesLista", Model)
+                                                @Html.Partial("_Pager", Model.Institucions.pager)
                                             </fieldset>
                                         </td>
                                     </tr>

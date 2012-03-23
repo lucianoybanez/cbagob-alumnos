@@ -41,7 +41,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             ISupervicionVista model = new SupervicionVista();
 
-            model.Institucions = institucionservicio.GetInstituciones();
+            model.Institucions = institucionservicio.GetInstitucionesForSuperviciones();
 
             return View(model);
         }
@@ -52,7 +52,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             model.Cursos = condicionescursoservicio.GetByInstitucionId(IdInstitucion);
 
-            model.Institucions = institucionservicio.GetInstituciones();
+            model.Institucions = institucionservicio.GetInstitucionesForSuperviciones();
 
             return View("Agregar", model);
         }
@@ -65,7 +65,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             model.Grupos = gruposservicio.GetAllGrupoByCurso(idCondicionCurso);
 
-            model.Institucions = institucionservicio.GetInstituciones();
+            model.Institucions = institucionservicio.GetInstitucionesForSuperviciones();
 
             return View("Agregar", model);
         }
@@ -141,6 +141,15 @@ namespace CbaGob.Alumnos.Web.Controllers
         public ActionResult IndexPager(Pager pager)
         {
             return View("Index", supervicionesservicio.GetSuperviciones(pager));
+        }
+
+        public ActionResult IndexPagerSup(Pager pager)
+        {
+            ISupervicionVista model = new SupervicionVista();
+
+            model.Institucions = institucionservicio.GetInstitucionesForSuperviciones(pager);
+
+            return View("Agregar", model);
         }
 
     }

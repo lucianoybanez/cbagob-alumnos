@@ -301,6 +301,74 @@ namespace CbaGob.Alumnos.Servicio.Servicios
             }
         }
 
+        public InstitucionVista GetInstitucionesForSuperviciones()
+        {
+            InstitucionVista mInstitucionVista = new InstitucionVista();
+
+            if (rol == "Supervisor")
+            {
+                mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones();
+            }
+            else
+            {
+                mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones().Where(c => c.UsuarioAlta == nombreusuario).ToList();
+            }
+
+            var pager = new Pager(mInstitucionVista.ListaInstituciones.Count, Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings.Get("PageCount")), "FormularioSuperviciones", Aut.GetUrl("IndexPagerSup", "Superviciones"));
+
+            mInstitucionVista.pager = pager;
+
+
+            if (rol == "Supervisor")
+            {
+                mInstitucionVista.ListaInstituciones =
+                    mInstitucionRepositorio.GetInstituciones().OrderBy(c => c.Nombre_Institucion).Skip(pager.Skip).Take(
+                        pager.PageSize).ToList();
+            }
+            else
+            {
+                mInstitucionVista.ListaInstituciones =
+                    mInstitucionRepositorio.GetInstituciones().Where(c => c.UsuarioAlta == nombreusuario).OrderBy(
+                        c => c.Nombre_Institucion).Skip(pager.Skip).Take(
+                            pager.PageSize).ToList();
+            }
+
+            return mInstitucionVista;
+        }
+
+        public InstitucionVista GetInstitucionesForSuperviciones(IPager pager)
+        {
+            InstitucionVista mInstitucionVista = new InstitucionVista();
+
+            if (rol == "Supervisor")
+            {
+                mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones();
+            }
+            else
+            {
+                mInstitucionVista.ListaInstituciones = mInstitucionRepositorio.GetInstituciones().Where(c => c.UsuarioAlta == nombreusuario).ToList();
+            }
+
+            mInstitucionVista.pager = pager;
+
+
+            if (rol == "Supervisor")
+            {
+                mInstitucionVista.ListaInstituciones =
+                    mInstitucionRepositorio.GetInstituciones().OrderBy(c => c.Nombre_Institucion).Skip(pager.Skip).Take(
+                        pager.PageSize).ToList();
+            }
+            else
+            {
+                mInstitucionVista.ListaInstituciones =
+                    mInstitucionRepositorio.GetInstituciones().Where(c => c.UsuarioAlta == nombreusuario).OrderBy(
+                        c => c.Nombre_Institucion).Skip(pager.Skip).Take(
+                            pager.PageSize).ToList();
+            }
+
+            return mInstitucionVista;
+        }
+
         public IList<IErrores> GetErrors()
         {
             return base.Errors;
