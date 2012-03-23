@@ -10,6 +10,8 @@ cbaAlumnosSetFront = function () {
     function init() {
         setJqueyUi();
         quitLastRowZebra();
+        //setCommonFieldSet();
+        setCommonGrilla();
     }
 
     function setJqueyUi() {
@@ -23,8 +25,8 @@ cbaAlumnosSetFront = function () {
         });
 
         // Color Readonly
-        $(":input[readonly]").attr('style', 'background-color:#C0C0C0');
-        $(":input[set-readonly]").attr('style', 'background-color:#C0C0C0');
+        $(":input[readonly]").attr('style', 'color:#808080');
+        $(":input[set-readonly]").attr('style', 'color:#808080');
 
         // datepicker
 
@@ -44,32 +46,36 @@ cbaAlumnosSetFront = function () {
             var quit = false;
             $(this).find("td").each(function () {
                 var result = $(this).attr('colspan');
-                if (result != "undefined ") {
+                if (result != "undefined " && result != "1") {
                     quit = true;
                     return;
                 }
 
             });
 
-            //border-bottom:#ccc 1px solid;
             if (quit) {
                 $(this).find("td").each(function () {
                     $(this).attr('style', 'border-bottom:#ccc 0px solid;');
-//                    $(this).hover(function () {
-//                        $(this).css({ 'background': '#fff' });
-//                    });
+
                 });
-                
-//                $(this)
-
-//                $(this).hover(function() {
-//                    $(this).css({ 'background': '#fff' });
-//                });
-
-
+                $(this).hover(function () {
+                    $(this).css({ 'background': '#fff' });
+                });
             }
-
         });
+    }
+
+    function setCommonFieldSet() {
+        $("fieldset").attr('style', 'font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;margin-left: 5px; margin-top: 5px;"');
+    }
+
+    function setCommonGrilla() {
+        $("#grilla thead th").attr('height', '30');
+        //$("#grilla").attr('align', 'center');
+        //$("#grilla").attr('width', '722px');
+        //$("#grilla").attr('cellpadding', '0');
+        //$("#grilla").attr('cellspacing','0');
+
     }
 
     return {

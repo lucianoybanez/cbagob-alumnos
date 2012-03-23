@@ -46,7 +46,7 @@ text-decoration:none;
 #resumenPag ul li {
 	display: block;
 	position: relative;
-	float: left;
+	float: left;	
 }
 #resumenPag li ul {
 	display: none;
@@ -108,7 +108,7 @@ th {
     border-bottom:#ccc 1px solid;
 }
 
-#grilla tr:hover td {
+#grilla tr:hover {
 	background: #bcd4ec;
 }
 #tabs{
