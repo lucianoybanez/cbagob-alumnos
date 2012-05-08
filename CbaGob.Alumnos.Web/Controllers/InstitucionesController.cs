@@ -14,7 +14,7 @@ using JLY.Hotel.Web.Controllers;
 
 namespace CbaGob.Alumnos.Web.Controllers
 {
-    
+
     public class InstitucionesController : BaseController
     {
         private IInstitucionServicio InstitucionServicio;
@@ -61,6 +61,8 @@ namespace CbaGob.Alumnos.Web.Controllers
             model.ListaEstablecimiento = Establecimientoservicio.GetAllEstableciminetoByInstitucion(model.Id_Institucion).ListaEstablecimiento;
 
             model.CondicionesCursos = CondicionesCursoServicio.GetByInstitucionId(INST_ID).CondicionesCursos;
+
+            model.CountRows = model.CondicionesCursos.Count + 1;
 
             model.CajaChica = Cajachicaservice.GetCajaChicasByInstitucion(INST_ID);
 
@@ -140,7 +142,7 @@ namespace CbaGob.Alumnos.Web.Controllers
         public ActionResult Eliminar_Institucion(InstitucionVista model)
         {
 
-            
+
 
             bool mReturn = InstitucionServicio.EliminarInstitucion(model.Id_Institucion, model.Nro_Resolucion);
             if (mReturn)
@@ -210,7 +212,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             { return View("Index", InstitucionServicio.GetIndex(pager)); }
             else
             { return View("Index", InstitucionServicio.BuscarInstitucion(pager, Nombre_InstitucionBusqueda)); }
-            
+
         }
 
 

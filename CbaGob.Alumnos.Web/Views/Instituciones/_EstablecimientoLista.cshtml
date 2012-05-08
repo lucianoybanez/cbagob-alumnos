@@ -65,37 +65,30 @@
                 {
                     <tr>
                         <td align="left" height="28">
-                            @if (item.NombreEstablecimiento.Length < 30)
-                            {
-                                @item.NombreEstablecimiento
-                            }
-                            else
-                            {
-                                @(item.NombreEstablecimiento.ToString().Substring(1, 29) + " ...")
-                            }
+                            @item.NombreEstablecimiento.ToMaxLenght(10)
                         </td>
                         <td align="center">
-                            @item.Provincia.ToMaxLenght(15)
+                            @item.Provincia.ToMaxLenght(10)
                         </td>
                         <td align="center">
-                            @item.Provincia.ToMaxLenght(15)
+                            @item.Provincia.ToMaxLenght(10)
                         </td>
                         <td align="center">
-                            @item.Barrio.ToMaxLenght(15)
+                            @item.Barrio.ToMaxLenght(10)
                         </td>
                         <td align="center">
-                            @item.Calle.ToMaxLenght(15)
+                            @item.Calle.ToMaxLenght(10)
                         </td>
                         <td align="center">
                             @item.Nro
                         </td>
                         <td align="right" style="margin-right: 2px;">
                             @{
-                            if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
-                            {
+                    if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                    {
                                 @Html.ActionLink("Modificar", "Modificar", "Establecimientos", new { id_establecimiento = item.Id_Establecimiento }, new { @class = "btnIngresar" })
                                 @Html.ActionLink("Eliminar", "Eliminar", "Establecimientos", new { id_establecimiento = item.Id_Establecimiento }, new { @class = "btnIngresar" })
-                            }
+                    }
                                 @Html.ActionLink("Ver", "Consultar", "Establecimientos", new { id_establecimiento = item.Id_Establecimiento }, new { @class = "btnIngresar" })
                             }
                         </td>

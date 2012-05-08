@@ -123,6 +123,10 @@ namespace CbaGob.Alumnos.Repositorio
             try
             {
 
+                //var dario = (from a in mdb.T_FICHAS
+                //             join t in mdb.T_LOCALIDADES on t.ID_LOCALIDAD equals a.ID_LOCALIDAD
+                //             select new Ficha { }).ToList();
+
                 var ListaAlumno =
                     (from c in mDb.T_ALUMNOS
                      join cu in mDb.T_INSCRIPCIONES on c.ID_ALUMNO equals cu.ID_ALUMNO
