@@ -38,6 +38,7 @@ namespace CbaGob.Alumnos.Servicio.VistasInterface
         string NombreSede { get; set; }
         IPager pager { get; set; }
         string Telefono { get; set; }
+        int CountRows { get; set; }
 
     }
 }

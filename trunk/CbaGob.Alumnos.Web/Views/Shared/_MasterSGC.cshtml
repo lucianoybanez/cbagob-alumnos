@@ -50,7 +50,7 @@
                     if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
                     {
                     <li @{if (ViewBag.Title.Contains("Usuarios"))
-                          {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Usuarios", "Index", "Usuario", null, null)</li>
+                         {@Html.Raw("class=\"selected\"") }}>@Html.ActionLink("Usuarios", "Index", "Usuario", null, null)</li>
                     }
                         
                 }
@@ -154,5 +154,6 @@
     @RenderSection("Scripts", false)
     @Content.Script("cbaGob.Alumnos.SetFront.js", Url)
     @Content.Script("jquery.pager.js", Url)
+    @Content.Script("smartpaginator.js", Url)
 </body>
 </html>

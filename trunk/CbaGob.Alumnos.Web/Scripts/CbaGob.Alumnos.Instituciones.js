@@ -2,6 +2,8 @@
     $("#iconobuscar").click(function (event) {
         $("#buscar").slideToggle(1000);
     });
+
+    $('#pagecursos').smartpaginator({ totalrecords: $('#CountRows').val(), recordsperpage: 5, datacontainer: 'tablacursos', dataelement: 'tr', initval: 0, next: 'Next', prev: 'Prev', first: 'First', last: 'Last', theme: 'green' });
 });
 
 $(document).ready(function () {
