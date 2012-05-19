@@ -5,14 +5,14 @@
 {
     <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;
         margin-left: 5px; margin-top: 5px;">
-        <legend style="color: #FF9900"><b>Buscar</b></legend>
+        <legend style="color: #FF9900">Buscar</legend>
         <table>
             <tr>
                 <td height="35px">
-                    <b>Nombre Sede:&nbsp;</b>
+                    Nombre Sede:&nbsp;
                 </td>
                 <td>
-                    @Html.TextBoxFor(c => c.NombreSede, new { style = "width:250px;", MaxLength = "150", Class = "asd" })
+                    @Html.TextBoxFor(c => c.NombreSede, new { style = "width:250px;", MaxLength = "150", Class = "asd", placeholder=PlaceHolderConstants.SedeNombre })
                     @Html.HiddenFor(c => c.Id_Institucion)
                     @Html.HiddenFor(c => c.añobuscqueda, new { Id = "añobuscqueda" })
                     @Html.HiddenFor(c => c.cursobusqueda)
