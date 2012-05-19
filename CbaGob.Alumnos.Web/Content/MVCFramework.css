@@ -8,10 +8,10 @@
     display: none;
 }
 
-.input-validation-error {
+/*.input-validation-error {
     border: 1px solid #ff0000;
     background-color: #ffeeee;
-}
+}*/
 
 .validation-summary-errors {
     font-weight: bold;
@@ -26,4 +26,13 @@
 
 .validation-summary-valid {
     display: none;
+}
+
+/*--------------Styles for placeholder --------------*/
+label.placeholder
+{
+    cursor: text;
+    padding: 4px 4px 4px 4px;
+    color: #999999;
+    font-family: Arial, Helvetica, sans-serif !important;
 }

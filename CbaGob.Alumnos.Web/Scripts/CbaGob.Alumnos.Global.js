@@ -10,7 +10,12 @@ cbaAlumnosGlobal = function () {
     function init() {
 
         setPager();
+        loadPlaceHolder();
 
+    }
+
+    function loadPlaceHolder() {
+        $('input[placeholder],textarea[placeholder]').placeholder();
     }
 
     function setPager() {
@@ -18,7 +23,7 @@ cbaAlumnosGlobal = function () {
         var PageNumber = parseInt($("#PageNumber").val());
         var PageCount = parseInt($("#TotalPages").val());
 
-        PageClick = function(pageclickednumber) {
+        PageClick = function (pageclickednumber) {
             $("#PageNumber").val(pageclickednumber);
             $("#pager").pager({ pagenumber: pageclickednumber, pagecount: PageCount, buttonClickCallback: PageClick });
             var formName = $('#FormName').val();
