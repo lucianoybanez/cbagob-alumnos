@@ -13,5 +13,8 @@
         public const string Expediente = "ej. 8444485";
         public const string SedeNombre = "ej. Central";
         public const string CursoNombre = "ej. Programación";
+        public const string ModalidadNombre = "ej. Modalidad 1";
+        public const string ProgramaNombre = "ej. Programa 1";
+        public const string CursoPresupuesto = "ej. $ 2000";
     }
 }
