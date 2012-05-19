@@ -22,12 +22,12 @@
                     @Html.ValidationSummary(true)
                     <br />
                     <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
-                        <legend style="color: #FF9900"><b>Datos del Curso</b></legend>
+                        <legend style="color: #FF9900">Datos del Curso</legend>
                         <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
                             width: 700px;">
                             <tr>
                                 <td>
-                                    <b>Nombre de la Institución:</b>
+                                    Nombre de la Institución:
                                 </td>
                                 <td>
                                     @Html.TextBoxFor(c => c.NombeInstitucion, new { style = "width:250px;", MaxLength = "150", disabled = "disabled" })
@@ -35,7 +35,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <b>Nombre del Curso:</b>
+                                    Nombre del Curso:
                                 </td>
                                 <td>
                                     @Html.EditorFor(c => c.Curso)
@@ -43,7 +43,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <b>Estado del Curso:</b>
+                                    Estado del Curso:
                                 </td>
                                 <td>
                                     @Html.EditorFor(c => c.EstadoCurso)
@@ -51,7 +51,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <b>Modalidad:</b>
+                                    Modalidad:
                                 </td>
                                 <td>
                                     @Html.EditorFor(c => c.Modalidad)
@@ -59,7 +59,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <b>Cantidad de Clases:</b>
+                                    @Html.LabelFor(c=> c.CantidadClases)
                                 </td>
                                 <td>
                                     @Html.TextBoxFor(c => c.CantidadClases, new { style = "width:50px;", MaxLength = "4", disabled = "disabled" })
@@ -68,7 +68,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <b>Cantidad de Examenes:</b>
+                                    @Html.LabelFor(c=> c.CantidadExamenes)
                                 </td>
                                 <td>
                                     @Html.TextBoxFor(c => c.CantidadExamenes, new { style = "width:50px;", MaxLength = "3", disabled = "disabled" })
@@ -77,7 +77,16 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <b>Carga Horaria:</b>
+                                    @Html.LabelFor(c=> c.PromedioRequerido)
+                                </td>
+                                <td>
+                                    @Html.TextBoxFor(c => c.PromedioRequerido, new { style = "width:50px;", MaxLength = "4", disabled = "disabled" })
+                                    @Html.ValidationMessageFor(c => c.PromedioRequerido, "*")
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.LabelFor(c=> c.CargaHoraria)
                                 </td>
                                 <td>
                                     @Html.TextBoxFor(c => c.CargaHoraria, new { style = "width:50px;", MaxLength = "3", disabled = "disabled" })
@@ -86,7 +95,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <b>Cupo:</b>
+                                    @Html.LabelFor(c=> c.Cupo)
                                 </td>
                                 <td>
                                     @Html.TextBoxFor(c => c.Cupo, new { style = "width:50px;", MaxLength = "3", disabled = "disabled" })
@@ -95,7 +104,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <b>Presentismo:</b>
+                                    @Html.LabelFor(c=> c.Presentismo)
                                 </td>
                                 <td>
                                     @Html.TextBoxFor(c => c.Presentismo, new { style = "width:50px;", MaxLength = "3", disabled = "disabled" })%
@@ -104,7 +113,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <b>Presupuesto:</b>
+                                    @Html.LabelFor(c=> c.Presupuesto)
                                 </td>
                                 <td>
                                     $@Html.TextBoxFor(c => c.Presupuesto, new { style = "width:50px;", MaxLength = "8", disabled = "disabled" })
@@ -113,7 +122,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <b>Fecha Inicio:</b>
+                                    Fecha Inicio:
                                 </td>
                                 <td>
                                     @Html.TextBoxFor(c => c.Fecha_Inicio, new { style = "width:72px;", MaxLength = "8", disabled = "disabled" })
@@ -121,7 +130,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <b>Fecha Fin:</b>
+                                    Fecha Fin:
                                 </td>
                                 <td>
                                     @Html.TextBoxFor(c => c.Fecha_Fin, new { style = "width:72px;", MaxLength = "8", disabled = "disabled" })
@@ -129,7 +138,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <b>Programa:</b>
+                                    Programa:
                                 </td>
                                 <td>
                                     @Html.EditorFor(c => c.Programa)
@@ -137,10 +146,10 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <b>Nro Resolución:</b>
+                                    Numero de Resolución:
                                 </td>
                                 <td>
-                                    @Html.TextBoxFor(c => c.Nro_Resolucion, new { style = "width:250px;", MaxLength = "64" })
+                                    @Html.TextBoxFor(c => c.Nro_Resolucion, new { style = "width:250px;", MaxLength = "64", placeholder = PlaceHolderConstants.Resolucion })
                                     @Html.ValidationMessageFor(c => c.Nro_Resolucion, "*")
                                 </td>
                             </tr>
