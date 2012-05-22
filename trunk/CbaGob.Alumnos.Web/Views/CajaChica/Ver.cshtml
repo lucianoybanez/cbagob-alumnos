@@ -18,11 +18,11 @@
                 @using (Html.BeginForm("Eliminar_Grupo", "Grupos", FormMethod.Post, new { Id = "FormularioGrupos" }))
                 { 
                     <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
-                        <legend style="color: #FF9900"><b>Datos de la Caja</b></legend>
+                        <legend style="color: #FF9900">Datos de la Caja</legend>
                         <table>
                             <tr>
                                 <td>
-                                    <b>Nombre Institucion:</b>
+                                    Nombre Institución:
                                 </td>
                                 <td>
                                     @Html.TextBoxFor(c => c.NombreInstitucion, new { disabled = "disabled", style = "width:200px;", MaxLength = "50", Class = "asd" })
@@ -30,7 +30,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <b>Estado Caja Chica:</b>
+                                    Estado Caja Chica:
                                 </td>
                                 <td>
                                     @Html.TextBoxFor(c => c.NombreEstadoCaja, new { disabled = "disabled", style = "width:150px;", MaxLength = "50", Class = "asd" })
@@ -38,7 +38,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <b>Saldo Caja:</b>
+                                    Saldo Caja:
                                 </td>
                                 <td>
                                     @Html.TextBoxFor(c => c.SaldoCaja, new { disabled = "disabled", style = "width:150px;", MaxLength = "50", Class = "asd" })
@@ -47,7 +47,7 @@
                         </table>
                     </fieldset>
                     <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
-                        <legend style="color: #FF9900"><b>Movimientos </b></legend>
+                        <legend style="color: #FF9900">Movimientos </legend>
                         <table>
                             <tr>
                                 <td>@Html.Partial("_MovimientosLista", Model)

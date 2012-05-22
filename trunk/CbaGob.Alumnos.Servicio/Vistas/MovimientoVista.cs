@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,9 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         [Required(ErrorMessage = "*")]
         public string Nombre_Movimiento { get; set; }
         public DateTime Fecha { get; set; }
+        [Required]
+        [Range(typeof(decimal), "1", "99", ErrorMessage = "*")]
+        [DisplayName("Monto ($1 - $99)")]
         public decimal Monto { get; set; }
         [Required(ErrorMessage = "*")]
         public string Descripcion { get; set; }

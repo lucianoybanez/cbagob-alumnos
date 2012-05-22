@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using CbaGob.Alumnos.Servicio.Vistas.Shared;
@@ -18,6 +20,9 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         public int Id_Caja_Chica { get; set; }
         public int Id_Estado_Caja_Chica { get; set; }
         public int Id_Institucion { get; set; }
+        [Required]
+        [Range(1,9999)]
+        [DisplayName("Monto ($1 - $9999):")]
         public decimal Monto { get; set; }
         public string NombreInstitucion { get; set; }
         public string NombreEstadoCaja { get; set; }
