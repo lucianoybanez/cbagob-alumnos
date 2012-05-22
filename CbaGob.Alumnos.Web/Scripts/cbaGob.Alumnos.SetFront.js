@@ -37,6 +37,7 @@ cbaAlumnosSetFront = function () {
             }
         });
 
+        
         $(":input[data-datepicker]").datepicker({ dateFormat: 'dd/mm/yy' });
         $(":input[data-datepicker]").mask("99/99/9999");
     }

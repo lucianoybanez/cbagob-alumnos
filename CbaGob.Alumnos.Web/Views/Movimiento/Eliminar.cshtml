@@ -23,12 +23,12 @@
                     @Html.HiddenFor(c => c.Id_Movimiento)
                     @Html.ValidationSummary(true)
                     <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
-                        <legend style="color: #FF9900"><b>Datos del Movimiento</b></legend>
+                        <legend style="color: #FF9900">Datos del Movimiento</legend>
                         <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
                             width: 700px;">
                             <tr>
                                 <td>
-                                    <b>Nombre del Movimiento:</b>
+                                    Nombre del Movimiento:
                                 </td>
                                 <td>
                                     @Html.TextBoxFor(c => c.Nombre_Movimiento, new { style = "width:350px;", MaxLength = "50", disabled = "disabled" })
@@ -36,7 +36,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <b>Tipo Movimiento:</b>
+                                    Tipo Movimiento:
                                 </td>
                                 <td>
                                     @Html.EditorFor(c => c.TipoMovimiento)
@@ -44,7 +44,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <b>Fecha:</b>
+                                    Fecha:
                                 </td>
                                 <td>
                                     @Html.TextBoxFor(c => c.Fecha, new { style = "width:150px;", MaxLength = "50", disabled = "disabled" })
@@ -52,7 +52,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <b>Monto:</b>
+                                    Monto:
                                 </td>
                                 <td>
                                     @Html.TextBoxFor(c => c.Monto, new { style = "width:150px;", MaxLength = "50", disabled = "disabled" })
@@ -60,7 +60,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <b>Monto:</b>
+                                    Descripción:
                                 </td>
                                 <td>
                                     @Html.TextAreaFor(c => c.Descripcion, new { style = "width:150px;", MaxLength = "50", disabled = "disabled" })
