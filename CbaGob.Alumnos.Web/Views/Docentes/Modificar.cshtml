@@ -31,7 +31,7 @@
                                                 <b>Nombre Apellido/Razon Social:</b>
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.RazonSoial, new { style = "width:350px;", MaxLength = "150", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.RazonSoial, new { style = "width:350px;", MaxLength = "150", Class = "asd", placeholder = PlaceHolderConstants.NombreApellido })
                                                 @Html.ValidationMessageFor(c => c.RazonSoial, "*")
                                             </td>
                                         </tr>
@@ -40,7 +40,7 @@
                                                 <b>Cuil/Cuit:</b>
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Cuit_Cuil, new { style = "width:150px;", MaxLength = "45", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.Cuit_Cuil, new { style = "width:150px;", MaxLength = "45", Class = "asd", placeholder = PlaceHolderConstants.Cuil })
                                                 @Html.ValidationMessageFor(c => c.Cuit_Cuil, "*")
                                             </td>
                                         </tr>
@@ -49,7 +49,7 @@
                                                 <b>Teléfono:</b>
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Telefono, new { style = "width:150px;", MaxLength = "30", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.Telefono, new { style = "width:150px;", MaxLength = "30", Class = "asd", placeholder = PlaceHolderConstants.Telefono })
                                                 @Html.ValidationMessageFor(c => c.Telefono, "*")
                                             </td>
                                         </tr>
@@ -67,7 +67,7 @@
                                                 <b>Dni:</b>
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Dni, new { style = "width:150px;", MaxLength = "45", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.Dni, new { style = "width:150px;", MaxLength = "45", Class = "asd", placeholder = PlaceHolderConstants.Dni })
                                                 @Html.ValidationMessageFor(c => c.Dni, "*")
                                             </td>
                                         </tr>
@@ -76,7 +76,7 @@
                                                 <b>Resolucion Reproca:</b>
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Resolucion_Reproca, new { style = "width:250px;", MaxLength = "150", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.Resolucion_Reproca, new { style = "width:250px;", MaxLength = "150", Class = "asd", placeholder = PlaceHolderConstants.Resolucion })
                                                 @Html.ValidationMessageFor(c => c.Resolucion_Reproca, "*")
                                             </td>
                                         </tr>
@@ -85,7 +85,7 @@
                                                 <b>Modalidad del Docente:</b>
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.N_Modalidad, new { style = "width:200px;", MaxLength = "64", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.N_Modalidad, new { style = "width:200px;", MaxLength = "64", Class = "asd", placeholder = PlaceHolderConstants.ModalidadNombre })
                                                 @Html.ValidationMessageFor(m => m.N_Modalidad, "*")
                                             </td>
                                         </tr>
@@ -122,7 +122,7 @@
                                                 <b>Provincia:</b>
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Provincia, new { style = "width:250px;", MaxLength = "50", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.Provincia, new { style = "width:250px;", MaxLength = "50", Class = "asd", placeholder = PlaceHolderConstants.Provincia })
                                                 @Html.ValidationMessageFor(c => c.Provincia, "*")
                                             </td>
                                         </tr>
@@ -131,7 +131,7 @@
                                                 <b>Localidad:</b>
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Localidad, new { style = "width:250px;", MaxLength = "50", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.Localidad, new { style = "width:250px;", MaxLength = "50", Class = "asd", placeholder = PlaceHolderConstants.Localidad })
                                                 @Html.ValidationMessageFor(c => c.Localidad, "*")
                                             </td>
                                         </tr>
@@ -140,7 +140,7 @@
                                                 <b>Barrio:</b>
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Barrio, new { style = "width:250px;", MaxLength = "50", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.Barrio, new { style = "width:250px;", MaxLength = "50", Class = "asd", placeholder = PlaceHolderConstants.DireccionBarrio })
                                                 @Html.ValidationMessageFor(c => c.Localidad, "*")
                                             </td>
                                         </tr>
@@ -149,7 +149,7 @@
                                                 <b>Calle:</b>
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Calle, new { style = "width:250px;", MaxLength = "150", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.Calle, new { style = "width:250px;", MaxLength = "150", Class = "asd", placeholder = PlaceHolderConstants.DireccionCalle })
                                                 @Html.ValidationMessageFor(c => c.Calle, "*")
                                             </td>
                                         </tr>
@@ -158,7 +158,7 @@
                                                 <b>Nro:</b>
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Nro, new { style = "width:150px;", MaxLength = "4", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.Nro, new { style = "width:150px;", MaxLength = "4", Class = "asd", placeholder = PlaceHolderConstants.DireccionNumero })
                                                 @Html.ValidationMessageFor(c => c.Nro, "*")
                                             </td>
                                         </tr>
@@ -167,7 +167,7 @@
                                                 <b>Nro Resolución:</b>
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Nro_Resolucion, new { style = "width:250px;", MaxLength = "64", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.Nro_Resolucion, new { style = "width:250px;", MaxLength = "64", Class = "asd", placeholder = PlaceHolderConstants.Resolucion })
                                                 @Html.ValidationMessageFor(m => m.Nro_Resolucion, "*")
                                             </td>
                                         </tr>
