@@ -21,5 +21,11 @@
         public const string Email = "ej. mariaeugenia@gmail.com";
         public const string MovimientoDescripcion = "ej. Compra de papel";
         public const string MovimientoNombre = "ej. Papel";
+        public const string NombreApellido = "ej. Juan Perez";
+        public const string Nombre = "ej. Juan";
+        public const string Apellido = "ej. Perez";
+        public const string Dni = "ej. 29208405";
+        public const string Cuil = "ej. 27-20405406-0";
+        
     }
 }

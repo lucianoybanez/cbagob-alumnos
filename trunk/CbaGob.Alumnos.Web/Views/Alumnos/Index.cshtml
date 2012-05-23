@@ -23,24 +23,24 @@
                     <td height="35px">
                         <b>Nombre:&nbsp;</b>
                     </td>
-                    <td>@Html.TextBoxFor(c => c.NombreBusqueda, new { style = "width:200px;", MaxLength = "64" })
+                    <td>@Html.TextBoxFor(c => c.NombreBusqueda, new { style = "width:200px;", MaxLength = "64", placeholder = PlaceHolderConstants.Nombre })
                     </td>
                     <td height="35px">
                         <b>Apellido:&nbsp;</b>
                     </td>
-                    <td>@Html.TextBoxFor(c => c.ApellidoBusqueda, new { style = "width:200px;", MaxLength = "64" })
+                    <td>@Html.TextBoxFor(c => c.ApellidoBusqueda, new { style = "width:200px;", MaxLength = "64", placeholder = PlaceHolderConstants.Apellido })
                     </td>
                 </tr>
                 <tr>
                     <td height="35px">
                         <b>Dni:&nbsp;</b>
                     </td>
-                    <td>@Html.TextBoxFor(c => c.DniBusqueda, new { style = "width:150px;", MaxLength = "30" })
+                    <td>@Html.TextBoxFor(c => c.DniBusqueda, new { style = "width:150px;", MaxLength = "30", placeholder = PlaceHolderConstants.Dni })
                     </td>
                     <td height="35px">
                         <b>Cuil:&nbsp;</b>
                     </td>
-                    <td>@Html.TextBoxFor(c => c.CuilBusqueda, new { style = "width:150px;", MaxLength = "30" })
+                    <td>@Html.TextBoxFor(c => c.CuilBusqueda, new { style = "width:150px;", MaxLength = "30", placeholder = PlaceHolderConstants.Cuil })
                         <input type="button" id="Buscar" value="Buscar" class="btnIngresar" />
                     </td>
                 </tr>
