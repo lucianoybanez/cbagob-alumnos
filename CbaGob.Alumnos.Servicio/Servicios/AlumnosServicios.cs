@@ -306,7 +306,7 @@ namespace CbaGob.Alumnos.Servicio.Servicios
                 addalumno.Fecha_Nacimiento = alumno.Fecha_Nacimiento;
                 addalumno.Nro_Documento = alumno.Nro_Documento;
                 addalumno.Nro_Resolucion = alumno.Nro_Resolucion;
-                addalumno.Id_Tipo_Dni = Convert.ToInt32(alumno.EstadoCivil.Selected);
+                addalumno.Id_Tipo_Dni = Convert.ToInt32(alumno.TipoDocumento.Selected);
                 addalumno.Id_Tipo_Estado_Civil = Convert.ToInt32(alumno.EstadoCivil.Selected);
                 addalumno.Id_Tipo_Sexo = Convert.ToInt32(alumno.Sexo.Selected);
                 addalumno.Nro_Telefono = alumno.Nro_Telefono;

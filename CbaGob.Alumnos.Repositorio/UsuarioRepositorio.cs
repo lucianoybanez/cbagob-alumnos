@@ -42,16 +42,16 @@ namespace CbaGob.Alumnos.Repositorio
 
         public IUsuario GetUserByNamePassword(string name, string password)
         {
-            return QUsuario("A").Where(c => c.NombreUsuario.ToLower() == name.ToLower() && c.Password == password).SingleOrDefault();
+            return QUsuario("A").Where(c => c.NombreUsuario.ToLower() == name.ToLower() && c.Password.ToLower() == password.ToLower()).SingleOrDefault();
         }
 
         public IUsuario GetUsersByName(string nombre, bool activo)
         {
             if (activo)
             {
-                return QUsuario("A").Where(c => c.NombreUsuario == nombre).SingleOrDefault();
+                return QUsuario("A").Where(c => c.NombreUsuario.ToLower() == nombre.ToLower()).SingleOrDefault();
             }
-            return QUsuario("I").Where(c => c.NombreUsuario == nombre).SingleOrDefault();
+            return QUsuario("I").Where(c => c.NombreUsuario.ToLower() == nombre.ToLower()).SingleOrDefault();
         }
 
         public IList<IUsuario> GetAllUsuarios(int skip, int take)
