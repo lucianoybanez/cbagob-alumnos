@@ -32,17 +32,17 @@
                                     Tipo de Reporte
                                 </td>
                                 <td align="left" valign="middle">
-                                    <input type="radio" class="reporteTipo" name="reporteTipo"  @(Model.Accion == "asistencia" ? "checked='checked'" : "") value="asistencia" />Nomina
+                                    <input type="radio" class="reporteTipo" name="reporteTipo"  @(Model.Accion == "asistencia" ? "checked='checked'" : "") value="asistencia" />&nbsp;Nómina
                                     de Asistencia<br />
-                                    <input type="radio" class="reporteTipo" name="reporteTipo" @(Model.Accion == "participante" ? "checked='checked'" : "") value="participante" />Nomina
+                                    <input type="radio" class="reporteTipo" name="reporteTipo" @(Model.Accion == "participante" ? "checked='checked'" : "") value="participante" />&nbsp;Nómina
                                     de Participantes<br />
-                                    <input type="radio" class="reporteTipo" name="reporteTipo"  @(Model.Accion == "egresado" ? "checked='checked'" : "") value="egresado" />Nomina
+                                    <input type="radio" class="reporteTipo" name="reporteTipo"  @(Model.Accion == "egresado" ? "checked='checked'" : "") value="egresado" />&nbsp;Nómina
                                     de Egresados
                                 </td>
                             </tr>
                             <tr>
                                 <td align="left">
-                                    <b>Institucion:</b>
+                                    <b>Institución:</b>
                                 </td>
                                 <td align="left" valign="middle">
                                     @Html.TextBoxFor(c => c.NombreInstitucion, new { @readonly = "readonly" })
@@ -106,7 +106,7 @@
                             </tr>
                             <tr>
                                 <td align="left">
-                                    <b>Nro Resolucion:</b>
+                                    <b>Número Resolución:</b>
                                 </td>
                                 <td align="left" valign="middle">
                                     @Html.TextBoxFor(c => c.NumeroResolucion, new { @readonly = "readonly" })
