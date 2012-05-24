@@ -32,7 +32,7 @@ namespace CbaGob.Alumnos.Servicio.Vistas
         [Range(1, 10)]
         public decimal PromedioRequerido { get; set; }
 
-        [DisplayName("Cantidad de Exámenes (1 - 999):")]
+        [DisplayName("Cantidad de Examenes (1 - 999):")]
         [Range(1, 999)]
         public int CantidadExamenes { get; set; }
 
