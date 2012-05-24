@@ -259,6 +259,7 @@
     <Content Include="Scripts\CbaGob.Alumnos.Examenes.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Inscripciones.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Instituciones.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.LogIn.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Modalidad.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Movimientos.js" />
     <Content Include="Scripts\CbaGob.Alumnos.Prestamo.js" />
@@ -274,6 +275,7 @@
     <Content Include="Scripts\jquery.maskedinput-1.3.min.js" />
     <Content Include="Scripts\jquery.pager.js" />
     <Content Include="Scripts\jquery.pagination.js" />
+    <Content Include="Scripts\jquery.placeholder-1.1.9.js" />
     <Content Include="Scripts\jquery.ui.datepicker-es.js" />
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
