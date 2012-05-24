@@ -1,0 +1,4 @@
+﻿@model string
+<div id="LogOut">
+    Usuario: @Model <a href="@Url.Action("LogOff", "Account")" title="Salir del Sistema.">@Html.Image("Logout_button.png", new { id = "LogOutImage" })</a>
+</div>

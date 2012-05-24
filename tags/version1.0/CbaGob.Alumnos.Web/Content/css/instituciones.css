@@ -1,0 +1,117 @@
+#pagination-clean li{
+border:0; margin:0; padding:0;
+font-size:11px;
+list-style:none;
+}
+#pagination-clean li, #pagination-clean a{
+margin-right:2px;
+}
+#pagination-clean .previous-off,
+#pagination-clean .next-off {
+color:#888888;
+display:block;
+float:left;
+font-weight:bold;
+padding:3px 4px;
+}
+#pagination-clean .next a,
+#pagination-clean .previous a {
+font-weight:bold;
+}
+#pagination-clean .active{
+color:#000000;
+font-weight:bold;
+display:block;
+float:left;
+padding:4px 6px;
+}
+#pagination-clean a:link,
+#pagination-clean a:visited {
+color:#fff;
+display:block;
+float:left;
+padding:3px 6px;
+text-decoration:none;
+}
+#pagination-clean a:hover{
+text-decoration:none;
+}
+#resumenPag ul {
+	font-family: Arial, Verdana;
+	font-size: 14px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#resumenPag ul li {
+	display: block;
+	position: relative;
+	float: left;	
+}
+#resumenPag li ul {
+	display: none;
+}
+#resumenPag ul li a {
+	display: block;
+	text-decoration: none;
+	color: #ffffff;
+	padding: 5px 15px 5px 15px;
+	background: #416AA0;
+	margin-left: 1px;
+	white-space: nowrap;
+}
+#resumenPag ul li a .sub {
+	background:#8BA9D0;
+}
+#resumenPag ul li a:hover {
+	background: #B2C8DA;
+	color: #000;
+}
+#resumenPag li:hover ul {
+	display: block;
+	position: absolute;
+}
+#resumenPag li:hover li {
+	float: none;
+	font-size: 12px;
+}
+#resumenPag li:hover a {
+	background: #617F8A;
+}
+#resumenPag li:hover li a:hover {
+	background: #95A9B1;
+}
+#agregar
+{
+    width:714px;
+    height:20px;
+    padding:3px;
+    text-align:right;
+    padding-right:5px;
+    padding-top:5px;
+    background:#B2C8DA;
+}
+.agregar{
+   
+    font-family: Arial, Verdana;
+    font-size: 14px;
+    text-decoration: none;
+}
+th {
+	background: #3e83c9;
+	color: #fff;
+	font-weight: bold;
+	text-align: left;
+}
+
+#grilla  td{
+    border-bottom:#ccc 1px solid;
+}
+
+#grilla tr:hover {
+	background: #bcd4ec;
+}
+#tabs{
+	background: #bcd4ec;
+	width:700px;
+}

@@ -1,0 +1,136 @@
+﻿@model  InstitucionVista
+@{
+    ViewBag.Title = "Instituciones";
+    ViewBag.SubMenuSelected = "Instituciones";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Instituciones.js", Url)
+}
+<div class="box">
+    <h2>
+        Agregar Institución</h2>
+    <table align="center" style="width: 700px;">
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                    @Html.ValidationSummary()
+                </div>
+                @using (Html.BeginForm("Agregar_Institucion", "Instituciones", FormMethod.Post, new { Id = "FormularioInstituciones" }))
+                { 
+                    <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                        width: 700px;">
+                        <tr>
+                            <td>
+                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
+                                    <legend style="color: #FF9900">Datos Institución</legend>
+                                    <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                                        width: 700px;">
+                                        <tr>
+                                            <td align="left">
+                                                Nombre de la Institución:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Nombre_Institucion, new { style = "width:400px;", MaxLength = "64", placeholder = PlaceHolderConstants.InstitucionNombre })
+                                                @Html.ValidationMessageFor(m => m.Nombre_Institucion, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Es Propia:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.CheckBoxFor(c => c.espropia)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Teléfono:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Telefono, new { style = "width:150px;", MaxLength = "30", placeholder = PlaceHolderConstants.Telefono })
+                                                @Html.ValidationMessageFor(m => m.Telefono, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Provincia:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Provincia, new { style = "width:250px;", MaxLength = "50", placeholder = PlaceHolderConstants.Provincia })
+                                                @Html.ValidationMessageFor(c => c.Provincia, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Localidad:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Localidad, new { style = "width:250px;", MaxLength = "50", placeholder = PlaceHolderConstants.Localidad })
+                                                @Html.ValidationMessageFor(m => m.Localidad, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Barrio:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Barrio, new { style = "width:250px;", MaxLength = "100", placeholder = PlaceHolderConstants.DireccionBarrio })
+                                                @Html.ValidationMessageFor(m => m.Barrio, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Numero:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Nro, new { style = "width:150px;", MaxLength = "4", placeholder = PlaceHolderConstants.DireccionNumero })
+                                                @Html.ValidationMessageFor(m => m.Nro, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Departamento:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Depto, new { style = "width:150px;", MaxLength = "4", placeholder = PlaceHolderConstants.DireccionDepartamento })
+                                                @Html.ValidationMessageFor(m => m.Depto, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Numero de  Resolución:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Nro_Resolucion, new { style = "width:250px;", MaxLength = "64", placeholder = PlaceHolderConstants.Resolucion })
+                                                @Html.ValidationMessageFor(m => m.Nro_Resolucion, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Numero de Expediente:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Nro_Expediente, new { style = "width:250px;", MaxLength = "64", placeholder = PlaceHolderConstants.Expediente })
+                                                @Html.ValidationMessageFor(m => m.Nro_Expediente, "*")
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                            </td>
+                        </tr>
+                    </table>
+                    <table id="btnfin" align="center" width="700px">
+                        <tr>
+                            <td align="right" valign="middle">
+                                <input type="submit" value="Guardar" class="btnIngresar" />&nbsp;&nbsp;
+                                @Html.ActionLink("Cancelar", "Index", "Instituciones", null, new { Class = "btnIngresar" })
+                            </td>
+                        </tr>
+                    </table>
+   
+                }
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,107 @@
+﻿@model GrupoVista
+@{
+    ViewBag.Title = "Instituciones";
+    ViewBag.SubMenuSelected = "Instituciones";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Grupos.js", Url)
+}
+<div class="box">
+    <h2>
+        Agregar Módulo</h2>
+    <table align="center" style="width: 700px;">
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                @using (Html.BeginForm("Agregar_Grupo", "Grupos", FormMethod.Post, new { Id = "FormularioGrupos" }))
+                { 
+                    @Html.ValidationSummary(true)
+                    <br />
+                    <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                        width: 700px;">
+                        <tr>
+                            <td>
+                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+                                    text-align: center;">
+                                    <legend>Datos del Módulo</legend>
+                                    <table align="left" id="mytable" style="font-family: Arial, Helvetica, sans-serif;
+                                        font-size: 12px; width: 700px;">
+                                        <tr>
+                                            <td align="left">
+                                                Nombre Instituciones:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Nombre_Institucion, new { style = "width:350px;", MaxLength = "150", disabled = "disabled" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Nombre del Curso:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Nombre_Curso, new { style = "width:350px;", MaxLength = "150", disabled = "disabled" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Nombre del Módulo:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.NombreGrupo, new { style = "width:350px;", MaxLength = "64" })
+                                                @Html.ValidationMessageFor(c => c.NombreGrupo,"*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Capacidad del Módulo:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Capacidad, new { style = "width:150px;", MaxLength = "4" })
+                                                @Html.ValidationMessageFor(c => c.Capacidad, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Buscador Sede:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.EditorFor(c => c.BuscadorEstablecimientos)
+                                                @Html.ValidationMessageFor(c => c.Id_Establecimiento, "*")
+                                            </td>
+                                        </tr>
+                                         <tr>
+                                            <td align="left">
+                                                Nro Resolución:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Nro_Resolucion, new { style = "width:250px;", MaxLength = "64" })
+                                                @Html.ValidationMessageFor(c => c.Nro_Resolucion, "*")
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                            </td>
+                        </tr>
+                    </table>
+                    <table id="myIntituciones" align="center" width="700px">
+                        <tr>
+                            <td align="right" vlign="middle">
+                                <input type="submit" value="Guardar" class="btnIngresar" />
+                                @Html.ActionLink("Cancelar", "VerCondicionCurso", "CondicionesCurso", new { idCondicionCurso = Model.Id_Condicion_Curso, IdInstitucion = Model.Id_Institucion }, new { Class = "btnIngresar" })
+                            </td>
+                        </tr>
+                    </table>
+                    
+    
+                    @Html.HiddenFor(d => d.Id_Establecimiento)
+                    @Html.HiddenFor(d => d.Id_Docente)
+                    @Html.HiddenFor(d => d.Id_Condicion_Curso)
+                    @Html.HiddenFor(d => d.Id_Institucion)
+                    @Html.HiddenFor(d => d.Id_Institucion, new { Id = "Id_Instituciontxt" })
+                }
+            </td>
+        </tr>
+    </table>
+</div>

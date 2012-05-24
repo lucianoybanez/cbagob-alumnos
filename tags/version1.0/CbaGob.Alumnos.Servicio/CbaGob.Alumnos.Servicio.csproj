@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D3D5BB78-A983-4A76-9AFB-B1BEDF34B9C2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CbaGob.Alumnos.Servicio</RootNamespace>
+    <AssemblyName>CbaGob.Alumnos.Servicio</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="StructureMap">
+      <HintPath>..\References\structuremap.2.6.3\lib\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Comun\ComboHelper.cs" />
+    <Compile Include="Comun\CookieData.cs" />
+    <Compile Include="Comun\ICookieData.cs" />
+    <Compile Include="ServiciosInterface\IAreasTipoCursoServicio.cs" />
+    <Compile Include="ServiciosInterface\ICajaChicaServicio.cs" />
+    <Compile Include="ServiciosInterface\IEquipoServicio.cs" />
+    <Compile Include="ServiciosInterface\IHorarioServicio.cs" />
+    <Compile Include="ServiciosInterface\IInventarioServicio.cs" />
+    <Compile Include="ServiciosInterface\IModalidadServicio.cs" />
+    <Compile Include="ServiciosInterface\IMovimientoServicio.cs" />
+    <Compile Include="ServiciosInterface\IPrestamoServicio.cs" />
+    <Compile Include="ServiciosInterface\IProgramaServicio.cs" />
+    <Compile Include="ServiciosInterface\ISupervicionesServicio.cs" />
+    <Compile Include="ServiciosInterface\ISupervisoresServicio.cs" />
+    <Compile Include="Servicios\AreasTipoCursoServicio.cs" />
+    <Compile Include="Servicios\CajaChicaServicio.cs" />
+    <Compile Include="Servicios\EquipoServicio.cs" />
+    <Compile Include="Servicios\ExamenServicio.cs" />
+    <Compile Include="ServiciosInterface\IEstablecimientoServicio.cs" />
+    <Compile Include="ServiciosInterface\IExamenServicio.cs" />
+    <Compile Include="ServiciosInterface\IGrupoServicio.cs" />
+    <Compile Include="ServiciosInterface\IInscripcionServicio.cs" />
+    <Compile Include="Servicios\EstablecimientoServicio.cs" />
+    <Compile Include="Servicios\FacturaServicio.cs" />
+    <Compile Include="ServiciosInterface\IAlumnosServicios.cs" />
+    <Compile Include="ServiciosInterface\ICargosServicio.cs" />
+    <Compile Include="ServiciosInterface\IDocentesServicio.cs" />
+    <Compile Include="ServiciosInterface\IDomiciliosServicios.cs" />
+    <Compile Include="ServiciosInterface\IFacturaServicio.cs" />
+    <Compile Include="ServiciosInterface\IPersonaJuridicaServicio.cs" />
+    <Compile Include="Servicios\AlumnosServicios.cs" />
+    <Compile Include="Servicios\CargosServicio.cs" />
+    <Compile Include="Servicios\CondicionesCursoServicio.cs" />
+    <Compile Include="ServiciosInterface\IBarriosServicio.cs" />
+    <Compile Include="ServiciosInterface\ICallesServicio.cs" />
+    <Compile Include="ServiciosInterface\ICondicionesCursoServicio.cs" />
+    <Compile Include="ServiciosInterface\ICursosServicios.cs" />
+    <Compile Include="ServiciosInterface\IDepartamentosServicios.cs" />
+    <Compile Include="ServiciosInterface\IInstitucionServicio.cs" />
+    <Compile Include="ServiciosInterface\ILocalidadesServicio.cs" />
+    <Compile Include="ServiciosInterface\IPersonaServicio.cs" />
+    <Compile Include="ServiciosInterface\IProvinciasServicio.cs" />
+    <Compile Include="Servicios\BarriosServicio.cs" />
+    <Compile Include="Servicios\CallesServicio.cs" />
+    <Compile Include="Servicios\CursosServicios.cs" />
+    <Compile Include="Servicios\DepartamentosServicios.cs" />
+    <Compile Include="Servicios\DocentesServicio.cs" />
+    <Compile Include="Servicios\DomiciliosServicios.cs" />
+    <Compile Include="Servicios\GrupoServicio.cs" />
+    <Compile Include="Servicios\HorarioServicio.cs" />
+    <Compile Include="Servicios\InscripcionServicio.cs" />
+    <Compile Include="Servicios\InstitucionServicio.cs" />
+    <Compile Include="Servicios\InventarioServicio.cs" />
+    <Compile Include="Servicios\LocalidadesServicio.cs" />
+    <Compile Include="Servicios\ModalidadServicio.cs" />
+    <Compile Include="Servicios\MovimientoServicio.cs" />
+    <Compile Include="Servicios\PersonaJuridicaServicio.cs" />
+    <Compile Include="Servicios\PersonaServicio.cs" />
+    <Compile Include="Servicios\BaseServicio.cs" />
+    <Compile Include="Comun\Errores.cs" />
+    <Compile Include="Comun\IErrores.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiciosInterface\IBaseServicio.cs" />
+    <Compile Include="ServiciosInterface\IHomeServicio.cs" />
+    <Compile Include="ServiciosInterface\IAutenticacionServicio.cs" />
+    <Compile Include="ServiciosInterface\IUsuarioServicio.cs" />
+    <Compile Include="Servicios\PrestamoServicio.cs" />
+    <Compile Include="Servicios\ProgramaServicio.cs" />
+    <Compile Include="Servicios\ProvinciasServicio.cs" />
+    <Compile Include="Servicios\SupervicionesServicio.cs" />
+    <Compile Include="Servicios\SupervisoresServicio.cs" />
+    <Compile Include="Servicios\UsuarioServicio.cs" />
+    <Compile Include="Servicios\HomeServicio.cs" />
+    <Compile Include="VistasInterface\IAreaTipoCursoVista.cs" />
+    <Compile Include="VistasInterface\ICargosVista.cs" />
+    <Compile Include="VistasInterface\ICargoVista.cs" />
+    <Compile Include="VistasInterface\IModalidadesVista.cs" />
+    <Compile Include="VistasInterface\IModalidadVista.cs" />
+    <Compile Include="VistasInterface\IProgramasVista.cs" />
+    <Compile Include="VistasInterface\IProgramaVista.cs" />
+    <Compile Include="VistasInterface\IReporteAlumno.cs" />
+    <Compile Include="VistasInterface\IReporteVista.cs" />
+    <Compile Include="Vistas\AreaTipoCursoVista.cs" />
+    <Compile Include="Vistas\CargosVista.cs" />
+    <Compile Include="Vistas\CargoVista.cs" />
+    <Compile Include="Vistas\ModalidadesVista.cs" />
+    <Compile Include="Vistas\ModalidadVista.cs" />
+    <Compile Include="Vistas\ProgramasVista.cs" />
+    <Compile Include="Vistas\ProgramaVista.cs" />
+    <Compile Include="Vistas\ReporteAlumno.cs" />
+    <Compile Include="Vistas\ReporteVista.cs" />
+    <Compile Include="Vistas\CertificadoVista.cs" />
+    <Compile Include="VistasInterface\IAreasTipoCursoVista.cs" />
+    <Compile Include="VistasInterface\ICajaChicasVista.cs" />
+    <Compile Include="VistasInterface\ICajaChicaVista.cs" />
+    <Compile Include="VistasInterface\ICertificadoVista.cs" />
+    <Compile Include="VistasInterface\IEquiposVista.cs" />
+    <Compile Include="VistasInterface\IEquipoVista.cs" />
+    <Compile Include="VistasInterface\IHorariosVista.cs" />
+    <Compile Include="VistasInterface\IInscripcionExamenVista.cs" />
+    <Compile Include="VistasInterface\IInscripcionPresentismoVista.cs" />
+    <Compile Include="VistasInterface\IInventariosVista.cs" />
+    <Compile Include="VistasInterface\IInventarioVista.cs" />
+    <Compile Include="VistasInterface\IMovimientosVista.cs" />
+    <Compile Include="VistasInterface\IMovimientoVista.cs" />
+    <Compile Include="Vistas\HorariosVista.cs" />
+    <Compile Include="Vistas\InscripcionExamenVista.cs" />
+    <Compile Include="VistasInterface\IPrestamosVista.cs" />
+    <Compile Include="VistasInterface\IPrestamoVista.cs" />
+    <Compile Include="VistasInterface\ISupervicionesVista.cs" />
+    <Compile Include="VistasInterface\ISupervicionVista.cs" />
+    <Compile Include="VistasInterface\ISupervisoresVista.cs" />
+    <Compile Include="VistasInterface\ISupervisorVista.cs" />
+    <Compile Include="VistasInterface\Shared\IBuscador.cs" />
+    <Compile Include="Vistas\AreasTipoCursoVista.cs" />
+    <Compile Include="Vistas\CajaChicaVista.cs" />
+    <Compile Include="Vistas\EquiposVista.cs" />
+    <Compile Include="Vistas\EquipoVista.cs" />
+    <Compile Include="Vistas\ExamenesVista.cs" />
+    <Compile Include="Vistas\ExamenVista.cs" />
+    <Compile Include="VistasInterface\IEstablecimientosVista.cs" />
+    <Compile Include="VistasInterface\IEstablecimientoVista.cs" />
+    <Compile Include="VistasInterface\IExamenVista.cs" />
+    <Compile Include="VistasInterface\IGruposVista.cs" />
+    <Compile Include="VistasInterface\IGrupoVista.cs" />
+    <Compile Include="VistasInterface\IInscripcionVista.cs" />
+    <Compile Include="VistasInterface\IInscripcionesVista.cs" />
+    <Compile Include="Vistas\EstablecimientosVista.cs" />
+    <Compile Include="Vistas\EstablecimientoVista.cs" />
+    <Compile Include="Vistas\FacturaVista.cs" />
+    <Compile Include="Vistas\FacturasVista.cs" />
+    <Compile Include="VistasInterface\IAlumnosVista.cs" />
+    <Compile Include="VistasInterface\IDocentesVista.cs" />
+    <Compile Include="VistasInterface\IFacturasVista.cs" />
+    <Compile Include="VistasInterface\IFacturaVista.cs" />
+    <Compile Include="Vistas\AlumnosVista.cs" />
+    <Compile Include="Vistas\CondicionCursoVista.cs" />
+    <Compile Include="VistasInterface\ICondicionCursoVista.cs" />
+    <Compile Include="Vistas\CondicionesCursoVista.cs" />
+    <Compile Include="VistasInterface\ICondicionesCursoVista.cs" />
+    <Compile Include="VistasInterface\ICursosVista.cs" />
+    <Compile Include="VistasInterface\IHomeVista.cs" />
+    <Compile Include="VistasInterface\IInstitucionVista.cs" />
+    <Compile Include="VistasInterface\IUsuarioVista.cs" />
+    <Compile Include="VistasInterface\Shared\IComboBox.cs" />
+    <Compile Include="Vistas\CursosVista.cs" />
+    <Compile Include="Vistas\DocentesVista.cs" />
+    <Compile Include="Vistas\GruposVista.cs" />
+    <Compile Include="Vistas\GrupoVista.cs" />
+    <Compile Include="VistasInterface\IExamenesVista.cs" />
+    <Compile Include="Vistas\CajaChicasVista.cs" />
+    <Compile Include="Vistas\InscripcionesVista.cs" />
+    <Compile Include="Vistas\InscripcionPresentismoVista.cs" />
+    <Compile Include="Vistas\InscripcionVista.cs" />
+    <Compile Include="Vistas\InstitucionVista.cs" />
+    <Compile Include="Vistas\InventariosVista.cs" />
+    <Compile Include="Vistas\InventarioVista.cs" />
+    <Compile Include="Vistas\MovimientosVista.cs" />
+    <Compile Include="Vistas\MovimientoVista.cs" />
+    <Compile Include="Vistas\PrestamosVista.cs" />
+    <Compile Include="Vistas\PrestamoVista.cs" />
+    <Compile Include="Vistas\Shared\Buscador.cs" />
+    <Compile Include="Vistas\Shared\ComboBox.cs" />
+    <Compile Include="Vistas\Shared\Pager.cs" />
+    <Compile Include="Vistas\SupervicionesVista.cs" />
+    <Compile Include="Vistas\SupervicionVista.cs" />
+    <Compile Include="Vistas\SupervisoresVista.cs" />
+    <Compile Include="Vistas\SupervisorVista.cs" />
+    <Compile Include="Vistas\UsuarioVista.cs" />
+    <Compile Include="Vistas\HomeVista.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CbaGob.Alumnos.Infra\CbaGob.Alumnos.Infra.csproj">
+      <Project>{E6EE8025-D897-4436-8833-7B7ABCD3B6CC}</Project>
+      <Name>CbaGob.Alumnos.Infra</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CbaGob.Alumnos.Modelo\CbaGob.Alumnos.Modelo.csproj">
+      <Project>{B8C19266-F01B-4DBC-A986-CA7BCF20FBA4}</Project>
+      <Name>CbaGob.Alumnos.Modelo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CbaGob.Alumnos.Repositorio\CbaGob.Alumnos.Repositorio.csproj">
+      <Project>{637A529A-AFDB-40F0-9C00-6190606ED372}</Project>
+      <Name>CbaGob.Alumnos.Repositorio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

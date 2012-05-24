@@ -1,0 +1,19 @@
+﻿@using CbaGob.Alumnos.Servicio.Vistas.Shared
+@model IPager
+
+@Html.HiddenFor(c=> c.PageSize)  
+@Html.HiddenFor(c => c.PageNumber)  
+@Html.HiddenFor(c => c.TotalCount)  
+@Html.HiddenFor(c => c.TotalPages)  
+@Html.HiddenFor(c => c.FormName)  
+@Html.HiddenFor(c => c.ActionName) 
+
+<table cellpadding="10" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td>            
+                <div id="pager">
+                </div>
+            
+        </td>
+    </tr>
+</table>

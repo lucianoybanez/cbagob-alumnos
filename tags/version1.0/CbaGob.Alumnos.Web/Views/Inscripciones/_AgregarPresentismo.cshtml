@@ -1,0 +1,21 @@
+﻿@model InscripcionPresentismoVista
+<div id="PresentismoDialog" title="Agregar Presentismo">
+    @using (Html.BeginForm("GuardarPresentismo", "Inscripciones", FormMethod.Get, new { Id = "FormularioPresentismo" }))
+    {
+       @Html.HiddenFor(c=> c.IdInscripcion)
+       @Html.HiddenFor(c => c.IdPresentismo)
+        <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+            width: 200px;">
+            <tr>
+                <td align="left">
+                    <b>Clases Asistidas:</b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.TextBoxFor(c => c.ClasesAsistidas)
+                </td>
+            </tr>                  
+        </table>
+        <br />
+       
+    }
+</div>

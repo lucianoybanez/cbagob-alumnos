@@ -1,0 +1,98 @@
+﻿@model EstablecimientosVista
+@if (Model.ListaEstablecimiento != null && Model.ListaEstablecimiento.Count > 0)
+{ 
+    <div id="tab" style="text-align: center;">
+        <table id="grilla" align="center" width="722px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30">
+                        <div align="center">
+                            Nombre Sede</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Provincia</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Localidad</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Barrio</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Calle</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Nro</div>
+                    </th>
+                    <th height="30">
+                        <div align="right">
+                            Acción</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ListaEstablecimiento)
+                {
+                    <tr>
+                        <td align="left" height="28">
+                            @item.NombreEstablecimiento
+                        </td>
+                        <td align="left">
+                            @item.Provincia
+                        </td>
+                        <td align="left">
+                            @item.Localidad
+                        </td>
+                        <td align="left">
+                            @item.Barrio
+                        </td>
+                        <td align="left">
+                            @item.Calle
+                        </td>
+                        <td align="left">
+                            @item.Nro
+                        </td>
+                        <td>
+                            @Html.ActionLink("Modificar", "Modificar", "Establecimientos", new { id_establecimiento = item.Id_Establecimiento }, new { @class = "btnIngresar" })
+                            @Html.ActionLink("Eliminar", "Eliminar", "Establecimientos", new { id_establecimiento = item.Id_Establecimiento }, new { @class = "btnIngresar" })
+                            @Html.ActionLink("Consultar", "Consultar", "Establecimientos", new { id_establecimiento = item.Id_Establecimiento }, new { @class = "btnIngresar" })
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td align="left" valign="middle" colspan="4" height="20">
+                        <div id="resumenPag" style="height: 30px; padding: 10px 5px 0 2px;">
+                            <div align="center">
+                                <ul id="pagination-clean">
+                                    <li class="previous-off">Ant</li>
+                                    <li class="active">1</li>
+                                    <li><a href="?page=2">2</a></li>
+                                    <li><a href="?page=3">3</a></li>
+                                    <li><a href="?page=4">4</a></li>
+                                    <li><a href="?page=5">5</a></li>
+                                    <li><a href="?page=6">6</a></li>
+                                    <li><a href="?page=7">7</a></li>
+                                    <li class="next"><a href="?page=2">Sig</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                    <td align="right" valign="bottom" colspan="3" height="20">
+                        <div id="resumenPag" style="height: 30px; padding: 15px 5px 0 2px;">
+                            @Html.ActionLink("Agregar Establecimiento", "Agregar", "Establecimientos", new { @class = "btnIngresar" })
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    @Html.Partial("_SinDatos", "Establecimiento")
+}

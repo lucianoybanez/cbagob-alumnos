@@ -1,0 +1,172 @@
+﻿@model InstitucionVista
+@{var result = Html.Action("IsAdminMode", "Home");
+  string rol = result.ToHtmlString();   }
+@using (Html.BeginForm("BuscarCurso", "Instituciones", FormMethod.Get))
+{
+    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;
+        margin-left: 5px; margin-top: 5px;">
+        <legend style="color: #FF9900">Buscar</legend>
+        <table>
+            <tr>
+                <td height="35px">
+                    Nombre Curso:&nbsp;
+                </td>
+                <td>
+                    @Html.TextBoxFor(c => c.cursobusqueda, new { style = "width:250px;", MaxLength = "150", Class = "asd", placeholder=PlaceHolderConstants.CursoNombre })
+                    @Html.HiddenFor(c => c.Id_Institucion)
+                    @Html.HiddenFor(c => c.añobuscqueda, new { Id = "añobuscqueda" })
+                </td>
+            </tr>
+            <tr>
+                <td height="35px">
+                    Año:&nbsp;
+                </td>
+                <td>
+                    <select id="selectedaño">
+                        <option value="0">Todos</option>
+                        @for (int i = 1; i < 10; i++)
+                        {
+                            <option @(i + 2011)>@(i + 2011)</option>
+                        }
+                    </select>
+                    <input type="submit" value="Buscar" class="btnIngresar" />
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+   
+}
+<br />
+@if (Model.CondicionesCursos != null && Model.CondicionesCursos.Count > 0)
+{ 
+    <div id="tab">
+        <table class="TablaPersonal" id="tablacursos" align="center" width="690px" cellpadding="0"
+            cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30">
+                        <div align="left">
+                            Curso</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Modalidad</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Programa
+                        </div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Fecha Inicio
+                        </div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Fecha Fin
+                        </div>
+                    </th>
+                    <th height="30">
+                        <div align="right" style="margin-right: 2px;">
+                            Acción
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.CondicionesCursos)
+                {
+                    <tr>
+                        <td align="left" height="28">
+                            @if (item.NombreCurso.Length < 30)
+                            {
+                                @item.NombreCurso
+                            }
+                            else
+                            {
+                                @(item.NombreCurso.ToString().Substring(1, 29) + " ...")
+                            }
+                        </td>
+                        <td align="center" height="28">
+                            @if (item.NombreModalidad.Length < 30)
+                            {
+                                @item.NombreModalidad
+                            }
+                            else
+                            {
+                                @(item.NombreModalidad.ToString().Substring(1, 29) + " ...")
+                            }
+                        </td>
+                        <td align="center" height="28">
+                            @if (item.NombrePrograma.Length < 30)
+                            {
+                                @item.NombrePrograma
+                            }
+                            else
+                            {
+                                @(item.NombrePrograma.ToString().Substring(1, 29) + " ...")
+                            }
+                        </td>
+                        <td align="center" height="28">
+                            @item.Fecha_Inicio.ToShortDateString()
+                        </td>
+                        <td align="center" height="28">
+                            @item.Fecha_Fin.ToShortDateString()
+                        </td>
+                        <td align="right" style="margin-right: 2px;">
+                            @{
+                            if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                            {
+                                @Html.ActionLink("Modificar", "ModificarCondicionCurso", "CondicionesCurso", new { idCondicionCurso = item.IdCondicionCurso }, new { @class = "btnIngresar" })
+                                @Html.ActionLink("Eliminar", "Eliminar", "CondicionesCurso", new { idCondicionCurso = item.IdCondicionCurso, IdInstitucion = item.IdInstitucion }, new { @class = "btnIngresar" })
+                            }
+                                @Html.ActionLink("Ver", "VerCondicionCurso", "CondicionesCurso", new { idCondicionCurso = item.IdCondicionCurso, IdInstitucion = item.IdInstitucion }, new { @class = "btnIngresar" })
+                            }
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td align="left" valign="middle" colspan="2" height="20">
+                    </td>
+                    <td align="right" valign="bottom" colspan="5" height="20">
+                        <div style="height: 20px; padding: 15px 5px 0 2px;">
+                            @{
+                if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                {
+                                @Html.ActionLink("Agregar Curso", "AgregarCondicionCurso", "CondicionesCurso", new { idInstitucion = Model.Id_Institucion }, new { @class = "btnIngresar" })
+                }
+                            }
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        @Html.HiddenFor(c => c.CountRows)
+    </div>
+}
+else
+{
+   
+   
+    
+    <table id="grilla" width="690px" cellpadding="0" cellspacing="0" align="left">
+        <tr>
+            <td width="722px">
+                @Html.Partial("_SinDatos", "No Existen Cursos Asignados Para esta Institución")
+            </td>
+        </tr>
+        <tr>
+            <td align="left" width="722px">
+                <div style="height: 20px; padding: 15px 5px 0 2px; margin-right: 2px;" align="right">
+                    @{
+    if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+    {
+                        @Html.ActionLink("Agregar Curso", "AgregarCondicionCurso", "CondicionesCurso", new { idInstitucion = Model.Id_Institucion }, new { @class = "btnIngresar" })
+    }
+                    }
+                </div>
+            </td>
+        </tr>
+    </table>
+}

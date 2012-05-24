@@ -1,0 +1,51 @@
+﻿@model SupervicionVista
+@if (Model.Institucions.ListaInstituciones != null && Model.Institucions.ListaInstituciones.Count > 0)
+{ 
+    <div style="text-align: center;">
+        <table class="TablaPersonal" align="center" width="690px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30" width="280">
+                        <div align="left">
+                            Nombre de la Institución</div>
+                    </th>
+                    <th height="30" width="50">
+                        <div align="center">
+                            Es Propia</div>
+                    </th>
+                    <th height="30" width="80">
+                        <div align="center">
+                            Fecha Alta</div>
+                    </th>
+                    <th height="30" width="200">
+                        <div align="right" style="margin-right: 2px;">
+                            Acción</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Institucions.ListaInstituciones)
+                {
+                    <tr>
+                        <td align="left" height="28">
+                            @item.Nombre_Institucion.ToMaxLenght(30)
+                        </td>
+                        <td>
+                            @item.espropia
+                        </td>
+                        <td>
+                            @item.FechaAlta.ToShortDateString()
+                        </td>
+                        <td align="right" style="margin-right: 2px;">
+                            @Html.ActionLink("Ver Cursos", "VerCursos", "Superviciones", new { IdInstitucion = item.Id_Institucion }, new { @class = "btnIngresar" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    @Html.Partial("_SinDatos", "Instituciones")
+}

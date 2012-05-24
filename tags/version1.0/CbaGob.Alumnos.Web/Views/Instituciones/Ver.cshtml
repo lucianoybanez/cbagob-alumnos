@@ -1,0 +1,170 @@
+﻿@model  InstitucionVista
+@{
+    ViewBag.Title = "Instituciones";
+    ViewBag.SubMenuSelected = "Instituciones";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Instituciones.js", Url)
+}
+@{var result = Html.Action("IsAdminMode", "Home");
+  string rol = result.ToHtmlString();   }
+<div class="box">
+    <h2>
+        Institución</h2>
+    <table align="center" style="width: 622px;">
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                <table align="center" id="mytable" style="font-family: Arial, Helvetica, sans-serif;
+                    font-size: 12px; width: 700px;">
+                    <tr>
+                        <td>
+                            <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
+                                <legend style="color: #FF9900">Datos de la Institución</legend>
+                                <table align="left" class="mybusqueda">
+                                    <tr>
+                                        <td align="left">
+                                            Nombre de la Institucion:
+                                        </td>
+                                        <td align="left" valign="middle">
+                                            @Html.TextBoxFor(c => c.Nombre_Institucion, new { disabled = "disabled", style = "width:400px;", MaxLength = "20" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            Es Propia de la Institución:
+                                        </td>
+                                        <td align="left" valign="middle">
+                                            @Html.CheckBoxFor(c => c.espropia, new { disabled = "disabled" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            Teléfono:
+                                        </td>
+                                        <td align="left" valign="middle">
+                                            @Html.TextBoxFor(c => c.Telefono, new { style = "width:150px;", MaxLength = "30", disabled = "disabled" })
+                                            @Html.ValidationMessageFor(m => m.Telefono, "*")
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            Provincia:
+                                        </td>
+                                        <td align="left" valign="middle">
+                                            @Html.TextBoxFor(c => c.Provincia, new { disabled = "disabled", style = "width:250px;", MaxLength = "50" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            Localidad:
+                                        </td>
+                                        <td align="left" valign="middle">
+                                            @Html.TextBoxFor(c => c.Localidad, new { disabled = "disabled", style = "width:250px;", MaxLength = "50" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            Barrio:
+                                        </td>
+                                        <td align="left" valign="middle">
+                                            @Html.TextBoxFor(c => c.Barrio, new { disabled = "disabled", style = "width:250px;", MaxLength = "50" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            Numero:
+                                        </td>
+                                        <td align="left" valign="middle">
+                                            @Html.TextBoxFor(c => c.Nro, new { disabled = "disabled", style = "width:150px;", MaxLength = "50" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            Departamento:
+                                        </td>
+                                        <td align="left" valign="middle">
+                                            @Html.TextBoxFor(c => c.Depto, new { disabled = "disabled", style = "width:150px;", MaxLength = "50" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            Numero de Resolución:
+                                        </td>
+                                        <td align="left" valign="middle">
+                                            @Html.TextBoxFor(c => c.Nro_Resolucion, new { disabled = "disabled", style = "width:250px;", MaxLength = "50" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            Numero de Expediente:
+                                        </td>
+                                        <td align="left" valign="middle">
+                                            @Html.TextBoxFor(c => c.Nro_Expediente, new { disabled = "disabled", style = "width:250px;", MaxLength = "50" })
+                                        </td>
+                                    </tr>
+                                </table>
+                            </fieldset>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
+                                <legend style="color: #FF9900">Cursos de la Institución</legend>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            @Html.Partial("_CondicionCursoLista", Model)
+                                        </td>
+                                    </tr>
+                                </table>
+                            </fieldset>
+                            <div id="pagecursos">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
+                                <legend style="color: #FF9900">Sedes de la Institución</legend>
+                                <table>
+                                    <tr>
+                                        <td>@Html.Partial("_EstablecimientoLista", Model)
+                                        </td>
+                                    </tr>
+                                </table>
+                            </fieldset>
+                        </td>
+                    </tr>
+                    @{
+                        if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                        {
+                        <tr>
+                            <td>
+                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
+                                    <legend style="color: #FF9900">Caja Chica</legend>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                @Html.Partial("_CajaChicaLista", Model)
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                            </td>
+                        </tr>
+                        }}
+                    <tr>
+                        <td align="right" height="45px">
+                            <br />
+                            @Html.ActionLink("Volver al Listado", "Index", "Instituciones", null, new { @class = "btnIngresar" })&nbsp;
+                        </td>
+                    </tr>
+                </table>
+                @Html.HiddenFor(d => d.Id_Institucion)
+            </td>
+        </tr>
+    </table>
+</div>

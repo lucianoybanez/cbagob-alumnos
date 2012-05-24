@@ -1,0 +1,73 @@
+﻿@model  CargoVista           
+@{
+    ViewBag.Title = "Instituciones";
+    ViewBag.SubMenuSelected = "Cargos";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Cargos.js", Url)
+}
+<div class="box">
+    <h2>
+        Eliminar Cargo</h2>
+    <table align="center" style="width: 700px;">
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                @using (Html.BeginForm("Eliminar_Cargo", "Cargos", FormMethod.Post, new { Id = "FormularioCargos" }))
+                { 
+                    @Html.ValidationSummary(true)
+                    <br />
+                    <table align="center" id="mytable" style="font-family: Arial, Helvetica, sans-serif;
+                        font-size: 12px; width: 700px;">
+                        <tr>
+                            <td>
+                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 690px;
+                                    text-align: center;">
+                                    <legend>Datos del Cargo</legend>
+                                    <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                                        width: 690px;">
+                                        <tr>
+                                            <td align="left">
+                                                <b>Nombre del Cargo:</b>
+                                            </td>
+                                            <td align="left">
+                                                @Html.TextBoxFor(c => c.N_Cargo, new { style = "width:250px;", MaxLength = "64", disabled = "disabled" })
+                                                @Html.ValidationMessageFor(m => m.N_Cargo, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Nro Resolución:</b>
+                                            </td>
+                                            <td align="left">
+                                                @Html.TextBoxFor(c => c.Nro_Resolucion, new { style = "width:250px;", MaxLength = "64" })
+                                                @Html.ValidationMessageFor(m => m.Nro_Resolucion, "*")
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                            </td>
+                        </tr>
+                    </table>
+                    @Html.HiddenFor(c => c.Id_Cargo)
+    
+                    <table id="btnfin" align="center" width="690px">
+                        <tr>
+                            <td align="right" valign="middle">
+                                <input id="Eliminar" type="button" value="Eliminar" class="btnIngresar" />
+                                @Html.ActionLink("Cancelar", "Index", "Cargos", null, new { Class = "btnIngresar" })
+                            </td>
+                        </tr>
+                    </table>
+
+                }
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="dialog" title="Eliminar">
+    <p>
+        Esta Seguro de Eliminar?</p>
+</div>

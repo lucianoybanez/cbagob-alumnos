@@ -1,0 +1,139 @@
+﻿@model  InstitucionVista
+@{
+    ViewBag.Title = "Instituciones";
+    ViewBag.SubMenuSelected = "Instituciones";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Instituciones.js", Url)
+}
+<div class="box">
+    <h2>
+        Eliminar Institución</h2>
+    <table align="center" style="width: 622px;">
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                @using (Html.BeginForm("Eliminar_Institucion", "Instituciones", FormMethod.Post, new { Id = "FormularioInstituciones" }))
+                { 
+                    <table align="center" id="mytable" style="font-family: Arial, Helvetica, sans-serif;
+                        font-size: 12px; width: 700px;">
+                        <tr>
+                            <td>
+                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
+                                    <legend style="color: #FF9900">Datos Institucion</legend>
+                                    <table align="left" class="mybusqueda">
+                                        <tr>
+                                            <td align="left">
+                                                Nombre de la Institución:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(Model => Model.Nombre_Institucion, new { disabled = "disabled", style = "width:400px;", MaxLength = "20" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Es Propia:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.CheckBoxFor(c => c.espropia, new { disabled = "disabled" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Teléfono:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Telefono, new { style = "width:150px;", MaxLength = "30", disabled = "disabled" })
+                                                @Html.ValidationMessageFor(m => m.Telefono, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Provincia:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Provincia, new { disabled = "disabled", style = "width:250px;", MaxLength = "50" })
+                                                @Html.ValidationMessageFor(c => c.Provincia)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Localidad:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Localidad, new { disabled = "disabled", style = "width:250px;", MaxLength = "50" })
+                                                @Html.ValidationMessageFor(m => m.Localidad)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Barrio:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Barrio, new { disabled = "disabled", style = "width:250px;", MaxLength = "50" })
+                                                @Html.ValidationMessageFor(m => m.Barrio)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Nro:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Nro, new { disabled = "disabled", style = "width:150px;", MaxLength = "50" })
+                                                @Html.ValidationMessageFor(m => m.Nro)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Depto:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Depto, new { disabled = "disabled", style = "width:150px;", MaxLength = "50" })
+                                                @Html.ValidationMessageFor(m => m.Depto)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Nro Resolución:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Nro_Resolucion, new { style = "width:250px;", MaxLength = "64" })
+                                                @Html.ValidationMessageFor(m => m.Nro_Resolucion, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                Nro Expediente:
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Nro_Expediente, new { disabled = "disabled", style = "width:250px;", MaxLength = "50" })
+                                                @Html.ValidationMessageFor(m => m.Nro_Expediente)
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                            </td>
+                        </tr>
+                    </table>
+    
+                    @Html.HiddenFor(d => d.Id_Institucion)
+    
+                    <table id="btnfin" align="center" width="700px">
+                        <tr>
+                            <td align="right" valign="middle">
+                                <input id="Eliminar" type="button" value="Eliminar" class="btnIngresar" />&nbsp;&nbsp;
+                                @Html.ActionLink("Cancelar", "Index", "Instituciones", null, new { Class = "btnIngresar" })
+                            </td>
+                        </tr>
+                    </table>
+                }
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="dialog" title="Eliminar">
+    <p>
+        Esta Seguro de Eliminar?</p>
+</div>

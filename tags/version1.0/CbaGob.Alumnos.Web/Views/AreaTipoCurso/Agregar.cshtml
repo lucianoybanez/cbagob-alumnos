@@ -1,0 +1,69 @@
+﻿@model  AreaTipoCursoVista           
+@{
+    ViewBag.Title = "Instituciones";
+    ViewBag.SubMenuSelected = "TiposCursos";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Programas.js", Url)
+}
+<div class="box">
+    <h2>
+        Agregar Tipo Curso</h2>
+    <table align="center" style="width: 700px;">
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                @using (Html.BeginForm("Agregar_AreaTipoCurso", "AreaTipoCurso", FormMethod.Post, new { Id = "FormularioAreaTipoCurso" }))
+                { 
+                    @Html.ValidationSummary(true)
+                    <br />
+                    <table align="center" id="mytable" style="font-family: Arial, Helvetica, sans-serif;
+                        font-size: 12px; width: 700px;">
+                        <tr>
+                            <td>
+                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 690px;">
+                                    <legend>Datos del Tipo Curso</legend>
+                                    <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                                        width: 690px;">
+                                        <tr>
+                                            <td align="left">
+                                                <b>Nombre del Tipo Curso:</b>
+                                            </td>
+                                            <td align="left">
+                                                @Html.TextBoxFor(c => c.Nombre_AreaTipoCurso, new { style = "width:250px;", MaxLength = "64", Class = "asd" })
+                                                @Html.ValidationMessageFor(m => m.Nombre_AreaTipoCurso, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Nro Resolución:</b>
+                                            </td>
+                                            <td align="left">
+                                                @Html.TextBoxFor(c => c.Nro_Resolucion, new { style = "width:250px;", MaxLength = "64", Class = "asd" })
+                                                @Html.ValidationMessageFor(m => m.Nro_Resolucion, "*")
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                            </td>
+                        </tr>
+                    </table>
+                  
+    
+                    <table id="btnfin" align="center" width="690px">
+                        <tr>
+                            <td align="right" valign="middle">
+                                <input type="submit" value="Guardar" class="btnIngresar" />&nbsp;&nbsp;
+                                @Html.ActionLink("Cancelar", "Index", "AreaTipoCurso", null, new { Class = "btnIngresar" })
+                            </td>
+                        </tr>
+                    </table>
+
+                }
+            </td>
+        </tr>
+    </table>
+</div>
+

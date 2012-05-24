@@ -1,0 +1,44 @@
+﻿@model InscripcionesVista
+@{
+    ViewBag.Title = "Inscripciones";
+    ViewBag.SubMenuSelected = "Inscripciones";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Stylesheets {
+    @Content.Stylesheet("css/instituciones.css", Url)
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Inscripciones.js", Url)
+}
+<div class="box">
+    <h2>
+        Listado de Alumnos Inscriptos</h2>
+        
+    <table>
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                    @Html.ValidationSummary()
+                </div>             
+                <div id="DivInstituciones">                   
+                    <div style="text-align: center;">
+                    @Html.Partial("_ListaInscripciones", Model.ListaInscripciones)
+                    </div>
+                    <div style="text-align: left;" >  
+                    @using (Html.BeginForm("IndexPager","Inscripciones",FormMethod.Post, new {id = "FormIndexInscripciones"}))
+                    {
+                        @Html.Partial("_Pager", Model.pager)
+                    }                    
+                    </div>
+
+                    <div id="btnfin" style="text-align: right;" >  
+                    @Html.ActionLink("Agregar Inscripcion", "Agregar", "Inscripciones", null, new { @class = "btnIngresar" })
+                    </div>
+                    
+                    <br />
+                </div>
+            </td>
+        </tr>
+    </table>
+   
+</div>

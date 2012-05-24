@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{637A529A-AFDB-40F0-9C00-6190606ED372}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CbaGob.Alumnos.Repositorio</RootNamespace>
+    <AssemblyName>CbaGob.Alumnos.Repositorio</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlumnosRepositorio.cs" />
+    <Compile Include="AreaTipoCursoRepositorio.cs" />
+    <Compile Include="BaseRepositorio.cs" />
+    <Compile Include="CajaChicaRepositorio.cs" />
+    <Compile Include="CallesRepositorio.cs" />
+    <Compile Include="CargosRepositorio.cs" />
+    <Compile Include="CondicionCursoRepositorio.cs" />
+    <Compile Include="DocentesRepositorio.cs" />
+    <Compile Include="DatosMock.cs" />
+    <Compile Include="DomiciliosRepositorio.cs" />
+    <Compile Include="EquipoRepositorio.cs" />
+    <Compile Include="EstablecimientoRepositorio.cs" />
+    <Compile Include="EstadoCursoRepositorio.cs" />
+    <Compile Include="Estado_EquipoRepositorio.cs" />
+    <Compile Include="ExamenRepositorio.cs" />
+    <Compile Include="FacturaRepositorio.cs" />
+    <Compile Include="GrupoRepositorio.cs" />
+    <Compile Include="helper\ILoggedUserHelper.cs" />
+    <Compile Include="HorarioRepositorio.cs" />
+    <Compile Include="InscripcionRepositorio.cs" />
+    <Compile Include="InstitucionRepositorio.cs" />
+    <Compile Include="LocalidadesRepositorio.cs" />
+    <Compile Include="BarriosRepositorio.cs" />
+    <Compile Include="CursosRepositorio.cs" />
+    <Compile Include="DepartamentosRepositorio.cs" />
+    <Compile Include="ModalidadRepositorio.cs" />
+    <Compile Include="Models\CursosDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CursosDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="MovimientoRepositorio.cs" />
+    <Compile Include="NivelRepositorio.cs" />
+    <Compile Include="PersonaJuridicaRepositorio.cs" />
+    <Compile Include="PersonaRepositorio.cs" />
+    <Compile Include="PrestamoRepositorio.cs" />
+    <Compile Include="ProgramaRepositorio.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProvinciasRepositorio.cs" />
+    <Compile Include="SupervicionesRepositorio.cs" />
+    <Compile Include="SupervisoresRepositorio.cs" />
+    <Compile Include="Tipo_DniRepositorio.cs" />
+    <Compile Include="Tipo_DocentesRepositorio.cs" />
+    <Compile Include="Tipo_EstadoCivilRepositorio.cs" />
+    <Compile Include="Tipo_SexoRepositorio.cs" />
+    <Compile Include="UsuarioRepositorio.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CbaGob.Alumnos.Modelo\CbaGob.Alumnos.Modelo.csproj">
+      <Project>{B8C19266-F01B-4DBC-A986-CA7BCF20FBA4}</Project>
+      <Name>CbaGob.Alumnos.Modelo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Models\CursosDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CursosDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

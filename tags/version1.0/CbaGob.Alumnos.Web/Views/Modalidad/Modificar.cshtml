@@ -1,0 +1,68 @@
+﻿@model  ModalidadVista           
+@{
+    ViewBag.Title = "Instituciones";
+    ViewBag.SubMenuSelected = "Modalidad";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Cargos.js", Url)
+}
+<div class="box">
+    <h2>
+        Modificar Modalidad</h2>
+    <table align="center" style="width: 700px;">
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                @using (Html.BeginForm("Modificar_Modalidad", "Modalidad", FormMethod.Post, new { Id = "FormularioModalidad" }))
+                { 
+                    @Html.ValidationSummary(true)
+                    <br />
+                    <table align="center" id="mytable" style="font-family: Arial, Helvetica, sans-serif;
+                        font-size: 12px; width: 700px;">
+                        <tr>
+                            <td>
+                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 690px;">
+                                    <legend>Datos del la Modalidad</legend>
+                                    <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                                        width: 690px;">
+                                        <tr>
+                                            <td align="left">
+                                                <b>Nombre de la Modalidad:</b>
+                                            </td>
+                                            <td align="left">
+                                                @Html.TextBoxFor(c => c.NombreModalidad, new { style = "width:250px;", MaxLength = "64", Class = "asd" })
+                                                @Html.ValidationMessageFor(m => m.NombreModalidad, "*")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Nro Resolución:</b>
+                                            </td>
+                                            <td align="left">
+                                                @Html.TextBoxFor(c => c.Nro_Resolucion, new { style = "width:250px;", MaxLength = "64", disabled = "disabled" })
+                                                @Html.ValidationMessageFor(m => m.Nro_Resolucion, "*")
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                            </td>
+                        </tr>
+                    </table>
+                    @Html.HiddenFor(c => c.IdModalidad)
+    
+                    <table id="btnfin" align="center" width="690px">
+                        <tr>
+                            <td align="right" valign="middle">
+                                <input type="submit" value="Guardar" class="btnIngresar" />&nbsp;&nbsp;
+                                @Html.ActionLink("Cancelar", "Index", "Modalidad", null, new { Class = "btnIngresar" })
+                            </td>
+                        </tr>
+                    </table>
+
+                }
+            </td>
+        </tr>
+    </table>
+</div>

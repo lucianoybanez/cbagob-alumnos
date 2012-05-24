@@ -1,0 +1,95 @@
+﻿@model CondicionCursoVista
+@{var result = Html.Action("IsAdminMode", "Home");
+  string rol = result.ToHtmlString();   }
+@if (Model.ListaGrupos != null && Model.ListaGrupos.Count > 0)
+{ 
+    <div id="tab" style="text-align: center;">
+        <table class="TablaPersonal" align="center" id="mytable" width="690px" cellpadding="0"
+            cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30">
+                        <div align="left">
+                            Nombre</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Establecimiento</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Fecha Alta</div>
+                    </th>
+                    <th height="30" colspan="4">
+                        <div align="right" style="margin-right: 2px;" colspan="7">
+                            Acción</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ListaGrupos)
+                {
+                    <tr>
+                        <td align="left">
+                            @if (item.NombreGrupo.Length < 30)
+                            {
+                                @item.NombreGrupo
+                            }
+                            else
+                            {
+                                @(item.NombreGrupo.ToString().Substring(1, 29) + " ...")
+                            }
+                        </td>
+                        <td>
+                            @if (item.NombreEstablecimiento.Length < 30)
+                            {
+                                @item.NombreEstablecimiento
+                            }
+                            else
+                            {
+                                @(item.NombreEstablecimiento.ToString().Substring(1, 29) + " ...")
+                            }
+                        </td>
+                        <td>
+                            @item.FechaAlta.ToShortDateString()
+                        </td>
+                        <td height="30" align="right" style="margin-right: 2px;">
+                            @{
+                            if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                            {
+                                @Html.ActionLink("Modificar", "Modificar", "Grupos", new { id_grupo = item.Id_Grupo }, new { @class = "btnIngresar" })
+                                @Html.ActionLink("Eliminar", "Eliminar", "Grupos", new { id_grupo = item.Id_Grupo }, new { @class = "btnIngresar" })
+                            }
+                                @Html.ActionLink("Ver", "VerGrupo", "Grupos", new { id_grupo = item.Id_Grupo }, new { @class = "btnIngresar" })
+                            }
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td align="right" valign="bottom" colspan="4">
+                        <div id="resumenPag" style="height: 30px; padding: 15px 5px 0 2px;">
+                            @{
+                if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                {
+                                @Html.ActionLink("Agregar Módulo", "Agregar", "Grupos", new { id_condicionCurso = Model.IdCondicionCurso }, new { @class = "btnIngresar" })
+                }
+                            }
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    @Html.Partial("_SinDatos", "Grupos")
+    <div style="padding: 15px 5px 0 2px;" align="right">
+        @{
+    if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+    {
+            @Html.ActionLink("Agregar Módulo", "Agregar", "Grupos", new { id_condicionCurso = Model.IdCondicionCurso }, new { Class = "btnIngresar" })
+    }
+        }
+    </div>
+}

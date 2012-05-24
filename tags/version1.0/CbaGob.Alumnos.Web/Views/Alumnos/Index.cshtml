@@ -1,0 +1,77 @@
+﻿@model  AlumnosVista
+@{
+    ViewBag.Title = "Instituciones";
+    ViewBag.SubMenuSelected = "Alumnos";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Stylesheets {
+    @Content.Stylesheet("css/instituciones.css", Url)
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Alumnos.js", Url)
+}
+<div class="box">
+    <h2>
+        Listado de Alumnos</h2>
+    @using (Html.BeginForm("IndexPager", "Alumnos", FormMethod.Post, new { Id = "FormIndexAlumnos" }))
+    { 
+        <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+            margin-left: 5px; margin-top: 5px;">
+            <legend style="color: #FF9900"><b>Buscar</b></legend>
+            <table>
+                <tr>
+                    <td height="35px">
+                        <b>Nombre:&nbsp;</b>
+                    </td>
+                    <td>@Html.TextBoxFor(c => c.NombreBusqueda, new { style = "width:200px;", MaxLength = "64", placeholder = PlaceHolderConstants.Nombre })
+                    </td>
+                    <td height="35px">
+                        <b>Apellido:&nbsp;</b>
+                    </td>
+                    <td>@Html.TextBoxFor(c => c.ApellidoBusqueda, new { style = "width:200px;", MaxLength = "64", placeholder = PlaceHolderConstants.Apellido })
+                    </td>
+                </tr>
+                <tr>
+                    <td height="35px">
+                        <b>Dni:&nbsp;</b>
+                    </td>
+                    <td>@Html.TextBoxFor(c => c.DniBusqueda, new { style = "width:150px;", MaxLength = "30", placeholder = PlaceHolderConstants.Dni })
+                    </td>
+                    <td height="35px">
+                        <b>Cuil:&nbsp;</b>
+                    </td>
+                    <td>@Html.TextBoxFor(c => c.CuilBusqueda, new { style = "width:150px;", MaxLength = "30", placeholder = PlaceHolderConstants.Cuil })
+                        <input type="button" id="Buscar" value="Buscar" class="btnIngresar" />
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <br />
+   
+        <table>
+            <tr>
+                <td class="style1" style="font-weight: bold">
+                    <div id="titulo">
+                    </div>
+                    <div id="DivDocentes">
+                        @Html.Partial("_AlumnosLista", Model.ListaAlumno)
+                    </div>
+                </td>
+            </tr>
+        </table>
+        @Html.Partial("_Pager", Model.Pager)
+    }
+    @* <div style="text-align: left;">
+        @using (Html.BeginForm("IndexPager", "Alumnos", FormMethod.Post, new { id = "FormIndexAlumnos" }))
+        {
+           
+        }
+    </div>*@ @* <div style="text-align: left;">
+        @using (Html.BeginForm("IndexPagerBusqueda", "Alumnos", FormMethod.Post, new { id = "FormIndexAlumnosBusqueda" }))
+        {
+            @Html.HiddenFor(c => c.NombreBusqueda)
+            
+            @Html.Partial("_Pager", Model.Pager)
+        }
+    </div>*@
+</div>

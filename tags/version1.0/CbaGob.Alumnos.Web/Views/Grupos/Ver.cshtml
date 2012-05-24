@@ -1,0 +1,152 @@
+﻿@model GrupoVista
+@{
+    ViewBag.Title = "Instituciones";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Grupos.js", Url)
+}
+@{var result = Html.Action("IsAdminMode", "Home");
+  string rol = result.ToHtmlString();   }
+<div class="box">
+    <h2>
+        Modulo</h2>
+    <table align="center" style="width: 700px;">
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                @using (Html.BeginForm("Eliminar_Grupo", "Grupos", FormMethod.Post, new { Id = "FormularioGrupos" }))
+                { 
+                    @Html.ValidationSummary(true)
+                    <br />
+                    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
+                        <legend style="color: #FF9900"><b>Datos del Curso</b></legend>
+                        <table>
+                            <tr>
+                                <td>
+                                    <b>Nombre del Módulo:</b>
+                                </td>
+                                <td>
+                                    @Html.TextBoxFor(c => c.NombreGrupo, new { disabled = "disabled", style = "width:200px;", MaxLength = "50", Class = "asd" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Capacidad del Módulo:</b>
+                                </td>
+                                <td>
+                                    @Html.TextBoxFor(c => c.Capacidad, new { disabled = "disabled", style = "width:50px;", MaxLength = "50", Class = "asd" })
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                    <br />
+                    <div id="tabs" style="width: 700px">
+                        <ul>
+                            <li><a href="#tabs-3">Horarios</a></li>
+                            <li><a href="#tabs-1">Alumnos</a></li>
+                            <li><a href="#tabs-2">Docentes</a></li>
+                        </ul>
+                        <div id="tabs-1">
+                            @{
+                    if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                    {
+                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
+                                    <legend style="color: #FF9900"><b>Alumnos inscriptos Sin Módulo</b></legend>
+                                    <table>
+                                        <tr>
+                                            <td>@Html.Partial("_AlumnosLista", Model)
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                                <br />
+                    }
+                            }
+                            <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
+                                <legend style="color: #FF9900"><b>Alumnos inscriptos en el Módulo</b></legend>
+                                <table>
+                                    <tr>
+                                        <td>@Html.Partial("_AlumnosEnGrupoLista", Model)
+                                        </td>
+                                    </tr>
+                                </table>
+                            </fieldset>
+                        </div>
+                        <div id="tabs-2">
+                            @{
+                    if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                    {
+                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
+                                    <legend><b>Docentes para el Modulo</b></legend>
+                                    <table>
+                                        <tr>
+                                            <td>@Html.Partial("_DocentesNoGrupoLista", Model)
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                                <br />
+                    }
+                            }
+                            <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
+                                <legend><b>Docentes Asignado al Módulo</b></legend>
+                                <table>
+                                    <tr>
+                                        <td>@Html.Partial("_DocentesInGrupoLista", Model)
+                                        </td>
+                                    </tr>
+                                </table>
+                            </fieldset>
+                        </div>
+                        <div id="tabs-3">
+                            @{
+                    if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                    {
+                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
+                                    <legend><b>Horarios para el Módulo</b></legend>
+                                    <table>
+                                        <tr>
+                                            <td>@Html.Partial("_HorarioParaelModulo", Model)
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                                <br />
+                    }
+                            }
+                            <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
+                                <legend><b>Horario Asignado al Módulo</b></legend>
+                                <table>
+                                    <tr>
+                                        <td>@Html.Partial("_HorarioAsiganadoModulo", Model)
+                                        </td>
+                                    </tr>
+                                </table>
+                            </fieldset>
+                            <br />
+                        </div>
+                    </div>
+                    <br />
+                    <table style="width: 700px;">
+                        <tr>
+                            <td align="right">
+                                @Html.ActionLink("Volver al Listado de Instituciones", "Index", "Instituciones", null, new { @class = "btnIngresar" })
+                                @Html.ActionLink("Volver", "VerCondicionCurso", "CondicionesCurso", new { idCondicionCurso = Model.Id_Condicion_Curso }, new { @class = "btnIngresar" })
+                            </td>
+                        </tr>
+                    </table>
+                    @Html.HiddenFor(d => d.Id_Establecimiento)
+                    @Html.HiddenFor(d => d.Id_Docente)
+                    @Html.HiddenFor(d => d.Id_Grupo)
+    
+                }
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="dialog" title="Eliminar">
+    <p>
+        Esta Seguro de Eliminar?</p>
+</div>

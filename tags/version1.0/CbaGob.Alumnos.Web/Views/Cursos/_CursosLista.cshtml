@@ -1,0 +1,97 @@
+﻿@model IList<ICursos>
+@if (Model != null && Model.Count > 0)
+{ 
+    <div style="text-align: center;">
+        <table id="grilla" align="center" width="722px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30">
+                        <div align="left">
+                            Nombre del Curso</div>
+                    </th>
+                     <th height="30">
+                        <div align="center">
+                            Area tipo Curso</div>
+                    </th>
+                    <th height="30" width="150">
+                        <div align="center">
+                            Nro Resolución</div>
+                    </th>
+                    <th height="30" width="200">
+                        <div align="right" style="margin-right: 2px;">
+                            Acción</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td align="left" height="28">
+                            @if (item.N_CURSO.Length < 30)
+                            {  @item.N_CURSO}
+                            else
+                            {@(item.N_CURSO.Substring(0, 30) + "...") }
+                        </td>
+                         <td align="center">
+                            @if (item.NombreAreaTipoCurso.Length < 30)
+                            {  @item.NombreAreaTipoCurso}
+                            else
+                            {@(item.NombreAreaTipoCurso.Substring(0, 30) + "...") }
+                        </td>
+                        <td align="center">
+                            @if (item.NRORESOLUCION.Length < 30)
+                            {  @item.NRORESOLUCION}
+                            else
+                            {@(item.NRORESOLUCION.Substring(0, 30) + "...") }
+                        </td>
+                        <td align="right" style="margin-right: 2px;">
+                            @Html.ActionLink("Modificar", "Modificar", "Cursos", new { id_curso = item.ID_CURSO }, new { @class = "btnIngresar" })
+                            @Html.ActionLink("Eliminar", "Eliminar", "Cursos", new { id_curso = item.ID_CURSO }, new { @class = "btnIngresar" })
+                            @Html.ActionLink("Ver", "Consultar", "Cursos", new { id_curso = item.ID_CURSO }, new { @class = "btnIngresar" })
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td align="left" valign="middle" colspan="2" height="20">
+                        <div id="resumenPag" style="height: 20px; padding: 10px 5px 0 2px;">
+                            <div align="center">
+                                @* <ul id="pagination-clean">
+                                  <li class="previous-off">Ant</li>
+                                  <li class="active">1</li>
+                                  <li><a href="?page=2">2</a></li>
+                                  <li><a href="?page=3">3</a></li>
+                                  <li><a href="?page=4">4</a></li>
+                                  <li><a href="?page=5">5</a></li>
+                                  <li><a href="?page=6">6</a></li>
+                                  <li><a href="?page=7">7</a></li>
+                                  <li class="next"><a href="?page=2">Sig</a></li>
+                                </ul>*@
+                            </div>
+                        </div>
+                    </td>
+                    <td align="right" valign="bottom" colspan="2" height="20">
+                        <div style="height: 20px; padding: 15px 5px 0 2px;">
+                            @Html.ActionLink("Agregar Curso", "Agregar", "Instituciones", new { @class = "btnIngresar" })
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div id="tab" style="text-align: center;">
+        <table align="center" width="690px" id="mytable">
+            <thead>
+                <tr>
+                    <th height="30">
+                        <div align="center">
+                            SIN DATOS</div>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+}

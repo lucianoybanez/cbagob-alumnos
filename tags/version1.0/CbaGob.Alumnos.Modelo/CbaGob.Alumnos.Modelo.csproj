@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B8C19266-F01B-4DBC-A986-CA7BCF20FBA4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CbaGob.Alumnos.Modelo</RootNamespace>
+    <AssemblyName>CbaGob.Alumnos.Modelo</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Alumno.cs" />
+    <Compile Include="Entities\Alumno_Horario.cs" />
+    <Compile Include="Entities\AreaTipoCurso.cs" />
+    <Compile Include="Entities\CajaChica.cs" />
+    <Compile Include="Entities\Calles.cs" />
+    <Compile Include="Entities\Cargos.cs" />
+    <Compile Include="Entities\Cursos.cs" />
+    <Compile Include="Entities\Departamentos.cs" />
+    <Compile Include="Entities\Docentes.cs" />
+    <Compile Include="Entities\Domicilios.cs" />
+    <Compile Include="Entities\CondicionCurso.cs" />
+    <Compile Include="Entities\ComunDatos.cs" />
+    <Compile Include="Entities\Equipo.cs" />
+    <Compile Include="Entities\Establecimiento.cs" />
+    <Compile Include="Entities\EstadoCajaChica.cs" />
+    <Compile Include="Entities\EstadoCurso.cs" />
+    <Compile Include="Entities\DetalleFactura.cs" />
+    <Compile Include="Entities\Estado_Equipo.cs" />
+    <Compile Include="Entities\Factura.cs" />
+    <Compile Include="Entities\Grupo.cs" />
+    <Compile Include="Entities\Horario.cs" />
+    <Compile Include="Entities\Inscripcion.cs" />
+    <Compile Include="Entities\Examen.cs" />
+    <Compile Include="Entities\Interfaces\IAlumnos.cs" />
+    <Compile Include="Entities\Interfaces\IAlumno_Horario.cs" />
+    <Compile Include="Entities\Interfaces\IAreaTipoCurso.cs" />
+    <Compile Include="Entities\Interfaces\IBarrios.cs" />
+    <Compile Include="Entities\Institucion.cs" />
+    <Compile Include="Entities\Barrios.cs" />
+    <Compile Include="Entities\Interfaces\ICajaChica.cs" />
+    <Compile Include="Entities\Interfaces\ICalles.cs" />
+    <Compile Include="Entities\Interfaces\ICargos.cs" />
+    <Compile Include="Entities\Interfaces\IComunDatos.cs" />
+    <Compile Include="Entities\Interfaces\ICondicionCurso.cs" />
+    <Compile Include="Entities\Interfaces\ICursos.cs" />
+    <Compile Include="Entities\Interfaces\IDepartamentos.cs" />
+    <Compile Include="Entities\Interfaces\IDetalleFactura.cs" />
+    <Compile Include="Entities\Interfaces\IDireccion.cs" />
+    <Compile Include="Entities\Interfaces\IDocentes.cs" />
+    <Compile Include="Entities\Interfaces\IDomicilios.cs" />
+    <Compile Include="Entities\Interfaces\IEquipo.cs" />
+    <Compile Include="Entities\Interfaces\IEstablecimiento.cs" />
+    <Compile Include="Entities\Interfaces\IEstadoCajaChica.cs" />
+    <Compile Include="Entities\Interfaces\IEstadoCurso.cs" />
+    <Compile Include="Entities\Interfaces\IEstado_Equipo.cs" />
+    <Compile Include="Entities\Interfaces\IExamen.cs" />
+    <Compile Include="Entities\Interfaces\IFactura.cs" />
+    <Compile Include="Entities\Interfaces\IGrupo.cs" />
+    <Compile Include="Entities\Interfaces\IHorario.cs" />
+    <Compile Include="Entities\Interfaces\IInscripcion.cs" />
+    <Compile Include="Entities\Interfaces\IInscripcionReporte.cs" />
+    <Compile Include="Entities\Interfaces\IInstitucion.cs" />
+    <Compile Include="Entities\Interfaces\ILocalidades.cs" />
+    <Compile Include="Entities\Interfaces\IModalidad.cs" />
+    <Compile Include="Entities\Interfaces\IMovimiento.cs" />
+    <Compile Include="Entities\Interfaces\INivel.cs" />
+    <Compile Include="Entities\InscripcionReporte.cs" />
+    <Compile Include="Entities\Interfaces\IPersona.cs" />
+    <Compile Include="Entities\Interfaces\IPersonaJuridica.cs" />
+    <Compile Include="Entities\Interfaces\IPresentismo.cs" />
+    <Compile Include="Entities\Interfaces\IPrestamo.cs" />
+    <Compile Include="Entities\Interfaces\IPrograma.cs" />
+    <Compile Include="Entities\Interfaces\IProvincias.cs" />
+    <Compile Include="Entities\Interfaces\IRol.cs" />
+    <Compile Include="Entities\Interfaces\ISuperviciones.cs" />
+    <Compile Include="Entities\Interfaces\ISupervisores.cs" />
+    <Compile Include="Entities\Interfaces\ITelefono.cs" />
+    <Compile Include="Entities\Interfaces\ITipo_Dni.cs" />
+    <Compile Include="Entities\Interfaces\ITipo_Docentes.cs" />
+    <Compile Include="Entities\Interfaces\ITipo_EstadoCivil.cs" />
+    <Compile Include="Entities\Interfaces\ITipo_Movimiento.cs" />
+    <Compile Include="Entities\Interfaces\ITipo_Sexo.cs" />
+    <Compile Include="Entities\Interfaces\IUsuario.cs" />
+    <Compile Include="Entities\Presentismo.cs" />
+    <Compile Include="Entities\Modalidad.cs" />
+    <Compile Include="Entities\Movimiento.cs" />
+    <Compile Include="Entities\Nivel.cs" />
+    <Compile Include="Entities\Prestamo.cs" />
+    <Compile Include="Entities\Programa.cs" />
+    <Compile Include="Entities\Localidades.cs" />
+    <Compile Include="Entities\Persona.cs" />
+    <Compile Include="Entities\PersonaJuridica.cs" />
+    <Compile Include="Entities\Provincias.cs" />
+    <Compile Include="Entities\Rol.cs" />
+    <Compile Include="Entities\Superviciones.cs" />
+    <Compile Include="Entities\Supervisores.cs" />
+    <Compile Include="Entities\Tipo_Dni.cs" />
+    <Compile Include="Entities\Tipo_Docentes.cs" />
+    <Compile Include="Entities\Tipo_EstadoCivil.cs" />
+    <Compile Include="Entities\Tipo_Movimiento.cs" />
+    <Compile Include="Entities\Tipo_Sexo.cs" />
+    <Compile Include="Entities\Usuario.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IAlumnosRepositorio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Repositories\IAreaTipoCursoRepositorio.cs" />
+    <Compile Include="Repositories\IBarriosRepositorio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Repositories\ICajaChicaRepositorio.cs" />
+    <Compile Include="Repositories\ICallesRepositorio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Repositories\ICargosRepositorio.cs" />
+    <Compile Include="Repositories\ICondicionCursoRepositorio.cs" />
+    <Compile Include="Repositories\ICursosRepositorio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Repositories\IDepartamentosRepositorio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Repositories\IDocentesRepositorio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Repositories\IDomiciliosRepositorio.cs" />
+    <Compile Include="Repositories\IEquipoRepositorio.cs" />
+    <Compile Include="Repositories\IEstablecimientoRepositorio.cs" />
+    <Compile Include="Repositories\IEstadoCursoRepositorio.cs" />
+    <Compile Include="Repositories\IEstado_EquipoRepositorio.cs" />
+    <Compile Include="Repositories\IExamenRepositorio.cs" />
+    <Compile Include="Repositories\IFacturaRepositorio.cs" />
+    <Compile Include="Repositories\IGrupoRepositorio.cs" />
+    <Compile Include="Repositories\IHorarioRepositorio.cs" />
+    <Compile Include="Repositories\IInscripcionRepositorio.cs" />
+    <Compile Include="Repositories\IInstitucionRepositorio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Repositories\ILocalidadesRepositorio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Repositories\IModalidadRepositorio.cs" />
+    <Compile Include="Repositories\IMovimientoRepositorio.cs" />
+    <Compile Include="Repositories\INivelRepositorio.cs" />
+    <Compile Include="Repositories\IPersonaJuridicaRepositorio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Repositories\IPersonaRepositorio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Repositories\IPrestamoRepositorio.cs" />
+    <Compile Include="Repositories\IProgramaRepositorio.cs" />
+    <Compile Include="Repositories\IProvinciasRepositorio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Repositories\ISupervicionesRepositorio.cs" />
+    <Compile Include="Repositories\ISupervisoresRepositorio.cs" />
+    <Compile Include="Repositories\ITipo_DniRepositorio.cs" />
+    <Compile Include="Repositories\ITipo_DocentesRepositorio.cs" />
+    <Compile Include="Repositories\ITipo_EstadoCivilRepositorio.cs" />
+    <Compile Include="Repositories\ITipo_SexoRepositorio.cs" />
+    <Compile Include="Repositories\IUsuarioRepositorio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

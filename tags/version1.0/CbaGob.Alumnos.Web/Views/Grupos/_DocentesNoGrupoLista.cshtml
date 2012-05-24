@@ -1,0 +1,75 @@
+﻿@model GrupoVista
+@if (Model.ListaDocentesNoGrupo != null && Model.ListaDocentesNoGrupo.Count > 0)
+{ 
+    <div id="grilla" style="text-align: center;">
+        <table class="TablaPersonal" align="center" width="665px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30" width="180px">
+                        <div align="left">
+                            Cuit</div>
+                    </th>
+                    <th height="30" width="180px">
+                        <div align="center">
+                            Razon Social</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Planta/Reproca</div>
+                    </th>
+                    <th height="30">
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ListaDocentesNoGrupo)
+                {
+                    <tr>
+                        <td align="left" height="30">
+                            @if (item.Cuit_Cuil.Length < 30)
+                            {
+                                @item.Cuit_Cuil
+                            }
+                            else
+                            {
+                                @(item.Cuit_Cuil.ToString().Substring(1, 29) + " ...")
+                            }
+                        </td>
+                        <td height="30">
+                            @if (item.RazonSoial.Length < 30)
+                              {
+                                @item.RazonSoial
+                              }
+                              else
+                              {
+                                @(item.RazonSoial.ToString().Substring(1, 29) + " ...")
+                              }
+                        </td>
+                        <td height="30">
+                            @(item.Reproca == "S" ? "Reproca" : "Planta")
+                        </td>
+                        <td height="30">
+                            @Html.ActionLink("Incluir al Módulo", "AsignarDocente", "Grupos", new { id_grupo = Model.Id_Grupo, id_docente = @item.Id_Docente, id_condicon_curso = Model.Id_Condicion_Curso }, new { @class = "btnIngresar" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div id="tab" style="text-align: center;">
+        <table align="center" width="665px" id="mytable">
+            <thead>
+                <tr>
+                    <th height="30">
+                        <div align="center">
+                            SIN DATOS</div>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+   
+}

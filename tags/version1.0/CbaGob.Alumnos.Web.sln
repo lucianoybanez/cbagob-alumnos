@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CbaGob.Alumnos.Web", "CbaGob.Alumnos.Web\CbaGob.Alumnos.Web.csproj", "{4CCF1498-4201-4366-B02F-D9491F7AFF8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CbaGob.Alumnos.Infra", "CbaGob.Alumnos.Infra\CbaGob.Alumnos.Infra.csproj", "{E6EE8025-D897-4436-8833-7B7ABCD3B6CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CbaGob.Alumnos.Modelo", "CbaGob.Alumnos.Modelo\CbaGob.Alumnos.Modelo.csproj", "{B8C19266-F01B-4DBC-A986-CA7BCF20FBA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CbaGob.Alumnos.Repositorio", "CbaGob.Alumnos.Repositorio\CbaGob.Alumnos.Repositorio.csproj", "{637A529A-AFDB-40F0-9C00-6190606ED372}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CbaGob.Alumnos.Servicio", "CbaGob.Alumnos.Servicio\CbaGob.Alumnos.Servicio.csproj", "{D3D5BB78-A983-4A76-9AFB-B1BEDF34B9C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CbaGob.Alumnos.Test", "CbaGob.Alumnos.Test\CbaGob.Alumnos.Test.csproj", "{44B23D5A-3CEF-4DA2-9265-BF16D333C613}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "References", "References", "{6C2BFA4A-BC95-4070-A0C5-52B0E5DDCB32}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nunit", "Nunit", "{3241F87E-2AF7-4FFA-B7CB-50119EFA0771}"
+	ProjectSection(SolutionItems) = preProject
+		References\NUnit.2.5.10.11092\lib\nunit.framework.dll = References\NUnit.2.5.10.11092\lib\nunit.framework.dll
+		References\NUnit.2.5.10.11092\lib\nunit.mocks.dll = References\NUnit.2.5.10.11092\lib\nunit.mocks.dll
+		References\NUnit.2.5.10.11092\lib\pnunit.framework.dll = References\NUnit.2.5.10.11092\lib\pnunit.framework.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StructureMap", "StructureMap", "{7386C713-B0C5-4FC0-844A-0B8B53A2DFFD}"
+	ProjectSection(SolutionItems) = preProject
+		References\structuremap.2.6.3\lib\StructureMap.dll = References\structuremap.2.6.3\lib\StructureMap.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebActivator", "WebActivator", "{D4D31F87-6866-4319-B4F1-9C7D75D78310}"
+	ProjectSection(SolutionItems) = preProject
+		References\WebActivator.1.5\lib\net40\WebActivator.dll = References\WebActivator.1.5\lib\net40\WebActivator.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3C8F0AE4-1D16-44C2-B6B8-5F000682ACD6}"
+	ProjectSection(SolutionItems) = preProject
+		SolutionItems\DB.sql = SolutionItems\DB.sql
+		SolutionItems\DbSinDatos.sql = SolutionItems\DbSinDatos.sql
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4CCF1498-4201-4366-B02F-D9491F7AFF8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CCF1498-4201-4366-B02F-D9491F7AFF8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CCF1498-4201-4366-B02F-D9491F7AFF8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CCF1498-4201-4366-B02F-D9491F7AFF8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6EE8025-D897-4436-8833-7B7ABCD3B6CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6EE8025-D897-4436-8833-7B7ABCD3B6CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6EE8025-D897-4436-8833-7B7ABCD3B6CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6EE8025-D897-4436-8833-7B7ABCD3B6CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8C19266-F01B-4DBC-A986-CA7BCF20FBA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8C19266-F01B-4DBC-A986-CA7BCF20FBA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8C19266-F01B-4DBC-A986-CA7BCF20FBA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8C19266-F01B-4DBC-A986-CA7BCF20FBA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{637A529A-AFDB-40F0-9C00-6190606ED372}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{637A529A-AFDB-40F0-9C00-6190606ED372}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{637A529A-AFDB-40F0-9C00-6190606ED372}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{637A529A-AFDB-40F0-9C00-6190606ED372}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3D5BB78-A983-4A76-9AFB-B1BEDF34B9C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3D5BB78-A983-4A76-9AFB-B1BEDF34B9C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3D5BB78-A983-4A76-9AFB-B1BEDF34B9C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3D5BB78-A983-4A76-9AFB-B1BEDF34B9C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44B23D5A-3CEF-4DA2-9265-BF16D333C613}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44B23D5A-3CEF-4DA2-9265-BF16D333C613}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44B23D5A-3CEF-4DA2-9265-BF16D333C613}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44B23D5A-3CEF-4DA2-9265-BF16D333C613}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3241F87E-2AF7-4FFA-B7CB-50119EFA0771} = {6C2BFA4A-BC95-4070-A0C5-52B0E5DDCB32}
+		{7386C713-B0C5-4FC0-844A-0B8B53A2DFFD} = {6C2BFA4A-BC95-4070-A0C5-52B0E5DDCB32}
+		{D4D31F87-6866-4319-B4F1-9C7D75D78310} = {6C2BFA4A-BC95-4070-A0C5-52B0E5DDCB32}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+EndGlobal

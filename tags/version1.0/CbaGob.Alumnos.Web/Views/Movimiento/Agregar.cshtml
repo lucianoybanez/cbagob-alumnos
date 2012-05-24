@@ -1,0 +1,85 @@
+﻿@model MovimientoVista
+@{
+    ViewBag.Title = "Instituciones";
+    ViewBag.SubMenuSelected = "Instituciones";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Movimientos.js", Url)
+}
+<div class="box">
+    <h2>
+        Agregar Movimineto</h2>
+    <table align="center" style="width: 700px;">
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                @using (Html.BeginForm("GuardarMovimineto", "Movimiento", FormMethod.Post, new { Id = "FormularioMovimiento" }))
+                { 
+                   
+                    @Html.HiddenFor(c => c.Id_Institucion)
+                    @Html.HiddenFor(c => c.Id_Caja_Chica)
+                    @Html.ValidationSummary(true)
+                    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
+                        <legend style="color: #FF9900">Datos del Movimiento</legend>
+                        <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                            width: 700px;">
+                            <tr>
+                                <td>
+                                    Nombre del Movimiento:
+                                </td>
+                                <td>
+                                    @Html.TextBoxFor(c => c.Nombre_Movimiento, new { style = "width:350px;", MaxLength = "50",placeholder = PlaceHolderConstants.MovimientoNombre })
+                                    @Html.ValidationMessageFor(c => c.Nombre_Movimiento,"*")
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Tipo de Movimiento:
+                                </td>
+                                <td>
+                                    @Html.EditorFor(c => c.TipoMovimiento)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Fecha:
+                                </td>
+                                <td>
+                                    @Html.EditorFor(c => c.Fecha)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.LabelFor(c=> c.Monto)
+                                </td>
+                                <td>
+                                    @Html.TextBoxFor(c => c.Monto, new { style = "width:150px;", MaxLength = "50" })
+                                    @Html.ValidationMessageFor(c => c.Monto,"*")
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Descripción:
+                                </td>
+                                <td>
+                                    @Html.TextAreaFor(c => c.Descripcion, new { style = "width:350px;height:45px", MaxLength = "50",placeholder = PlaceHolderConstants.MovimientoDescripcion })
+                                    @Html.ValidationMessageFor(c => c.Descripcion,"*")
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                    <table id="myIntituciones" align="center" width="700px">
+                        <tr>
+                            <td align="right" valign="middle">
+                                <input type="submit" value="Guardar" class="btnIngresar" />
+                                @Html.ActionLink("Cancelar", "Ver", "Instituciones", new { INST_ID = Model.Id_Institucion }, new { Class = "btnIngresar" })
+                            </td>
+                        </tr>
+                    </table>
+                }
+            </td>
+        </tr>
+    </table>
+</div>

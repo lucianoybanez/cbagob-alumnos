@@ -1,0 +1,33 @@
+﻿@model  CursosVista
+@{
+    ViewBag.Title = "Instituciones";
+    ViewBag.SubMenuSelected = "Cursos";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Stylesheets {
+    @Content.Stylesheet("css/instituciones.css", Url)
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Cursos.js", Url)
+}
+<div class="box">
+    <h2>
+        Listado de Cursos</h2>
+    <table>
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                <div id="DivInstituciones">
+                    @Html.Partial("_CursosLista", Model.ListaCursos)
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div style="text-align: left;">
+        @using (Html.BeginForm("IndexPager", "Cursos", FormMethod.Post, new { id = "FormIndexCursos" }))
+        {
+            @Html.Partial("_Pager", Model.Pager)
+        }
+    </div>
+</div>

@@ -1,0 +1,22 @@
+﻿ <div id="tab" style="text-align: center;">
+        <table align="center" id="mytable">
+            <thead>
+                <tr>
+                    <th height="30" width="690">
+                        <div>
+
+                        @{
+                            string message = Model as string;
+                            if (string.IsNullOrEmpty(message))
+                           {
+                               @Html.Encode("No existen datos.")
+                           }
+                           else
+                           {
+                               @Html.Raw("No existen datos para '" + Model + "'.")
+                           } }</div>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>

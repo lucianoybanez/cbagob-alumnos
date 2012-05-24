@@ -1,0 +1,110 @@
+﻿@model IList<IPersonaJuridica>
+<script type="text/javascript">
+    function PerJur(IdPersJur, Cuit, RaSo) {
+        window.document.getElementById('Id_PersonaJuridica').value = IdPersJur;
+        window.document.getElementById('Cuit').value = Cuit;
+        window.document.getElementById('Razonsocial').value = RaSo;
+
+    }
+</script>
+<table style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
+    <tr>
+        <td>
+            <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 660px; text-align: center;">
+               <legend>Persona Juridica</legend>
+                    <table style="width: 660px;">
+                        <tr>
+                            <td height="30" width="100px" align="right">
+                                 <b>Cuit: </b>
+                            </td>
+                            <td align="left">
+                                <input type="text" />
+                            </td>
+                            <td align="right">
+                                <b>Razon Social:</b>
+                            </td>
+                            <td align="left">
+                                <input type="text" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" align="right" height="30">
+                                <input type="button" value="Buscar" class="btnIngresar" />
+                                <input type="button" value="Agregar Persona Juridica" class="btnIngresar" />
+                            </td>
+                        </tr>
+                    </table>
+                 </fieldset><br />
+                </td>
+            </tr>
+
+    <tr>
+        <td>
+            @if (Model != null && Model.Count > 0)
+            { 
+                
+                <table style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;">
+                <tr>
+                    <td>
+            <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 660px; text-align: center;">
+               <legend>Datos Persona </legend>
+                <div id="tab" style="text-align: center;">
+                    <table style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 660px;">
+                        <thead>
+                            <tr>
+                                <th height="30">
+                                    <div align="center">
+                                       CUIT</div>
+                                </th>
+                                <th height="30">
+                                    <div align="center">
+                                        RAZON SOCIAL</div>
+                                </th>
+                                <th height="30">
+                                    <div align="center">
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td align="center">
+                                        @item.Cuit
+                                    </td>
+                                    <td align="center">
+                                        @item.Razon_Social
+                                    </td>
+                                    <td align="center">
+                                        <img onclick="PerJur(@item.Id_PersonaJur,'@item.Cuit', '@item.Razon_Social');"  src=@Content.ImageSite("seleccionar.jpg", Url) width="25" height="25"  />
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    </div>
+                    </fieldset><br />
+                </td>
+            </tr>
+            </table>
+                
+            }
+            else
+            {
+                <div id="tab" style="text-align: center;">
+                    <table style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 660px;">
+                        <thead>
+                            <tr>
+                                <th height="30">
+                                    <div align="center">
+                                        SIN DATOS</div>
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            }
+        </td>
+    </tr>
+</table>

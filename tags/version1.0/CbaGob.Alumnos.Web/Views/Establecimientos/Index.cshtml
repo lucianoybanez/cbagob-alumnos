@@ -1,0 +1,37 @@
+﻿@model  EstablecimientosVista
+@{
+    ViewBag.Title = "Instituciones";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Stylesheets {
+    @Content.Stylesheet("css/instituciones.css", Url)
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Establecimientos.js",Url)
+}
+
+<div class="box">
+  <h2>Listado de Establecimientos</h2>
+    <table>
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                    
+                </div>
+               @* <div id="titulo">
+                    <div id="ttxt">
+                        Establecimientos</div>
+                     <div id="iconobuscar">
+                        @Html.ActionLink("Buscar", "", "",  new { @class = "btngral" })
+                    </div>
+                    <div id="iconomodificar">
+                       @Html.ActionLink("Nuevo", "Agregar", "Establecimientos", null, new { Class = "btngral" })
+                    </div>
+                </div>*@
+                <div id="DivInstituciones">
+                    @Html.Partial("_EstablecimientoLista", Model)
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

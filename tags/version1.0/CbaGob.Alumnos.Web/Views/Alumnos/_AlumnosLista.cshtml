@@ -1,0 +1,129 @@
+﻿@model IList<IAlumnos>
+
+@{var result = Html.Action("IsAdminMode", "Home");
+  string rol = result.ToHtmlString();   }
+
+@if (Model != null && Model.Count > 0)
+{ 
+    <div id="grilla" style="text-align: center;">
+        <table align="center" width="722px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30" width="180px">
+                        <div align="left">
+                            Nombre</div>
+                    </th>
+                    <th height="30" width="180px">
+                        <div align="left">
+                            Apellido</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Dni</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Fecha Nacimiento</div>
+                    </th>
+                    <th height="30">
+                        <div align="right" style="margin-right: 2px;">
+                            Acción 
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td align="left" height="30">
+                            @if (item.Nombre.Length < 30)
+                            {  @item.Nombre}
+                            else
+                            {@(item.Nombre.Substring(0, 30) + "...") }
+                        </td>
+                        <td align="left" height="30">
+                            @if (item.Apellido.Length < 30)
+                            {  @item.Apellido}
+                            else
+                            {@(item.Apellido.Substring(0, 30) + "...") }
+                        </td>
+                        <td align="center" height="30">
+                            @if (item.Nro_Documento.Length < 10)
+                            {  @item.Nro_Documento}
+                            else
+                            {@(item.Nro_Documento.Substring(0, 10) + "...") }
+                        </td>
+                        <td align="center" height="30">
+                            @item.Fecha_Nacimiento.ToShortDateString()
+                        </td>
+                        <td align="right" style="margin-right: 2px;">
+                            @{
+                            if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                            {
+                                @Html.ActionLink("Modificar", "Modificar", "Alumnos", new { id_alumno = item.Id_Alumno }, new { @class = "btnIngresar" })
+                                @Html.ActionLink("Eliminar", "Eliminar", "Alumnos", new { id_alumno = item.Id_Alumno }, new { @class = "btnIngresar" })
+                            }
+                                @Html.ActionLink("Ver", "Consultar", "Alumnos", new { id_alumno = item.Id_Alumno }, new { @class = "btnIngresar" })
+                            }
+                        </td>
+                    </tr>
+                }<tr>
+                    <td align="left" colspan="7">
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" valign="middle" colspan="4" height="20">
+                        <div id="resumenPag" style="height: 30px; padding: 10px 5px 0 2px;">
+                        </div>
+                    </td>
+                    <td align="right" valign="bottom" colspan="3" height="20">
+                        <div id="resumenPag" style="height: 30px; padding: 15px 5px 0 2px;">
+                            @{
+                if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                {
+                                @Html.ActionLink("Agregar Alumno", "Agregar", "Alumnos", new { @class = "btnIngresar" })
+                }
+                            }
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+@* <div id="tab" style="text-align: center;">
+        <table align="center" id="mytable">
+            <thead>
+                <tr>
+                    <th height="30">
+                        <div align="center">
+                            SIN DATOS</div>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>*@
+    <table id="grilla" align="center" width="722px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="722px">
+                @Html.Partial("_SinDatos", "Alumnos")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div align="right" style="height: 20px; padding: 15px 5px 0 2px;">
+                    @{
+    if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+    {
+                        @Html.ActionLink("Agregar Alumno", "Agregar", "Alumnos", new { @class = "btnIngresar" })
+    }
+                    }
+                </div>
+            </td>
+        </tr>
+    </table>
+}

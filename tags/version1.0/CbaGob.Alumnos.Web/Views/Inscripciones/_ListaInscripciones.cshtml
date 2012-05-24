@@ -1,0 +1,64 @@
+﻿@model IList<IInscripcion>
+@if (Model != null && Model.Count > 0)
+{ 
+    <table id="grilla" align="center" width="722px" cellpadding="0" cellspacing="0">
+        <thead>
+            <tr>
+                <th width="160">
+                    <div align="center">
+                        Institucion</div>
+                </th>
+                <th width="150">
+                    <div align="center">
+                        Curso</div>
+                </th>
+                <th width="80">
+                    <div align="center" >
+                        Nivel</div>
+                </th>
+                <th width="80">
+                    <div align="center">
+                        Fecha Inicio</div>
+                </th>
+                <th width="150">
+                    <div align="center">
+                        Alumno</div>
+                </th>
+                <th height="50">
+                    <div align="center">
+                        Accion</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td height="30" align="left">
+                        @item.NombreInstitucion.ToMaxLenght(20)
+                    </td>
+                    <td align="left">
+                        @item.NombreCurso
+                    </td>
+                    <td align="left">
+                        @item.NombreNivel
+                    </td>
+                    <td align="left">
+                        @item.FechaIncio.ToFecha()
+                    </td>
+                    <td align="left">
+                        @Html.Raw((item.ApellidoAlumno + ", " + item.NombreAlumno).ToMaxLenght(20))
+                    </td>
+                    <td>
+                        @Html.ActionLink("Eliminar", "Eliminar", "Inscripciones", new { idInscripcion = item.IdInscripcion }, new { @class = "btnIngresar toHide" })&nbsp;&nbsp;&nbsp;&nbsp;
+                        @Html.ActionLink("Ver", "Ver", "Inscripciones", new { idInscripcion = item.IdInscripcion }, new { @class = "btnIngresar" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    @Html.Partial("_SinDatos", "Inscripciones")
+}

@@ -1,0 +1,60 @@
+﻿@model  DocentesVista
+@{
+    ViewBag.Title = "Instituciones";
+    ViewBag.SubMenuSelected = "Docentes";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Stylesheets {
+    @Content.Stylesheet("css/instituciones.css", Url)
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Docentes.js", Url)
+}
+<div class="box">
+    <h2>
+        Listado Docente</h2>
+    @using (Html.BeginForm("IndexPager", "Docentes", FormMethod.Post, new { Id = "FormIndexDocentes" }))
+    { 
+        <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+            margin-left: 5px; margin-top: 5px;">
+            <legend style="color: #FF9900"><b>Buscar</b></legend>
+            <table>
+                <tr>
+                    <td height="35px">
+                        <b>Nombre y Apellido/Razon Social:&nbsp;</b>
+                    </td>
+                    <td>@Html.TextBoxFor(c => c.RazonSocialBusqueda, new { style = "width:400px;", MaxLength = "64", placeholder = PlaceHolderConstants.NombreApellido })
+                    </td>
+                </tr>
+                <tr>
+                    <td height="35px">
+                        <b>Cuit:&nbsp;</b>
+                    </td>
+                    <td>@Html.TextBoxFor(c => c.CuilCuitBusqueda, new { style = "width:150px;", MaxLength = "45", placeholder = PlaceHolderConstants.Cuil })
+                        <input type="button" id ="Buscar" value="Buscar" class="btnIngresar" />
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+   
+        <br />
+        <table>
+            <tr>
+                <td class="style1" style="font-weight: bold">
+                    <div id="titulo">
+                    </div>
+                    <div id="DivDocentes">
+                        @Html.Partial("_DocentesLista", Model.ListaDocentes)
+                    </div>
+                </td>
+            </tr>
+        </table>
+        @Html.Partial("_Pager", Model.Pager)
+    }
+    @* <div style="text-align: left;">
+        @using (Html.BeginForm("IndexPager", "Docentes", FormMethod.Post, new { id = "FormIndexDocentes" }))
+        {
+
+        }
+    </div>*@
+</div>

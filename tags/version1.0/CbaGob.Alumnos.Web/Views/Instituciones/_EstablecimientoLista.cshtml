@@ -1,0 +1,135 @@
+﻿@model InstitucionVista
+@{var result = Html.Action("IsAdminMode", "Home");
+  string rol = result.ToHtmlString();   }
+@using (Html.BeginForm("BuscarSede", "Instituciones", FormMethod.Get))
+{
+    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;
+        margin-left: 5px; margin-top: 5px;">
+        <legend style="color: #FF9900">Buscar</legend>
+        <table>
+            <tr>
+                <td height="35px">
+                    Nombre Sede:&nbsp;
+                </td>
+                <td>
+                    @Html.TextBoxFor(c => c.NombreSede, new { style = "width:250px;", MaxLength = "150", Class = "asd", placeholder=PlaceHolderConstants.SedeNombre })
+                    @Html.HiddenFor(c => c.Id_Institucion)
+                    @Html.HiddenFor(c => c.añobuscqueda, new { Id = "añobuscqueda" })
+                    @Html.HiddenFor(c => c.cursobusqueda)
+                    <input type="submit" value="Buscar" class="btnIngresar" />
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+
+}
+<br />
+@if (Model.ListaEstablecimiento != null && Model.ListaEstablecimiento.Count > 0)
+{ 
+    <div id="tab" style="text-align: center;">
+        <table class="TablaPersonal" align="center" width="690px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30">
+                        <div align="left">
+                            Nombre Sede</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Provincia</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Localidad</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Barrio</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Calle</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Nro</div>
+                    </th>
+                    <th height="30">
+                        <div align="right" style="margin-right: 2px;">
+                            Acción</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ListaEstablecimiento)
+                {
+                    <tr>
+                        <td align="left" height="28">
+                            @item.NombreEstablecimiento.ToMaxLenght(10)
+                        </td>
+                        <td align="center">
+                            @item.Provincia.ToMaxLenght(10)
+                        </td>
+                        <td align="center">
+                            @item.Provincia.ToMaxLenght(10)
+                        </td>
+                        <td align="center">
+                            @item.Barrio.ToMaxLenght(10)
+                        </td>
+                        <td align="center">
+                            @item.Calle.ToMaxLenght(10)
+                        </td>
+                        <td align="center">
+                            @item.Nro
+                        </td>
+                        <td align="right" style="margin-right: 2px;">
+                            @{
+                    if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                    {
+                                @Html.ActionLink("Modificar", "Modificar", "Establecimientos", new { id_establecimiento = item.Id_Establecimiento }, new { @class = "btnIngresar" })
+                                @Html.ActionLink("Eliminar", "Eliminar", "Establecimientos", new { id_establecimiento = item.Id_Establecimiento }, new { @class = "btnIngresar" })
+                    }
+                                @Html.ActionLink("Ver", "Consultar", "Establecimientos", new { id_establecimiento = item.Id_Establecimiento }, new { @class = "btnIngresar" })
+                            }
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td align="left" valign="middle" colspan="4" height="20">
+                    </td>
+                    <td align="right" valign="bottom" colspan="3" height="20">
+                        <div id="resumenPag" style="height: 30px; padding: 15px 5px 0 2px;">
+                            @{
+                if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+                {
+                                @Html.ActionLink("Agregar Sede", "Agregar", "Establecimientos", new { Id_institucion = Model.Id_Institucion }, new { @class = "btnIngresar" })
+                }
+                            }
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+   
+    <table id="grilla" width="690px" cellpadding="0" cellspacing="0" align="left">
+        <tr>
+            <td width="722px">
+                @Html.Partial("_SinDatos", "No Existen Sedes para esta Institución")
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 20px; padding: 15px 5px 0 2px; margin-right: 2px;" align="right">
+                @{
+    if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
+    {
+                    @Html.ActionLink("Agregar Sede", "Agregar", "Establecimientos", new { Id_institucion = Model.Id_Institucion }, new { @class = "btnIngresar" })
+    }
+                }
+            </td>
+        </tr>
+    </table>
+}

@@ -1,0 +1,150 @@
+﻿@model ExamenVista
+@{
+    ViewBag.Title = "Inscripciones";
+    ViewBag.SubMenuSelected = "Inscripciones";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Examenes.js", Url)
+}
+<div class="box">
+    <h2>
+        @Model.Accion Examen</h2>
+    <table  style="width: 700px;">
+        <tr>
+            <td >
+                @Html.ValidationSummary(true)
+                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+                    text-align: center;">
+                    <legend style="color: #FF9900"><b>Datos Examen</b></legend>
+                  
+                      
+                    
+                  
+                   
+                    @using (Html.BeginForm("GuardarExamen", "Examenes", FormMethod.Post, new { id = "FormExamenes" }))
+                    { 
+                        @Html.HiddenFor(c => c.Accion)
+                        @Html.HiddenFor(c => c.IdExamen)
+                        @Html.HiddenFor(c => c.idInscripcion)
+                        <input type="hidden" id="urlEliminar" value="@Url.Action("EliminarExamen")"/>
+                      
+
+                        <table>
+                            <tr>
+                                <td align="left">
+                                    Numero de Examen
+                                </td>
+                                <td>
+                                    @Html.EditorFor(c => c.NroExamen)                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                 <td align="left">
+                                    Fecha de Examen
+                                </td>
+                                 <td align="left">
+                                    @{ if (Model.Accion=="Eliminar")
+                                       {
+                                        @Html.TextBox("FechaExamen",Model.FechaExamen.ToFecha(),new { @readonly = "readonly" }) 
+                                       }
+                                   else
+                                   {
+                                        @Html.EditorFor(c => c.FechaExamen) 
+                                   }
+                                   }
+                                    @Html.ValidationMessageFor(c => c.FechaExamen, "*")
+                                </td>
+                            </tr>
+                            <tr>
+                                 <td align="left">
+                                    Nota
+                                </td>
+                                <td>
+                                @{ if (Model.Accion=="Eliminar")
+                                   {
+                                      @Html.TextBoxFor(c => c.Nota, new { @readonly = "readonly" }) 
+                                   }
+                                   else
+                                   {
+                                        @Html.TextBoxFor(c => c.Nota) 
+                                   }
+                                }
+                                    
+                                    @Html.ValidationMessageFor(c => c.Nota, "*")
+                                </td>
+                            </tr>
+                            <tr>
+                                 <td align="left">
+                                  Alumno:
+                                </td>
+                                <td>
+                                    @Html.TextBoxFor(c => c.NombreAlumno, new { @readonly = "readonly" })
+                                </td>
+                            </tr>
+                            <tr>
+                                 <td align="left">
+                                    Institucion:
+                                </td>
+                                <td>
+                                    @Html.TextBoxFor(c => c.NombreInstitucion, new { @readonly = "readonly" })
+                                </td>
+                            </tr>
+                            <tr>
+                                 <td align="left">
+                                    Curso:
+                                </td>
+                                <td >
+                                    @Html.TextBoxFor(c => c.NombreCurso, new { @readonly = "readonly" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    Estado de Curso:
+                                </td>
+                                <td>
+                                    @Html.TextBoxFor(c => c.NombreEstadoCurso, new { @readonly = "readonly" })
+                                </td>
+                            </tr>
+                            <tr>
+                                 <td align="left">
+                                    Nivel:
+                                </td>
+                                <td>
+                                    @Html.TextBoxFor(c => c.NombreNivel, new { @readonly = "readonly" })
+                                </td>
+                            </tr>
+                            <tr>
+                                 <td align="left">
+                                    Modalidad:
+                                </td>
+                                <td>
+                                    @Html.TextBoxFor(c => c.NombreModalidad, new { @readonly = "readonly" })
+                                </td>
+                            </tr>
+                            <tr>
+                                 <td align="left">
+                                    Programa:
+                                </td>
+                                <td>
+                                    @Html.TextBoxFor(c => c.NombrePrograma, new { @readonly = "readonly" })
+                                </td>
+                            </tr>
+                        </table>
+                        <table id="myIntituciones" align="center" width="700px">
+                            <tr>
+                                <td align="right" valign="middle">
+                                    <input type="submit" value="Guardar" id="BTGuardar" class="btnIngresar" />
+                                    <a class="btnIngresar" href="javascript:history.back()">Cancelar</a>
+                                
+                                </td>
+                            </tr>
+                        </table>
+                  
+                   
+                    }
+                </fieldset>
+            </td>
+        </tr>
+    </table>
+</div>

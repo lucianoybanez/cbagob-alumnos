@@ -1,0 +1,53 @@
+﻿@model  InstitucionVista           
+@{
+    ViewBag.Title = "Instituciones";
+    ViewBag.SubMenuSelected = "Instituciones";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Stylesheets {
+    @Content.Stylesheet("css/instituciones.css", Url)
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Instituciones.js", Url)
+}
+<div class="box">
+    <h2>
+        Listado de Instituciones</h2>
+    @using (Html.BeginForm("IndexPager", "Instituciones", FormMethod.Post, new { Id = "FormIndexInstituciones" }))
+    { 
+        <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+            margin-left: 5px; margin-top: 5px;">
+            <legend style="color: #FF9900"><b>Buscar</b></legend>
+            <table>
+                <tr>
+                    <td height="35px">
+                        <b>Nombre Institución:&nbsp;</b>
+                    </td>
+                    <td>@Html.TextBoxFor(c => c.Nombre_InstitucionBusqueda, new { style = "width:400px;", MaxLength = "64", placeholder = PlaceHolderConstants.InstitucionNombre })
+                        <input type="button" id="Buscar" value="Buscar" class="btnIngresar" />
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+   
+        <br />
+        <table>
+            <tr>
+                <td class="style1" style="font-weight: bold">
+                    <div id="titulo">
+                    </div>
+                    <div id="DivInstituciones">
+                        @Html.Partial("_InstitucionesLista", Model.ListaInstituciones)
+                    </div>
+                </td>
+            </tr>
+        </table>
+        @Html.Partial("_Pager", Model.pager)
+    }
+    @*<div style="text-align: left;">
+        @using (Html.BeginForm("", "Instituciones", FormMethod.Post, new { id = "FormIndexInstituciones" }))
+        {
+
+        }
+    </div>*@
+</div>

@@ -1,0 +1,62 @@
+﻿@model FacturasVista
+@{
+    ViewBag.Title = "Facturaciones";
+    ViewBag.SubMenuSelected = "Facturacion";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Factura.js", Url)
+}
+@section Stylesheets {
+    @Content.Stylesheet("css/instituciones.css", Url)
+}
+<div class="box">
+    <h2>
+        Listado de Facturas</h2>
+    @using (Html.BeginForm("IndexPager", "Factura", FormMethod.Post, new { id = "FormIndexFacturas" }))
+    {
+        @Html.Hidden("UrlBuscar", Url.Action("Buscar"), "UrlBuscar")
+        <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+            margin-left: 5px; margin-top: 5px;">
+            <legend style="color: #FF9900"><b>Buscar</b></legend>
+            <table>
+                <tr>
+                    <td height="35px">
+                        <b>Numero de Factura:&nbsp;</b>
+                    </td>
+                    <td>@Html.TextBoxFor(c => c.NroFactura, new { style = "width:100px;", MaxLength = "64" })
+                    </td>
+                </tr>
+                <tr>
+                    <td height="35px">
+                        <b>Fecha&nbsp;</b>
+                    </td>
+                    <td>@Html.EditorFor(c => c.Fecha)
+                    </td>
+                </tr>
+                <tr>
+                    <td height="35px">
+                    </td>
+                    <td>
+                        <input type="button" id="Buscar" value="Buscar" class="btnIngresar" />
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <table>
+            <tr>
+                <td class="style1" style="font-weight: bold">
+                    <div id="titulo">
+                    </div>
+                    <br />
+                    <div id="DivInstituciones">
+                        @Html.Partial("_FacturaLista", Model)
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div style="text-align: left;">
+            @Html.Partial("_Pager", Model.Pager)
+        </div>
+    }
+</div>

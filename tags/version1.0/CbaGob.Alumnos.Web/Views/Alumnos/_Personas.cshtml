@@ -1,0 +1,101 @@
+﻿@model IList<IPersona>
+<table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+    width: 690px;">
+    <tr>
+        <td>
+            @if (Model != null && Model.Count > 0)
+            { 
+                <div id="tab" style="text-align: center;">
+                    <table class="TablaPersonal" align="center" cellpadding="0" cellspacing="0" style="font-family: Arial, Helvetica, sans-serif;
+                        font-size: 12px; width: 700px;">
+                        <thead>
+                            <tr>
+                                <th height="30">
+                                    <div align="center">
+                                        Nombre</div>
+                                </th>
+                                <th height="30">
+                                    <div align="center">
+                                        Apellido</div>
+                                </th>
+                                <th height="30">
+                                    <div align="center">
+                                        Dni</div>
+                                </th>
+                                <th height="30">
+                                    <div align="center">
+                                        Cuil</div>
+                                </th>
+                                <th height="30">
+                                    <div align="center">
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td align="center">
+                                        @item.Nov_Nombre
+                                    </td>
+                                    <td align="center">
+                                        @item.Nov_Apellido
+                                    </td>
+                                    <td align="center">
+                                        @item.Nro_Documento
+                                    </td>
+                                    <td align="center">
+                                        @item.Cuil
+                                    </td>
+                                    <td align="center">
+                                        <img onclick="Pesonas(@item.Id_Persona,'@item.Nov_Nombre','@item.Nov_Apellido', '@item.Nro_Documento', '@item.Cuil' );"  src=@Content.ImageSite("seleccionar.jpg", Url) width="25" height="25"  />
+                                    </td>
+                                </tr>
+                            }
+                            <tr>
+                                <td align="left" valign="middle" colspan="4" height="20">
+                                    <div id="resumenPag" style="height: 30px; padding: 10px 5px 0 2px;">
+                                        @* <div align="center">
+                                <ul id="pagination-clean">
+                                  <li class="previous-off">Ant</li>
+                                  <li class="active">1</li>
+                                  <li><a href="?page=2">2</a></li>
+                                  <li><a href="?page=3">3</a></li>
+                                  <li><a href="?page=4">4</a></li>
+                                  <li><a href="?page=5">5</a></li>
+                                  <li><a href="?page=6">6</a></li>
+                                  <li><a href="?page=7">7</a></li>
+                                  <li class="next"><a href="?page=2">Sig</a></li>
+                                </ul>
+                              </div>*@
+                                    </div>
+                                </td>
+                                <td align="right" valign="bottom" colspan="3" height="20">
+                                    <div id="resumenPag" style="height: 30px; padding: 15px 5px 0 2px;">
+                                        @Html.ActionLink("Agregar Persona", "Agregar", "Personas", null, new { @class = "btnIngresar" })
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div id="tab" style="text-align: center;">
+                    <table align="center" id="mytable">
+                        <thead>
+                            <tr>
+                                <th height="30">
+                                    <div align="center">
+                                        SIN DATOS</div>
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            }
+        </td>
+    </tr>
+</table>

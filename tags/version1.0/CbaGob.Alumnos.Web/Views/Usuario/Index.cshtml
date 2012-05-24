@@ -1,0 +1,43 @@
+﻿@model UsuarioVista
+@{
+    ViewBag.Title = "Usuarios";
+    ViewBag.SubMenuSelected = "Usuarios";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Scripts{
+}
+@section Stylesheets{
+@Content.Stylesheet("css/instituciones.css", Url)
+}
+<div class="box">
+    <h2>
+        Usuarios del sistema</h2>
+        
+    <table>
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                    @Html.ValidationSummary()
+                </div>             
+                <div id="">                   
+                    <div style="padding-top:2px; padding-right:2px;">  
+                    @Html.Partial("_UsuariosLista", Model.Usuarios)
+                    </div>
+                    <div style="text-align: left;" >  
+                    @using (Html.BeginForm("IndexPager", "Inscripciones", FormMethod.Post, new { id = "FormIndexUsuario" }))
+                    {
+                        @Html.Partial("_Pager", Model.pager)
+                    }                    
+                    </div>
+
+                    <div id="btnfin" style="text-align: right;" >  
+                    @Html.ActionLink("Agregar Usuario", "Agregar", "Usuario", null, new { @class = "btnIngresar" })
+                    </div>
+                    
+                    <br />
+                </div>
+            </td>
+        </tr>
+    </table>
+   
+</div>

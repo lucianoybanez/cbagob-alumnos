@@ -1,0 +1,835 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4CCF1498-4201-4366-B02F-D9491F7AFF8F}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CbaGob.Alumnos.Web</RootNamespace>
+    <AssemblyName>CbaGob.Alumnos.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>..\References\ItextSharp\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap, Version=2.6.3.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\structuremap.2.6.3\lib\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebActivator">
+      <HintPath>..\References\WebActivator.1.5\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\StructuremapMvc.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AlumnosController.cs" />
+    <Compile Include="Controllers\AreaTipoCursoController.cs" />
+    <Compile Include="Controllers\AyudaController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BuscadorController.cs" />
+    <Compile Include="Controllers\CajaChicaController.cs" />
+    <Compile Include="Controllers\CargosController.cs" />
+    <Compile Include="Controllers\CondicionesCursoController.cs" />
+    <Compile Include="Controllers\CursosController.cs" />
+    <Compile Include="Controllers\DocentesController.cs" />
+    <Compile Include="Controllers\EquipamientosController.cs" />
+    <Compile Include="Controllers\EstablecimientosController.cs" />
+    <Compile Include="Controllers\ExamenesController.cs" />
+    <Compile Include="Controllers\GruposController.cs" />
+    <Compile Include="Controllers\FacturaController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InscripcionesController.cs" />
+    <Compile Include="Controllers\InstitucionesController.cs" />
+    <Compile Include="Controllers\InventariosController.cs" />
+    <Compile Include="Controllers\ModalidadController.cs" />
+    <Compile Include="Controllers\MovimientoController.cs" />
+    <Compile Include="Controllers\PersonasController.cs" />
+    <Compile Include="Controllers\PrestamosController.cs" />
+    <Compile Include="Controllers\ProgramasController.cs" />
+    <Compile Include="Controllers\SupervicionesController.cs" />
+    <Compile Include="Controllers\SupervisoresController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="DependencyResolution\IoC.cs" />
+    <Compile Include="DependencyResolution\SmDependencyResolver.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastucture\Authentication\AutenticacionServicio.cs" />
+    <Compile Include="Infrastucture\Authentication\HttpContextService.cs" />
+    <Compile Include="Infrastucture\Authentication\IHttpContextService.cs" />
+    <Compile Include="Infrastucture\LogAttribute.cs" />
+    <Compile Include="Infrastucture\MyHelpers.cs" />
+    <Compile Include="Infrastucture\PlaceHolderConstants.cs" />
+    <Compile Include="Infrastucture\ViewAuthorizeAttribute.cs" />
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\blitzer\images\ui-bg_diagonals-thick_75_f3d8d8_40x40.png" />
+    <Content Include="Content\blitzer\images\ui-bg_dots-small_65_a6a6a6_2x2.png" />
+    <Content Include="Content\blitzer\images\ui-bg_flat_0_333333_40x100.png" />
+    <Content Include="Content\blitzer\images\ui-bg_flat_65_ffffff_40x100.png" />
+    <Content Include="Content\blitzer\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\blitzer\images\ui-bg_glass_55_fbf8ee_1x400.png" />
+    <Content Include="Content\blitzer\images\ui-bg_highlight-hard_100_eeeeee_1x100.png" />
+    <Content Include="Content\blitzer\images\ui-bg_highlight-hard_100_f6f6f6_1x100.png" />
+    <Content Include="Content\blitzer\images\ui-bg_highlight-soft_15_cc0000_1x100.png" />
+    <Content Include="Content\blitzer\images\ui-icons_004276_256x240.png" />
+    <Content Include="Content\blitzer\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\blitzer\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\blitzer\jquery-ui-1.8.16.custom.css" />
+    <Content Include="Content\css\instituciones.css" />
+    <Content Include="Content\css\login.css" />
+    <Content Include="Content\css\Master.css" />
+    <Content Include="Content\css\menu.css" />
+    <Content Include="Content\css\Pager.css" />
+    <Content Include="Content\css\textos.css" />
+    <Content Include="Content\flash\dario.swf" />
+    <Content Include="Content\flash\Test.swf" />
+    <Content Include="Content\images\120_.png" />
+    <Content Include="Content\images\47_.png" />
+    <Content Include="Content\images\49_.png" />
+    <Content Include="Content\images\Bg_encabezado.jpg" />
+    <Content Include="Content\images\Bg_pie.jpg" />
+    <Content Include="Content\images\cordoba-entre-todo.jpg" />
+    <Content Include="Content\images\EscudoCordoba.png" />
+    <Content Include="Content\images\Logo Agencia.jpg" />
+    <Content Include="Content\images\Logout_button.png" />
+    <Content Include="Content\images\provincia-de-cordoba.jpg" />
+    <Content Include="Content\images\seleccionar.jpg" />
+    <Content Include="Content\MVCFramework.css" />
+    <Content Include="Content\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\redmond\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Content\redmond\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Content\redmond\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Content\redmond\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\redmond\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Content\redmond\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Content\redmond\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\redmond\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Content\redmond\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\redmond\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Content\redmond\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Content\redmond\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\redmond\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\redmond\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Content\redmond\jquery-ui-1.8.18.custom.css" />
+    <Content Include="Content\start\images\ui-bg_flat_55_999999_40x100.png" />
+    <Content Include="Content\start\images\ui-bg_flat_75_aaaaaa_40x100.png" />
+    <Content Include="Content\start\images\ui-bg_glass_45_0078ae_1x400.png" />
+    <Content Include="Content\start\images\ui-bg_glass_55_f8da4e_1x400.png" />
+    <Content Include="Content\start\images\ui-bg_glass_75_79c9ec_1x400.png" />
+    <Content Include="Content\start\images\ui-bg_gloss-wave_45_e14f1c_500x100.png" />
+    <Content Include="Content\start\images\ui-bg_gloss-wave_50_6eac2c_500x100.png" />
+    <Content Include="Content\start\images\ui-bg_gloss-wave_75_2191c0_500x100.png" />
+    <Content Include="Content\start\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\start\images\ui-icons_0078ae_256x240.png" />
+    <Content Include="Content\start\images\ui-icons_056b93_256x240.png" />
+    <Content Include="Content\start\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\start\images\ui-icons_e0fdff_256x240.png" />
+    <Content Include="Content\start\images\ui-icons_f5e175_256x240.png" />
+    <Content Include="Content\start\images\ui-icons_f7a50d_256x240.png" />
+    <Content Include="Content\start\images\ui-icons_fcd113_256x240.png" />
+    <Content Include="Content\start\jquery-ui-1.8.17.custom.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.all.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.base.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\CbaGob.Alumnos.Alumnos.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.AreaTipoCurso.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Buscador.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.BuscadorAlumno.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.BuscadorCondicionCurso.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.CajaChica.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Cargos.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.CondicionesCurso.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Cursos.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Docentes.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Equipos.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Establecimientos.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Factura.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Global.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Grupos.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Examenes.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Inscripciones.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Instituciones.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Modalidad.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Movimientos.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Prestamo.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Programas.js" />
+    <Content Include="Scripts\cbaGob.Alumnos.SetFront.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Superviciones.js" />
+    <Content Include="Scripts\CbaGob.Alumnos.Supervisores.js" />
+    <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.5.1.js" />
+    <Content Include="Scripts\jquery-1.5.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
+    <Content Include="Scripts\jquery.maskedinput-1.3.min.js" />
+    <Content Include="Scripts\jquery.pager.js" />
+    <Content Include="Scripts\jquery.pagination.js" />
+    <Content Include="Scripts\jquery.ui.datepicker-es.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jQueryFixes.js" />
+    <Content Include="Scripts\modernizr-1.7.js" />
+    <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Scripts\smartpaginator.js" />
+    <Content Include="Views\Shared\EditorTemplates\Buscador.ascx" />
+    <Content Include="Views\Shared\EditorTemplates\ComboBox.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\Account\LogOn.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CbaGob.Alumnos.Infra\CbaGob.Alumnos.Infra.csproj">
+      <Project>{E6EE8025-D897-4436-8833-7B7ABCD3B6CC}</Project>
+      <Name>CbaGob.Alumnos.Infra</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CbaGob.Alumnos.Modelo\CbaGob.Alumnos.Modelo.csproj">
+      <Project>{B8C19266-F01B-4DBC-A986-CA7BCF20FBA4}</Project>
+      <Name>CbaGob.Alumnos.Modelo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CbaGob.Alumnos.Repositorio\CbaGob.Alumnos.Repositorio.csproj">
+      <Project>{637A529A-AFDB-40F0-9C00-6190606ED372}</Project>
+      <Name>CbaGob.Alumnos.Repositorio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CbaGob.Alumnos.Servicio\CbaGob.Alumnos.Servicio.csproj">
+      <Project>{D3D5BB78-A983-4A76-9AFB-B1BEDF34B9C2}</Project>
+      <Name>CbaGob.Alumnos.Servicio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app_code\Content.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Usuario\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Usuario\_UsuariosLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Instituciones\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Instituciones\_InstitucionesLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Instituciones\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Instituciones\Modificar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Instituciones\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Instituciones\Ver.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cursos\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cursos\_CursosLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cursos\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cursos\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cursos\Modificar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CondicionesCurso\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Docentes\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Docentes\_DocentesLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Docentes\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Docentes\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Docentes\Modificar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Docentes\_PersonasJuridica.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Docentes\_Domicilios.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Alumnos\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Alumnos\_AlumnosLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Alumnos\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Alumnos\_Personas.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Alumnos\Modificar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Alumnos\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Instituciones\_Domicilios.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Instituciones\CursosAsignados.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_SinDatos.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Grupos\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Grupos\_GrupoLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Grupos\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Grupos\Modificar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Grupos\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Grupos\_EstablecimientoLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Grupos\_DocenteLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Establecimientos\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Establecimientos\_EstablecimientoLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Establecimientos\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Establecimientos\Modificar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Establecimientos\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Establecimientos\_Domicilios.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Factura\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Factura\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Factura\_FacturaLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Examenes\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Examenes\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Instituciones\_EstablecimientoLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_MasterSGC.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Instituciones\_CondicionCursoLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CondicionesCurso\Ver.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CondicionesCurso\_GrupoLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CondicionesCurso\_AlumnosLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Grupos\Ver.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Grupos\_AlumnosLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Grupos\_AlumnosEnGrupoLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Paginacion.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inscripciones\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Superviciones\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Supervisores\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Supervisores\_SupervisoresLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Supervisores\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Supervisores\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Supervisores\Modificar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Superviciones\_SupervisionesLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Superviciones\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Superviciones\_InstitucionesLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Superviciones\_CursosLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Superviciones\_GruposLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Superviciones\Agregar_2Paso.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Superviciones\Modificar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Superviciones\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Equipamientos\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Equipamientos\_EquiposLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Equipamientos\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Equipamientos\Modificar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Equipamientos\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Prestamos\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Prestamos\_PrestamoLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Prestamos\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Prestamos\Modificar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Prestamos\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inventarios\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inventarios\_InventarioLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inventarios\_EquiposLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inventarios\Ver.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Factura\_InstitucionesLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Factura\_CursosLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Factura\Seleccion.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_BuscadorAlumnoLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\BuscadorAlumno.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_BuscadorCondicionCursoLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\BuscadorCondicionCurso.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inscripciones\_ExamenesAsignados.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Factura\Liquidacion.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Factura\VerFactura.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Factura\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CajaChica\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CajaChica\_CajaChicaLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Instituciones\_CajaChicaLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CajaChica\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CajaChica\Modificar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CajaChica\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CajaChica\Ver.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Movimiento\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Movimiento\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Movimiento\Modificar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CajaChica\_MovimientosLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Grupos\_DocentesInGrupoLista.cshtml" />
+    <Content Include="Views\Grupos\_DocentesNoGrupoLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Personas\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inscripciones\Presentismo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inscripciones\Certificado.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inscripciones\_AgregarPresentismo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inscripciones\Examenes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inscripciones\_ListaInscripciones.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Pager.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inscripciones\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\AccesoDenegado.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Usuario\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Grupos\_HorarioParaelModulo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Grupos\_HorarioAsiganadoModulo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inscripciones\CertificadoPDF.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Ayuda\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inscripciones\Reportes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inscripciones\EgresadosPDF.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cargos\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cargos\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cargos\Modificar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cargos\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cargos\_CargosLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Programas\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Programas\_ProgramasLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Programas\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Programas\Modificar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Programas\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AreaTipoCurso\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AreaTipoCurso\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AreaTipoCurso\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AreaTipoCurso\Modificar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AreaTipoCurso\_AreaTipoCursoLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Modalidad\_ModalidadLista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Modalidad\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Modalidad\Agregar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Modalidad\Eliminar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Modalidad\Modificar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inscripciones\ParticipantesPDF.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Inscripciones\AsistenciaPDF.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Alumnos\Consultar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cursos\Consultar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Docentes\Consultar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Establecimientos\Consultar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CondicionesCurso\Eliminar.cshtml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>13770</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

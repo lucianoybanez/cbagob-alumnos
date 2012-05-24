@@ -1,0 +1,58 @@
+﻿@model InventariosVista
+@if (Model.ListaInventario != null && Model.ListaInventario.Count > 0)
+{ 
+    <div style="text-align: center;">
+        <table id="grilla" align="center" width="722px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30" width="250" align="left">
+                        <div align="left">
+                            Item</div>
+                    </th>
+                    <th height="30">
+                        <div align="center">
+                            Cantidad Equipos</div>
+                    </th>
+                    <th height="30" align="center" width="50">
+                        <div align="right" style="margin-right: 2px;">
+                            Acción</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ListaInventario)
+                {
+                    <tr>
+                        <td align="left" height="28">
+                            @if (item.NombreItem.Length < 30)
+                            {
+                                @item.NombreItem
+                            }
+                            else
+                            {
+                                @(item.NombreItem.ToString().Substring(1, 29) + " ...")
+                            }
+                        </td>
+                        <td align="center" width="50">
+                            @item.CantidadEquipos
+                        </td>
+                        <td align="right" style="margin-right: 2px;">
+                            @Html.ActionLink("Ver", "Ver", "Inventarios", new { id_estado = item.Id_EstadoEquipo }, new { @class = "btnIngresar" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <table id="grilla" align="center" width="722px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="722px">
+                @Html.Partial("_SinDatos", "Inventario")
+            </td>
+        </tr>
+    </table>
+}
+<br />

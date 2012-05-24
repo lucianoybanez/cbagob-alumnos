@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    @Content.Stylesheet("css/Master.css", Url)
+    @Content.Stylesheet("MVCFramework.css", Url)
+    @Content.Stylesheet("redmond/jquery-ui-1.8.18.custom.css", Url)
+    @Content.Stylesheet("css/Pager.css", Url)
+    @RenderSection("Stylesheets", false)
+</head>
+<body>
+    <input type="hidden" name="CurrentDate" id="CurrentDate" value="@System.DateTime.Today" />
+    <div id="wrap">
+        <div id="header">
+        </div>
+        <div id="menu">
+            
+        </div>
+        <div id="out" align="right">@Html.Action("GetLoguedUser", "Account")
+        </div>
+        <div id="content">
+            <div class="center">
+                @RenderBody()
+                <div align="center" > <a href="javaScript:history.back();">Volver Atras</a></div>
+               
+            </div>          
+            <div style="clear: both;">
+            </div>
+        </div>
+        <div id="footer">
+            Copyright - Terminos de Uso - Gobierno de Córdoba - Contáctenos
+        </div>
+    </div>
+   
+</body>
+</html>

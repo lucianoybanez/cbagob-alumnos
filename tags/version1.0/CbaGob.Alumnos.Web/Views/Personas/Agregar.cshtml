@@ -1,0 +1,108 @@
+﻿@model AlumnosVista
+@{
+    ViewBag.Title = "Instituciones";
+    ViewBag.SubMenuSelected = "Alumnos";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Alumnos.js", Url)
+}
+<div class="box">
+    <h2>
+        Agregar Persona</h2>
+    <table align="center" style="width: 700px;">
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                @using (Html.BeginForm("Agregar_Persona", "Personas", FormMethod.Post, new { Id = "FormularioAlumnos" }))
+                { 
+                    @Html.ValidationSummary(true)
+                    <br />
+                    <table align="center" id="mytable" style="font-family: Arial, Helvetica, sans-serif;
+                        font-size: 12px; width: 700px;">
+                        <tr>
+                            <td>
+                                <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
+                                    text-align: center;">
+                                    <legend><b>Datos de la Persona</b></legend>
+                                    <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                                        width: 700px;">
+                                        <tr>
+                                            <td align="left">
+                                                <b>Nombre:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Nov_Nombre, new { style = "width:350px;", MaxLength = "50", Class = "asd" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Apellido:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Nov_Apellido, new { style = "width:350px;", MaxLength = "50", Class = "asd" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Sexo:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                              @Html.EditorFor(c => c.Sexo)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Sexo:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                              @Html.EditorFor(c => c.EstadoCivil)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Tipo Dni:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                              @Html.EditorFor(c => c.TipoDocumento)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Dni:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Nro_Documento, new { style = "width:350px;", MaxLength = "50", Class = "asd" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Cuil:</b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Cuil, new { style = "width:350px;", MaxLength = "50", Class = "asd" })
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                            </td>
+                        </tr>
+                    </table>
+    
+                    <table id="myIntituciones" align="center" width="700px">
+                        <tr>
+                            <td align="right" valign="middle">
+                                <input type="submit" value="Guardar" class="btnIngresar" />&nbsp;&nbsp;
+                                @Html.ActionLink("Cancelar", "Agregar", "Alumnos", null, new { Class = "btnIngresar" })
+                            </td>
+                        </tr>
+                    </table>
+      
+                    
+                   
+                }
+            </td>
+        </tr>
+    </table>
+</div>

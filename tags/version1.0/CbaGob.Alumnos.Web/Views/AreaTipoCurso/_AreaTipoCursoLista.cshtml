@@ -1,0 +1,71 @@
+﻿@model AreasTipoCursoVista
+@if (Model.ListaAreaTipoCurso != null && Model.ListaAreaTipoCurso.Count > 0)
+{ 
+    <div style="text-align: center;">
+        <table id="grilla" align="center" width="722px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30" width="280">
+                        <div align="left">
+                            Nombre del Tipo Curso</div>
+                    </th>
+                    <th height="30" width="80">
+                        <div align="center">
+                            Nro Resolución</div>
+                    </th>
+                    <th height="30" width="200">
+                        <div style="margin-right: 2px; text-align: right;">
+                            Acción</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ListaAreaTipoCurso)
+                {
+                    <tr>
+                        <td align="left" height="28">
+                            @item.Nombre_AreaTipoCurso
+                        </td>
+                        <td>
+                            @item.Nro_Resolucion
+                        </td>
+                        <td align="right" style="margin-right: 2px;">
+                            @Html.ActionLink("Modificar", "Modificar", "AreaTipoCurso", new { idareatipocurso = item.Id_Area_Tipo_Curso }, new { @class = "btnIngresar" })&nbsp;&nbsp;&nbsp;&nbsp;
+                            @Html.ActionLink("Eliminar", "Eliminar", "AreaTipoCurso", new { idareatipocurso = item.Id_Area_Tipo_Curso }, new { @class = "btnIngresar" })&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td align="left" valign="middle" colspan="2" height="20">
+                        <div id="resumenPag" style="height: 20px; padding: 10px 5px 0 2px;">
+                        </div>
+                    </td>
+                    <td align="right" valign="bottom" colspan="2" height="20">
+                        <div style="height: 20px; padding: 15px 5px 0 2px;">
+                            @Html.ActionLink("Agregar Tipo", "Agregar", "Cargos", new { @class = "btnIngresar" })
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    
+    <table id="grilla" align="center" width="722px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="722px">
+                @Html.Partial("_SinDatos", "Programas")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div align="right" style="height: 20px; padding: 15px 5px 0 2px;">
+                    @Html.ActionLink("Agregar Programa", "Agregar", "Cargos", new { @class = "btnIngresar" })
+                </div>
+            </td>
+        </tr>
+    </table>
+}
+<br />

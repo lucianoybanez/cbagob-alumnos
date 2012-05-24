@@ -1,0 +1,33 @@
+﻿@model FacturasVista
+@{
+    ViewBag.Title = "Facturaciones";
+    ViewBag.SubMenuSelected = "Liquidacion";
+    Layout = "~/Views/Shared/_MasterSGC.cshtml";
+}
+@section Scripts{
+    @Content.Script("CbaGob.Alumnos.Factura.js", Url)
+}
+@section Stylesheets {
+    @Content.Stylesheet("css/instituciones.css", Url)
+}
+<div class="box">
+    <h2>
+        Listado de Facturas para Liquidar</h2>
+    <table>
+        <tr>
+            <td class="style1" style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                <div id="DivSuperviciones">
+                    @Html.Partial("_FacturaLista", Model)
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div style="text-align: left;">
+        @using (Html.BeginForm("IndexPagerLiquidacion", "Factura", FormMethod.Post, new { id = "FormIndexFacturasLiquidacion" }))
+        {
+            @Html.Partial("_Pager", Model.Pager)
+        }
+    </div>
+</div>

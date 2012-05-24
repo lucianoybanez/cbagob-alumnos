@@ -1,0 +1,44 @@
+﻿@model InventarioVista
+@if (Model.ListaEquipo != null && Model.ListaEquipo.Count > 0)
+{ 
+    <div style="text-align: center;">
+        <table id="grilla" align="center" width="690px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30" width="280">
+                        <div align="left">
+                            Nombre del Equipo</div>
+                    </th>
+                    <th height="30" width="150">
+                        <div align="center">
+                            Estado del Equipo</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ListaEquipo)
+                {
+                    <tr>
+                        <td align="left" height="28">
+                            @item.N_Equipos
+                        </td>
+                        <td align="center" width="50">
+                            @item.NombreEstadoEquipo
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <table id="grilla" align="center" width="690px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="722px">
+                @Html.Partial("_SinDatos", "Equipos")
+            </td>
+        </tr>
+    </table>
+}
+<br />

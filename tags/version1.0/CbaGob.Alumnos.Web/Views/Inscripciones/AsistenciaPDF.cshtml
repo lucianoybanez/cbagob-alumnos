@@ -1,0 +1,174 @@
+﻿@model ReporteVista
+@using System.Linq
+@{
+    ViewBag.Title = "Reporte";
+    Layout = null;
+}
+<?xml version="1.0" encoding="UTF-8" ?>
+<itext>
+  
+  <table columns="4" width="100%" align="center" cellpadding="1" cellspacing="1" widths="25;30;25;20" borderwidth="0" left="true" right="true" top="true" bottom="true" red="0" green="0" blue="0">
+    <row>
+      <cell  borderwidth="0" left="true" width="10%"  >
+          <image url="@Model.PathGobiernoImagen1" plainwidth="135.0" plainheight="65.0" align="left"  />
+      </cell>
+      <cell  borderwidth="0" left="true" width="10%" >
+      <image url="@Model.PathGobiernoImagen2" plainwidth="165.0" plainheight="65.0" align="left"  />    
+      </cell>
+      <cell  borderwidth="0" left="true" horizontalalign="center" width="50%">
+      <paragraph  size="13.0"  font="unknown" align="Center">
+      <chunk>MINISTERIO DE </chunk>
+         <chunk>INDUSTRIA COMERCIO Y TRABAJO</chunk>
+      </paragraph>
+      <paragraph  size="12.0" font="unknown" align="Center">Direccion de Capacitación</paragraph>
+      <paragraph  size="12.0" font="unknown" align="Center">y Formación Profesional</paragraph>
+       
+      </cell>
+      <cell  borderwidth="0" left="true" horizontalalign="right" >
+       <paragraph  size="16.0"  font="unknown" >@Model.NombreReporte</paragraph>      
+      </cell>
+    </row>
+  </table>
+   
+   <table columns="2"  width="100%" align="center" cellpadding="2" cellspacing="1" borderwidth="0" left="true" right="true" top="true" bottom="true" red="0" green="0" blue="0">
+    <row>
+      <cell  borderwidth="0" >
+         Institucion de Formación Profesional: <b>@Model.NombreInstitucion</b> 
+      </cell>  
+      <cell  horizontalalign="right"    >
+       Fecha: <b>@Model.Fecha.ToFecha()</b>       
+      </cell>     
+    </row>
+     <row>
+      <cell  borderwidth="0" left="true"  >
+      Expediente Nº: <b>@Html.Encode(Model.Expediente + "  ")</b> Resolución Nº: <b>@Html.Encode(Model.Resolucion + "  ")</b> Codigo Nº: <b></b> 
+      </cell>
+      <cell  borderwidth="0" right="true"  >
+         
+      </cell>       
+    </row>
+     <row>
+      <cell  borderwidth="0" left="true"   >
+         Nombre del Curso: <b>@Model.NombreCurso</b> 
+      </cell>
+      <cell  borderwidth="0" right="true"  >
+        Alumnos:  Varones: <b>@Html.Encode(Model.Varones + "   ")</b>   Mujeres: <b>@Html.Encode(Model.Mujeres + "   ")</b>  Total: <b>@Html.Encode(Model.TotalHyM)</b> 
+      </cell>        
+    </row>
+  </table>
+
+   <paragraph  font="unknown" align="Justify">
+  </paragraph>
+ 
+
+  
+  <table columns="6" width="100%" align="Center" cellpadding="1" cellspacing="1" widths="3;40;10;17;16;16" borderwidth="0" left="true" right="true" top="true" bottom="true" red="0" green="0" blue="0">
+    <row>
+      <cell  borderwidth="1" left="true" right="true" top="true" bottom="true" horizontalalign="Justify" verticalalign="Default" >
+        <paragraph  font="unknown" align="Justify">Nº</paragraph>
+      </cell>
+      <cell  borderwidth="1" left="true" right="true" top="true" bottom="true" horizontalalign="Justify" verticalalign="Default" >
+        <paragraph  font="unknown" align="Justify">Apellidos y Nombres</paragraph>
+      </cell>
+       <cell  borderwidth="1" left="true" right="true" top="true" bottom="true" horizontalalign="Justify" verticalalign="Default" >
+        <paragraph  font="unknown" align="Justify">Telefono</paragraph>
+      </cell>
+       <cell  borderwidth="1" left="true" right="true" top="true" bottom="true" horizontalalign="Justify" verticalalign="Default" >
+        <paragraph  font="unknown" align="Justify">CUIL</paragraph>
+      </cell>
+       <cell  borderwidth="1" left="true" right="true" top="true" bottom="true" horizontalalign="Justify" verticalalign="Default" >
+        <paragraph  font="unknown" align="Justify">% Presentismo</paragraph>
+      </cell>
+       <cell  borderwidth="1" left="true" right="true" top="true" bottom="true" horizontalalign="Justify" verticalalign="Default" >
+        <paragraph  font="unknown" align="Justify">Baja</paragraph>
+      </cell>     
+       </row>
+      @{ int i = 0;
+         if (Model.Alumnos != null)
+         {
+             if (Model.Alumnos.Count() > 0)
+             {
+                 foreach (var al in Model.Alumnos)
+                 {
+                     i += 1;
+                       <row>
+                     <cell  borderwidth="1" left="true" right="true" top="true" bottom="true" horizontalalign="Justify" verticalalign="Default" >
+        <paragraph  font="unknown"  align="Justify">@i</paragraph>
+      </cell>
+      <cell  borderwidth="1" left="true" right="true" top="true" bottom="true" horizontalalign="Justify" verticalalign="Default" >
+        <paragraph  font="unknown" align="Justify">@al.Nombre</paragraph>
+      </cell>
+       <cell  borderwidth="1" left="true" right="true" top="true" bottom="true" horizontalalign="Justify" verticalalign="Default" >
+        <paragraph  font="unknown"  align="Justify">@al.Telefono</paragraph>
+      </cell>
+       <cell  borderwidth="1" left="true" right="true" top="true" bottom="true" horizontalalign="Justify" verticalalign="Default" >
+        <paragraph  font="unknown"  align="Justify">@al.Cuil</paragraph>
+      </cell>
+       <cell  borderwidth="1" left="true" right="true" top="true" bottom="true" horizontalalign="Justify" verticalalign="Default" >
+        <paragraph  font="unknown"  align="Justify">@al.Asistencia</paragraph>
+      </cell>
+       <cell  borderwidth="1" left="true" right="true" top="true" bottom="true" horizontalalign="Justify" verticalalign="Default" >
+        <paragraph  font="unknown"  align="Justify">@(al.Estado ? "":"X")</paragraph>
+      </cell>
+         </row>      
+                     
+                 }
+             }
+         }
+          
+      }   
+  </table>
+
+ 
+    <paragraph  font="unknown" align="Justify">
+    @{ // cuantos espacios para el pie de pagina
+        decimal total = 0;       
+        if (i<=15)
+        {
+            total = 15 - (i % 15);
+         }
+        else
+        {
+            total = 20 - (i % 20);
+        }
+        for (int k = 0; k < total; k++)
+        {
+             <newline />	
+        }
+    }
+  </paragraph> 
+
+  <table columns="3" width="100%" align="Center" cellpadding="1" cellspacing="1" widths="33;33;33" borderwidth="0" left="true" right="true" top="true" bottom="true" red="0" green="0" blue="0">
+    <row>
+      <cell  borderwidth="0" left="true" right="true" top="true" bottom="true" horizontalalign="Justify" verticalalign="Default" >
+       
+      </cell>
+      <cell  borderwidth="0" left="true" right="true" top="true" bottom="true" horizontalalign="Center" verticalalign="Default" >
+        <paragraph  font="unknown" align="Justify"></paragraph>
+      </cell>
+       <cell  borderwidth="0" left="true" right="true" top="true" bottom="true" horizontalalign="Center" verticalalign="Default" >
+        <paragraph  font="unknown" align="Justify"></paragraph>
+      </cell>     
+       </row>
+           <row>
+      <cell  borderwidth="1" left="true" right="true" top="true" bottom="true" horizontalalign="Justify" verticalalign="Default" >
+       <paragraph  font="unknown" align="Justify">Lugar:</paragraph>
+        <paragraph  font="unknown" align="Justify">Fecha:</paragraph>
+      </cell>
+      <cell  borderwidth="1" left="true" right="true" top="true" bottom="true" horizontalalign="Center" verticalalign="Default" >
+        <paragraph  font="unknown" align="Justify">DOCENTE</paragraph>
+        <paragraph  font="unknown" align="Justify">(firma y aclaración)</paragraph>
+      </cell>
+       <cell  borderwidth="1" left="true" right="true" top="true" bottom="true" horizontalalign="Center" verticalalign="Default" >
+        <paragraph  font="unknown" align="Justify">RESPONSABLE LEGAL DE LA INSTITUCIÓN DE FORMACIÓN PROFECIONAL </paragraph>
+        <paragraph  font="unknown" align="Justify"> (firma y sello)</paragraph>
+      </cell>     
+       </row>
+       
+       </table>
+
+
+
+
+
+</itext>

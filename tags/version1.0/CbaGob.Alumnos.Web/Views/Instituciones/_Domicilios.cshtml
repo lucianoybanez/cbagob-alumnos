@@ -1,0 +1,143 @@
+﻿@model IList<IDomicilios>
+<script type="text/javascript">
+    function Domicilio(IdDomicilio, Pro, Bar, Loc, Cal, Nro) {
+        window.document.getElementById('ID_DOMICILIO').value = IdDomicilio;
+        window.document.getElementById('Provincia').value = Pro;
+        window.document.getElementById('Localidad').value = Loc;
+        window.document.getElementById('Barrio').value = Bar;
+        window.document.getElementById('Calle').value = Cal;
+        window.document.getElementById('Nro').value = Nro;
+    }
+</script>
+<table align="center" width="700px"  cellpadding="0" cellspacing="0">
+    <tr>
+        <td>
+            <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px; text-align: center;">
+                <legend>Busqueda</legend>
+                <table align="center">
+                    <tr>
+                        <td>
+                            Provincia
+                        </td>
+                        <td>
+                            <input type="text" />
+                        </td>
+                        <td>
+                            Localida
+                        </td>
+                        <td>
+                            <input type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Barrio
+                        </td>
+                        <td>
+                            <input type="text" />
+                        </td>
+                        <td>
+                            Calle
+                        </td>
+                        <td>
+                            <input type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Nro
+                        </td>
+                        <td>
+                            <input type="text" />
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                            <input type="button" value="Buscar" class="btnIngresar" />
+                            <input type="button" value="Agregar Domicilio" class="btnIngresar" />
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @if (Model != null && Model.Count > 0)
+            { 
+                <div ><br />
+                    <table align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; width:700px;">
+                        <thead>
+                            <tr>
+                                <th height="30">
+                                    <div align="center">
+                                        PROVINCIA</div>
+                                </th>
+                                <th height="30">
+                                    <div align="center">
+                                        LOCALIDAD</div>
+                                </th>
+                                <th height="30">
+                                    <div align="center">
+                                        BARRIO</div>
+                                </th>
+                                <th height="30">
+                                    <div align="center">
+                                        CALLE</div>
+                                </th>
+                                <th height="30">
+                                    <div align="center">
+                                        NRO</div>
+                                </th>
+                                <th height="30">
+                                    <div align="center">
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td align="center">
+                                        @item.Provincia
+                                    </td>
+                                    <td align="center">
+                                        @item.Localidad
+                                    </td>
+                                    <td align="center">
+                                        @item.Barrio
+                                    </td>
+                                    <td align="center">
+                                        @item.Calle
+                                    </td>
+                                    <td align="center">
+                                        @item.Nro
+                                    </td>
+                                    <td align="center">
+                                        <img onclick="Domicilio(@item.Id_Domicilio,'@item.Provincia','@item.Localidad', '@item.Barrio', '@item.Calle', '@item.Nro' );"  src=@Content.ImageSite("seleccionar.jpg", Url) width="25" height="25"  />
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table><br />
+                </div>
+            }
+            else
+            {
+                <div id="tab" style="text-align: center;">
+                    <table align="center" id="mytable">
+                        <thead>
+                            <tr>
+                                <th height="30">
+                                    <div align="center">
+                                        SIN DATOS</div>
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            }
+        </td>
+    </tr>
+</table>
