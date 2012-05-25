@@ -26,7 +26,7 @@
                                         width: 700px;">
                                         <tr>
                                             <td width="200px" align="left" valign="middle">
-                                                <b>Nombre Apellido/Razón Social:</b>
+                                                Nombre Apellido/Razón Social:
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.RazonSoial, new { style = "width:350px;", MaxLength = "150", Class = "asd", placeholder = PlaceHolderConstants.NombreApellido })
@@ -35,7 +35,7 @@
                                         </tr>
                                         <tr>
                                             <td width="200px" align="left" valign="middle">
-                                                <b>CUIL/CUIT:</b>
+                                                CUIL/CUIT:
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.Cuit_Cuil, new { style = "width:150px;", MaxLength = "45", Class = "asd", placeholder = PlaceHolderConstants.Cuil })
@@ -44,7 +44,7 @@
                                         </tr>
                                         <tr>
                                             <td width="200px" align="left" valign="middle">
-                                                <b>Teléfono:</b>
+                                                Teléfono:
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.Telefono, new { style = "width:150px;", MaxLength = "30", Class = "asd",  placeholder = PlaceHolderConstants.Telefono })
@@ -53,7 +53,7 @@
                                         </tr>
                                         <tr>
                                             <td width="200px" align="left" valign="middle">
-                                                <b>Fecha Nacimineto:</b>
+                                                Fecha Nacimineto:
                                             </td>
                                             <td align="left" valign="middle">
                                                  @Html.EditorFor(c => c.FechaNacimiento)
@@ -62,7 +62,7 @@
                                         </tr>
                                         <tr>
                                             <td width="200px" align="left" valign="middle">
-                                                <b>DNI:</b>
+                                                DNI:
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.Dni, new { style = "width:150px;", MaxLength = "45", Class = "asd", placeholder = PlaceHolderConstants.NombreApellido })
@@ -71,7 +71,7 @@
                                         </tr>
                                         <tr>
                                             <td width="200px" align="left" valign="middle">
-                                                <b>Resolución Reproca:</b>
+                                                Resolución Reproca:
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.Resolucion_Reproca, new { style = "width:250px;", MaxLength = "150", Class = "asd", placeholder = PlaceHolderConstants.Resolucion })
@@ -80,7 +80,7 @@
                                         </tr>
                                         <tr>
                                             <td width="200px" align="left" valign="middle">
-                                                <b>Modalidad del Docente:</b>
+                                                Modalidad del Docente:
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.N_Modalidad, new { style = "width:200px;", MaxLength = "64", Class = "asd", placeholder = PlaceHolderConstants.ModalidadNombre })
@@ -89,7 +89,7 @@
                                         </tr>
                                         <tr>
                                             <td width="120px" align="left" valign="middle">
-                                                <b>Cargos del Docente:</b>
+                                                Cargos del Docente:
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.EditorFor(c => c.cargos)
@@ -98,7 +98,7 @@
                                         </tr>
                                         <tr>
                                             <td width="120px" align="left" valign="middle">
-                                                <b>Es Reproca / Planta:</b>
+                                                Es Reproca / Planta:
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.RadioButtonFor(model => model.Reproca, "S", true) Reproca
@@ -108,7 +108,7 @@
                                         </tr>
                                         <tr>
                                             <td width="120px" align="left" valign="middle">
-                                                <b>Tipo:</b>
+                                                Tipo:
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.EditorFor(c => c.TiposDocentes)
@@ -117,7 +117,7 @@
                                         </tr>
                                         <tr>
                                             <td width="200px" align="left" valign="middle">
-                                                <b>Provincia:</b>
+                                                Provincia:
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.Provincia, new { style = "width:250px;", MaxLength = "50", Class = "asd", placeholder = PlaceHolderConstants.Provincia })
@@ -126,7 +126,7 @@
                                         </tr>
                                         <tr>
                                             <td width="200px" align="left" valign="middle">
-                                                <b>Localidad:</b>
+                                                Localidad:
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.Localidad, new { style = "width:250px;", MaxLength = "50", Class = "asd", placeholder = PlaceHolderConstants.Localidad })
@@ -135,7 +135,7 @@
                                         </tr>
                                         <tr>
                                             <td width="200px" align="left" valign="middle">
-                                                <b>Barrio:</b>
+                                                Barrio:
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.Barrio, new { style = "width:250px;", MaxLength = "50", Class = "asd", placeholder = PlaceHolderConstants.DireccionBarrio })
@@ -144,7 +144,7 @@
                                         </tr>
                                         <tr>
                                             <td width="200px" align="left" valign="middle">
-                                                <b>Calle:</b>
+                                                Calle:
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.Calle, new { style = "width:250px;", MaxLength = "150", Class = "asd", placeholder = PlaceHolderConstants.DireccionCalle })
@@ -153,7 +153,7 @@
                                         </tr>
                                         <tr>
                                             <td width="200px" align="left" valign="middle">
-                                                <b>Número:</b>
+                                                Número:
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.Nro, new { style = "width:150px;", MaxLength = "4", Class = "asd", placeholder = PlaceHolderConstants.DireccionNumero })
@@ -161,7 +161,7 @@
                                         </tr>
                                         <tr>
                                             <td width="200px" align="left" valign="middle">
-                                                <b>Número Resolución:</b>
+                                                Número Resolución:
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.Nro_Resolucion, new { style = "width:250px;", MaxLength = "64", Class = "asd", placeholder = PlaceHolderConstants.Resolucion })

@@ -18,18 +18,18 @@
         @Html.Hidden("UrlBuscar", Url.Action("Buscar"), "UrlBuscar")
         <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
             margin-left: 5px; margin-top: 5px;">
-            <legend style="color: #FF9900"><b>Buscar</b></legend>
+            <legend style="color: #FF9900">Buscar</legend>
             <table>
                 <tr>
                     <td height="35px">
-                        <b>Número de Factura:&nbsp;</b>
+                        Número de Factura:&nbsp;
                     </td>
                     <td>@Html.TextBoxFor(c => c.NroFactura, new { style = "width:100px;", MaxLength = "64" })
                     </td>
                 </tr>
                 <tr>
                     <td height="35px">
-                        <b>Fecha&nbsp;</b>
+                        Fecha&nbsp;
                     </td>
                     <td>@Html.EditorFor(c => c.Fecha)
                     </td>

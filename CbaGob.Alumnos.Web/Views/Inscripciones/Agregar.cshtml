@@ -30,21 +30,21 @@
                     @Html.ValidationSummary(true)
                     <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
                         text-align: center;">
-                        <legend style="color: #FF9900"><b>Datos Inscripción</b></legend>
+                        <legend style="color: #FF9900">Datos Inscripción</legend>
                         <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
                             width: 700px;">
                             <tr>
                                 <td width="200px" align="left">
-                                    <b>Descripción:</b>
+                                    Descripción:
                                 </td>
                                 <td align="left" valign="middle">
                                     @Html.TextBoxFor(c => c.Descripcion)
-                                    @Html.ValidationMessageFor(m => m.Descripcion, "*")
+                                    @Html.ValidationMessageFor(m => m.Descripcion, "*", new { placeholder = PlaceHolderConstants.InscripcionDescripcion})
                                 </td>
                             </tr>
                             <tr>
                                 <td align="left">
-                                    <b>Fecha:</b>
+                                    Fecha:
                                 </td>
                                 <td align="left" valign="middle">
                                     @Html.EditorFor(c => c.Fecha)
@@ -53,7 +53,7 @@
                             </tr>
                             <tr>
                                 <td align="left">
-                                    <b>Alumno:</b>
+                                    Alumno:
                                 </td>
                                 <td align="left" valign="middle">
                                     @Html.TextBoxFor(c => c.NombreAlumno, new { @readonly = "readonly" })
@@ -63,17 +63,17 @@
                             </tr>
                             <tr>
                                 <td align="left">
-                                    <b>Institución:</b>
+                                    Institución:
                                 </td>
                                 <td align="left" valign="middle">
                                     @Html.TextBoxFor(c => c.NombreInstitucion, new { @readonly = "readonly" })
-                                    <a href="#" id="BuscarInstitucion">Buscar Condición de Curso</a>
+                                    <a href="#" id="BuscarInstitucion">Buscar Catálogo de Especialidades</a>
                                     @Html.ValidationMessageFor(m => m.NombreInstitucion, "*")
                                 </td>
                             </tr>
                             <tr>
                                 <td align="left">
-                                    <b>Curso:</b>
+                                    Curso:
                                 </td>
                                 <td align="left" valign="middle">
                                     @Html.TextBoxFor(c => c.NombreCurso, new { @readonly = "readonly" })
@@ -82,7 +82,7 @@
                             </tr>
                             <tr>
                                 <td align="left">
-                                    <b>Estado de Curso:</b>
+                                    Estado de Curso:
                                 </td>
                                 <td align="left" valign="middle">
                                     @Html.TextBoxFor(c => c.NombreEstadoCurso, new { @readonly = "readonly" })
@@ -92,7 +92,7 @@
                             @*
                                         <tr>
                                             <td align="left">
-                                                <b>Nivel:</b>
+                                                Nivel:
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.NombreNivel, new { @readonly = "readonly" })
@@ -102,7 +102,7 @@
                                         *@
                             <tr>
                                 <td align="left">
-                                    <b>Modalidad:</b>
+                                    Modalidad:
                                 </td>
                                 <td align="left" valign="middle">
                                     @Html.TextBoxFor(c => c.NombreModalidad, new { @readonly = "readonly" })
@@ -111,7 +111,7 @@
                             </tr>
                             <tr>
                                 <td align="left">
-                                    <b>Programa:</b>
+                                    Programa:
                                 </td>
                                 <td align="left" valign="middle">
                                     @Html.TextBoxFor(c => c.NombrePrograma, new { @readonly = "readonly" })
@@ -120,7 +120,7 @@
                             </tr>
                             <tr>
                                 <td align="left">
-                                    <b>Fecha Inicio:</b>
+                                    Fecha Inicio:
                                 </td>
                                 <td align="left" valign="middle">
                                     @Html.TextBox("FechaInicio", Model.FechaInicio.ToFecha(), new { @readonly = "readonly" })
@@ -129,7 +129,7 @@
                             </tr>
                             <tr>
                                 <td align="left">
-                                    <b>Fecha Fin:</b>
+                                    Fecha Fin:
                                 </td>
                                 <td align="left" valign="middle">
                                     @Html.TextBox("FechaFin", Model.FechaFin.ToFecha(), new { @readonly = "readonly" })
@@ -138,7 +138,7 @@
                             </tr>
                             <tr>
                                 <td align="left">
-                                    <b>Número Resolucion:</b>
+                                    Número Resolucion:
                                 </td>
                                 <td align="left" valign="middle">
                                     @Html.TextBoxFor(c => c.NumeroResolucion, new { @readonly = "readonly" })
@@ -176,13 +176,13 @@
                 <td>
                     <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
                         text-align: center;">
-                        <legend style="color: #FF9900"><b>Datos Examenes</b></legend>
+                        <legend style="color: #FF9900">Datos Examenes</legend>
                         @Html.Partial("_ExamenesAsignados", Model.examens.Examenes)
                         <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
                             width: 700px;">
                             <tr>
                                 <td width="200px" align="left">
-                                    <b>Promedio del Alumno:</b>
+                                    Promedio del Alumno:
                                 </td>
                                 <td align="left" valign="middle">
                                     @Html.TextBoxFor(c => c.examens.PromedioAlumno)
@@ -190,7 +190,7 @@
                             </tr>
                             <tr>
                                 <td align="left">
-                                    <b>Promedio Requerdio:</b>
+                                    Promedio Requerdio:
                                 </td>
                                 <td align="left" valign="middle">
                                     @Html.TextBoxFor(c => c.examens.PromedioRequerdio)
@@ -198,7 +198,7 @@
                             </tr>
                              <tr>
                                 <td align="left">
-                                    <b>Total de Examenes Rendidos:</b>
+                                    Total de Examenes Rendidos:
                                 </td>
                                 <td align="left" valign="middle">
                                     @Model.examens.Examenes.Count
@@ -206,7 +206,7 @@
                             </tr>
                             <tr>
                                 <td align="left">
-                                    <b>Total de Examenes Requeridos:</b>
+                                    Total de Examenes Requeridos:
                                 </td>
                                 <td align="left" valign="middle">
                                     @Model.examens.ExamenesRequeridos
@@ -214,7 +214,7 @@
                             </tr>
                             <tr>
                                 <td align="left">
-                                    <b>Aprobo:</b>
+                                    Aprobo:
                                 </td>
                                 <td align="left" valign="middle">
                                     @(Model.Aprobo ? "Si Aprueba" : "No Aprueba")&nbsp;&nbsp;&nbsp;@Html.ActionLink("Aprobar / Desaprobar", "AprobarDesaprobar", "Inscripciones", new { IdInscripcion = @Model.IdInscripcion }, new { @class = "btnIngresar" })
@@ -239,12 +239,12 @@
                 <td>
                     <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
                         text-align: center;">
-                        <legend style="color: #FF9900"><b>Datos Presentismo</b></legend>
+                        <legend style="color: #FF9900">Datos Presentismo</legend>
                         <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
                             width: 700px;">
                             <tr>
                                 <td width="200px" align="left">
-                                    <b>Clases Asistidas del Alumno:</b>
+                                    Clases Asistidas del Alumno:
                                 </td>
                                 <td align="left" valign="middle">
                                     @Html.TextBoxFor(c => c.Presentismo.ClasesAsistidas)
@@ -252,7 +252,7 @@
                             </tr>
                             <tr>
                                 <td align="left">
-                                    <b>Cantidad de Clases del Curso:</b>
+                                    Cantidad de Clases del Curso:
                                 </td>
                                 <td align="left" valign="middle">
                                     @Html.TextBoxFor(c => c.Presentismo.TotalClasesCurso)
@@ -260,7 +260,7 @@
                             </tr>
                             <tr>
                                 <td align="left">
-                                    <b>Presentismo del Alumno:</b>
+                                    Presentismo del Alumno:
                                 </td>
                                 <td align="left" valign="middle">
                                     @Html.TextBoxFor(c => c.Presentismo.PorcentajePresentismo)%
@@ -268,7 +268,7 @@
                             </tr>
                             <tr>
                                 <td align="left">
-                                    <b>Presentismo Necesario del Curso:</b>
+                                    Presentismo Necesario del Curso:
                                 </td>
                                 <td align="left" valign="middle">
                                     @Html.TextBoxFor(c => c.Presentismo.PresentismoNecesario)%
@@ -276,7 +276,7 @@
                             </tr>
                             <tr>
                                 <td align="left">
-                                    <b>Cumplio con el Presentismo:</b>
+                                    Cumplio con el Presentismo:
                                 </td>
                                 <td align="left" valign="middle">
                                     @Model.Presentismo.CumplioPresentismo
@@ -303,7 +303,7 @@
                 <td>
                     <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
                         text-align: center;">
-                        <legend style="color: #FF9900"><b>Certificado</b></legend>
+                        <legend style="color: #FF9900">Certificado</legend>
                         <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
                             width: 700px;">
                             <tr>

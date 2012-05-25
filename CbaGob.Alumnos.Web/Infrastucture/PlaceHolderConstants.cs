@@ -14,6 +14,7 @@
         public const string Expediente = "ej. 8444485";
         public const string SedeNombre = "ej. Central";
         public const string CursoNombre = "ej. Programación";
+        public const string CursoTipo = "ej. Computación";
         public const string ModalidadNombre = "ej. Modalidad 1";
         public const string ProgramaNombre = "ej. Programa 1";
         public const string CursoPresupuesto = "ej. $ 2000";
@@ -26,6 +27,10 @@
         public const string Apellido = "ej. Perez";
         public const string Dni = "ej. 29208405";
         public const string Cuil = "ej. 27-20405406-0";
-        
+        public const string DocenteCargo = "ej. Titular";
+        public const string InscripcionDescripcion = "ej. Agregado por...";
+        public const string CertificadoCuerpo = "ej. Por la presente certifico que...";
+
+
     }
 }
