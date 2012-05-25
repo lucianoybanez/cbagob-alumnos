@@ -22,7 +22,9 @@
     background-color: white;
 }
 
-
+.validation-summary-errors ul li {
+    text-align: left;    
+}
 
 .validation-summary-valid {
     display: none;

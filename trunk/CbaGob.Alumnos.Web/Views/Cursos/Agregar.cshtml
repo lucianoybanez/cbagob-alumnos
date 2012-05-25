@@ -9,7 +9,7 @@
 }
 <div class="box">
     <h2>
-        Agregar Catálo</h2>
+        Agregar Catálogo </h2>
     <table align="center" style="width: 700px;">
         <tr>
             <td class="style1" style="font-weight: bold">
@@ -25,21 +25,21 @@
                             <td>
                                 <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 690px;
                                     text-align: center;">
-                                    <legend>Datos del  Catálo</legend>
+                                    <legend>Datos del  Catálogo </legend>
                                     <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
                                         width: 690px;">
                                         <tr>
                                             <td align="left">
-                                                <b>Nombre del Catálo:</b>
+                                                Nombre del Catálogo :
                                             </td>
                                             <td align="left">
-                                                @Html.TextBoxFor(c => c.N_CURSO, new { style = "width:250px;", MaxLength = "64", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.N_CURSO, new { style = "width:250px;", MaxLength = "64", Class = "asd", placeholder = PlaceHolderConstants.CursoNombre })
                                                 @Html.ValidationMessageFor(m => m.N_CURSO, "*")
                                             </td>
                                         </tr>
                                         <tr>
                                             <td align="left">
-                                                <b>Area Tipo Catálo:</b>
+                                                Area Tipo Catálogo :
                                             </td>
                                             <td align="left">
                                                 @Html.EditorFor(c => c.AreasTipoCursos)
@@ -48,10 +48,10 @@
                                         </tr>
                                         <tr>
                                             <td align="left">
-                                                <b>Número Resolución:</b>
+                                                Número Resolución:
                                             </td>
                                             <td align="left">
-                                                @Html.TextBoxFor(c => c.NRORESOLUCION, new { style = "width:250px;", MaxLength = "64", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.NRORESOLUCION, new { style = "width:250px;", MaxLength = "64", Class = "asd", placeholder = PlaceHolderConstants.Resolucion })
                                                 @Html.ValidationMessageFor(m => m.NRORESOLUCION, "*")
                                             </td>
                                         </tr>

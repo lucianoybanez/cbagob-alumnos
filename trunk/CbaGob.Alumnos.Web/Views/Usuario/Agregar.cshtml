@@ -15,7 +15,7 @@
                 </div>
                 <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 700px;
                     text-align: center;">
-                    <legend style="color: #FF9900"><b>Datos Usuario</b></legend>
+                    <legend style="color: #FF9900">Datos Usuario</legend>
                     @using (Html.BeginForm("GuardarUsuario", "Usuario", FormMethod.Post, new { id = "FormUsuario" }))
                     { 
                         @Html.HiddenFor(c => c.Accion)

@@ -30,11 +30,11 @@ namespace CbaGob.Alumnos.Web.Models
 
     public class LogOnModel
     {
-        [Required]
+        [Required(ErrorMessage = "El Usuario es requerido.")]
         [Display(Name = "User name")]
         public string UserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "La contraseña es requerida.")]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }

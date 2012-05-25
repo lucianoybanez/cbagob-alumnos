@@ -29,16 +29,16 @@
                                         width: 690px;">
                                         <tr>
                                             <td align="left">
-                                                <b>Nombre del Tipo Curso:</b>
+                                                Nombre del Tipo Curso:
                                             </td>
                                             <td align="left">
-                                                @Html.TextBoxFor(c => c.Nombre_AreaTipoCurso, new { style = "width:250px;", MaxLength = "64", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.Nombre_AreaTipoCurso, new { style = "width:250px;", MaxLength = "64", Class = "asd", placeholder = PlaceHolderConstants.CursoTipo })
                                                 @Html.ValidationMessageFor(m => m.Nombre_AreaTipoCurso, "*")
                                             </td>
                                         </tr>
                                         <tr>
                                             <td align="left">
-                                                <b>Número Resolución:</b>
+                                                Número Resolución:
                                             </td>
                                             <td align="left">
                                                 @Html.TextBoxFor(c => c.Nro_Resolucion, new { style = "width:250px;", MaxLength = "64", disabled = "disabled" })
