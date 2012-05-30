@@ -30,16 +30,16 @@
                                                 Cuil/Cuit:
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Cuil_Cuit, new { style = "width:150px;", MaxLength = "45", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.Cuil_Cuit, new { style = "width:150px;", MaxLength = "45", Class = "asd", placeholder = PlaceHolderConstants.Cuil })
                                                 @Html.ValidationMessageFor(m => m.Cuil_Cuit, "*")
                                             </td>
                                         </tr>
                                         <tr>
                                             <td align="left">
-                                                Razon Social:
+                                                Apellido, Nombre:
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Razon_Social, new { style = "width:400px;", MaxLength = "150", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.Razon_Social, new { style = "width:400px;", MaxLength = "150", Class = "asd", placeholder = PlaceHolderConstants.NombreApellido })
                                                 @Html.ValidationMessageFor(m => m.Razon_Social, "*")
                                             </td>
                                         </tr>
@@ -48,7 +48,7 @@
                                                 Provincia:
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Provincia, new { style = "width:250px;", MaxLength = "50", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.Provincia, new { style = "width:250px;", MaxLength = "50", Class = "asd", placeholder = PlaceHolderConstants.Provincia })
                                             </td>
                                         </tr>
                                         <tr>
@@ -56,7 +56,7 @@
                                                 Localidad:
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Localidad, new { style = "width:250px;", MaxLength = "50", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.Localidad, new { style = "width:250px;", MaxLength = "50", Class = "asd", placeholder = PlaceHolderConstants.Localidad })
                                             </td>
                                         </tr>
                                         <tr>
@@ -64,7 +64,7 @@
                                                 Barrio:
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Barrio, new { style = "width:250px;", MaxLength = "50", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.Barrio, new { style = "width:250px;", MaxLength = "50", Class = "asd", placeholder = PlaceHolderConstants.DireccionBarrio })
                                             </td>
                                         </tr>
                                         <tr>
@@ -72,15 +72,15 @@
                                                 Calle:
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Calle, new { style = "width:250px;", MaxLength = "150", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.Calle, new { style = "width:250px;", MaxLength = "150", Class = "asd", placeholder = PlaceHolderConstants.DireccionCalle })
                                             </td>
                                         </tr>
                                         <tr>
                                             <td align="left">
-                                                Nro:
+                                                Numero:
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Nro, new { style = "width:150px;", MaxLength = "4", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.Nro, new { style = "width:150px;", MaxLength = "4", Class = "asd", placeholder = PlaceHolderConstants.DireccionNumero })
                                             </td>
                                         </tr>
                                         <tr>
@@ -88,7 +88,7 @@
                                                 Nro Resolución:
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Nro_Resolucion, new { style = "width:150px;", MaxLength = "64", Class = "asd" })
+                                                @Html.TextBoxFor(c => c.Nro_Resolucion, new { style = "width:150px;", MaxLength = "64", Class = "asd", placeholder = PlaceHolderConstants.Resolucion })
                                                 @Html.ValidationMessageFor(m => m.Nro_Resolucion, "*")
                                             </td>
                                         </tr>

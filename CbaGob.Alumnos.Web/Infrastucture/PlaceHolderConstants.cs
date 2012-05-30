@@ -30,7 +30,12 @@
         public const string DocenteCargo = "ej. Titular";
         public const string InscripcionDescripcion = "ej. Agregado por...";
         public const string CertificadoCuerpo = "ej. Por la presente certifico que...";
-
-
+        public const string FacturaNumero = "ej. 5484156";
+        public const string FacturaConcepto = "ej. Compra de papel";
+        public const string FacturaDescripcion = "ej. Compra de papel A4 y Legal...";
+        public const string FacturaItem = "ej. A4, Legal";
+        public const string FacturaMonto = "ej. $4000";
+        public const string EquipoNombre = "ej. Proyector";
+        public const string Observacion = "ej. Defectuoso";
     }
 }

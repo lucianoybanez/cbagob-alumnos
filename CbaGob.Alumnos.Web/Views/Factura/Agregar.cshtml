@@ -38,7 +38,7 @@
                                         </tr>
                                         <tr>
                                             <td align="left" valign="middle">
-                                                Curso Asignado a la Institución:
+                                                Catalogo de Especialidades:
                                             </td>
                                             <td align="left" valign="middle">
                                                 @Html.TextBoxFor(c => c.Curso.NombreCurso, new { disabled = "disabled", style = "width:350px;", MaxLength = "50" })
@@ -49,7 +49,7 @@
                                                 Número de Factura:
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.NroFactura, new { style = "width:200px", MaxLength = "50" })
+                                                @Html.TextBoxFor(c => c.NroFactura, new { style = "width:200px", MaxLength = "50",placeholder = PlaceHolderConstants.FacturaNumero })
                                                 @Html.ValidationMessageFor(c => c.NroFactura, "*")
                                             </td>
                                         </tr>
@@ -58,7 +58,7 @@
                                                 Concepto de Factura:
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextAreaFor(c => c.Concepto, new { style = "width:350px;height:45px", MaxLength = "50" })
+                                                @Html.TextAreaFor(c => c.Concepto, new { style = "width:350px;height:45px", MaxLength = "50", placeholder = PlaceHolderConstants.FacturaConcepto })
                                                 @Html.ValidationMessageFor(c => c.Concepto, "*")
                                             </td>
                                         </tr>
@@ -67,7 +67,7 @@
                                                 Descripción:
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextAreaFor(c => c.Descripcion, new { style = "width:350px;height:45px", MaxLength = "50" })
+                                                @Html.TextAreaFor(c => c.Descripcion, new { style = "width:350px;height:45px", MaxLength = "50", placeholder = PlaceHolderConstants.FacturaDescripcion })
                                                 @Html.ValidationMessageFor(c => c.Descripcion, "*")
                                             </td>
                                         </tr>
@@ -76,7 +76,7 @@
                                                 Item:
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextAreaFor(c => c.Item, new { style = "width:350px;height:45px", MaxLength = "50" })
+                                                @Html.TextAreaFor(c => c.Item, new { style = "width:350px;height:45px", MaxLength = "50", placeholder = PlaceHolderConstants.FacturaItem })
                                                 @Html.ValidationMessageFor(c => c.Item, "*")
                                             </td>
                                         </tr>
@@ -85,7 +85,7 @@
                                                 Monto:
                                             </td>
                                             <td align="left" valign="middle">
-                                                @Html.TextBoxFor(c => c.Monto, new { style = "width:100px;", MaxLength = "8" })
+                                                @Html.TextBoxFor(c => c.Monto, new { style = "width:100px;", MaxLength = "8", placeholder = PlaceHolderConstants.FacturaMonto })
                                                 @Html.ValidationMessageFor(c => c.Monto, "*")
                                             </td>
                                         </tr>
