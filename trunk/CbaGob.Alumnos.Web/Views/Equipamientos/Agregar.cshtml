@@ -30,7 +30,7 @@
                                                 Nombre del Equipo:
                                             </td>
                                             <td align="left">
-                                                @Html.TextBoxFor(c => c.N_Equipos, new { style = "width:250px;", MaxLength = "50" })
+                                                @Html.TextBoxFor(c => c.N_Equipos, new { style = "width:250px;", MaxLength = "50", placeholder = PlaceHolderConstants.EquipoNombre })
                                                 @Html.ValidationMessageFor(c => c.N_Equipos, "*")
                                             </td>
                                         </tr>

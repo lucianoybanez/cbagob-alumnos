@@ -47,8 +47,7 @@
                                             <td align="left">
                                                 Fecha Inicio:
                                             </td>
-                                            <td align="left">
-                                                @* @Html.TextBoxFor(c => c.Fec_Inicio, new { Id = "fecini", style = "width:90px;", MaxLength = "50" })*@
+                                            <td align="left">                                                
                                                 @Html.EditorFor(c => c.Fec_Inicio)
                                             </td>
                                         </tr>
@@ -56,8 +55,7 @@
                                             <td align="left">
                                                 Fecha Fin:
                                             </td>
-                                            <td align="left">
-                                                @*@Html.TextBoxFor(c => c.Fec_Fin, new { Id = "fecfin", style = "width:90px;", MaxLength = "50" })*@
+                                            <td align="left">                                                
                                                 @Html.EditorFor(c => c.Fec_Fin)
                                             </td>
                                         </tr>
@@ -66,7 +64,7 @@
                                                 Observación:
                                             </td>
                                             <td align="left">
-                                                @Html.TextAreaFor(c => c.Observaciones, new { Id = "fecSup", style = "width:350px;height:50px;", MaxLength = "50" })
+                                                @Html.TextAreaFor(c => c.Observaciones, new { Id = "fecSup", style = "width:350px;height:50px;", MaxLength = "50", placeholder = PlaceHolderConstants.Observacion })
                                             </td>
                                         </tr>
                                     </table>
