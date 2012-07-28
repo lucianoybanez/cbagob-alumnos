@@ -51,12 +51,7 @@
                             @(item.Reproca == "S" ? "Reproca" : "Planta")
                         </td>
                         <td height="30">
-                            @{
-                            if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
-                            {
-                                @Html.ActionLink("Sacar del Módulo", "DesasignarDocente", "Grupos", new { id_grupo = Model.Id_Grupo, id_docente = @item.Id_Docente, id_condicon_curso = Model.Id_Condicion_Curso }, new { @class = "btnIngresar" })
-                            }
-                            }
+                            @Html.ActionLink("Sacar del Módulo", "DesasignarDocente", "Grupos", new { id_grupo = Model.Id_Grupo, id_docente = @item.Id_Docente, id_condicon_curso = Model.Id_Condicion_Curso }, new { @class = "btnIngresar" })
                         </td>
                     </tr>
                 }

@@ -49,9 +49,7 @@
                             <li><a href="#tabs-2">Docentes</a></li>
                         </ul>
                         <div id="tabs-1">
-                            @{
-                    if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
-                    {
+                    
                                 <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
                                     <legend style="color: #FF9900">Alumnos inscriptos Sin Módulo</legend>
                                     <table>
@@ -62,8 +60,6 @@
                                     </table>
                                 </fieldset>
                                 <br />
-                    }
-                            }
                             <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
                                 <legend style="color: #FF9900">Alumnos inscriptos en el Módulo</legend>
                                 <table>
@@ -75,9 +71,6 @@
                             </fieldset>
                         </div>
                         <div id="tabs-2">
-                            @{
-                    if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
-                    {
                                 <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
                                     <legend>Docentes para el Modulo</legend>
                                     <table>
@@ -88,8 +81,6 @@
                                     </table>
                                 </fieldset>
                                 <br />
-                    }
-                            }
                             <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
                                 <legend>Docentes Asignado al Módulo</legend>
                                 <table>
@@ -101,9 +92,6 @@
                             </fieldset>
                         </div>
                         <div id="tabs-3">
-                            @{
-                    if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
-                    {
                                 <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
                                     <legend>Horarios para el Módulo</legend>
                                     <table>
@@ -114,8 +102,6 @@
                                     </table>
                                 </fieldset>
                                 <br />
-                    }
-                            }
                             <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 670px;">
                                 <legend>Horario Asignado al Módulo</legend>
                                 <table>

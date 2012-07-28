@@ -31,7 +31,6 @@ namespace CbaGob.Alumnos.Web.Controllers
             UsuarioServicio = pUsuarioServicio;
         }
 
-        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         public ActionResult AgregarCondicionCurso(int idInstitucion)
         {
             ICondicionCursoVista model = CondicionesCursoServicio.GetForAlta(idInstitucion);
@@ -41,13 +40,11 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Agregar", model);
         }
 
-        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         public ActionResult ModificarCondicionCurso(int idCondicionCurso)
         {
             return View("Agregar", CondicionesCursoServicio.GetForModificacion(idCondicionCurso));
         }
 
-        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         public ActionResult Eliminar(int idCondicionCurso)
         {
             ICondicionCursoVista vista = CondicionesCursoServicio.GetForModificacion(idCondicionCurso);
@@ -75,17 +72,14 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             var user = UsuarioServicio.GetCookieData();
 
-            if (user.Rol == RolTipo.Capacitador.ToString())
-            {
-                model.EstadoCurso.Enabled = false;
-            }
+            model.EstadoCurso.Enabled = false;
+
 
             model.IdCondicionCurso = idCondicionCurso;
 
             return View("Ver", model);
         }
 
-        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         [HttpPost]
         public ActionResult GuardarCondicionCurso(CondicionCursoVista vista)
         {
@@ -106,7 +100,6 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Agregar", model);
         }
 
-        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         public ActionResult EliminarCondicionCurso(int idCondicionCurso, int IdInstitucion)
         {
             if (CondicionesCursoServicio.EliminarCondicionCurso(idCondicionCurso, "sss"))
@@ -116,7 +109,6 @@ namespace CbaGob.Alumnos.Web.Controllers
             return RedirectToAction("Ver", "Instituciones", new { INST_ID = IdInstitucion });
         }
 
-        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         [HttpPost]
         public ActionResult CambairEstadoCurso(CondicionCursoVista vista)
         {
@@ -127,9 +119,9 @@ namespace CbaGob.Alumnos.Web.Controllers
         }
 
 
-        public PartialViewResult BuscarCondicion(string institucion, string nivel, string curso, string programa,string ano)
+        public PartialViewResult BuscarCondicion(string institucion, string nivel, string curso, string programa, string ano)
         {
-            return PartialView("_BuscadorCondicionCursoLista", CondicionesCursoServicio.BuscarCondiciones(institucion, nivel, curso,programa,ano).CondicionesCursos);
+            return PartialView("_BuscadorCondicionCursoLista", CondicionesCursoServicio.BuscarCondiciones(institucion, nivel, curso, programa, ano).CondicionesCursos);
         }
 
     }

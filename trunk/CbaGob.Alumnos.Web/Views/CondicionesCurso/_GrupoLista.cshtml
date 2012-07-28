@@ -54,26 +54,16 @@
                             @item.FechaAlta.ToShortDateString()
                         </td>
                         <td height="30" align="right" style="margin-right: 2px;">
-                            @{
-                            if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
-                            {
                                 @Html.ActionLink("Modificar", "Modificar", "Grupos", new { id_grupo = item.Id_Grupo }, new { @class = "btnIngresar" })
                                 @Html.ActionLink("Eliminar", "Eliminar", "Grupos", new { id_grupo = item.Id_Grupo }, new { @class = "btnIngresar" })
-                            }
                                 @Html.ActionLink("Ver", "VerGrupo", "Grupos", new { id_grupo = item.Id_Grupo }, new { @class = "btnIngresar" })
-                            }
                         </td>
                     </tr>
                 }
                 <tr>
                     <td align="right" valign="bottom" colspan="4">
                         <div id="resumenPag" style="height: 30px; padding: 15px 5px 0 2px;">
-                            @{
-                if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
-                {
                                 @Html.ActionLink("Agregar Módulo", "Agregar", "Grupos", new { id_condicionCurso = Model.IdCondicionCurso }, new { @class = "btnIngresar" })
-                }
-                            }
                         </div>
                     </td>
                 </tr>
@@ -85,11 +75,6 @@ else
 {
     @Html.Partial("_SinDatos", "Grupos")
     <div style="padding: 15px 5px 0 2px;" align="right">
-        @{
-    if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
-    {
             @Html.ActionLink("Agregar Módulo", "Agregar", "Grupos", new { id_condicionCurso = Model.IdCondicionCurso }, new { Class = "btnIngresar" })
-    }
-        }
     </div>
 }

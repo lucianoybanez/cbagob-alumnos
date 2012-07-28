@@ -46,14 +46,10 @@
                             @item.FechaAlta.ToShortDateString()
                         </td>
                         <td align="right" style="margin-right: 2px;">
-                            @{
-                            if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
-                            {
                                 @Html.ActionLink("Modificar", "Modificar", "Instituciones", new { INST_ID = item.Id_Institucion }, new { @class = "btnIngresar" })
                                 @Html.ActionLink("Eliminar", "Eliminar", "Instituciones", new { INST_ID = item.Id_Institucion }, new { @class = "btnIngresar" })
-                            }
                                 @Html.ActionLink("Ver", "Ver", "Instituciones", new { INST_ID = item.Id_Institucion }, new { @class = "btnIngresar" })
-                            }
+                            
                         </td>
                     </tr>
                 }
@@ -77,12 +73,7 @@
                     </td>
                     <td align="right" valign="bottom" colspan="2" height="20">
                         <div style="height: 20px; padding: 15px 5px 0 2px;">
-                            @{
-                if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
-                {
                                 @Html.ActionLink("Agregar Institución", "Agregar", "Instituciones", new { @class = "btnIngresar" })
-                }
-                            }
                         </div>
                     </td>
                 </tr>
@@ -102,12 +93,7 @@ else
         <tr>
             <td>
                 <div align="right" style="height: 20px; padding: 15px 5px 0 2px;">
-                    @{
-    if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
-    {
                         @Html.ActionLink("Agregar Institución", "Agregar", "Instituciones", new { @class = "btnIngresar" })
-    }
-                    }
                 </div>
             </td>
         </tr>
