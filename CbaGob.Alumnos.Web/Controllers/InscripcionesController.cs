@@ -26,7 +26,6 @@ namespace CbaGob.Alumnos.Web.Controllers
 
         
         #region 'Inscripciones'
-        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         public ActionResult Index()
         {
             return View(InscripcionServicio.GetAllInscripcion());
@@ -124,7 +123,6 @@ namespace CbaGob.Alumnos.Web.Controllers
         #endregion
         
         #region 'EmitirCertificado'
-        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         public ActionResult Certificado()
         {
             CertificadoVista vista = new CertificadoVista();
@@ -150,7 +148,6 @@ namespace CbaGob.Alumnos.Web.Controllers
         #endregion
         
         #region 'Reportes'
-        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         public ActionResult Reportes(InscripcionVista vista)
         {
             if (string.IsNullOrEmpty(vista.Accion))

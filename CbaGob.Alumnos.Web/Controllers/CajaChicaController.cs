@@ -10,7 +10,6 @@ using CbaGob.Alumnos.Servicio.VistasInterface;
 
 namespace CbaGob.Alumnos.Web.Controllers
 {
-    [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
     public class CajaChicaController : Controller
     {
         //

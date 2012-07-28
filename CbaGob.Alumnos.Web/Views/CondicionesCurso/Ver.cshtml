@@ -47,10 +47,7 @@
                                 </td>
                                 <td align="left" valign="middle">
                                     @Html.EditorFor(c => c.EstadoCurso)
-                                    @{
-                    if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
-                    {<input type="submit" value="Cambiar Estado Curso" class="btnIngresar" />}
-                                    }
+                                        <input type="submit" value="Cambiar Estado Curso" class="btnIngresar" />
                                 </td>
                             </tr>
                             <tr>

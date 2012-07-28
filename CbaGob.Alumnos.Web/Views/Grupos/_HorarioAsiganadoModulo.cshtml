@@ -51,12 +51,7 @@
                             @item.Mes
                         </td>
                         <td height="30">
-                            @{
-                    if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
-                    {
                                 @Html.ActionLink("Sacar Horario", "SacarHorario", "Grupos", new { id_grupo = Model.Id_Grupo, id_horario = item.Id_Horario }, new { @class = "btnIngresar" })
-                    }
-                            }
                         </td>
                     </tr>
                 }

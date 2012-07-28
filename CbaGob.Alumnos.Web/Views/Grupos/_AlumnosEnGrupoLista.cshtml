@@ -65,12 +65,7 @@
                             @item.Fecha_Nacimiento.ToShortDateString()
                         </td>
                         <td height="30">
-                            @{
-                            if (rol == RolTipo.Supervisor.ToString() || rol == RolTipo.ResponsableIFP.ToString())
-                            {
-                                @Html.ActionLink("Sacar del Módulo", "DesasignarAlumno", "Grupos", new { id_grupo = Model.Id_Grupo, id_alumno = item.Id_Alumno, id_condicon_curso = Model.Id_Condicion_Curso }, new { @class = "btnIngresar" })
-                            }
-                            }
+                            @Html.ActionLink("Sacar del Módulo", "DesasignarAlumno", "Grupos", new { id_grupo = Model.Id_Grupo, id_alumno = item.Id_Alumno, id_condicon_curso = Model.Id_Condicion_Curso }, new { @class = "btnIngresar" })
                         </td>
                     </tr>
                 }

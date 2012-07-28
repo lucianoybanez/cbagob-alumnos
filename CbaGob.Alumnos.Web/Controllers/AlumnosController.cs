@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using CbaGob.Alumnos.Modelo.Entities;
-using CbaGob.Alumnos.Modelo.Entities.Interfaces;
-using CbaGob.Alumnos.Servicio.Servicios;
 using CbaGob.Alumnos.Servicio.ServiciosInterface;
 using CbaGob.Alumnos.Servicio.Vistas;
 using CbaGob.Alumnos.Servicio.Vistas.Shared;
 using CbaGob.Alumnos.Servicio.VistasInterface;
-using CbaGob.Alumnos.Servicio.VistasInterface.Shared;
 
 namespace CbaGob.Alumnos.Web.Controllers
 {
@@ -33,15 +26,13 @@ namespace CbaGob.Alumnos.Web.Controllers
         {
             return View(alumnosservicios.GetTodos());
         }
-
-        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
+        
         public ActionResult Agregar()
         {
 
             return View(alumnosservicios.GetIndex());
         }
-
-        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
+        
         public ActionResult Modificar(Int32 id_alumno)
         {
 
@@ -49,8 +40,7 @@ namespace CbaGob.Alumnos.Web.Controllers
 
             return View(model);
         }
-
-        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
+        
         public ActionResult Eliminar(Int32 id_alumno)
         {
             IAlumnosVista model = alumnosservicios.GetUno(id_alumno);
@@ -79,7 +69,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View(model);
         }
 
-        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
+        
         [HttpPost]
         public ActionResult Agregar_Alumno(AlumnosVista model)
         {
@@ -89,7 +79,7 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Index", alumnosservicios.GetTodos());
         }
 
-        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
+        
         [HttpPost]
         public ActionResult Modificar_Alumno(AlumnosVista model)
         {
@@ -98,7 +88,6 @@ namespace CbaGob.Alumnos.Web.Controllers
             return View("Index", alumnosservicios.GetTodos());
         }
 
-        [ViewAuthorize(Rol = new RolTipo[] { RolTipo.Supervisor, RolTipo.ResponsableIFP })]
         [HttpPost]
         public ActionResult Eliminar_Alumno(AlumnosVista model)
         {
@@ -139,12 +128,6 @@ namespace CbaGob.Alumnos.Web.Controllers
             { return View("Index", alumnosservicios.GetIndex(pager)); }
             else
             { return View("Index", alumnosservicios.BuscarAlumnos(NombreBusqueda, ApellidoBusqueda, DniBusqueda, "", pager)); }
-
-
-
         }
-
-
-
     }
 }
